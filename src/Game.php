@@ -84,7 +84,7 @@ class Game extends TdObject
             TdSchemaRegistry::fromArray($array['text']),
             $array['param_description'],
             TdSchemaRegistry::fromArray($array['photo']),
-            (null !== $array['animation'] ? TdSchemaRegistry::fromArray($array['animation']) : null),
+            (isset($array['animation']) ? TdSchemaRegistry::fromArray($array['animation']) : null),
         );
     }
 
@@ -98,7 +98,7 @@ class Game extends TdObject
             'text'              => $this->text->typeSerialize(),
             'param_description' => $this->description,
             'photo'             => $this->photo->typeSerialize(),
-            'animation'         => (null !== $this->animation ? $this->animation : null),
+            'animation'         => (isset($this->animation) ? $this->animation : null),
         ];
     }
 

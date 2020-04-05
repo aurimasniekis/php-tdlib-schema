@@ -250,8 +250,8 @@ class Message extends TdObject
             $array['id'],
             $array['sender_user_id'],
             $array['chat_id'],
-            (null !== $array['sending_state'] ? TdSchemaRegistry::fromArray($array['sending_state']) : null),
-            (null !== $array['scheduling_state'] ? TdSchemaRegistry::fromArray($array['scheduling_state']) : null),
+            (isset($array['sending_state']) ? TdSchemaRegistry::fromArray($array['sending_state']) : null),
+            (isset($array['scheduling_state']) ? TdSchemaRegistry::fromArray($array['scheduling_state']) : null),
             $array['is_outgoing'],
             $array['can_be_edited'],
             $array['can_be_forwarded'],
@@ -261,7 +261,7 @@ class Message extends TdObject
             $array['contains_unread_mention'],
             $array['date'],
             $array['edit_date'],
-            (null !== $array['forward_info'] ? TdSchemaRegistry::fromArray($array['forward_info']) : null),
+            (isset($array['forward_info']) ? TdSchemaRegistry::fromArray($array['forward_info']) : null),
             $array['reply_to_message_id'],
             $array['ttl'],
             $array['ttl_expires_in'],
@@ -271,7 +271,7 @@ class Message extends TdObject
             $array['media_album_id'],
             $array['restriction_reason'],
             TdSchemaRegistry::fromArray($array['content']),
-            (null !== $array['reply_markup'] ? TdSchemaRegistry::fromArray($array['reply_markup']) : null),
+            (isset($array['reply_markup']) ? TdSchemaRegistry::fromArray($array['reply_markup']) : null),
         );
     }
 
@@ -282,8 +282,8 @@ class Message extends TdObject
             'id'                           => $this->id,
             'sender_user_id'               => $this->senderUserId,
             'chat_id'                      => $this->chatId,
-            'sending_state'                => (null !== $this->sendingState ? $this->sendingState : null),
-            'scheduling_state'             => (null !== $this->schedulingState ? $this->schedulingState : null),
+            'sending_state'                => (isset($this->sendingState) ? $this->sendingState : null),
+            'scheduling_state'             => (isset($this->schedulingState) ? $this->schedulingState : null),
             'is_outgoing'                  => $this->isOutgoing,
             'can_be_edited'                => $this->canBeEdited,
             'can_be_forwarded'             => $this->canBeForwarded,
@@ -293,7 +293,7 @@ class Message extends TdObject
             'contains_unread_mention'      => $this->containsUnreadMention,
             'date'                         => $this->date,
             'edit_date'                    => $this->editDate,
-            'forward_info'                 => (null !== $this->forwardInfo ? $this->forwardInfo : null),
+            'forward_info'                 => (isset($this->forwardInfo) ? $this->forwardInfo : null),
             'reply_to_message_id'          => $this->replyToMessageId,
             'ttl'                          => $this->ttl,
             'ttl_expires_in'               => $this->ttlExpiresIn,
@@ -303,7 +303,7 @@ class Message extends TdObject
             'media_album_id'               => $this->mediaAlbumId,
             'restriction_reason'           => $this->restrictionReason,
             'content'                      => $this->content->typeSerialize(),
-            'reply_markup'                 => (null !== $this->replyMarkup ? $this->replyMarkup : null),
+            'reply_markup'                 => (isset($this->replyMarkup) ? $this->replyMarkup : null),
         ];
     }
 

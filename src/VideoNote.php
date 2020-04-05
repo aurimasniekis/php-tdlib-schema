@@ -64,8 +64,8 @@ class VideoNote extends TdObject
         return new static(
             $array['duration'],
             $array['length'],
-            (null !== $array['minithumbnail'] ? TdSchemaRegistry::fromArray($array['minithumbnail']) : null),
-            (null !== $array['thumbnail'] ? TdSchemaRegistry::fromArray($array['thumbnail']) : null),
+            (isset($array['minithumbnail']) ? TdSchemaRegistry::fromArray($array['minithumbnail']) : null),
+            (isset($array['thumbnail']) ? TdSchemaRegistry::fromArray($array['thumbnail']) : null),
             TdSchemaRegistry::fromArray($array['video']),
         );
     }
@@ -76,8 +76,8 @@ class VideoNote extends TdObject
             '@type'         => static::TYPE_NAME,
             'duration'      => $this->duration,
             'length'        => $this->length,
-            'minithumbnail' => (null !== $this->minithumbnail ? $this->minithumbnail : null),
-            'thumbnail'     => (null !== $this->thumbnail ? $this->thumbnail : null),
+            'minithumbnail' => (isset($this->minithumbnail) ? $this->minithumbnail : null),
+            'thumbnail'     => (isset($this->thumbnail) ? $this->thumbnail : null),
             'video'         => $this->video->typeSerialize(),
         ];
     }

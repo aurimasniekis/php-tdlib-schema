@@ -56,7 +56,7 @@ class MessageLinkInfo extends TdObject
         return new static(
             $array['is_public'],
             $array['chat_id'],
-            (null !== $array['message'] ? TdSchemaRegistry::fromArray($array['message']) : null),
+            (isset($array['message']) ? TdSchemaRegistry::fromArray($array['message']) : null),
             $array['for_album'],
         );
     }
@@ -67,7 +67,7 @@ class MessageLinkInfo extends TdObject
             '@type'     => static::TYPE_NAME,
             'is_public' => $this->isPublic,
             'chat_id'   => $this->chatId,
-            'message'   => (null !== $this->message ? $this->message : null),
+            'message'   => (isset($this->message) ? $this->message : null),
             'for_album' => $this->forAlbum,
         ];
     }

@@ -40,8 +40,8 @@ class ChatEventPhotoChanged extends ChatEventAction
     public static function fromArray(array $array): ChatEventPhotoChanged
     {
         return new static(
-            (null !== $array['old_photo'] ? TdSchemaRegistry::fromArray($array['old_photo']) : null),
-            (null !== $array['new_photo'] ? TdSchemaRegistry::fromArray($array['new_photo']) : null),
+            (isset($array['old_photo']) ? TdSchemaRegistry::fromArray($array['old_photo']) : null),
+            (isset($array['new_photo']) ? TdSchemaRegistry::fromArray($array['new_photo']) : null),
         );
     }
 
@@ -49,8 +49,8 @@ class ChatEventPhotoChanged extends ChatEventAction
     {
         return [
             '@type'     => static::TYPE_NAME,
-            'old_photo' => (null !== $this->oldPhoto ? $this->oldPhoto : null),
-            'new_photo' => (null !== $this->newPhoto ? $this->newPhoto : null),
+            'old_photo' => (isset($this->oldPhoto) ? $this->oldPhoto : null),
+            'new_photo' => (isset($this->newPhoto) ? $this->newPhoto : null),
         ];
     }
 

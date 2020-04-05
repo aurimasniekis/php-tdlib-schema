@@ -41,7 +41,7 @@ class UpdateChatPhoto extends Update
     {
         return new static(
             $array['chat_id'],
-            (null !== $array['photo'] ? TdSchemaRegistry::fromArray($array['photo']) : null),
+            (isset($array['photo']) ? TdSchemaRegistry::fromArray($array['photo']) : null),
         );
     }
 
@@ -50,7 +50,7 @@ class UpdateChatPhoto extends Update
         return [
             '@type'   => static::TYPE_NAME,
             'chat_id' => $this->chatId,
-            'photo'   => (null !== $this->photo ? $this->photo : null),
+            'photo'   => (isset($this->photo) ? $this->photo : null),
         ];
     }
 

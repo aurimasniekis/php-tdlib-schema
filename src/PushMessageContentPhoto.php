@@ -56,7 +56,7 @@ class PushMessageContentPhoto extends PushMessageContent
     public static function fromArray(array $array): PushMessageContentPhoto
     {
         return new static(
-            (null !== $array['photo'] ? TdSchemaRegistry::fromArray($array['photo']) : null),
+            (isset($array['photo']) ? TdSchemaRegistry::fromArray($array['photo']) : null),
             $array['caption'],
             $array['is_secret'],
             $array['is_pinned'],
@@ -67,7 +67,7 @@ class PushMessageContentPhoto extends PushMessageContent
     {
         return [
             '@type'     => static::TYPE_NAME,
-            'photo'     => (null !== $this->photo ? $this->photo : null),
+            'photo'     => (isset($this->photo) ? $this->photo : null),
             'caption'   => $this->caption,
             'is_secret' => $this->isSecret,
             'is_pinned' => $this->isPinned,

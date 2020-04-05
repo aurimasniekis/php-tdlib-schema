@@ -66,7 +66,7 @@ class UpdateNewInlineQuery extends Update
         return new static(
             $array['id'],
             $array['sender_user_id'],
-            (null !== $array['user_location'] ? TdSchemaRegistry::fromArray($array['user_location']) : null),
+            (isset($array['user_location']) ? TdSchemaRegistry::fromArray($array['user_location']) : null),
             $array['query'],
             $array['offset'],
         );
@@ -78,7 +78,7 @@ class UpdateNewInlineQuery extends Update
             '@type'          => static::TYPE_NAME,
             'id'             => $this->id,
             'sender_user_id' => $this->senderUserId,
-            'user_location'  => (null !== $this->userLocation ? $this->userLocation : null),
+            'user_location'  => (isset($this->userLocation) ? $this->userLocation : null),
             'query'          => $this->query,
             'offset'         => $this->offset,
         ];

@@ -98,7 +98,7 @@ class PageBlockEmbedded extends PageBlock
         return new static(
             $array['url'],
             $array['html'],
-            (null !== $array['poster_photo'] ? TdSchemaRegistry::fromArray($array['poster_photo']) : null),
+            (isset($array['poster_photo']) ? TdSchemaRegistry::fromArray($array['poster_photo']) : null),
             $array['width'],
             $array['height'],
             TdSchemaRegistry::fromArray($array['caption']),
@@ -113,7 +113,7 @@ class PageBlockEmbedded extends PageBlock
             '@type'           => static::TYPE_NAME,
             'url'             => $this->url,
             'html'            => $this->html,
-            'poster_photo'    => (null !== $this->posterPhoto ? $this->posterPhoto : null),
+            'poster_photo'    => (isset($this->posterPhoto) ? $this->posterPhoto : null),
             'width'           => $this->width,
             'height'          => $this->height,
             'caption'         => $this->caption->typeSerialize(),

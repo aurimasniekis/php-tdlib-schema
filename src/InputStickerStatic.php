@@ -50,7 +50,7 @@ class InputStickerStatic extends InputSticker
         return new static(
             TdSchemaRegistry::fromArray($array['sticker']),
             $array['emojis'],
-            (null !== $array['mask_position'] ? TdSchemaRegistry::fromArray($array['mask_position']) : null),
+            (isset($array['mask_position']) ? TdSchemaRegistry::fromArray($array['mask_position']) : null),
         );
     }
 
@@ -60,7 +60,7 @@ class InputStickerStatic extends InputSticker
             '@type'         => static::TYPE_NAME,
             'sticker'       => $this->sticker->typeSerialize(),
             'emojis'        => $this->emojis,
-            'mask_position' => (null !== $this->maskPosition ? $this->maskPosition : null),
+            'mask_position' => (isset($this->maskPosition) ? $this->maskPosition : null),
         ];
     }
 

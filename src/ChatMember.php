@@ -66,7 +66,7 @@ class ChatMember extends TdObject
             $array['inviter_user_id'],
             $array['joined_chat_date'],
             TdSchemaRegistry::fromArray($array['status']),
-            (null !== $array['bot_info'] ? TdSchemaRegistry::fromArray($array['bot_info']) : null),
+            (isset($array['bot_info']) ? TdSchemaRegistry::fromArray($array['bot_info']) : null),
         );
     }
 
@@ -78,7 +78,7 @@ class ChatMember extends TdObject
             'inviter_user_id'  => $this->inviterUserId,
             'joined_chat_date' => $this->joinedChatDate,
             'status'           => $this->status->typeSerialize(),
-            'bot_info'         => (null !== $this->botInfo ? $this->botInfo : null),
+            'bot_info'         => (isset($this->botInfo) ? $this->botInfo : null),
         ];
     }
 

@@ -56,7 +56,7 @@ class PageBlockVideo extends PageBlock
     public static function fromArray(array $array): PageBlockVideo
     {
         return new static(
-            (null !== $array['video'] ? TdSchemaRegistry::fromArray($array['video']) : null),
+            (isset($array['video']) ? TdSchemaRegistry::fromArray($array['video']) : null),
             TdSchemaRegistry::fromArray($array['caption']),
             $array['need_autoplay'],
             $array['is_looped'],
@@ -67,7 +67,7 @@ class PageBlockVideo extends PageBlock
     {
         return [
             '@type'         => static::TYPE_NAME,
-            'video'         => (null !== $this->video ? $this->video : null),
+            'video'         => (isset($this->video) ? $this->video : null),
             'caption'       => $this->caption->typeSerialize(),
             'need_autoplay' => $this->needAutoplay,
             'is_looped'     => $this->isLooped,

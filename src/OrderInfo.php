@@ -57,7 +57,7 @@ class OrderInfo extends TdObject
             $array['name'],
             $array['phone_number'],
             $array['email_address'],
-            (null !== $array['shipping_address'] ? TdSchemaRegistry::fromArray($array['shipping_address']) : null),
+            (isset($array['shipping_address']) ? TdSchemaRegistry::fromArray($array['shipping_address']) : null),
         );
     }
 
@@ -68,7 +68,7 @@ class OrderInfo extends TdObject
             'name'             => $this->name,
             'phone_number'     => $this->phoneNumber,
             'email_address'    => $this->emailAddress,
-            'shipping_address' => (null !== $this->shippingAddress ? $this->shippingAddress : null),
+            'shipping_address' => (isset($this->shippingAddress) ? $this->shippingAddress : null),
         ];
     }
 

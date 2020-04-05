@@ -59,7 +59,7 @@ class InlineQueryResultLocation extends InlineQueryResult
             $array['id'],
             TdSchemaRegistry::fromArray($array['location']),
             $array['title'],
-            (null !== $array['thumbnail'] ? TdSchemaRegistry::fromArray($array['thumbnail']) : null),
+            (isset($array['thumbnail']) ? TdSchemaRegistry::fromArray($array['thumbnail']) : null),
         );
     }
 
@@ -70,7 +70,7 @@ class InlineQueryResultLocation extends InlineQueryResult
             'id'        => $this->id,
             'location'  => $this->location->typeSerialize(),
             'title'     => $this->title,
-            'thumbnail' => (null !== $this->thumbnail ? $this->thumbnail : null),
+            'thumbnail' => (isset($this->thumbnail) ? $this->thumbnail : null),
         ];
     }
 

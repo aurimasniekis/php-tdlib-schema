@@ -107,7 +107,7 @@ class MessageInvoice extends MessageContent
         return new static(
             $array['title'],
             $array['param_description'],
-            (null !== $array['photo'] ? TdSchemaRegistry::fromArray($array['photo']) : null),
+            (isset($array['photo']) ? TdSchemaRegistry::fromArray($array['photo']) : null),
             $array['currency'],
             $array['total_amount'],
             $array['start_parameter'],
@@ -123,7 +123,7 @@ class MessageInvoice extends MessageContent
             '@type'                 => static::TYPE_NAME,
             'title'                 => $this->title,
             'param_description'     => $this->description,
-            'photo'                 => (null !== $this->photo ? $this->photo : null),
+            'photo'                 => (isset($this->photo) ? $this->photo : null),
             'currency'              => $this->currency,
             'total_amount'          => $this->totalAmount,
             'start_parameter'       => $this->startParameter,

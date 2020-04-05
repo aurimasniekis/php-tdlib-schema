@@ -48,7 +48,7 @@ class PushMessageContentSticker extends PushMessageContent
     public static function fromArray(array $array): PushMessageContentSticker
     {
         return new static(
-            (null !== $array['sticker'] ? TdSchemaRegistry::fromArray($array['sticker']) : null),
+            (isset($array['sticker']) ? TdSchemaRegistry::fromArray($array['sticker']) : null),
             $array['emoji'],
             $array['is_pinned'],
         );
@@ -58,7 +58,7 @@ class PushMessageContentSticker extends PushMessageContent
     {
         return [
             '@type'     => static::TYPE_NAME,
-            'sticker'   => (null !== $this->sticker ? $this->sticker : null),
+            'sticker'   => (isset($this->sticker) ? $this->sticker : null),
             'emoji'     => $this->emoji,
             'is_pinned' => $this->isPinned,
         ];

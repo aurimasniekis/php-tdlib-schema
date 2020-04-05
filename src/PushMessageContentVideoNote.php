@@ -40,7 +40,7 @@ class PushMessageContentVideoNote extends PushMessageContent
     public static function fromArray(array $array): PushMessageContentVideoNote
     {
         return new static(
-            (null !== $array['video_note'] ? TdSchemaRegistry::fromArray($array['video_note']) : null),
+            (isset($array['video_note']) ? TdSchemaRegistry::fromArray($array['video_note']) : null),
             $array['is_pinned'],
         );
     }
@@ -49,7 +49,7 @@ class PushMessageContentVideoNote extends PushMessageContent
     {
         return [
             '@type'      => static::TYPE_NAME,
-            'video_note' => (null !== $this->videoNote ? $this->videoNote : null),
+            'video_note' => (isset($this->videoNote) ? $this->videoNote : null),
             'is_pinned'  => $this->isPinned,
         ];
     }

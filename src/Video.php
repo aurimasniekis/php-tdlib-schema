@@ -119,8 +119,8 @@ class Video extends TdObject
             $array['mime_type'],
             $array['has_stickers'],
             $array['supports_streaming'],
-            (null !== $array['minithumbnail'] ? TdSchemaRegistry::fromArray($array['minithumbnail']) : null),
-            (null !== $array['thumbnail'] ? TdSchemaRegistry::fromArray($array['thumbnail']) : null),
+            (isset($array['minithumbnail']) ? TdSchemaRegistry::fromArray($array['minithumbnail']) : null),
+            (isset($array['thumbnail']) ? TdSchemaRegistry::fromArray($array['thumbnail']) : null),
             TdSchemaRegistry::fromArray($array['video']),
         );
     }
@@ -136,8 +136,8 @@ class Video extends TdObject
             'mime_type'          => $this->mimeType,
             'has_stickers'       => $this->hasStickers,
             'supports_streaming' => $this->supportsStreaming,
-            'minithumbnail'      => (null !== $this->minithumbnail ? $this->minithumbnail : null),
-            'thumbnail'          => (null !== $this->thumbnail ? $this->thumbnail : null),
+            'minithumbnail'      => (isset($this->minithumbnail) ? $this->minithumbnail : null),
+            'thumbnail'          => (isset($this->thumbnail) ? $this->thumbnail : null),
             'video'              => $this->video->typeSerialize(),
         ];
     }

@@ -65,7 +65,7 @@ class UpdateNewChosenInlineResult extends Update
     {
         return new static(
             $array['sender_user_id'],
-            (null !== $array['user_location'] ? TdSchemaRegistry::fromArray($array['user_location']) : null),
+            (isset($array['user_location']) ? TdSchemaRegistry::fromArray($array['user_location']) : null),
             $array['query'],
             $array['result_id'],
             $array['inline_message_id'],
@@ -77,7 +77,7 @@ class UpdateNewChosenInlineResult extends Update
         return [
             '@type'             => static::TYPE_NAME,
             'sender_user_id'    => $this->senderUserId,
-            'user_location'     => (null !== $this->userLocation ? $this->userLocation : null),
+            'user_location'     => (isset($this->userLocation) ? $this->userLocation : null),
             'query'             => $this->query,
             'result_id'         => $this->resultId,
             'inline_message_id' => $this->inlineMessageId,

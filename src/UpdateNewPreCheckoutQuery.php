@@ -93,7 +93,7 @@ class UpdateNewPreCheckoutQuery extends Update
             $array['total_amount'],
             $array['invoice_payload'],
             $array['shipping_option_id'],
-            (null !== $array['order_info'] ? TdSchemaRegistry::fromArray($array['order_info']) : null),
+            (isset($array['order_info']) ? TdSchemaRegistry::fromArray($array['order_info']) : null),
         );
     }
 
@@ -107,7 +107,7 @@ class UpdateNewPreCheckoutQuery extends Update
             'total_amount'       => $this->totalAmount,
             'invoice_payload'    => $this->invoicePayload,
             'shipping_option_id' => $this->shippingOptionId,
-            'order_info'         => (null !== $this->orderInfo ? $this->orderInfo : null),
+            'order_info'         => (isset($this->orderInfo) ? $this->orderInfo : null),
         ];
     }
 

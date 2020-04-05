@@ -48,7 +48,7 @@ class EditInlineMessageLiveLocation extends TdFunction
         return new static(
             $array['inline_message_id'],
             TdSchemaRegistry::fromArray($array['reply_markup']),
-            (null !== $array['location'] ? TdSchemaRegistry::fromArray($array['location']) : null),
+            (isset($array['location']) ? TdSchemaRegistry::fromArray($array['location']) : null),
         );
     }
 
@@ -58,7 +58,7 @@ class EditInlineMessageLiveLocation extends TdFunction
             '@type'             => static::TYPE_NAME,
             'inline_message_id' => $this->inlineMessageId,
             'reply_markup'      => $this->replyMarkup->typeSerialize(),
-            'location'          => (null !== $this->location ? $this->location : null),
+            'location'          => (isset($this->location) ? $this->location : null),
         ];
     }
 

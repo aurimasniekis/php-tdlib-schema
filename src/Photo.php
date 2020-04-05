@@ -47,7 +47,7 @@ class Photo extends TdObject
     {
         return new static(
             $array['has_stickers'],
-            (null !== $array['minithumbnail'] ? TdSchemaRegistry::fromArray($array['minithumbnail']) : null),
+            (isset($array['minithumbnail']) ? TdSchemaRegistry::fromArray($array['minithumbnail']) : null),
             array_map(fn ($x) => PhotoSize::fromArray($x), $array['sizes']),
         );
     }
@@ -57,7 +57,7 @@ class Photo extends TdObject
         return [
             '@type'           => static::TYPE_NAME,
             'has_stickers'    => $this->hasStickers,
-            'minithumbnail'   => (null !== $this->minithumbnail ? $this->minithumbnail : null),
+            'minithumbnail'   => (isset($this->minithumbnail) ? $this->minithumbnail : null),
             array_map(fn ($x) => $x->typeSerialize(), $this->sizes),
         ];
     }

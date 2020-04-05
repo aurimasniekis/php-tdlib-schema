@@ -41,7 +41,7 @@ class UpdateSelectedBackground extends Update
     {
         return new static(
             $array['for_dark_theme'],
-            (null !== $array['background'] ? TdSchemaRegistry::fromArray($array['background']) : null),
+            (isset($array['background']) ? TdSchemaRegistry::fromArray($array['background']) : null),
         );
     }
 
@@ -50,7 +50,7 @@ class UpdateSelectedBackground extends Update
         return [
             '@type'          => static::TYPE_NAME,
             'for_dark_theme' => $this->forDarkTheme,
-            'background'     => (null !== $this->background ? $this->background : null),
+            'background'     => (isset($this->background) ? $this->background : null),
         ];
     }
 

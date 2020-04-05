@@ -49,7 +49,7 @@ class UpdateChatLastMessage extends Update
     {
         return new static(
             $array['chat_id'],
-            (null !== $array['last_message'] ? TdSchemaRegistry::fromArray($array['last_message']) : null),
+            (isset($array['last_message']) ? TdSchemaRegistry::fromArray($array['last_message']) : null),
             $array['order'],
         );
     }
@@ -59,7 +59,7 @@ class UpdateChatLastMessage extends Update
         return [
             '@type'        => static::TYPE_NAME,
             'chat_id'      => $this->chatId,
-            'last_message' => (null !== $this->lastMessage ? $this->lastMessage : null),
+            'last_message' => (isset($this->lastMessage) ? $this->lastMessage : null),
             'order'        => $this->order,
         ];
     }

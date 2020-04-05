@@ -41,7 +41,7 @@ class MessageText extends MessageContent
     {
         return new static(
             TdSchemaRegistry::fromArray($array['text']),
-            (null !== $array['web_page'] ? TdSchemaRegistry::fromArray($array['web_page']) : null),
+            (isset($array['web_page']) ? TdSchemaRegistry::fromArray($array['web_page']) : null),
         );
     }
 
@@ -50,7 +50,7 @@ class MessageText extends MessageContent
         return [
             '@type'    => static::TYPE_NAME,
             'text'     => $this->text->typeSerialize(),
-            'web_page' => (null !== $this->webPage ? $this->webPage : null),
+            'web_page' => (isset($this->webPage) ? $this->webPage : null),
         ];
     }
 

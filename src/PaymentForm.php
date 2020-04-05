@@ -87,9 +87,9 @@ class PaymentForm extends TdObject
         return new static(
             TdSchemaRegistry::fromArray($array['invoice']),
             $array['url'],
-            (null !== $array['payments_provider'] ? TdSchemaRegistry::fromArray($array['payments_provider']) : null),
-            (null !== $array['saved_order_info'] ? TdSchemaRegistry::fromArray($array['saved_order_info']) : null),
-            (null !== $array['saved_credentials'] ? TdSchemaRegistry::fromArray($array['saved_credentials']) : null),
+            (isset($array['payments_provider']) ? TdSchemaRegistry::fromArray($array['payments_provider']) : null),
+            (isset($array['saved_order_info']) ? TdSchemaRegistry::fromArray($array['saved_order_info']) : null),
+            (isset($array['saved_credentials']) ? TdSchemaRegistry::fromArray($array['saved_credentials']) : null),
             $array['can_save_credentials'],
             $array['need_password'],
         );
@@ -101,9 +101,9 @@ class PaymentForm extends TdObject
             '@type'                => static::TYPE_NAME,
             'invoice'              => $this->invoice->typeSerialize(),
             'url'                  => $this->url,
-            'payments_provider'    => (null !== $this->paymentsProvider ? $this->paymentsProvider : null),
-            'saved_order_info'     => (null !== $this->savedOrderInfo ? $this->savedOrderInfo : null),
-            'saved_credentials'    => (null !== $this->savedCredentials ? $this->savedCredentials : null),
+            'payments_provider'    => (isset($this->paymentsProvider) ? $this->paymentsProvider : null),
+            'saved_order_info'     => (isset($this->savedOrderInfo) ? $this->savedOrderInfo : null),
+            'saved_credentials'    => (isset($this->savedCredentials) ? $this->savedCredentials : null),
             'can_save_credentials' => $this->canSaveCredentials,
             'need_password'        => $this->needPassword,
         ];

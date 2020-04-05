@@ -40,7 +40,7 @@ class PushMessageContentVoiceNote extends PushMessageContent
     public static function fromArray(array $array): PushMessageContentVoiceNote
     {
         return new static(
-            (null !== $array['voice_note'] ? TdSchemaRegistry::fromArray($array['voice_note']) : null),
+            (isset($array['voice_note']) ? TdSchemaRegistry::fromArray($array['voice_note']) : null),
             $array['is_pinned'],
         );
     }
@@ -49,7 +49,7 @@ class PushMessageContentVoiceNote extends PushMessageContent
     {
         return [
             '@type'      => static::TYPE_NAME,
-            'voice_note' => (null !== $this->voiceNote ? $this->voiceNote : null),
+            'voice_note' => (isset($this->voiceNote) ? $this->voiceNote : null),
             'is_pinned'  => $this->isPinned,
         ];
     }

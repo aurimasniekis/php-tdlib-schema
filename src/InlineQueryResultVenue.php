@@ -50,7 +50,7 @@ class InlineQueryResultVenue extends InlineQueryResult
         return new static(
             $array['id'],
             TdSchemaRegistry::fromArray($array['venue']),
-            (null !== $array['thumbnail'] ? TdSchemaRegistry::fromArray($array['thumbnail']) : null),
+            (isset($array['thumbnail']) ? TdSchemaRegistry::fromArray($array['thumbnail']) : null),
         );
     }
 
@@ -60,7 +60,7 @@ class InlineQueryResultVenue extends InlineQueryResult
             '@type'     => static::TYPE_NAME,
             'id'        => $this->id,
             'venue'     => $this->venue->typeSerialize(),
-            'thumbnail' => (null !== $this->thumbnail ? $this->thumbnail : null),
+            'thumbnail' => (isset($this->thumbnail) ? $this->thumbnail : null),
         ];
     }
 

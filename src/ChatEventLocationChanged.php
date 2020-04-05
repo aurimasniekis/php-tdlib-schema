@@ -40,8 +40,8 @@ class ChatEventLocationChanged extends ChatEventAction
     public static function fromArray(array $array): ChatEventLocationChanged
     {
         return new static(
-            (null !== $array['old_location'] ? TdSchemaRegistry::fromArray($array['old_location']) : null),
-            (null !== $array['new_location'] ? TdSchemaRegistry::fromArray($array['new_location']) : null),
+            (isset($array['old_location']) ? TdSchemaRegistry::fromArray($array['old_location']) : null),
+            (isset($array['new_location']) ? TdSchemaRegistry::fromArray($array['new_location']) : null),
         );
     }
 
@@ -49,8 +49,8 @@ class ChatEventLocationChanged extends ChatEventAction
     {
         return [
             '@type'        => static::TYPE_NAME,
-            'old_location' => (null !== $this->oldLocation ? $this->oldLocation : null),
-            'new_location' => (null !== $this->newLocation ? $this->newLocation : null),
+            'old_location' => (isset($this->oldLocation) ? $this->oldLocation : null),
+            'new_location' => (isset($this->newLocation) ? $this->newLocation : null),
         ];
     }
 

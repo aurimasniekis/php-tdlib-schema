@@ -41,7 +41,7 @@ class UpdateChatActionBar extends Update
     {
         return new static(
             $array['chat_id'],
-            (null !== $array['action_bar'] ? TdSchemaRegistry::fromArray($array['action_bar']) : null),
+            (isset($array['action_bar']) ? TdSchemaRegistry::fromArray($array['action_bar']) : null),
         );
     }
 
@@ -50,7 +50,7 @@ class UpdateChatActionBar extends Update
         return [
             '@type'      => static::TYPE_NAME,
             'chat_id'    => $this->chatId,
-            'action_bar' => (null !== $this->actionBar ? $this->actionBar : null),
+            'action_bar' => (isset($this->actionBar) ? $this->actionBar : null),
         ];
     }
 

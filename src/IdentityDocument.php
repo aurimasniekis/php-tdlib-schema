@@ -71,10 +71,10 @@ class IdentityDocument extends TdObject
     {
         return new static(
             $array['number'],
-            (null !== $array['expiry_date'] ? TdSchemaRegistry::fromArray($array['expiry_date']) : null),
+            (isset($array['expiry_date']) ? TdSchemaRegistry::fromArray($array['expiry_date']) : null),
             TdSchemaRegistry::fromArray($array['front_side']),
             TdSchemaRegistry::fromArray($array['reverse_side']),
-            (null !== $array['selfie'] ? TdSchemaRegistry::fromArray($array['selfie']) : null),
+            (isset($array['selfie']) ? TdSchemaRegistry::fromArray($array['selfie']) : null),
             array_map(fn ($x) => DatedFile::fromArray($x), $array['translation']),
         );
     }
@@ -84,10 +84,10 @@ class IdentityDocument extends TdObject
         return [
             '@type'           => static::TYPE_NAME,
             'number'          => $this->number,
-            'expiry_date'     => (null !== $this->expiryDate ? $this->expiryDate : null),
+            'expiry_date'     => (isset($this->expiryDate) ? $this->expiryDate : null),
             'front_side'      => $this->frontSide->typeSerialize(),
             'reverse_side'    => $this->reverseSide->typeSerialize(),
-            'selfie'          => (null !== $this->selfie ? $this->selfie : null),
+            'selfie'          => (isset($this->selfie) ? $this->selfie : null),
             array_map(fn ($x) => $x->typeSerialize(), $this->translation),
         ];
     }

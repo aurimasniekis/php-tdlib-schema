@@ -64,8 +64,8 @@ class Document extends TdObject
         return new static(
             $array['file_name'],
             $array['mime_type'],
-            (null !== $array['minithumbnail'] ? TdSchemaRegistry::fromArray($array['minithumbnail']) : null),
-            (null !== $array['thumbnail'] ? TdSchemaRegistry::fromArray($array['thumbnail']) : null),
+            (isset($array['minithumbnail']) ? TdSchemaRegistry::fromArray($array['minithumbnail']) : null),
+            (isset($array['thumbnail']) ? TdSchemaRegistry::fromArray($array['thumbnail']) : null),
             TdSchemaRegistry::fromArray($array['document']),
         );
     }
@@ -76,8 +76,8 @@ class Document extends TdObject
             '@type'         => static::TYPE_NAME,
             'file_name'     => $this->fileName,
             'mime_type'     => $this->mimeType,
-            'minithumbnail' => (null !== $this->minithumbnail ? $this->minithumbnail : null),
-            'thumbnail'     => (null !== $this->thumbnail ? $this->thumbnail : null),
+            'minithumbnail' => (isset($this->minithumbnail) ? $this->minithumbnail : null),
+            'thumbnail'     => (isset($this->thumbnail) ? $this->thumbnail : null),
             'document'      => $this->document->typeSerialize(),
         ];
     }

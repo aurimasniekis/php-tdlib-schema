@@ -49,7 +49,7 @@ class PageBlockChatLink extends PageBlock
     {
         return new static(
             $array['title'],
-            (null !== $array['photo'] ? TdSchemaRegistry::fromArray($array['photo']) : null),
+            (isset($array['photo']) ? TdSchemaRegistry::fromArray($array['photo']) : null),
             $array['username'],
         );
     }
@@ -59,7 +59,7 @@ class PageBlockChatLink extends PageBlock
         return [
             '@type'    => static::TYPE_NAME,
             'title'    => $this->title,
-            'photo'    => (null !== $this->photo ? $this->photo : null),
+            'photo'    => (isset($this->photo) ? $this->photo : null),
             'username' => $this->username,
         ];
     }

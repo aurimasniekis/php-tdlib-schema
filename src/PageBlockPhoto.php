@@ -48,7 +48,7 @@ class PageBlockPhoto extends PageBlock
     public static function fromArray(array $array): PageBlockPhoto
     {
         return new static(
-            (null !== $array['photo'] ? TdSchemaRegistry::fromArray($array['photo']) : null),
+            (isset($array['photo']) ? TdSchemaRegistry::fromArray($array['photo']) : null),
             TdSchemaRegistry::fromArray($array['caption']),
             $array['url'],
         );
@@ -58,7 +58,7 @@ class PageBlockPhoto extends PageBlock
     {
         return [
             '@type'   => static::TYPE_NAME,
-            'photo'   => (null !== $this->photo ? $this->photo : null),
+            'photo'   => (isset($this->photo) ? $this->photo : null),
             'caption' => $this->caption->typeSerialize(),
             'url'     => $this->url,
         ];

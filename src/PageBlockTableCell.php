@@ -76,7 +76,7 @@ class PageBlockTableCell extends TdObject
     public static function fromArray(array $array): PageBlockTableCell
     {
         return new static(
-            (null !== $array['text'] ? TdSchemaRegistry::fromArray($array['text']) : null),
+            (isset($array['text']) ? TdSchemaRegistry::fromArray($array['text']) : null),
             $array['is_header'],
             $array['colspan'],
             $array['rowspan'],
@@ -89,7 +89,7 @@ class PageBlockTableCell extends TdObject
     {
         return [
             '@type'     => static::TYPE_NAME,
-            'text'      => (null !== $this->text ? $this->text : null),
+            'text'      => (isset($this->text) ? $this->text : null),
             'is_header' => $this->isHeader,
             'colspan'   => $this->colspan,
             'rowspan'   => $this->rowspan,

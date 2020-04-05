@@ -56,7 +56,7 @@ class AuthenticationCodeInfo extends TdObject
         return new static(
             $array['phone_number'],
             TdSchemaRegistry::fromArray($array['type']),
-            (null !== $array['next_type'] ? TdSchemaRegistry::fromArray($array['next_type']) : null),
+            (isset($array['next_type']) ? TdSchemaRegistry::fromArray($array['next_type']) : null),
             $array['timeout'],
         );
     }
@@ -67,7 +67,7 @@ class AuthenticationCodeInfo extends TdObject
             '@type'        => static::TYPE_NAME,
             'phone_number' => $this->phoneNumber,
             'type'         => $this->type->typeSerialize(),
-            'next_type'    => (null !== $this->nextType ? $this->nextType : null),
+            'next_type'    => (isset($this->nextType) ? $this->nextType : null),
             'timeout'      => $this->timeout,
         ];
     }

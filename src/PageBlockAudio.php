@@ -40,7 +40,7 @@ class PageBlockAudio extends PageBlock
     public static function fromArray(array $array): PageBlockAudio
     {
         return new static(
-            (null !== $array['audio'] ? TdSchemaRegistry::fromArray($array['audio']) : null),
+            (isset($array['audio']) ? TdSchemaRegistry::fromArray($array['audio']) : null),
             TdSchemaRegistry::fromArray($array['caption']),
         );
     }
@@ -49,7 +49,7 @@ class PageBlockAudio extends PageBlock
     {
         return [
             '@type'   => static::TYPE_NAME,
-            'audio'   => (null !== $this->audio ? $this->audio : null),
+            'audio'   => (isset($this->audio) ? $this->audio : null),
             'caption' => $this->caption->typeSerialize(),
         ];
     }

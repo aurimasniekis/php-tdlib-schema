@@ -71,7 +71,7 @@ class PasswordState extends TdObject
             $array['password_hint'],
             $array['has_recovery_email_address'],
             $array['has_passport_data'],
-            (null !== $array['recovery_email_address_code_info'] ? TdSchemaRegistry::fromArray($array['recovery_email_address_code_info']) : null),
+            (isset($array['recovery_email_address_code_info']) ? TdSchemaRegistry::fromArray($array['recovery_email_address_code_info']) : null),
         );
     }
 
@@ -83,7 +83,7 @@ class PasswordState extends TdObject
             'password_hint'                    => $this->passwordHint,
             'has_recovery_email_address'       => $this->hasRecoveryEmailAddress,
             'has_passport_data'                => $this->hasPassportData,
-            'recovery_email_address_code_info' => (null !== $this->recoveryEmailAddressCodeInfo ? $this->recoveryEmailAddressCodeInfo : null),
+            'recovery_email_address_code_info' => (isset($this->recoveryEmailAddressCodeInfo) ? $this->recoveryEmailAddressCodeInfo : null),
         ];
     }
 

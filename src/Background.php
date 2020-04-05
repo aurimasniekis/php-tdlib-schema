@@ -74,7 +74,7 @@ class Background extends TdObject
             $array['is_default'],
             $array['is_dark'],
             $array['name'],
-            (null !== $array['document'] ? TdSchemaRegistry::fromArray($array['document']) : null),
+            (isset($array['document']) ? TdSchemaRegistry::fromArray($array['document']) : null),
             TdSchemaRegistry::fromArray($array['type']),
         );
     }
@@ -87,7 +87,7 @@ class Background extends TdObject
             'is_default' => $this->isDefault,
             'is_dark'    => $this->isDark,
             'name'       => $this->name,
-            'document'   => (null !== $this->document ? $this->document : null),
+            'document'   => (isset($this->document) ? $this->document : null),
             'type'       => $this->type->typeSerialize(),
         ];
     }

@@ -230,24 +230,24 @@ class CodeGenerator
                     if ($fieldDef->mayBeNull) {
                         if ('array' === $type) {
                             $fromArray->addBody(
-                                '    (null !== $array[\'' . $fieldDef->name .
-                                '\'] ? array_map(fn($x) => ' . 'TdSchemaRegistry::fromArray($x), $array[\'' .
+                                '    (isset($array[\'' . $fieldDef->name .
+                                '\']) ? array_map(fn($x) => ' . 'TdSchemaRegistry::fromArray($x), $array[\'' .
                                 $fieldDef->name . '\']) : null),'
                             );
 
                             $serialize->addBody(
-                                '    (null !== $this->' . $fieldDef->name .
-                                ' ? array_map(fn($x) => $x->typeSerialize(), $this->' . $fieldDef->name . ') : null),'
+                                '    (isset($this->' . $fieldDef->name .
+                                ') ? array_map(fn($x) => $x->typeSerialize(), $this->' . $fieldDef->name . ') : null),'
                             );
                         } else {
                             $fromArray->addBody(
-                                '    (null !== $array[\'' . $fieldDef->rawName . '\'] ? ' .
+                                '    (isset($array[\'' . $fieldDef->rawName . '\']) ? ' .
                                 'TdSchemaRegistry::fromArray($array[\'' . $fieldDef->rawName . '\']) : null),'
                             );
 
                             $serialize->addBody(
-                                '    \'' . $fieldDef->rawName . '\' => (null !== $this->' .
-                                $fieldDef->name . ' ? $this->' . $fieldDef->name . ' : null),'
+                                '    \'' . $fieldDef->rawName . '\' => (isset($this->' .
+                                $fieldDef->name . ') ? $this->' . $fieldDef->name . ' : null),'
                             );
                         }
                     } else {

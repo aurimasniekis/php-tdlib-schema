@@ -40,7 +40,7 @@ class PushMessageContentAudio extends PushMessageContent
     public static function fromArray(array $array): PushMessageContentAudio
     {
         return new static(
-            (null !== $array['audio'] ? TdSchemaRegistry::fromArray($array['audio']) : null),
+            (isset($array['audio']) ? TdSchemaRegistry::fromArray($array['audio']) : null),
             $array['is_pinned'],
         );
     }
@@ -49,7 +49,7 @@ class PushMessageContentAudio extends PushMessageContent
     {
         return [
             '@type'     => static::TYPE_NAME,
-            'audio'     => (null !== $this->audio ? $this->audio : null),
+            'audio'     => (isset($this->audio) ? $this->audio : null),
             'is_pinned' => $this->isPinned,
         ];
     }

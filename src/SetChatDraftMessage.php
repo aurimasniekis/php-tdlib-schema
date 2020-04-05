@@ -39,7 +39,7 @@ class SetChatDraftMessage extends TdFunction
     {
         return new static(
             $array['chat_id'],
-            (null !== $array['draft_message'] ? TdSchemaRegistry::fromArray($array['draft_message']) : null),
+            (isset($array['draft_message']) ? TdSchemaRegistry::fromArray($array['draft_message']) : null),
         );
     }
 
@@ -48,7 +48,7 @@ class SetChatDraftMessage extends TdFunction
         return [
             '@type'         => static::TYPE_NAME,
             'chat_id'       => $this->chatId,
-            'draft_message' => (null !== $this->draftMessage ? $this->draftMessage : null),
+            'draft_message' => (isset($this->draftMessage) ? $this->draftMessage : null),
         ];
     }
 

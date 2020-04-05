@@ -74,7 +74,7 @@ class PageBlockEmbeddedPost extends PageBlock
         return new static(
             $array['url'],
             $array['author'],
-            (null !== $array['author_photo'] ? TdSchemaRegistry::fromArray($array['author_photo']) : null),
+            (isset($array['author_photo']) ? TdSchemaRegistry::fromArray($array['author_photo']) : null),
             $array['date'],
             array_map(fn ($x) => PageBlock::fromArray($x), $array['pageBlocks']),
             TdSchemaRegistry::fromArray($array['caption']),
@@ -87,7 +87,7 @@ class PageBlockEmbeddedPost extends PageBlock
             '@type'           => static::TYPE_NAME,
             'url'             => $this->url,
             'author'          => $this->author,
-            'author_photo'    => (null !== $this->authorPhoto ? $this->authorPhoto : null),
+            'author_photo'    => (isset($this->authorPhoto) ? $this->authorPhoto : null),
             'date'            => $this->date,
             array_map(fn ($x) => $x->typeSerialize(), $this->pageBlocks),
             'caption'         => $this->caption->typeSerialize(),

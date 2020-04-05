@@ -40,7 +40,7 @@ class PushMessageContentDocument extends PushMessageContent
     public static function fromArray(array $array): PushMessageContentDocument
     {
         return new static(
-            (null !== $array['document'] ? TdSchemaRegistry::fromArray($array['document']) : null),
+            (isset($array['document']) ? TdSchemaRegistry::fromArray($array['document']) : null),
             $array['is_pinned'],
         );
     }
@@ -49,7 +49,7 @@ class PushMessageContentDocument extends PushMessageContent
     {
         return [
             '@type'     => static::TYPE_NAME,
-            'document'  => (null !== $this->document ? $this->document : null),
+            'document'  => (isset($this->document) ? $this->document : null),
             'is_pinned' => $this->isPinned,
         ];
     }

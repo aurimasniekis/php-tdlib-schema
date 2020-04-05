@@ -101,7 +101,7 @@ class UserFullInfo extends TdObject
             $array['bio'],
             $array['share_text'],
             $array['group_in_common_count'],
-            (null !== $array['bot_info'] ? TdSchemaRegistry::fromArray($array['bot_info']) : null),
+            (isset($array['bot_info']) ? TdSchemaRegistry::fromArray($array['bot_info']) : null),
         );
     }
 
@@ -116,7 +116,7 @@ class UserFullInfo extends TdObject
             'bio'                                 => $this->bio,
             'share_text'                          => $this->shareText,
             'group_in_common_count'               => $this->groupInCommonCount,
-            'bot_info'                            => (null !== $this->botInfo ? $this->botInfo : null),
+            'bot_info'                            => (isset($this->botInfo) ? $this->botInfo : null),
         ];
     }
 

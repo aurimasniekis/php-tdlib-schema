@@ -77,7 +77,7 @@ class InlineQueryResultArticle extends InlineQueryResult
             $array['hide_url'],
             $array['title'],
             $array['param_description'],
-            (null !== $array['thumbnail'] ? TdSchemaRegistry::fromArray($array['thumbnail']) : null),
+            (isset($array['thumbnail']) ? TdSchemaRegistry::fromArray($array['thumbnail']) : null),
         );
     }
 
@@ -90,7 +90,7 @@ class InlineQueryResultArticle extends InlineQueryResult
             'hide_url'          => $this->hideUrl,
             'title'             => $this->title,
             'param_description' => $this->description,
-            'thumbnail'         => (null !== $this->thumbnail ? $this->thumbnail : null),
+            'thumbnail'         => (isset($this->thumbnail) ? $this->thumbnail : null),
         ];
     }
 

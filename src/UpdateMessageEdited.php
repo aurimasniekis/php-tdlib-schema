@@ -59,7 +59,7 @@ class UpdateMessageEdited extends Update
             $array['chat_id'],
             $array['message_id'],
             $array['edit_date'],
-            (null !== $array['reply_markup'] ? TdSchemaRegistry::fromArray($array['reply_markup']) : null),
+            (isset($array['reply_markup']) ? TdSchemaRegistry::fromArray($array['reply_markup']) : null),
         );
     }
 
@@ -70,7 +70,7 @@ class UpdateMessageEdited extends Update
             'chat_id'      => $this->chatId,
             'message_id'   => $this->messageId,
             'edit_date'    => $this->editDate,
-            'reply_markup' => (null !== $this->replyMarkup ? $this->replyMarkup : null),
+            'reply_markup' => (isset($this->replyMarkup) ? $this->replyMarkup : null),
         ];
     }
 

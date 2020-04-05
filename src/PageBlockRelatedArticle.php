@@ -73,7 +73,7 @@ class PageBlockRelatedArticle extends TdObject
             $array['url'],
             $array['title'],
             $array['param_description'],
-            (null !== $array['photo'] ? TdSchemaRegistry::fromArray($array['photo']) : null),
+            (isset($array['photo']) ? TdSchemaRegistry::fromArray($array['photo']) : null),
             $array['author'],
             $array['publish_date'],
         );
@@ -86,7 +86,7 @@ class PageBlockRelatedArticle extends TdObject
             'url'               => $this->url,
             'title'             => $this->title,
             'param_description' => $this->description,
-            'photo'             => (null !== $this->photo ? $this->photo : null),
+            'photo'             => (isset($this->photo) ? $this->photo : null),
             'author'            => $this->author,
             'publish_date'      => $this->publishDate,
         ];

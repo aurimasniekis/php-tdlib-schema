@@ -40,7 +40,7 @@ class PageBlockVoiceNote extends PageBlock
     public static function fromArray(array $array): PageBlockVoiceNote
     {
         return new static(
-            (null !== $array['voice_note'] ? TdSchemaRegistry::fromArray($array['voice_note']) : null),
+            (isset($array['voice_note']) ? TdSchemaRegistry::fromArray($array['voice_note']) : null),
             TdSchemaRegistry::fromArray($array['caption']),
         );
     }
@@ -49,7 +49,7 @@ class PageBlockVoiceNote extends PageBlock
     {
         return [
             '@type'      => static::TYPE_NAME,
-            'voice_note' => (null !== $this->voiceNote ? $this->voiceNote : null),
+            'voice_note' => (isset($this->voiceNote) ? $this->voiceNote : null),
             'caption'    => $this->caption->typeSerialize(),
         ];
     }

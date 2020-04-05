@@ -79,8 +79,8 @@ class PaymentReceipt extends TdObject
             $array['date'],
             $array['payments_provider_user_id'],
             TdSchemaRegistry::fromArray($array['invoice']),
-            (null !== $array['order_info'] ? TdSchemaRegistry::fromArray($array['order_info']) : null),
-            (null !== $array['shipping_option'] ? TdSchemaRegistry::fromArray($array['shipping_option']) : null),
+            (isset($array['order_info']) ? TdSchemaRegistry::fromArray($array['order_info']) : null),
+            (isset($array['shipping_option']) ? TdSchemaRegistry::fromArray($array['shipping_option']) : null),
             $array['credentials_title'],
         );
     }
@@ -92,8 +92,8 @@ class PaymentReceipt extends TdObject
             'date'                      => $this->date,
             'payments_provider_user_id' => $this->paymentsProviderUserId,
             'invoice'                   => $this->invoice->typeSerialize(),
-            'order_info'                => (null !== $this->orderInfo ? $this->orderInfo : null),
-            'shipping_option'           => (null !== $this->shippingOption ? $this->shippingOption : null),
+            'order_info'                => (isset($this->orderInfo) ? $this->orderInfo : null),
+            'shipping_option'           => (isset($this->shippingOption) ? $this->shippingOption : null),
             'credentials_title'         => $this->credentialsTitle,
         ];
     }

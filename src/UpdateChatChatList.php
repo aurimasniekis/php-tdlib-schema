@@ -41,7 +41,7 @@ class UpdateChatChatList extends Update
     {
         return new static(
             $array['chat_id'],
-            (null !== $array['chat_list'] ? TdSchemaRegistry::fromArray($array['chat_list']) : null),
+            (isset($array['chat_list']) ? TdSchemaRegistry::fromArray($array['chat_list']) : null),
         );
     }
 
@@ -50,7 +50,7 @@ class UpdateChatChatList extends Update
         return [
             '@type'     => static::TYPE_NAME,
             'chat_id'   => $this->chatId,
-            'chat_list' => (null !== $this->chatList ? $this->chatList : null),
+            'chat_list' => (isset($this->chatList) ? $this->chatList : null),
         ];
     }
 

@@ -57,7 +57,7 @@ class EditMessageLiveLocation extends TdFunction
             $array['chat_id'],
             $array['message_id'],
             TdSchemaRegistry::fromArray($array['reply_markup']),
-            (null !== $array['location'] ? TdSchemaRegistry::fromArray($array['location']) : null),
+            (isset($array['location']) ? TdSchemaRegistry::fromArray($array['location']) : null),
         );
     }
 
@@ -68,7 +68,7 @@ class EditMessageLiveLocation extends TdFunction
             'chat_id'      => $this->chatId,
             'message_id'   => $this->messageId,
             'reply_markup' => $this->replyMarkup->typeSerialize(),
-            'location'     => (null !== $this->location ? $this->location : null),
+            'location'     => (isset($this->location) ? $this->location : null),
         ];
     }
 

@@ -39,16 +39,16 @@ class Messages extends TdObject
     {
         return new static(
             $array['total_count'],
-            (null !== $array['messages'] ? array_map(fn ($x) => TdSchemaRegistry::fromArray($x), $array['messages']) : null),
+            (isset($array['messages']) ? array_map(fn ($x) => TdSchemaRegistry::fromArray($x), $array['messages']) : null),
         );
     }
 
     public function typeSerialize(): array
     {
         return [
-            '@type'                                       => static::TYPE_NAME,
-            'total_count'                                 => $this->totalCount,
-            (null !== $this->messages ? array_map(fn ($x) => $x->typeSerialize(), $this->messages) : null),
+            '@type'                                     => static::TYPE_NAME,
+            'total_count'                               => $this->totalCount,
+            (isset($this->messages) ? array_map(fn ($x) => $x->typeSerialize(), $this->messages) : null),
         ];
     }
 
