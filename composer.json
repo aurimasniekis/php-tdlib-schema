@@ -1,0 +1,60 @@
+{
+    "name": "aurimasniekis/tdlib-schema",
+    "type": "library",
+    "description": "A TdLib PHP Schema with generator for generating PHP objects from td_api.tl file",
+    "keywords": [
+        "tdlib-schema",
+        "tdlib",
+        "td",
+        "td-api",
+        "thruster"
+    ],
+    "homepage": "https://github.com/aurimasniekis/php-tdlib-schema",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Aurimas Niekis",
+            "email": "aurimas@niekis.lt"
+        }
+    ],
+    "support": {
+        "issues": "https://github.com/aurimasniekis/php-tdlib-schema",
+        "source": "https://github.com/aurimasniekis/php-tdlib-schema"
+    },
+    "require": {
+        "php": "^7.4||^8.0"
+    },
+    "require-dev": {
+        "friendsofphp/php-cs-fixer": "^2",
+        "monolog/monolog": "^2.0",
+        "nette/php-generator": "^3.3",
+        "symfony/console": "^5.0",
+        "symfony/monolog-bridge": "^5.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "AurimasNiekis\\TdLibSchema\\": "src"
+        },
+        "classmap": [
+            "src/"
+        ]
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "AurimasNiekis\\TdLibSchema\\Generator\\": "generator"
+        }
+    },
+    "scripts": {
+        "cs-check": "php-cs-fixer fix --dry-run --diff --diff-format udiff",
+        "cs-fix": "php-cs-fixer fix",
+        "ci-run": ["@cs-check"]
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-master": "1.0-dev"
+        }
+    },
+    "config": {
+        "sort-packages": true
+    }
+}

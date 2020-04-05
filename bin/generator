@@ -1,0 +1,25 @@
+#!/usr/bin/env php
+<?php
+
+// OK, it's not, let give Composer autoloader a try!
+use AurimasNiekis\TdLibSchema\Generator\ConsoleApplication;
+
+$possibleFiles = [__DIR__ . '/../../autoload.php', __DIR__ . '/../autoload.php', __DIR__ . '/../vendor/autoload.php'];
+$file          = null;
+
+foreach ($possibleFiles as $possibleFile) {
+    if (file_exists($possibleFile)) {
+        $file = $possibleFile;
+
+        break;
+    }
+}
+
+if (null === $file) {
+    throw new RuntimeException('Unable to locate autoload.php file.');
+}
+
+require_once $file;
+
+$app = new ConsoleApplication();
+$app->run();
