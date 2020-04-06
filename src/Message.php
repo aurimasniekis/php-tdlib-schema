@@ -165,9 +165,9 @@ class Message extends TdObject
     /**
      * Unique identifier of an album this message belongs to. Only photos and videos can be grouped together in albums.
      *
-     * @var int
+     * @var string
      */
-    protected int $mediaAlbumId;
+    protected string $mediaAlbumId;
 
     /**
      * If non-empty, contains a human-readable description of the reason why access to this message must be restricted.
@@ -212,7 +212,7 @@ class Message extends TdObject
         int $viaBotUserId,
         string $authorSignature,
         int $views,
-        int $mediaAlbumId,
+        string $mediaAlbumId,
         string $restrictionReason,
         MessageContent $content,
         ?ReplyMarkup $replyMarkup
@@ -412,7 +412,7 @@ class Message extends TdObject
         return $this->views;
     }
 
-    public function getMediaAlbumId(): int
+    public function getMediaAlbumId(): string
     {
         return $this->mediaAlbumId;
     }

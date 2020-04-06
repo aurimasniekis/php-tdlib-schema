@@ -18,9 +18,9 @@ class Poll extends TdObject
     /**
      * Unique poll identifier.
      *
-     * @var int
+     * @var string
      */
-    protected int $id;
+    protected string $id;
 
     /**
      * Poll question, 1-255 characters.
@@ -72,7 +72,7 @@ class Poll extends TdObject
     protected bool $isClosed;
 
     public function __construct(
-        int $id,
+        string $id,
         string $question,
         array $options,
         int $totalVoterCount,
@@ -120,7 +120,7 @@ class Poll extends TdObject
         ];
     }
 
-    public function getId(): int
+    public function getId(): string
     {
         return $this->id;
     }

@@ -25,9 +25,9 @@ class MessageGameScore extends MessageContent
     /**
      * Identifier of the game; may be different from the games presented in the message with the game.
      *
-     * @var int
+     * @var string
      */
-    protected int $gameId;
+    protected string $gameId;
 
     /**
      * New score.
@@ -36,7 +36,7 @@ class MessageGameScore extends MessageContent
      */
     protected int $score;
 
-    public function __construct(int $gameMessageId, int $gameId, int $score)
+    public function __construct(int $gameMessageId, string $gameId, int $score)
     {
         parent::__construct();
 
@@ -69,7 +69,7 @@ class MessageGameScore extends MessageContent
         return $this->gameMessageId;
     }
 
-    public function getGameId(): int
+    public function getGameId(): string
     {
         return $this->gameId;
     }

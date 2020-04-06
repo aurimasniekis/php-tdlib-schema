@@ -18,9 +18,9 @@ class StickerSetInfo extends TdObject
     /**
      * Identifier of the sticker set.
      *
-     * @var int
+     * @var string
      */
-    protected int $id;
+    protected string $id;
 
     /**
      * Title of the sticker set.
@@ -100,7 +100,7 @@ class StickerSetInfo extends TdObject
     protected array $covers;
 
     public function __construct(
-        int $id,
+        string $id,
         string $title,
         string $name,
         ?PhotoSize $thumbnail,
@@ -164,7 +164,7 @@ class StickerSetInfo extends TdObject
         ];
     }
 
-    public function getId(): int
+    public function getId(): string
     {
         return $this->id;
     }

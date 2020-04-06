@@ -18,9 +18,9 @@ class UpdateFileGenerationStart extends Update
     /**
      * Unique identifier for the generation process.
      *
-     * @var int
+     * @var string
      */
-    protected int $generationId;
+    protected string $generationId;
 
     /**
      * The path to a file from which a new file is generated; may be empty.
@@ -43,7 +43,7 @@ class UpdateFileGenerationStart extends Update
      */
     protected string $conversion;
 
-    public function __construct(int $generationId, string $originalPath, string $destinationPath, string $conversion)
+    public function __construct(string $generationId, string $originalPath, string $destinationPath, string $conversion)
     {
         parent::__construct();
 
@@ -74,7 +74,7 @@ class UpdateFileGenerationStart extends Update
         ];
     }
 
-    public function getGenerationId(): int
+    public function getGenerationId(): string
     {
         return $this->generationId;
     }

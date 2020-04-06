@@ -39,11 +39,11 @@ class DiscardCall extends TdFunction
     /**
      * Identifier of the connection used during the call.
      *
-     * @var int
+     * @var string
      */
-    protected int $connectionId;
+    protected string $connectionId;
 
-    public function __construct(int $callId, bool $isDisconnected, int $duration, int $connectionId)
+    public function __construct(int $callId, bool $isDisconnected, int $duration, string $connectionId)
     {
         $this->callId         = $callId;
         $this->isDisconnected = $isDisconnected;
@@ -87,7 +87,7 @@ class DiscardCall extends TdFunction
         return $this->duration;
     }
 
-    public function getConnectionId(): int
+    public function getConnectionId(): string
     {
         return $this->connectionId;
     }

@@ -25,11 +25,11 @@ class UpdateChatOrder extends Update
     /**
      * New value of the order.
      *
-     * @var int
+     * @var string
      */
-    protected int $order;
+    protected string $order;
 
-    public function __construct(int $chatId, int $order)
+    public function __construct(int $chatId, string $order)
     {
         parent::__construct();
 
@@ -59,7 +59,7 @@ class UpdateChatOrder extends Update
         return $this->chatId;
     }
 
-    public function getOrder(): int
+    public function getOrder(): string
     {
         return $this->order;
     }

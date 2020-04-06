@@ -25,11 +25,11 @@ class FoundMessages extends TdObject
     /**
      * Value to pass as from_search_id to get more results.
      *
-     * @var int
+     * @var string
      */
-    protected int $nextFromSearchId;
+    protected string $nextFromSearchId;
 
-    public function __construct(array $messages, int $nextFromSearchId)
+    public function __construct(array $messages, string $nextFromSearchId)
     {
         $this->messages         = $messages;
         $this->nextFromSearchId = $nextFromSearchId;
@@ -57,7 +57,7 @@ class FoundMessages extends TdObject
         return $this->messages;
     }
 
-    public function getNextFromSearchId(): int
+    public function getNextFromSearchId(): string
     {
         return $this->nextFromSearchId;
     }

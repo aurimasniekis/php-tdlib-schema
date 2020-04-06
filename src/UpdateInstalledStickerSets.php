@@ -25,7 +25,7 @@ class UpdateInstalledStickerSets extends Update
     /**
      * The new list of installed ordinary sticker sets.
      *
-     * @var int[]
+     * @var string[]
      */
     protected array $stickerSetIds;
 

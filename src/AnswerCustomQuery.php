@@ -18,9 +18,9 @@ class AnswerCustomQuery extends TdFunction
     /**
      * Identifier of a custom query.
      *
-     * @var int
+     * @var string
      */
-    protected int $customQueryId;
+    protected string $customQueryId;
 
     /**
      * JSON-serialized answer to the query.
@@ -29,7 +29,7 @@ class AnswerCustomQuery extends TdFunction
      */
     protected string $data;
 
-    public function __construct(int $customQueryId, string $data)
+    public function __construct(string $customQueryId, string $data)
     {
         $this->customQueryId = $customQueryId;
         $this->data          = $data;
@@ -52,7 +52,7 @@ class AnswerCustomQuery extends TdFunction
         ];
     }
 
-    public function getCustomQueryId(): int
+    public function getCustomQueryId(): string
     {
         return $this->customQueryId;
     }

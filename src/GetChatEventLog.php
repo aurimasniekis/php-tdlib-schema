@@ -32,9 +32,9 @@ class GetChatEventLog extends TdFunction
     /**
      * Identifier of an event from which to return results. Use 0 to get results from the latest events.
      *
-     * @var int
+     * @var string
      */
-    protected int $fromEventId;
+    protected string $fromEventId;
 
     /**
      * The maximum number of events to return; up to 100.
@@ -57,7 +57,7 @@ class GetChatEventLog extends TdFunction
      */
     protected array $userIds;
 
-    public function __construct(int $chatId, string $query, int $fromEventId, int $limit, ChatEventLogFilters $filters, array $userIds)
+    public function __construct(int $chatId, string $query, string $fromEventId, int $limit, ChatEventLogFilters $filters, array $userIds)
     {
         $this->chatId      = $chatId;
         $this->query       = $query;
@@ -102,7 +102,7 @@ class GetChatEventLog extends TdFunction
         return $this->query;
     }
 
-    public function getFromEventId(): int
+    public function getFromEventId(): string
     {
         return $this->fromEventId;
     }

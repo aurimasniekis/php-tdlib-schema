@@ -32,11 +32,11 @@ class UpdateChatLastMessage extends Update
     /**
      * New value of the chat order.
      *
-     * @var int
+     * @var string
      */
-    protected int $order;
+    protected string $order;
 
-    public function __construct(int $chatId, ?Message $lastMessage, int $order)
+    public function __construct(int $chatId, ?Message $lastMessage, string $order)
     {
         parent::__construct();
 
@@ -74,7 +74,7 @@ class UpdateChatLastMessage extends Update
         return $this->lastMessage;
     }
 
-    public function getOrder(): int
+    public function getOrder(): string
     {
         return $this->order;
     }

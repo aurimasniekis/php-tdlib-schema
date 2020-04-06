@@ -18,9 +18,9 @@ class CallConnection extends TdObject
     /**
      * Reflector identifier.
      *
-     * @var int
+     * @var string
      */
-    protected int $id;
+    protected string $id;
 
     /**
      * IPv4 reflector address.
@@ -50,7 +50,7 @@ class CallConnection extends TdObject
      */
     protected string $peerTag;
 
-    public function __construct(int $id, string $ip, string $ipv6, int $port, string $peerTag)
+    public function __construct(string $id, string $ip, string $ipv6, int $port, string $peerTag)
     {
         $this->id      = $id;
         $this->ip      = $ip;
@@ -82,7 +82,7 @@ class CallConnection extends TdObject
         ];
     }
 
-    public function getId(): int
+    public function getId(): string
     {
         return $this->id;
     }

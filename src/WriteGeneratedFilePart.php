@@ -18,9 +18,9 @@ class WriteGeneratedFilePart extends TdFunction
     /**
      * The identifier of the generation process.
      *
-     * @var int
+     * @var string
      */
-    protected int $generationId;
+    protected string $generationId;
 
     /**
      * The offset from which to write the data to the file.
@@ -36,7 +36,7 @@ class WriteGeneratedFilePart extends TdFunction
      */
     protected string $data;
 
-    public function __construct(int $generationId, int $offset, string $data)
+    public function __construct(string $generationId, int $offset, string $data)
     {
         $this->generationId = $generationId;
         $this->offset       = $offset;
@@ -62,7 +62,7 @@ class WriteGeneratedFilePart extends TdFunction
         ];
     }
 
-    public function getGenerationId(): int
+    public function getGenerationId(): string
     {
         return $this->generationId;
     }

@@ -18,9 +18,9 @@ class AnswerShippingQuery extends TdFunction
     /**
      * Identifier of the shipping query.
      *
-     * @var int
+     * @var string
      */
-    protected int $shippingQueryId;
+    protected string $shippingQueryId;
 
     /**
      * Available shipping options.
@@ -36,7 +36,7 @@ class AnswerShippingQuery extends TdFunction
      */
     protected string $errorMessage;
 
-    public function __construct(int $shippingQueryId, array $shippingOptions, string $errorMessage)
+    public function __construct(string $shippingQueryId, array $shippingOptions, string $errorMessage)
     {
         $this->shippingQueryId = $shippingQueryId;
         $this->shippingOptions = $shippingOptions;
@@ -62,7 +62,7 @@ class AnswerShippingQuery extends TdFunction
         ];
     }
 
-    public function getShippingQueryId(): int
+    public function getShippingQueryId(): string
     {
         return $this->shippingQueryId;
     }

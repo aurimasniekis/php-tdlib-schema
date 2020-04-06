@@ -25,11 +25,11 @@ class SetSupergroupStickerSet extends TdFunction
     /**
      * New value of the supergroup sticker set identifier. Use 0 to remove the supergroup sticker set.
      *
-     * @var int
+     * @var string
      */
-    protected int $stickerSetId;
+    protected string $stickerSetId;
 
-    public function __construct(int $supergroupId, int $stickerSetId)
+    public function __construct(int $supergroupId, string $stickerSetId)
     {
         $this->supergroupId = $supergroupId;
         $this->stickerSetId = $stickerSetId;
@@ -57,7 +57,7 @@ class SetSupergroupStickerSet extends TdFunction
         return $this->supergroupId;
     }
 
-    public function getStickerSetId(): int
+    public function getStickerSetId(): string
     {
         return $this->stickerSetId;
     }

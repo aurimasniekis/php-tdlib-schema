@@ -18,9 +18,9 @@ class ConnectedWebsite extends TdObject
     /**
      * Website identifier.
      *
-     * @var int
+     * @var string
      */
-    protected int $id;
+    protected string $id;
 
     /**
      * The domain name of the website.
@@ -79,7 +79,7 @@ class ConnectedWebsite extends TdObject
     protected string $location;
 
     public function __construct(
-        int $id,
+        string $id,
         string $domainName,
         int $botUserId,
         string $browser,
@@ -131,7 +131,7 @@ class ConnectedWebsite extends TdObject
         ];
     }
 
-    public function getId(): int
+    public function getId(): string
     {
         return $this->id;
     }

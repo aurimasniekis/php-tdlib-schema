@@ -18,11 +18,11 @@ class TMeUrlTypeStickerSet extends TMeUrlType
     /**
      * Identifier of the sticker set.
      *
-     * @var int
+     * @var string
      */
-    protected int $stickerSetId;
+    protected string $stickerSetId;
 
-    public function __construct(int $stickerSetId)
+    public function __construct(string $stickerSetId)
     {
         parent::__construct();
 
@@ -44,7 +44,7 @@ class TMeUrlTypeStickerSet extends TMeUrlType
         ];
     }
 
-    public function getStickerSetId(): int
+    public function getStickerSetId(): string
     {
         return $this->stickerSetId;
     }

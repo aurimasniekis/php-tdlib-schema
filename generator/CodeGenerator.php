@@ -90,6 +90,9 @@ class CodeGenerator
             ->addImplement(JsonSerializable::class)
             ->setAbstract();
 
+        $objectClass->addConstant('TYPE_NAME', '_tdObject')
+            ->setPublic();
+
         $objectClass->addProperty('tdExtra', new Literal('null'))
             ->setType('string')
             ->setNullable(true);
@@ -98,6 +101,11 @@ class CodeGenerator
             ->setPublic()
             ->setReturnType('string')
             ->setReturnNullable();
+
+        $typeNameGetMethod = $objectClass->addMethod('getTdTypeName')
+            ->setPublic()
+            ->setReturnType('string')
+            ->setBody('return static::TYPE_NAME;');
 
         $extraGetMethod->addBody('return $this->tdExtra;');
 

@@ -18,9 +18,9 @@ class AnswerInlineQuery extends TdFunction
     /**
      * Identifier of the inline query.
      *
-     * @var int
+     * @var string
      */
-    protected int $inlineQueryId;
+    protected string $inlineQueryId;
 
     /**
      * True, if the result of the query can be cached for the specified user.
@@ -65,7 +65,7 @@ class AnswerInlineQuery extends TdFunction
     protected string $switchPmParameter;
 
     public function __construct(
-        int $inlineQueryId,
+        string $inlineQueryId,
         bool $isPersonal,
         array $results,
         int $cacheTime,
@@ -109,7 +109,7 @@ class AnswerInlineQuery extends TdFunction
         ];
     }
 
-    public function getInlineQueryId(): int
+    public function getInlineQueryId(): string
     {
         return $this->inlineQueryId;
     }

@@ -18,9 +18,9 @@ class AnswerPreCheckoutQuery extends TdFunction
     /**
      * Identifier of the pre-checkout query.
      *
-     * @var int
+     * @var string
      */
-    protected int $preCheckoutQueryId;
+    protected string $preCheckoutQueryId;
 
     /**
      * An error message, empty on success.
@@ -29,7 +29,7 @@ class AnswerPreCheckoutQuery extends TdFunction
      */
     protected string $errorMessage;
 
-    public function __construct(int $preCheckoutQueryId, string $errorMessage)
+    public function __construct(string $preCheckoutQueryId, string $errorMessage)
     {
         $this->preCheckoutQueryId = $preCheckoutQueryId;
         $this->errorMessage       = $errorMessage;
@@ -52,7 +52,7 @@ class AnswerPreCheckoutQuery extends TdFunction
         ];
     }
 
-    public function getPreCheckoutQueryId(): int
+    public function getPreCheckoutQueryId(): string
     {
         return $this->preCheckoutQueryId;
     }

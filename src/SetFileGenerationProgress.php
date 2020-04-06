@@ -18,9 +18,9 @@ class SetFileGenerationProgress extends TdFunction
     /**
      * The identifier of the generation process.
      *
-     * @var int
+     * @var string
      */
-    protected int $generationId;
+    protected string $generationId;
 
     /**
      * Expected size of the generated file, in bytes; 0 if unknown.
@@ -36,7 +36,7 @@ class SetFileGenerationProgress extends TdFunction
      */
     protected int $localPrefixSize;
 
-    public function __construct(int $generationId, int $expectedSize, int $localPrefixSize)
+    public function __construct(string $generationId, int $expectedSize, int $localPrefixSize)
     {
         $this->generationId    = $generationId;
         $this->expectedSize    = $expectedSize;
@@ -62,7 +62,7 @@ class SetFileGenerationProgress extends TdFunction
         ];
     }
 
-    public function getGenerationId(): int
+    public function getGenerationId(): string
     {
         return $this->generationId;
     }

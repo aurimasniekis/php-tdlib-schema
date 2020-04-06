@@ -18,18 +18,18 @@ class ChatEventStickerSetChanged extends ChatEventAction
     /**
      * Previous identifier of the chat sticker set; 0 if none.
      *
-     * @var int
+     * @var string
      */
-    protected int $oldStickerSetId;
+    protected string $oldStickerSetId;
 
     /**
      * New identifier of the chat sticker set; 0 if none.
      *
-     * @var int
+     * @var string
      */
-    protected int $newStickerSetId;
+    protected string $newStickerSetId;
 
-    public function __construct(int $oldStickerSetId, int $newStickerSetId)
+    public function __construct(string $oldStickerSetId, string $newStickerSetId)
     {
         parent::__construct();
 
@@ -54,12 +54,12 @@ class ChatEventStickerSetChanged extends ChatEventAction
         ];
     }
 
-    public function getOldStickerSetId(): int
+    public function getOldStickerSetId(): string
     {
         return $this->oldStickerSetId;
     }
 
-    public function getNewStickerSetId(): int
+    public function getNewStickerSetId(): string
     {
         return $this->newStickerSetId;
     }

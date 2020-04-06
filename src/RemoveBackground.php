@@ -18,11 +18,11 @@ class RemoveBackground extends TdFunction
     /**
      * The background identifier.
      *
-     * @var int
+     * @var string
      */
-    protected int $backgroundId;
+    protected string $backgroundId;
 
-    public function __construct(int $backgroundId)
+    public function __construct(string $backgroundId)
     {
         $this->backgroundId = $backgroundId;
     }
@@ -42,7 +42,7 @@ class RemoveBackground extends TdFunction
         ];
     }
 
-    public function getBackgroundId(): int
+    public function getBackgroundId(): string
     {
         return $this->backgroundId;
     }

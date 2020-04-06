@@ -18,9 +18,9 @@ class Game extends TdObject
     /**
      * Game ID.
      *
-     * @var int
+     * @var string
      */
-    protected int $id;
+    protected string $id;
 
     /**
      * Game short name. To share a game use the URL https://t.me/{bot_username}?game={game_short_name}.
@@ -64,8 +64,15 @@ class Game extends TdObject
      */
     protected ?Animation $animation;
 
-    public function __construct(int $id, string $shortName, string $title, FormattedText $text, string $description, Photo $photo, ?Animation $animation)
-    {
+    public function __construct(
+        string $id,
+        string $shortName,
+        string $title,
+        FormattedText $text,
+        string $description,
+        Photo $photo,
+        ?Animation $animation
+    ) {
         $this->id          = $id;
         $this->shortName   = $shortName;
         $this->title       = $title;
@@ -102,7 +109,7 @@ class Game extends TdObject
         ];
     }
 
-    public function getId(): int
+    public function getId(): string
     {
         return $this->id;
     }

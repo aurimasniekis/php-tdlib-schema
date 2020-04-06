@@ -18,9 +18,9 @@ class ChangeStickerSet extends TdFunction
     /**
      * Identifier of the sticker set.
      *
-     * @var int
+     * @var string
      */
-    protected int $setId;
+    protected string $setId;
 
     /**
      * The new value of is_installed.
@@ -36,7 +36,7 @@ class ChangeStickerSet extends TdFunction
      */
     protected bool $isArchived;
 
-    public function __construct(int $setId, bool $isInstalled, bool $isArchived)
+    public function __construct(string $setId, bool $isInstalled, bool $isArchived)
     {
         $this->setId       = $setId;
         $this->isInstalled = $isInstalled;
@@ -62,7 +62,7 @@ class ChangeStickerSet extends TdFunction
         ];
     }
 
-    public function getSetId(): int
+    public function getSetId(): string
     {
         return $this->setId;
     }

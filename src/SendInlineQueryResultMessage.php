@@ -39,9 +39,9 @@ class SendInlineQueryResultMessage extends TdFunction
     /**
      * Identifier of the inline query.
      *
-     * @var int
+     * @var string
      */
-    protected int $queryId;
+    protected string $queryId;
 
     /**
      * Identifier of the inline result.
@@ -57,7 +57,7 @@ class SendInlineQueryResultMessage extends TdFunction
      */
     protected bool $hideViaBot;
 
-    public function __construct(int $chatId, int $replyToMessageId, SendMessageOptions $options, int $queryId, string $resultId, bool $hideViaBot)
+    public function __construct(int $chatId, int $replyToMessageId, SendMessageOptions $options, string $queryId, string $resultId, bool $hideViaBot)
     {
         $this->chatId           = $chatId;
         $this->replyToMessageId = $replyToMessageId;
@@ -107,7 +107,7 @@ class SendInlineQueryResultMessage extends TdFunction
         return $this->options;
     }
 
-    public function getQueryId(): int
+    public function getQueryId(): string
     {
         return $this->queryId;
     }

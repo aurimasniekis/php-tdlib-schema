@@ -18,11 +18,11 @@ class UpdateFileGenerationStop extends Update
     /**
      * Unique identifier for the generation process.
      *
-     * @var int
+     * @var string
      */
-    protected int $generationId;
+    protected string $generationId;
 
-    public function __construct(int $generationId)
+    public function __construct(string $generationId)
     {
         parent::__construct();
 
@@ -44,7 +44,7 @@ class UpdateFileGenerationStop extends Update
         ];
     }
 
-    public function getGenerationId(): int
+    public function getGenerationId(): string
     {
         return $this->generationId;
     }

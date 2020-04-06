@@ -18,9 +18,9 @@ class Sticker extends TdObject
     /**
      * The identifier of the sticker set to which the sticker belongs; 0 if none.
      *
-     * @var int
+     * @var string
      */
-    protected int $setId;
+    protected string $setId;
 
     /**
      * Sticker width; as defined by the sender.
@@ -79,7 +79,7 @@ class Sticker extends TdObject
     protected File $sticker;
 
     public function __construct(
-        int $setId,
+        string $setId,
         int $width,
         int $height,
         string $emoji,
@@ -131,7 +131,7 @@ class Sticker extends TdObject
         ];
     }
 
-    public function getSetId(): int
+    public function getSetId(): string
     {
         return $this->setId;
     }

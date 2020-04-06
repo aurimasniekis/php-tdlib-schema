@@ -25,7 +25,7 @@ class ReorderInstalledStickerSets extends TdFunction
     /**
      * Identifiers of installed sticker sets in the new correct order.
      *
-     * @var int[]
+     * @var string[]
      */
     protected array $stickerSetIds;
 

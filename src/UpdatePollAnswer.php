@@ -18,9 +18,9 @@ class UpdatePollAnswer extends Update
     /**
      * Unique poll identifier.
      *
-     * @var int
+     * @var string
      */
-    protected int $pollId;
+    protected string $pollId;
 
     /**
      * The user, who changed the answer to the poll.
@@ -36,7 +36,7 @@ class UpdatePollAnswer extends Update
      */
     protected array $optionIds;
 
-    public function __construct(int $pollId, int $userId, array $optionIds)
+    public function __construct(string $pollId, int $userId, array $optionIds)
     {
         parent::__construct();
 
@@ -64,7 +64,7 @@ class UpdatePollAnswer extends Update
         ];
     }
 
-    public function getPollId(): int
+    public function getPollId(): string
     {
         return $this->pollId;
     }

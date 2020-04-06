@@ -18,7 +18,7 @@ class ViewTrendingStickerSets extends TdFunction
     /**
      * Identifiers of viewed trending sticker sets.
      *
-     * @var int[]
+     * @var string[]
      */
     protected array $stickerSetIds;
 

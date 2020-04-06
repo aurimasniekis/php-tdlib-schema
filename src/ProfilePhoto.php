@@ -18,9 +18,9 @@ class ProfilePhoto extends TdObject
     /**
      * Photo identifier; 0 for an empty photo. Can be used to find a photo in a list of userProfilePhotos.
      *
-     * @var int
+     * @var string
      */
-    protected int $id;
+    protected string $id;
 
     /**
      * A small (160x160) user profile photo. The file can be downloaded only before the photo is changed.
@@ -36,7 +36,7 @@ class ProfilePhoto extends TdObject
      */
     protected File $big;
 
-    public function __construct(int $id, File $small, File $big)
+    public function __construct(string $id, File $small, File $big)
     {
         $this->id    = $id;
         $this->small = $small;
@@ -62,7 +62,7 @@ class ProfilePhoto extends TdObject
         ];
     }
 
-    public function getId(): int
+    public function getId(): string
     {
         return $this->id;
     }

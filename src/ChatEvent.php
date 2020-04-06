@@ -18,9 +18,9 @@ class ChatEvent extends TdObject
     /**
      * Chat event identifier.
      *
-     * @var int
+     * @var string
      */
-    protected int $id;
+    protected string $id;
 
     /**
      * Point in time (Unix timestamp) when the event happened.
@@ -43,7 +43,7 @@ class ChatEvent extends TdObject
      */
     protected ChatEventAction $action;
 
-    public function __construct(int $id, int $date, int $userId, ChatEventAction $action)
+    public function __construct(string $id, int $date, int $userId, ChatEventAction $action)
     {
         $this->id     = $id;
         $this->date   = $date;
@@ -72,7 +72,7 @@ class ChatEvent extends TdObject
         ];
     }
 
-    public function getId(): int
+    public function getId(): string
     {
         return $this->id;
     }

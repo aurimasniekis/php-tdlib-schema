@@ -18,11 +18,11 @@ class DeleteProfilePhoto extends TdFunction
     /**
      * Identifier of the profile photo to delete.
      *
-     * @var int
+     * @var string
      */
-    protected int $profilePhotoId;
+    protected string $profilePhotoId;
 
-    public function __construct(int $profilePhotoId)
+    public function __construct(string $profilePhotoId)
     {
         $this->profilePhotoId = $profilePhotoId;
     }
@@ -42,7 +42,7 @@ class DeleteProfilePhoto extends TdFunction
         ];
     }
 
-    public function getProfilePhotoId(): int
+    public function getProfilePhotoId(): string
     {
         return $this->profilePhotoId;
     }

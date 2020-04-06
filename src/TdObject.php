@@ -12,11 +12,18 @@ use JsonSerializable;
 
 abstract class TdObject implements TdTypeSerializableInterface, JsonSerializable
 {
+    public const TYPE_NAME = '_tdObject';
+
     public ?string $tdExtra = null;
 
     public function getTdExtra(): ?string
     {
         return $this->tdExtra;
+    }
+
+    public function getTdTypeName(): string
+    {
+        return static::TYPE_NAME;
     }
 
     public function setTdExtra(?string $tdExtra): self

@@ -18,9 +18,9 @@ class InlineQueryResults extends TdObject
     /**
      * Unique identifier of the inline query.
      *
-     * @var int
+     * @var string
      */
-    protected int $inlineQueryId;
+    protected string $inlineQueryId;
 
     /**
      * The offset for the next request. If empty, there are no more results.
@@ -50,7 +50,7 @@ class InlineQueryResults extends TdObject
      */
     protected string $switchPmParameter;
 
-    public function __construct(int $inlineQueryId, string $nextOffset, array $results, string $switchPmText, string $switchPmParameter)
+    public function __construct(string $inlineQueryId, string $nextOffset, array $results, string $switchPmText, string $switchPmParameter)
     {
         $this->inlineQueryId     = $inlineQueryId;
         $this->nextOffset        = $nextOffset;
@@ -82,7 +82,7 @@ class InlineQueryResults extends TdObject
         ];
     }
 
-    public function getInlineQueryId(): int
+    public function getInlineQueryId(): string
     {
         return $this->inlineQueryId;
     }

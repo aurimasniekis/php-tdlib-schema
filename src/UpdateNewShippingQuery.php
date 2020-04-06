@@ -18,9 +18,9 @@ class UpdateNewShippingQuery extends Update
     /**
      * Unique query identifier.
      *
-     * @var int
+     * @var string
      */
-    protected int $id;
+    protected string $id;
 
     /**
      * Identifier of the user who sent the query.
@@ -43,7 +43,7 @@ class UpdateNewShippingQuery extends Update
      */
     protected Address $shippingAddress;
 
-    public function __construct(int $id, int $senderUserId, string $invoicePayload, Address $shippingAddress)
+    public function __construct(string $id, int $senderUserId, string $invoicePayload, Address $shippingAddress)
     {
         parent::__construct();
 
@@ -74,7 +74,7 @@ class UpdateNewShippingQuery extends Update
         ];
     }
 
-    public function getId(): int
+    public function getId(): string
     {
         return $this->id;
     }

@@ -18,11 +18,11 @@ class DisconnectWebsite extends TdFunction
     /**
      * Website identifier.
      *
-     * @var int
+     * @var string
      */
-    protected int $websiteId;
+    protected string $websiteId;
 
-    public function __construct(int $websiteId)
+    public function __construct(string $websiteId)
     {
         $this->websiteId = $websiteId;
     }
@@ -42,7 +42,7 @@ class DisconnectWebsite extends TdFunction
         ];
     }
 
-    public function getWebsiteId(): int
+    public function getWebsiteId(): string
     {
         return $this->websiteId;
     }

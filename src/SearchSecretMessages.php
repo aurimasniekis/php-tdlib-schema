@@ -32,9 +32,9 @@ class SearchSecretMessages extends TdFunction
     /**
      * The identifier from the result of a previous request, use 0 to get results from the last message.
      *
-     * @var int
+     * @var string
      */
-    protected int $fromSearchId;
+    protected string $fromSearchId;
 
     /**
      * The maximum number of messages to be returned; up to 100. Fewer messages may be returned than specified by the limit, even if the end of the message history has not been reached.
@@ -50,7 +50,7 @@ class SearchSecretMessages extends TdFunction
      */
     protected SearchMessagesFilter $filter;
 
-    public function __construct(int $chatId, string $query, int $fromSearchId, int $limit, SearchMessagesFilter $filter)
+    public function __construct(int $chatId, string $query, string $fromSearchId, int $limit, SearchMessagesFilter $filter)
     {
         $this->chatId       = $chatId;
         $this->query        = $query;
@@ -92,7 +92,7 @@ class SearchSecretMessages extends TdFunction
         return $this->query;
     }
 
-    public function getFromSearchId(): int
+    public function getFromSearchId(): string
     {
         return $this->fromSearchId;
     }

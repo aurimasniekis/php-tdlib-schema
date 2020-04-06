@@ -18,9 +18,9 @@ class UpdateNewCustomQuery extends Update
     /**
      * The query identifier.
      *
-     * @var int
+     * @var string
      */
-    protected int $id;
+    protected string $id;
 
     /**
      * JSON-serialized query data.
@@ -36,7 +36,7 @@ class UpdateNewCustomQuery extends Update
      */
     protected int $timeout;
 
-    public function __construct(int $id, string $data, int $timeout)
+    public function __construct(string $id, string $data, int $timeout)
     {
         parent::__construct();
 
@@ -64,7 +64,7 @@ class UpdateNewCustomQuery extends Update
         ];
     }
 
-    public function getId(): int
+    public function getId(): string
     {
         return $this->id;
     }

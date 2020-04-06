@@ -18,9 +18,9 @@ class UpdateNewInlineQuery extends Update
     /**
      * Unique query identifier.
      *
-     * @var int
+     * @var string
      */
-    protected int $id;
+    protected string $id;
 
     /**
      * Identifier of the user who sent the query.
@@ -50,7 +50,7 @@ class UpdateNewInlineQuery extends Update
      */
     protected string $offset;
 
-    public function __construct(int $id, int $senderUserId, ?Location $userLocation, string $query, string $offset)
+    public function __construct(string $id, int $senderUserId, ?Location $userLocation, string $query, string $offset)
     {
         parent::__construct();
 
@@ -84,7 +84,7 @@ class UpdateNewInlineQuery extends Update
         ];
     }
 
-    public function getId(): int
+    public function getId(): string
     {
         return $this->id;
     }

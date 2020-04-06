@@ -18,9 +18,9 @@ class UpdateNewInlineCallbackQuery extends Update
     /**
      * Unique query identifier.
      *
-     * @var int
+     * @var string
      */
-    protected int $id;
+    protected string $id;
 
     /**
      * Identifier of the user who sent the query.
@@ -39,9 +39,9 @@ class UpdateNewInlineCallbackQuery extends Update
     /**
      * An identifier uniquely corresponding to the chat a message was sent to.
      *
-     * @var int
+     * @var string
      */
-    protected int $chatInstance;
+    protected string $chatInstance;
 
     /**
      * Query payload.
@@ -50,7 +50,7 @@ class UpdateNewInlineCallbackQuery extends Update
      */
     protected CallbackQueryPayload $payload;
 
-    public function __construct(int $id, int $senderUserId, string $inlineMessageId, int $chatInstance, CallbackQueryPayload $payload)
+    public function __construct(string $id, int $senderUserId, string $inlineMessageId, string $chatInstance, CallbackQueryPayload $payload)
     {
         parent::__construct();
 
@@ -84,7 +84,7 @@ class UpdateNewInlineCallbackQuery extends Update
         ];
     }
 
-    public function getId(): int
+    public function getId(): string
     {
         return $this->id;
     }
@@ -99,7 +99,7 @@ class UpdateNewInlineCallbackQuery extends Update
         return $this->inlineMessageId;
     }
 
-    public function getChatInstance(): int
+    public function getChatInstance(): string
     {
         return $this->chatInstance;
     }

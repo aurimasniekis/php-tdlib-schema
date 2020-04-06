@@ -18,11 +18,11 @@ class PushReceiverId extends TdObject
     /**
      * The globally unique identifier of push notification subscription.
      *
-     * @var int
+     * @var string
      */
-    protected int $id;
+    protected string $id;
 
-    public function __construct(int $id)
+    public function __construct(string $id)
     {
         $this->id = $id;
     }
@@ -42,7 +42,7 @@ class PushReceiverId extends TdObject
         ];
     }
 
-    public function getId(): int
+    public function getId(): string
     {
         return $this->id;
     }

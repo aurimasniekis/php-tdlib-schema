@@ -32,11 +32,11 @@ class UpdateChatIsSponsored extends Update
     /**
      * New value of chat order.
      *
-     * @var int
+     * @var string
      */
-    protected int $order;
+    protected string $order;
 
-    public function __construct(int $chatId, bool $isSponsored, int $order)
+    public function __construct(int $chatId, bool $isSponsored, string $order)
     {
         parent::__construct();
 
@@ -74,7 +74,7 @@ class UpdateChatIsSponsored extends Update
         return $this->isSponsored;
     }
 
-    public function getOrder(): int
+    public function getOrder(): string
     {
         return $this->order;
     }

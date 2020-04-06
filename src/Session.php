@@ -18,9 +18,9 @@ class Session extends TdObject
     /**
      * Session identifier.
      *
-     * @var int
+     * @var string
      */
-    protected int $id;
+    protected string $id;
 
     /**
      * True, if this session is the current session.
@@ -121,7 +121,7 @@ class Session extends TdObject
     protected string $region;
 
     public function __construct(
-        int $id,
+        string $id,
         bool $isCurrent,
         bool $isPasswordPending,
         int $apiId,
@@ -197,7 +197,7 @@ class Session extends TdObject
         ];
     }
 
-    public function getId(): int
+    public function getId(): string
     {
         return $this->id;
     }

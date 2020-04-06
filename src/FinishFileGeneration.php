@@ -18,9 +18,9 @@ class FinishFileGeneration extends TdFunction
     /**
      * The identifier of the generation process.
      *
-     * @var int
+     * @var string
      */
-    protected int $generationId;
+    protected string $generationId;
 
     /**
      * If set, means that file generation has failed and should be terminated.
@@ -29,7 +29,7 @@ class FinishFileGeneration extends TdFunction
      */
     protected Error $error;
 
-    public function __construct(int $generationId, Error $error)
+    public function __construct(string $generationId, Error $error)
     {
         $this->generationId = $generationId;
         $this->error        = $error;
@@ -52,7 +52,7 @@ class FinishFileGeneration extends TdFunction
         ];
     }
 
-    public function getGenerationId(): int
+    public function getGenerationId(): string
     {
         return $this->generationId;
     }

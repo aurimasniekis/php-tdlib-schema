@@ -269,12 +269,12 @@ class SchemaParser
                 return 'bool';
             case 'int32':
             case 'int53':
-            case 'int64':
                 return 'int';
             case 'double':
                 return 'float';
             case 'string':
             case 'bytes':
+            case 'int64':
                 return 'string';
             case 'bool':
             case 'int':

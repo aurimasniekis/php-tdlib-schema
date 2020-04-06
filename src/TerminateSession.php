@@ -18,11 +18,11 @@ class TerminateSession extends TdFunction
     /**
      * Session identifier.
      *
-     * @var int
+     * @var string
      */
-    protected int $sessionId;
+    protected string $sessionId;
 
-    public function __construct(int $sessionId)
+    public function __construct(string $sessionId)
     {
         $this->sessionId = $sessionId;
     }
@@ -42,7 +42,7 @@ class TerminateSession extends TdFunction
         ];
     }
 
-    public function getSessionId(): int
+    public function getSessionId(): string
     {
         return $this->sessionId;
     }

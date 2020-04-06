@@ -18,9 +18,9 @@ class UserProfilePhoto extends TdObject
     /**
      * Unique user profile photo identifier.
      *
-     * @var int
+     * @var string
      */
-    protected int $id;
+    protected string $id;
 
     /**
      * Point in time (Unix timestamp) when the photo has been added.
@@ -36,7 +36,7 @@ class UserProfilePhoto extends TdObject
      */
     protected array $sizes;
 
-    public function __construct(int $id, int $addedDate, array $sizes)
+    public function __construct(string $id, int $addedDate, array $sizes)
     {
         $this->id        = $id;
         $this->addedDate = $addedDate;
@@ -62,7 +62,7 @@ class UserProfilePhoto extends TdObject
         ];
     }
 
-    public function getId(): int
+    public function getId(): string
     {
         return $this->id;
     }

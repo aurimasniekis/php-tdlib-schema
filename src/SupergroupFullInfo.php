@@ -116,9 +116,9 @@ class SupergroupFullInfo extends TdObject
     /**
      * Identifier of the supergroup sticker set; 0 if none.
      *
-     * @var int
+     * @var string
      */
-    protected int $stickerSetId;
+    protected string $stickerSetId;
 
     /**
      * Location to which the supergroup is connected; may be null.
@@ -163,7 +163,7 @@ class SupergroupFullInfo extends TdObject
         bool $canSetLocation,
         bool $canViewStatistics,
         bool $isAllHistoryAvailable,
-        int $stickerSetId,
+        string $stickerSetId,
         ?ChatLocation $location,
         string $inviteLink,
         int $upgradedFromBasicGroupId,
@@ -311,7 +311,7 @@ class SupergroupFullInfo extends TdObject
         return $this->isAllHistoryAvailable;
     }
 
-    public function getStickerSetId(): int
+    public function getStickerSetId(): string
     {
         return $this->stickerSetId;
     }

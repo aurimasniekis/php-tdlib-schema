@@ -25,9 +25,9 @@ class GetArchivedStickerSets extends TdFunction
     /**
      * Identifier of the sticker set from which to return the result.
      *
-     * @var int
+     * @var string
      */
-    protected int $offsetStickerSetId;
+    protected string $offsetStickerSetId;
 
     /**
      * The maximum number of sticker sets to return.
@@ -36,7 +36,7 @@ class GetArchivedStickerSets extends TdFunction
      */
     protected int $limit;
 
-    public function __construct(bool $isMasks, int $offsetStickerSetId, int $limit)
+    public function __construct(bool $isMasks, string $offsetStickerSetId, int $limit)
     {
         $this->isMasks            = $isMasks;
         $this->offsetStickerSetId = $offsetStickerSetId;
@@ -67,7 +67,7 @@ class GetArchivedStickerSets extends TdFunction
         return $this->isMasks;
     }
 
-    public function getOffsetStickerSetId(): int
+    public function getOffsetStickerSetId(): string
     {
         return $this->offsetStickerSetId;
     }

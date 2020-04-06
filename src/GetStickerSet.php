@@ -18,11 +18,11 @@ class GetStickerSet extends TdFunction
     /**
      * Identifier of the sticker set.
      *
-     * @var int
+     * @var string
      */
-    protected int $setId;
+    protected string $setId;
 
-    public function __construct(int $setId)
+    public function __construct(string $setId)
     {
         $this->setId = $setId;
     }
@@ -42,7 +42,7 @@ class GetStickerSet extends TdFunction
         ];
     }
 
-    public function getSetId(): int
+    public function getSetId(): string
     {
         return $this->setId;
     }

@@ -18,9 +18,9 @@ class AnswerCallbackQuery extends TdFunction
     /**
      * Identifier of the callback query.
      *
-     * @var int
+     * @var string
      */
-    protected int $callbackQueryId;
+    protected string $callbackQueryId;
 
     /**
      * Text of the answer.
@@ -50,7 +50,7 @@ class AnswerCallbackQuery extends TdFunction
      */
     protected int $cacheTime;
 
-    public function __construct(int $callbackQueryId, string $text, bool $showAlert, string $url, int $cacheTime)
+    public function __construct(string $callbackQueryId, string $text, bool $showAlert, string $url, int $cacheTime)
     {
         $this->callbackQueryId = $callbackQueryId;
         $this->text            = $text;
@@ -82,7 +82,7 @@ class AnswerCallbackQuery extends TdFunction
         ];
     }
 
-    public function getCallbackQueryId(): int
+    public function getCallbackQueryId(): string
     {
         return $this->callbackQueryId;
     }

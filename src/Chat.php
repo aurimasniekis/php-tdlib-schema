@@ -67,9 +67,9 @@ class Chat extends TdObject
     /**
      * Descending parameter by which chats are sorted in the main chat list. If the order number of two chats is the same, they must be sorted in descending order by ID. If 0, the position of the chat in the list is undetermined.
      *
-     * @var int
+     * @var string
      */
-    protected int $order;
+    protected string $order;
 
     /**
      * True, if the chat is pinned.
@@ -205,7 +205,7 @@ class Chat extends TdObject
         ?ChatPhoto $photo,
         ChatPermissions $permissions,
         ?Message $lastMessage,
-        int $order,
+        string $order,
         bool $isPinned,
         bool $isMarkedAsUnread,
         bool $isSponsored,
@@ -353,7 +353,7 @@ class Chat extends TdObject
         return $this->lastMessage;
     }
 
-    public function getOrder(): int
+    public function getOrder(): string
     {
         return $this->order;
     }

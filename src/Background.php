@@ -18,9 +18,9 @@ class Background extends TdObject
     /**
      * Unique background identifier.
      *
-     * @var int
+     * @var string
      */
-    protected int $id;
+    protected string $id;
 
     /**
      * True, if this is one of default backgrounds.
@@ -57,7 +57,7 @@ class Background extends TdObject
      */
     protected BackgroundType $type;
 
-    public function __construct(int $id, bool $isDefault, bool $isDark, string $name, ?Document $document, BackgroundType $type)
+    public function __construct(string $id, bool $isDefault, bool $isDark, string $name, ?Document $document, BackgroundType $type)
     {
         $this->id        = $id;
         $this->isDefault = $isDefault;
@@ -92,7 +92,7 @@ class Background extends TdObject
         ];
     }
 
-    public function getId(): int
+    public function getId(): string
     {
         return $this->id;
     }

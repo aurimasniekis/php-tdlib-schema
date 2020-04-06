@@ -18,9 +18,9 @@ class UpdateNewCallbackQuery extends Update
     /**
      * Unique query identifier.
      *
-     * @var int
+     * @var string
      */
-    protected int $id;
+    protected string $id;
 
     /**
      * Identifier of the user who sent the query.
@@ -46,9 +46,9 @@ class UpdateNewCallbackQuery extends Update
     /**
      * Identifier that uniquely corresponds to the chat to which the message was sent.
      *
-     * @var int
+     * @var string
      */
-    protected int $chatInstance;
+    protected string $chatInstance;
 
     /**
      * Query payload.
@@ -57,7 +57,7 @@ class UpdateNewCallbackQuery extends Update
      */
     protected CallbackQueryPayload $payload;
 
-    public function __construct(int $id, int $senderUserId, int $chatId, int $messageId, int $chatInstance, CallbackQueryPayload $payload)
+    public function __construct(string $id, int $senderUserId, int $chatId, int $messageId, string $chatInstance, CallbackQueryPayload $payload)
     {
         parent::__construct();
 
@@ -94,7 +94,7 @@ class UpdateNewCallbackQuery extends Update
         ];
     }
 
-    public function getId(): int
+    public function getId(): string
     {
         return $this->id;
     }
@@ -114,7 +114,7 @@ class UpdateNewCallbackQuery extends Update
         return $this->messageId;
     }
 
-    public function getChatInstance(): int
+    public function getChatInstance(): string
     {
         return $this->chatInstance;
     }

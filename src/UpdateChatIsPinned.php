@@ -32,11 +32,11 @@ class UpdateChatIsPinned extends Update
     /**
      * New value of the chat order.
      *
-     * @var int
+     * @var string
      */
-    protected int $order;
+    protected string $order;
 
-    public function __construct(int $chatId, bool $isPinned, int $order)
+    public function __construct(int $chatId, bool $isPinned, string $order)
     {
         parent::__construct();
 
@@ -74,7 +74,7 @@ class UpdateChatIsPinned extends Update
         return $this->isPinned;
     }
 
-    public function getOrder(): int
+    public function getOrder(): string
     {
         return $this->order;
     }
