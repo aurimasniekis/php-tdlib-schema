@@ -76,7 +76,7 @@ class InlineQueryResultArticle extends InlineQueryResult
             $array['url'],
             $array['hide_url'],
             $array['title'],
-            $array['param_description'],
+            $array['description'],
             (isset($array['thumbnail']) ? TdSchemaRegistry::fromArray($array['thumbnail']) : null),
         );
     }
@@ -84,13 +84,13 @@ class InlineQueryResultArticle extends InlineQueryResult
     public function typeSerialize(): array
     {
         return [
-            '@type'             => static::TYPE_NAME,
-            'id'                => $this->id,
-            'url'               => $this->url,
-            'hide_url'          => $this->hideUrl,
-            'title'             => $this->title,
-            'param_description' => $this->description,
-            'thumbnail'         => (isset($this->thumbnail) ? $this->thumbnail : null),
+            '@type'       => static::TYPE_NAME,
+            'id'          => $this->id,
+            'url'         => $this->url,
+            'hide_url'    => $this->hideUrl,
+            'title'       => $this->title,
+            'description' => $this->description,
+            'thumbnail'   => (isset($this->thumbnail) ? $this->thumbnail : null),
         ];
     }
 

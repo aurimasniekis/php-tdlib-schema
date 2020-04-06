@@ -39,16 +39,16 @@ class BotCommand extends TdObject
     {
         return new static(
             $array['command'],
-            $array['param_description'],
+            $array['description'],
         );
     }
 
     public function typeSerialize(): array
     {
         return [
-            '@type'             => static::TYPE_NAME,
-            'command'           => $this->command,
-            'param_description' => $this->description,
+            '@type'       => static::TYPE_NAME,
+            'command'     => $this->command,
+            'description' => $this->description,
         ];
     }
 

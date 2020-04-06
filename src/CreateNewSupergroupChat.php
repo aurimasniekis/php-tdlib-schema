@@ -56,7 +56,7 @@ class CreateNewSupergroupChat extends TdFunction
         return new static(
             $array['title'],
             $array['is_channel'],
-            $array['param_description'],
+            $array['description'],
             TdSchemaRegistry::fromArray($array['location']),
         );
     }
@@ -64,11 +64,11 @@ class CreateNewSupergroupChat extends TdFunction
     public function typeSerialize(): array
     {
         return [
-            '@type'             => static::TYPE_NAME,
-            'title'             => $this->title,
-            'is_channel'        => $this->isChannel,
-            'param_description' => $this->description,
-            'location'          => $this->location->typeSerialize(),
+            '@type'       => static::TYPE_NAME,
+            'title'       => $this->title,
+            'is_channel'  => $this->isChannel,
+            'description' => $this->description,
+            'location'    => $this->location->typeSerialize(),
         ];
     }
 

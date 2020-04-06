@@ -38,7 +38,7 @@ class BotInfo extends TdObject
     public static function fromArray(array $array): BotInfo
     {
         return new static(
-            $array['param_description'],
+            $array['description'],
             array_map(fn ($x) => BotCommand::fromArray($x), $array['commands']),
         );
     }
@@ -46,9 +46,9 @@ class BotInfo extends TdObject
     public function typeSerialize(): array
     {
         return [
-            '@type'             => static::TYPE_NAME,
-            'param_description' => $this->description,
-            array_map(fn ($x)   => $x->typeSerialize(), $this->commands),
+            '@type'           => static::TYPE_NAME,
+            'description'     => $this->description,
+            array_map(fn ($x) => $x->typeSerialize(), $this->commands),
         ];
     }
 

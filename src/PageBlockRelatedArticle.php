@@ -72,7 +72,7 @@ class PageBlockRelatedArticle extends TdObject
         return new static(
             $array['url'],
             $array['title'],
-            $array['param_description'],
+            $array['description'],
             (isset($array['photo']) ? TdSchemaRegistry::fromArray($array['photo']) : null),
             $array['author'],
             $array['publish_date'],
@@ -82,13 +82,13 @@ class PageBlockRelatedArticle extends TdObject
     public function typeSerialize(): array
     {
         return [
-            '@type'             => static::TYPE_NAME,
-            'url'               => $this->url,
-            'title'             => $this->title,
-            'param_description' => $this->description,
-            'photo'             => (isset($this->photo) ? $this->photo : null),
-            'author'            => $this->author,
-            'publish_date'      => $this->publishDate,
+            '@type'        => static::TYPE_NAME,
+            'url'          => $this->url,
+            'title'        => $this->title,
+            'description'  => $this->description,
+            'photo'        => (isset($this->photo) ? $this->photo : null),
+            'author'       => $this->author,
+            'publish_date' => $this->publishDate,
         ];
     }
 

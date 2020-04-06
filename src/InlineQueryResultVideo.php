@@ -59,18 +59,18 @@ class InlineQueryResultVideo extends InlineQueryResult
             $array['id'],
             TdSchemaRegistry::fromArray($array['video']),
             $array['title'],
-            $array['param_description'],
+            $array['description'],
         );
     }
 
     public function typeSerialize(): array
     {
         return [
-            '@type'             => static::TYPE_NAME,
-            'id'                => $this->id,
-            'video'             => $this->video->typeSerialize(),
-            'title'             => $this->title,
-            'param_description' => $this->description,
+            '@type'       => static::TYPE_NAME,
+            'id'          => $this->id,
+            'video'       => $this->video->typeSerialize(),
+            'title'       => $this->title,
+            'description' => $this->description,
         ];
     }
 

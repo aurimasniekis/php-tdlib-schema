@@ -116,7 +116,7 @@ class InputInlineQueryResultDocument extends InputInlineQueryResult
         return new static(
             $array['id'],
             $array['title'],
-            $array['param_description'],
+            $array['description'],
             $array['document_url'],
             $array['mime_type'],
             $array['thumbnail_url'],
@@ -133,7 +133,7 @@ class InputInlineQueryResultDocument extends InputInlineQueryResult
             '@type'                 => static::TYPE_NAME,
             'id'                    => $this->id,
             'title'                 => $this->title,
-            'param_description'     => $this->description,
+            'description'           => $this->description,
             'document_url'          => $this->documentUrl,
             'mime_type'             => $this->mimeType,
             'thumbnail_url'         => $this->thumbnailUrl,

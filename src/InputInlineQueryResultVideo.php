@@ -125,7 +125,7 @@ class InputInlineQueryResultVideo extends InputInlineQueryResult
         return new static(
             $array['id'],
             $array['title'],
-            $array['param_description'],
+            $array['description'],
             $array['thumbnail_url'],
             $array['video_url'],
             $array['mime_type'],
@@ -143,7 +143,7 @@ class InputInlineQueryResultVideo extends InputInlineQueryResult
             '@type'                 => static::TYPE_NAME,
             'id'                    => $this->id,
             'title'                 => $this->title,
-            'param_description'     => $this->description,
+            'description'           => $this->description,
             'thumbnail_url'         => $this->thumbnailUrl,
             'video_url'             => $this->videoUrl,
             'mime_type'             => $this->mimeType,

@@ -213,8 +213,13 @@ class SchemaParser
                     $fieldName     = $this->getFieldName($name, $className);
                     $fieldTypeName = $this->getTypeName($fieldType);
 
+                    $rawName = $name;
+                    if ('param_' === substr($rawName, 0, 6)) {
+                        $rawName = substr($rawName, 6);
+                    }
+
                     $field            = $currentClass->getField($name);
-                    $field->rawName   = $name;
+                    $field->rawName   = $rawName;
                     $field->name      = $fieldName;
                     $field->type      = $fieldTypeName;
                     $field->doc       = $info[$name];

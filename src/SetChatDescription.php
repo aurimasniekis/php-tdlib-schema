@@ -39,16 +39,16 @@ class SetChatDescription extends TdFunction
     {
         return new static(
             $array['chat_id'],
-            $array['param_description'],
+            $array['description'],
         );
     }
 
     public function typeSerialize(): array
     {
         return [
-            '@type'             => static::TYPE_NAME,
-            'chat_id'           => $this->chatId,
-            'param_description' => $this->description,
+            '@type'       => static::TYPE_NAME,
+            'chat_id'     => $this->chatId,
+            'description' => $this->description,
         ];
     }
 

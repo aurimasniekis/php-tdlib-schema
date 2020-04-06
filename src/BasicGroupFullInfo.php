@@ -54,7 +54,7 @@ class BasicGroupFullInfo extends TdObject
     public static function fromArray(array $array): BasicGroupFullInfo
     {
         return new static(
-            $array['param_description'],
+            $array['description'],
             $array['creator_user_id'],
             array_map(fn ($x) => ChatMember::fromArray($x), $array['members']),
             $array['invite_link'],
@@ -64,11 +64,11 @@ class BasicGroupFullInfo extends TdObject
     public function typeSerialize(): array
     {
         return [
-            '@type'             => static::TYPE_NAME,
-            'param_description' => $this->description,
-            'creator_user_id'   => $this->creatorUserId,
-            array_map(fn ($x)   => $x->typeSerialize(), $this->members),
-            'invite_link'       => $this->inviteLink,
+            '@type'           => static::TYPE_NAME,
+            'description'     => $this->description,
+            'creator_user_id' => $this->creatorUserId,
+            array_map(fn ($x) => $x->typeSerialize(), $this->members),
+            'invite_link'     => $this->inviteLink,
         ];
     }
 

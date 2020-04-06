@@ -89,7 +89,7 @@ class Game extends TdObject
             $array['short_name'],
             $array['title'],
             TdSchemaRegistry::fromArray($array['text']),
-            $array['param_description'],
+            $array['description'],
             TdSchemaRegistry::fromArray($array['photo']),
             (isset($array['animation']) ? TdSchemaRegistry::fromArray($array['animation']) : null),
         );
@@ -98,14 +98,14 @@ class Game extends TdObject
     public function typeSerialize(): array
     {
         return [
-            '@type'             => static::TYPE_NAME,
-            'id'                => $this->id,
-            'short_name'        => $this->shortName,
-            'title'             => $this->title,
-            'text'              => $this->text->typeSerialize(),
-            'param_description' => $this->description,
-            'photo'             => $this->photo->typeSerialize(),
-            'animation'         => (isset($this->animation) ? $this->animation : null),
+            '@type'       => static::TYPE_NAME,
+            'id'          => $this->id,
+            'short_name'  => $this->shortName,
+            'title'       => $this->title,
+            'text'        => $this->text->typeSerialize(),
+            'description' => $this->description,
+            'photo'       => $this->photo->typeSerialize(),
+            'animation'   => (isset($this->animation) ? $this->animation : null),
         ];
     }
 

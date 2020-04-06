@@ -59,18 +59,18 @@ class InlineQueryResultDocument extends InlineQueryResult
             $array['id'],
             TdSchemaRegistry::fromArray($array['document']),
             $array['title'],
-            $array['param_description'],
+            $array['description'],
         );
     }
 
     public function typeSerialize(): array
     {
         return [
-            '@type'             => static::TYPE_NAME,
-            'id'                => $this->id,
-            'document'          => $this->document->typeSerialize(),
-            'title'             => $this->title,
-            'param_description' => $this->description,
+            '@type'       => static::TYPE_NAME,
+            'id'          => $this->id,
+            'document'    => $this->document->typeSerialize(),
+            'title'       => $this->title,
+            'description' => $this->description,
         ];
     }
 

@@ -125,7 +125,7 @@ class InputMessageInvoice extends InputMessageContent
         return new static(
             TdSchemaRegistry::fromArray($array['invoice']),
             $array['title'],
-            $array['param_description'],
+            $array['description'],
             $array['photo_url'],
             $array['photo_size'],
             $array['photo_width'],
@@ -140,18 +140,18 @@ class InputMessageInvoice extends InputMessageContent
     public function typeSerialize(): array
     {
         return [
-            '@type'             => static::TYPE_NAME,
-            'invoice'           => $this->invoice->typeSerialize(),
-            'title'             => $this->title,
-            'param_description' => $this->description,
-            'photo_url'         => $this->photoUrl,
-            'photo_size'        => $this->photoSize,
-            'photo_width'       => $this->photoWidth,
-            'photo_height'      => $this->photoHeight,
-            'payload'           => $this->payload,
-            'provider_token'    => $this->providerToken,
-            'provider_data'     => $this->providerData,
-            'start_parameter'   => $this->startParameter,
+            '@type'           => static::TYPE_NAME,
+            'invoice'         => $this->invoice->typeSerialize(),
+            'title'           => $this->title,
+            'description'     => $this->description,
+            'photo_url'       => $this->photoUrl,
+            'photo_size'      => $this->photoSize,
+            'photo_width'     => $this->photoWidth,
+            'photo_height'    => $this->photoHeight,
+            'payload'         => $this->payload,
+            'provider_token'  => $this->providerToken,
+            'provider_data'   => $this->providerData,
+            'start_parameter' => $this->startParameter,
         ];
     }
 

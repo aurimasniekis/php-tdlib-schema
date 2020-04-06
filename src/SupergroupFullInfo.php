@@ -193,7 +193,7 @@ class SupergroupFullInfo extends TdObject
     public static function fromArray(array $array): SupergroupFullInfo
     {
         return new static(
-            $array['param_description'],
+            $array['description'],
             $array['member_count'],
             $array['administrator_count'],
             $array['restricted_count'],
@@ -219,7 +219,7 @@ class SupergroupFullInfo extends TdObject
     {
         return [
             '@type'                        => static::TYPE_NAME,
-            'param_description'            => $this->description,
+            'description'                  => $this->description,
             'member_count'                 => $this->memberCount,
             'administrator_count'          => $this->administratorCount,
             'restricted_count'             => $this->restrictedCount,

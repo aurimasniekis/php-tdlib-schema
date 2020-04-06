@@ -107,7 +107,7 @@ class InputInlineQueryResultPhoto extends InputInlineQueryResult
         return new static(
             $array['id'],
             $array['title'],
-            $array['param_description'],
+            $array['description'],
             $array['thumbnail_url'],
             $array['photo_url'],
             $array['photo_width'],
@@ -123,7 +123,7 @@ class InputInlineQueryResultPhoto extends InputInlineQueryResult
             '@type'                 => static::TYPE_NAME,
             'id'                    => $this->id,
             'title'                 => $this->title,
-            'param_description'     => $this->description,
+            'description'           => $this->description,
             'thumbnail_url'         => $this->thumbnailUrl,
             'photo_url'             => $this->photoUrl,
             'photo_width'           => $this->photoWidth,
