@@ -30,7 +30,7 @@ class LanguagePackStrings extends TdObject
     public static function fromArray(array $array): LanguagePackStrings
     {
         return new static(
-            array_map(fn ($x) => LanguagePackString::fromArray($x), $array['strings']),
+            array_map(fn ($x) => TdSchemaRegistry::fromArray($x), $array['strings']),
         );
     }
 

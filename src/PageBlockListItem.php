@@ -39,7 +39,7 @@ class PageBlockListItem extends TdObject
     {
         return new static(
             $array['label'],
-            array_map(fn ($x) => PageBlock::fromArray($x), $array['pageBlocks']),
+            array_map(fn ($x) => TdSchemaRegistry::fromArray($x), $array['pageBlocks']),
         );
     }
 

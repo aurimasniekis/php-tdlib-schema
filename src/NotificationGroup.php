@@ -66,7 +66,7 @@ class NotificationGroup extends TdObject
             TdSchemaRegistry::fromArray($array['type']),
             $array['chat_id'],
             $array['total_count'],
-            array_map(fn ($x) => Notification::fromArray($x), $array['notifications']),
+            array_map(fn ($x) => TdSchemaRegistry::fromArray($x), $array['notifications']),
         );
     }
 

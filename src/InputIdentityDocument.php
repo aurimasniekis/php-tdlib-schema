@@ -75,7 +75,7 @@ class InputIdentityDocument extends TdObject
             TdSchemaRegistry::fromArray($array['front_side']),
             TdSchemaRegistry::fromArray($array['reverse_side']),
             TdSchemaRegistry::fromArray($array['selfie']),
-            array_map(fn ($x) => InputFile::fromArray($x), $array['translation']),
+            array_map(fn ($x) => TdSchemaRegistry::fromArray($x), $array['translation']),
         );
     }
 

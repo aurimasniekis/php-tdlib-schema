@@ -30,7 +30,7 @@ class SetCommands extends TdFunction
     public static function fromArray(array $array): SetCommands
     {
         return new static(
-            array_map(fn ($x) => BotCommand::fromArray($x), $array['commands']),
+            array_map(fn ($x) => TdSchemaRegistry::fromArray($x), $array['commands']),
         );
     }
 

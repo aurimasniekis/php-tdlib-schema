@@ -30,7 +30,7 @@ class Sessions extends TdObject
     public static function fromArray(array $array): Sessions
     {
         return new static(
-            array_map(fn ($x) => Session::fromArray($x), $array['sessions']),
+            array_map(fn ($x) => TdSchemaRegistry::fromArray($x), $array['sessions']),
         );
     }
 

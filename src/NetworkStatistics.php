@@ -39,7 +39,7 @@ class NetworkStatistics extends TdObject
     {
         return new static(
             $array['since_date'],
-            array_map(fn ($x) => NetworkStatisticsEntry::fromArray($x), $array['entries']),
+            array_map(fn ($x) => TdSchemaRegistry::fromArray($x), $array['entries']),
         );
     }
 

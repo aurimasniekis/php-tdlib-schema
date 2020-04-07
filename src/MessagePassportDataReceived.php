@@ -40,7 +40,7 @@ class MessagePassportDataReceived extends MessageContent
     public static function fromArray(array $array): MessagePassportDataReceived
     {
         return new static(
-            array_map(fn ($x) => EncryptedPassportElement::fromArray($x), $array['elements']),
+            array_map(fn ($x) => TdSchemaRegistry::fromArray($x), $array['elements']),
             TdSchemaRegistry::fromArray($array['credentials']),
         );
     }

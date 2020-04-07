@@ -102,7 +102,7 @@ class CodeGenerator
             ->setReturnType('string')
             ->setReturnNullable();
 
-        $typeNameGetMethod = $objectClass->addMethod('getTdTypeName')
+        $objectClass->addMethod('getTdTypeName')
             ->setPublic()
             ->setReturnType('string')
             ->setBody('return static::TYPE_NAME;');
@@ -203,13 +203,21 @@ class CodeGenerator
         }
 
         foreach ($classDef->fields as $fieldDef) {
-            $type = $fieldDef->type;
+            $typeStyle = $fieldDef->type;
+            $type      = $fieldDef->type;
 
-            if (false !== strpos($type, '[')) {
-                $type = 'array';
+            $arrayNestLevels = substr_count($type, '[]');
+            if (1 === $arrayNestLevels) {
+                $type      = 'array';
+                $typeStyle = 'array';
+            } elseif (2 === $arrayNestLevels) {
+                $type      = 'array';
+                $typeStyle = 'array_array';
+            } elseif ($arrayNestLevels > 2) {
+                throw new InvalidArgumentException('Vector of higher than 2 lvl deep');
             }
 
-            $field = $class->addProperty($fieldDef->name)
+            $class->addProperty($fieldDef->name)
                 ->setProtected()
                 ->setNullable($fieldDef->mayBeNull)
                 ->setType($type)
@@ -236,7 +244,7 @@ class CodeGenerator
 
                 default:
                     if ($fieldDef->mayBeNull) {
-                        if ('array' === $type) {
+                        if ('array' === $typeStyle) {
                             $fromArray->addBody(
                                 '    (isset($array[\'' . $fieldDef->name .
                                 '\']) ? array_map(fn($x) => ' . 'TdSchemaRegistry::fromArray($x), $array[\'' .
@@ -246,6 +254,19 @@ class CodeGenerator
                             $serialize->addBody(
                                 '    (isset($this->' . $fieldDef->name .
                                 ') ? array_map(fn($x) => $x->typeSerialize(), $this->' . $fieldDef->name . ') : null),'
+                            );
+                        } elseif ('array_array' === $typeStyle) {
+                            $fromArray->addBody(
+                                '    (isset($array[\'' . $fieldDef->name .
+                                '\']) ? array_map(fn($x) => ' .
+                                'array_map(fn($y) => TdSchemaRegistry::fromArray($y), $x), $array[\'' .
+                                $fieldDef->name . '\']) : null),'
+                            );
+
+                            $serialize->addBody(
+                                '    (isset($this->' . $fieldDef->name .
+                                ') ? array_map(fn($x) => array_map(fn($y) => $y->typeSerialize(), $x), $this->' .
+                                $fieldDef->name . ') : null),'
                             );
                         } else {
                             $fromArray->addBody(
@@ -259,14 +280,24 @@ class CodeGenerator
                             );
                         }
                     } else {
-                        if ('array' === $type) {
+                        if ('array' === $typeStyle) {
                             $fromArray->addBody(
-                                '    array_map(fn($x) => ' . $rawType .
-                                '::fromArray($x), $array[\'' . $fieldDef->name . '\']),'
+                                '    array_map(fn($x) => TdSchemaRegistry::fromArray($x), $array[\'' .
+                                $fieldDef->name . '\']),'
                             );
 
                             $serialize->addBody(
                                 '    array_map(fn($x) => $x->typeSerialize(), $this->' . $fieldDef->name . '),'
+                            );
+                        } elseif ('array_array' === $typeStyle) {
+                            $fromArray->addBody(
+                                '    array_map(fn($x) => array_map(fn($y) => TdSchemaRegistry::fromArray($y), $x)' .
+                                ', $array[\'' . $fieldDef->name . '\']),'
+                            );
+
+                            $serialize->addBody(
+                                '    array_map(fn($x) => array_map(fn($y) => $y->typeSerialize(), $x), $this->' .
+                                $fieldDef->name . '),'
                             );
                         } else {
                             $fromArray->addBody(

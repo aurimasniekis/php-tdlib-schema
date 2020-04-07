@@ -39,7 +39,7 @@ class UserProfilePhotos extends TdObject
     {
         return new static(
             $array['total_count'],
-            array_map(fn ($x) => UserProfilePhoto::fromArray($x), $array['photos']),
+            array_map(fn ($x) => TdSchemaRegistry::fromArray($x), $array['photos']),
         );
     }
 

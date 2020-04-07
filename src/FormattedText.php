@@ -39,7 +39,7 @@ class FormattedText extends TdObject
     {
         return new static(
             $array['text'],
-            array_map(fn ($x) => TextEntity::fromArray($x), $array['entities']),
+            array_map(fn ($x) => TdSchemaRegistry::fromArray($x), $array['entities']),
         );
     }
 

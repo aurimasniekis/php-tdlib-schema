@@ -30,7 +30,7 @@ class GameHighScores extends TdObject
     public static function fromArray(array $array): GameHighScores
     {
         return new static(
-            array_map(fn ($x) => GameHighScore::fromArray($x), $array['scores']),
+            array_map(fn ($x) => TdSchemaRegistry::fromArray($x), $array['scores']),
         );
     }
 

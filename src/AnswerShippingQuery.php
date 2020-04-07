@@ -47,7 +47,7 @@ class AnswerShippingQuery extends TdFunction
     {
         return new static(
             $array['shipping_query_id'],
-            array_map(fn ($x) => ShippingOption::fromArray($x), $array['shippingOptions']),
+            array_map(fn ($x) => TdSchemaRegistry::fromArray($x), $array['shippingOptions']),
             $array['error_message'],
         );
     }

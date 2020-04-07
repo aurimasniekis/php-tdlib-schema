@@ -57,7 +57,7 @@ class SendMessageAlbum extends TdFunction
             $array['chat_id'],
             $array['reply_to_message_id'],
             TdSchemaRegistry::fromArray($array['options']),
-            array_map(fn ($x) => InputMessageContent::fromArray($x), $array['inputMessageContents']),
+            array_map(fn ($x) => TdSchemaRegistry::fromArray($x), $array['inputMessageContents']),
         );
     }
 

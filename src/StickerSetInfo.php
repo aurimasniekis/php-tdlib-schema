@@ -141,7 +141,7 @@ class StickerSetInfo extends TdObject
             $array['is_masks'],
             $array['is_viewed'],
             $array['size'],
-            array_map(fn ($x) => Sticker::fromArray($x), $array['covers']),
+            array_map(fn ($x) => TdSchemaRegistry::fromArray($x), $array['covers']),
         );
     }
 

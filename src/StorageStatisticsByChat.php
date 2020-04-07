@@ -57,7 +57,7 @@ class StorageStatisticsByChat extends TdObject
             $array['chat_id'],
             $array['size'],
             $array['count'],
-            array_map(fn ($x) => StorageStatisticsByFileType::fromArray($x), $array['byFileType']),
+            array_map(fn ($x) => TdSchemaRegistry::fromArray($x), $array['byFileType']),
         );
     }
 

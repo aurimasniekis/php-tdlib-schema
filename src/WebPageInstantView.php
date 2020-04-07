@@ -62,7 +62,7 @@ class WebPageInstantView extends TdObject
     public static function fromArray(array $array): WebPageInstantView
     {
         return new static(
-            array_map(fn ($x) => PageBlock::fromArray($x), $array['pageBlocks']),
+            array_map(fn ($x) => TdSchemaRegistry::fromArray($x), $array['pageBlocks']),
             $array['view_count'],
             $array['version'],
             $array['is_rtl'],

@@ -30,7 +30,7 @@ class Backgrounds extends TdObject
     public static function fromArray(array $array): Backgrounds
     {
         return new static(
-            array_map(fn ($x) => Background::fromArray($x), $array['backgrounds']),
+            array_map(fn ($x) => TdSchemaRegistry::fromArray($x), $array['backgrounds']),
         );
     }
 

@@ -57,7 +57,7 @@ class SendCallRating extends TdFunction
             $array['call_id'],
             $array['rating'],
             $array['comment'],
-            array_map(fn ($x) => CallProblem::fromArray($x), $array['problems']),
+            array_map(fn ($x) => TdSchemaRegistry::fromArray($x), $array['problems']),
         );
     }
 

@@ -32,7 +32,7 @@ class MessagePassportDataSent extends MessageContent
     public static function fromArray(array $array): MessagePassportDataSent
     {
         return new static(
-            array_map(fn ($x) => PassportElementType::fromArray($x), $array['types']),
+            array_map(fn ($x) => TdSchemaRegistry::fromArray($x), $array['types']),
         );
     }
 

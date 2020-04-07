@@ -140,8 +140,8 @@ class StickerSet extends TdObject
             $array['is_animated'],
             $array['is_masks'],
             $array['is_viewed'],
-            array_map(fn ($x) => Sticker::fromArray($x), $array['stickers']),
-            array_map(fn ($x) => Emojis::fromArray($x), $array['emojis']),
+            array_map(fn ($x) => TdSchemaRegistry::fromArray($x), $array['stickers']),
+            array_map(fn ($x) => TdSchemaRegistry::fromArray($x), $array['emojis']),
         );
     }
 

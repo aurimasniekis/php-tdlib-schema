@@ -48,7 +48,7 @@ class UserProfilePhoto extends TdObject
         return new static(
             $array['id'],
             $array['added_date'],
-            array_map(fn ($x) => PhotoSize::fromArray($x), $array['sizes']),
+            array_map(fn ($x) => TdSchemaRegistry::fromArray($x), $array['sizes']),
         );
     }
 

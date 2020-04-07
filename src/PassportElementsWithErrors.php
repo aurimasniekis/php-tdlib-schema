@@ -38,8 +38,8 @@ class PassportElementsWithErrors extends TdObject
     public static function fromArray(array $array): PassportElementsWithErrors
     {
         return new static(
-            array_map(fn ($x) => PassportElement::fromArray($x), $array['elements']),
-            array_map(fn ($x) => PassportElementError::fromArray($x), $array['errors']),
+            array_map(fn ($x) => TdSchemaRegistry::fromArray($x), $array['elements']),
+            array_map(fn ($x) => TdSchemaRegistry::fromArray($x), $array['errors']),
         );
     }
 

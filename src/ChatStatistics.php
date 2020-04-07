@@ -171,7 +171,7 @@ class ChatStatistics extends TdObject
             TdSchemaRegistry::fromArray($array['language_graph']),
             TdSchemaRegistry::fromArray($array['message_interaction_graph']),
             TdSchemaRegistry::fromArray($array['instant_view_interaction_graph']),
-            array_map(fn ($x) => ChatStatisticsMessageInteractionCounters::fromArray($x), $array['recentMessageInteractions']),
+            array_map(fn ($x) => TdSchemaRegistry::fromArray($x), $array['recentMessageInteractions']),
         );
     }
 

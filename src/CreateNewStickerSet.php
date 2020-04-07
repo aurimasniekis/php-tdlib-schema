@@ -66,7 +66,7 @@ class CreateNewStickerSet extends TdFunction
             $array['title'],
             $array['name'],
             $array['is_masks'],
-            array_map(fn ($x) => InputSticker::fromArray($x), $array['stickers']),
+            array_map(fn ($x) => TdSchemaRegistry::fromArray($x), $array['stickers']),
         );
     }
 

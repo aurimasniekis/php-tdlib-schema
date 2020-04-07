@@ -30,7 +30,7 @@ class TestCallVectorIntObject extends TdFunction
     public static function fromArray(array $array): TestCallVectorIntObject
     {
         return new static(
-            array_map(fn ($x) => TestInt::fromArray($x), $array['x']),
+            array_map(fn ($x) => TdSchemaRegistry::fromArray($x), $array['x']),
         );
     }
 

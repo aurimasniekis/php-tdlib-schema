@@ -73,7 +73,7 @@ class CallStateReady extends CallState
     {
         return new static(
             TdSchemaRegistry::fromArray($array['protocol']),
-            array_map(fn ($x) => CallConnection::fromArray($x), $array['connections']),
+            array_map(fn ($x) => TdSchemaRegistry::fromArray($x), $array['connections']),
             $array['config'],
             $array['encryption_key'],
             $array['emojis'],

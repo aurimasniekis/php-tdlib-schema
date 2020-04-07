@@ -39,7 +39,7 @@ class ValidatedOrderInfo extends TdObject
     {
         return new static(
             $array['order_info_id'],
-            array_map(fn ($x) => ShippingOption::fromArray($x), $array['shippingOptions']),
+            array_map(fn ($x) => TdSchemaRegistry::fromArray($x), $array['shippingOptions']),
         );
     }
 

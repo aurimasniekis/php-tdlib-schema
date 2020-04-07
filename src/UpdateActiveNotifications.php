@@ -32,7 +32,7 @@ class UpdateActiveNotifications extends Update
     public static function fromArray(array $array): UpdateActiveNotifications
     {
         return new static(
-            array_map(fn ($x) => NotificationGroup::fromArray($x), $array['groups']),
+            array_map(fn ($x) => TdSchemaRegistry::fromArray($x), $array['groups']),
         );
     }
 

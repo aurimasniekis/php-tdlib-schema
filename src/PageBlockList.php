@@ -32,7 +32,7 @@ class PageBlockList extends PageBlock
     public static function fromArray(array $array): PageBlockList
     {
         return new static(
-            array_map(fn ($x) => PageBlockListItem::fromArray($x), $array['items']),
+            array_map(fn ($x) => TdSchemaRegistry::fromArray($x), $array['items']),
         );
     }
 

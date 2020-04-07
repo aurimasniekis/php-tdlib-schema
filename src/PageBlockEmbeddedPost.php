@@ -76,7 +76,7 @@ class PageBlockEmbeddedPost extends PageBlock
             $array['author'],
             (isset($array['author_photo']) ? TdSchemaRegistry::fromArray($array['author_photo']) : null),
             $array['date'],
-            array_map(fn ($x) => PageBlock::fromArray($x), $array['pageBlocks']),
+            array_map(fn ($x) => TdSchemaRegistry::fromArray($x), $array['pageBlocks']),
             TdSchemaRegistry::fromArray($array['caption']),
         );
     }

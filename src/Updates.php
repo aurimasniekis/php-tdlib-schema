@@ -30,7 +30,7 @@ class Updates extends TdObject
     public static function fromArray(array $array): Updates
     {
         return new static(
-            array_map(fn ($x) => Update::fromArray($x), $array['updates']),
+            array_map(fn ($x) => TdSchemaRegistry::fromArray($x), $array['updates']),
         );
     }
 

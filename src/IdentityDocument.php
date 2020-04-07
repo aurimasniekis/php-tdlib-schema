@@ -75,7 +75,7 @@ class IdentityDocument extends TdObject
             TdSchemaRegistry::fromArray($array['front_side']),
             TdSchemaRegistry::fromArray($array['reverse_side']),
             (isset($array['selfie']) ? TdSchemaRegistry::fromArray($array['selfie']) : null),
-            array_map(fn ($x) => DatedFile::fromArray($x), $array['translation']),
+            array_map(fn ($x) => TdSchemaRegistry::fromArray($x), $array['translation']),
         );
     }
 

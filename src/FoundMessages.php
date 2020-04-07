@@ -38,7 +38,7 @@ class FoundMessages extends TdObject
     public static function fromArray(array $array): FoundMessages
     {
         return new static(
-            array_map(fn ($x) => Message::fromArray($x), $array['messages']),
+            array_map(fn ($x) => TdSchemaRegistry::fromArray($x), $array['messages']),
             $array['next_from_search_id'],
         );
     }

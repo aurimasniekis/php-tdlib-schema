@@ -30,7 +30,7 @@ class TMeUrls extends TdObject
     public static function fromArray(array $array): TMeUrls
     {
         return new static(
-            array_map(fn ($x) => TMeUrl::fromArray($x), $array['urls']),
+            array_map(fn ($x) => TdSchemaRegistry::fromArray($x), $array['urls']),
         );
     }
 

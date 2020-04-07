@@ -32,7 +32,7 @@ class JsonValueArray extends JsonValue
     public static function fromArray(array $array): JsonValueArray
     {
         return new static(
-            array_map(fn ($x) => JsonValue::fromArray($x), $array['values']),
+            array_map(fn ($x) => TdSchemaRegistry::fromArray($x), $array['values']),
         );
     }
 

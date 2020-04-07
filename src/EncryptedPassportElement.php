@@ -108,8 +108,8 @@ class EncryptedPassportElement extends TdObject
             TdSchemaRegistry::fromArray($array['front_side']),
             (isset($array['reverse_side']) ? TdSchemaRegistry::fromArray($array['reverse_side']) : null),
             (isset($array['selfie']) ? TdSchemaRegistry::fromArray($array['selfie']) : null),
-            array_map(fn ($x) => DatedFile::fromArray($x), $array['translation']),
-            array_map(fn ($x) => DatedFile::fromArray($x), $array['files']),
+            array_map(fn ($x) => TdSchemaRegistry::fromArray($x), $array['translation']),
+            array_map(fn ($x) => TdSchemaRegistry::fromArray($x), $array['files']),
             $array['value'],
             $array['hash'],
         );

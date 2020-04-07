@@ -96,7 +96,7 @@ class Poll extends TdObject
         return new static(
             $array['id'],
             $array['question'],
-            array_map(fn ($x) => PollOption::fromArray($x), $array['options']),
+            array_map(fn ($x) => TdSchemaRegistry::fromArray($x), $array['options']),
             $array['total_voter_count'],
             $array['recent_voter_user_ids'],
             $array['is_anonymous'],

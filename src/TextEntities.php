@@ -30,7 +30,7 @@ class TextEntities extends TdObject
     public static function fromArray(array $array): TextEntities
     {
         return new static(
-            array_map(fn ($x) => TextEntity::fromArray($x), $array['entities']),
+            array_map(fn ($x) => TdSchemaRegistry::fromArray($x), $array['entities']),
         );
     }
 

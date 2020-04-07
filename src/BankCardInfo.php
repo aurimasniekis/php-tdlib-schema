@@ -39,7 +39,7 @@ class BankCardInfo extends TdObject
     {
         return new static(
             $array['title'],
-            array_map(fn ($x) => BankCardActionOpenUrl::fromArray($x), $array['actions']),
+            array_map(fn ($x) => TdSchemaRegistry::fromArray($x), $array['actions']),
         );
     }
 

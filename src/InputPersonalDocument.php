@@ -38,8 +38,8 @@ class InputPersonalDocument extends TdObject
     public static function fromArray(array $array): InputPersonalDocument
     {
         return new static(
-            array_map(fn ($x) => InputFile::fromArray($x), $array['files']),
-            array_map(fn ($x) => InputFile::fromArray($x), $array['translation']),
+            array_map(fn ($x) => TdSchemaRegistry::fromArray($x), $array['files']),
+            array_map(fn ($x) => TdSchemaRegistry::fromArray($x), $array['translation']),
         );
     }
 

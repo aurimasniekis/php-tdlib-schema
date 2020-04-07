@@ -113,7 +113,7 @@ class Invoice extends TdObject
     {
         return new static(
             $array['currency'],
-            array_map(fn ($x) => LabeledPricePart::fromArray($x), $array['priceParts']),
+            array_map(fn ($x) => TdSchemaRegistry::fromArray($x), $array['priceParts']),
             $array['is_test'],
             $array['need_name'],
             $array['need_phone_number'],

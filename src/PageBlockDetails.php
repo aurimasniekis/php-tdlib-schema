@@ -49,7 +49,7 @@ class PageBlockDetails extends PageBlock
     {
         return new static(
             TdSchemaRegistry::fromArray($array['header']),
-            array_map(fn ($x) => PageBlock::fromArray($x), $array['pageBlocks']),
+            array_map(fn ($x) => TdSchemaRegistry::fromArray($x), $array['pageBlocks']),
             $array['is_open'],
         );
     }

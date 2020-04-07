@@ -40,7 +40,7 @@ class PageBlockCollage extends PageBlock
     public static function fromArray(array $array): PageBlockCollage
     {
         return new static(
-            array_map(fn ($x) => PageBlock::fromArray($x), $array['pageBlocks']),
+            array_map(fn ($x) => TdSchemaRegistry::fromArray($x), $array['pageBlocks']),
             TdSchemaRegistry::fromArray($array['caption']),
         );
     }

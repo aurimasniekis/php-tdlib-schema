@@ -30,7 +30,7 @@ class Stickers extends TdObject
     public static function fromArray(array $array): Stickers
     {
         return new static(
-            array_map(fn ($x) => Sticker::fromArray($x), $array['stickers']),
+            array_map(fn ($x) => TdSchemaRegistry::fromArray($x), $array['stickers']),
         );
     }
 

@@ -53,9 +53,9 @@ class WebPage extends TdObject
     /**
      * Description of the content.
      *
-     * @var FormattedText
+     * @var string
      */
-    protected FormattedText $description;
+    protected string $description;
 
     /**
      * Image representing the content; may be null.
@@ -168,7 +168,7 @@ class WebPage extends TdObject
         string $type,
         string $siteName,
         string $title,
-        FormattedText $description,
+        string $description,
         ?Photo $photo,
         string $embedUrl,
         string $embedType,
@@ -216,7 +216,7 @@ class WebPage extends TdObject
             $array['type'],
             $array['site_name'],
             $array['title'],
-            TdSchemaRegistry::fromArray($array['description']),
+            $array['description'],
             (isset($array['photo']) ? TdSchemaRegistry::fromArray($array['photo']) : null),
             $array['embed_url'],
             $array['embed_type'],
@@ -244,7 +244,7 @@ class WebPage extends TdObject
             'type'                 => $this->type,
             'site_name'            => $this->siteName,
             'title'                => $this->title,
-            'description'          => $this->description->typeSerialize(),
+            'description'          => $this->description,
             'photo'                => (isset($this->photo) ? $this->photo : null),
             'embed_url'            => $this->embedUrl,
             'embed_type'           => $this->embedType,
@@ -288,7 +288,7 @@ class WebPage extends TdObject
         return $this->title;
     }
 
-    public function getDescription(): FormattedText
+    public function getDescription(): string
     {
         return $this->description;
     }

@@ -39,7 +39,7 @@ class SendPassportAuthorizationForm extends TdFunction
     {
         return new static(
             $array['autorization_form_id'],
-            array_map(fn ($x) => PassportElementType::fromArray($x), $array['types']),
+            array_map(fn ($x) => TdSchemaRegistry::fromArray($x), $array['types']),
         );
     }
 

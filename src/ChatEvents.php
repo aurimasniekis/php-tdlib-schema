@@ -30,7 +30,7 @@ class ChatEvents extends TdObject
     public static function fromArray(array $array): ChatEvents
     {
         return new static(
-            array_map(fn ($x) => ChatEvent::fromArray($x), $array['events']),
+            array_map(fn ($x) => TdSchemaRegistry::fromArray($x), $array['events']),
         );
     }
 

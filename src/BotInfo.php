@@ -39,7 +39,7 @@ class BotInfo extends TdObject
     {
         return new static(
             $array['description'],
-            array_map(fn ($x) => BotCommand::fromArray($x), $array['commands']),
+            array_map(fn ($x) => TdSchemaRegistry::fromArray($x), $array['commands']),
         );
     }
 

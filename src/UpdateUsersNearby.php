@@ -32,7 +32,7 @@ class UpdateUsersNearby extends Update
     public static function fromArray(array $array): UpdateUsersNearby
     {
         return new static(
-            array_map(fn ($x) => ChatNearby::fromArray($x), $array['usersNearby']),
+            array_map(fn ($x) => TdSchemaRegistry::fromArray($x), $array['usersNearby']),
         );
     }
 

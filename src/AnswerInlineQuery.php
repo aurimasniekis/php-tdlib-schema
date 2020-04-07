@@ -87,7 +87,7 @@ class AnswerInlineQuery extends TdFunction
         return new static(
             $array['inline_query_id'],
             $array['is_personal'],
-            array_map(fn ($x) => InputInlineQueryResult::fromArray($x), $array['results']),
+            array_map(fn ($x) => TdSchemaRegistry::fromArray($x), $array['results']),
             $array['cache_time'],
             $array['next_offset'],
             $array['switch_pm_text'],

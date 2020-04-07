@@ -64,7 +64,7 @@ class InlineQueryResults extends TdObject
         return new static(
             $array['inline_query_id'],
             $array['next_offset'],
-            array_map(fn ($x) => InlineQueryResult::fromArray($x), $array['results']),
+            array_map(fn ($x) => TdSchemaRegistry::fromArray($x), $array['results']),
             $array['switch_pm_text'],
             $array['switch_pm_parameter'],
         );

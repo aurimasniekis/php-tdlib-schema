@@ -102,7 +102,7 @@ class UpdateNotificationGroup extends Update
             $array['notification_settings_chat_id'],
             $array['is_silent'],
             $array['total_count'],
-            array_map(fn ($x) => Notification::fromArray($x), $array['addedNotifications']),
+            array_map(fn ($x) => TdSchemaRegistry::fromArray($x), $array['addedNotifications']),
             $array['removed_notification_ids'],
         );
     }

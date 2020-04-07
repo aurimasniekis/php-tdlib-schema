@@ -107,7 +107,7 @@ class OptimizeStorage extends TdFunction
             $array['ttl'],
             $array['count'],
             $array['immunity_delay'],
-            array_map(fn ($x) => FileType::fromArray($x), $array['fileTypes']),
+            array_map(fn ($x) => TdSchemaRegistry::fromArray($x), $array['fileTypes']),
             $array['chat_ids'],
             $array['exclude_chat_ids'],
             $array['return_deleted_file_statistics'],

@@ -30,7 +30,7 @@ class PassportRequiredElement extends TdObject
     public static function fromArray(array $array): PassportRequiredElement
     {
         return new static(
-            array_map(fn ($x) => PassportSuitableElement::fromArray($x), $array['suitableElements']),
+            array_map(fn ($x) => TdSchemaRegistry::fromArray($x), $array['suitableElements']),
         );
     }
 

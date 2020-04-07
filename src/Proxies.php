@@ -30,7 +30,7 @@ class Proxies extends TdObject
     public static function fromArray(array $array): Proxies
     {
         return new static(
-            array_map(fn ($x) => Proxy::fromArray($x), $array['proxies']),
+            array_map(fn ($x) => TdSchemaRegistry::fromArray($x), $array['proxies']),
         );
     }
 

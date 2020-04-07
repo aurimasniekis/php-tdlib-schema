@@ -30,7 +30,7 @@ class Animations extends TdObject
     public static function fromArray(array $array): Animations
     {
         return new static(
-            array_map(fn ($x) => Animation::fromArray($x), $array['animations']),
+            array_map(fn ($x) => TdSchemaRegistry::fromArray($x), $array['animations']),
         );
     }
 

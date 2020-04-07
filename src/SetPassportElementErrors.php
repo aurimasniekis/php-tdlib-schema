@@ -39,7 +39,7 @@ class SetPassportElementErrors extends TdFunction
     {
         return new static(
             $array['user_id'],
-            array_map(fn ($x) => InputPassportElementError::fromArray($x), $array['errors']),
+            array_map(fn ($x) => TdSchemaRegistry::fromArray($x), $array['errors']),
         );
     }
 

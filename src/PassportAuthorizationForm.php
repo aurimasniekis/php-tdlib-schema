@@ -47,7 +47,7 @@ class PassportAuthorizationForm extends TdObject
     {
         return new static(
             $array['id'],
-            array_map(fn ($x) => PassportRequiredElement::fromArray($x), $array['requiredElements']),
+            array_map(fn ($x) => TdSchemaRegistry::fromArray($x), $array['requiredElements']),
             $array['privacy_policy_url'],
         );
     }

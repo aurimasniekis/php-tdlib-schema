@@ -48,7 +48,7 @@ class StorageStatistics extends TdObject
         return new static(
             $array['size'],
             $array['count'],
-            array_map(fn ($x) => StorageStatisticsByChat::fromArray($x), $array['byChat']),
+            array_map(fn ($x) => TdSchemaRegistry::fromArray($x), $array['byChat']),
         );
     }
 

@@ -50,7 +50,7 @@ class UpdateLanguagePackStrings extends Update
         return new static(
             $array['localization_target'],
             $array['language_pack_id'],
-            array_map(fn ($x) => LanguagePackString::fromArray($x), $array['strings']),
+            array_map(fn ($x) => TdSchemaRegistry::fromArray($x), $array['strings']),
         );
     }
 
