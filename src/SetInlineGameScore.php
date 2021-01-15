@@ -17,36 +17,26 @@ class SetInlineGameScore extends TdFunction
 
     /**
      * Inline message identifier.
-     *
-     * @var string
      */
     protected string $inlineMessageId;
 
     /**
      * True, if the message should be edited.
-     *
-     * @var bool
      */
     protected bool $editMessage;
 
     /**
      * User identifier.
-     *
-     * @var int
      */
     protected int $userId;
 
     /**
      * The new score.
-     *
-     * @var int
      */
     protected int $score;
 
     /**
      * Pass true to update the score even if it decreases. If the score is 0, the user will be deleted from the high score table.
-     *
-     * @var bool
      */
     protected bool $force;
 

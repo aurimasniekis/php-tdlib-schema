@@ -17,8 +17,6 @@ class PageBlockParagraph extends PageBlock
 
     /**
      * Paragraph text.
-     *
-     * @var RichText
      */
     protected RichText $text;
 

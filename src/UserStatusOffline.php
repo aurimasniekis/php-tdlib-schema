@@ -17,8 +17,6 @@ class UserStatusOffline extends UserStatus
 
     /**
      * Point in time (Unix timestamp) when the user was last online.
-     *
-     * @var int
      */
     protected int $wasOnline;
 

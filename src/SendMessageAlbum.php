@@ -9,7 +9,7 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Sends messages grouped together into an album. Currently only photo and video messages can be grouped into an album. Returns sent messages.
+ * Sends messages grouped together into an album. Currently only audio, document, photo and video messages can be grouped into an album. Documents and audio files can be only grouped in an album with messages of the same type. Returns sent messages.
  */
 class SendMessageAlbum extends TdFunction
 {
@@ -17,24 +17,23 @@ class SendMessageAlbum extends TdFunction
 
     /**
      * Target chat.
-     *
-     * @var int
      */
     protected int $chatId;
 
     /**
+     * If not 0, a message thread identifier in which the messages will be sent.
+     */
+    protected int $messageThreadId;
+
+    /**
      * Identifier of a message to reply to or 0.
-     *
-     * @var int
      */
     protected int $replyToMessageId;
 
     /**
      * Options to be used to send the messages.
-     *
-     * @var SendMessageOptions
      */
-    protected SendMessageOptions $options;
+    protected MessageSendOptions $options;
 
     /**
      * Contents of messages to be sent.
@@ -43,9 +42,10 @@ class SendMessageAlbum extends TdFunction
      */
     protected array $inputMessageContents;
 
-    public function __construct(int $chatId, int $replyToMessageId, SendMessageOptions $options, array $inputMessageContents)
+    public function __construct(int $chatId, int $messageThreadId, int $replyToMessageId, MessageSendOptions $options, array $inputMessageContents)
     {
         $this->chatId               = $chatId;
+        $this->messageThreadId      = $messageThreadId;
         $this->replyToMessageId     = $replyToMessageId;
         $this->options              = $options;
         $this->inputMessageContents = $inputMessageContents;
@@ -55,9 +55,10 @@ class SendMessageAlbum extends TdFunction
     {
         return new static(
             $array['chat_id'],
+            $array['message_thread_id'],
             $array['reply_to_message_id'],
             TdSchemaRegistry::fromArray($array['options']),
-            array_map(fn ($x) => TdSchemaRegistry::fromArray($x), $array['inputMessageContents']),
+            array_map(fn ($x) => TdSchemaRegistry::fromArray($x), $array['input_message_contents']),
         );
     }
 
@@ -66,6 +67,7 @@ class SendMessageAlbum extends TdFunction
         return [
             '@type'               => static::TYPE_NAME,
             'chat_id'             => $this->chatId,
+            'message_thread_id'   => $this->messageThreadId,
             'reply_to_message_id' => $this->replyToMessageId,
             'options'             => $this->options->typeSerialize(),
             array_map(fn ($x)     => $x->typeSerialize(), $this->inputMessageContents),
@@ -77,12 +79,17 @@ class SendMessageAlbum extends TdFunction
         return $this->chatId;
     }
 
+    public function getMessageThreadId(): int
+    {
+        return $this->messageThreadId;
+    }
+
     public function getReplyToMessageId(): int
     {
         return $this->replyToMessageId;
     }
 
-    public function getOptions(): SendMessageOptions
+    public function getOptions(): MessageSendOptions
     {
         return $this->options;
     }

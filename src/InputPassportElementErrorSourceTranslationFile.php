@@ -17,8 +17,6 @@ class InputPassportElementErrorSourceTranslationFile extends InputPassportElemen
 
     /**
      * Current hash of the file containing the translation.
-     *
-     * @var string
      */
     protected string $fileHash;
 

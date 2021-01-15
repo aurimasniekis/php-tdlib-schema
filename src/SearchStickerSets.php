@@ -17,8 +17,6 @@ class SearchStickerSets extends TdFunction
 
     /**
      * Query to search for.
-     *
-     * @var string
      */
     protected string $query;
 

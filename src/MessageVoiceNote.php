@@ -17,22 +17,16 @@ class MessageVoiceNote extends MessageContent
 
     /**
      * The voice note description.
-     *
-     * @var VoiceNote
      */
     protected VoiceNote $voiceNote;
 
     /**
      * Voice note caption.
-     *
-     * @var FormattedText
      */
     protected FormattedText $caption;
 
     /**
      * True, if at least one of the recipients has listened to the voice note.
-     *
-     * @var bool
      */
     protected bool $isListened;
 

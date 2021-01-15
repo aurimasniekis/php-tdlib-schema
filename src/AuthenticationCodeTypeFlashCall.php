@@ -17,8 +17,6 @@ class AuthenticationCodeTypeFlashCall extends AuthenticationCodeType
 
     /**
      * Pattern of the phone number from which the call will be made.
-     *
-     * @var string
      */
     protected string $pattern;
 

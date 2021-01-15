@@ -17,15 +17,11 @@ class PushMessageContentVideoNote extends PushMessageContent
 
     /**
      * Message content; may be null.
-     *
-     * @var VideoNote|null
      */
     protected ?VideoNote $videoNote;
 
     /**
      * True, if the message is a pinned message with the specified content.
-     *
-     * @var bool
      */
     protected bool $isPinned;
 

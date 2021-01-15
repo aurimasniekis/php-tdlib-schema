@@ -17,36 +17,26 @@ class BasicGroup extends TdObject
 
     /**
      * Group identifier.
-     *
-     * @var int
      */
     protected int $id;
 
     /**
      * Number of members in the group.
-     *
-     * @var int
      */
     protected int $memberCount;
 
     /**
      * Status of the current user in the group.
-     *
-     * @var ChatMemberStatus
      */
     protected ChatMemberStatus $status;
 
     /**
      * True, if the group is active.
-     *
-     * @var bool
      */
     protected bool $isActive;
 
     /**
      * Identifier of the supergroup to which this group was upgraded; 0 if none.
-     *
-     * @var int
      */
     protected int $upgradedToSupergroupId;
 

@@ -17,71 +17,51 @@ class StickerSet extends TdObject
 
     /**
      * Identifier of the sticker set.
-     *
-     * @var string
      */
     protected string $id;
 
     /**
      * Title of the sticker set.
-     *
-     * @var string
      */
     protected string $title;
 
     /**
      * Name of the sticker set.
-     *
-     * @var string
      */
     protected string $name;
 
     /**
-     * Sticker set thumbnail in WEBP format with width and height 100; may be null. The file can be downloaded only before the thumbnail is changed.
-     *
-     * @var PhotoSize|null
+     * Sticker set thumbnail in WEBP or TGS format with width and height 100; may be null. The file can be downloaded only before the thumbnail is changed.
      */
-    protected ?PhotoSize $thumbnail;
+    protected ?Thumbnail $thumbnail;
 
     /**
      * True, if the sticker set has been installed by the current user.
-     *
-     * @var bool
      */
     protected bool $isInstalled;
 
     /**
      * True, if the sticker set has been archived. A sticker set can't be installed and archived simultaneously.
-     *
-     * @var bool
      */
     protected bool $isArchived;
 
     /**
      * True, if the sticker set is official.
-     *
-     * @var bool
      */
     protected bool $isOfficial;
 
     /**
      * True, is the stickers in the set are animated.
-     *
-     * @var bool
      */
     protected bool $isAnimated;
 
     /**
      * True, if the stickers in the set are masks.
-     *
-     * @var bool
      */
     protected bool $isMasks;
 
     /**
      * True for already viewed trending sticker sets.
-     *
-     * @var bool
      */
     protected bool $isViewed;
 
@@ -103,7 +83,7 @@ class StickerSet extends TdObject
         string $id,
         string $title,
         string $name,
-        ?PhotoSize $thumbnail,
+        ?Thumbnail $thumbnail,
         bool $isInstalled,
         bool $isArchived,
         bool $isOfficial,
@@ -179,7 +159,7 @@ class StickerSet extends TdObject
         return $this->name;
     }
 
-    public function getThumbnail(): ?PhotoSize
+    public function getThumbnail(): ?Thumbnail
     {
         return $this->thumbnail;
     }

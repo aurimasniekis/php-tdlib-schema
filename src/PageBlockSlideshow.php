@@ -24,8 +24,6 @@ class PageBlockSlideshow extends PageBlock
 
     /**
      * Block caption.
-     *
-     * @var PageBlockCaption
      */
     protected PageBlockCaption $caption;
 
@@ -40,7 +38,7 @@ class PageBlockSlideshow extends PageBlock
     public static function fromArray(array $array): PageBlockSlideshow
     {
         return new static(
-            array_map(fn ($x) => TdSchemaRegistry::fromArray($x), $array['pageBlocks']),
+            array_map(fn ($x) => TdSchemaRegistry::fromArray($x), $array['page_blocks']),
             TdSchemaRegistry::fromArray($array['caption']),
         );
     }

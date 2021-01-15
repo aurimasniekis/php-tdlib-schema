@@ -17,29 +17,21 @@ class InputMessageSticker extends InputMessageContent
 
     /**
      * Sticker to be sent.
-     *
-     * @var InputFile
      */
     protected InputFile $sticker;
 
     /**
      * Sticker thumbnail, if available.
-     *
-     * @var InputThumbnail
      */
     protected InputThumbnail $thumbnail;
 
     /**
      * Sticker width.
-     *
-     * @var int
      */
     protected int $width;
 
     /**
      * Sticker height.
-     *
-     * @var int
      */
     protected int $height;
 

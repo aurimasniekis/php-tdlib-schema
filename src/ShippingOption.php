@@ -17,15 +17,11 @@ class ShippingOption extends TdObject
 
     /**
      * Shipping option identifier.
-     *
-     * @var string
      */
     protected string $id;
 
     /**
      * Option title.
-     *
-     * @var string
      */
     protected string $title;
 
@@ -48,7 +44,7 @@ class ShippingOption extends TdObject
         return new static(
             $array['id'],
             $array['title'],
-            array_map(fn ($x) => TdSchemaRegistry::fromArray($x), $array['priceParts']),
+            array_map(fn ($x) => TdSchemaRegistry::fromArray($x), $array['price_parts']),
         );
     }
 

@@ -23,23 +23,17 @@ class ReplyMarkupShowKeyboard extends ReplyMarkup
     protected array $rows;
 
     /**
-     * True, if the client needs to resize the keyboard vertically.
-     *
-     * @var bool
+     * True, if the application needs to resize the keyboard vertically.
      */
     protected bool $resizeKeyboard;
 
     /**
-     * True, if the client needs to hide the keyboard after use.
-     *
-     * @var bool
+     * True, if the application needs to hide the keyboard after use.
      */
     protected bool $oneTime;
 
     /**
      * True, if the keyboard must automatically be shown to the current user. For outgoing messages, specify true to show the keyboard only for the mentioned users and for the target user of a reply.
-     *
-     * @var bool
      */
     protected bool $isPersonal;
 

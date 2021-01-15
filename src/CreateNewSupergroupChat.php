@@ -17,29 +17,21 @@ class CreateNewSupergroupChat extends TdFunction
 
     /**
      * Title of the new chat; 1-128 characters.
-     *
-     * @var string
      */
     protected string $title;
 
     /**
      * True, if a channel chat should be created.
-     *
-     * @var bool
      */
     protected bool $isChannel;
 
     /**
      * Chat description; 0-255 characters.
-     *
-     * @var string
      */
     protected string $description;
 
     /**
      * Chat location if a location-based supergroup is being created.
-     *
-     * @var ChatLocation
      */
     protected ChatLocation $location;
 

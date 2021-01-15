@@ -17,15 +17,11 @@ class Poll extends TdObject
 
     /**
      * Unique poll identifier.
-     *
-     * @var string
      */
     protected string $id;
 
     /**
-     * Poll question, 1-255 characters.
-     *
-     * @var string
+     * Poll question, 1-300 characters.
      */
     protected string $question;
 
@@ -38,8 +34,6 @@ class Poll extends TdObject
 
     /**
      * Total number of voters, participating in the poll.
-     *
-     * @var int
      */
     protected int $totalVoterCount;
 
@@ -52,22 +46,26 @@ class Poll extends TdObject
 
     /**
      * True, if the poll is anonymous.
-     *
-     * @var bool
      */
     protected bool $isAnonymous;
 
     /**
      * Type of the poll.
-     *
-     * @var PollType
      */
     protected PollType $type;
 
     /**
+     * Amount of time the poll will be active after creation, in seconds.
+     */
+    protected int $openPeriod;
+
+    /**
+     * Point in time (Unix timestamp) when the poll will be automatically closed.
+     */
+    protected int $closeDate;
+
+    /**
      * True, if the poll is closed.
-     *
-     * @var bool
      */
     protected bool $isClosed;
 
@@ -79,6 +77,8 @@ class Poll extends TdObject
         array $recentVoterUserIds,
         bool $isAnonymous,
         PollType $type,
+        int $openPeriod,
+        int $closeDate,
         bool $isClosed
     ) {
         $this->id                 = $id;
@@ -88,6 +88,8 @@ class Poll extends TdObject
         $this->recentVoterUserIds = $recentVoterUserIds;
         $this->isAnonymous        = $isAnonymous;
         $this->type               = $type;
+        $this->openPeriod         = $openPeriod;
+        $this->closeDate          = $closeDate;
         $this->isClosed           = $isClosed;
     }
 
@@ -101,6 +103,8 @@ class Poll extends TdObject
             $array['recent_voter_user_ids'],
             $array['is_anonymous'],
             TdSchemaRegistry::fromArray($array['type']),
+            $array['open_period'],
+            $array['close_date'],
             $array['is_closed'],
         );
     }
@@ -116,6 +120,8 @@ class Poll extends TdObject
             'recent_voter_user_ids' => $this->recentVoterUserIds,
             'is_anonymous'          => $this->isAnonymous,
             'type'                  => $this->type->typeSerialize(),
+            'open_period'           => $this->openPeriod,
+            'close_date'            => $this->closeDate,
             'is_closed'             => $this->isClosed,
         ];
     }
@@ -153,6 +159,16 @@ class Poll extends TdObject
     public function getType(): PollType
     {
         return $this->type;
+    }
+
+    public function getOpenPeriod(): int
+    {
+        return $this->openPeriod;
+    }
+
+    public function getCloseDate(): int
+    {
+        return $this->closeDate;
     }
 
     public function getIsClosed(): bool

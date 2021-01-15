@@ -17,15 +17,11 @@ class MessageAudio extends MessageContent
 
     /**
      * The audio description.
-     *
-     * @var Audio
      */
     protected Audio $audio;
 
     /**
      * Audio caption.
-     *
-     * @var FormattedText
      */
     protected FormattedText $caption;
 

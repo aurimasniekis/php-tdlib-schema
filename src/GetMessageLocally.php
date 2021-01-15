@@ -17,15 +17,11 @@ class GetMessageLocally extends TdFunction
 
     /**
      * Identifier of the chat the message belongs to.
-     *
-     * @var int
      */
     protected int $chatId;
 
     /**
      * Identifier of the message to get.
-     *
-     * @var int
      */
     protected int $messageId;
 

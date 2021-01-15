@@ -17,15 +17,11 @@ class PushMessageContentLocation extends PushMessageContent
 
     /**
      * True, if the location is live.
-     *
-     * @var bool
      */
     protected bool $isLive;
 
     /**
      * True, if the message is a pinned message with the specified content.
-     *
-     * @var bool
      */
     protected bool $isPinned;
 

@@ -17,22 +17,16 @@ class StorageStatisticsByChat extends TdObject
 
     /**
      * Chat identifier; 0 if none.
-     *
-     * @var int
      */
     protected int $chatId;
 
     /**
      * Total size of the files in the chat.
-     *
-     * @var int
      */
     protected int $size;
 
     /**
      * Total number of files in the chat.
-     *
-     * @var int
      */
     protected int $count;
 
@@ -57,7 +51,7 @@ class StorageStatisticsByChat extends TdObject
             $array['chat_id'],
             $array['size'],
             $array['count'],
-            array_map(fn ($x) => TdSchemaRegistry::fromArray($x), $array['byFileType']),
+            array_map(fn ($x) => TdSchemaRegistry::fromArray($x), $array['by_file_type']),
         );
     }
 

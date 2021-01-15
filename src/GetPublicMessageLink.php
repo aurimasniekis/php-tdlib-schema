@@ -17,22 +17,16 @@ class GetPublicMessageLink extends TdFunction
 
     /**
      * Identifier of the chat to which the message belongs.
-     *
-     * @var int
      */
     protected int $chatId;
 
     /**
      * Identifier of the message.
-     *
-     * @var int
      */
     protected int $messageId;
 
     /**
      * Pass true if a link for a whole media album should be returned.
-     *
-     * @var bool
      */
     protected bool $forAlbum;
 

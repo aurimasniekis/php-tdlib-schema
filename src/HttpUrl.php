@@ -17,8 +17,6 @@ class HttpUrl extends TdObject
 
     /**
      * The URL.
-     *
-     * @var string
      */
     protected string $url;
 

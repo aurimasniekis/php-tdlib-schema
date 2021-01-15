@@ -17,8 +17,6 @@ class SetAccountTtl extends TdFunction
 
     /**
      * New account TTL.
-     *
-     * @var AccountTtl
      */
     protected AccountTtl $ttl;
 

@@ -17,15 +17,11 @@ class UpdateScopeNotificationSettings extends Update
 
     /**
      * Types of chats for which notification settings were updated.
-     *
-     * @var NotificationSettingsScope
      */
     protected NotificationSettingsScope $scope;
 
     /**
      * The new notification settings.
-     *
-     * @var ScopeNotificationSettings
      */
     protected ScopeNotificationSettings $notificationSettings;
 

@@ -17,36 +17,26 @@ class GetPollVoters extends TdFunction
 
     /**
      * Identifier of the chat to which the poll belongs.
-     *
-     * @var int
      */
     protected int $chatId;
 
     /**
      * Identifier of the message containing the poll.
-     *
-     * @var int
      */
     protected int $messageId;
 
     /**
      * 0-based identifier of the answer option.
-     *
-     * @var int
      */
     protected int $optionId;
 
     /**
      * Number of users to skip in the result; must be non-negative.
-     *
-     * @var int
      */
     protected int $offset;
 
     /**
      * The maximum number of users to be returned; must be positive and can't be greater than 50. Fewer users may be returned than specified by the limit, even if the end of the voter list has not been reached.
-     *
-     * @var int
      */
     protected int $limit;
 

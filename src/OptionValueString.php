@@ -17,8 +17,6 @@ class OptionValueString extends OptionValue
 
     /**
      * The value of the option.
-     *
-     * @var string
      */
     protected string $value;
 
@@ -32,7 +30,7 @@ class OptionValueString extends OptionValue
     public static function fromArray(array $array): OptionValueString
     {
         return new static(
-            strval($array['value']),
+            $array['value'],
         );
     }
 

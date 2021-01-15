@@ -9,7 +9,7 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * The payload from a general callback button.
+ * The payload for a general callback button.
  */
 class CallbackQueryPayloadData extends CallbackQueryPayload
 {
@@ -17,8 +17,6 @@ class CallbackQueryPayloadData extends CallbackQueryPayload
 
     /**
      * Data that was attached to the callback button.
-     *
-     * @var string
      */
     protected string $data;
 

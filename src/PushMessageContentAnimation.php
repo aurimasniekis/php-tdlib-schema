@@ -17,22 +17,16 @@ class PushMessageContentAnimation extends PushMessageContent
 
     /**
      * Message content; may be null.
-     *
-     * @var Animation|null
      */
     protected ?Animation $animation;
 
     /**
      * Animation caption.
-     *
-     * @var string
      */
     protected string $caption;
 
     /**
      * True, if the message is a pinned message with the specified content.
-     *
-     * @var bool
      */
     protected bool $isPinned;
 

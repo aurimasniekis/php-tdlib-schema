@@ -17,8 +17,6 @@ class GetFile extends TdFunction
 
     /**
      * Identifier of the file to get.
-     *
-     * @var int
      */
     protected int $fileId;
 

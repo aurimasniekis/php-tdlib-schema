@@ -17,15 +17,11 @@ class AddRecentSticker extends TdFunction
 
     /**
      * Pass true to add the sticker to the list of stickers recently attached to photo or video files; pass false to add the sticker to the list of recently sent stickers.
-     *
-     * @var bool
      */
     protected bool $isAttached;
 
     /**
      * Sticker file to add.
-     *
-     * @var InputFile
      */
     protected InputFile $sticker;
 

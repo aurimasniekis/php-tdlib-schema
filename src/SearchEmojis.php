@@ -17,30 +17,26 @@ class SearchEmojis extends TdFunction
 
     /**
      * Text to search for.
-     *
-     * @var string
      */
     protected string $text;
 
     /**
      * True, if only emojis, which exactly match text needs to be returned.
-     *
-     * @var bool
      */
     protected bool $exactMatch;
 
     /**
-     * IETF language tag of the user's input language; may be empty if unknown.
+     * List of possible IETF language tags of the user's input language; may be empty if unknown.
      *
-     * @var string
+     * @var string[]
      */
-    protected string $inputLanguageCode;
+    protected array $inputLanguageCodes;
 
-    public function __construct(string $text, bool $exactMatch, string $inputLanguageCode)
+    public function __construct(string $text, bool $exactMatch, array $inputLanguageCodes)
     {
-        $this->text              = $text;
-        $this->exactMatch        = $exactMatch;
-        $this->inputLanguageCode = $inputLanguageCode;
+        $this->text               = $text;
+        $this->exactMatch         = $exactMatch;
+        $this->inputLanguageCodes = $inputLanguageCodes;
     }
 
     public static function fromArray(array $array): SearchEmojis
@@ -48,17 +44,17 @@ class SearchEmojis extends TdFunction
         return new static(
             $array['text'],
             $array['exact_match'],
-            $array['input_language_code'],
+            $array['input_language_codes'],
         );
     }
 
     public function typeSerialize(): array
     {
         return [
-            '@type'               => static::TYPE_NAME,
-            'text'                => $this->text,
-            'exact_match'         => $this->exactMatch,
-            'input_language_code' => $this->inputLanguageCode,
+            '@type'                => static::TYPE_NAME,
+            'text'                 => $this->text,
+            'exact_match'          => $this->exactMatch,
+            'input_language_codes' => $this->inputLanguageCodes,
         ];
     }
 
@@ -72,8 +68,8 @@ class SearchEmojis extends TdFunction
         return $this->exactMatch;
     }
 
-    public function getInputLanguageCode(): string
+    public function getInputLanguageCodes(): array
     {
-        return $this->inputLanguageCode;
+        return $this->inputLanguageCodes;
     }
 }

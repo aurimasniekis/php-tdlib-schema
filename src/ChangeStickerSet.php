@@ -17,22 +17,16 @@ class ChangeStickerSet extends TdFunction
 
     /**
      * Identifier of the sticker set.
-     *
-     * @var string
      */
     protected string $setId;
 
     /**
      * The new value of is_installed.
-     *
-     * @var bool
      */
     protected bool $isInstalled;
 
     /**
      * The new value of is_archived. A sticker set can't be installed and archived simultaneously.
-     *
-     * @var bool
      */
     protected bool $isArchived;
 

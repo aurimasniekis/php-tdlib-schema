@@ -17,15 +17,11 @@ class ToggleSupergroupSignMessages extends TdFunction
 
     /**
      * Identifier of the channel.
-     *
-     * @var int
      */
     protected int $supergroupId;
 
     /**
      * New value of sign_messages.
-     *
-     * @var bool
      */
     protected bool $signMessages;
 

@@ -17,8 +17,6 @@ class RemoveSavedAnimation extends TdFunction
 
     /**
      * Animation file to be removed.
-     *
-     * @var InputFile
      */
     protected InputFile $animation;
 

@@ -17,8 +17,6 @@ class TestInt extends TdObject
 
     /**
      * Number.
-     *
-     * @var int
      */
     protected int $value;
 

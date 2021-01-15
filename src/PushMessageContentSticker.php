@@ -17,22 +17,16 @@ class PushMessageContentSticker extends PushMessageContent
 
     /**
      * Message content; may be null.
-     *
-     * @var Sticker|null
      */
     protected ?Sticker $sticker;
 
     /**
      * Emoji corresponding to the sticker; may be empty.
-     *
-     * @var string
      */
     protected string $emoji;
 
     /**
      * True, if the message is a pinned message with the specified content.
-     *
-     * @var bool
      */
     protected bool $isPinned;
 

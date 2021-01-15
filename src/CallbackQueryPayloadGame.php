@@ -9,7 +9,7 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * The payload from a game callback button.
+ * The payload for a game callback button.
  */
 class CallbackQueryPayloadGame extends CallbackQueryPayload
 {
@@ -17,8 +17,6 @@ class CallbackQueryPayloadGame extends CallbackQueryPayload
 
     /**
      * A short name of the game that was attached to the callback button.
-     *
-     * @var string
      */
     protected string $gameShortName;
 

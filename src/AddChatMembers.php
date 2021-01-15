@@ -17,8 +17,6 @@ class AddChatMembers extends TdFunction
 
     /**
      * Chat identifier.
-     *
-     * @var int
      */
     protected int $chatId;
 

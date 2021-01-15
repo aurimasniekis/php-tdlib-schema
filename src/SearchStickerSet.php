@@ -17,8 +17,6 @@ class SearchStickerSet extends TdFunction
 
     /**
      * Name of the sticker set.
-     *
-     * @var string
      */
     protected string $name;
 

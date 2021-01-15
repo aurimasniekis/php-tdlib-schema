@@ -17,48 +17,38 @@ class AddLocalMessage extends TdFunction
 
     /**
      * Target chat.
-     *
-     * @var int
      */
     protected int $chatId;
 
     /**
-     * Identifier of the user who will be shown as the sender of the message; may be 0 for channel posts.
-     *
-     * @var int
+     * The sender sender of the message.
      */
-    protected int $senderUserId;
+    protected MessageSender $sender;
 
     /**
      * Identifier of the message to reply to or 0.
-     *
-     * @var int
      */
     protected int $replyToMessageId;
 
     /**
      * Pass true to disable notification for the message.
-     *
-     * @var bool
      */
     protected bool $disableNotification;
 
     /**
      * The content of the message to be added.
-     *
-     * @var InputMessageContent
      */
     protected InputMessageContent $inputMessageContent;
 
     public function __construct(
         int $chatId,
-        int $senderUserId,
+        MessageSender $sender,
         int $replyToMessageId,
         bool $disableNotification,
         InputMessageContent $inputMessageContent
     ) {
         $this->chatId              = $chatId;
-        $this->senderUserId        = $senderUserId;
+        $this->sender              = $sender;
         $this->replyToMessageId    = $replyToMessageId;
         $this->disableNotification = $disableNotification;
         $this->inputMessageContent = $inputMessageContent;
@@ -68,7 +58,7 @@ class AddLocalMessage extends TdFunction
     {
         return new static(
             $array['chat_id'],
-            $array['sender_user_id'],
+            TdSchemaRegistry::fromArray($array['sender']),
             $array['reply_to_message_id'],
             $array['disable_notification'],
             TdSchemaRegistry::fromArray($array['input_message_content']),
@@ -80,7 +70,7 @@ class AddLocalMessage extends TdFunction
         return [
             '@type'                 => static::TYPE_NAME,
             'chat_id'               => $this->chatId,
-            'sender_user_id'        => $this->senderUserId,
+            'sender'                => $this->sender->typeSerialize(),
             'reply_to_message_id'   => $this->replyToMessageId,
             'disable_notification'  => $this->disableNotification,
             'input_message_content' => $this->inputMessageContent->typeSerialize(),
@@ -92,9 +82,9 @@ class AddLocalMessage extends TdFunction
         return $this->chatId;
     }
 
-    public function getSenderUserId(): int
+    public function getSender(): MessageSender
     {
-        return $this->senderUserId;
+        return $this->sender;
     }
 
     public function getReplyToMessageId(): int

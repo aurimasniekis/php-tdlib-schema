@@ -17,15 +17,11 @@ class UpdateSupergroupFullInfo extends Update
 
     /**
      * Identifier of the supergroup or channel.
-     *
-     * @var int
      */
     protected int $supergroupId;
 
     /**
      * New full information about the supergroup.
-     *
-     * @var SupergroupFullInfo
      */
     protected SupergroupFullInfo $supergroupFullInfo;
 

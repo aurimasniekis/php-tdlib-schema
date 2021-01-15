@@ -17,15 +17,11 @@ class UpdateTermsOfService extends Update
 
     /**
      * Identifier of the terms of service.
-     *
-     * @var string
      */
     protected string $termsOfServiceId;
 
     /**
      * The new terms of service.
-     *
-     * @var TermsOfService
      */
     protected TermsOfService $termsOfService;
 

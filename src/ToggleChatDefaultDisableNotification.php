@@ -17,15 +17,11 @@ class ToggleChatDefaultDisableNotification extends TdFunction
 
     /**
      * Chat identifier.
-     *
-     * @var int
      */
     protected int $chatId;
 
     /**
      * New value of default_disable_notification.
-     *
-     * @var bool
      */
     protected bool $defaultDisableNotification;
 

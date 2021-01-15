@@ -17,22 +17,16 @@ class AddChatMember extends TdFunction
 
     /**
      * Chat identifier.
-     *
-     * @var int
      */
     protected int $chatId;
 
     /**
      * Identifier of the user.
-     *
-     * @var int
      */
     protected int $userId;
 
     /**
      * The number of earlier messages from the chat to be forwarded to the new member; up to 100. Ignored for supergroups and channels.
-     *
-     * @var int
      */
     protected int $forwardLimit;
 

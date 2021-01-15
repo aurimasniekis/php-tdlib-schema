@@ -30,7 +30,7 @@ class LocalizationTargetInfo extends TdObject
     public static function fromArray(array $array): LocalizationTargetInfo
     {
         return new static(
-            array_map(fn ($x) => TdSchemaRegistry::fromArray($x), $array['languagePacks']),
+            array_map(fn ($x) => TdSchemaRegistry::fromArray($x), $array['language_packs']),
         );
     }
 

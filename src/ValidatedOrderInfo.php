@@ -17,8 +17,6 @@ class ValidatedOrderInfo extends TdObject
 
     /**
      * Temporary identifier of the order information.
-     *
-     * @var string
      */
     protected string $orderInfoId;
 
@@ -39,7 +37,7 @@ class ValidatedOrderInfo extends TdObject
     {
         return new static(
             $array['order_info_id'],
-            array_map(fn ($x) => TdSchemaRegistry::fromArray($x), $array['shippingOptions']),
+            array_map(fn ($x) => TdSchemaRegistry::fromArray($x), $array['shipping_options']),
         );
     }
 

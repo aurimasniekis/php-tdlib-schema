@@ -17,15 +17,11 @@ class InputPassportElementErrorSourceDataField extends InputPassportElementError
 
     /**
      * Field name.
-     *
-     * @var string
      */
     protected string $fieldName;
 
     /**
      * Current data hash.
-     *
-     * @var string
      */
     protected string $dataHash;
 

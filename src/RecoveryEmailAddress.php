@@ -17,8 +17,6 @@ class RecoveryEmailAddress extends TdObject
 
     /**
      * Recovery email address.
-     *
-     * @var string
      */
     protected string $recoveryEmailAddress;
 

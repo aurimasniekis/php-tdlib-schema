@@ -17,13 +17,11 @@ class PassportAuthorizationForm extends TdObject
 
     /**
      * Unique identifier of the authorization form.
-     *
-     * @var int
      */
     protected int $id;
 
     /**
-     * Information about the Telegram Passport elements that need to be provided to complete the form.
+     * Information about the Telegram Passport elements that must be provided to complete the form.
      *
      * @var PassportRequiredElement[]
      */
@@ -31,8 +29,6 @@ class PassportAuthorizationForm extends TdObject
 
     /**
      * URL for the privacy policy of the service; may be empty.
-     *
-     * @var string
      */
     protected string $privacyPolicyUrl;
 
@@ -47,7 +43,7 @@ class PassportAuthorizationForm extends TdObject
     {
         return new static(
             $array['id'],
-            array_map(fn ($x) => TdSchemaRegistry::fromArray($x), $array['requiredElements']),
+            array_map(fn ($x) => TdSchemaRegistry::fromArray($x), $array['required_elements']),
             $array['privacy_policy_url'],
         );
     }

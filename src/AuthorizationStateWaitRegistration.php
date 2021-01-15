@@ -17,8 +17,6 @@ class AuthorizationStateWaitRegistration extends AuthorizationState
 
     /**
      * Telegram terms of service.
-     *
-     * @var TermsOfService
      */
     protected TermsOfService $termsOfService;
 

@@ -17,15 +17,11 @@ class ChatEventLocationChanged extends ChatEventAction
 
     /**
      * Previous location; may be null.
-     *
-     * @var ChatLocation|null
      */
     protected ?ChatLocation $oldLocation;
 
     /**
      * New location; may be null.
-     *
-     * @var ChatLocation|null
      */
     protected ?ChatLocation $newLocation;
 

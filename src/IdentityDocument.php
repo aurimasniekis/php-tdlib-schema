@@ -17,36 +17,26 @@ class IdentityDocument extends TdObject
 
     /**
      * Document number; 1-24 characters.
-     *
-     * @var string
      */
     protected string $number;
 
     /**
      * Document expiry date; may be null.
-     *
-     * @var Date|null
      */
     protected ?Date $expiryDate;
 
     /**
      * Front side of the document.
-     *
-     * @var DatedFile
      */
     protected DatedFile $frontSide;
 
     /**
      * Reverse side of the document; only for driver license and identity card.
-     *
-     * @var DatedFile
      */
     protected DatedFile $reverseSide;
 
     /**
      * Selfie with the document; may be null.
-     *
-     * @var DatedFile|null
      */
     protected ?DatedFile $selfie;
 

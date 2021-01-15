@@ -17,64 +17,46 @@ class InputInlineQueryResultAnimatedGif extends InputInlineQueryResult
 
     /**
      * Unique identifier of the query result.
-     *
-     * @var string
      */
     protected string $id;
 
     /**
      * Title of the query result.
-     *
-     * @var string
      */
     protected string $title;
 
     /**
      * URL of the static result thumbnail (JPEG or GIF), if it exists.
-     *
-     * @var string
      */
     protected string $thumbnailUrl;
 
     /**
      * The URL of the GIF-file (file size must not exceed 1MB).
-     *
-     * @var string
      */
     protected string $gifUrl;
 
     /**
      * Duration of the GIF, in seconds.
-     *
-     * @var int
      */
     protected int $gifDuration;
 
     /**
      * Width of the GIF.
-     *
-     * @var int
      */
     protected int $gifWidth;
 
     /**
      * Height of the GIF.
-     *
-     * @var int
      */
     protected int $gifHeight;
 
     /**
      * The message reply markup. Must be of type replyMarkupInlineKeyboard or null.
-     *
-     * @var ReplyMarkup
      */
     protected ReplyMarkup $replyMarkup;
 
     /**
      * The content of the message to be sent. Must be one of the following types: InputMessageText, InputMessageAnimation, InputMessageLocation, InputMessageVenue or InputMessageContact.
-     *
-     * @var InputMessageContent
      */
     protected InputMessageContent $inputMessageContent;
 

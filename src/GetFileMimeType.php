@@ -9,7 +9,7 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Returns the MIME type of a file, guessed by its extension. Returns an empty string on failure. This is an offline method. Can be called before authorization. Can be called synchronously.
+ * Returns the MIME type of a file, guessed by its extension. Returns an empty string on failure. Can be called synchronously.
  */
 class GetFileMimeType extends TdFunction
 {
@@ -17,8 +17,6 @@ class GetFileMimeType extends TdFunction
 
     /**
      * The name of the file or path to the file.
-     *
-     * @var string
      */
     protected string $fileName;
 

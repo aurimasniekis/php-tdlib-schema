@@ -17,8 +17,6 @@ class ConfirmQrCodeAuthentication extends TdFunction
 
     /**
      * A link from a QR code. The link must be scanned by the in-app camera.
-     *
-     * @var string
      */
     protected string $link;
 

@@ -17,43 +17,31 @@ class PageBlockTableCell extends TdObject
 
     /**
      * Cell text; may be null. If the text is null, then the cell should be invisible.
-     *
-     * @var RichText|null
      */
     protected ?RichText $text;
 
     /**
      * True, if it is a header cell.
-     *
-     * @var bool
      */
     protected bool $isHeader;
 
     /**
      * The number of columns the cell should span.
-     *
-     * @var int
      */
     protected int $colspan;
 
     /**
      * The number of rows the cell should span.
-     *
-     * @var int
      */
     protected int $rowspan;
 
     /**
      * Horizontal cell content alignment.
-     *
-     * @var PageBlockHorizontalAlignment
      */
     protected PageBlockHorizontalAlignment $align;
 
     /**
      * Vertical cell content alignment.
-     *
-     * @var PageBlockVerticalAlignment
      */
     protected PageBlockVerticalAlignment $valign;
 

@@ -17,22 +17,16 @@ class InputMessageText extends InputMessageContent
 
     /**
      * Formatted text to be sent; 1-GetOption("message_text_length_max") characters. Only Bold, Italic, Underline, Strikethrough, Code, Pre, PreCode, TextUrl and MentionName entities are allowed to be specified manually.
-     *
-     * @var FormattedText
      */
     protected FormattedText $text;
 
     /**
      * True, if rich web page previews for URLs in the message text should be disabled.
-     *
-     * @var bool
      */
     protected bool $disableWebPagePreview;
 
     /**
      * True, if a chat message draft should be deleted.
-     *
-     * @var bool
      */
     protected bool $clearDraft;
 

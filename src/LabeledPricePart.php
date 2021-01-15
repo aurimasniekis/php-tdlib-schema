@@ -17,15 +17,11 @@ class LabeledPricePart extends TdObject
 
     /**
      * Label for this portion of the product price.
-     *
-     * @var string
      */
     protected string $label;
 
     /**
      * Currency amount in minimal quantity of the currency.
-     *
-     * @var int
      */
     protected int $amount;
 

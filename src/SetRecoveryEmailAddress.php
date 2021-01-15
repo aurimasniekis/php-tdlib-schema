@@ -17,15 +17,11 @@ class SetRecoveryEmailAddress extends TdFunction
 
     /**
      * Password of the current user.
-     *
-     * @var string
      */
     protected string $password;
 
     /**
      * New recovery email address.
-     *
-     * @var string
      */
     protected string $newRecoveryEmailAddress;
 

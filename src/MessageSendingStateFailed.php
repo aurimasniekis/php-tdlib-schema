@@ -17,29 +17,21 @@ class MessageSendingStateFailed extends MessageSendingState
 
     /**
      * An error code; 0 if unknown.
-     *
-     * @var int
      */
     protected int $errorCode;
 
     /**
      * Error message.
-     *
-     * @var string
      */
     protected string $errorMessage;
 
     /**
      * True, if the message can be re-sent.
-     *
-     * @var bool
      */
     protected bool $canRetry;
 
     /**
      * Time left before the message can be re-sent, in seconds. No update is sent when this field changes.
-     *
-     * @var float
      */
     protected float $retryAfter;
 

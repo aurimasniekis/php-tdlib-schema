@@ -17,8 +17,6 @@ class DeleteSupergroup extends TdFunction
 
     /**
      * Identifier of the supergroup or channel.
-     *
-     * @var int
      */
     protected int $supergroupId;
 

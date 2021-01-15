@@ -17,8 +17,6 @@ class ChatReportReasonCustom extends ChatReportReason
 
     /**
      * Report text.
-     *
-     * @var string
      */
     protected string $text;
 

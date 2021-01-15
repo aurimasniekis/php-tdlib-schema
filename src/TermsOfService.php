@@ -17,22 +17,16 @@ class TermsOfService extends TdObject
 
     /**
      * Text of the terms of service.
-     *
-     * @var FormattedText
      */
     protected FormattedText $text;
 
     /**
      * The minimum age of a user to be able to accept the terms; 0 if any.
-     *
-     * @var int
      */
     protected int $minUserAge;
 
     /**
      * True, if a blocking popup with terms of service must be shown to the user.
-     *
-     * @var bool
      */
     protected bool $showPopup;
 

@@ -9,7 +9,7 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Reads a part of a file from the TDLib file cache and returns read bytes. This method is intended to be used only if the client has no direct access to TDLib's file system, because it is usually slower than a direct read from the file.
+ * Reads a part of a file from the TDLib file cache and returns read bytes. This method is intended to be used only if the application has no direct access to TDLib's file system, because it is usually slower than a direct read from the file.
  */
 class ReadFilePart extends TdFunction
 {
@@ -17,22 +17,16 @@ class ReadFilePart extends TdFunction
 
     /**
      * Identifier of the file. The file must be located in the TDLib file cache.
-     *
-     * @var int
      */
     protected int $fileId;
 
     /**
      * The offset from which to read the file.
-     *
-     * @var int
      */
     protected int $offset;
 
     /**
      * Number of bytes to read. An error will be returned if there are not enough bytes available in the file from the specified position. Pass 0 to read all available data from the specified position.
-     *
-     * @var int
      */
     protected int $count;
 

@@ -16,9 +16,7 @@ class UpdateTrendingStickerSets extends Update
     public const TYPE_NAME = 'updateTrendingStickerSets';
 
     /**
-     * The new list of trending sticker sets.
-     *
-     * @var StickerSets
+     * The prefix of the list of trending sticker sets with the newest trending sticker sets.
      */
     protected StickerSets $stickerSets;
 

@@ -17,36 +17,26 @@ class Contact extends TdObject
 
     /**
      * Phone number of the user.
-     *
-     * @var string
      */
     protected string $phoneNumber;
 
     /**
      * First name of the user; 1-255 characters in length.
-     *
-     * @var string
      */
     protected string $firstName;
 
     /**
      * Last name of the user.
-     *
-     * @var string
      */
     protected string $lastName;
 
     /**
      * Additional data about the user in a form of vCard; 0-2048 bytes in length.
-     *
-     * @var string
      */
     protected string $vcard;
 
     /**
      * Identifier of the user, if known; otherwise 0.
-     *
-     * @var int
      */
     protected int $userId;
 

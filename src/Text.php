@@ -17,8 +17,6 @@ class Text extends TdObject
 
     /**
      * Text.
-     *
-     * @var string
      */
     protected string $text;
 

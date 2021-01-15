@@ -17,22 +17,16 @@ class ChatMemberStatusRestricted extends ChatMemberStatus
 
     /**
      * True, if the user is a member of the chat.
-     *
-     * @var bool
      */
     protected bool $isMember;
 
     /**
      * Point in time (Unix timestamp) when restrictions will be lifted from the user; 0 if never. If the user is restricted for more than 366 days or for less than 30 seconds from the current time, the user is considered to be restricted forever.
-     *
-     * @var int
      */
     protected int $restrictedUntilDate;
 
     /**
      * User permissions in the chat.
-     *
-     * @var ChatPermissions
      */
     protected ChatPermissions $permissions;
 

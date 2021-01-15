@@ -17,22 +17,16 @@ class DeviceTokenApplePushVoIP extends DeviceToken
 
     /**
      * Device token; may be empty to de-register a device.
-     *
-     * @var string
      */
     protected string $deviceToken;
 
     /**
      * True, if App Sandbox is enabled.
-     *
-     * @var bool
      */
     protected bool $isAppSandbox;
 
     /**
      * True, if push notifications should be additionally encrypted.
-     *
-     * @var bool
      */
     protected bool $encrypt;
 

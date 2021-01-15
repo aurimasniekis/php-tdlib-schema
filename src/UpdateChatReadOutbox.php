@@ -17,15 +17,11 @@ class UpdateChatReadOutbox extends Update
 
     /**
      * Chat identifier.
-     *
-     * @var int
      */
     protected int $chatId;
 
     /**
      * Identifier of last read outgoing message.
-     *
-     * @var int
      */
     protected int $lastReadOutboxMessageId;
 

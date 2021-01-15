@@ -17,8 +17,6 @@ class GetBasicGroupFullInfo extends TdFunction
 
     /**
      * Basic group identifier.
-     *
-     * @var int
      */
     protected int $basicGroupId;
 

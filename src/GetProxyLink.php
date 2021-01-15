@@ -17,8 +17,6 @@ class GetProxyLink extends TdFunction
 
     /**
      * Proxy identifier.
-     *
-     * @var int
      */
     protected int $proxyId;
 

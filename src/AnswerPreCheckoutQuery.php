@@ -17,15 +17,11 @@ class AnswerPreCheckoutQuery extends TdFunction
 
     /**
      * Identifier of the pre-checkout query.
-     *
-     * @var string
      */
     protected string $preCheckoutQueryId;
 
     /**
      * An error message, empty on success.
-     *
-     * @var string
      */
     protected string $errorMessage;
 

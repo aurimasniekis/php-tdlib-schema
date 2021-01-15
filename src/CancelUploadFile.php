@@ -17,8 +17,6 @@ class CancelUploadFile extends TdFunction
 
     /**
      * Identifier of the file to stop uploading.
-     *
-     * @var int
      */
     protected int $fileId;
 

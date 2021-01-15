@@ -17,8 +17,6 @@ class CloseSecretChat extends TdFunction
 
     /**
      * Secret chat identifier.
-     *
-     * @var int
      */
     protected int $secretChatId;
 

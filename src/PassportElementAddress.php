@@ -17,8 +17,6 @@ class PassportElementAddress extends PassportElement
 
     /**
      * Address.
-     *
-     * @var Address
      */
     protected Address $address;
 

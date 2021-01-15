@@ -17,8 +17,6 @@ class InputPassportElementAddress extends InputPassportElement
 
     /**
      * The address to be saved.
-     *
-     * @var Address
      */
     protected Address $address;
 

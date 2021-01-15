@@ -17,15 +17,11 @@ class ChatEventMessageEdited extends ChatEventAction
 
     /**
      * The original message before the edit.
-     *
-     * @var Message
      */
     protected Message $oldMessage;
 
     /**
      * The message after it was edited.
-     *
-     * @var Message
      */
     protected Message $newMessage;
 

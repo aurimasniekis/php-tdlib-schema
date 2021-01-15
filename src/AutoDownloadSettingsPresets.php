@@ -17,22 +17,16 @@ class AutoDownloadSettingsPresets extends TdObject
 
     /**
      * Preset with lowest settings; supposed to be used by default when roaming.
-     *
-     * @var AutoDownloadSettings
      */
     protected AutoDownloadSettings $low;
 
     /**
      * Preset with medium settings; supposed to be used by default when using mobile data.
-     *
-     * @var AutoDownloadSettings
      */
     protected AutoDownloadSettings $medium;
 
     /**
      * Preset with highest settings; supposed to be used by default when connected on Wi-Fi.
-     *
-     * @var AutoDownloadSettings
      */
     protected AutoDownloadSettings $high;
 

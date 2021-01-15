@@ -17,29 +17,21 @@ class ValidateOrderInfo extends TdFunction
 
     /**
      * Chat identifier of the Invoice message.
-     *
-     * @var int
      */
     protected int $chatId;
 
     /**
      * Message identifier.
-     *
-     * @var int
      */
     protected int $messageId;
 
     /**
      * The order information, provided by the user.
-     *
-     * @var OrderInfo
      */
     protected OrderInfo $orderInfo;
 
     /**
      * True, if the order information can be saved.
-     *
-     * @var bool
      */
     protected bool $allowSave;
 

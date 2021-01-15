@@ -17,8 +17,6 @@ class SetNetworkType extends TdFunction
 
     /**
      * The new network type. By default, networkTypeOther.
-     *
-     * @var NetworkType
      */
     protected NetworkType $type;
 

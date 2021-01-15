@@ -17,36 +17,26 @@ class ChatMember extends TdObject
 
     /**
      * User identifier of the chat member.
-     *
-     * @var int
      */
     protected int $userId;
 
     /**
      * Identifier of a user that invited/promoted/banned this member in the chat; 0 if unknown.
-     *
-     * @var int
      */
     protected int $inviterUserId;
 
     /**
-     * Point in time (Unix timestamp) when the user joined a chat.
-     *
-     * @var int
+     * Point in time (Unix timestamp) when the user joined the chat.
      */
     protected int $joinedChatDate;
 
     /**
      * Status of the member in the chat.
-     *
-     * @var ChatMemberStatus
      */
     protected ChatMemberStatus $status;
 
     /**
-     * If the user is a bot, information about the bot; may be null. Can be null even for a bot if the bot is not a chat member.
-     *
-     * @var BotInfo|null
+     * If the user is a bot, information about the bot; may be null. Can be null even for a bot if the bot is not the chat member.
      */
     protected ?BotInfo $botInfo;
 

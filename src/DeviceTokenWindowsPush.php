@@ -17,8 +17,6 @@ class DeviceTokenWindowsPush extends DeviceToken
 
     /**
      * The access token that will be used to send notifications; may be empty to de-register a device.
-     *
-     * @var string
      */
     protected string $accessToken;
 

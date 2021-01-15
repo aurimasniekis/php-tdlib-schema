@@ -17,22 +17,16 @@ class SaveApplicationLogEvent extends TdFunction
 
     /**
      * Event type.
-     *
-     * @var string
      */
     protected string $type;
 
     /**
      * Optional chat identifier, associated with the event.
-     *
-     * @var int
      */
     protected int $chatId;
 
     /**
      * The log event data.
-     *
-     * @var JsonValue
      */
     protected JsonValue $data;
 

@@ -17,36 +17,26 @@ class UpdateNewInlineQuery extends Update
 
     /**
      * Unique query identifier.
-     *
-     * @var string
      */
     protected string $id;
 
     /**
      * Identifier of the user who sent the query.
-     *
-     * @var int
      */
     protected int $senderUserId;
 
     /**
-     * User location, provided by the client; may be null.
-     *
-     * @var Location|null
+     * User location; may be null.
      */
     protected ?Location $userLocation;
 
     /**
      * Text of the query.
-     *
-     * @var string
      */
     protected string $query;
 
     /**
      * Offset of the first entry to return.
-     *
-     * @var string
      */
     protected string $offset;
 

@@ -17,29 +17,21 @@ class CallProtocol extends TdObject
 
     /**
      * True, if UDP peer-to-peer connections are supported.
-     *
-     * @var bool
      */
     protected bool $udpP2p;
 
     /**
      * True, if connection through UDP reflectors is supported.
-     *
-     * @var bool
      */
     protected bool $udpReflector;
 
     /**
      * The minimum supported API layer; use 65.
-     *
-     * @var int
      */
     protected int $minLayer;
 
     /**
      * The maximum supported API layer; use 65.
-     *
-     * @var int
      */
     protected int $maxLayer;
 

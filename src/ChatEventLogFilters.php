@@ -17,71 +17,51 @@ class ChatEventLogFilters extends TdObject
 
     /**
      * True, if message edits should be returned.
-     *
-     * @var bool
      */
     protected bool $messageEdits;
 
     /**
      * True, if message deletions should be returned.
-     *
-     * @var bool
      */
     protected bool $messageDeletions;
 
     /**
      * True, if pin/unpin events should be returned.
-     *
-     * @var bool
      */
     protected bool $messagePins;
 
     /**
      * True, if members joining events should be returned.
-     *
-     * @var bool
      */
     protected bool $memberJoins;
 
     /**
      * True, if members leaving events should be returned.
-     *
-     * @var bool
      */
     protected bool $memberLeaves;
 
     /**
      * True, if invited member events should be returned.
-     *
-     * @var bool
      */
     protected bool $memberInvites;
 
     /**
      * True, if member promotion/demotion events should be returned.
-     *
-     * @var bool
      */
     protected bool $memberPromotions;
 
     /**
      * True, if member restricted/unrestricted/banned/unbanned events should be returned.
-     *
-     * @var bool
      */
     protected bool $memberRestrictions;
 
     /**
      * True, if changes in chat information should be returned.
-     *
-     * @var bool
      */
     protected bool $infoChanges;
 
     /**
      * True, if changes in chat settings should be returned.
-     *
-     * @var bool
      */
     protected bool $settingChanges;
 

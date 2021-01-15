@@ -17,29 +17,21 @@ class VoiceNote extends TdObject
 
     /**
      * Duration of the voice note, in seconds; as defined by the sender.
-     *
-     * @var int
      */
     protected int $duration;
 
     /**
      * A waveform representation of the voice note in 5-bit format.
-     *
-     * @var string
      */
     protected string $waveform;
 
     /**
      * MIME type of the file; as defined by the sender.
-     *
-     * @var string
      */
     protected string $mimeType;
 
     /**
      * File containing the voice note.
-     *
-     * @var File
      */
     protected File $voice;
 

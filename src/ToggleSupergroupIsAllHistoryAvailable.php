@@ -17,15 +17,11 @@ class ToggleSupergroupIsAllHistoryAvailable extends TdFunction
 
     /**
      * The identifier of the supergroup.
-     *
-     * @var int
      */
     protected int $supergroupId;
 
     /**
      * The new value of is_all_history_available.
-     *
-     * @var bool
      */
     protected bool $isAllHistoryAvailable;
 

@@ -17,83 +17,61 @@ class StickerSetInfo extends TdObject
 
     /**
      * Identifier of the sticker set.
-     *
-     * @var string
      */
     protected string $id;
 
     /**
      * Title of the sticker set.
-     *
-     * @var string
      */
     protected string $title;
 
     /**
      * Name of the sticker set.
-     *
-     * @var string
      */
     protected string $name;
 
     /**
-     * Sticker set thumbnail in WEBP format with width and height 100; may be null.
-     *
-     * @var PhotoSize|null
+     * Sticker set thumbnail in WEBP or TGS format with width and height 100; may be null.
      */
-    protected ?PhotoSize $thumbnail;
+    protected ?Thumbnail $thumbnail;
 
     /**
      * True, if the sticker set has been installed by current user.
-     *
-     * @var bool
      */
     protected bool $isInstalled;
 
     /**
      * True, if the sticker set has been archived. A sticker set can't be installed and archived simultaneously.
-     *
-     * @var bool
      */
     protected bool $isArchived;
 
     /**
      * True, if the sticker set is official.
-     *
-     * @var bool
      */
     protected bool $isOfficial;
 
     /**
      * True, is the stickers in the set are animated.
-     *
-     * @var bool
      */
     protected bool $isAnimated;
 
     /**
      * True, if the stickers in the set are masks.
-     *
-     * @var bool
      */
     protected bool $isMasks;
 
     /**
      * True for already viewed trending sticker sets.
-     *
-     * @var bool
      */
     protected bool $isViewed;
 
     /**
      * Total number of stickers in the set.
-     *
-     * @var int
      */
     protected int $size;
 
     /**
-     * Contains up to the first 5 stickers from the set, depending on the context. If the client needs more stickers the full set should be requested.
+     * Contains up to the first 5 stickers from the set, depending on the context. If the application needs more stickers the full set should be requested.
      *
      * @var Sticker[]
      */
@@ -103,7 +81,7 @@ class StickerSetInfo extends TdObject
         string $id,
         string $title,
         string $name,
-        ?PhotoSize $thumbnail,
+        ?Thumbnail $thumbnail,
         bool $isInstalled,
         bool $isArchived,
         bool $isOfficial,
@@ -179,7 +157,7 @@ class StickerSetInfo extends TdObject
         return $this->name;
     }
 
-    public function getThumbnail(): ?PhotoSize
+    public function getThumbnail(): ?Thumbnail
     {
         return $this->thumbnail;
     }

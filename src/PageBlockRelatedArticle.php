@@ -17,43 +17,31 @@ class PageBlockRelatedArticle extends TdObject
 
     /**
      * Related article URL.
-     *
-     * @var string
      */
     protected string $url;
 
     /**
      * Article title; may be empty.
-     *
-     * @var string
      */
     protected string $title;
 
     /**
      * Article description; may be empty.
-     *
-     * @var string
      */
     protected string $description;
 
     /**
      * Article photo; may be null.
-     *
-     * @var Photo|null
      */
     protected ?Photo $photo;
 
     /**
      * Article author; may be empty.
-     *
-     * @var string
      */
     protected string $author;
 
     /**
      * Point in time (Unix timestamp) when the article was published; 0 if unknown.
-     *
-     * @var int
      */
     protected int $publishDate;
 

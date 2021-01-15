@@ -17,36 +17,26 @@ class InputIdentityDocument extends TdObject
 
     /**
      * Document number; 1-24 characters.
-     *
-     * @var string
      */
     protected string $number;
 
     /**
      * Document expiry date, if available.
-     *
-     * @var Date
      */
     protected Date $expiryDate;
 
     /**
      * Front side of the document.
-     *
-     * @var InputFile
      */
     protected InputFile $frontSide;
 
     /**
      * Reverse side of the document; only for driver license and identity card.
-     *
-     * @var InputFile
      */
     protected InputFile $reverseSide;
 
     /**
      * Selfie with the document, if available.
-     *
-     * @var InputFile
      */
     protected InputFile $selfie;
 

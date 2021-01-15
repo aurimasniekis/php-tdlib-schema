@@ -17,8 +17,6 @@ class JsonValueNumber extends JsonValue
 
     /**
      * The value.
-     *
-     * @var float
      */
     protected float $value;
 

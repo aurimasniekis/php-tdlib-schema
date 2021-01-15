@@ -17,22 +17,16 @@ class AddStickerToSet extends TdFunction
 
     /**
      * Sticker set owner.
-     *
-     * @var int
      */
     protected int $userId;
 
     /**
      * Sticker set name.
-     *
-     * @var string
      */
     protected string $name;
 
     /**
      * Sticker to add to the set.
-     *
-     * @var InputSticker
      */
     protected InputSticker $sticker;
 

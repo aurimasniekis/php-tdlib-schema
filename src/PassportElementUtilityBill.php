@@ -17,8 +17,6 @@ class PassportElementUtilityBill extends PassportElement
 
     /**
      * Utility bill.
-     *
-     * @var PersonalDocument
      */
     protected PersonalDocument $utilityBill;
 

@@ -17,8 +17,6 @@ class CheckEmailAddressVerificationCode extends TdFunction
 
     /**
      * Verification code.
-     *
-     * @var string
      */
     protected string $code;
 

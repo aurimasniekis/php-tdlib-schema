@@ -17,8 +17,6 @@ class RichTextUnderline extends RichText
 
     /**
      * Text.
-     *
-     * @var RichText
      */
     protected RichText $text;
 

@@ -17,8 +17,6 @@ class SetLocation extends TdFunction
 
     /**
      * The new location of the user.
-     *
-     * @var Location
      */
     protected Location $location;
 

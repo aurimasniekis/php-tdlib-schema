@@ -17,64 +17,46 @@ class Sticker extends TdObject
 
     /**
      * The identifier of the sticker set to which the sticker belongs; 0 if none.
-     *
-     * @var string
      */
     protected string $setId;
 
     /**
      * Sticker width; as defined by the sender.
-     *
-     * @var int
      */
     protected int $width;
 
     /**
      * Sticker height; as defined by the sender.
-     *
-     * @var int
      */
     protected int $height;
 
     /**
      * Emoji corresponding to the sticker.
-     *
-     * @var string
      */
     protected string $emoji;
 
     /**
      * True, if the sticker is an animated sticker in TGS format.
-     *
-     * @var bool
      */
     protected bool $isAnimated;
 
     /**
      * True, if the sticker is a mask.
-     *
-     * @var bool
      */
     protected bool $isMask;
 
     /**
      * Position where the mask should be placed; may be null.
-     *
-     * @var MaskPosition|null
      */
     protected ?MaskPosition $maskPosition;
 
     /**
      * Sticker thumbnail in WEBP or JPEG format; may be null.
-     *
-     * @var PhotoSize|null
      */
-    protected ?PhotoSize $thumbnail;
+    protected ?Thumbnail $thumbnail;
 
     /**
      * File containing the sticker.
-     *
-     * @var File
      */
     protected File $sticker;
 
@@ -86,7 +68,7 @@ class Sticker extends TdObject
         bool $isAnimated,
         bool $isMask,
         ?MaskPosition $maskPosition,
-        ?PhotoSize $thumbnail,
+        ?Thumbnail $thumbnail,
         File $sticker
     ) {
         $this->setId        = $setId;
@@ -166,7 +148,7 @@ class Sticker extends TdObject
         return $this->maskPosition;
     }
 
-    public function getThumbnail(): ?PhotoSize
+    public function getThumbnail(): ?Thumbnail
     {
         return $this->thumbnail;
     }

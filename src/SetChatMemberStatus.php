@@ -17,22 +17,16 @@ class SetChatMemberStatus extends TdFunction
 
     /**
      * Chat identifier.
-     *
-     * @var int
      */
     protected int $chatId;
 
     /**
      * User identifier.
-     *
-     * @var int
      */
     protected int $userId;
 
     /**
      * The new status of the member in the chat.
-     *
-     * @var ChatMemberStatus
      */
     protected ChatMemberStatus $status;
 

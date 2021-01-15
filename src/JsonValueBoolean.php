@@ -17,8 +17,6 @@ class JsonValueBoolean extends JsonValue
 
     /**
      * The value.
-     *
-     * @var bool
      */
     protected bool $value;
 

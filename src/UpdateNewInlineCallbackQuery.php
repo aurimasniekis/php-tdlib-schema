@@ -17,36 +17,26 @@ class UpdateNewInlineCallbackQuery extends Update
 
     /**
      * Unique query identifier.
-     *
-     * @var string
      */
     protected string $id;
 
     /**
      * Identifier of the user who sent the query.
-     *
-     * @var int
      */
     protected int $senderUserId;
 
     /**
      * Identifier of the inline message, from which the query originated.
-     *
-     * @var string
      */
     protected string $inlineMessageId;
 
     /**
      * An identifier uniquely corresponding to the chat a message was sent to.
-     *
-     * @var string
      */
     protected string $chatInstance;
 
     /**
      * Query payload.
-     *
-     * @var CallbackQueryPayload
      */
     protected CallbackQueryPayload $payload;
 

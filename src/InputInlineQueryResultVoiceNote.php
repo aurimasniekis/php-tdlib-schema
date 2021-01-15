@@ -17,43 +17,31 @@ class InputInlineQueryResultVoiceNote extends InputInlineQueryResult
 
     /**
      * Unique identifier of the query result.
-     *
-     * @var string
      */
     protected string $id;
 
     /**
      * Title of the voice note.
-     *
-     * @var string
      */
     protected string $title;
 
     /**
      * The URL of the voice note file.
-     *
-     * @var string
      */
     protected string $voiceNoteUrl;
 
     /**
      * Duration of the voice note, in seconds.
-     *
-     * @var int
      */
     protected int $voiceNoteDuration;
 
     /**
      * The message reply markup. Must be of type replyMarkupInlineKeyboard or null.
-     *
-     * @var ReplyMarkup
      */
     protected ReplyMarkup $replyMarkup;
 
     /**
      * The content of the message to be sent. Must be one of the following types: InputMessageText, InputMessageVoiceNote, InputMessageLocation, InputMessageVenue or InputMessageContact.
-     *
-     * @var InputMessageContent
      */
     protected InputMessageContent $inputMessageContent;
 

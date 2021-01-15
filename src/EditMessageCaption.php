@@ -17,29 +17,21 @@ class EditMessageCaption extends TdFunction
 
     /**
      * The chat the message belongs to.
-     *
-     * @var int
      */
     protected int $chatId;
 
     /**
      * Identifier of the message.
-     *
-     * @var int
      */
     protected int $messageId;
 
     /**
      * The new message reply markup; for bots only.
-     *
-     * @var ReplyMarkup
      */
     protected ReplyMarkup $replyMarkup;
 
     /**
      * New message content caption; 0-GetOption("message_caption_length_max") characters.
-     *
-     * @var FormattedText
      */
     protected FormattedText $caption;
 

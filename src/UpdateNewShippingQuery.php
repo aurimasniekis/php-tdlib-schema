@@ -17,29 +17,21 @@ class UpdateNewShippingQuery extends Update
 
     /**
      * Unique query identifier.
-     *
-     * @var string
      */
     protected string $id;
 
     /**
      * Identifier of the user who sent the query.
-     *
-     * @var int
      */
     protected int $senderUserId;
 
     /**
      * Invoice payload.
-     *
-     * @var string
      */
     protected string $invoicePayload;
 
     /**
      * User shipping address.
-     *
-     * @var Address
      */
     protected Address $shippingAddress;
 

@@ -9,7 +9,7 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Some data of a user has changed. This update is guaranteed to come before the user identifier is returned to the client.
+ * Some data of a user has changed. This update is guaranteed to come before the user identifier is returned to the application.
  */
 class UpdateUser extends Update
 {
@@ -17,8 +17,6 @@ class UpdateUser extends Update
 
     /**
      * New data about the user.
-     *
-     * @var User
      */
     protected User $user;
 

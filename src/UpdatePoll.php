@@ -17,8 +17,6 @@ class UpdatePoll extends Update
 
     /**
      * New data about the poll.
-     *
-     * @var Poll
      */
     protected Poll $poll;
 

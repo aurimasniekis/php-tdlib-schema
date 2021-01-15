@@ -17,8 +17,6 @@ class DeleteFile extends TdFunction
 
     /**
      * Identifier of the file to delete.
-     *
-     * @var int
      */
     protected int $fileId;
 

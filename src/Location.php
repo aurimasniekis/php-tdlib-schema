@@ -17,22 +17,24 @@ class Location extends TdObject
 
     /**
      * Latitude of the location in degrees; as defined by the sender.
-     *
-     * @var float
      */
     protected float $latitude;
 
     /**
      * Longitude of the location, in degrees; as defined by the sender.
-     *
-     * @var float
      */
     protected float $longitude;
 
-    public function __construct(float $latitude, float $longitude)
+    /**
+     * The estimated horizontal accuracy of the location, in meters; as defined by the sender. 0 if unknown.
+     */
+    protected float $horizontalAccuracy;
+
+    public function __construct(float $latitude, float $longitude, float $horizontalAccuracy)
     {
-        $this->latitude  = $latitude;
-        $this->longitude = $longitude;
+        $this->latitude           = $latitude;
+        $this->longitude          = $longitude;
+        $this->horizontalAccuracy = $horizontalAccuracy;
     }
 
     public static function fromArray(array $array): Location
@@ -40,15 +42,17 @@ class Location extends TdObject
         return new static(
             $array['latitude'],
             $array['longitude'],
+            $array['horizontal_accuracy'],
         );
     }
 
     public function typeSerialize(): array
     {
         return [
-            '@type'     => static::TYPE_NAME,
-            'latitude'  => $this->latitude,
-            'longitude' => $this->longitude,
+            '@type'               => static::TYPE_NAME,
+            'latitude'            => $this->latitude,
+            'longitude'           => $this->longitude,
+            'horizontal_accuracy' => $this->horizontalAccuracy,
         ];
     }
 
@@ -60,5 +64,10 @@ class Location extends TdObject
     public function getLongitude(): float
     {
         return $this->longitude;
+    }
+
+    public function getHorizontalAccuracy(): float
+    {
+        return $this->horizontalAccuracy;
     }
 }

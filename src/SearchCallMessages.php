@@ -17,22 +17,16 @@ class SearchCallMessages extends TdFunction
 
     /**
      * Identifier of the message from which to search; use 0 to get results from the last message.
-     *
-     * @var int
      */
     protected int $fromMessageId;
 
     /**
      * The maximum number of messages to be returned; up to 100. Fewer messages may be returned than specified by the limit, even if the end of the message history has not been reached.
-     *
-     * @var int
      */
     protected int $limit;
 
     /**
      * If true, returns only messages with missed calls.
-     *
-     * @var bool
      */
     protected bool $onlyMissed;
 

@@ -17,15 +17,11 @@ class RemoveRecentSticker extends TdFunction
 
     /**
      * Pass true to remove the sticker from the list of stickers recently attached to photo or video files; pass false to remove the sticker from the list of recently sent stickers.
-     *
-     * @var bool
      */
     protected bool $isAttached;
 
     /**
      * Sticker file to delete.
-     *
-     * @var InputFile
      */
     protected InputFile $sticker;
 
