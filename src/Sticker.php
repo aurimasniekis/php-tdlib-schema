@@ -17,64 +17,53 @@ class Sticker extends TdObject
 
     /**
      * The identifier of the sticker set to which the sticker belongs; 0 if none.
-     *
-     * @var string
      */
     protected string $setId;
 
     /**
      * Sticker width; as defined by the sender.
-     *
-     * @var int
      */
     protected int $width;
 
     /**
      * Sticker height; as defined by the sender.
-     *
-     * @var int
      */
     protected int $height;
 
     /**
      * Emoji corresponding to the sticker.
-     *
-     * @var string
      */
     protected string $emoji;
 
     /**
      * True, if the sticker is an animated sticker in TGS format.
-     *
-     * @var bool
      */
     protected bool $isAnimated;
 
     /**
      * True, if the sticker is a mask.
-     *
-     * @var bool
      */
     protected bool $isMask;
 
     /**
      * Position where the mask should be placed; may be null.
-     *
-     * @var MaskPosition|null
      */
     protected ?MaskPosition $maskPosition;
 
     /**
-     * Sticker thumbnail in WEBP or JPEG format; may be null.
+     * Sticker's outline represented as a list of closed vector paths; may be empty. The coordinate system origin is in the upper-left corner.
      *
-     * @var PhotoSize|null
+     * @var ClosedVectorPath[]
      */
-    protected ?PhotoSize $thumbnail;
+    protected array $outline;
+
+    /**
+     * Sticker thumbnail in WEBP or JPEG format; may be null.
+     */
+    protected ?Thumbnail $thumbnail;
 
     /**
      * File containing the sticker.
-     *
-     * @var File
      */
     protected File $sticker;
 
@@ -86,7 +75,8 @@ class Sticker extends TdObject
         bool $isAnimated,
         bool $isMask,
         ?MaskPosition $maskPosition,
-        ?PhotoSize $thumbnail,
+        array $outline,
+        ?Thumbnail $thumbnail,
         File $sticker
     ) {
         $this->setId        = $setId;
@@ -96,6 +86,7 @@ class Sticker extends TdObject
         $this->isAnimated   = $isAnimated;
         $this->isMask       = $isMask;
         $this->maskPosition = $maskPosition;
+        $this->outline      = $outline;
         $this->thumbnail    = $thumbnail;
         $this->sticker      = $sticker;
     }
@@ -110,6 +101,7 @@ class Sticker extends TdObject
             $array['is_animated'],
             $array['is_mask'],
             (isset($array['mask_position']) ? TdSchemaRegistry::fromArray($array['mask_position']) : null),
+            array_map(fn ($x) => TdSchemaRegistry::fromArray($x), $array['outline']),
             (isset($array['thumbnail']) ? TdSchemaRegistry::fromArray($array['thumbnail']) : null),
             TdSchemaRegistry::fromArray($array['sticker']),
         );
@@ -118,16 +110,17 @@ class Sticker extends TdObject
     public function typeSerialize(): array
     {
         return [
-            '@type'         => static::TYPE_NAME,
-            'set_id'        => $this->setId,
-            'width'         => $this->width,
-            'height'        => $this->height,
-            'emoji'         => $this->emoji,
-            'is_animated'   => $this->isAnimated,
-            'is_mask'       => $this->isMask,
-            'mask_position' => (isset($this->maskPosition) ? $this->maskPosition : null),
-            'thumbnail'     => (isset($this->thumbnail) ? $this->thumbnail : null),
-            'sticker'       => $this->sticker->typeSerialize(),
+            '@type'           => static::TYPE_NAME,
+            'set_id'          => $this->setId,
+            'width'           => $this->width,
+            'height'          => $this->height,
+            'emoji'           => $this->emoji,
+            'is_animated'     => $this->isAnimated,
+            'is_mask'         => $this->isMask,
+            'mask_position'   => (isset($this->maskPosition) ? $this->maskPosition : null),
+            array_map(fn ($x) => $x->typeSerialize(), $this->outline),
+            'thumbnail'       => (isset($this->thumbnail) ? $this->thumbnail : null),
+            'sticker'         => $this->sticker->typeSerialize(),
         ];
     }
 
@@ -166,7 +159,12 @@ class Sticker extends TdObject
         return $this->maskPosition;
     }
 
-    public function getThumbnail(): ?PhotoSize
+    public function getOutline(): array
+    {
+        return $this->outline;
+    }
+
+    public function getThumbnail(): ?Thumbnail
     {
         return $this->thumbnail;
     }

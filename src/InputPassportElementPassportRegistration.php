@@ -17,8 +17,6 @@ class InputPassportElementPassportRegistration extends InputPassportElement
 
     /**
      * The passport registration page to be saved.
-     *
-     * @var InputPersonalDocument
      */
     protected InputPersonalDocument $passportRegistration;
 

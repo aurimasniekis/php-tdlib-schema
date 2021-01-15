@@ -17,22 +17,24 @@ class CreateCall extends TdFunction
 
     /**
      * Identifier of the user to be called.
-     *
-     * @var int
      */
     protected int $userId;
 
     /**
-     * Description of the call protocols supported by the client.
-     *
-     * @var CallProtocol
+     * Description of the call protocols supported by the application.
      */
     protected CallProtocol $protocol;
 
-    public function __construct(int $userId, CallProtocol $protocol)
+    /**
+     * True, if a video call needs to be created.
+     */
+    protected bool $isVideo;
+
+    public function __construct(int $userId, CallProtocol $protocol, bool $isVideo)
     {
         $this->userId   = $userId;
         $this->protocol = $protocol;
+        $this->isVideo  = $isVideo;
     }
 
     public static function fromArray(array $array): CreateCall
@@ -40,6 +42,7 @@ class CreateCall extends TdFunction
         return new static(
             $array['user_id'],
             TdSchemaRegistry::fromArray($array['protocol']),
+            $array['is_video'],
         );
     }
 
@@ -49,6 +52,7 @@ class CreateCall extends TdFunction
             '@type'    => static::TYPE_NAME,
             'user_id'  => $this->userId,
             'protocol' => $this->protocol->typeSerialize(),
+            'is_video' => $this->isVideo,
         ];
     }
 
@@ -60,5 +64,10 @@ class CreateCall extends TdFunction
     public function getProtocol(): CallProtocol
     {
         return $this->protocol;
+    }
+
+    public function getIsVideo(): bool
+    {
+        return $this->isVideo;
     }
 }

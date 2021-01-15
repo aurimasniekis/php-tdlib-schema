@@ -17,83 +17,68 @@ class StickerSetInfo extends TdObject
 
     /**
      * Identifier of the sticker set.
-     *
-     * @var string
      */
     protected string $id;
 
     /**
      * Title of the sticker set.
-     *
-     * @var string
      */
     protected string $title;
 
     /**
      * Name of the sticker set.
-     *
-     * @var string
      */
     protected string $name;
 
     /**
-     * Sticker set thumbnail in WEBP format with width and height 100; may be null.
-     *
-     * @var PhotoSize|null
+     * Sticker set thumbnail in WEBP or TGS format with width and height 100; may be null.
      */
-    protected ?PhotoSize $thumbnail;
+    protected ?Thumbnail $thumbnail;
 
     /**
-     * True, if the sticker set has been installed by current user.
+     * Sticker set thumbnail's outline represented as a list of closed vector paths; may be empty. The coordinate system origin is in the upper-left corner.
      *
-     * @var bool
+     * @var ClosedVectorPath[]
+     */
+    protected array $thumbnailOutline;
+
+    /**
+     * True, if the sticker set has been installed by the current user.
      */
     protected bool $isInstalled;
 
     /**
      * True, if the sticker set has been archived. A sticker set can't be installed and archived simultaneously.
-     *
-     * @var bool
      */
     protected bool $isArchived;
 
     /**
      * True, if the sticker set is official.
-     *
-     * @var bool
      */
     protected bool $isOfficial;
 
     /**
      * True, is the stickers in the set are animated.
-     *
-     * @var bool
      */
     protected bool $isAnimated;
 
     /**
      * True, if the stickers in the set are masks.
-     *
-     * @var bool
      */
     protected bool $isMasks;
 
     /**
      * True for already viewed trending sticker sets.
-     *
-     * @var bool
      */
     protected bool $isViewed;
 
     /**
      * Total number of stickers in the set.
-     *
-     * @var int
      */
     protected int $size;
 
     /**
-     * Contains up to the first 5 stickers from the set, depending on the context. If the client needs more stickers the full set should be requested.
+     * Contains up to the first 5 stickers from the set, depending on the context. If the application needs more stickers the full set should be requested.
      *
      * @var Sticker[]
      */
@@ -103,7 +88,8 @@ class StickerSetInfo extends TdObject
         string $id,
         string $title,
         string $name,
-        ?PhotoSize $thumbnail,
+        ?Thumbnail $thumbnail,
+        array $thumbnailOutline,
         bool $isInstalled,
         bool $isArchived,
         bool $isOfficial,
@@ -113,18 +99,19 @@ class StickerSetInfo extends TdObject
         int $size,
         array $covers
     ) {
-        $this->id          = $id;
-        $this->title       = $title;
-        $this->name        = $name;
-        $this->thumbnail   = $thumbnail;
-        $this->isInstalled = $isInstalled;
-        $this->isArchived  = $isArchived;
-        $this->isOfficial  = $isOfficial;
-        $this->isAnimated  = $isAnimated;
-        $this->isMasks     = $isMasks;
-        $this->isViewed    = $isViewed;
-        $this->size        = $size;
-        $this->covers      = $covers;
+        $this->id               = $id;
+        $this->title            = $title;
+        $this->name             = $name;
+        $this->thumbnail        = $thumbnail;
+        $this->thumbnailOutline = $thumbnailOutline;
+        $this->isInstalled      = $isInstalled;
+        $this->isArchived       = $isArchived;
+        $this->isOfficial       = $isOfficial;
+        $this->isAnimated       = $isAnimated;
+        $this->isMasks          = $isMasks;
+        $this->isViewed         = $isViewed;
+        $this->size             = $size;
+        $this->covers           = $covers;
     }
 
     public static function fromArray(array $array): StickerSetInfo
@@ -134,6 +121,7 @@ class StickerSetInfo extends TdObject
             $array['title'],
             $array['name'],
             (isset($array['thumbnail']) ? TdSchemaRegistry::fromArray($array['thumbnail']) : null),
+            array_map(fn ($x) => TdSchemaRegistry::fromArray($x), $array['thumbnailOutline']),
             $array['is_installed'],
             $array['is_archived'],
             $array['is_official'],
@@ -153,6 +141,7 @@ class StickerSetInfo extends TdObject
             'title'           => $this->title,
             'name'            => $this->name,
             'thumbnail'       => (isset($this->thumbnail) ? $this->thumbnail : null),
+            array_map(fn ($x) => $x->typeSerialize(), $this->thumbnailOutline),
             'is_installed'    => $this->isInstalled,
             'is_archived'     => $this->isArchived,
             'is_official'     => $this->isOfficial,
@@ -179,9 +168,14 @@ class StickerSetInfo extends TdObject
         return $this->name;
     }
 
-    public function getThumbnail(): ?PhotoSize
+    public function getThumbnail(): ?Thumbnail
     {
         return $this->thumbnail;
+    }
+
+    public function getThumbnailOutline(): array
+    {
+        return $this->thumbnailOutline;
     }
 
     public function getIsInstalled(): bool

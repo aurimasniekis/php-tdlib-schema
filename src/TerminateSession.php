@@ -17,8 +17,6 @@ class TerminateSession extends TdFunction
 
     /**
      * Session identifier.
-     *
-     * @var string
      */
     protected string $sessionId;
 

@@ -17,15 +17,11 @@ class ChatEventUsernameChanged extends ChatEventAction
 
     /**
      * Previous chat username.
-     *
-     * @var string
      */
     protected string $oldUsername;
 
     /**
      * New chat username.
-     *
-     * @var string
      */
     protected string $newUsername;
 

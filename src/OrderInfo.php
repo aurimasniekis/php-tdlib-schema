@@ -17,29 +17,21 @@ class OrderInfo extends TdObject
 
     /**
      * Name of the user.
-     *
-     * @var string
      */
     protected string $name;
 
     /**
      * Phone number of the user.
-     *
-     * @var string
      */
     protected string $phoneNumber;
 
     /**
      * Email address of the user.
-     *
-     * @var string
      */
     protected string $emailAddress;
 
     /**
      * Shipping address for this order; may be null.
-     *
-     * @var Address|null
      */
     protected ?Address $shippingAddress;
 

@@ -17,22 +17,16 @@ class GetChatMessageCount extends TdFunction
 
     /**
      * Identifier of the chat in which to count messages.
-     *
-     * @var int
      */
     protected int $chatId;
 
     /**
      * Filter for message content; searchMessagesFilterEmpty is unsupported in this function.
-     *
-     * @var SearchMessagesFilter
      */
     protected SearchMessagesFilter $filter;
 
     /**
      * If true, returns count that is available locally without sending network requests, returning -1 if the number of messages is unknown.
-     *
-     * @var bool
      */
     protected bool $returnLocal;
 

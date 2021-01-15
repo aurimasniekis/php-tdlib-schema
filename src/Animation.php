@@ -17,57 +17,46 @@ class Animation extends TdObject
 
     /**
      * Duration of the animation, in seconds; as defined by the sender.
-     *
-     * @var int
      */
     protected int $duration;
 
     /**
      * Width of the animation.
-     *
-     * @var int
      */
     protected int $width;
 
     /**
      * Height of the animation.
-     *
-     * @var int
      */
     protected int $height;
 
     /**
      * Original name of the file; as defined by the sender.
-     *
-     * @var string
      */
     protected string $fileName;
 
     /**
      * MIME type of the file, usually "image/gif" or "video/mp4".
-     *
-     * @var string
      */
     protected string $mimeType;
 
     /**
+     * True, if stickers were added to the animation. The list of corresponding sticker set can be received using getAttachedStickerSets.
+     */
+    protected bool $hasStickers;
+
+    /**
      * Animation minithumbnail; may be null.
-     *
-     * @var Minithumbnail|null
      */
     protected ?Minithumbnail $minithumbnail;
 
     /**
-     * Animation thumbnail; may be null.
-     *
-     * @var PhotoSize|null
+     * Animation thumbnail in JPEG or MPEG4 format; may be null.
      */
-    protected ?PhotoSize $thumbnail;
+    protected ?Thumbnail $thumbnail;
 
     /**
      * File containing the animation.
-     *
-     * @var File
      */
     protected File $animation;
 
@@ -77,8 +66,9 @@ class Animation extends TdObject
         int $height,
         string $fileName,
         string $mimeType,
+        bool $hasStickers,
         ?Minithumbnail $minithumbnail,
-        ?PhotoSize $thumbnail,
+        ?Thumbnail $thumbnail,
         File $animation
     ) {
         $this->duration      = $duration;
@@ -86,6 +76,7 @@ class Animation extends TdObject
         $this->height        = $height;
         $this->fileName      = $fileName;
         $this->mimeType      = $mimeType;
+        $this->hasStickers   = $hasStickers;
         $this->minithumbnail = $minithumbnail;
         $this->thumbnail     = $thumbnail;
         $this->animation     = $animation;
@@ -99,6 +90,7 @@ class Animation extends TdObject
             $array['height'],
             $array['file_name'],
             $array['mime_type'],
+            $array['has_stickers'],
             (isset($array['minithumbnail']) ? TdSchemaRegistry::fromArray($array['minithumbnail']) : null),
             (isset($array['thumbnail']) ? TdSchemaRegistry::fromArray($array['thumbnail']) : null),
             TdSchemaRegistry::fromArray($array['animation']),
@@ -114,6 +106,7 @@ class Animation extends TdObject
             'height'        => $this->height,
             'file_name'     => $this->fileName,
             'mime_type'     => $this->mimeType,
+            'has_stickers'  => $this->hasStickers,
             'minithumbnail' => (isset($this->minithumbnail) ? $this->minithumbnail : null),
             'thumbnail'     => (isset($this->thumbnail) ? $this->thumbnail : null),
             'animation'     => $this->animation->typeSerialize(),
@@ -145,12 +138,17 @@ class Animation extends TdObject
         return $this->mimeType;
     }
 
+    public function getHasStickers(): bool
+    {
+        return $this->hasStickers;
+    }
+
     public function getMinithumbnail(): ?Minithumbnail
     {
         return $this->minithumbnail;
     }
 
-    public function getThumbnail(): ?PhotoSize
+    public function getThumbnail(): ?Thumbnail
     {
         return $this->thumbnail;
     }

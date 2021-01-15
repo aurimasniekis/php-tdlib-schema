@@ -17,36 +17,26 @@ class StorageStatisticsFast extends TdObject
 
     /**
      * Approximate total size of files.
-     *
-     * @var int
      */
     protected int $filesSize;
 
     /**
      * Approximate number of files.
-     *
-     * @var int
      */
     protected int $fileCount;
 
     /**
      * Size of the database.
-     *
-     * @var int
      */
     protected int $databaseSize;
 
     /**
      * Size of the language pack database.
-     *
-     * @var int
      */
     protected int $languagePackDatabaseSize;
 
     /**
      * Size of the TDLib internal log.
-     *
-     * @var int
      */
     protected int $logSize;
 

@@ -17,8 +17,6 @@ class InputPassportElementErrorSourceFile extends InputPassportElementErrorSourc
 
     /**
      * Current hash of the file which has the error.
-     *
-     * @var string
      */
     protected string $fileHash;
 

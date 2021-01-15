@@ -17,8 +17,6 @@ class PageBlockDetails extends PageBlock
 
     /**
      * Always visible heading for the block.
-     *
-     * @var RichText
      */
     protected RichText $header;
 
@@ -31,8 +29,6 @@ class PageBlockDetails extends PageBlock
 
     /**
      * True, if the block is open by default.
-     *
-     * @var bool
      */
     protected bool $isOpen;
 

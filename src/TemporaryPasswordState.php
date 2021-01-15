@@ -17,15 +17,11 @@ class TemporaryPasswordState extends TdObject
 
     /**
      * True, if a temporary password is available.
-     *
-     * @var bool
      */
     protected bool $hasPassword;
 
     /**
      * Time left before the temporary password expires, in seconds.
-     *
-     * @var int
      */
     protected int $validFor;
 

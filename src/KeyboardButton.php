@@ -17,15 +17,11 @@ class KeyboardButton extends TdObject
 
     /**
      * Text of the button.
-     *
-     * @var string
      */
     protected string $text;
 
     /**
      * Type of the button.
-     *
-     * @var KeyboardButtonType
      */
     protected KeyboardButtonType $type;
 

@@ -17,15 +17,11 @@ class UpdateNotification extends Update
 
     /**
      * Unique notification group identifier.
-     *
-     * @var int
      */
     protected int $notificationGroupId;
 
     /**
      * Changed notification.
-     *
-     * @var Notification
      */
     protected Notification $notification;
 

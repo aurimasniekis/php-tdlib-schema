@@ -17,15 +17,11 @@ class ChatTypeSecret extends ChatType
 
     /**
      * Secret chat identifier.
-     *
-     * @var int
      */
     protected int $secretChatId;
 
     /**
      * User identifier of the secret chat peer.
-     *
-     * @var int
      */
     protected int $userId;
 

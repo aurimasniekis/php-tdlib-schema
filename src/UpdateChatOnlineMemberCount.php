@@ -17,15 +17,11 @@ class UpdateChatOnlineMemberCount extends Update
 
     /**
      * Identifier of the chat.
-     *
-     * @var int
      */
     protected int $chatId;
 
     /**
      * New number of online members in the chat, or 0 if unknown.
-     *
-     * @var int
      */
     protected int $onlineMemberCount;
 

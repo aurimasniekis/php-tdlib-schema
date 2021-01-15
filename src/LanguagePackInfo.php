@@ -17,92 +17,66 @@ class LanguagePackInfo extends TdObject
 
     /**
      * Unique language pack identifier.
-     *
-     * @var string
      */
     protected string $id;
 
     /**
      * Identifier of a base language pack; may be empty. If a string is missed in the language pack, then it should be fetched from base language pack. Unsupported in custom language packs.
-     *
-     * @var string
      */
     protected string $baseLanguagePackId;
 
     /**
      * Language name.
-     *
-     * @var string
      */
     protected string $name;
 
     /**
      * Name of the language in that language.
-     *
-     * @var string
      */
     protected string $nativeName;
 
     /**
      * A language code to be used to apply plural forms. See https://www.unicode.org/cldr/charts/latest/supplemental/language_plural_rules.html for more info.
-     *
-     * @var string
      */
     protected string $pluralCode;
 
     /**
      * True, if the language pack is official.
-     *
-     * @var bool
      */
     protected bool $isOfficial;
 
     /**
      * True, if the language pack strings are RTL.
-     *
-     * @var bool
      */
     protected bool $isRtl;
 
     /**
      * True, if the language pack is a beta language pack.
-     *
-     * @var bool
      */
     protected bool $isBeta;
 
     /**
      * True, if the language pack is installed by the current user.
-     *
-     * @var bool
      */
     protected bool $isInstalled;
 
     /**
      * Total number of non-deleted strings from the language pack.
-     *
-     * @var int
      */
     protected int $totalStringCount;
 
     /**
      * Total number of translated strings from the language pack.
-     *
-     * @var int
      */
     protected int $translatedStringCount;
 
     /**
      * Total number of non-deleted strings from the language pack available locally.
-     *
-     * @var int
      */
     protected int $localStringCount;
 
     /**
      * Link to language translation interface; empty for custom local language packs.
-     *
-     * @var string
      */
     protected string $translationUrl;
 

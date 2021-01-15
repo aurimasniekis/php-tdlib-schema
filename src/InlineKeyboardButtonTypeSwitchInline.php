@@ -17,15 +17,11 @@ class InlineKeyboardButtonTypeSwitchInline extends InlineKeyboardButtonType
 
     /**
      * Inline query to be sent to the bot.
-     *
-     * @var string
      */
     protected string $query;
 
     /**
      * True, if the inline query should be sent from the current chat.
-     *
-     * @var bool
      */
     protected bool $inCurrentChat;
 

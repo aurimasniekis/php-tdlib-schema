@@ -17,8 +17,6 @@ class InputBackgroundRemote extends InputBackground
 
     /**
      * The background identifier.
-     *
-     * @var string
      */
     protected string $backgroundId;
 

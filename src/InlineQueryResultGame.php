@@ -17,15 +17,11 @@ class InlineQueryResultGame extends InlineQueryResult
 
     /**
      * Unique identifier of the query result.
-     *
-     * @var string
      */
     protected string $id;
 
     /**
      * Game result.
-     *
-     * @var Game
      */
     protected Game $game;
 

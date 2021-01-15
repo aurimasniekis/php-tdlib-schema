@@ -17,29 +17,21 @@ class SearchChatMembers extends TdFunction
 
     /**
      * Chat identifier.
-     *
-     * @var int
      */
     protected int $chatId;
 
     /**
      * Query to search for.
-     *
-     * @var string
      */
     protected string $query;
 
     /**
      * The maximum number of users to be returned.
-     *
-     * @var int
      */
     protected int $limit;
 
     /**
      * The type of users to return. By default, chatMembersFilterMembers.
-     *
-     * @var ChatMembersFilter
      */
     protected ChatMembersFilter $filter;
 

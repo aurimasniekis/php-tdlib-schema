@@ -17,29 +17,21 @@ class PageBlockVideo extends PageBlock
 
     /**
      * Video file; may be null.
-     *
-     * @var Video|null
      */
     protected ?Video $video;
 
     /**
      * Video caption.
-     *
-     * @var PageBlockCaption
      */
     protected PageBlockCaption $caption;
 
     /**
      * True, if the video should be played automatically.
-     *
-     * @var bool
      */
     protected bool $needAutoplay;
 
     /**
      * True, if the video should be looped.
-     *
-     * @var bool
      */
     protected bool $isLooped;
 

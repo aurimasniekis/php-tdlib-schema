@@ -17,36 +17,26 @@ class GetChatEventLog extends TdFunction
 
     /**
      * Chat identifier.
-     *
-     * @var int
      */
     protected int $chatId;
 
     /**
      * Search query by which to filter events.
-     *
-     * @var string
      */
     protected string $query;
 
     /**
      * Identifier of an event from which to return results. Use 0 to get results from the latest events.
-     *
-     * @var string
      */
     protected string $fromEventId;
 
     /**
      * The maximum number of events to return; up to 100.
-     *
-     * @var int
      */
     protected int $limit;
 
     /**
      * The types of events to return. By default, all types will be returned.
-     *
-     * @var ChatEventLogFilters
      */
     protected ChatEventLogFilters $filters;
 

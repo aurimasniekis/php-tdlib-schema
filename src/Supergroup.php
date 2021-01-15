@@ -17,92 +17,66 @@ class Supergroup extends TdObject
 
     /**
      * Supergroup or channel identifier.
-     *
-     * @var int
      */
     protected int $id;
 
     /**
      * Username of the supergroup or channel; empty for private supergroups or channels.
-     *
-     * @var string
      */
     protected string $username;
 
     /**
      * Point in time (Unix timestamp) when the current user joined, or the point in time when the supergroup or channel was created, in case the user is not a member.
-     *
-     * @var int
      */
     protected int $date;
 
     /**
      * Status of the current user in the supergroup or channel; custom title will be always empty.
-     *
-     * @var ChatMemberStatus
      */
     protected ChatMemberStatus $status;
 
     /**
-     * Number of members in the supergroup or channel; 0 if unknown. Currently it is guaranteed to be known only if the supergroup or channel was found through SearchPublicChats.
-     *
-     * @var int
+     * Number of members in the supergroup or channel; 0 if unknown. Currently it is guaranteed to be known only if the supergroup or channel was received through searchPublicChats, searchChatsNearby, getInactiveSupergroupChats, getSuitableDiscussionChats, getGroupsInCommon, or getUserPrivacySettingRules.
      */
     protected int $memberCount;
 
     /**
      * True, if the channel has a discussion group, or the supergroup is the designated discussion group for a channel.
-     *
-     * @var bool
      */
     protected bool $hasLinkedChat;
 
     /**
      * True, if the supergroup is connected to a location, i.e. the supergroup is a location-based supergroup.
-     *
-     * @var bool
      */
     protected bool $hasLocation;
 
     /**
      * True, if messages sent to the channel should contain information about the sender. This field is only applicable to channels.
-     *
-     * @var bool
      */
     protected bool $signMessages;
 
     /**
      * True, if the slow mode is enabled in the supergroup.
-     *
-     * @var bool
      */
     protected bool $isSlowModeEnabled;
 
     /**
      * True, if the supergroup is a channel.
-     *
-     * @var bool
      */
     protected bool $isChannel;
 
     /**
      * True, if the supergroup or channel is verified.
-     *
-     * @var bool
      */
     protected bool $isVerified;
 
     /**
      * If non-empty, contains a human-readable description of the reason why access to this supergroup or channel must be restricted.
-     *
-     * @var string
      */
     protected string $restrictionReason;
 
     /**
      * True, if many users reported this supergroup as a scam.
-     *
-     * @var bool
      */
     protected bool $isScam;
 

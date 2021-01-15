@@ -17,29 +17,21 @@ class EditMessageMedia extends TdFunction
 
     /**
      * The chat the message belongs to.
-     *
-     * @var int
      */
     protected int $chatId;
 
     /**
      * Identifier of the message.
-     *
-     * @var int
      */
     protected int $messageId;
 
     /**
      * The new message reply markup; for bots only.
-     *
-     * @var ReplyMarkup
      */
     protected ReplyMarkup $replyMarkup;
 
     /**
      * New content of the message. Must be one of the following types: InputMessageAnimation, InputMessageAudio, InputMessageDocument, InputMessagePhoto or InputMessageVideo.
-     *
-     * @var InputMessageContent
      */
     protected InputMessageContent $inputMessageContent;
 

@@ -17,8 +17,6 @@ class DeviceTokenUbuntuPush extends DeviceToken
 
     /**
      * Token; may be empty to de-register a device.
-     *
-     * @var string
      */
     protected string $token;
 

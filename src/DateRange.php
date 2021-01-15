@@ -17,15 +17,11 @@ class DateRange extends TdObject
 
     /**
      * Point in time (Unix timestamp) at which the date range begins.
-     *
-     * @var int
      */
     protected int $startDate;
 
     /**
      * Point in time (Unix timestamp) at which the date range ends.
-     *
-     * @var int
      */
     protected int $endDate;
 

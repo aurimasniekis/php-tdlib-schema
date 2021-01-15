@@ -17,15 +17,11 @@ class InputMessageVideo extends InputMessageContent
 
     /**
      * Video to be sent.
-     *
-     * @var InputFile
      */
     protected InputFile $video;
 
     /**
      * Video thumbnail, if available.
-     *
-     * @var InputThumbnail
      */
     protected InputThumbnail $thumbnail;
 
@@ -38,43 +34,31 @@ class InputMessageVideo extends InputMessageContent
 
     /**
      * Duration of the video, in seconds.
-     *
-     * @var int
      */
     protected int $duration;
 
     /**
      * Video width.
-     *
-     * @var int
      */
     protected int $width;
 
     /**
      * Video height.
-     *
-     * @var int
      */
     protected int $height;
 
     /**
      * True, if the video should be tried to be streamed.
-     *
-     * @var bool
      */
     protected bool $supportsStreaming;
 
     /**
      * Video caption; 0-GetOption("message_caption_length_max") characters.
-     *
-     * @var FormattedText
      */
     protected FormattedText $caption;
 
     /**
      * Video TTL (Time To Live), in seconds (0-60). A non-zero TTL can be specified only in private chats.
-     *
-     * @var int
      */
     protected int $ttl;
 

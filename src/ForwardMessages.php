@@ -17,20 +17,16 @@ class ForwardMessages extends TdFunction
 
     /**
      * Identifier of the chat to which to forward messages.
-     *
-     * @var int
      */
     protected int $chatId;
 
     /**
      * Identifier of the chat from which to forward messages.
-     *
-     * @var int
      */
     protected int $fromChatId;
 
     /**
-     * Identifiers of the messages to forward.
+     * Identifiers of the messages to forward. Message identifiers must be in a strictly increasing order. At most 100 messages can be forwarded simultaneously.
      *
      * @var int[]
      */
@@ -38,46 +34,25 @@ class ForwardMessages extends TdFunction
 
     /**
      * Options to be used to send the messages.
-     *
-     * @var SendMessageOptions
      */
-    protected SendMessageOptions $options;
-
-    /**
-     * True, if the messages should be grouped into an album after forwarding. For this to work, no more than 10 messages may be forwarded, and all of them must be photo or video messages.
-     *
-     * @var bool
-     */
-    protected bool $asAlbum;
+    protected MessageSendOptions $options;
 
     /**
      * True, if content of the messages needs to be copied without links to the original messages. Always true if the messages are forwarded to a secret chat.
-     *
-     * @var bool
      */
     protected bool $sendCopy;
 
     /**
-     * True, if media captions of message copies needs to be removed. Ignored if send_copy is false.
-     *
-     * @var bool
+     * True, if media caption of message copies needs to be removed. Ignored if send_copy is false.
      */
     protected bool $removeCaption;
 
-    public function __construct(
-        int $chatId,
-        int $fromChatId,
-        array $messageIds,
-        SendMessageOptions $options,
-        bool $asAlbum,
-        bool $sendCopy,
-        bool $removeCaption
-    ) {
+    public function __construct(int $chatId, int $fromChatId, array $messageIds, MessageSendOptions $options, bool $sendCopy, bool $removeCaption)
+    {
         $this->chatId        = $chatId;
         $this->fromChatId    = $fromChatId;
         $this->messageIds    = $messageIds;
         $this->options       = $options;
-        $this->asAlbum       = $asAlbum;
         $this->sendCopy      = $sendCopy;
         $this->removeCaption = $removeCaption;
     }
@@ -89,7 +64,6 @@ class ForwardMessages extends TdFunction
             $array['from_chat_id'],
             $array['message_ids'],
             TdSchemaRegistry::fromArray($array['options']),
-            $array['as_album'],
             $array['send_copy'],
             $array['remove_caption'],
         );
@@ -103,7 +77,6 @@ class ForwardMessages extends TdFunction
             'from_chat_id'   => $this->fromChatId,
             'message_ids'    => $this->messageIds,
             'options'        => $this->options->typeSerialize(),
-            'as_album'       => $this->asAlbum,
             'send_copy'      => $this->sendCopy,
             'remove_caption' => $this->removeCaption,
         ];
@@ -124,14 +97,9 @@ class ForwardMessages extends TdFunction
         return $this->messageIds;
     }
 
-    public function getOptions(): SendMessageOptions
+    public function getOptions(): MessageSendOptions
     {
         return $this->options;
-    }
-
-    public function getAsAlbum(): bool
-    {
-        return $this->asAlbum;
     }
 
     public function getSendCopy(): bool

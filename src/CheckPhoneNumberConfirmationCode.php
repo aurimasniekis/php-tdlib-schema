@@ -17,8 +17,6 @@ class CheckPhoneNumberConfirmationCode extends TdFunction
 
     /**
      * The phone number confirmation code.
-     *
-     * @var string
      */
     protected string $code;
 

@@ -24,8 +24,6 @@ class PageBlockCollage extends PageBlock
 
     /**
      * Block caption.
-     *
-     * @var PageBlockCaption
      */
     protected PageBlockCaption $caption;
 

@@ -9,7 +9,7 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * An authentication code is delivered via a private Telegram message, which can be viewed in another client.
+ * An authentication code is delivered via a private Telegram message, which can be viewed from another active session.
  */
 class AuthenticationCodeTypeTelegramMessage extends AuthenticationCodeType
 {
@@ -17,8 +17,6 @@ class AuthenticationCodeTypeTelegramMessage extends AuthenticationCodeType
 
     /**
      * Length of the code.
-     *
-     * @var int
      */
     protected int $length;
 

@@ -17,8 +17,6 @@ class PageBlockFooter extends PageBlock
 
     /**
      * Footer.
-     *
-     * @var RichText
      */
     protected RichText $footer;
 

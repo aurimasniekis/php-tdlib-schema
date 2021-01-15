@@ -17,15 +17,11 @@ class UpdateChatIsMarkedAsUnread extends Update
 
     /**
      * Chat identifier.
-     *
-     * @var int
      */
     protected int $chatId;
 
     /**
      * New value of is_marked_as_unread.
-     *
-     * @var bool
      */
     protected bool $isMarkedAsUnread;
 

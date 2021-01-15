@@ -17,8 +17,6 @@ class SearchBackground extends TdFunction
 
     /**
      * The name of the background.
-     *
-     * @var string
      */
     protected string $name;
 

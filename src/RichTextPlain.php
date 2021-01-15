@@ -17,8 +17,6 @@ class RichTextPlain extends RichText
 
     /**
      * Text.
-     *
-     * @var string
      */
     protected string $text;
 

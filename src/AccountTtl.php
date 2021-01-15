@@ -17,8 +17,6 @@ class AccountTtl extends TdObject
 
     /**
      * Number of days of inactivity before the account will be flagged for deletion; should range from 30-366 days.
-     *
-     * @var int
      */
     protected int $days;
 

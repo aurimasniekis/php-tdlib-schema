@@ -17,8 +17,6 @@ class InputFileId extends InputFile
 
     /**
      * Unique file identifier.
-     *
-     * @var int
      */
     protected int $id;
 

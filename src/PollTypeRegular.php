@@ -17,8 +17,6 @@ class PollTypeRegular extends PollType
 
     /**
      * True, if multiple answer options can be chosen simultaneously.
-     *
-     * @var bool
      */
     protected bool $allowMultipleAnswers;
 

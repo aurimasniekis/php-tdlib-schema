@@ -17,15 +17,11 @@ class GetPaymentForm extends TdFunction
 
     /**
      * Chat identifier of the Invoice message.
-     *
-     * @var int
      */
     protected int $chatId;
 
     /**
      * Message identifier.
-     *
-     * @var int
      */
     protected int $messageId;
 

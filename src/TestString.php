@@ -17,8 +17,6 @@ class TestString extends TdObject
 
     /**
      * String.
-     *
-     * @var string
      */
     protected string $value;
 

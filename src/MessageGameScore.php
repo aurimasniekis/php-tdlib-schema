@@ -17,22 +17,16 @@ class MessageGameScore extends MessageContent
 
     /**
      * Identifier of the message with the game, can be an identifier of a deleted message.
-     *
-     * @var int
      */
     protected int $gameMessageId;
 
     /**
      * Identifier of the game; may be different from the games presented in the message with the game.
-     *
-     * @var string
      */
     protected string $gameId;
 
     /**
      * New score.
-     *
-     * @var int
      */
     protected int $score;
 

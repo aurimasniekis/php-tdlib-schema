@@ -9,7 +9,7 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Instructs clients to force a reply to this message.
+ * Instructs application to force a reply to this message.
  */
 class ReplyMarkupForceReply extends ReplyMarkup
 {
@@ -17,8 +17,6 @@ class ReplyMarkupForceReply extends ReplyMarkup
 
     /**
      * True, if a forced reply must automatically be shown to the current user. For outgoing messages, specify true to show the forced reply only for the mentioned users and for the target user of a reply.
-     *
-     * @var bool
      */
     protected bool $isPersonal;
 

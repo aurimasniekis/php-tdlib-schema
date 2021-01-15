@@ -17,15 +17,11 @@ class SetAutoDownloadSettings extends TdFunction
 
     /**
      * New user auto-download settings.
-     *
-     * @var AutoDownloadSettings
      */
     protected AutoDownloadSettings $settings;
 
     /**
      * Type of the network for which the new settings are applied.
-     *
-     * @var NetworkType
      */
     protected NetworkType $type;
 

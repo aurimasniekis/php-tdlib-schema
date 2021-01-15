@@ -17,22 +17,16 @@ class UpdateUnreadMessageCount extends Update
 
     /**
      * The chat list with changed number of unread messages.
-     *
-     * @var ChatList
      */
     protected ChatList $chatList;
 
     /**
      * Total number of unread messages.
-     *
-     * @var int
      */
     protected int $unreadCount;
 
     /**
      * Total number of unread messages in unmuted chats.
-     *
-     * @var int
      */
     protected int $unreadUnmutedCount;
 

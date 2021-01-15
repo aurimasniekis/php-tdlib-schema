@@ -17,8 +17,6 @@ class InputPassportElementInternalPassport extends InputPassportElement
 
     /**
      * The internal passport to be saved.
-     *
-     * @var InputIdentityDocument
      */
     protected InputIdentityDocument $internalPassport;
 

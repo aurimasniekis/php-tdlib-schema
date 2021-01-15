@@ -16,9 +16,7 @@ class InputMessagePoll extends InputMessageContent
     public const TYPE_NAME = 'inputMessagePoll';
 
     /**
-     * Poll question, 1-255 characters.
-     *
-     * @var string
+     * Poll question, 1-255 characters (up to 300 characters for bots).
      */
     protected string $question;
 
@@ -31,26 +29,30 @@ class InputMessagePoll extends InputMessageContent
 
     /**
      * True, if the poll voters are anonymous. Non-anonymous polls can't be sent or forwarded to channels.
-     *
-     * @var bool
      */
     protected bool $isAnonymous;
 
     /**
      * Type of the poll.
-     *
-     * @var PollType
      */
     protected PollType $type;
 
     /**
+     * Amount of time the poll will be active after creation, in seconds; for bots only.
+     */
+    protected int $openPeriod;
+
+    /**
+     * Point in time (Unix timestamp) when the poll will be automatically closed; for bots only.
+     */
+    protected int $closeDate;
+
+    /**
      * True, if the poll needs to be sent already closed; for bots only.
-     *
-     * @var bool
      */
     protected bool $isClosed;
 
-    public function __construct(string $question, array $options, bool $isAnonymous, PollType $type, bool $isClosed)
+    public function __construct(string $question, array $options, bool $isAnonymous, PollType $type, int $openPeriod, int $closeDate, bool $isClosed)
     {
         parent::__construct();
 
@@ -58,6 +60,8 @@ class InputMessagePoll extends InputMessageContent
         $this->options     = $options;
         $this->isAnonymous = $isAnonymous;
         $this->type        = $type;
+        $this->openPeriod  = $openPeriod;
+        $this->closeDate   = $closeDate;
         $this->isClosed    = $isClosed;
     }
 
@@ -68,6 +72,8 @@ class InputMessagePoll extends InputMessageContent
             $array['options'],
             $array['is_anonymous'],
             TdSchemaRegistry::fromArray($array['type']),
+            $array['open_period'],
+            $array['close_date'],
             $array['is_closed'],
         );
     }
@@ -80,6 +86,8 @@ class InputMessagePoll extends InputMessageContent
             'options'      => $this->options,
             'is_anonymous' => $this->isAnonymous,
             'type'         => $this->type->typeSerialize(),
+            'open_period'  => $this->openPeriod,
+            'close_date'   => $this->closeDate,
             'is_closed'    => $this->isClosed,
         ];
     }
@@ -102,6 +110,16 @@ class InputMessagePoll extends InputMessageContent
     public function getType(): PollType
     {
         return $this->type;
+    }
+
+    public function getOpenPeriod(): int
+    {
+        return $this->openPeriod;
+    }
+
+    public function getCloseDate(): int
+    {
+        return $this->closeDate;
     }
 
     public function getIsClosed(): bool

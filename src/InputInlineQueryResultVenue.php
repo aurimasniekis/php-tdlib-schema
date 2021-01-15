@@ -17,50 +17,36 @@ class InputInlineQueryResultVenue extends InputInlineQueryResult
 
     /**
      * Unique identifier of the query result.
-     *
-     * @var string
      */
     protected string $id;
 
     /**
      * Venue result.
-     *
-     * @var Venue
      */
     protected Venue $venue;
 
     /**
      * URL of the result thumbnail, if it exists.
-     *
-     * @var string
      */
     protected string $thumbnailUrl;
 
     /**
      * Thumbnail width, if known.
-     *
-     * @var int
      */
     protected int $thumbnailWidth;
 
     /**
      * Thumbnail height, if known.
-     *
-     * @var int
      */
     protected int $thumbnailHeight;
 
     /**
      * The message reply markup. Must be of type replyMarkupInlineKeyboard or null.
-     *
-     * @var ReplyMarkup
      */
     protected ReplyMarkup $replyMarkup;
 
     /**
      * The content of the message to be sent. Must be one of the following types: InputMessageText, InputMessageLocation, InputMessageVenue or InputMessageContact.
-     *
-     * @var InputMessageContent
      */
     protected InputMessageContent $inputMessageContent;
 

@@ -17,8 +17,6 @@ class CanTransferOwnershipResultSessionTooFresh extends CanTransferOwnershipResu
 
     /**
      * Time left before the session can be used to transfer ownership of a chat, in seconds.
-     *
-     * @var int
      */
     protected int $retryAfter;
 

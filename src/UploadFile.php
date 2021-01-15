@@ -17,22 +17,16 @@ class UploadFile extends TdFunction
 
     /**
      * File to upload.
-     *
-     * @var InputFile
      */
     protected InputFile $file;
 
     /**
      * File type.
-     *
-     * @var FileType
      */
     protected FileType $fileType;
 
     /**
      * Priority of the upload (1-32). The higher the priority, the earlier the file will be uploaded. If the priorities of two files are equal, then the first one for which uploadFile was called will be uploaded first.
-     *
-     * @var int
      */
     protected int $priority;
 

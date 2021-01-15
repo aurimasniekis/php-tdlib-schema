@@ -17,8 +17,6 @@ class ChatInviteLink extends TdObject
 
     /**
      * Chat invite link.
-     *
-     * @var string
      */
     protected string $inviteLink;
 

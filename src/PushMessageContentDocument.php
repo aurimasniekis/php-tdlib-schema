@@ -17,15 +17,11 @@ class PushMessageContentDocument extends PushMessageContent
 
     /**
      * Message content; may be null.
-     *
-     * @var Document|null
      */
     protected ?Document $document;
 
     /**
      * True, if the message is a pinned message with the specified content.
-     *
-     * @var bool
      */
     protected bool $isPinned;
 

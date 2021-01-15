@@ -17,22 +17,16 @@ class DeleteChatHistory extends TdFunction
 
     /**
      * Chat identifier.
-     *
-     * @var int
      */
     protected int $chatId;
 
     /**
      * Pass true if the chat should be removed from the chat list.
-     *
-     * @var bool
      */
     protected bool $removeFromChatList;
 
     /**
      * Pass true to try to delete chat history for all users.
-     *
-     * @var bool
      */
     protected bool $revoke;
 

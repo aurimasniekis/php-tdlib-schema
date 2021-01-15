@@ -17,8 +17,6 @@ class InputCredentialsAndroidPay extends InputCredentials
 
     /**
      * JSON-encoded data with the credential identifier.
-     *
-     * @var string
      */
     protected string $data;
 

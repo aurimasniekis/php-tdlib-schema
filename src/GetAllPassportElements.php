@@ -17,8 +17,6 @@ class GetAllPassportElements extends TdFunction
 
     /**
      * Password of the current user.
-     *
-     * @var string
      */
     protected string $password;
 

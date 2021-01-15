@@ -17,8 +17,6 @@ class OptionValueBoolean extends OptionValue
 
     /**
      * The value of the option.
-     *
-     * @var bool
      */
     protected bool $value;
 
@@ -32,7 +30,7 @@ class OptionValueBoolean extends OptionValue
     public static function fromArray(array $array): OptionValueBoolean
     {
         return new static(
-            boolval($array['value']),
+            $array['value'],
         );
     }
 

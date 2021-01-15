@@ -17,8 +17,6 @@ class CheckAuthenticationBotToken extends TdFunction
 
     /**
      * The bot token.
-     *
-     * @var string
      */
     protected string $token;
 

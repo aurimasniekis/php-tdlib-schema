@@ -17,15 +17,11 @@ class InputStickerAnimated extends InputSticker
 
     /**
      * File with the animated sticker. Only local or uploaded within a week files are supported. See https://core.telegram.org/animated_stickers#technical-requirements for technical requirements.
-     *
-     * @var InputFile
      */
     protected InputFile $sticker;
 
     /**
      * Emojis corresponding to the sticker.
-     *
-     * @var string
      */
     protected string $emojis;
 

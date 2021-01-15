@@ -17,37 +17,35 @@ class DiscardCall extends TdFunction
 
     /**
      * Call identifier.
-     *
-     * @var int
      */
     protected int $callId;
 
     /**
      * True, if the user was disconnected.
-     *
-     * @var bool
      */
     protected bool $isDisconnected;
 
     /**
      * The call duration, in seconds.
-     *
-     * @var int
      */
     protected int $duration;
 
     /**
+     * True, if the call was a video call.
+     */
+    protected bool $isVideo;
+
+    /**
      * Identifier of the connection used during the call.
-     *
-     * @var string
      */
     protected string $connectionId;
 
-    public function __construct(int $callId, bool $isDisconnected, int $duration, string $connectionId)
+    public function __construct(int $callId, bool $isDisconnected, int $duration, bool $isVideo, string $connectionId)
     {
         $this->callId         = $callId;
         $this->isDisconnected = $isDisconnected;
         $this->duration       = $duration;
+        $this->isVideo        = $isVideo;
         $this->connectionId   = $connectionId;
     }
 
@@ -57,6 +55,7 @@ class DiscardCall extends TdFunction
             $array['call_id'],
             $array['is_disconnected'],
             $array['duration'],
+            $array['is_video'],
             $array['connection_id'],
         );
     }
@@ -68,6 +67,7 @@ class DiscardCall extends TdFunction
             'call_id'         => $this->callId,
             'is_disconnected' => $this->isDisconnected,
             'duration'        => $this->duration,
+            'is_video'        => $this->isVideo,
             'connection_id'   => $this->connectionId,
         ];
     }
@@ -85,6 +85,11 @@ class DiscardCall extends TdFunction
     public function getDuration(): int
     {
         return $this->duration;
+    }
+
+    public function getIsVideo(): bool
+    {
+        return $this->isVideo;
     }
 
     public function getConnectionId(): string

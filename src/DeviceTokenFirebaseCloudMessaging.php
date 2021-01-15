@@ -17,15 +17,11 @@ class DeviceTokenFirebaseCloudMessaging extends DeviceToken
 
     /**
      * Device registration token; may be empty to de-register a device.
-     *
-     * @var string
      */
     protected string $token;
 
     /**
      * True, if push notifications should be additionally encrypted.
-     *
-     * @var bool
      */
     protected bool $encrypt;
 

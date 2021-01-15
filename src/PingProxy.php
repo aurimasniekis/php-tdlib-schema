@@ -17,8 +17,6 @@ class PingProxy extends TdFunction
 
     /**
      * Proxy identifier. Use 0 to ping a Telegram server without a proxy.
-     *
-     * @var int
      */
     protected int $proxyId;
 

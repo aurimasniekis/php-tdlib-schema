@@ -17,8 +17,6 @@ class RemoveFavoriteSticker extends TdFunction
 
     /**
      * Sticker file to delete from the list.
-     *
-     * @var InputFile
      */
     protected InputFile $sticker;
 

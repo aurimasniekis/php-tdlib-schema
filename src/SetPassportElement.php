@@ -17,15 +17,11 @@ class SetPassportElement extends TdFunction
 
     /**
      * Input Telegram Passport element.
-     *
-     * @var InputPassportElement
      */
     protected InputPassportElement $element;
 
     /**
      * Password of the current user.
-     *
-     * @var string
      */
     protected string $password;
 

@@ -17,8 +17,6 @@ class DeviceTokenSimplePush extends DeviceToken
 
     /**
      * Absolute URL exposed by the push service where the application server can send push messages; may be empty to de-register a device.
-     *
-     * @var string
      */
     protected string $endpoint;
 

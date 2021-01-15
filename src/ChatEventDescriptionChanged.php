@@ -17,15 +17,11 @@ class ChatEventDescriptionChanged extends ChatEventAction
 
     /**
      * Previous chat description.
-     *
-     * @var string
      */
     protected string $oldDescription;
 
     /**
      * New chat description.
-     *
-     * @var string
      */
     protected string $newDescription;
 

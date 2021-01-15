@@ -17,15 +17,11 @@ class RemoveTopChat extends TdFunction
 
     /**
      * Category of frequently used chats.
-     *
-     * @var TopChatCategory
      */
     protected TopChatCategory $category;
 
     /**
      * Chat identifier.
-     *
-     * @var int
      */
     protected int $chatId;
 

@@ -17,22 +17,27 @@ class PollTypeQuiz extends PollType
 
     /**
      * 0-based identifier of the correct answer option; -1 for a yet unanswered poll.
-     *
-     * @var int
      */
     protected int $correctOptionId;
 
-    public function __construct(int $correctOptionId)
+    /**
+     * Text that is shown when the user chooses an incorrect answer or taps on the lamp icon, 0-200 characters with at most 2 line feeds; empty for a yet unanswered poll.
+     */
+    protected FormattedText $explanation;
+
+    public function __construct(int $correctOptionId, FormattedText $explanation)
     {
         parent::__construct();
 
         $this->correctOptionId = $correctOptionId;
+        $this->explanation     = $explanation;
     }
 
     public static function fromArray(array $array): PollTypeQuiz
     {
         return new static(
             $array['correct_option_id'],
+            TdSchemaRegistry::fromArray($array['explanation']),
         );
     }
 
@@ -41,11 +46,17 @@ class PollTypeQuiz extends PollType
         return [
             '@type'             => static::TYPE_NAME,
             'correct_option_id' => $this->correctOptionId,
+            'explanation'       => $this->explanation->typeSerialize(),
         ];
     }
 
     public function getCorrectOptionId(): int
     {
         return $this->correctOptionId;
+    }
+
+    public function getExplanation(): FormattedText
+    {
+        return $this->explanation;
     }
 }

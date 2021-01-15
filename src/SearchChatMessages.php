@@ -17,62 +17,62 @@ class SearchChatMessages extends TdFunction
 
     /**
      * Identifier of the chat in which to search messages.
-     *
-     * @var int
      */
     protected int $chatId;
 
     /**
      * Query to search for.
-     *
-     * @var string
      */
     protected string $query;
 
     /**
-     * If not 0, only messages sent by the specified user will be returned. Not supported in secret chats.
-     *
-     * @var int
+     * If not null, only messages sent by the specified sender will be returned. Not supported in secret chats.
      */
-    protected int $senderUserId;
+    protected MessageSender $sender;
 
     /**
      * Identifier of the message starting from which history must be fetched; use 0 to get results from the last message.
-     *
-     * @var int
      */
     protected int $fromMessageId;
 
     /**
      * Specify 0 to get results from exactly the from_message_id or a negative offset to get the specified message and some newer messages.
-     *
-     * @var int
      */
     protected int $offset;
 
     /**
      * The maximum number of messages to be returned; must be positive and can't be greater than 100. If the offset is negative, the limit must be greater than -offset. Fewer messages may be returned than specified by the limit, even if the end of the message history has not been reached.
-     *
-     * @var int
      */
     protected int $limit;
 
     /**
      * Filter for message content in the search results.
-     *
-     * @var SearchMessagesFilter
      */
     protected SearchMessagesFilter $filter;
 
-    public function __construct(int $chatId, string $query, int $senderUserId, int $fromMessageId, int $offset, int $limit, SearchMessagesFilter $filter)
-    {
-        $this->chatId        = $chatId;
-        $this->query         = $query;
-        $this->senderUserId  = $senderUserId;
-        $this->fromMessageId = $fromMessageId;
-        $this->offset        = $offset;
-        $this->limit         = $limit;
-        $this->filter        = $filter;
+    /**
+     * If not 0, only messages in the specified thread will be returned; supergroups only.
+     */
+    protected int $messageThreadId;
+
+    public function __construct(
+        int $chatId,
+        string $query,
+        MessageSender $sender,
+        int $fromMessageId,
+        int $offset,
+        int $limit,
+        SearchMessagesFilter $filter,
+        int $messageThreadId
+    ) {
+        $this->chatId          = $chatId;
+        $this->query           = $query;
+        $this->sender          = $sender;
+        $this->fromMessageId   = $fromMessageId;
+        $this->offset          = $offset;
+        $this->limit           = $limit;
+        $this->filter          = $filter;
+        $this->messageThreadId = $messageThreadId;
     }
 
     public static function fromArray(array $array): SearchChatMessages
@@ -80,25 +80,27 @@ class SearchChatMessages extends TdFunction
         return new static(
             $array['chat_id'],
             $array['query'],
-            $array['sender_user_id'],
+            TdSchemaRegistry::fromArray($array['sender']),
             $array['from_message_id'],
             $array['offset'],
             $array['limit'],
             TdSchemaRegistry::fromArray($array['filter']),
+            $array['message_thread_id'],
         );
     }
 
     public function typeSerialize(): array
     {
         return [
-            '@type'           => static::TYPE_NAME,
-            'chat_id'         => $this->chatId,
-            'query'           => $this->query,
-            'sender_user_id'  => $this->senderUserId,
-            'from_message_id' => $this->fromMessageId,
-            'offset'          => $this->offset,
-            'limit'           => $this->limit,
-            'filter'          => $this->filter->typeSerialize(),
+            '@type'             => static::TYPE_NAME,
+            'chat_id'           => $this->chatId,
+            'query'             => $this->query,
+            'sender'            => $this->sender->typeSerialize(),
+            'from_message_id'   => $this->fromMessageId,
+            'offset'            => $this->offset,
+            'limit'             => $this->limit,
+            'filter'            => $this->filter->typeSerialize(),
+            'message_thread_id' => $this->messageThreadId,
         ];
     }
 
@@ -112,9 +114,9 @@ class SearchChatMessages extends TdFunction
         return $this->query;
     }
 
-    public function getSenderUserId(): int
+    public function getSender(): MessageSender
     {
-        return $this->senderUserId;
+        return $this->sender;
     }
 
     public function getFromMessageId(): int
@@ -135,5 +137,10 @@ class SearchChatMessages extends TdFunction
     public function getFilter(): SearchMessagesFilter
     {
         return $this->filter;
+    }
+
+    public function getMessageThreadId(): int
+    {
+        return $this->messageThreadId;
     }
 }

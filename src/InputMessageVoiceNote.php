@@ -17,29 +17,21 @@ class InputMessageVoiceNote extends InputMessageContent
 
     /**
      * Voice note to be sent.
-     *
-     * @var InputFile
      */
     protected InputFile $voiceNote;
 
     /**
      * Duration of the voice note, in seconds.
-     *
-     * @var int
      */
     protected int $duration;
 
     /**
      * Waveform representation of the voice note, in 5-bit format.
-     *
-     * @var string
      */
     protected string $waveform;
 
     /**
      * Voice note caption; 0-GetOption("message_caption_length_max") characters.
-     *
-     * @var FormattedText
      */
     protected FormattedText $caption;
 

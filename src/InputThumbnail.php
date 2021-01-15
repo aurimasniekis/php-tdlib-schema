@@ -9,7 +9,7 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * A thumbnail to be sent along with a file; should be in JPEG or WEBP format for stickers, and less than 200 KB in size.
+ * A thumbnail to be sent along with a file; must be in JPEG or WEBP format for stickers, and less than 200 KB in size.
  */
 class InputThumbnail extends TdObject
 {
@@ -17,22 +17,16 @@ class InputThumbnail extends TdObject
 
     /**
      * Thumbnail file to send. Sending thumbnails by file_id is currently not supported.
-     *
-     * @var InputFile
      */
     protected InputFile $thumbnail;
 
     /**
      * Thumbnail width, usually shouldn't exceed 320. Use 0 if unknown.
-     *
-     * @var int
      */
     protected int $width;
 
     /**
      * Thumbnail height, usually shouldn't exceed 320. Use 0 if unknown.
-     *
-     * @var int
      */
     protected int $height;
 

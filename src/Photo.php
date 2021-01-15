@@ -16,16 +16,12 @@ class Photo extends TdObject
     public const TYPE_NAME = 'photo';
 
     /**
-     * True, if stickers were added to the photo.
-     *
-     * @var bool
+     * True, if stickers were added to the photo. The list of corresponding sticker sets can be received using getAttachedStickerSets.
      */
     protected bool $hasStickers;
 
     /**
      * Photo minithumbnail; may be null.
-     *
-     * @var Minithumbnail|null
      */
     protected ?Minithumbnail $minithumbnail;
 

@@ -17,8 +17,6 @@ class GetMessageLinkInfo extends TdFunction
 
     /**
      * The message link in the format "https://t.me/c/...", or "tg://privatepost?...", or "https://t.me/username/...", or "tg://resolve?...".
-     *
-     * @var string
      */
     protected string $url;
 

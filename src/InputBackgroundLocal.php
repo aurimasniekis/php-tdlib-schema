@@ -17,8 +17,6 @@ class InputBackgroundLocal extends InputBackground
 
     /**
      * Background file to use. Only inputFileLocal and inputFileGenerated are supported. The file must be in JPEG format for wallpapers and in PNG format for patterns.
-     *
-     * @var InputFile
      */
     protected InputFile $background;
 

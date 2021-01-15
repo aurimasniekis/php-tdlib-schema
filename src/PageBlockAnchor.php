@@ -17,8 +17,6 @@ class PageBlockAnchor extends PageBlock
 
     /**
      * Name of the anchor.
-     *
-     * @var string
      */
     protected string $name;
 

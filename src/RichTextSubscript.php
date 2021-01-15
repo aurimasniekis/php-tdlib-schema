@@ -17,8 +17,6 @@ class RichTextSubscript extends RichText
 
     /**
      * Text.
-     *
-     * @var RichText
      */
     protected RichText $text;
 

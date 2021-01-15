@@ -17,15 +17,11 @@ class FinishFileGeneration extends TdFunction
 
     /**
      * The identifier of the generation process.
-     *
-     * @var string
      */
     protected string $generationId;
 
     /**
      * If set, means that file generation has failed and should be terminated.
-     *
-     * @var Error
      */
     protected Error $error;
 

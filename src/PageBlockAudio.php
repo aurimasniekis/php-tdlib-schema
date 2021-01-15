@@ -17,15 +17,11 @@ class PageBlockAudio extends PageBlock
 
     /**
      * Audio file; may be null.
-     *
-     * @var Audio|null
      */
     protected ?Audio $audio;
 
     /**
      * Audio file caption.
-     *
-     * @var PageBlockCaption
      */
     protected PageBlockCaption $caption;
 

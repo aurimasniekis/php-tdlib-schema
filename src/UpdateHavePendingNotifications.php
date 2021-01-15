@@ -17,15 +17,11 @@ class UpdateHavePendingNotifications extends Update
 
     /**
      * True, if there are some delayed notification updates, which will be sent soon.
-     *
-     * @var bool
      */
     protected bool $haveDelayedNotifications;
 
     /**
      * True, if there can be some yet unreceived notifications, which are being fetched from the server.
-     *
-     * @var bool
      */
     protected bool $haveUnreceivedNotifications;
 

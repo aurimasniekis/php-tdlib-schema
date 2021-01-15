@@ -17,8 +17,6 @@ class Messages extends TdObject
 
     /**
      * Approximate total count of messages found.
-     *
-     * @var int
      */
     protected int $totalCount;
 

@@ -17,8 +17,6 @@ class MessageChatSetTtl extends MessageContent
 
     /**
      * New TTL.
-     *
-     * @var int
      */
     protected int $ttl;
 

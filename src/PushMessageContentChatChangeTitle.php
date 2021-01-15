@@ -17,8 +17,6 @@ class PushMessageContentChatChangeTitle extends PushMessageContent
 
     /**
      * New chat title.
-     *
-     * @var string
      */
     protected string $title;
 

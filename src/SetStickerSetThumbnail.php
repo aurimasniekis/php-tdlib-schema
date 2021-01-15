@@ -17,22 +17,16 @@ class SetStickerSetThumbnail extends TdFunction
 
     /**
      * Sticker set owner.
-     *
-     * @var int
      */
     protected int $userId;
 
     /**
      * Sticker set name.
-     *
-     * @var string
      */
     protected string $name;
 
     /**
-     * Thumbnail to set in PNG or TGS format. Animated thumbnail must be set for animated sticker sets and only for them. You can use a zero InputFileId to delete the thumbnail.
-     *
-     * @var InputFile
+     * Thumbnail to set in PNG or TGS format. Animated thumbnail must be set for animated sticker sets and only for them. Pass a zero InputFileId to delete the thumbnail.
      */
     protected InputFile $thumbnail;
 

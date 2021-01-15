@@ -17,15 +17,11 @@ class UpdateChatPinnedMessage extends Update
 
     /**
      * Chat identifier.
-     *
-     * @var int
      */
     protected int $chatId;
 
     /**
      * The new identifier of the pinned message; 0 if there is no pinned message in the chat.
-     *
-     * @var int
      */
     protected int $pinnedMessageId;
 

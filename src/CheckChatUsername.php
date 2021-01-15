@@ -17,15 +17,11 @@ class CheckChatUsername extends TdFunction
 
     /**
      * Chat identifier; should be identifier of a supergroup chat, or a channel chat, or a private chat with self, or zero if chat is being created.
-     *
-     * @var int
      */
     protected int $chatId;
 
     /**
      * Username to be checked.
-     *
-     * @var string
      */
     protected string $username;
 

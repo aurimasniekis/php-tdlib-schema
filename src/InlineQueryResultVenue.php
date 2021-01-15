@@ -17,26 +17,20 @@ class InlineQueryResultVenue extends InlineQueryResult
 
     /**
      * Unique identifier of the query result.
-     *
-     * @var string
      */
     protected string $id;
 
     /**
      * Venue result.
-     *
-     * @var Venue
      */
     protected Venue $venue;
 
     /**
-     * Result thumbnail; may be null.
-     *
-     * @var PhotoSize|null
+     * Result thumbnail in JPEG format; may be null.
      */
-    protected ?PhotoSize $thumbnail;
+    protected ?Thumbnail $thumbnail;
 
-    public function __construct(string $id, Venue $venue, ?PhotoSize $thumbnail)
+    public function __construct(string $id, Venue $venue, ?Thumbnail $thumbnail)
     {
         parent::__construct();
 
@@ -74,7 +68,7 @@ class InlineQueryResultVenue extends InlineQueryResult
         return $this->venue;
     }
 
-    public function getThumbnail(): ?PhotoSize
+    public function getThumbnail(): ?Thumbnail
     {
         return $this->thumbnail;
     }

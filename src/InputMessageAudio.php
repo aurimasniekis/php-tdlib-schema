@@ -17,43 +17,31 @@ class InputMessageAudio extends InputMessageContent
 
     /**
      * Audio file to be sent.
-     *
-     * @var InputFile
      */
     protected InputFile $audio;
 
     /**
      * Thumbnail of the cover for the album, if available.
-     *
-     * @var InputThumbnail
      */
     protected InputThumbnail $albumCoverThumbnail;
 
     /**
      * Duration of the audio, in seconds; may be replaced by the server.
-     *
-     * @var int
      */
     protected int $duration;
 
     /**
      * Title of the audio; 0-64 characters; may be replaced by the server.
-     *
-     * @var string
      */
     protected string $title;
 
     /**
      * Performer of the audio; 0-64 characters, may be replaced by the server.
-     *
-     * @var string
      */
     protected string $performer;
 
     /**
      * Audio caption; 0-GetOption("message_caption_length_max") characters.
-     *
-     * @var FormattedText
      */
     protected FormattedText $caption;
 

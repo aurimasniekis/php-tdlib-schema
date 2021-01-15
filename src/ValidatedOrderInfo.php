@@ -17,8 +17,6 @@ class ValidatedOrderInfo extends TdObject
 
     /**
      * Temporary identifier of the order information.
-     *
-     * @var string
      */
     protected string $orderInfoId;
 

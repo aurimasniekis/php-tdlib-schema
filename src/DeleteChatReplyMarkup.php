@@ -17,15 +17,11 @@ class DeleteChatReplyMarkup extends TdFunction
 
     /**
      * Chat identifier.
-     *
-     * @var int
      */
     protected int $chatId;
 
     /**
      * The message identifier of the used keyboard.
-     *
-     * @var int
      */
     protected int $messageId;
 

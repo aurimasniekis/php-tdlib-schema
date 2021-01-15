@@ -17,33 +17,30 @@ class InputMessageSticker extends InputMessageContent
 
     /**
      * Sticker to be sent.
-     *
-     * @var InputFile
      */
     protected InputFile $sticker;
 
     /**
      * Sticker thumbnail, if available.
-     *
-     * @var InputThumbnail
      */
     protected InputThumbnail $thumbnail;
 
     /**
      * Sticker width.
-     *
-     * @var int
      */
     protected int $width;
 
     /**
      * Sticker height.
-     *
-     * @var int
      */
     protected int $height;
 
-    public function __construct(InputFile $sticker, InputThumbnail $thumbnail, int $width, int $height)
+    /**
+     * Emoji used to choose the sticker.
+     */
+    protected string $emoji;
+
+    public function __construct(InputFile $sticker, InputThumbnail $thumbnail, int $width, int $height, string $emoji)
     {
         parent::__construct();
 
@@ -51,6 +48,7 @@ class InputMessageSticker extends InputMessageContent
         $this->thumbnail = $thumbnail;
         $this->width     = $width;
         $this->height    = $height;
+        $this->emoji     = $emoji;
     }
 
     public static function fromArray(array $array): InputMessageSticker
@@ -60,6 +58,7 @@ class InputMessageSticker extends InputMessageContent
             TdSchemaRegistry::fromArray($array['thumbnail']),
             $array['width'],
             $array['height'],
+            $array['emoji'],
         );
     }
 
@@ -71,6 +70,7 @@ class InputMessageSticker extends InputMessageContent
             'thumbnail' => $this->thumbnail->typeSerialize(),
             'width'     => $this->width,
             'height'    => $this->height,
+            'emoji'     => $this->emoji,
         ];
     }
 
@@ -92,5 +92,10 @@ class InputMessageSticker extends InputMessageContent
     public function getHeight(): int
     {
         return $this->height;
+    }
+
+    public function getEmoji(): string
+    {
+        return $this->emoji;
     }
 }

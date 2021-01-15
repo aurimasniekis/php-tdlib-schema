@@ -17,8 +17,6 @@ class GetStickerEmojis extends TdFunction
 
     /**
      * Sticker file identifier.
-     *
-     * @var InputFile
      */
     protected InputFile $sticker;
 

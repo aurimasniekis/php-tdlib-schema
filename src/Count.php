@@ -17,8 +17,6 @@ class Count extends TdObject
 
     /**
      * Count.
-     *
-     * @var int
      */
     protected int $count;
 

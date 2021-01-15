@@ -17,8 +17,6 @@ class GetWebPagePreview extends TdFunction
 
     /**
      * Message text with formatting.
-     *
-     * @var FormattedText
      */
     protected FormattedText $text;
 

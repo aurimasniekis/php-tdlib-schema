@@ -17,22 +17,16 @@ class PushMessageContentGameScore extends PushMessageContent
 
     /**
      * Game title, empty for pinned message.
-     *
-     * @var string
      */
     protected string $title;
 
     /**
      * New score, 0 for pinned message.
-     *
-     * @var int
      */
     protected int $score;
 
     /**
      * True, if the message is a pinned message with the specified content.
-     *
-     * @var bool
      */
     protected bool $isPinned;
 

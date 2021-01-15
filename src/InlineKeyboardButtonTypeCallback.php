@@ -9,7 +9,7 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * A button that sends a special callback query to a bot.
+ * A button that sends a callback query to a bot.
  */
 class InlineKeyboardButtonTypeCallback extends InlineKeyboardButtonType
 {
@@ -17,8 +17,6 @@ class InlineKeyboardButtonTypeCallback extends InlineKeyboardButtonType
 
     /**
      * Data to be sent to the bot via a callback query.
-     *
-     * @var string
      */
     protected string $data;
 

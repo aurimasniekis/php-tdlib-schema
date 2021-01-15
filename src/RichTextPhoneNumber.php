@@ -17,15 +17,11 @@ class RichTextPhoneNumber extends RichText
 
     /**
      * Text.
-     *
-     * @var RichText
      */
     protected RichText $text;
 
     /**
      * Phone number.
-     *
-     * @var string
      */
     protected string $phoneNumber;
 

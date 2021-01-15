@@ -17,8 +17,6 @@ class PageBlockSubheader extends PageBlock
 
     /**
      * Subheader.
-     *
-     * @var RichText
      */
     protected RichText $subheader;
 

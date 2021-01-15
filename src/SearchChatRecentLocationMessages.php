@@ -17,15 +17,11 @@ class SearchChatRecentLocationMessages extends TdFunction
 
     /**
      * Chat identifier.
-     *
-     * @var int
      */
     protected int $chatId;
 
     /**
      * The maximum number of messages to be returned.
-     *
-     * @var int
      */
     protected int $limit;
 

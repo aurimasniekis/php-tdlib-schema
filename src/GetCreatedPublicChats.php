@@ -17,8 +17,6 @@ class GetCreatedPublicChats extends TdFunction
 
     /**
      * Type of the public chats to return.
-     *
-     * @var PublicChatType
      */
     protected PublicChatType $type;
 

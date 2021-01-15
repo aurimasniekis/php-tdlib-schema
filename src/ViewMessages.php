@@ -17,10 +17,13 @@ class ViewMessages extends TdFunction
 
     /**
      * Chat identifier.
-     *
-     * @var int
      */
     protected int $chatId;
+
+    /**
+     * If not 0, a message thread identifier in which the messages are being viewed.
+     */
+    protected int $messageThreadId;
 
     /**
      * The identifiers of the messages being viewed.
@@ -30,23 +33,23 @@ class ViewMessages extends TdFunction
     protected array $messageIds;
 
     /**
-     * True, if messages in closed chats should be marked as read.
-     *
-     * @var bool
+     * True, if messages in closed chats should be marked as read by the request.
      */
     protected bool $forceRead;
 
-    public function __construct(int $chatId, array $messageIds, bool $forceRead)
+    public function __construct(int $chatId, int $messageThreadId, array $messageIds, bool $forceRead)
     {
-        $this->chatId     = $chatId;
-        $this->messageIds = $messageIds;
-        $this->forceRead  = $forceRead;
+        $this->chatId          = $chatId;
+        $this->messageThreadId = $messageThreadId;
+        $this->messageIds      = $messageIds;
+        $this->forceRead       = $forceRead;
     }
 
     public static function fromArray(array $array): ViewMessages
     {
         return new static(
             $array['chat_id'],
+            $array['message_thread_id'],
             $array['message_ids'],
             $array['force_read'],
         );
@@ -55,16 +58,22 @@ class ViewMessages extends TdFunction
     public function typeSerialize(): array
     {
         return [
-            '@type'       => static::TYPE_NAME,
-            'chat_id'     => $this->chatId,
-            'message_ids' => $this->messageIds,
-            'force_read'  => $this->forceRead,
+            '@type'             => static::TYPE_NAME,
+            'chat_id'           => $this->chatId,
+            'message_thread_id' => $this->messageThreadId,
+            'message_ids'       => $this->messageIds,
+            'force_read'        => $this->forceRead,
         ];
     }
 
     public function getChatId(): int
     {
         return $this->chatId;
+    }
+
+    public function getMessageThreadId(): int
+    {
+        return $this->messageThreadId;
     }
 
     public function getMessageIds(): array

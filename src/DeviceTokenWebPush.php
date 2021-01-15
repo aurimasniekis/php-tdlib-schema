@@ -17,22 +17,16 @@ class DeviceTokenWebPush extends DeviceToken
 
     /**
      * Absolute URL exposed by the push service where the application server can send push messages; may be empty to de-register a device.
-     *
-     * @var string
      */
     protected string $endpoint;
 
     /**
      * Base64url-encoded P-256 elliptic curve Diffie-Hellman public key.
-     *
-     * @var string
      */
     protected string $p256dhBase64url;
 
     /**
      * Base64url-encoded authentication secret.
-     *
-     * @var string
      */
     protected string $authBase64url;
 

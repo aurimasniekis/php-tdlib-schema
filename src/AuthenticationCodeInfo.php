@@ -17,29 +17,21 @@ class AuthenticationCodeInfo extends TdObject
 
     /**
      * A phone number that is being authenticated.
-     *
-     * @var string
      */
     protected string $phoneNumber;
 
     /**
      * Describes the way the code was sent to the user.
-     *
-     * @var AuthenticationCodeType
      */
     protected AuthenticationCodeType $type;
 
     /**
      * Describes the way the next code will be sent to the user; may be null.
-     *
-     * @var AuthenticationCodeType|null
      */
     protected ?AuthenticationCodeType $nextType;
 
     /**
      * Timeout before the code should be re-sent, in seconds.
-     *
-     * @var int
      */
     protected int $timeout;
 

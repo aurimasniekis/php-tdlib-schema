@@ -17,40 +17,30 @@ class VideoNote extends TdObject
 
     /**
      * Duration of the video, in seconds; as defined by the sender.
-     *
-     * @var int
      */
     protected int $duration;
 
     /**
      * Video width and height; as defined by the sender.
-     *
-     * @var int
      */
     protected int $length;
 
     /**
      * Video minithumbnail; may be null.
-     *
-     * @var Minithumbnail|null
      */
     protected ?Minithumbnail $minithumbnail;
 
     /**
-     * Video thumbnail; as defined by the sender; may be null.
-     *
-     * @var PhotoSize|null
+     * Video thumbnail in JPEG format; as defined by the sender; may be null.
      */
-    protected ?PhotoSize $thumbnail;
+    protected ?Thumbnail $thumbnail;
 
     /**
      * File containing the video.
-     *
-     * @var File
      */
     protected File $video;
 
-    public function __construct(int $duration, int $length, ?Minithumbnail $minithumbnail, ?PhotoSize $thumbnail, File $video)
+    public function __construct(int $duration, int $length, ?Minithumbnail $minithumbnail, ?Thumbnail $thumbnail, File $video)
     {
         $this->duration      = $duration;
         $this->length        = $length;
@@ -97,7 +87,7 @@ class VideoNote extends TdObject
         return $this->minithumbnail;
     }
 
-    public function getThumbnail(): ?PhotoSize
+    public function getThumbnail(): ?Thumbnail
     {
         return $this->thumbnail;
     }

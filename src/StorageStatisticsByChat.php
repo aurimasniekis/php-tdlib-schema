@@ -17,22 +17,16 @@ class StorageStatisticsByChat extends TdObject
 
     /**
      * Chat identifier; 0 if none.
-     *
-     * @var int
      */
     protected int $chatId;
 
     /**
      * Total size of the files in the chat.
-     *
-     * @var int
      */
     protected int $size;
 
     /**
      * Total number of files in the chat.
-     *
-     * @var int
      */
     protected int $count;
 

@@ -17,40 +17,30 @@ class Document extends TdObject
 
     /**
      * Original name of the file; as defined by the sender.
-     *
-     * @var string
      */
     protected string $fileName;
 
     /**
      * MIME type of the file; as defined by the sender.
-     *
-     * @var string
      */
     protected string $mimeType;
 
     /**
      * Document minithumbnail; may be null.
-     *
-     * @var Minithumbnail|null
      */
     protected ?Minithumbnail $minithumbnail;
 
     /**
      * Document thumbnail in JPEG or PNG format (PNG will be used only for background patterns); as defined by the sender; may be null.
-     *
-     * @var PhotoSize|null
      */
-    protected ?PhotoSize $thumbnail;
+    protected ?Thumbnail $thumbnail;
 
     /**
      * File containing the document.
-     *
-     * @var File
      */
     protected File $document;
 
-    public function __construct(string $fileName, string $mimeType, ?Minithumbnail $minithumbnail, ?PhotoSize $thumbnail, File $document)
+    public function __construct(string $fileName, string $mimeType, ?Minithumbnail $minithumbnail, ?Thumbnail $thumbnail, File $document)
     {
         $this->fileName      = $fileName;
         $this->mimeType      = $mimeType;
@@ -97,7 +87,7 @@ class Document extends TdObject
         return $this->minithumbnail;
     }
 
-    public function getThumbnail(): ?PhotoSize
+    public function getThumbnail(): ?Thumbnail
     {
         return $this->thumbnail;
     }

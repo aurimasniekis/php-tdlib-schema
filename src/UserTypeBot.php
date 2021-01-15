@@ -17,36 +17,26 @@ class UserTypeBot extends UserType
 
     /**
      * True, if the bot can be invited to basic group and supergroup chats.
-     *
-     * @var bool
      */
     protected bool $canJoinGroups;
 
     /**
      * True, if the bot can read all messages in basic group or supergroup chats and not just those addressed to the bot. In private and channel chats a bot can always read all messages.
-     *
-     * @var bool
      */
     protected bool $canReadAllGroupMessages;
 
     /**
      * True, if the bot supports inline queries.
-     *
-     * @var bool
      */
     protected bool $isInline;
 
     /**
-     * Placeholder for inline queries (displayed on the client input field).
-     *
-     * @var string
+     * Placeholder for inline queries (displayed on the application input field).
      */
     protected string $inlineQueryPlaceholder;
 
     /**
      * True, if the location of the user should be sent with every inline query to this bot.
-     *
-     * @var bool
      */
     protected bool $needLocation;
 

@@ -17,22 +17,16 @@ class MessageVideoNote extends MessageContent
 
     /**
      * The video note description.
-     *
-     * @var VideoNote
      */
     protected VideoNote $videoNote;
 
     /**
      * True, if at least one of the recipients has viewed the video note.
-     *
-     * @var bool
      */
     protected bool $isViewed;
 
     /**
      * True, if the video note thumbnail must be blurred and the video note must be shown only while tapped.
-     *
-     * @var bool
      */
     protected bool $isSecret;
 

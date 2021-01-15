@@ -17,36 +17,26 @@ class PollOption extends TdObject
 
     /**
      * Option text, 1-100 characters.
-     *
-     * @var string
      */
     protected string $text;
 
     /**
      * Number of voters for this option, available only for closed or voted polls.
-     *
-     * @var int
      */
     protected int $voterCount;
 
     /**
      * The percentage of votes for this option, 0-100.
-     *
-     * @var int
      */
     protected int $votePercentage;
 
     /**
      * True, if the option was chosen by the user.
-     *
-     * @var bool
      */
     protected bool $isChosen;
 
     /**
      * True, if the option is being chosen by a pending setPollAnswer request.
-     *
-     * @var bool
      */
     protected bool $isBeingChosen;
 
