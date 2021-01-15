@@ -17,11 +17,15 @@ class DeleteChatMessagesFromUser extends TdFunction
 
     /**
      * Chat identifier.
+     *
+     * @var int
      */
     protected int $chatId;
 
     /**
      * User identifier.
+     *
+     * @var int
      */
     protected int $userId;
 

@@ -9,30 +9,28 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Changes the pinned state of a chat. There can be up to GetOption("pinned_chat_count_max")/GetOption("pinned_archived_chat_count_max") pinned non-secret chats and the same number of secret chats in the main/arhive chat list.
+ * Changes the pinned state of a chat. You can pin up to GetOption("pinned_chat_count_max")/GetOption("pinned_archived_chat_count_max") non-secret chats and the same number of secret chats in the main/archive chat list.
  */
 class ToggleChatIsPinned extends TdFunction
 {
     public const TYPE_NAME = 'toggleChatIsPinned';
 
     /**
-     * Chat list in which to change the pinned state of the chat.
-     */
-    protected ChatList $chatList;
-
-    /**
      * Chat identifier.
+     *
+     * @var int
      */
     protected int $chatId;
 
     /**
-     * True, if the chat is pinned.
+     * New value of is_pinned.
+     *
+     * @var bool
      */
     protected bool $isPinned;
 
-    public function __construct(ChatList $chatList, int $chatId, bool $isPinned)
+    public function __construct(int $chatId, bool $isPinned)
     {
-        $this->chatList = $chatList;
         $this->chatId   = $chatId;
         $this->isPinned = $isPinned;
     }
@@ -40,7 +38,6 @@ class ToggleChatIsPinned extends TdFunction
     public static function fromArray(array $array): ToggleChatIsPinned
     {
         return new static(
-            TdSchemaRegistry::fromArray($array['chat_list']),
             $array['chat_id'],
             $array['is_pinned'],
         );
@@ -50,15 +47,9 @@ class ToggleChatIsPinned extends TdFunction
     {
         return [
             '@type'     => static::TYPE_NAME,
-            'chat_list' => $this->chatList->typeSerialize(),
             'chat_id'   => $this->chatId,
             'is_pinned' => $this->isPinned,
         ];
-    }
-
-    public function getChatList(): ChatList
-    {
-        return $this->chatList;
     }
 
     public function getChatId(): int

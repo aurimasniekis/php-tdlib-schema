@@ -17,6 +17,8 @@ class SetDatabaseEncryptionKey extends TdFunction
 
     /**
      * New encryption key.
+     *
+     * @var string
      */
     protected string $newEncryptionKey;
 

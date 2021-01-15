@@ -17,6 +17,8 @@ class AuthorizationStateWaitOtherDeviceConfirmation extends AuthorizationState
 
     /**
      * A tg:// URL for the QR code. The link will be updated frequently.
+     *
+     * @var string
      */
     protected string $link;
 

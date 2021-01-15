@@ -17,11 +17,15 @@ class PushMessageContentInvoice extends PushMessageContent
 
     /**
      * Product price.
+     *
+     * @var string
      */
     protected string $price;
 
     /**
      * True, if the message is a pinned message with the specified content.
+     *
+     * @var bool
      */
     protected bool $isPinned;
 

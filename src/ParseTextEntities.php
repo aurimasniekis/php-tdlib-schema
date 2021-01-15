@@ -9,7 +9,7 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Parses Bold, Italic, Underline, Strikethrough, Code, Pre, PreCode, TextUrl and MentionName entities contained in the text. Can be called synchronously.
+ * Parses Bold, Italic, Underline, Strikethrough, Code, Pre, PreCode, TextUrl and MentionName entities contained in the text. This is an offline method. Can be called before authorization. Can be called synchronously.
  */
 class ParseTextEntities extends TdFunction
 {
@@ -17,11 +17,15 @@ class ParseTextEntities extends TdFunction
 
     /**
      * The text to parse.
+     *
+     * @var string
      */
     protected string $text;
 
     /**
      * Text parse mode.
+     *
+     * @var TextParseMode
      */
     protected TextParseMode $parseMode;
 

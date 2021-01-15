@@ -17,11 +17,15 @@ class SetUserPrivacySettingRules extends TdFunction
 
     /**
      * The privacy setting.
+     *
+     * @var UserPrivacySetting
      */
     protected UserPrivacySetting $setting;
 
     /**
      * The new privacy rules.
+     *
+     * @var UserPrivacySettingRules
      */
     protected UserPrivacySettingRules $rules;
 

@@ -17,6 +17,8 @@ class AddCustomServerLanguagePack extends TdFunction
 
     /**
      * Identifier of a language pack to be added; may be different from a name that is used in an "https://t.me/setlanguage/" link.
+     *
+     * @var string
      */
     protected string $languagePackId;
 

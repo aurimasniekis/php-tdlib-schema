@@ -17,6 +17,8 @@ class UpdateNewCustomEvent extends Update
 
     /**
      * A JSON-serialized event.
+     *
+     * @var string
      */
     protected string $event;
 

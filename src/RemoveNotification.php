@@ -17,11 +17,15 @@ class RemoveNotification extends TdFunction
 
     /**
      * Identifier of notification group to which the notification belongs.
+     *
+     * @var int
      */
     protected int $notificationGroupId;
 
     /**
      * Identifier of removed notification.
+     *
+     * @var int
      */
     protected int $notificationId;
 

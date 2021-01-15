@@ -9,7 +9,7 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Some data of a basic group has changed. This update is guaranteed to come before the basic group identifier is returned to the application.
+ * Some data of a basic group has changed. This update is guaranteed to come before the basic group identifier is returned to the client.
  */
 class UpdateBasicGroup extends Update
 {
@@ -17,6 +17,8 @@ class UpdateBasicGroup extends Update
 
     /**
      * New data about the group.
+     *
+     * @var BasicGroup
      */
     protected BasicGroup $basicGroup;
 

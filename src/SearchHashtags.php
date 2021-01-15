@@ -17,11 +17,15 @@ class SearchHashtags extends TdFunction
 
     /**
      * Hashtag prefix to search for.
+     *
+     * @var string
      */
     protected string $prefix;
 
     /**
      * The maximum number of hashtags to be returned.
+     *
+     * @var int
      */
     protected int $limit;
 

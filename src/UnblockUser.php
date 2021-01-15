@@ -17,6 +17,8 @@ class UnblockUser extends TdFunction
 
     /**
      * User identifier.
+     *
+     * @var int
      */
     protected int $userId;
 

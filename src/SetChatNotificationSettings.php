@@ -17,11 +17,15 @@ class SetChatNotificationSettings extends TdFunction
 
     /**
      * Chat identifier.
+     *
+     * @var int
      */
     protected int $chatId;
 
     /**
      * New notification settings for the chat. If the chat is muted for more than 1 week, it is considered to be muted forever.
+     *
+     * @var ChatNotificationSettings
      */
     protected ChatNotificationSettings $notificationSettings;
 

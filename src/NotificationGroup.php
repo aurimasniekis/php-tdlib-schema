@@ -17,21 +17,29 @@ class NotificationGroup extends TdObject
 
     /**
      * Unique persistent auto-incremented from 1 identifier of the notification group.
+     *
+     * @var int
      */
     protected int $id;
 
     /**
      * Type of the group.
+     *
+     * @var NotificationGroupType
      */
     protected NotificationGroupType $type;
 
     /**
      * Identifier of a chat to which all notifications in the group belong.
+     *
+     * @var int
      */
     protected int $chatId;
 
     /**
      * Total number of active notifications in the group.
+     *
+     * @var int
      */
     protected int $totalCount;
 

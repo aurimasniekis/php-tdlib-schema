@@ -17,16 +17,22 @@ class Date extends TdObject
 
     /**
      * Day of the month, 1-31.
+     *
+     * @var int
      */
     protected int $day;
 
     /**
      * Month, 1-12.
+     *
+     * @var int
      */
     protected int $month;
 
     /**
      * Year, 1-9999.
+     *
+     * @var int
      */
     protected int $year;
 

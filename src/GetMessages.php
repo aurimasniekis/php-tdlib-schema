@@ -17,6 +17,8 @@ class GetMessages extends TdFunction
 
     /**
      * Identifier of the chat the messages belong to.
+     *
+     * @var int
      */
     protected int $chatId;
 

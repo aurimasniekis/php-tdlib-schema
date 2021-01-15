@@ -9,7 +9,7 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Changes application-specific data associated with a chat.
+ * Changes client data associated with a chat.
  */
 class SetChatClientData extends TdFunction
 {
@@ -17,11 +17,15 @@ class SetChatClientData extends TdFunction
 
     /**
      * Chat identifier.
+     *
+     * @var int
      */
     protected int $chatId;
 
     /**
      * New value of client_data.
+     *
+     * @var string
      */
     protected string $clientData;
 

@@ -17,33 +17,39 @@ class RichTextAnchorLink extends RichText
 
     /**
      * The link text.
+     *
+     * @var RichText
      */
     protected RichText $text;
 
     /**
      * The anchor name. If the name is empty, the link should bring back to top.
+     *
+     * @var string
      */
-    protected string $anchorName;
+    protected string $name;
 
     /**
      * An HTTP URL, opening the anchor.
+     *
+     * @var string
      */
     protected string $url;
 
-    public function __construct(RichText $text, string $anchorName, string $url)
+    public function __construct(RichText $text, string $name, string $url)
     {
         parent::__construct();
 
-        $this->text       = $text;
-        $this->anchorName = $anchorName;
-        $this->url        = $url;
+        $this->text = $text;
+        $this->name = $name;
+        $this->url  = $url;
     }
 
     public static function fromArray(array $array): RichTextAnchorLink
     {
         return new static(
             TdSchemaRegistry::fromArray($array['text']),
-            $array['anchor_name'],
+            $array['name'],
             $array['url'],
         );
     }
@@ -51,10 +57,10 @@ class RichTextAnchorLink extends RichText
     public function typeSerialize(): array
     {
         return [
-            '@type'       => static::TYPE_NAME,
-            'text'        => $this->text->typeSerialize(),
-            'anchor_name' => $this->anchorName,
-            'url'         => $this->url,
+            '@type' => static::TYPE_NAME,
+            'text'  => $this->text->typeSerialize(),
+            'name'  => $this->name,
+            'url'   => $this->url,
         ];
     }
 
@@ -63,9 +69,9 @@ class RichTextAnchorLink extends RichText
         return $this->text;
     }
 
-    public function getAnchorName(): string
+    public function getName(): string
     {
-        return $this->anchorName;
+        return $this->name;
     }
 
     public function getUrl(): string

@@ -17,42 +17,38 @@ class EditMessageLiveLocation extends TdFunction
 
     /**
      * The chat the message belongs to.
+     *
+     * @var int
      */
     protected int $chatId;
 
     /**
      * Identifier of the message.
+     *
+     * @var int
      */
     protected int $messageId;
 
     /**
      * The new message reply markup; for bots only.
+     *
+     * @var ReplyMarkup
      */
     protected ReplyMarkup $replyMarkup;
 
     /**
      * New location content of the message; may be null. Pass null to stop sharing the live location.
+     *
+     * @var Location|null
      */
     protected ?Location $location;
 
-    /**
-     * The new direction in which the location moves, in degrees; 1-360. Pass 0 if unknown.
-     */
-    protected int $heading;
-
-    /**
-     * The new maximum distance for proximity alerts, in meters (0-100000). Pass 0 if the notification is disabled.
-     */
-    protected int $proximityAlertRadius;
-
-    public function __construct(int $chatId, int $messageId, ReplyMarkup $replyMarkup, ?Location $location, int $heading, int $proximityAlertRadius)
+    public function __construct(int $chatId, int $messageId, ReplyMarkup $replyMarkup, ?Location $location)
     {
-        $this->chatId               = $chatId;
-        $this->messageId            = $messageId;
-        $this->replyMarkup          = $replyMarkup;
-        $this->location             = $location;
-        $this->heading              = $heading;
-        $this->proximityAlertRadius = $proximityAlertRadius;
+        $this->chatId      = $chatId;
+        $this->messageId   = $messageId;
+        $this->replyMarkup = $replyMarkup;
+        $this->location    = $location;
     }
 
     public static function fromArray(array $array): EditMessageLiveLocation
@@ -62,21 +58,17 @@ class EditMessageLiveLocation extends TdFunction
             $array['message_id'],
             TdSchemaRegistry::fromArray($array['reply_markup']),
             (isset($array['location']) ? TdSchemaRegistry::fromArray($array['location']) : null),
-            $array['heading'],
-            $array['proximity_alert_radius'],
         );
     }
 
     public function typeSerialize(): array
     {
         return [
-            '@type'                  => static::TYPE_NAME,
-            'chat_id'                => $this->chatId,
-            'message_id'             => $this->messageId,
-            'reply_markup'           => $this->replyMarkup->typeSerialize(),
-            'location'               => (isset($this->location) ? $this->location : null),
-            'heading'                => $this->heading,
-            'proximity_alert_radius' => $this->proximityAlertRadius,
+            '@type'        => static::TYPE_NAME,
+            'chat_id'      => $this->chatId,
+            'message_id'   => $this->messageId,
+            'reply_markup' => $this->replyMarkup->typeSerialize(),
+            'location'     => (isset($this->location) ? $this->location : null),
         ];
     }
 
@@ -98,15 +90,5 @@ class EditMessageLiveLocation extends TdFunction
     public function getLocation(): ?Location
     {
         return $this->location;
-    }
-
-    public function getHeading(): int
-    {
-        return $this->heading;
-    }
-
-    public function getProximityAlertRadius(): int
-    {
-        return $this->proximityAlertRadius;
     }
 }

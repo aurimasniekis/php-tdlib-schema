@@ -17,11 +17,15 @@ class UpdateMessageContentOpened extends Update
 
     /**
      * Chat identifier.
+     *
+     * @var int
      */
     protected int $chatId;
 
     /**
      * Message identifier.
+     *
+     * @var int
      */
     protected int $messageId;
 

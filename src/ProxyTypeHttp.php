@@ -17,16 +17,22 @@ class ProxyTypeHttp extends ProxyType
 
     /**
      * Username for logging in; may be empty.
+     *
+     * @var string
      */
     protected string $username;
 
     /**
      * Password for logging in; may be empty.
+     *
+     * @var string
      */
     protected string $password;
 
     /**
      * Pass true if the proxy supports only HTTP requests and doesn't support transparent TCP connections via HTTP CONNECT method.
+     *
+     * @var bool
      */
     protected bool $httpOnly;
 

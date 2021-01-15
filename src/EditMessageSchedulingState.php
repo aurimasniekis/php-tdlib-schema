@@ -17,16 +17,22 @@ class EditMessageSchedulingState extends TdFunction
 
     /**
      * The chat the message belongs to.
+     *
+     * @var int
      */
     protected int $chatId;
 
     /**
      * Identifier of the message.
+     *
+     * @var int
      */
     protected int $messageId;
 
     /**
      * The new message scheduling state. Pass null to send the message immediately.
+     *
+     * @var MessageSchedulingState
      */
     protected MessageSchedulingState $schedulingState;
 

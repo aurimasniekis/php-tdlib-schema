@@ -17,6 +17,8 @@ class ChatTypeBasicGroup extends ChatType
 
     /**
      * Basic group identifier.
+     *
+     * @var int
      */
     protected int $basicGroupId;
 

@@ -17,6 +17,8 @@ class FilePart extends TdObject
 
     /**
      * File bytes.
+     *
+     * @var string
      */
     protected string $data;
 

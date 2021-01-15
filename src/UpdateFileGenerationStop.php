@@ -17,6 +17,8 @@ class UpdateFileGenerationStop extends Update
 
     /**
      * Unique identifier for the generation process.
+     *
+     * @var string
      */
     protected string $generationId;
 

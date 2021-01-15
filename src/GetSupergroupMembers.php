@@ -17,21 +17,29 @@ class GetSupergroupMembers extends TdFunction
 
     /**
      * Identifier of the supergroup or channel.
+     *
+     * @var int
      */
     protected int $supergroupId;
 
     /**
-     * The type of users to return. By default, supergroupMembersFilterRecent.
+     * The type of users to return. By default, supergroupMembersRecent.
+     *
+     * @var SupergroupMembersFilter
      */
     protected SupergroupMembersFilter $filter;
 
     /**
      * Number of users to skip.
+     *
+     * @var int
      */
     protected int $offset;
 
     /**
      * The maximum number of users be returned; up to 200.
+     *
+     * @var int
      */
     protected int $limit;
 

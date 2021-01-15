@@ -17,21 +17,29 @@ class PageBlockEmbeddedPost extends PageBlock
 
     /**
      * Web page URL.
+     *
+     * @var string
      */
     protected string $url;
 
     /**
      * Post author.
+     *
+     * @var string
      */
     protected string $author;
 
     /**
      * Post author photo; may be null.
+     *
+     * @var Photo|null
      */
     protected ?Photo $authorPhoto;
 
     /**
      * Point in time (Unix timestamp) when the post was created; 0 if unknown.
+     *
+     * @var int
      */
     protected int $date;
 
@@ -44,6 +52,8 @@ class PageBlockEmbeddedPost extends PageBlock
 
     /**
      * Post caption.
+     *
+     * @var PageBlockCaption
      */
     protected PageBlockCaption $caption;
 

@@ -17,6 +17,8 @@ class UserStatusOnline extends UserStatus
 
     /**
      * Point in time (Unix timestamp) when the user's online status will expire.
+     *
+     * @var int
      */
     protected int $expires;
 

@@ -17,6 +17,8 @@ class PageBlockCover extends PageBlock
 
     /**
      * Cover.
+     *
+     * @var PageBlock
      */
     protected PageBlock $cover;
 

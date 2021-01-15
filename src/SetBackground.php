@@ -17,16 +17,22 @@ class SetBackground extends TdFunction
 
     /**
      * The input background to use, null for filled backgrounds.
+     *
+     * @var InputBackground
      */
     protected InputBackground $background;
 
     /**
      * Background type; null for default background. The method will return error 404 if type is null.
+     *
+     * @var BackgroundType
      */
     protected BackgroundType $type;
 
     /**
      * True, if the background is chosen for dark theme.
+     *
+     * @var bool
      */
     protected bool $forDarkTheme;
 

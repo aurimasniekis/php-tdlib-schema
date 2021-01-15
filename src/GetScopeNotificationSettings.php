@@ -17,6 +17,8 @@ class GetScopeNotificationSettings extends TdFunction
 
     /**
      * Types of chats for which to return the notification settings information.
+     *
+     * @var NotificationSettingsScope
      */
     protected NotificationSettingsScope $scope;
 

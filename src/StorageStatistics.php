@@ -17,11 +17,15 @@ class StorageStatistics extends TdObject
 
     /**
      * Total size of files.
+     *
+     * @var int
      */
     protected int $size;
 
     /**
      * Total number of files.
+     *
+     * @var int
      */
     protected int $count;
 

@@ -17,6 +17,8 @@ class MessageChatChangeTitle extends MessageContent
 
     /**
      * New chat title.
+     *
+     * @var string
      */
     protected string $title;
 

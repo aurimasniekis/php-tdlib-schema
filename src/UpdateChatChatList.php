@@ -17,11 +17,15 @@ class UpdateChatChatList extends Update
 
     /**
      * Chat identifier.
+     *
+     * @var int
      */
     protected int $chatId;
 
     /**
      * The new chat's chat list; may be null.
+     *
+     * @var ChatList|null
      */
     protected ?ChatList $chatList;
 

@@ -17,11 +17,15 @@ class StatisticsGraphData extends StatisticsGraph
 
     /**
      * Graph data in JSON format.
+     *
+     * @var string
      */
     protected string $jsonData;
 
     /**
      * If non-empty, a token which can be used to receive a zoomed in graph.
+     *
+     * @var string
      */
     protected string $zoomToken;
 

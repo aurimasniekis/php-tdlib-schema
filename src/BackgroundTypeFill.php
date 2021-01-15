@@ -17,6 +17,8 @@ class BackgroundTypeFill extends BackgroundType
 
     /**
      * Description of the background fill.
+     *
+     * @var BackgroundFill
      */
     protected BackgroundFill $fill;
 

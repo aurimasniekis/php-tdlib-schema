@@ -17,6 +17,8 @@ class InputPassportElementPersonalDetails extends InputPassportElement
 
     /**
      * Personal details of the user.
+     *
+     * @var PersonalDetails
      */
     protected PersonalDetails $personalDetails;
 

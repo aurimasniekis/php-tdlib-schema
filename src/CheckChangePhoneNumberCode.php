@@ -17,6 +17,8 @@ class CheckChangePhoneNumberCode extends TdFunction
 
     /**
      * Verification code received by SMS, phone call or flash call.
+     *
+     * @var string
      */
     protected string $code;
 

@@ -17,11 +17,15 @@ class UpdateChatTitle extends Update
 
     /**
      * Chat identifier.
+     *
+     * @var int
      */
     protected int $chatId;
 
     /**
      * The new chat title.
+     *
+     * @var string
      */
     protected string $title;
 

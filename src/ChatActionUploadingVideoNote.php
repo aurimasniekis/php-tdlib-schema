@@ -17,6 +17,8 @@ class ChatActionUploadingVideoNote extends ChatAction
 
     /**
      * Upload progress, as a percentage.
+     *
+     * @var int
      */
     protected int $progress;
 

@@ -9,7 +9,7 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Deletes a profile photo.
+ * Deletes a profile photo. If something changes, updateUser will be sent.
  */
 class DeleteProfilePhoto extends TdFunction
 {
@@ -17,6 +17,8 @@ class DeleteProfilePhoto extends TdFunction
 
     /**
      * Identifier of the profile photo to delete.
+     *
+     * @var string
      */
     protected string $profilePhotoId;
 

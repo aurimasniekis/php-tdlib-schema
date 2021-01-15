@@ -17,16 +17,22 @@ class MessagePaymentSuccessful extends MessageContent
 
     /**
      * Identifier of the message with the corresponding invoice; can be an identifier of a deleted message.
+     *
+     * @var int
      */
     protected int $invoiceMessageId;
 
     /**
      * Currency for the price of the product.
+     *
+     * @var string
      */
     protected string $currency;
 
     /**
      * Total price for the product, in the minimal quantity of the currency.
+     *
+     * @var int
      */
     protected int $totalAmount;
 

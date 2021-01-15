@@ -17,31 +17,43 @@ class UpdateNotificationGroup extends Update
 
     /**
      * Unique notification group identifier.
+     *
+     * @var int
      */
     protected int $notificationGroupId;
 
     /**
      * New type of the notification group.
+     *
+     * @var NotificationGroupType
      */
     protected NotificationGroupType $type;
 
     /**
      * Identifier of a chat to which all notifications in the group belong.
+     *
+     * @var int
      */
     protected int $chatId;
 
     /**
      * Chat identifier, which notification settings must be applied to the added notifications.
+     *
+     * @var int
      */
     protected int $notificationSettingsChatId;
 
     /**
      * True, if the notifications should be shown without sound.
+     *
+     * @var bool
      */
     protected bool $isSilent;
 
     /**
      * Total number of unread notifications in the group, can be bigger than number of active notifications.
+     *
+     * @var int
      */
     protected int $totalCount;
 

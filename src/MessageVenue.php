@@ -17,6 +17,8 @@ class MessageVenue extends MessageContent
 
     /**
      * The venue description.
+     *
+     * @var Venue
      */
     protected Venue $venue;
 

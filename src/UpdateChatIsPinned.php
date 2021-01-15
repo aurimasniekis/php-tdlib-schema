@@ -17,16 +17,22 @@ class UpdateChatIsPinned extends Update
 
     /**
      * Chat identifier.
+     *
+     * @var int
      */
     protected int $chatId;
 
     /**
      * New value of is_pinned.
+     *
+     * @var bool
      */
     protected bool $isPinned;
 
     /**
      * New value of the chat order.
+     *
+     * @var string
      */
     protected string $order;
 

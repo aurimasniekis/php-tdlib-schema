@@ -17,6 +17,8 @@ class PageBlockKicker extends PageBlock
 
     /**
      * Kicker.
+     *
+     * @var RichText
      */
     protected RichText $kicker;
 

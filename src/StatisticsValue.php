@@ -17,16 +17,22 @@ class StatisticsValue extends TdObject
 
     /**
      * The value.
+     *
+     * @var float
      */
     protected float $value;
 
     /**
      * The value for the previous day.
+     *
+     * @var float
      */
     protected float $previousValue;
 
     /**
      * The growth rate of the value, as a percentage.
+     *
+     * @var float
      */
     protected float $growthRatePercentage;
 

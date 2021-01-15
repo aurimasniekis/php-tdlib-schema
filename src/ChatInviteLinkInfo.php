@@ -16,32 +16,37 @@ class ChatInviteLinkInfo extends TdObject
     public const TYPE_NAME = 'chatInviteLinkInfo';
 
     /**
-     * Chat identifier of the invite link; 0 if the user has no access to the chat before joining.
+     * Chat identifier of the invite link; 0 if the user is not a member of this chat.
+     *
+     * @var int
      */
     protected int $chatId;
 
     /**
-     * If non-zero, the amount of time for which read access to the chat will remain available, in seconds.
-     */
-    protected int $accessibleFor;
-
-    /**
      * Contains information about the type of the chat.
+     *
+     * @var ChatType
      */
     protected ChatType $type;
 
     /**
      * Title of the chat.
+     *
+     * @var string
      */
     protected string $title;
 
     /**
      * Chat photo; may be null.
+     *
+     * @var ChatPhoto|null
      */
-    protected ?ChatPhotoInfo $photo;
+    protected ?ChatPhoto $photo;
 
     /**
      * Number of members in the chat.
+     *
+     * @var int
      */
     protected int $memberCount;
 
@@ -54,21 +59,14 @@ class ChatInviteLinkInfo extends TdObject
 
     /**
      * True, if the chat is a public supergroup or channel, i.e. it has a username or it is a location-based supergroup.
+     *
+     * @var bool
      */
     protected bool $isPublic;
 
-    public function __construct(
-        int $chatId,
-        int $accessibleFor,
-        ChatType $type,
-        string $title,
-        ?ChatPhotoInfo $photo,
-        int $memberCount,
-        array $memberUserIds,
-        bool $isPublic
-    ) {
+    public function __construct(int $chatId, ChatType $type, string $title, ?ChatPhoto $photo, int $memberCount, array $memberUserIds, bool $isPublic)
+    {
         $this->chatId        = $chatId;
-        $this->accessibleFor = $accessibleFor;
         $this->type          = $type;
         $this->title         = $title;
         $this->photo         = $photo;
@@ -81,7 +79,6 @@ class ChatInviteLinkInfo extends TdObject
     {
         return new static(
             $array['chat_id'],
-            $array['accessible_for'],
             TdSchemaRegistry::fromArray($array['type']),
             $array['title'],
             (isset($array['photo']) ? TdSchemaRegistry::fromArray($array['photo']) : null),
@@ -96,7 +93,6 @@ class ChatInviteLinkInfo extends TdObject
         return [
             '@type'           => static::TYPE_NAME,
             'chat_id'         => $this->chatId,
-            'accessible_for'  => $this->accessibleFor,
             'type'            => $this->type->typeSerialize(),
             'title'           => $this->title,
             'photo'           => (isset($this->photo) ? $this->photo : null),
@@ -111,11 +107,6 @@ class ChatInviteLinkInfo extends TdObject
         return $this->chatId;
     }
 
-    public function getAccessibleFor(): int
-    {
-        return $this->accessibleFor;
-    }
-
     public function getType(): ChatType
     {
         return $this->type;
@@ -126,7 +117,7 @@ class ChatInviteLinkInfo extends TdObject
         return $this->title;
     }
 
-    public function getPhoto(): ?ChatPhotoInfo
+    public function getPhoto(): ?ChatPhoto
     {
         return $this->photo;
     }

@@ -17,6 +17,8 @@ class JoinChatByInviteLink extends TdFunction
 
     /**
      * Invite link to import; should begin with "https://t.me/joinchat/", "https://telegram.me/joinchat/", or "https://telegram.dog/joinchat/".
+     *
+     * @var string
      */
     protected string $inviteLink;
 

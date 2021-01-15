@@ -17,11 +17,15 @@ class GetPaymentReceipt extends TdFunction
 
     /**
      * Chat identifier of the PaymentSuccessful message.
+     *
+     * @var int
      */
     protected int $chatId;
 
     /**
      * Message identifier.
+     *
+     * @var int
      */
     protected int $messageId;
 

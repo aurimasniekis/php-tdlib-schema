@@ -17,106 +17,148 @@ class WebPage extends TdObject
 
     /**
      * Original URL of the link.
+     *
+     * @var string
      */
     protected string $url;
 
     /**
      * URL to display.
+     *
+     * @var string
      */
     protected string $displayUrl;
 
     /**
      * Type of the web page. Can be: article, photo, audio, video, document, profile, app, or something else.
+     *
+     * @var string
      */
     protected string $type;
 
     /**
      * Short name of the site (e.g., Google Docs, App Store).
+     *
+     * @var string
      */
     protected string $siteName;
 
     /**
      * Title of the content.
+     *
+     * @var string
      */
     protected string $title;
 
     /**
      * Description of the content.
+     *
+     * @var string
      */
-    protected FormattedText $description;
+    protected string $description;
 
     /**
      * Image representing the content; may be null.
+     *
+     * @var Photo|null
      */
     protected ?Photo $photo;
 
     /**
      * URL to show in the embedded preview.
+     *
+     * @var string
      */
     protected string $embedUrl;
 
     /**
      * MIME type of the embedded preview, (e.g., text/html or video/mp4).
+     *
+     * @var string
      */
     protected string $embedType;
 
     /**
      * Width of the embedded preview.
+     *
+     * @var int
      */
     protected int $embedWidth;
 
     /**
      * Height of the embedded preview.
+     *
+     * @var int
      */
     protected int $embedHeight;
 
     /**
      * Duration of the content, in seconds.
+     *
+     * @var int
      */
     protected int $duration;
 
     /**
      * Author of the content.
+     *
+     * @var string
      */
     protected string $author;
 
     /**
      * Preview of the content as an animation, if available; may be null.
+     *
+     * @var Animation|null
      */
     protected ?Animation $animation;
 
     /**
      * Preview of the content as an audio file, if available; may be null.
+     *
+     * @var Audio|null
      */
     protected ?Audio $audio;
 
     /**
      * Preview of the content as a document, if available (currently only available for small PDF files and ZIP archives); may be null.
+     *
+     * @var Document|null
      */
     protected ?Document $document;
 
     /**
      * Preview of the content as a sticker for small WEBP files, if available; may be null.
+     *
+     * @var Sticker|null
      */
     protected ?Sticker $sticker;
 
     /**
      * Preview of the content as a video, if available; may be null.
+     *
+     * @var Video|null
      */
     protected ?Video $video;
 
     /**
      * Preview of the content as a video note, if available; may be null.
+     *
+     * @var VideoNote|null
      */
     protected ?VideoNote $videoNote;
 
     /**
      * Preview of the content as a voice note, if available; may be null.
+     *
+     * @var VoiceNote|null
      */
     protected ?VoiceNote $voiceNote;
 
     /**
      * Version of instant view, available for the web page (currently can be 1 or 2), 0 if none.
+     *
+     * @var int
      */
     protected int $instantViewVersion;
 
@@ -126,7 +168,7 @@ class WebPage extends TdObject
         string $type,
         string $siteName,
         string $title,
-        FormattedText $description,
+        string $description,
         ?Photo $photo,
         string $embedUrl,
         string $embedType,
@@ -174,7 +216,7 @@ class WebPage extends TdObject
             $array['type'],
             $array['site_name'],
             $array['title'],
-            TdSchemaRegistry::fromArray($array['description']),
+            $array['description'],
             (isset($array['photo']) ? TdSchemaRegistry::fromArray($array['photo']) : null),
             $array['embed_url'],
             $array['embed_type'],
@@ -202,7 +244,7 @@ class WebPage extends TdObject
             'type'                 => $this->type,
             'site_name'            => $this->siteName,
             'title'                => $this->title,
-            'description'          => $this->description->typeSerialize(),
+            'description'          => $this->description,
             'photo'                => (isset($this->photo) ? $this->photo : null),
             'embed_url'            => $this->embedUrl,
             'embed_type'           => $this->embedType,
@@ -246,7 +288,7 @@ class WebPage extends TdObject
         return $this->title;
     }
 
-    public function getDescription(): FormattedText
+    public function getDescription(): string
     {
         return $this->description;
     }

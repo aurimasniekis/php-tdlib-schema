@@ -17,11 +17,15 @@ class PageBlockPreformatted extends PageBlock
 
     /**
      * Paragraph text.
+     *
+     * @var RichText
      */
     protected RichText $text;
 
     /**
      * Programming language for which the text should be formatted.
+     *
+     * @var string
      */
     protected string $language;
 

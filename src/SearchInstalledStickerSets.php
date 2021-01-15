@@ -17,16 +17,22 @@ class SearchInstalledStickerSets extends TdFunction
 
     /**
      * Pass true to return mask sticker sets; pass false to return ordinary sticker sets.
+     *
+     * @var bool
      */
     protected bool $isMasks;
 
     /**
      * Query to search for.
+     *
+     * @var string
      */
     protected string $query;
 
     /**
      * The maximum number of sticker sets to return.
+     *
+     * @var int
      */
     protected int $limit;
 

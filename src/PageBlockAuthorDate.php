@@ -17,11 +17,15 @@ class PageBlockAuthorDate extends PageBlock
 
     /**
      * Author.
+     *
+     * @var RichText
      */
     protected RichText $author;
 
     /**
      * Point in time (Unix timestamp) when the article was published; 0 if unknown.
+     *
+     * @var int
      */
     protected int $publishDate;
 

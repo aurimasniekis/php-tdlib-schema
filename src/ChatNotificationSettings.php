@@ -17,51 +17,71 @@ class ChatNotificationSettings extends TdObject
 
     /**
      * If true, mute_for is ignored and the value for the relevant type of chat is used instead.
+     *
+     * @var bool
      */
     protected bool $useDefaultMuteFor;
 
     /**
      * Time left before notifications will be unmuted, in seconds.
+     *
+     * @var int
      */
     protected int $muteFor;
 
     /**
      * If true, sound is ignored and the value for the relevant type of chat is used instead.
+     *
+     * @var bool
      */
     protected bool $useDefaultSound;
 
     /**
      * The name of an audio file to be used for notification sounds; only applies to iOS applications.
+     *
+     * @var string
      */
     protected string $sound;
 
     /**
      * If true, show_preview is ignored and the value for the relevant type of chat is used instead.
+     *
+     * @var bool
      */
     protected bool $useDefaultShowPreview;
 
     /**
      * True, if message content should be displayed in notifications.
+     *
+     * @var bool
      */
     protected bool $showPreview;
 
     /**
      * If true, disable_pinned_message_notifications is ignored and the value for the relevant type of chat is used instead.
+     *
+     * @var bool
      */
     protected bool $useDefaultDisablePinnedMessageNotifications;
 
     /**
      * If true, notifications for incoming pinned messages will be created as for an ordinary unread message.
+     *
+     * @var bool
      */
     protected bool $disablePinnedMessageNotifications;
 
     /**
      * If true, disable_mention_notifications is ignored and the value for the relevant type of chat is used instead.
+     *
+     * @var bool
      */
     protected bool $useDefaultDisableMentionNotifications;
 
     /**
      * If true, notifications for messages with mentions will be created as for an ordinary unread message.
+     *
+     * @var bool
      */
     protected bool $disableMentionNotifications;
 

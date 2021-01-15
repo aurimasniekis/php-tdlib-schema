@@ -17,6 +17,8 @@ class PassportElementPassportRegistration extends PassportElement
 
     /**
      * Passport registration pages.
+     *
+     * @var PersonalDocument
      */
     protected PersonalDocument $passportRegistration;
 

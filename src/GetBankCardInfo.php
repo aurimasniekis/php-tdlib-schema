@@ -17,6 +17,8 @@ class GetBankCardInfo extends TdFunction
 
     /**
      * The bank card number.
+     *
+     * @var string
      */
     protected string $bankCardNumber;
 

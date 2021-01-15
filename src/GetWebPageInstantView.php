@@ -17,11 +17,15 @@ class GetWebPageInstantView extends TdFunction
 
     /**
      * The web page URL.
+     *
+     * @var string
      */
     protected string $url;
 
     /**
      * If true, the full instant view for the web page will be returned.
+     *
+     * @var bool
      */
     protected bool $forceFull;
 

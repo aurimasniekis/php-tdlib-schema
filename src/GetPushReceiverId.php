@@ -9,7 +9,7 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Returns a globally unique push notification subscription identifier for identification of an account, which has received a push notification. Can be called synchronously.
+ * Returns a globally unique push notification subscription identifier for identification of an account, which has received a push notification. This is an offline method. Can be called before authorization. Can be called synchronously.
  */
 class GetPushReceiverId extends TdFunction
 {
@@ -17,6 +17,8 @@ class GetPushReceiverId extends TdFunction
 
     /**
      * JSON-encoded push notification payload.
+     *
+     * @var string
      */
     protected string $payload;
 

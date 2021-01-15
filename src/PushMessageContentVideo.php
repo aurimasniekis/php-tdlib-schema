@@ -17,21 +17,29 @@ class PushMessageContentVideo extends PushMessageContent
 
     /**
      * Message content; may be null.
+     *
+     * @var Video|null
      */
     protected ?Video $video;
 
     /**
      * Video caption.
+     *
+     * @var string
      */
     protected string $caption;
 
     /**
      * True, if the video is secret.
+     *
+     * @var bool
      */
     protected bool $isSecret;
 
     /**
      * True, if the message is a pinned message with the specified content.
+     *
+     * @var bool
      */
     protected bool $isPinned;
 

@@ -17,26 +17,36 @@ class PasswordState extends TdObject
 
     /**
      * True, if a 2-step verification password is set.
+     *
+     * @var bool
      */
     protected bool $hasPassword;
 
     /**
      * Hint for the password; may be empty.
+     *
+     * @var string
      */
     protected string $passwordHint;
 
     /**
      * True, if a recovery email is set.
+     *
+     * @var bool
      */
     protected bool $hasRecoveryEmailAddress;
 
     /**
      * True, if some Telegram Passport elements were saved.
+     *
+     * @var bool
      */
     protected bool $hasPassportData;
 
     /**
      * Information about the recovery email address to which the confirmation email was sent; may be null.
+     *
+     * @var EmailAddressAuthenticationCodeInfo|null
      */
     protected ?EmailAddressAuthenticationCodeInfo $recoveryEmailAddressCodeInfo;
 

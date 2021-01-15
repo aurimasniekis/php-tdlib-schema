@@ -17,11 +17,15 @@ class OpenMessageContent extends TdFunction
 
     /**
      * Chat identifier of the message.
+     *
+     * @var int
      */
     protected int $chatId;
 
     /**
      * Identifier of the message with the opened content.
+     *
+     * @var int
      */
     protected int $messageId;
 

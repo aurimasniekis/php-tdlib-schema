@@ -17,31 +17,43 @@ class SetGameScore extends TdFunction
 
     /**
      * The chat to which the message with the game belongs.
+     *
+     * @var int
      */
     protected int $chatId;
 
     /**
      * Identifier of the message.
+     *
+     * @var int
      */
     protected int $messageId;
 
     /**
      * True, if the message should be edited.
+     *
+     * @var bool
      */
     protected bool $editMessage;
 
     /**
      * User identifier.
+     *
+     * @var int
      */
     protected int $userId;
 
     /**
      * The new score.
+     *
+     * @var int
      */
     protected int $score;
 
     /**
      * Pass true to update the score even if it decreases. If the score is 0, the user will be deleted from the high score table.
+     *
+     * @var bool
      */
     protected bool $force;
 

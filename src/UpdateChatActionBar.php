@@ -17,11 +17,15 @@ class UpdateChatActionBar extends Update
 
     /**
      * Chat identifier.
+     *
+     * @var int
      */
     protected int $chatId;
 
     /**
      * The new value of the action bar; may be null.
+     *
+     * @var ChatActionBar|null
      */
     protected ?ChatActionBar $actionBar;
 

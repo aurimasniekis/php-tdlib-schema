@@ -17,6 +17,8 @@ class GetSupergroup extends TdFunction
 
     /**
      * Supergroup or channel identifier.
+     *
+     * @var int
      */
     protected int $supergroupId;
 

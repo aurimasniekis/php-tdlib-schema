@@ -17,21 +17,29 @@ class PassportSuitableElement extends TdObject
 
     /**
      * Type of the element.
+     *
+     * @var PassportElementType
      */
     protected PassportElementType $type;
 
     /**
      * True, if a selfie is required with the identity document.
+     *
+     * @var bool
      */
     protected bool $isSelfieRequired;
 
     /**
      * True, if a certified English translation is required with the document.
+     *
+     * @var bool
      */
     protected bool $isTranslationRequired;
 
     /**
      * True, if personal details must include the user's name in the language of their country of residence.
+     *
+     * @var bool
      */
     protected bool $isNativeNameRequired;
 

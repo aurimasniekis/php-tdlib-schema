@@ -17,11 +17,15 @@ class SetPollAnswer extends TdFunction
 
     /**
      * Identifier of the chat to which the poll belongs.
+     *
+     * @var int
      */
     protected int $chatId;
 
     /**
      * Identifier of the message containing the poll.
+     *
+     * @var int
      */
     protected int $messageId;
 

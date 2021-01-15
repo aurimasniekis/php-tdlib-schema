@@ -17,11 +17,15 @@ class GetFileDownloadedPrefixSize extends TdFunction
 
     /**
      * Identifier of the file.
+     *
+     * @var int
      */
     protected int $fileId;
 
     /**
      * Offset from which downloaded prefix size should be calculated.
+     *
+     * @var int
      */
     protected int $offset;
 

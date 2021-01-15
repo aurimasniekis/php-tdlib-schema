@@ -17,21 +17,29 @@ class Notification extends TdObject
 
     /**
      * Unique persistent identifier of this notification.
+     *
+     * @var int
      */
     protected int $id;
 
     /**
      * Notification date.
+     *
+     * @var int
      */
     protected int $date;
 
     /**
      * True, if the notification was initially silent.
+     *
+     * @var bool
      */
     protected bool $isSilent;
 
     /**
      * Notification type.
+     *
+     * @var NotificationType
      */
     protected NotificationType $type;
 

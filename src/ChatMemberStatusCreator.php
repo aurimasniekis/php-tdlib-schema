@@ -17,25 +17,23 @@ class ChatMemberStatusCreator extends ChatMemberStatus
 
     /**
      * A custom title of the owner; 0-16 characters without emojis; applicable to supergroups only.
+     *
+     * @var string
      */
     protected string $customTitle;
 
     /**
-     * True, if the creator isn't shown in the chat member list and sends messages anonymously; applicable to supergroups only.
-     */
-    protected bool $isAnonymous;
-
-    /**
      * True, if the user is a member of the chat.
+     *
+     * @var bool
      */
     protected bool $isMember;
 
-    public function __construct(string $customTitle, bool $isAnonymous, bool $isMember)
+    public function __construct(string $customTitle, bool $isMember)
     {
         parent::__construct();
 
         $this->customTitle = $customTitle;
-        $this->isAnonymous = $isAnonymous;
         $this->isMember    = $isMember;
     }
 
@@ -43,7 +41,6 @@ class ChatMemberStatusCreator extends ChatMemberStatus
     {
         return new static(
             $array['custom_title'],
-            $array['is_anonymous'],
             $array['is_member'],
         );
     }
@@ -53,7 +50,6 @@ class ChatMemberStatusCreator extends ChatMemberStatus
         return [
             '@type'        => static::TYPE_NAME,
             'custom_title' => $this->customTitle,
-            'is_anonymous' => $this->isAnonymous,
             'is_member'    => $this->isMember,
         ];
     }
@@ -61,11 +57,6 @@ class ChatMemberStatusCreator extends ChatMemberStatus
     public function getCustomTitle(): string
     {
         return $this->customTitle;
-    }
-
-    public function getIsAnonymous(): bool
-    {
-        return $this->isAnonymous;
     }
 
     public function getIsMember(): bool

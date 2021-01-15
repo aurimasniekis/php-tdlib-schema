@@ -17,16 +17,22 @@ class PushMessageContentChatDeleteMember extends PushMessageContent
 
     /**
      * Name of the deleted member.
+     *
+     * @var string
      */
     protected string $memberName;
 
     /**
      * True, if the current user was deleted from the group.
+     *
+     * @var bool
      */
     protected bool $isCurrentUser;
 
     /**
      * True, if the user has left the group themself.
+     *
+     * @var bool
      */
     protected bool $isLeft;
 

@@ -17,6 +17,8 @@ class PassportElementDriverLicense extends PassportElement
 
     /**
      * Driver license.
+     *
+     * @var IdentityDocument
      */
     protected IdentityDocument $driverLicense;
 

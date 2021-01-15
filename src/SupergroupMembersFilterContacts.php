@@ -17,6 +17,8 @@ class SupergroupMembersFilterContacts extends SupergroupMembersFilter
 
     /**
      * Query to search for.
+     *
+     * @var string
      */
     protected string $query;
 

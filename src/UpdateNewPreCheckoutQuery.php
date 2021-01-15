@@ -17,36 +17,50 @@ class UpdateNewPreCheckoutQuery extends Update
 
     /**
      * Unique query identifier.
+     *
+     * @var string
      */
     protected string $id;
 
     /**
      * Identifier of the user who sent the query.
+     *
+     * @var int
      */
     protected int $senderUserId;
 
     /**
      * Currency for the product price.
+     *
+     * @var string
      */
     protected string $currency;
 
     /**
      * Total price for the product, in the minimal quantity of the currency.
+     *
+     * @var int
      */
     protected int $totalAmount;
 
     /**
      * Invoice payload.
+     *
+     * @var string
      */
     protected string $invoicePayload;
 
     /**
      * Identifier of a shipping option chosen by the user; may be empty if not applicable.
+     *
+     * @var string
      */
     protected string $shippingOptionId;
 
     /**
      * Information about the order; may be null.
+     *
+     * @var OrderInfo|null
      */
     protected ?OrderInfo $orderInfo;
 

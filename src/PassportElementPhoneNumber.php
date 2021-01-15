@@ -17,6 +17,8 @@ class PassportElementPhoneNumber extends PassportElement
 
     /**
      * Phone number.
+     *
+     * @var string
      */
     protected string $phoneNumber;
 

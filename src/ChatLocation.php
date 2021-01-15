@@ -17,11 +17,15 @@ class ChatLocation extends TdObject
 
     /**
      * The location.
+     *
+     * @var Location
      */
     protected Location $location;
 
     /**
      * Location address; 1-64 characters, as defined by the chat owner.
+     *
+     * @var string
      */
     protected string $address;
 

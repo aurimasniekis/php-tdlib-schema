@@ -9,7 +9,7 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Sets the verbosity level for a specified TDLib internal log tag. Can be called synchronously.
+ * Sets the verbosity level for a specified TDLib internal log tag. This is an offline method. Can be called before authorization. Can be called synchronously.
  */
 class SetLogTagVerbosityLevel extends TdFunction
 {
@@ -17,11 +17,15 @@ class SetLogTagVerbosityLevel extends TdFunction
 
     /**
      * Logging tag to change verbosity level.
+     *
+     * @var string
      */
     protected string $tag;
 
     /**
      * New verbosity level; 1-1024.
+     *
+     * @var int
      */
     protected int $newVerbosityLevel;
 

@@ -17,11 +17,15 @@ class UpdateUserFullInfo extends Update
 
     /**
      * User identifier.
+     *
+     * @var int
      */
     protected int $userId;
 
     /**
      * New full information about the user.
+     *
+     * @var UserFullInfo
      */
     protected UserFullInfo $userFullInfo;
 

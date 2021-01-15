@@ -17,6 +17,8 @@ class RichTextSuperscript extends RichText
 
     /**
      * Text.
+     *
+     * @var RichText
      */
     protected RichText $text;
 

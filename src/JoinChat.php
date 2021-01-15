@@ -9,7 +9,7 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Adds the current user as a new member to a chat. Private and secret chats can't be joined using this method.
+ * Adds current user as a new member to a chat. Private and secret chats can't be joined using this method.
  */
 class JoinChat extends TdFunction
 {
@@ -17,6 +17,8 @@ class JoinChat extends TdFunction
 
     /**
      * Chat identifier.
+     *
+     * @var int
      */
     protected int $chatId;
 

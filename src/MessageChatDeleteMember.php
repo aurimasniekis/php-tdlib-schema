@@ -17,6 +17,8 @@ class MessageChatDeleteMember extends MessageContent
 
     /**
      * User identifier of the deleted chat member.
+     *
+     * @var int
      */
     protected int $userId;
 

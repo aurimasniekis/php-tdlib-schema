@@ -17,51 +17,71 @@ class Video extends TdObject
 
     /**
      * Duration of the video, in seconds; as defined by the sender.
+     *
+     * @var int
      */
     protected int $duration;
 
     /**
      * Video width; as defined by the sender.
+     *
+     * @var int
      */
     protected int $width;
 
     /**
      * Video height; as defined by the sender.
+     *
+     * @var int
      */
     protected int $height;
 
     /**
      * Original name of the file; as defined by the sender.
+     *
+     * @var string
      */
     protected string $fileName;
 
     /**
      * MIME type of the file; as defined by the sender.
+     *
+     * @var string
      */
     protected string $mimeType;
 
     /**
-     * True, if stickers were added to the video. The list of corresponding sticker sets can be received using getAttachedStickerSets.
+     * True, if stickers were added to the video.
+     *
+     * @var bool
      */
     protected bool $hasStickers;
 
     /**
      * True, if the video should be tried to be streamed.
+     *
+     * @var bool
      */
     protected bool $supportsStreaming;
 
     /**
      * Video minithumbnail; may be null.
+     *
+     * @var Minithumbnail|null
      */
     protected ?Minithumbnail $minithumbnail;
 
     /**
-     * Video thumbnail in JPEG or MPEG4 format; as defined by the sender; may be null.
+     * Video thumbnail; as defined by the sender; may be null.
+     *
+     * @var PhotoSize|null
      */
-    protected ?Thumbnail $thumbnail;
+    protected ?PhotoSize $thumbnail;
 
     /**
      * File containing the video.
+     *
+     * @var File
      */
     protected File $video;
 
@@ -74,7 +94,7 @@ class Video extends TdObject
         bool $hasStickers,
         bool $supportsStreaming,
         ?Minithumbnail $minithumbnail,
-        ?Thumbnail $thumbnail,
+        ?PhotoSize $thumbnail,
         File $video
     ) {
         $this->duration          = $duration;
@@ -162,7 +182,7 @@ class Video extends TdObject
         return $this->minithumbnail;
     }
 
-    public function getThumbnail(): ?Thumbnail
+    public function getThumbnail(): ?PhotoSize
     {
         return $this->thumbnail;
     }

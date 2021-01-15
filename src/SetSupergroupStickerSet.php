@@ -17,11 +17,15 @@ class SetSupergroupStickerSet extends TdFunction
 
     /**
      * Identifier of the supergroup.
+     *
+     * @var int
      */
     protected int $supergroupId;
 
     /**
      * New value of the supergroup sticker set identifier. Use 0 to remove the supergroup sticker set.
+     *
+     * @var string
      */
     protected string $stickerSetId;
 

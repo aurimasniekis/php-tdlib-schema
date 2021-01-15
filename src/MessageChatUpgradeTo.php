@@ -17,6 +17,8 @@ class MessageChatUpgradeTo extends MessageContent
 
     /**
      * Identifier of the supergroup to which the basic group was upgraded.
+     *
+     * @var int
      */
     protected int $supergroupId;
 

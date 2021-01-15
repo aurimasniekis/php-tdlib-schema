@@ -17,6 +17,8 @@ class BankCardInfo extends TdObject
 
     /**
      * Title of the bank card description.
+     *
+     * @var string
      */
     protected string $title;
 

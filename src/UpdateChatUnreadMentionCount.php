@@ -17,11 +17,15 @@ class UpdateChatUnreadMentionCount extends Update
 
     /**
      * Chat identifier.
+     *
+     * @var int
      */
     protected int $chatId;
 
     /**
      * The number of unread mention messages left in the chat.
+     *
+     * @var int
      */
     protected int $unreadMentionCount;
 

@@ -17,6 +17,8 @@ class BotInfo extends TdObject
 
     /**
      * Long description shown on the user info page.
+     *
+     * @var string
      */
     protected string $description;
 

@@ -17,11 +17,15 @@ class InputMessagePhoto extends InputMessageContent
 
     /**
      * Photo to send.
+     *
+     * @var InputFile
      */
     protected InputFile $photo;
 
     /**
      * Photo thumbnail to be sent, this is sent to the other party in secret chats only.
+     *
+     * @var InputThumbnail
      */
     protected InputThumbnail $thumbnail;
 
@@ -34,21 +38,29 @@ class InputMessagePhoto extends InputMessageContent
 
     /**
      * Photo width.
+     *
+     * @var int
      */
     protected int $width;
 
     /**
      * Photo height.
+     *
+     * @var int
      */
     protected int $height;
 
     /**
      * Photo caption; 0-GetOption("message_caption_length_max") characters.
+     *
+     * @var FormattedText
      */
     protected FormattedText $caption;
 
     /**
      * Photo TTL (Time To Live), in seconds (0-60). A non-zero TTL can be specified only in private chats.
+     *
+     * @var int
      */
     protected int $ttl;
 

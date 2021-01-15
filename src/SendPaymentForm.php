@@ -17,26 +17,36 @@ class SendPaymentForm extends TdFunction
 
     /**
      * Chat identifier of the Invoice message.
+     *
+     * @var int
      */
     protected int $chatId;
 
     /**
      * Message identifier.
+     *
+     * @var int
      */
     protected int $messageId;
 
     /**
      * Identifier returned by ValidateOrderInfo, or an empty string.
+     *
+     * @var string
      */
     protected string $orderInfoId;
 
     /**
      * Identifier of a chosen shipping option, if applicable.
+     *
+     * @var string
      */
     protected string $shippingOptionId;
 
     /**
      * The credentials chosen by user for payment.
+     *
+     * @var InputCredentials
      */
     protected InputCredentials $credentials;
 

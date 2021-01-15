@@ -17,6 +17,8 @@ class RemoveRecentHashtag extends TdFunction
 
     /**
      * Hashtag to delete.
+     *
+     * @var string
      */
     protected string $hashtag;
 

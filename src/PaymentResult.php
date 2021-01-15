@@ -17,11 +17,15 @@ class PaymentResult extends TdObject
 
     /**
      * True, if the payment request was successful; otherwise the verification_url will be not empty.
+     *
+     * @var bool
      */
     protected bool $success;
 
     /**
      * URL for additional payment credentials verification.
+     *
+     * @var string
      */
     protected string $verificationUrl;
 

@@ -17,6 +17,8 @@ class UpdateDeleteMessages extends Update
 
     /**
      * Chat identifier.
+     *
+     * @var int
      */
     protected int $chatId;
 
@@ -29,11 +31,15 @@ class UpdateDeleteMessages extends Update
 
     /**
      * True, if the messages are permanently deleted by a user (as opposed to just becoming inaccessible).
+     *
+     * @var bool
      */
     protected bool $isPermanent;
 
     /**
      * True, if the messages are deleted only from the cache and can possibly be retrieved again in the future.
+     *
+     * @var bool
      */
     protected bool $fromCache;
 

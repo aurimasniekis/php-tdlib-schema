@@ -17,6 +17,8 @@ class SetBio extends TdFunction
 
     /**
      * The new value of the user bio; 0-70 characters without line feeds.
+     *
+     * @var string
      */
     protected string $bio;
 

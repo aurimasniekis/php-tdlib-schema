@@ -9,7 +9,7 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Returns information about a newest pinned message in the chat.
+ * Returns information about a pinned chat message.
  */
 class GetChatPinnedMessage extends TdFunction
 {
@@ -17,6 +17,8 @@ class GetChatPinnedMessage extends TdFunction
 
     /**
      * Identifier of the chat the message belongs to.
+     *
+     * @var int
      */
     protected int $chatId;
 

@@ -17,16 +17,22 @@ class MessagePhoto extends MessageContent
 
     /**
      * The photo description.
+     *
+     * @var Photo
      */
     protected Photo $photo;
 
     /**
      * Photo caption.
+     *
+     * @var FormattedText
      */
     protected FormattedText $caption;
 
     /**
      * True, if the photo must be blurred and must be shown only while tapped.
+     *
+     * @var bool
      */
     protected bool $isSecret;
 

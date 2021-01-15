@@ -17,6 +17,8 @@ class InputPassportElementRentalAgreement extends InputPassportElement
 
     /**
      * The rental agreement to be saved.
+     *
+     * @var InputPersonalDocument
      */
     protected InputPersonalDocument $rentalAgreement;
 

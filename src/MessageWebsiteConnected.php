@@ -17,6 +17,8 @@ class MessageWebsiteConnected extends MessageContent
 
     /**
      * Domain name of the connected website.
+     *
+     * @var string
      */
     protected string $domainName;
 

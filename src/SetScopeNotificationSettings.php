@@ -17,11 +17,15 @@ class SetScopeNotificationSettings extends TdFunction
 
     /**
      * Types of chats for which to change the notification settings.
+     *
+     * @var NotificationSettingsScope
      */
     protected NotificationSettingsScope $scope;
 
     /**
      * The new notification settings for the given scope.
+     *
+     * @var ScopeNotificationSettings
      */
     protected ScopeNotificationSettings $notificationSettings;
 

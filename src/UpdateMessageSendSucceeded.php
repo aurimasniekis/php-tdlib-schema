@@ -17,11 +17,15 @@ class UpdateMessageSendSucceeded extends Update
 
     /**
      * Information about the sent message. Usually only the message identifier, date, and content are changed, but almost all other fields can also change.
+     *
+     * @var Message
      */
     protected Message $message;
 
     /**
      * The previous temporary message identifier.
+     *
+     * @var int
      */
     protected int $oldMessageId;
 

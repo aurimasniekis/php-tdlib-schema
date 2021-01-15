@@ -17,11 +17,15 @@ class InputMessageGame extends InputMessageContent
 
     /**
      * User identifier of the bot that owns the game.
+     *
+     * @var int
      */
     protected int $botUserId;
 
     /**
      * Short name of the game.
+     *
+     * @var string
      */
     protected string $gameShortName;
 

@@ -17,6 +17,8 @@ class PageBlockHeader extends PageBlock
 
     /**
      * Header.
+     *
+     * @var RichText
      */
     protected RichText $header;
 

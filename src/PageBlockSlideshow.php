@@ -24,6 +24,8 @@ class PageBlockSlideshow extends PageBlock
 
     /**
      * Block caption.
+     *
+     * @var PageBlockCaption
      */
     protected PageBlockCaption $caption;
 

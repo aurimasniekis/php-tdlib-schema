@@ -9,7 +9,7 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * The list of users nearby has changed. The update is guaranteed to be sent only 60 seconds after a successful searchChatsNearby request.
+ * List of users nearby has changed. The update is sent only 60 seconds after a successful searchChatsNearby request.
  */
 class UpdateUsersNearby extends Update
 {

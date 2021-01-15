@@ -17,11 +17,15 @@ class Error extends TdObject
 
     /**
      * Error code; subject to future changes. If the error code is 406, the error message must not be processed in any way and must not be displayed to the user.
+     *
+     * @var int
      */
     protected int $code;
 
     /**
      * Error message; subject to future changes.
+     *
+     * @var string
      */
     protected string $message;
 

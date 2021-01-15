@@ -17,31 +17,43 @@ class Venue extends TdObject
 
     /**
      * Venue location; as defined by the sender.
+     *
+     * @var Location
      */
     protected Location $location;
 
     /**
      * Venue name; as defined by the sender.
+     *
+     * @var string
      */
     protected string $title;
 
     /**
      * Venue address; as defined by the sender.
+     *
+     * @var string
      */
     protected string $address;
 
     /**
-     * Provider of the venue database; as defined by the sender. Currently only "foursquare" and "gplaces" (Google Places) need to be supported.
+     * Provider of the venue database; as defined by the sender. Currently only "foursquare" needs to be supported.
+     *
+     * @var string
      */
     protected string $provider;
 
     /**
      * Identifier of the venue in the provider database; as defined by the sender.
+     *
+     * @var string
      */
     protected string $id;
 
     /**
      * Type of the venue in the provider database; as defined by the sender.
+     *
+     * @var string
      */
     protected string $type;
 

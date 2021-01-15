@@ -17,6 +17,8 @@ class InputMessageContact extends InputMessageContent
 
     /**
      * Contact to send.
+     *
+     * @var Contact
      */
     protected Contact $contact;
 

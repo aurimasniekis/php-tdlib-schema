@@ -17,11 +17,15 @@ class PushMessageContentVoiceNote extends PushMessageContent
 
     /**
      * Message content; may be null.
+     *
+     * @var VoiceNote|null
      */
     protected ?VoiceNote $voiceNote;
 
     /**
      * True, if the message is a pinned message with the specified content.
+     *
+     * @var bool
      */
     protected bool $isPinned;
 

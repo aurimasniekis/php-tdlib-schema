@@ -17,21 +17,29 @@ class UpdateMessageSendFailed extends Update
 
     /**
      * Contains information about the message which failed to send.
+     *
+     * @var Message
      */
     protected Message $message;
 
     /**
      * The previous temporary message identifier.
+     *
+     * @var int
      */
     protected int $oldMessageId;
 
     /**
      * An error code.
+     *
+     * @var int
      */
     protected int $errorCode;
 
     /**
      * Error message.
+     *
+     * @var string
      */
     protected string $errorMessage;
 

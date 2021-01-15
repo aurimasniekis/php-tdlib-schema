@@ -17,11 +17,15 @@ class MessageDocument extends MessageContent
 
     /**
      * The document description.
+     *
+     * @var Document
      */
     protected Document $document;
 
     /**
      * Document caption.
+     *
+     * @var FormattedText
      */
     protected FormattedText $caption;
 

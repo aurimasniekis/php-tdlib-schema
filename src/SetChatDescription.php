@@ -17,11 +17,15 @@ class SetChatDescription extends TdFunction
 
     /**
      * Identifier of the chat.
+     *
+     * @var int
      */
     protected int $chatId;
 
     /**
      * New chat description; 0-255 characters.
+     *
+     * @var string
      */
     protected string $description;
 

@@ -15,35 +15,18 @@ class ChatActionBarReportSpam extends ChatActionBar
 {
     public const TYPE_NAME = 'chatActionBarReportSpam';
 
-    /**
-     * If true, the chat was automatically archived and can be moved back to the main chat list using addChatToList simultaneously with setting chat notification settings to default using setChatNotificationSettings.
-     */
-    protected bool $canUnarchive;
-
-    public function __construct(bool $canUnarchive)
+    public function __construct()
     {
         parent::__construct();
-
-        $this->canUnarchive = $canUnarchive;
     }
 
     public static function fromArray(array $array): ChatActionBarReportSpam
     {
-        return new static(
-            $array['can_unarchive'],
-        );
+        return new static();
     }
 
     public function typeSerialize(): array
     {
-        return [
-            '@type'         => static::TYPE_NAME,
-            'can_unarchive' => $this->canUnarchive,
-        ];
-    }
-
-    public function getCanUnarchive(): bool
-    {
-        return $this->canUnarchive;
+        return ['@type' => static::TYPE_NAME];
     }
 }

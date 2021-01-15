@@ -17,11 +17,15 @@ class GetTopChats extends TdFunction
 
     /**
      * Category of chats to be returned.
+     *
+     * @var TopChatCategory
      */
     protected TopChatCategory $category;
 
     /**
      * The maximum number of chats to be returned; up to 30.
+     *
+     * @var int
      */
     protected int $limit;
 

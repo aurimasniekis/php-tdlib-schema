@@ -9,7 +9,7 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Returns current verbosity level of the internal logging of TDLib. Can be called synchronously.
+ * Returns current verbosity level of the internal logging of TDLib. This is an offline method. Can be called before authorization. Can be called synchronously.
  */
 class GetLogVerbosityLevel extends TdFunction
 {

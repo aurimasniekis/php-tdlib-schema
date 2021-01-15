@@ -17,31 +17,43 @@ class PaymentReceipt extends TdObject
 
     /**
      * Point in time (Unix timestamp) when the payment was made.
+     *
+     * @var int
      */
     protected int $date;
 
     /**
      * User identifier of the payment provider bot.
+     *
+     * @var int
      */
     protected int $paymentsProviderUserId;
 
     /**
      * Contains information about the invoice.
+     *
+     * @var Invoice
      */
     protected Invoice $invoice;
 
     /**
      * Contains order information; may be null.
+     *
+     * @var OrderInfo|null
      */
     protected ?OrderInfo $orderInfo;
 
     /**
      * Chosen shipping option; may be null.
+     *
+     * @var ShippingOption|null
      */
     protected ?ShippingOption $shippingOption;
 
     /**
      * Title of the saved credentials.
+     *
+     * @var string
      */
     protected string $credentialsTitle;
 

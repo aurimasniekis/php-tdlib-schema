@@ -17,21 +17,29 @@ class EditMessageText extends TdFunction
 
     /**
      * The chat the message belongs to.
+     *
+     * @var int
      */
     protected int $chatId;
 
     /**
      * Identifier of the message.
+     *
+     * @var int
      */
     protected int $messageId;
 
     /**
      * The new message reply markup; for bots only.
+     *
+     * @var ReplyMarkup
      */
     protected ReplyMarkup $replyMarkup;
 
     /**
      * New text content of the message. Should be of type InputMessageText.
+     *
+     * @var InputMessageContent
      */
     protected InputMessageContent $inputMessageContent;
 

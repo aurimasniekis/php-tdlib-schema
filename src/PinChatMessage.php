@@ -9,7 +9,7 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Pins a message in a chat; requires can_pin_messages rights or can_edit_messages rights in the channel.
+ * Pins a message in a chat; requires can_pin_messages rights.
  */
 class PinChatMessage extends TdFunction
 {
@@ -17,30 +17,30 @@ class PinChatMessage extends TdFunction
 
     /**
      * Identifier of the chat.
+     *
+     * @var int
      */
     protected int $chatId;
 
     /**
      * Identifier of the new pinned message.
+     *
+     * @var int
      */
     protected int $messageId;
 
     /**
-     * True, if there should be no notification about the pinned message. Notifications are always disabled in channels and private chats.
+     * True, if there should be no notification about the pinned message.
+     *
+     * @var bool
      */
     protected bool $disableNotification;
 
-    /**
-     * True, if the message needs to be pinned for one side only; private chats only.
-     */
-    protected bool $onlyForSelf;
-
-    public function __construct(int $chatId, int $messageId, bool $disableNotification, bool $onlyForSelf)
+    public function __construct(int $chatId, int $messageId, bool $disableNotification)
     {
         $this->chatId              = $chatId;
         $this->messageId           = $messageId;
         $this->disableNotification = $disableNotification;
-        $this->onlyForSelf         = $onlyForSelf;
     }
 
     public static function fromArray(array $array): PinChatMessage
@@ -49,7 +49,6 @@ class PinChatMessage extends TdFunction
             $array['chat_id'],
             $array['message_id'],
             $array['disable_notification'],
-            $array['only_for_self'],
         );
     }
 
@@ -60,7 +59,6 @@ class PinChatMessage extends TdFunction
             'chat_id'              => $this->chatId,
             'message_id'           => $this->messageId,
             'disable_notification' => $this->disableNotification,
-            'only_for_self'        => $this->onlyForSelf,
         ];
     }
 
@@ -77,10 +75,5 @@ class PinChatMessage extends TdFunction
     public function getDisableNotification(): bool
     {
         return $this->disableNotification;
-    }
-
-    public function getOnlyForSelf(): bool
-    {
-        return $this->onlyForSelf;
     }
 }

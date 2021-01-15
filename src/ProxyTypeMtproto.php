@@ -17,6 +17,8 @@ class ProxyTypeMtproto extends ProxyType
 
     /**
      * The proxy's secret in hexadecimal encoding.
+     *
+     * @var string
      */
     protected string $secret;
 

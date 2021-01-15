@@ -17,6 +17,8 @@ class GetLocalizationTargetInfo extends TdFunction
 
     /**
      * If true, returns only locally available information without sending network requests.
+     *
+     * @var bool
      */
     protected bool $onlyLocal;
 

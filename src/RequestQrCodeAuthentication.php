@@ -9,14 +9,14 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Requests QR code authentication by scanning a QR code on another logged in device. Works only when the current authorization state is authorizationStateWaitPhoneNumber, or if there is no pending authentication query and the current authorization state is authorizationStateWaitCode, authorizationStateWaitRegistration, or authorizationStateWaitPassword.
+ * Requests QR code authentication by scanning a QR code on another logged in device. Works only when the current authorization state is authorizationStateWaitPhoneNumber.
  */
 class RequestQrCodeAuthentication extends TdFunction
 {
     public const TYPE_NAME = 'requestQrCodeAuthentication';
 
     /**
-     * List of user identifiers of other users currently using the application.
+     * List of user identifiers of other users currently using the client.
      *
      * @var int[]
      */

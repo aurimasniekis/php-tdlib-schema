@@ -17,6 +17,8 @@ class InputPassportElementErrorSourceSelfie extends InputPassportElementErrorSou
 
     /**
      * Current hash of the file containing the selfie.
+     *
+     * @var string
      */
     protected string $fileHash;
 

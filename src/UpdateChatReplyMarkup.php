@@ -17,11 +17,15 @@ class UpdateChatReplyMarkup extends Update
 
     /**
      * Chat identifier.
+     *
+     * @var int
      */
     protected int $chatId;
 
     /**
      * Identifier of the message from which reply markup needs to be used; 0 if there is no default custom reply markup in the chat.
+     *
+     * @var int
      */
     protected int $replyMarkupMessageId;
 

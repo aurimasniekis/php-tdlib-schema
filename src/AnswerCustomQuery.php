@@ -17,11 +17,15 @@ class AnswerCustomQuery extends TdFunction
 
     /**
      * Identifier of a custom query.
+     *
+     * @var string
      */
     protected string $customQueryId;
 
     /**
      * JSON-serialized answer to the query.
+     *
+     * @var string
      */
     protected string $data;
 

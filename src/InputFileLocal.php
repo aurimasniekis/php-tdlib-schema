@@ -17,6 +17,8 @@ class InputFileLocal extends InputFile
 
     /**
      * Local path to the file.
+     *
+     * @var string
      */
     protected string $path;
 

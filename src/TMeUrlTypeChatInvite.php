@@ -17,6 +17,8 @@ class TMeUrlTypeChatInvite extends TMeUrlType
 
     /**
      * Chat invite link info.
+     *
+     * @var ChatInviteLinkInfo
      */
     protected ChatInviteLinkInfo $info;
 

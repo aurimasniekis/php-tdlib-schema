@@ -17,11 +17,15 @@ class SetChatPermissions extends TdFunction
 
     /**
      * Chat identifier.
+     *
+     * @var int
      */
     protected int $chatId;
 
     /**
      * New non-administrator members permissions in the chat.
+     *
+     * @var ChatPermissions
      */
     protected ChatPermissions $permissions;
 

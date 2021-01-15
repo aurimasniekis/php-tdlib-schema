@@ -17,11 +17,15 @@ class PageBlockCaption extends TdObject
 
     /**
      * Content of the caption.
+     *
+     * @var RichText
      */
     protected RichText $text;
 
     /**
      * Block credit (like HTML tag <cite>).
+     *
+     * @var RichText
      */
     protected RichText $credit;
 

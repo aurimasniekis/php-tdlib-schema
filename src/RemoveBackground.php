@@ -17,6 +17,8 @@ class RemoveBackground extends TdFunction
 
     /**
      * The background identifier.
+     *
+     * @var string
      */
     protected string $backgroundId;
 

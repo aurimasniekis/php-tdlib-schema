@@ -17,6 +17,8 @@ class MessageCustomServiceAction extends MessageContent
 
     /**
      * Message text to be shown in the chat.
+     *
+     * @var string
      */
     protected string $text;
 

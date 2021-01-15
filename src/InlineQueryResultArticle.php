@@ -17,35 +17,47 @@ class InlineQueryResultArticle extends InlineQueryResult
 
     /**
      * Unique identifier of the query result.
+     *
+     * @var string
      */
     protected string $id;
 
     /**
      * URL of the result, if it exists.
+     *
+     * @var string
      */
     protected string $url;
 
     /**
      * True, if the URL must be not shown.
+     *
+     * @var bool
      */
     protected bool $hideUrl;
 
     /**
      * Title of the result.
+     *
+     * @var string
      */
     protected string $title;
 
     /**
      * A short description of the result.
+     *
+     * @var string
      */
     protected string $description;
 
     /**
-     * Result thumbnail in JPEG format; may be null.
+     * Result thumbnail; may be null.
+     *
+     * @var PhotoSize|null
      */
-    protected ?Thumbnail $thumbnail;
+    protected ?PhotoSize $thumbnail;
 
-    public function __construct(string $id, string $url, bool $hideUrl, string $title, string $description, ?Thumbnail $thumbnail)
+    public function __construct(string $id, string $url, bool $hideUrl, string $title, string $description, ?PhotoSize $thumbnail)
     {
         parent::__construct();
 
@@ -107,7 +119,7 @@ class InlineQueryResultArticle extends InlineQueryResult
         return $this->description;
     }
 
-    public function getThumbnail(): ?Thumbnail
+    public function getThumbnail(): ?PhotoSize
     {
         return $this->thumbnail;
     }

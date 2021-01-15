@@ -17,6 +17,8 @@ class PassportElementPassport extends PassportElement
 
     /**
      * Passport.
+     *
+     * @var IdentityDocument
      */
     protected IdentityDocument $passport;
 

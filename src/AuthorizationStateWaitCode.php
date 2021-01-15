@@ -17,6 +17,8 @@ class AuthorizationStateWaitCode extends AuthorizationState
 
     /**
      * Information about the authorization code that was sent.
+     *
+     * @var AuthenticationCodeInfo
      */
     protected AuthenticationCodeInfo $codeInfo;
 

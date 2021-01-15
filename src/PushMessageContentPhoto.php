@@ -17,21 +17,29 @@ class PushMessageContentPhoto extends PushMessageContent
 
     /**
      * Message content; may be null.
+     *
+     * @var Photo|null
      */
     protected ?Photo $photo;
 
     /**
      * Photo caption.
+     *
+     * @var string
      */
     protected string $caption;
 
     /**
      * True, if the photo is secret.
+     *
+     * @var bool
      */
     protected bool $isSecret;
 
     /**
      * True, if the message is a pinned message with the specified content.
+     *
+     * @var bool
      */
     protected bool $isPinned;
 

@@ -17,16 +17,22 @@ class BackgroundFillGradient extends BackgroundFill
 
     /**
      * A top color of the background in the RGB24 format.
+     *
+     * @var int
      */
     protected int $topColor;
 
     /**
      * A bottom color of the background in the RGB24 format.
+     *
+     * @var int
      */
     protected int $bottomColor;
 
     /**
      * Clockwise rotation angle of the gradient, in degrees; 0-359. Should be always divisible by 45.
+     *
+     * @var int
      */
     protected int $rotationAngle;
 

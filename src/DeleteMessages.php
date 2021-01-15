@@ -17,6 +17,8 @@ class DeleteMessages extends TdFunction
 
     /**
      * Chat identifier.
+     *
+     * @var int
      */
     protected int $chatId;
 
@@ -29,6 +31,8 @@ class DeleteMessages extends TdFunction
 
     /**
      * Pass true to try to delete messages for all chat members. Always true for supergroups, channels and secret chats.
+     *
+     * @var bool
      */
     protected bool $revoke;
 

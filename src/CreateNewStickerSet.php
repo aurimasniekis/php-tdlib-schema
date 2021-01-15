@@ -17,21 +17,29 @@ class CreateNewStickerSet extends TdFunction
 
     /**
      * Sticker set owner.
+     *
+     * @var int
      */
     protected int $userId;
 
     /**
      * Sticker set title; 1-64 characters.
+     *
+     * @var string
      */
     protected string $title;
 
     /**
      * Sticker set name. Can contain only English letters, digits and underscores. Must end with *"_by_<bot username>"* (*<bot_username>* is case insensitive); 1-64 characters.
+     *
+     * @var string
      */
     protected string $name;
 
     /**
      * True, if stickers are masks. Animated stickers can't be masks.
+     *
+     * @var bool
      */
     protected bool $isMasks;
 

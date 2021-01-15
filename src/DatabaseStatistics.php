@@ -17,6 +17,8 @@ class DatabaseStatistics extends TdObject
 
     /**
      * Database statistics in an unspecified human-readable format.
+     *
+     * @var string
      */
     protected string $statistics;
 

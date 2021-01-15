@@ -16,17 +16,23 @@ class TextEntity extends TdObject
     public const TYPE_NAME = 'textEntity';
 
     /**
-     * Offset of the entity, in UTF-16 code units.
+     * Offset of the entity in UTF-16 code units.
+     *
+     * @var int
      */
     protected int $offset;
 
     /**
      * Length of the entity, in UTF-16 code units.
+     *
+     * @var int
      */
     protected int $length;
 
     /**
      * Type of the entity.
+     *
+     * @var TextEntityType
      */
     protected TextEntityType $type;
 

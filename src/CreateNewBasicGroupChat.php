@@ -24,6 +24,8 @@ class CreateNewBasicGroupChat extends TdFunction
 
     /**
      * Title of the new basic group; 1-128 characters.
+     *
+     * @var string
      */
     protected string $title;
 

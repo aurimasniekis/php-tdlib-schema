@@ -17,11 +17,15 @@ class InlineQueryResultSticker extends InlineQueryResult
 
     /**
      * Unique identifier of the query result.
+     *
+     * @var string
      */
     protected string $id;
 
     /**
      * Sticker.
+     *
+     * @var Sticker
      */
     protected Sticker $sticker;
 

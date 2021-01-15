@@ -17,16 +17,22 @@ class ChatAdministrator extends TdObject
 
     /**
      * User identifier of the administrator.
+     *
+     * @var int
      */
     protected int $userId;
 
     /**
      * Custom title of the administrator.
+     *
+     * @var string
      */
     protected string $customTitle;
 
     /**
      * True, if the user is the owner of the chat.
+     *
+     * @var bool
      */
     protected bool $isOwner;
 

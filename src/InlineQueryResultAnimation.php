@@ -17,16 +17,22 @@ class InlineQueryResultAnimation extends InlineQueryResult
 
     /**
      * Unique identifier of the query result.
+     *
+     * @var string
      */
     protected string $id;
 
     /**
      * Animation file.
+     *
+     * @var Animation
      */
     protected Animation $animation;
 
     /**
      * Animation title.
+     *
+     * @var string
      */
     protected string $title;
 

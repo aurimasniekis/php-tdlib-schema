@@ -17,6 +17,8 @@ class ChatEventMessagePinned extends ChatEventAction
 
     /**
      * Pinned message.
+     *
+     * @var Message
      */
     protected Message $message;
 

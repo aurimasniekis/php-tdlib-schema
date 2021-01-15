@@ -17,16 +17,22 @@ class GetGameHighScores extends TdFunction
 
     /**
      * The chat that contains the message with the game.
+     *
+     * @var int
      */
     protected int $chatId;
 
     /**
      * Identifier of the message.
+     *
+     * @var int
      */
     protected int $messageId;
 
     /**
      * User identifier.
+     *
+     * @var int
      */
     protected int $userId;
 

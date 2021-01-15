@@ -17,11 +17,15 @@ class SetSupergroupUsername extends TdFunction
 
     /**
      * Identifier of the supergroup or channel.
+     *
+     * @var int
      */
     protected int $supergroupId;
 
     /**
      * New value of the username. Use an empty string to remove the username.
+     *
+     * @var string
      */
     protected string $username;
 

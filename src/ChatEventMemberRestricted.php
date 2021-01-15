@@ -17,16 +17,22 @@ class ChatEventMemberRestricted extends ChatEventAction
 
     /**
      * Chat member user identifier.
+     *
+     * @var int
      */
     protected int $userId;
 
     /**
      * Previous status of the chat member.
+     *
+     * @var ChatMemberStatus
      */
     protected ChatMemberStatus $oldStatus;
 
     /**
      * New status of the chat member.
+     *
+     * @var ChatMemberStatus
      */
     protected ChatMemberStatus $newStatus;
 

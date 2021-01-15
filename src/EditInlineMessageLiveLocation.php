@@ -17,36 +17,30 @@ class EditInlineMessageLiveLocation extends TdFunction
 
     /**
      * Inline message identifier.
+     *
+     * @var string
      */
     protected string $inlineMessageId;
 
     /**
      * The new message reply markup.
+     *
+     * @var ReplyMarkup
      */
     protected ReplyMarkup $replyMarkup;
 
     /**
      * New location content of the message; may be null. Pass null to stop sharing the live location.
+     *
+     * @var Location|null
      */
     protected ?Location $location;
 
-    /**
-     * The new direction in which the location moves, in degrees; 1-360. Pass 0 if unknown.
-     */
-    protected int $heading;
-
-    /**
-     * The new maximum distance for proximity alerts, in meters (0-100000). Pass 0 if the notification is disabled.
-     */
-    protected int $proximityAlertRadius;
-
-    public function __construct(string $inlineMessageId, ReplyMarkup $replyMarkup, ?Location $location, int $heading, int $proximityAlertRadius)
+    public function __construct(string $inlineMessageId, ReplyMarkup $replyMarkup, ?Location $location)
     {
-        $this->inlineMessageId      = $inlineMessageId;
-        $this->replyMarkup          = $replyMarkup;
-        $this->location             = $location;
-        $this->heading              = $heading;
-        $this->proximityAlertRadius = $proximityAlertRadius;
+        $this->inlineMessageId = $inlineMessageId;
+        $this->replyMarkup     = $replyMarkup;
+        $this->location        = $location;
     }
 
     public static function fromArray(array $array): EditInlineMessageLiveLocation
@@ -55,20 +49,16 @@ class EditInlineMessageLiveLocation extends TdFunction
             $array['inline_message_id'],
             TdSchemaRegistry::fromArray($array['reply_markup']),
             (isset($array['location']) ? TdSchemaRegistry::fromArray($array['location']) : null),
-            $array['heading'],
-            $array['proximity_alert_radius'],
         );
     }
 
     public function typeSerialize(): array
     {
         return [
-            '@type'                  => static::TYPE_NAME,
-            'inline_message_id'      => $this->inlineMessageId,
-            'reply_markup'           => $this->replyMarkup->typeSerialize(),
-            'location'               => (isset($this->location) ? $this->location : null),
-            'heading'                => $this->heading,
-            'proximity_alert_radius' => $this->proximityAlertRadius,
+            '@type'             => static::TYPE_NAME,
+            'inline_message_id' => $this->inlineMessageId,
+            'reply_markup'      => $this->replyMarkup->typeSerialize(),
+            'location'          => (isset($this->location) ? $this->location : null),
         ];
     }
 
@@ -85,15 +75,5 @@ class EditInlineMessageLiveLocation extends TdFunction
     public function getLocation(): ?Location
     {
         return $this->location;
-    }
-
-    public function getHeading(): int
-    {
-        return $this->heading;
-    }
-
-    public function getProximityAlertRadius(): int
-    {
-        return $this->proximityAlertRadius;
     }
 }

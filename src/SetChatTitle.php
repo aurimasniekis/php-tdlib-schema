@@ -9,7 +9,7 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Changes the chat title. Supported only for basic groups, supergroups and channels. Requires can_change_info rights.
+ * Changes the chat title. Supported only for basic groups, supergroups and channels. Requires can_change_info rights. The title will not be changed until the request to the server has been completed.
  */
 class SetChatTitle extends TdFunction
 {
@@ -17,11 +17,15 @@ class SetChatTitle extends TdFunction
 
     /**
      * Chat identifier.
+     *
+     * @var int
      */
     protected int $chatId;
 
     /**
      * New title of the chat; 1-128 characters.
+     *
+     * @var string
      */
     protected string $title;
 

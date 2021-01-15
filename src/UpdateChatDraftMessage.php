@@ -17,28 +17,32 @@ class UpdateChatDraftMessage extends Update
 
     /**
      * Chat identifier.
+     *
+     * @var int
      */
     protected int $chatId;
 
     /**
      * The new draft message; may be null.
+     *
+     * @var DraftMessage|null
      */
     protected ?DraftMessage $draftMessage;
 
     /**
-     * The new chat positions in the chat lists.
+     * New value of the chat order.
      *
-     * @var ChatPosition[]
+     * @var string
      */
-    protected array $positions;
+    protected string $order;
 
-    public function __construct(int $chatId, ?DraftMessage $draftMessage, array $positions)
+    public function __construct(int $chatId, ?DraftMessage $draftMessage, string $order)
     {
         parent::__construct();
 
         $this->chatId       = $chatId;
         $this->draftMessage = $draftMessage;
-        $this->positions    = $positions;
+        $this->order        = $order;
     }
 
     public static function fromArray(array $array): UpdateChatDraftMessage
@@ -46,17 +50,17 @@ class UpdateChatDraftMessage extends Update
         return new static(
             $array['chat_id'],
             (isset($array['draft_message']) ? TdSchemaRegistry::fromArray($array['draft_message']) : null),
-            array_map(fn ($x) => TdSchemaRegistry::fromArray($x), $array['positions']),
+            $array['order'],
         );
     }
 
     public function typeSerialize(): array
     {
         return [
-            '@type'           => static::TYPE_NAME,
-            'chat_id'         => $this->chatId,
-            'draft_message'   => (isset($this->draftMessage) ? $this->draftMessage : null),
-            array_map(fn ($x) => $x->typeSerialize(), $this->positions),
+            '@type'         => static::TYPE_NAME,
+            'chat_id'       => $this->chatId,
+            'draft_message' => (isset($this->draftMessage) ? $this->draftMessage : null),
+            'order'         => $this->order,
         ];
     }
 
@@ -70,8 +74,8 @@ class UpdateChatDraftMessage extends Update
         return $this->draftMessage;
     }
 
-    public function getPositions(): array
+    public function getOrder(): string
     {
-        return $this->positions;
+        return $this->order;
     }
 }

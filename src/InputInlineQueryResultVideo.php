@@ -17,56 +17,78 @@ class InputInlineQueryResultVideo extends InputInlineQueryResult
 
     /**
      * Unique identifier of the query result.
+     *
+     * @var string
      */
     protected string $id;
 
     /**
      * Title of the result.
+     *
+     * @var string
      */
     protected string $title;
 
     /**
      * A short description of the result, if known.
+     *
+     * @var string
      */
     protected string $description;
 
     /**
      * The URL of the video thumbnail (JPEG), if it exists.
+     *
+     * @var string
      */
     protected string $thumbnailUrl;
 
     /**
      * URL of the embedded video player or video file.
+     *
+     * @var string
      */
     protected string $videoUrl;
 
     /**
      * MIME type of the content of the video URL, only "text/html" or "video/mp4" are currently supported.
+     *
+     * @var string
      */
     protected string $mimeType;
 
     /**
      * Width of the video.
+     *
+     * @var int
      */
     protected int $videoWidth;
 
     /**
      * Height of the video.
+     *
+     * @var int
      */
     protected int $videoHeight;
 
     /**
      * Video duration, in seconds.
+     *
+     * @var int
      */
     protected int $videoDuration;
 
     /**
      * The message reply markup. Must be of type replyMarkupInlineKeyboard or null.
+     *
+     * @var ReplyMarkup
      */
     protected ReplyMarkup $replyMarkup;
 
     /**
      * The content of the message to be sent. Must be one of the following types: InputMessageText, InputMessageVideo, InputMessageLocation, InputMessageVenue or InputMessageContact.
+     *
+     * @var InputMessageContent
      */
     protected InputMessageContent $inputMessageContent;
 

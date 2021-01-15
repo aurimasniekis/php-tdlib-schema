@@ -17,11 +17,15 @@ class GetChatMessageByDate extends TdFunction
 
     /**
      * Chat identifier.
+     *
+     * @var int
      */
     protected int $chatId;
 
     /**
      * Point in time (Unix timestamp) relative to which to search for messages.
+     *
+     * @var int
      */
     protected int $date;
 

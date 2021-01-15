@@ -17,38 +17,32 @@ class MessageLocation extends MessageContent
 
     /**
      * The location description.
+     *
+     * @var Location
      */
     protected Location $location;
 
     /**
-     * Time relative to the message send date, for which the location can be updated, in seconds.
+     * Time relative to the message sent date until which the location can be updated, in seconds.
+     *
+     * @var int
      */
     protected int $livePeriod;
 
     /**
      * Left time for which the location can be updated, in seconds. updateMessageContent is not sent when this field changes.
+     *
+     * @var int
      */
     protected int $expiresIn;
 
-    /**
-     * For live locations, a direction in which the location moves, in degrees; 1-360. If 0 the direction is unknown.
-     */
-    protected int $heading;
-
-    /**
-     * For live locations, a maximum distance to another chat member for proximity alerts, in meters (0-100000). 0 if the notification is disabled. Available only for the message sender.
-     */
-    protected int $proximityAlertRadius;
-
-    public function __construct(Location $location, int $livePeriod, int $expiresIn, int $heading, int $proximityAlertRadius)
+    public function __construct(Location $location, int $livePeriod, int $expiresIn)
     {
         parent::__construct();
 
-        $this->location             = $location;
-        $this->livePeriod           = $livePeriod;
-        $this->expiresIn            = $expiresIn;
-        $this->heading              = $heading;
-        $this->proximityAlertRadius = $proximityAlertRadius;
+        $this->location   = $location;
+        $this->livePeriod = $livePeriod;
+        $this->expiresIn  = $expiresIn;
     }
 
     public static function fromArray(array $array): MessageLocation
@@ -57,20 +51,16 @@ class MessageLocation extends MessageContent
             TdSchemaRegistry::fromArray($array['location']),
             $array['live_period'],
             $array['expires_in'],
-            $array['heading'],
-            $array['proximity_alert_radius'],
         );
     }
 
     public function typeSerialize(): array
     {
         return [
-            '@type'                  => static::TYPE_NAME,
-            'location'               => $this->location->typeSerialize(),
-            'live_period'            => $this->livePeriod,
-            'expires_in'             => $this->expiresIn,
-            'heading'                => $this->heading,
-            'proximity_alert_radius' => $this->proximityAlertRadius,
+            '@type'       => static::TYPE_NAME,
+            'location'    => $this->location->typeSerialize(),
+            'live_period' => $this->livePeriod,
+            'expires_in'  => $this->expiresIn,
         ];
     }
 
@@ -87,15 +77,5 @@ class MessageLocation extends MessageContent
     public function getExpiresIn(): int
     {
         return $this->expiresIn;
-    }
-
-    public function getHeading(): int
-    {
-        return $this->heading;
-    }
-
-    public function getProximityAlertRadius(): int
-    {
-        return $this->proximityAlertRadius;
     }
 }

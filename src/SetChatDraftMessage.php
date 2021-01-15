@@ -17,31 +17,28 @@ class SetChatDraftMessage extends TdFunction
 
     /**
      * Chat identifier.
+     *
+     * @var int
      */
     protected int $chatId;
 
     /**
-     * If not 0, a message thread identifier in which the draft was changed.
-     */
-    protected int $messageThreadId;
-
-    /**
      * New draft message; may be null.
+     *
+     * @var DraftMessage|null
      */
     protected ?DraftMessage $draftMessage;
 
-    public function __construct(int $chatId, int $messageThreadId, ?DraftMessage $draftMessage)
+    public function __construct(int $chatId, ?DraftMessage $draftMessage)
     {
-        $this->chatId          = $chatId;
-        $this->messageThreadId = $messageThreadId;
-        $this->draftMessage    = $draftMessage;
+        $this->chatId       = $chatId;
+        $this->draftMessage = $draftMessage;
     }
 
     public static function fromArray(array $array): SetChatDraftMessage
     {
         return new static(
             $array['chat_id'],
-            $array['message_thread_id'],
             (isset($array['draft_message']) ? TdSchemaRegistry::fromArray($array['draft_message']) : null),
         );
     }
@@ -49,21 +46,15 @@ class SetChatDraftMessage extends TdFunction
     public function typeSerialize(): array
     {
         return [
-            '@type'             => static::TYPE_NAME,
-            'chat_id'           => $this->chatId,
-            'message_thread_id' => $this->messageThreadId,
-            'draft_message'     => (isset($this->draftMessage) ? $this->draftMessage : null),
+            '@type'         => static::TYPE_NAME,
+            'chat_id'       => $this->chatId,
+            'draft_message' => (isset($this->draftMessage) ? $this->draftMessage : null),
         ];
     }
 
     public function getChatId(): int
     {
         return $this->chatId;
-    }
-
-    public function getMessageThreadId(): int
-    {
-        return $this->messageThreadId;
     }
 
     public function getDraftMessage(): ?DraftMessage

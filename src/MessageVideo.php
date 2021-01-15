@@ -17,16 +17,22 @@ class MessageVideo extends MessageContent
 
     /**
      * The video description.
+     *
+     * @var Video
      */
     protected Video $video;
 
     /**
      * Video caption.
+     *
+     * @var FormattedText
      */
     protected FormattedText $caption;
 
     /**
      * True, if the video thumbnail must be blurred and the video must be shown only while tapped.
+     *
+     * @var bool
      */
     protected bool $isSecret;
 

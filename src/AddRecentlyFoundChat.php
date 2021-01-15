@@ -17,6 +17,8 @@ class AddRecentlyFoundChat extends TdFunction
 
     /**
      * Identifier of the chat to add.
+     *
+     * @var int
      */
     protected int $chatId;
 

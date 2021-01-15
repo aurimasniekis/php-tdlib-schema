@@ -17,6 +17,8 @@ class JsonValueString extends JsonValue
 
     /**
      * The value.
+     *
+     * @var string
      */
     protected string $value;
 

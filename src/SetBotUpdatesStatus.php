@@ -17,11 +17,15 @@ class SetBotUpdatesStatus extends TdFunction
 
     /**
      * The number of pending updates.
+     *
+     * @var int
      */
     protected int $pendingUpdateCount;
 
     /**
      * The last error message.
+     *
+     * @var string
      */
     protected string $errorMessage;
 

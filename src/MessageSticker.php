@@ -17,6 +17,8 @@ class MessageSticker extends MessageContent
 
     /**
      * The sticker description.
+     *
+     * @var Sticker
      */
     protected Sticker $sticker;
 

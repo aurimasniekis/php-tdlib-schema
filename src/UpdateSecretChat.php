@@ -9,7 +9,7 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Some data of a secret chat has changed. This update is guaranteed to come before the secret chat identifier is returned to the application.
+ * Some data of a secret chat has changed. This update is guaranteed to come before the secret chat identifier is returned to the client.
  */
 class UpdateSecretChat extends Update
 {
@@ -17,6 +17,8 @@ class UpdateSecretChat extends Update
 
     /**
      * New data about the secret chat.
+     *
+     * @var SecretChat
      */
     protected SecretChat $secretChat;
 

@@ -17,11 +17,15 @@ class PushMessageContentGame extends PushMessageContent
 
     /**
      * Game title, empty for pinned game message.
+     *
+     * @var string
      */
     protected string $title;
 
     /**
      * True, if the message is a pinned message with the specified content.
+     *
+     * @var bool
      */
     protected bool $isPinned;
 

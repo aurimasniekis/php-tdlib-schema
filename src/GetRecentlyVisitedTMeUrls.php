@@ -17,6 +17,8 @@ class GetRecentlyVisitedTMeUrls extends TdFunction
 
     /**
      * Google Play referrer to identify the user.
+     *
+     * @var string
      */
     protected string $referrer;
 

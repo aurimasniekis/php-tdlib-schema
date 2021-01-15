@@ -17,16 +17,22 @@ class GetGroupsInCommon extends TdFunction
 
     /**
      * User identifier.
+     *
+     * @var int
      */
     protected int $userId;
 
     /**
      * Chat identifier starting from which to return chats; use 0 for the first request.
+     *
+     * @var int
      */
     protected int $offsetChatId;
 
     /**
      * The maximum number of chats to be returned; up to 100.
+     *
+     * @var int
      */
     protected int $limit;
 

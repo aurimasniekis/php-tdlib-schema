@@ -17,6 +17,8 @@ class DeleteAccount extends TdFunction
 
     /**
      * The reason why the account was deleted; optional.
+     *
+     * @var string
      */
     protected string $reason;
 

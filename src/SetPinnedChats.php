@@ -17,6 +17,8 @@ class SetPinnedChats extends TdFunction
 
     /**
      * Chat list in which to change the order of pinned chats.
+     *
+     * @var ChatList
      */
     protected ChatList $chatList;
 

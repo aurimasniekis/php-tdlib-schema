@@ -17,11 +17,15 @@ class UpdateOption extends Update
 
     /**
      * The option name.
+     *
+     * @var string
      */
     protected string $name;
 
     /**
      * The new option value.
+     *
+     * @var OptionValue
      */
     protected OptionValue $value;
 

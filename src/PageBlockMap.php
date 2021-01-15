@@ -17,26 +17,36 @@ class PageBlockMap extends PageBlock
 
     /**
      * Location of the map center.
+     *
+     * @var Location
      */
     protected Location $location;
 
     /**
      * Map zoom level.
+     *
+     * @var int
      */
     protected int $zoom;
 
     /**
      * Map width.
+     *
+     * @var int
      */
     protected int $width;
 
     /**
      * Map height.
+     *
+     * @var int
      */
     protected int $height;
 
     /**
      * Block caption.
+     *
+     * @var PageBlockCaption
      */
     protected PageBlockCaption $caption;
 

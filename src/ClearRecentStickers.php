@@ -17,6 +17,8 @@ class ClearRecentStickers extends TdFunction
 
     /**
      * Pass true to clear the list of stickers recently attached to photo or video files; pass false to clear the list of recently sent stickers.
+     *
+     * @var bool
      */
     protected bool $isAttached;
 

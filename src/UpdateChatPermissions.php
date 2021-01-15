@@ -17,11 +17,15 @@ class UpdateChatPermissions extends Update
 
     /**
      * Chat identifier.
+     *
+     * @var int
      */
     protected int $chatId;
 
     /**
      * The new chat permissions.
+     *
+     * @var ChatPermissions
      */
     protected ChatPermissions $permissions;
 

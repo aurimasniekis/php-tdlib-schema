@@ -17,6 +17,8 @@ class TestCallString extends TdFunction
 
     /**
      * String to return.
+     *
+     * @var string
      */
     protected string $x;
 

@@ -17,23 +17,29 @@ class CallStateReady extends CallState
 
     /**
      * Call protocols supported by the peer.
+     *
+     * @var CallProtocol
      */
     protected CallProtocol $protocol;
 
     /**
-     * List of available call servers.
+     * Available UDP reflectors.
      *
-     * @var CallServer[]
+     * @var CallConnection[]
      */
-    protected array $servers;
+    protected array $connections;
 
     /**
      * A JSON-encoded call config.
+     *
+     * @var string
      */
     protected string $config;
 
     /**
      * Call encryption key.
+     *
+     * @var string
      */
     protected string $encryptionKey;
 
@@ -46,15 +52,17 @@ class CallStateReady extends CallState
 
     /**
      * True, if peer-to-peer connection is allowed by users privacy settings.
+     *
+     * @var bool
      */
     protected bool $allowP2p;
 
-    public function __construct(CallProtocol $protocol, array $servers, string $config, string $encryptionKey, array $emojis, bool $allowP2p)
+    public function __construct(CallProtocol $protocol, array $connections, string $config, string $encryptionKey, array $emojis, bool $allowP2p)
     {
         parent::__construct();
 
         $this->protocol      = $protocol;
-        $this->servers       = $servers;
+        $this->connections   = $connections;
         $this->config        = $config;
         $this->encryptionKey = $encryptionKey;
         $this->emojis        = $emojis;
@@ -65,7 +73,7 @@ class CallStateReady extends CallState
     {
         return new static(
             TdSchemaRegistry::fromArray($array['protocol']),
-            array_map(fn ($x) => TdSchemaRegistry::fromArray($x), $array['servers']),
+            array_map(fn ($x) => TdSchemaRegistry::fromArray($x), $array['connections']),
             $array['config'],
             $array['encryption_key'],
             $array['emojis'],
@@ -78,7 +86,7 @@ class CallStateReady extends CallState
         return [
             '@type'           => static::TYPE_NAME,
             'protocol'        => $this->protocol->typeSerialize(),
-            array_map(fn ($x) => $x->typeSerialize(), $this->servers),
+            array_map(fn ($x) => $x->typeSerialize(), $this->connections),
             'config'          => $this->config,
             'encryption_key'  => $this->encryptionKey,
             'emojis'          => $this->emojis,
@@ -91,9 +99,9 @@ class CallStateReady extends CallState
         return $this->protocol;
     }
 
-    public function getServers(): array
+    public function getConnections(): array
     {
-        return $this->servers;
+        return $this->connections;
     }
 
     public function getConfig(): string

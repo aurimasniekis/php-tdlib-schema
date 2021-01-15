@@ -17,6 +17,8 @@ class ChatEventPollStopped extends ChatEventAction
 
     /**
      * The message with the poll.
+     *
+     * @var Message
      */
     protected Message $message;
 

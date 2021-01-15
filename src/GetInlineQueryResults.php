@@ -17,26 +17,36 @@ class GetInlineQueryResults extends TdFunction
 
     /**
      * The identifier of the target bot.
+     *
+     * @var int
      */
     protected int $botUserId;
 
     /**
      * Identifier of the chat where the query was sent.
+     *
+     * @var int
      */
     protected int $chatId;
 
     /**
      * Location of the user, only if needed.
+     *
+     * @var Location
      */
     protected Location $userLocation;
 
     /**
      * Text of the query.
+     *
+     * @var string
      */
     protected string $query;
 
     /**
      * Offset of the first entry to return.
+     *
+     * @var string
      */
     protected string $offset;
 

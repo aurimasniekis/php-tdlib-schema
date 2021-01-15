@@ -17,6 +17,8 @@ class GetRecentStickers extends TdFunction
 
     /**
      * Pass true to return stickers and masks that were recently attached to photos or video files; pass false to return recently sent stickers.
+     *
+     * @var bool
      */
     protected bool $isAttached;
 

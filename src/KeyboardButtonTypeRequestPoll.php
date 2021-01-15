@@ -17,11 +17,15 @@ class KeyboardButtonTypeRequestPoll extends KeyboardButtonType
 
     /**
      * If true, only regular polls must be allowed to create.
+     *
+     * @var bool
      */
     protected bool $forceRegular;
 
     /**
      * If true, only polls in quiz mode must be allowed to create.
+     *
+     * @var bool
      */
     protected bool $forceQuiz;
 

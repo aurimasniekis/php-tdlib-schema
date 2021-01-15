@@ -17,11 +17,15 @@ class UpdateUserPrivacySettingRules extends Update
 
     /**
      * The privacy setting.
+     *
+     * @var UserPrivacySetting
      */
     protected UserPrivacySetting $setting;
 
     /**
      * New privacy rules.
+     *
+     * @var UserPrivacySettingRules
      */
     protected UserPrivacySettingRules $rules;
 

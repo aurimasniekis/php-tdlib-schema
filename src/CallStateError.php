@@ -17,6 +17,8 @@ class CallStateError extends CallState
 
     /**
      * Error. An error with the code 4005000 will be returned if an outgoing call is missed because of an expired timeout.
+     *
+     * @var Error
      */
     protected Error $error;
 

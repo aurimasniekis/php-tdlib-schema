@@ -17,6 +17,8 @@ class RemoveProxy extends TdFunction
 
     /**
      * Proxy identifier.
+     *
+     * @var int
      */
     protected int $proxyId;
 

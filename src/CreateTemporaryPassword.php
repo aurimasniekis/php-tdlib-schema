@@ -17,11 +17,15 @@ class CreateTemporaryPassword extends TdFunction
 
     /**
      * Persistent user password.
+     *
+     * @var string
      */
     protected string $password;
 
     /**
      * Time during which the temporary password will be valid, in seconds; should be between 60 and 86400.
+     *
+     * @var int
      */
     protected int $validFor;
 

@@ -9,7 +9,7 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * The message was originally sent by a user, which is hidden by their privacy settings.
+ * The message was originally written by a user, which is hidden by their privacy settings.
  */
 class MessageForwardOriginHiddenUser extends MessageForwardOrigin
 {
@@ -17,6 +17,8 @@ class MessageForwardOriginHiddenUser extends MessageForwardOrigin
 
     /**
      * Name of the sender.
+     *
+     * @var string
      */
     protected string $senderName;
 

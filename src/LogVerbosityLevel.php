@@ -17,6 +17,8 @@ class LogVerbosityLevel extends TdObject
 
     /**
      * Log verbosity level.
+     *
+     * @var int
      */
     protected int $verbosityLevel;
 

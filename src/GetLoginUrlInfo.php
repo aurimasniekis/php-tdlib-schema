@@ -17,16 +17,22 @@ class GetLoginUrlInfo extends TdFunction
 
     /**
      * Chat identifier of the message with the button.
+     *
+     * @var int
      */
     protected int $chatId;
 
     /**
      * Message identifier of the message with the button.
+     *
+     * @var int
      */
     protected int $messageId;
 
     /**
      * Button identifier.
+     *
+     * @var int
      */
     protected int $buttonId;
 

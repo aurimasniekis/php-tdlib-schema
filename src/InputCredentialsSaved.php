@@ -17,6 +17,8 @@ class InputCredentialsSaved extends InputCredentials
 
     /**
      * Identifier of the saved credentials.
+     *
+     * @var string
      */
     protected string $savedCredentialsId;
 

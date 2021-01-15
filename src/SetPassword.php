@@ -17,26 +17,36 @@ class SetPassword extends TdFunction
 
     /**
      * Previous password of the user.
+     *
+     * @var string
      */
     protected string $oldPassword;
 
     /**
      * New password of the user; may be empty to remove the password.
+     *
+     * @var string
      */
     protected string $newPassword;
 
     /**
      * New password hint; may be empty.
+     *
+     * @var string
      */
     protected string $newHint;
 
     /**
      * Pass true if the recovery email address should be changed.
+     *
+     * @var bool
      */
     protected bool $setRecoveryEmailAddress;
 
     /**
      * New recovery email address; may be empty.
+     *
+     * @var string
      */
     protected string $newRecoveryEmailAddress;
 

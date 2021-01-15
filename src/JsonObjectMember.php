@@ -17,11 +17,15 @@ class JsonObjectMember extends TdObject
 
     /**
      * Member's key.
+     *
+     * @var string
      */
     protected string $key;
 
     /**
      * Member's value.
+     *
+     * @var JsonValue
      */
     protected JsonValue $value;
 

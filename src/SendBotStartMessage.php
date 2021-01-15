@@ -17,16 +17,22 @@ class SendBotStartMessage extends TdFunction
 
     /**
      * Identifier of the bot.
+     *
+     * @var int
      */
     protected int $botUserId;
 
     /**
      * Identifier of the target chat.
+     *
+     * @var int
      */
     protected int $chatId;
 
     /**
      * A hidden parameter sent to the bot for deep linking purposes (https://core.telegram.org/bots#deep-linking).
+     *
+     * @var string
      */
     protected string $parameter;
 

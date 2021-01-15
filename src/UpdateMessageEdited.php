@@ -17,21 +17,29 @@ class UpdateMessageEdited extends Update
 
     /**
      * Chat identifier.
+     *
+     * @var int
      */
     protected int $chatId;
 
     /**
      * Message identifier.
+     *
+     * @var int
      */
     protected int $messageId;
 
     /**
      * Point in time (Unix timestamp) when the message was edited.
+     *
+     * @var int
      */
     protected int $editDate;
 
     /**
      * New message reply markup; may be null.
+     *
+     * @var ReplyMarkup|null
      */
     protected ?ReplyMarkup $replyMarkup;
 

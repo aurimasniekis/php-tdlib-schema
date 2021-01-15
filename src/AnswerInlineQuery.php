@@ -17,11 +17,15 @@ class AnswerInlineQuery extends TdFunction
 
     /**
      * Identifier of the inline query.
+     *
+     * @var string
      */
     protected string $inlineQueryId;
 
     /**
      * True, if the result of the query can be cached for the specified user.
+     *
+     * @var bool
      */
     protected bool $isPersonal;
 
@@ -34,21 +38,29 @@ class AnswerInlineQuery extends TdFunction
 
     /**
      * Allowed time to cache the results of the query, in seconds.
+     *
+     * @var int
      */
     protected int $cacheTime;
 
     /**
      * Offset for the next inline query; pass an empty string if there are no more results.
+     *
+     * @var string
      */
     protected string $nextOffset;
 
     /**
      * If non-empty, this text should be shown on the button that opens a private chat with the bot and sends a start message to the bot with the parameter switch_pm_parameter.
+     *
+     * @var string
      */
     protected string $switchPmText;
 
     /**
      * The parameter for the bot start message.
+     *
+     * @var string
      */
     protected string $switchPmParameter;
 

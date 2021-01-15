@@ -17,16 +17,22 @@ class Minithumbnail extends TdObject
 
     /**
      * Thumbnail width, usually doesn't exceed 40.
+     *
+     * @var int
      */
     protected int $width;
 
     /**
      * Thumbnail height, usually doesn't exceed 40.
+     *
+     * @var int
      */
     protected int $height;
 
     /**
      * The thumbnail in JPEG format.
+     *
+     * @var string
      */
     protected string $data;
 

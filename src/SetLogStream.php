@@ -9,7 +9,7 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Sets new log stream for internal logging of TDLib. Can be called synchronously.
+ * Sets new log stream for internal logging of TDLib. This is an offline method. Can be called before authorization. Can be called synchronously.
  */
 class SetLogStream extends TdFunction
 {
@@ -17,6 +17,8 @@ class SetLogStream extends TdFunction
 
     /**
      * New log stream.
+     *
+     * @var LogStream
      */
     protected LogStream $logStream;
 

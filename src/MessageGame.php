@@ -17,6 +17,8 @@ class MessageGame extends MessageContent
 
     /**
      * The game description.
+     *
+     * @var Game
      */
     protected Game $game;
 

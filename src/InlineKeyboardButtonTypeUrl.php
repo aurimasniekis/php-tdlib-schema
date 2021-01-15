@@ -17,6 +17,8 @@ class InlineKeyboardButtonTypeUrl extends InlineKeyboardButtonType
 
     /**
      * HTTP or tg:// URL to open.
+     *
+     * @var string
      */
     protected string $url;
 

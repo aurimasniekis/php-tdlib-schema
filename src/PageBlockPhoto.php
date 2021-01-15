@@ -17,16 +17,22 @@ class PageBlockPhoto extends PageBlock
 
     /**
      * Photo file; may be null.
+     *
+     * @var Photo|null
      */
     protected ?Photo $photo;
 
     /**
      * Photo caption.
+     *
+     * @var PageBlockCaption
      */
     protected PageBlockCaption $caption;
 
     /**
      * URL that needs to be opened when the photo is clicked.
+     *
+     * @var string
      */
     protected string $url;
 

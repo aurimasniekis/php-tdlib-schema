@@ -17,6 +17,8 @@ class DeletePassportElement extends TdFunction
 
     /**
      * Element type.
+     *
+     * @var PassportElementType
      */
     protected PassportElementType $type;
 

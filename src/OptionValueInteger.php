@@ -17,10 +17,12 @@ class OptionValueInteger extends OptionValue
 
     /**
      * The value of the option.
+     *
+     * @var int
      */
-    protected string $value;
+    protected int $value;
 
-    public function __construct(string $value)
+    public function __construct(int $value)
     {
         parent::__construct();
 
@@ -30,7 +32,7 @@ class OptionValueInteger extends OptionValue
     public static function fromArray(array $array): OptionValueInteger
     {
         return new static(
-            $array['value'],
+            intval($array['value']),
         );
     }
 
@@ -42,7 +44,7 @@ class OptionValueInteger extends OptionValue
         ];
     }
 
-    public function getValue(): string
+    public function getValue(): int
     {
         return $this->value;
     }

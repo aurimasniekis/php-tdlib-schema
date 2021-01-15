@@ -17,6 +17,8 @@ class FormattedText extends TdObject
 
     /**
      * The text.
+     *
+     * @var string
      */
     protected string $text;
 

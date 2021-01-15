@@ -9,7 +9,7 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Returns current verbosity level for a specified TDLib internal log tag. Can be called synchronously.
+ * Returns current verbosity level for a specified TDLib internal log tag. This is an offline method. Can be called before authorization. Can be called synchronously.
  */
 class GetLogTagVerbosityLevel extends TdFunction
 {
@@ -17,6 +17,8 @@ class GetLogTagVerbosityLevel extends TdFunction
 
     /**
      * Logging tag to change verbosity level.
+     *
+     * @var string
      */
     protected string $tag;
 

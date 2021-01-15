@@ -17,6 +17,8 @@ class ReorderInstalledStickerSets extends TdFunction
 
     /**
      * Pass true to change the order of mask sticker sets; pass false to change the order of ordinary sticker sets.
+     *
+     * @var bool
      */
     protected bool $isMasks;
 

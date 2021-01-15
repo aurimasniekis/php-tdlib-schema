@@ -17,6 +17,8 @@ class ClearAllDraftMessages extends TdFunction
 
     /**
      * If true, local draft messages in secret chats will not be cleared.
+     *
+     * @var bool
      */
     protected bool $excludeSecretChats;
 

@@ -17,11 +17,15 @@ class CallStatePending extends CallState
 
     /**
      * True, if the call has already been created by the server.
+     *
+     * @var bool
      */
     protected bool $isCreated;
 
     /**
      * True, if the call has already been received by the other party.
+     *
+     * @var bool
      */
     protected bool $isReceived;
 

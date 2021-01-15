@@ -17,6 +17,8 @@ class ChatEventMessageDeleted extends ChatEventAction
 
     /**
      * Deleted message.
+     *
+     * @var Message
      */
     protected Message $message;
 

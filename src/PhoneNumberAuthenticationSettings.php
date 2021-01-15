@@ -17,16 +17,22 @@ class PhoneNumberAuthenticationSettings extends TdObject
 
     /**
      * Pass true if the authentication code may be sent via flash call to the specified phone number.
+     *
+     * @var bool
      */
     protected bool $allowFlashCall;
 
     /**
      * Pass true if the authenticated phone number is used on the current device.
+     *
+     * @var bool
      */
     protected bool $isCurrentPhoneNumber;
 
     /**
-     * For official applications only. True, if the application can use Android SMS Retriever API (requires Google Play Services >= 10.2) to automatically receive the authentication code from the SMS. See https://developers.google.com/identity/sms-retriever/ for more details.
+     * For official applications only. True, if the app can use Android SMS Retriever API (requires Google Play Services >= 10.2) to automatically receive the authentication code from the SMS. See https://developers.google.com/identity/sms-retriever/ for more details.
+     *
+     * @var bool
      */
     protected bool $allowSmsRetrieverApi;
 

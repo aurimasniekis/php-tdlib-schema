@@ -17,6 +17,8 @@ class ReadAllChatMentions extends TdFunction
 
     /**
      * Chat identifier.
+     *
+     * @var int
      */
     protected int $chatId;
 

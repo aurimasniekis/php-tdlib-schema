@@ -17,46 +17,64 @@ class InputInlineQueryResultPhoto extends InputInlineQueryResult
 
     /**
      * Unique identifier of the query result.
+     *
+     * @var string
      */
     protected string $id;
 
     /**
      * Title of the result, if known.
+     *
+     * @var string
      */
     protected string $title;
 
     /**
      * A short description of the result, if known.
+     *
+     * @var string
      */
     protected string $description;
 
     /**
      * URL of the photo thumbnail, if it exists.
+     *
+     * @var string
      */
     protected string $thumbnailUrl;
 
     /**
      * The URL of the JPEG photo (photo size must not exceed 5MB).
+     *
+     * @var string
      */
     protected string $photoUrl;
 
     /**
      * Width of the photo.
+     *
+     * @var int
      */
     protected int $photoWidth;
 
     /**
      * Height of the photo.
+     *
+     * @var int
      */
     protected int $photoHeight;
 
     /**
      * The message reply markup. Must be of type replyMarkupInlineKeyboard or null.
+     *
+     * @var ReplyMarkup
      */
     protected ReplyMarkup $replyMarkup;
 
     /**
      * The content of the message to be sent. Must be one of the following types: InputMessageText, InputMessagePhoto, InputMessageLocation, InputMessageVenue or InputMessageContact.
+     *
+     * @var InputMessageContent
      */
     protected InputMessageContent $inputMessageContent;
 

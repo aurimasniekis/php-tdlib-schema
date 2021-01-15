@@ -17,11 +17,15 @@ class GetStickers extends TdFunction
 
     /**
      * String representation of emoji. If empty, returns all known installed stickers.
+     *
+     * @var string
      */
     protected string $emoji;
 
     /**
      * The maximum number of stickers to be returned.
+     *
+     * @var int
      */
     protected int $limit;
 

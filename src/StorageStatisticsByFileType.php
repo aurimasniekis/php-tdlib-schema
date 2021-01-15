@@ -17,16 +17,22 @@ class StorageStatisticsByFileType extends TdObject
 
     /**
      * File type.
+     *
+     * @var FileType
      */
     protected FileType $fileType;
 
     /**
      * Total size of the files.
+     *
+     * @var int
      */
     protected int $size;
 
     /**
      * Total number of files.
+     *
+     * @var int
      */
     protected int $count;
 

@@ -17,6 +17,8 @@ class SendEmailAddressVerificationCode extends TdFunction
 
     /**
      * Email address.
+     *
+     * @var string
      */
     protected string $emailAddress;
 

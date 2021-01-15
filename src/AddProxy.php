@@ -17,21 +17,29 @@ class AddProxy extends TdFunction
 
     /**
      * Proxy server IP address.
+     *
+     * @var string
      */
     protected string $server;
 
     /**
      * Proxy server port.
+     *
+     * @var int
      */
     protected int $port;
 
     /**
      * True, if the proxy should be enabled.
+     *
+     * @var bool
      */
     protected bool $enable;
 
     /**
      * Proxy type.
+     *
+     * @var ProxyType
      */
     protected ProxyType $type;
 

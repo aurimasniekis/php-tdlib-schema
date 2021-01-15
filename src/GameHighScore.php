@@ -17,16 +17,22 @@ class GameHighScore extends TdObject
 
     /**
      * Position in the high score table.
+     *
+     * @var int
      */
     protected int $position;
 
     /**
      * User identifier.
+     *
+     * @var int
      */
     protected int $userId;
 
     /**
      * User score.
+     *
+     * @var int
      */
     protected int $score;
 

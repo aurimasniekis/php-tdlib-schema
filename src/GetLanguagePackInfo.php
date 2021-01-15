@@ -17,6 +17,8 @@ class GetLanguagePackInfo extends TdFunction
 
     /**
      * Language pack identifier.
+     *
+     * @var string
      */
     protected string $languagePackId;
 

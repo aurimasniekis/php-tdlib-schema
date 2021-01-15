@@ -17,46 +17,64 @@ class MessageInvoice extends MessageContent
 
     /**
      * Product title.
+     *
+     * @var string
      */
     protected string $title;
 
     /**
      * Product description.
+     *
+     * @var string
      */
     protected string $description;
 
     /**
      * Product photo; may be null.
+     *
+     * @var Photo|null
      */
     protected ?Photo $photo;
 
     /**
      * Currency for the product price.
+     *
+     * @var string
      */
     protected string $currency;
 
     /**
      * Product total price in the minimal quantity of the currency.
+     *
+     * @var int
      */
     protected int $totalAmount;
 
     /**
      * Unique invoice bot start_parameter. To share an invoice use the URL https://t.me/{bot_username}?start={start_parameter}.
+     *
+     * @var string
      */
     protected string $startParameter;
 
     /**
      * True, if the invoice is a test invoice.
+     *
+     * @var bool
      */
     protected bool $isTest;
 
     /**
      * True, if the shipping address should be specified.
+     *
+     * @var bool
      */
     protected bool $needShippingAddress;
 
     /**
      * The identifier of the message with the receipt, after the product has been purchased.
+     *
+     * @var int
      */
     protected int $receiptMessageId;
 

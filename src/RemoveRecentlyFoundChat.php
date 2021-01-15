@@ -17,6 +17,8 @@ class RemoveRecentlyFoundChat extends TdFunction
 
     /**
      * Identifier of the chat to be removed.
+     *
+     * @var int
      */
     protected int $chatId;
 

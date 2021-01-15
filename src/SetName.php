@@ -9,7 +9,7 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Changes the first and last name of the current user.
+ * Changes the first and last name of the current user. If something changes, updateUser will be sent.
  */
 class SetName extends TdFunction
 {
@@ -17,11 +17,15 @@ class SetName extends TdFunction
 
     /**
      * The new value of the first name for the user; 1-64 characters.
+     *
+     * @var string
      */
     protected string $firstName;
 
     /**
      * The new value of the optional last name for the user; 0-64 characters.
+     *
+     * @var string
      */
     protected string $lastName;
 

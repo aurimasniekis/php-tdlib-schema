@@ -17,6 +17,8 @@ class TextEntityTypeMentionName extends TextEntityType
 
     /**
      * Identifier of the mentioned user.
+     *
+     * @var int
      */
     protected int $userId;
 

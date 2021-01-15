@@ -9,7 +9,7 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * The message was originally sent by a known user.
+ * The message was originally written by a known user.
  */
 class MessageForwardOriginUser extends MessageForwardOrigin
 {
@@ -17,6 +17,8 @@ class MessageForwardOriginUser extends MessageForwardOrigin
 
     /**
      * Identifier of the user that originally sent the message.
+     *
+     * @var int
      */
     protected int $senderUserId;
 

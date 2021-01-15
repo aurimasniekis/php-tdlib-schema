@@ -17,6 +17,8 @@ class MessageSupergroupChatCreate extends MessageContent
 
     /**
      * Title of the supergroup or channel.
+     *
+     * @var string
      */
     protected string $title;
 

@@ -9,7 +9,7 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * A button that opens a specified URL and automatically authorize the current user if allowed to do so.
+ * A button that opens a specified URL and automatically logs in in current user if they allowed to do that.
  */
 class InlineKeyboardButtonTypeLoginUrl extends InlineKeyboardButtonType
 {
@@ -17,16 +17,22 @@ class InlineKeyboardButtonTypeLoginUrl extends InlineKeyboardButtonType
 
     /**
      * An HTTP URL to open.
+     *
+     * @var string
      */
     protected string $url;
 
     /**
      * Unique button identifier.
+     *
+     * @var int
      */
     protected int $id;
 
     /**
      * If non-empty, new text of the button in forwarded messages.
+     *
+     * @var string
      */
     protected string $forwardText;
 

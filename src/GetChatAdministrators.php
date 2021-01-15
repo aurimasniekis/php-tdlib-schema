@@ -17,6 +17,8 @@ class GetChatAdministrators extends TdFunction
 
     /**
      * Chat identifier.
+     *
+     * @var int
      */
     protected int $chatId;
 

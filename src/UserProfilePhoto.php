@@ -17,11 +17,15 @@ class UserProfilePhoto extends TdObject
 
     /**
      * Unique user profile photo identifier.
+     *
+     * @var string
      */
     protected string $id;
 
     /**
      * Point in time (Unix timestamp) when the photo has been added.
+     *
+     * @var int
      */
     protected int $addedDate;
 

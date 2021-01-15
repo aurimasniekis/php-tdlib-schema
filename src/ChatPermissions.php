@@ -17,41 +17,57 @@ class ChatPermissions extends TdObject
 
     /**
      * True, if the user can send text messages, contacts, locations, and venues.
+     *
+     * @var bool
      */
     protected bool $canSendMessages;
 
     /**
      * True, if the user can send audio files, documents, photos, videos, video notes, and voice notes. Implies can_send_messages permissions.
+     *
+     * @var bool
      */
     protected bool $canSendMediaMessages;
 
     /**
      * True, if the user can send polls. Implies can_send_messages permissions.
+     *
+     * @var bool
      */
     protected bool $canSendPolls;
 
     /**
-     * True, if the user can send animations, games, stickers, and dice and use inline bots. Implies can_send_messages permissions.
+     * True, if the user can send animations, games, and stickers and use inline bots. Implies can_send_messages permissions.
+     *
+     * @var bool
      */
     protected bool $canSendOtherMessages;
 
     /**
      * True, if the user may add a web page preview to their messages. Implies can_send_messages permissions.
+     *
+     * @var bool
      */
     protected bool $canAddWebPagePreviews;
 
     /**
      * True, if the user can change the chat title, photo, and other settings.
+     *
+     * @var bool
      */
     protected bool $canChangeInfo;
 
     /**
      * True, if the user can invite new users to the chat.
+     *
+     * @var bool
      */
     protected bool $canInviteUsers;
 
     /**
      * True, if the user can pin messages.
+     *
+     * @var bool
      */
     protected bool $canPinMessages;
 

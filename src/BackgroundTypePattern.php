@@ -17,16 +17,22 @@ class BackgroundTypePattern extends BackgroundType
 
     /**
      * Description of the background fill.
+     *
+     * @var BackgroundFill
      */
     protected BackgroundFill $fill;
 
     /**
      * Intensity of the pattern when it is shown above the filled background, 0-100.
+     *
+     * @var int
      */
     protected int $intensity;
 
     /**
      * True, if the background needs to be slightly moved when device is tilted.
+     *
+     * @var bool
      */
     protected bool $isMoving;
 

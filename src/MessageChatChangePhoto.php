@@ -17,10 +17,12 @@ class MessageChatChangePhoto extends MessageContent
 
     /**
      * New chat photo.
+     *
+     * @var Photo
      */
-    protected ChatPhoto $photo;
+    protected Photo $photo;
 
-    public function __construct(ChatPhoto $photo)
+    public function __construct(Photo $photo)
     {
         parent::__construct();
 
@@ -42,7 +44,7 @@ class MessageChatChangePhoto extends MessageContent
         ];
     }
 
-    public function getPhoto(): ChatPhoto
+    public function getPhoto(): Photo
     {
         return $this->photo;
     }

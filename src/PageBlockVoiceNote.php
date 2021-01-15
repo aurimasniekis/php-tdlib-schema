@@ -17,11 +17,15 @@ class PageBlockVoiceNote extends PageBlock
 
     /**
      * Voice note; may be null.
+     *
+     * @var VoiceNote|null
      */
     protected ?VoiceNote $voiceNote;
 
     /**
      * Voice note caption.
+     *
+     * @var PageBlockCaption
      */
     protected PageBlockCaption $caption;
 

@@ -17,31 +17,43 @@ class Address extends TdObject
 
     /**
      * A two-letter ISO 3166-1 alpha-2 country code.
+     *
+     * @var string
      */
     protected string $countryCode;
 
     /**
      * State, if applicable.
+     *
+     * @var string
      */
     protected string $state;
 
     /**
      * City.
+     *
+     * @var string
      */
     protected string $city;
 
     /**
      * First line of the address.
+     *
+     * @var string
      */
     protected string $streetLine1;
 
     /**
      * Second line of the address.
+     *
+     * @var string
      */
     protected string $streetLine2;
 
     /**
      * Address postal code.
+     *
+     * @var string
      */
     protected string $postalCode;
 

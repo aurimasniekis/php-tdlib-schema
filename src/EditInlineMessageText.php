@@ -17,16 +17,22 @@ class EditInlineMessageText extends TdFunction
 
     /**
      * Inline message identifier.
+     *
+     * @var string
      */
     protected string $inlineMessageId;
 
     /**
      * The new message reply markup.
+     *
+     * @var ReplyMarkup
      */
     protected ReplyMarkup $replyMarkup;
 
     /**
      * New text content of the message. Should be of type InputMessageText.
+     *
+     * @var InputMessageContent
      */
     protected InputMessageContent $inputMessageContent;
 

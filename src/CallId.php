@@ -17,6 +17,8 @@ class CallId extends TdObject
 
     /**
      * Call identifier.
+     *
+     * @var int
      */
     protected int $id;
 

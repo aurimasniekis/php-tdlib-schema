@@ -17,16 +17,22 @@ class EncryptedCredentials extends TdObject
 
     /**
      * The encrypted credentials.
+     *
+     * @var string
      */
     protected string $data;
 
     /**
      * The decrypted data hash.
+     *
+     * @var string
      */
     protected string $hash;
 
     /**
      * Secret for data decryption, encrypted with the service's public key.
+     *
+     * @var string
      */
     protected string $secret;
 

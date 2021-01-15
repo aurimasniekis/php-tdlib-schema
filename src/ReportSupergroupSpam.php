@@ -17,11 +17,15 @@ class ReportSupergroupSpam extends TdFunction
 
     /**
      * Supergroup identifier.
+     *
+     * @var int
      */
     protected int $supergroupId;
 
     /**
      * User identifier.
+     *
+     * @var int
      */
     protected int $userId;
 

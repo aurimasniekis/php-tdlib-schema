@@ -17,6 +17,8 @@ class TextEntityTypeTextUrl extends TextEntityType
 
     /**
      * HTTP or tg:// URL to be opened when the link is clicked.
+     *
+     * @var string
      */
     protected string $url;
 

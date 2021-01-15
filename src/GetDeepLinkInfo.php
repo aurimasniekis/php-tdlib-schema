@@ -17,6 +17,8 @@ class GetDeepLinkInfo extends TdFunction
 
     /**
      * The link.
+     *
+     * @var string
      */
     protected string $link;
 

@@ -16,7 +16,9 @@ class GetBackgrounds extends TdFunction
     public const TYPE_NAME = 'getBackgrounds';
 
     /**
-     * True, if the backgrounds must be ordered for dark theme.
+     * True, if the backgrounds needs to be ordered for dark theme.
+     *
+     * @var bool
      */
     protected bool $forDarkTheme;
 

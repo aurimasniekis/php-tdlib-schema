@@ -17,11 +17,15 @@ class RegisterUser extends TdFunction
 
     /**
      * The first name of the user; 1-64 characters.
+     *
+     * @var string
      */
     protected string $firstName;
 
     /**
      * The last name of the user; 0-64 characters.
+     *
+     * @var string
      */
     protected string $lastName;
 

@@ -17,11 +17,15 @@ class SetOption extends TdFunction
 
     /**
      * The name of the option.
+     *
+     * @var string
      */
     protected string $name;
 
     /**
      * The new value of the option.
+     *
+     * @var OptionValue
      */
     protected OptionValue $value;
 

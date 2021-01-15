@@ -17,6 +17,8 @@ class PassportElementPersonalDetails extends PassportElement
 
     /**
      * Personal details of the user.
+     *
+     * @var PersonalDetails
      */
     protected PersonalDetails $personalDetails;
 

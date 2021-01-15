@@ -17,36 +17,50 @@ class PaymentForm extends TdObject
 
     /**
      * Full information of the invoice.
+     *
+     * @var Invoice
      */
     protected Invoice $invoice;
 
     /**
      * Payment form URL.
+     *
+     * @var string
      */
     protected string $url;
 
     /**
      * Contains information about the payment provider, if available, to support it natively without the need for opening the URL; may be null.
+     *
+     * @var PaymentsProviderStripe|null
      */
     protected ?PaymentsProviderStripe $paymentsProvider;
 
     /**
      * Saved server-side order information; may be null.
+     *
+     * @var OrderInfo|null
      */
     protected ?OrderInfo $savedOrderInfo;
 
     /**
      * Contains information about saved card credentials; may be null.
+     *
+     * @var SavedCredentials|null
      */
     protected ?SavedCredentials $savedCredentials;
 
     /**
      * True, if the user can choose to save credentials.
+     *
+     * @var bool
      */
     protected bool $canSaveCredentials;
 
     /**
      * True, if the user will be able to save credentials protected by a password they set up.
+     *
+     * @var bool
      */
     protected bool $needPassword;
 

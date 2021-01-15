@@ -16,7 +16,9 @@ class NetworkStatistics extends TdObject
     public const TYPE_NAME = 'networkStatistics';
 
     /**
-     * Point in time (Unix timestamp) from which the statistics are collected.
+     * Point in time (Unix timestamp) when the app began collecting statistics.
+     *
+     * @var int
      */
     protected int $sinceDate;
 

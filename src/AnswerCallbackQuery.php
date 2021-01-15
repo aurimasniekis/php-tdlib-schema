@@ -17,26 +17,36 @@ class AnswerCallbackQuery extends TdFunction
 
     /**
      * Identifier of the callback query.
+     *
+     * @var string
      */
     protected string $callbackQueryId;
 
     /**
      * Text of the answer.
+     *
+     * @var string
      */
     protected string $text;
 
     /**
      * If true, an alert should be shown to the user instead of a toast notification.
+     *
+     * @var bool
      */
     protected bool $showAlert;
 
     /**
      * URL to be opened.
+     *
+     * @var string
      */
     protected string $url;
 
     /**
      * Time during which the result of the query can be cached, in seconds.
+     *
+     * @var int
      */
     protected int $cacheTime;
 

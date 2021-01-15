@@ -17,6 +17,8 @@ class GetPreferredCountryLanguage extends TdFunction
 
     /**
      * A two-letter ISO 3166-1 alpha-2 country code.
+     *
+     * @var string
      */
     protected string $countryCode;
 

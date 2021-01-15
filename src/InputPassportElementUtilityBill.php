@@ -17,6 +17,8 @@ class InputPassportElementUtilityBill extends InputPassportElement
 
     /**
      * The utility bill to be saved.
+     *
+     * @var InputPersonalDocument
      */
     protected InputPersonalDocument $utilityBill;
 

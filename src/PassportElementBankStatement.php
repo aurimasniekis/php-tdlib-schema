@@ -17,6 +17,8 @@ class PassportElementBankStatement extends PassportElement
 
     /**
      * Bank statement.
+     *
+     * @var PersonalDocument
      */
     protected PersonalDocument $bankStatement;
 

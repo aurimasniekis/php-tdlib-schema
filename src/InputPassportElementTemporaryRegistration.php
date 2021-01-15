@@ -17,6 +17,8 @@ class InputPassportElementTemporaryRegistration extends InputPassportElement
 
     /**
      * The temporary registration document to be saved.
+     *
+     * @var InputPersonalDocument
      */
     protected InputPersonalDocument $temporaryRegistration;
 

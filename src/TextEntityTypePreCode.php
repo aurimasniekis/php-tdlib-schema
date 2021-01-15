@@ -17,6 +17,8 @@ class TextEntityTypePreCode extends TextEntityType
 
     /**
      * Programming language of the code; as defined by the sender.
+     *
+     * @var string
      */
     protected string $language;
 

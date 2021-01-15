@@ -17,31 +17,43 @@ class UpdateNewCallbackQuery extends Update
 
     /**
      * Unique query identifier.
+     *
+     * @var string
      */
     protected string $id;
 
     /**
      * Identifier of the user who sent the query.
+     *
+     * @var int
      */
     protected int $senderUserId;
 
     /**
      * Identifier of the chat where the query was sent.
+     *
+     * @var int
      */
     protected int $chatId;
 
     /**
      * Identifier of the message, from which the query originated.
+     *
+     * @var int
      */
     protected int $messageId;
 
     /**
      * Identifier that uniquely corresponds to the chat to which the message was sent.
+     *
+     * @var string
      */
     protected string $chatInstance;
 
     /**
      * Query payload.
+     *
+     * @var CallbackQueryPayload
      */
     protected CallbackQueryPayload $payload;
 

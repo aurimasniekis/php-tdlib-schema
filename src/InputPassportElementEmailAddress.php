@@ -17,6 +17,8 @@ class InputPassportElementEmailAddress extends InputPassportElement
 
     /**
      * The email address to be saved.
+     *
+     * @var string
      */
     protected string $emailAddress;
 

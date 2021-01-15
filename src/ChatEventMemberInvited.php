@@ -17,11 +17,15 @@ class ChatEventMemberInvited extends ChatEventAction
 
     /**
      * New member user identifier.
+     *
+     * @var int
      */
     protected int $userId;
 
     /**
      * New member status.
+     *
+     * @var ChatMemberStatus
      */
     protected ChatMemberStatus $status;
 

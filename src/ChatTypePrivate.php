@@ -17,6 +17,8 @@ class ChatTypePrivate extends ChatType
 
     /**
      * User identifier.
+     *
+     * @var int
      */
     protected int $userId;
 

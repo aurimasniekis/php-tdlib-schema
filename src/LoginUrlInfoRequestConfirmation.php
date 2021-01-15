@@ -17,21 +17,29 @@ class LoginUrlInfoRequestConfirmation extends LoginUrlInfo
 
     /**
      * An HTTP URL to be opened.
+     *
+     * @var string
      */
     protected string $url;
 
     /**
      * A domain of the URL.
+     *
+     * @var string
      */
     protected string $domain;
 
     /**
      * User identifier of a bot linked with the website.
+     *
+     * @var int
      */
     protected int $botUserId;
 
     /**
      * True, if the user needs to be requested to give the permission to the bot to send them messages.
+     *
+     * @var bool
      */
     protected bool $requestWriteAccess;
 

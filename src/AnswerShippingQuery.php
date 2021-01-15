@@ -17,6 +17,8 @@ class AnswerShippingQuery extends TdFunction
 
     /**
      * Identifier of the shipping query.
+     *
+     * @var string
      */
     protected string $shippingQueryId;
 
@@ -29,6 +31,8 @@ class AnswerShippingQuery extends TdFunction
 
     /**
      * An error message, empty on success.
+     *
+     * @var string
      */
     protected string $errorMessage;
 

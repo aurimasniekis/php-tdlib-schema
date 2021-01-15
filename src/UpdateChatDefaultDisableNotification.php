@@ -17,11 +17,15 @@ class UpdateChatDefaultDisableNotification extends Update
 
     /**
      * Chat identifier.
+     *
+     * @var int
      */
     protected int $chatId;
 
     /**
      * The new default_disable_notification value.
+     *
+     * @var bool
      */
     protected bool $defaultDisableNotification;
 

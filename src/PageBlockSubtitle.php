@@ -17,6 +17,8 @@ class PageBlockSubtitle extends PageBlock
 
     /**
      * Subtitle.
+     *
+     * @var RichText
      */
     protected RichText $subtitle;
 

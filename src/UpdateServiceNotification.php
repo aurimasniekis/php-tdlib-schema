@@ -9,7 +9,7 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Service notification from the server. Upon receiving this the application must show a popup with the content of the notification.
+ * Service notification from the server. Upon receiving this the client must show a popup with the content of the notification.
  */
 class UpdateServiceNotification extends Update
 {
@@ -17,11 +17,15 @@ class UpdateServiceNotification extends Update
 
     /**
      * Notification type. If type begins with "AUTH_KEY_DROP_", then two buttons "Cancel" and "Log out" should be shown under notification; if user presses the second, all local data should be destroyed using Destroy method.
+     *
+     * @var string
      */
     protected string $type;
 
     /**
      * Notification content.
+     *
+     * @var MessageContent
      */
     protected MessageContent $content;
 

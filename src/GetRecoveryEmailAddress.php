@@ -17,6 +17,8 @@ class GetRecoveryEmailAddress extends TdFunction
 
     /**
      * The password for the current user.
+     *
+     * @var string
      */
     protected string $password;
 

@@ -17,6 +17,8 @@ class RecoverAuthenticationPassword extends TdFunction
 
     /**
      * Recovery code to check.
+     *
+     * @var string
      */
     protected string $recoveryCode;
 

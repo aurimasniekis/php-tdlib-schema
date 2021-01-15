@@ -17,6 +17,8 @@ class TestSquareInt extends TdFunction
 
     /**
      * Number to square.
+     *
+     * @var int
      */
     protected int $x;
 

@@ -17,11 +17,15 @@ class LoginUrlInfoOpen extends LoginUrlInfo
 
     /**
      * The URL to open.
+     *
+     * @var string
      */
     protected string $url;
 
     /**
      * True, if there is no need to show an ordinary open URL confirm.
+     *
+     * @var bool
      */
     protected bool $skipConfirm;
 

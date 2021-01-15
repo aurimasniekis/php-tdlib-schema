@@ -17,6 +17,8 @@ class InputPassportElementErrorSourceReverseSide extends InputPassportElementErr
 
     /**
      * Current hash of the file containing the reverse side.
+     *
+     * @var string
      */
     protected string $fileHash;
 

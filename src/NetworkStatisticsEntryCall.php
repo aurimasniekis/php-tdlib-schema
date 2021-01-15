@@ -17,21 +17,29 @@ class NetworkStatisticsEntryCall extends NetworkStatisticsEntry
 
     /**
      * Type of the network the data was sent through. Call setNetworkType to maintain the actual network type.
+     *
+     * @var NetworkType
      */
     protected NetworkType $networkType;
 
     /**
      * Total number of bytes sent.
+     *
+     * @var int
      */
     protected int $sentBytes;
 
     /**
      * Total number of bytes received.
+     *
+     * @var int
      */
     protected int $receivedBytes;
 
     /**
      * Total call duration, in seconds.
+     *
+     * @var float
      */
     protected float $duration;
 

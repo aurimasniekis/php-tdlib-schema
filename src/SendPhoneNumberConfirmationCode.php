@@ -17,16 +17,22 @@ class SendPhoneNumberConfirmationCode extends TdFunction
 
     /**
      * Value of the "hash" parameter from the link.
+     *
+     * @var string
      */
     protected string $hash;
 
     /**
      * Value of the "phone" parameter from the link.
+     *
+     * @var string
      */
     protected string $phoneNumber;
 
     /**
      * Settings for the authentication of the user's phone number.
+     *
+     * @var PhoneNumberAuthenticationSettings
      */
     protected PhoneNumberAuthenticationSettings $settings;
 

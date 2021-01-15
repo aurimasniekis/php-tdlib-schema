@@ -17,6 +17,8 @@ class InputPassportElementBankStatement extends InputPassportElement
 
     /**
      * The bank statement to be saved.
+     *
+     * @var InputPersonalDocument
      */
     protected InputPersonalDocument $bankStatement;
 

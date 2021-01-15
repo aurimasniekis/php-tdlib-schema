@@ -17,11 +17,15 @@ class EditInlineMessageReplyMarkup extends TdFunction
 
     /**
      * Inline message identifier.
+     *
+     * @var string
      */
     protected string $inlineMessageId;
 
     /**
      * The new message reply markup.
+     *
+     * @var ReplyMarkup
      */
     protected ReplyMarkup $replyMarkup;
 

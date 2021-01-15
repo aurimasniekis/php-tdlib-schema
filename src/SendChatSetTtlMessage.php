@@ -17,11 +17,15 @@ class SendChatSetTtlMessage extends TdFunction
 
     /**
      * Chat identifier.
+     *
+     * @var int
      */
     protected int $chatId;
 
     /**
      * New TTL value, in seconds.
+     *
+     * @var int
      */
     protected int $ttl;
 

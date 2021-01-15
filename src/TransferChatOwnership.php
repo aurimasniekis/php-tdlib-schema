@@ -17,16 +17,22 @@ class TransferChatOwnership extends TdFunction
 
     /**
      * Chat identifier.
+     *
+     * @var int
      */
     protected int $chatId;
 
     /**
      * Identifier of the user to which transfer the ownership. The ownership can't be transferred to a bot or to a deleted user.
+     *
+     * @var int
      */
     protected int $userId;
 
     /**
      * The password of the current user.
+     *
+     * @var string
      */
     protected string $password;
 

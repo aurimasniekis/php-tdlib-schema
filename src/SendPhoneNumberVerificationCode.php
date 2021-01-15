@@ -17,11 +17,15 @@ class SendPhoneNumberVerificationCode extends TdFunction
 
     /**
      * The phone number of the user, in international format.
+     *
+     * @var string
      */
     protected string $phoneNumber;
 
     /**
      * Settings for the authentication of the user's phone number.
+     *
+     * @var PhoneNumberAuthenticationSettings
      */
     protected PhoneNumberAuthenticationSettings $settings;
 

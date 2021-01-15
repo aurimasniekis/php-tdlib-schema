@@ -17,11 +17,15 @@ class SetChatChatList extends TdFunction
 
     /**
      * Chat identifier.
+     *
+     * @var int
      */
     protected int $chatId;
 
     /**
      * New chat list of the chat. The chat with the current user (Saved Messages) and the chat 777000 (Telegram) can't be moved to the Archive chat list.
+     *
+     * @var ChatList
      */
     protected ChatList $chatList;
 

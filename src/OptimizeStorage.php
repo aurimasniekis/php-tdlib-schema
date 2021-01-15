@@ -17,21 +17,29 @@ class OptimizeStorage extends TdFunction
 
     /**
      * Limit on the total size of files after deletion. Pass -1 to use the default limit.
+     *
+     * @var int
      */
     protected int $size;
 
     /**
      * Limit on the time that has passed since the last time a file was accessed (or creation time for some filesystems). Pass -1 to use the default limit.
+     *
+     * @var int
      */
     protected int $ttl;
 
     /**
      * Limit on the total count of files after deletion. Pass -1 to use the default limit.
+     *
+     * @var int
      */
     protected int $count;
 
     /**
      * The amount of time after the creation of a file during which it can't be deleted, in seconds. Pass -1 to use the default value.
+     *
+     * @var int
      */
     protected int $immunityDelay;
 
@@ -57,12 +65,16 @@ class OptimizeStorage extends TdFunction
     protected array $excludeChatIds;
 
     /**
-     * Pass true if statistics about the files that were deleted must be returned instead of the whole storage usage statistics. Affects only returned statistics.
+     * Pass true if deleted file statistics needs to be returned instead of the whole storage usage statistics. Affects only returned statistics.
+     *
+     * @var bool
      */
     protected bool $returnDeletedFileStatistics;
 
     /**
      * Same as in getStorageStatistics. Affects only returned statistics.
+     *
+     * @var int
      */
     protected int $chatLimit;
 

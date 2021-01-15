@@ -9,7 +9,7 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Changes the photo of a chat. Supported only for basic groups, supergroups and channels. Requires can_change_info rights.
+ * Changes the photo of a chat. Supported only for basic groups, supergroups and channels. Requires can_change_info rights. The photo will not be changed before request to the server has been completed.
  */
 class SetChatPhoto extends TdFunction
 {
@@ -17,15 +17,19 @@ class SetChatPhoto extends TdFunction
 
     /**
      * Chat identifier.
+     *
+     * @var int
      */
     protected int $chatId;
 
     /**
-     * New chat photo. Pass null to delete the chat photo.
+     * New chat photo. You can use a zero InputFileId to delete the chat photo. Files that are accessible only by HTTP URL are not acceptable.
+     *
+     * @var InputFile
      */
-    protected InputChatPhoto $photo;
+    protected InputFile $photo;
 
-    public function __construct(int $chatId, InputChatPhoto $photo)
+    public function __construct(int $chatId, InputFile $photo)
     {
         $this->chatId = $chatId;
         $this->photo  = $photo;
@@ -53,7 +57,7 @@ class SetChatPhoto extends TdFunction
         return $this->chatId;
     }
 
-    public function getPhoto(): InputChatPhoto
+    public function getPhoto(): InputFile
     {
         return $this->photo;
     }

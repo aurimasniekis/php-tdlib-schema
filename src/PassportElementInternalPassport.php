@@ -17,6 +17,8 @@ class PassportElementInternalPassport extends PassportElement
 
     /**
      * Internal passport.
+     *
+     * @var IdentityDocument
      */
     protected IdentityDocument $internalPassport;
 

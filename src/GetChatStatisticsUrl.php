@@ -9,7 +9,7 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Returns an HTTP URL with the chat statistics. Currently this method of getting the statistics are disabled and can be deleted in the future.
+ * Returns an HTTP URL with the chat statistics. Currently this method of getting the statistics is disabled and can be deleted in the future.
  */
 class GetChatStatisticsUrl extends TdFunction
 {
@@ -17,16 +17,22 @@ class GetChatStatisticsUrl extends TdFunction
 
     /**
      * Chat identifier.
+     *
+     * @var int
      */
     protected int $chatId;
 
     /**
      * Parameters from "tg://statsrefresh?params=******" link.
+     *
+     * @var string
      */
     protected string $parameters;
 
     /**
      * Pass true if a URL with the dark theme must be returned.
+     *
+     * @var bool
      */
     protected bool $isDark;
 

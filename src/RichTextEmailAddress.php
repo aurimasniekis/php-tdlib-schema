@@ -17,11 +17,15 @@ class RichTextEmailAddress extends RichText
 
     /**
      * Text.
+     *
+     * @var RichText
      */
     protected RichText $text;
 
     /**
      * Email address.
+     *
+     * @var string
      */
     protected string $emailAddress;
 

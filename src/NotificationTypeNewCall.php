@@ -17,6 +17,8 @@ class NotificationTypeNewCall extends NotificationType
 
     /**
      * Call identifier.
+     *
+     * @var int
      */
     protected int $callId;
 

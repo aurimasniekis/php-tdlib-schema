@@ -17,11 +17,15 @@ class GetPassportElement extends TdFunction
 
     /**
      * Telegram Passport element type.
+     *
+     * @var PassportElementType
      */
     protected PassportElementType $type;
 
     /**
      * Password of the current user.
+     *
+     * @var string
      */
     protected string $password;
 

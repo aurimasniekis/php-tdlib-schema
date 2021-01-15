@@ -17,11 +17,13 @@ class RegisterDevice extends TdFunction
 
     /**
      * Device token.
+     *
+     * @var DeviceToken
      */
     protected DeviceToken $deviceToken;
 
     /**
-     * List of user identifiers of other users currently using the application.
+     * List of user identifiers of other users currently using the client.
      *
      * @var int[]
      */

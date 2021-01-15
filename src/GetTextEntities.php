@@ -9,7 +9,7 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Returns all entities (mentions, hashtags, cashtags, bot commands, bank card numbers, URLs, and email addresses) contained in the text. Can be called synchronously.
+ * Returns all entities (mentions, hashtags, cashtags, bot commands, bank card numbers, URLs, and email addresses) contained in the text. This is an offline method. Can be called before authorization. Can be called synchronously.
  */
 class GetTextEntities extends TdFunction
 {
@@ -17,6 +17,8 @@ class GetTextEntities extends TdFunction
 
     /**
      * The text in which to look for entites.
+     *
+     * @var string
      */
     protected string $text;
 

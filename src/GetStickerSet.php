@@ -17,6 +17,8 @@ class GetStickerSet extends TdFunction
 
     /**
      * Identifier of the sticker set.
+     *
+     * @var string
      */
     protected string $setId;
 

@@ -17,11 +17,15 @@ class SetStickerPositionInSet extends TdFunction
 
     /**
      * Sticker.
+     *
+     * @var InputFile
      */
     protected InputFile $sticker;
 
     /**
      * New position of the sticker in the set, zero-based.
+     *
+     * @var int
      */
     protected int $position;
 

@@ -17,28 +17,32 @@ class UpdateChatLastMessage extends Update
 
     /**
      * Chat identifier.
+     *
+     * @var int
      */
     protected int $chatId;
 
     /**
      * The new last message in the chat; may be null.
+     *
+     * @var Message|null
      */
     protected ?Message $lastMessage;
 
     /**
-     * The new chat positions in the chat lists.
+     * New value of the chat order.
      *
-     * @var ChatPosition[]
+     * @var string
      */
-    protected array $positions;
+    protected string $order;
 
-    public function __construct(int $chatId, ?Message $lastMessage, array $positions)
+    public function __construct(int $chatId, ?Message $lastMessage, string $order)
     {
         parent::__construct();
 
         $this->chatId      = $chatId;
         $this->lastMessage = $lastMessage;
-        $this->positions   = $positions;
+        $this->order       = $order;
     }
 
     public static function fromArray(array $array): UpdateChatLastMessage
@@ -46,17 +50,17 @@ class UpdateChatLastMessage extends Update
         return new static(
             $array['chat_id'],
             (isset($array['last_message']) ? TdSchemaRegistry::fromArray($array['last_message']) : null),
-            array_map(fn ($x) => TdSchemaRegistry::fromArray($x), $array['positions']),
+            $array['order'],
         );
     }
 
     public function typeSerialize(): array
     {
         return [
-            '@type'           => static::TYPE_NAME,
-            'chat_id'         => $this->chatId,
-            'last_message'    => (isset($this->lastMessage) ? $this->lastMessage : null),
-            array_map(fn ($x) => $x->typeSerialize(), $this->positions),
+            '@type'        => static::TYPE_NAME,
+            'chat_id'      => $this->chatId,
+            'last_message' => (isset($this->lastMessage) ? $this->lastMessage : null),
+            'order'        => $this->order,
         ];
     }
 
@@ -70,8 +74,8 @@ class UpdateChatLastMessage extends Update
         return $this->lastMessage;
     }
 
-    public function getPositions(): array
+    public function getOrder(): string
     {
-        return $this->positions;
+        return $this->order;
     }
 }

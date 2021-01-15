@@ -9,7 +9,7 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Returns information about currently used log stream for internal logging of TDLib. Can be called synchronously.
+ * Returns information about currently used log stream for internal logging of TDLib. This is an offline method. Can be called before authorization. Can be called synchronously.
  */
 class GetLogStream extends TdFunction
 {

@@ -17,6 +17,8 @@ class ChatEventSignMessagesToggled extends ChatEventAction
 
     /**
      * New value of sign_messages.
+     *
+     * @var bool
      */
     protected bool $signMessages;
 

@@ -17,11 +17,15 @@ class ShippingOption extends TdObject
 
     /**
      * Shipping option identifier.
+     *
+     * @var string
      */
     protected string $id;
 
     /**
      * Option title.
+     *
+     * @var string
      */
     protected string $title;
 

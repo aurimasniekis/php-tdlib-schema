@@ -9,7 +9,7 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Searches for the specified query in the title and username of already known chats, this is an offline request. Returns chats in the order seen in the main chat list.
+ * Searches for the specified query in the title and username of already known chats, this is an offline request. Returns chats in the order seen in the chat list.
  */
 class SearchChats extends TdFunction
 {
@@ -17,11 +17,15 @@ class SearchChats extends TdFunction
 
     /**
      * Query to search for. If the query is empty, returns up to 20 recently found chats.
+     *
+     * @var string
      */
     protected string $query;
 
     /**
      * The maximum number of chats to be returned.
+     *
+     * @var int
      */
     protected int $limit;
 

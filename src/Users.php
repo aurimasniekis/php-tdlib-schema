@@ -17,6 +17,8 @@ class Users extends TdObject
 
     /**
      * Approximate total count of users found.
+     *
+     * @var int
      */
     protected int $totalCount;
 

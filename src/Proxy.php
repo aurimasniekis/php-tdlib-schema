@@ -17,31 +17,43 @@ class Proxy extends TdObject
 
     /**
      * Unique identifier of the proxy.
+     *
+     * @var int
      */
     protected int $id;
 
     /**
      * Proxy server IP address.
+     *
+     * @var string
      */
     protected string $server;
 
     /**
      * Proxy server port.
+     *
+     * @var int
      */
     protected int $port;
 
     /**
      * Point in time (Unix timestamp) when the proxy was last used; 0 if never.
+     *
+     * @var int
      */
     protected int $lastUsedDate;
 
     /**
      * True, if the proxy is enabled now.
+     *
+     * @var bool
      */
     protected bool $isEnabled;
 
     /**
      * Type of the proxy.
+     *
+     * @var ProxyType
      */
     protected ProxyType $type;
 

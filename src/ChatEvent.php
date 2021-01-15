@@ -17,21 +17,29 @@ class ChatEvent extends TdObject
 
     /**
      * Chat event identifier.
+     *
+     * @var string
      */
     protected string $id;
 
     /**
      * Point in time (Unix timestamp) when the event happened.
+     *
+     * @var int
      */
     protected int $date;
 
     /**
      * Identifier of the user who performed the action that triggered the event.
+     *
+     * @var int
      */
     protected int $userId;
 
     /**
      * Action performed by the user.
+     *
+     * @var ChatEventAction
      */
     protected ChatEventAction $action;
 

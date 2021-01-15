@@ -9,93 +9,56 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Describes a chat or user profile photo.
+ * Describes the photo of a chat.
  */
 class ChatPhoto extends TdObject
 {
     public const TYPE_NAME = 'chatPhoto';
 
     /**
-     * Unique photo identifier.
-     */
-    protected string $id;
-
-    /**
-     * Point in time (Unix timestamp) when the photo has been added.
-     */
-    protected int $addedDate;
-
-    /**
-     * Photo minithumbnail; may be null.
-     */
-    protected ?Minithumbnail $minithumbnail;
-
-    /**
-     * Available variants of the photo in JPEG format, in different size.
+     * A small (160x160) chat photo. The file can be downloaded only before the photo is changed.
      *
-     * @var PhotoSize[]
+     * @var File
      */
-    protected array $sizes;
+    protected File $small;
 
     /**
-     * Animated variant of the photo in MPEG4 format; may be null.
+     * A big (640x640) chat photo. The file can be downloaded only before the photo is changed.
+     *
+     * @var File
      */
-    protected ?AnimatedChatPhoto $animation;
+    protected File $big;
 
-    public function __construct(string $id, int $addedDate, ?Minithumbnail $minithumbnail, array $sizes, ?AnimatedChatPhoto $animation)
+    public function __construct(File $small, File $big)
     {
-        $this->id            = $id;
-        $this->addedDate     = $addedDate;
-        $this->minithumbnail = $minithumbnail;
-        $this->sizes         = $sizes;
-        $this->animation     = $animation;
+        $this->small = $small;
+        $this->big   = $big;
     }
 
     public static function fromArray(array $array): ChatPhoto
     {
         return new static(
-            $array['id'],
-            $array['added_date'],
-            (isset($array['minithumbnail']) ? TdSchemaRegistry::fromArray($array['minithumbnail']) : null),
-            array_map(fn ($x) => TdSchemaRegistry::fromArray($x), $array['sizes']),
-            (isset($array['animation']) ? TdSchemaRegistry::fromArray($array['animation']) : null),
+            TdSchemaRegistry::fromArray($array['small']),
+            TdSchemaRegistry::fromArray($array['big']),
         );
     }
 
     public function typeSerialize(): array
     {
         return [
-            '@type'           => static::TYPE_NAME,
-            'id'              => $this->id,
-            'added_date'      => $this->addedDate,
-            'minithumbnail'   => (isset($this->minithumbnail) ? $this->minithumbnail : null),
-            array_map(fn ($x) => $x->typeSerialize(), $this->sizes),
-            'animation'       => (isset($this->animation) ? $this->animation : null),
+            '@type' => static::TYPE_NAME,
+            'small' => $this->small->typeSerialize(),
+            'big'   => $this->big->typeSerialize(),
         ];
     }
 
-    public function getId(): string
+    public function getSmall(): File
     {
-        return $this->id;
+        return $this->small;
     }
 
-    public function getAddedDate(): int
+    public function getBig(): File
     {
-        return $this->addedDate;
-    }
-
-    public function getMinithumbnail(): ?Minithumbnail
-    {
-        return $this->minithumbnail;
-    }
-
-    public function getSizes(): array
-    {
-        return $this->sizes;
-    }
-
-    public function getAnimation(): ?AnimatedChatPhoto
-    {
-        return $this->animation;
+        return $this->big;
     }
 }

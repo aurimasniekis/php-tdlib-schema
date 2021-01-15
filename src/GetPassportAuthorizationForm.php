@@ -17,21 +17,29 @@ class GetPassportAuthorizationForm extends TdFunction
 
     /**
      * User identifier of the service's bot.
+     *
+     * @var int
      */
     protected int $botUserId;
 
     /**
      * Telegram Passport element types requested by the service.
+     *
+     * @var string
      */
     protected string $scope;
 
     /**
      * Service's public_key.
+     *
+     * @var string
      */
     protected string $publicKey;
 
     /**
      * Authorization form nonce provided by the service.
+     *
+     * @var string
      */
     protected string $nonce;
 

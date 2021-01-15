@@ -17,6 +17,8 @@ class BackgroundFillSolid extends BackgroundFill
 
     /**
      * A color of the background in the RGB24 format.
+     *
+     * @var int
      */
     protected int $color;
 

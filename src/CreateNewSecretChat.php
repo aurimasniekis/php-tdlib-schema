@@ -17,6 +17,8 @@ class CreateNewSecretChat extends TdFunction
 
     /**
      * Identifier of the target user.
+     *
+     * @var int
      */
     protected int $userId;
 

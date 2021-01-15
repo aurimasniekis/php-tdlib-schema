@@ -17,6 +17,8 @@ class MessageContact extends MessageContent
 
     /**
      * The contact description.
+     *
+     * @var Contact
      */
     protected Contact $contact;
 

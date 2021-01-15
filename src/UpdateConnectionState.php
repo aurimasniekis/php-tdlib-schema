@@ -9,7 +9,7 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * The connection state has changed. This update must be used only to show a human-readable description of the connection state.
+ * The connection state has changed.
  */
 class UpdateConnectionState extends Update
 {
@@ -17,6 +17,8 @@ class UpdateConnectionState extends Update
 
     /**
      * The new connection state.
+     *
+     * @var ConnectionState
      */
     protected ConnectionState $state;
 

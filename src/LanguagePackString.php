@@ -17,11 +17,15 @@ class LanguagePackString extends TdObject
 
     /**
      * String key.
+     *
+     * @var string
      */
     protected string $key;
 
     /**
      * String value.
+     *
+     * @var LanguagePackStringValue
      */
     protected LanguagePackStringValue $value;
 

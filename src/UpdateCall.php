@@ -17,6 +17,8 @@ class UpdateCall extends Update
 
     /**
      * New data about a call.
+     *
+     * @var Call
      */
     protected Call $call;
 

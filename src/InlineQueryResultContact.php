@@ -17,20 +17,26 @@ class InlineQueryResultContact extends InlineQueryResult
 
     /**
      * Unique identifier of the query result.
+     *
+     * @var string
      */
     protected string $id;
 
     /**
      * A user contact.
+     *
+     * @var Contact
      */
     protected Contact $contact;
 
     /**
-     * Result thumbnail in JPEG format; may be null.
+     * Result thumbnail; may be null.
+     *
+     * @var PhotoSize|null
      */
-    protected ?Thumbnail $thumbnail;
+    protected ?PhotoSize $thumbnail;
 
-    public function __construct(string $id, Contact $contact, ?Thumbnail $thumbnail)
+    public function __construct(string $id, Contact $contact, ?PhotoSize $thumbnail)
     {
         parent::__construct();
 
@@ -68,7 +74,7 @@ class InlineQueryResultContact extends InlineQueryResult
         return $this->contact;
     }
 
-    public function getThumbnail(): ?Thumbnail
+    public function getThumbnail(): ?PhotoSize
     {
         return $this->thumbnail;
     }

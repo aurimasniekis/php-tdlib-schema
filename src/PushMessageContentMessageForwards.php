@@ -17,6 +17,8 @@ class PushMessageContentMessageForwards extends PushMessageContent
 
     /**
      * Number of forwarded messages.
+     *
+     * @var int
      */
     protected int $totalCount;
 

@@ -16,25 +16,23 @@ class MessageCall extends MessageContent
     public const TYPE_NAME = 'messageCall';
 
     /**
-     * True, if the call was a video call.
-     */
-    protected bool $isVideo;
-
-    /**
      * Reason why the call was discarded.
+     *
+     * @var CallDiscardReason
      */
     protected CallDiscardReason $discardReason;
 
     /**
      * Call duration, in seconds.
+     *
+     * @var int
      */
     protected int $duration;
 
-    public function __construct(bool $isVideo, CallDiscardReason $discardReason, int $duration)
+    public function __construct(CallDiscardReason $discardReason, int $duration)
     {
         parent::__construct();
 
-        $this->isVideo       = $isVideo;
         $this->discardReason = $discardReason;
         $this->duration      = $duration;
     }
@@ -42,7 +40,6 @@ class MessageCall extends MessageContent
     public static function fromArray(array $array): MessageCall
     {
         return new static(
-            $array['is_video'],
             TdSchemaRegistry::fromArray($array['discard_reason']),
             $array['duration'],
         );
@@ -52,15 +49,9 @@ class MessageCall extends MessageContent
     {
         return [
             '@type'          => static::TYPE_NAME,
-            'is_video'       => $this->isVideo,
             'discard_reason' => $this->discardReason->typeSerialize(),
             'duration'       => $this->duration,
         ];
-    }
-
-    public function getIsVideo(): bool
-    {
-        return $this->isVideo;
     }
 
     public function getDiscardReason(): CallDiscardReason

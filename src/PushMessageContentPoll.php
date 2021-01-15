@@ -17,16 +17,22 @@ class PushMessageContentPoll extends PushMessageContent
 
     /**
      * Poll question.
+     *
+     * @var string
      */
     protected string $question;
 
     /**
      * True, if the poll is regular and not in quiz mode.
+     *
+     * @var bool
      */
     protected bool $isRegular;
 
     /**
      * True, if the message is a pinned message with the specified content.
+     *
+     * @var bool
      */
     protected bool $isPinned;
 

@@ -17,6 +17,8 @@ class MessagePinMessage extends MessageContent
 
     /**
      * Identifier of the pinned message, can be an identifier of a deleted message or 0.
+     *
+     * @var int
      */
     protected int $messageId;
 

@@ -9,7 +9,7 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * A reference to a richTexts object on the same web page.
+ * A rich text reference of a text on the same web page.
  */
 class RichTextReference extends RichText
 {
@@ -17,33 +17,39 @@ class RichTextReference extends RichText
 
     /**
      * The text.
+     *
+     * @var RichText
      */
     protected RichText $text;
 
     /**
-     * The name of a richTextAnchor object, which is the first element of the target richTexts object.
+     * The text to show on click.
+     *
+     * @var RichText
      */
-    protected string $anchorName;
+    protected RichText $referenceText;
 
     /**
      * An HTTP URL, opening the reference.
+     *
+     * @var string
      */
     protected string $url;
 
-    public function __construct(RichText $text, string $anchorName, string $url)
+    public function __construct(RichText $text, RichText $referenceText, string $url)
     {
         parent::__construct();
 
-        $this->text       = $text;
-        $this->anchorName = $anchorName;
-        $this->url        = $url;
+        $this->text          = $text;
+        $this->referenceText = $referenceText;
+        $this->url           = $url;
     }
 
     public static function fromArray(array $array): RichTextReference
     {
         return new static(
             TdSchemaRegistry::fromArray($array['text']),
-            $array['anchor_name'],
+            TdSchemaRegistry::fromArray($array['reference_text']),
             $array['url'],
         );
     }
@@ -51,10 +57,10 @@ class RichTextReference extends RichText
     public function typeSerialize(): array
     {
         return [
-            '@type'       => static::TYPE_NAME,
-            'text'        => $this->text->typeSerialize(),
-            'anchor_name' => $this->anchorName,
-            'url'         => $this->url,
+            '@type'          => static::TYPE_NAME,
+            'text'           => $this->text->typeSerialize(),
+            'reference_text' => $this->referenceText->typeSerialize(),
+            'url'            => $this->url,
         ];
     }
 
@@ -63,9 +69,9 @@ class RichTextReference extends RichText
         return $this->text;
     }
 
-    public function getAnchorName(): string
+    public function getReferenceText(): RichText
     {
-        return $this->anchorName;
+        return $this->referenceText;
     }
 
     public function getUrl(): string

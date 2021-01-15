@@ -17,16 +17,22 @@ class UpdateNewCustomQuery extends Update
 
     /**
      * The query identifier.
+     *
+     * @var string
      */
     protected string $id;
 
     /**
      * JSON-serialized query data.
+     *
+     * @var string
      */
     protected string $data;
 
     /**
      * Query timeout.
+     *
+     * @var int
      */
     protected int $timeout;
 

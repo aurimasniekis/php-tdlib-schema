@@ -17,11 +17,15 @@ class ChatEventSlowModeDelayChanged extends ChatEventAction
 
     /**
      * Previous value of slow_mode_delay.
+     *
+     * @var int
      */
     protected int $oldSlowModeDelay;
 
     /**
      * New value of slow_mode_delay.
+     *
+     * @var int
      */
     protected int $newSlowModeDelay;
 

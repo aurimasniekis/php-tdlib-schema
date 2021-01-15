@@ -17,16 +17,22 @@ class GetCallbackQueryAnswer extends TdFunction
 
     /**
      * Identifier of the chat with the message.
+     *
+     * @var int
      */
     protected int $chatId;
 
     /**
      * Identifier of the message from which the query originated.
+     *
+     * @var int
      */
     protected int $messageId;
 
     /**
      * Query payload.
+     *
+     * @var CallbackQueryPayload
      */
     protected CallbackQueryPayload $payload;
 

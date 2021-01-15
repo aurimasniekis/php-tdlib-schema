@@ -17,15 +17,19 @@ class UpdateChatPhoto extends Update
 
     /**
      * Chat identifier.
+     *
+     * @var int
      */
     protected int $chatId;
 
     /**
      * The new chat photo; may be null.
+     *
+     * @var ChatPhoto|null
      */
-    protected ?ChatPhotoInfo $photo;
+    protected ?ChatPhoto $photo;
 
-    public function __construct(int $chatId, ?ChatPhotoInfo $photo)
+    public function __construct(int $chatId, ?ChatPhoto $photo)
     {
         parent::__construct();
 
@@ -55,7 +59,7 @@ class UpdateChatPhoto extends Update
         return $this->chatId;
     }
 
-    public function getPhoto(): ?ChatPhotoInfo
+    public function getPhoto(): ?ChatPhoto
     {
         return $this->photo;
     }

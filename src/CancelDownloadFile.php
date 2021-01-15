@@ -17,11 +17,15 @@ class CancelDownloadFile extends TdFunction
 
     /**
      * Identifier of a file to stop downloading.
+     *
+     * @var int
      */
     protected int $fileId;
 
     /**
      * Pass true to stop downloading only if it hasn't been started, i.e. request hasn't been sent to server.
+     *
+     * @var bool
      */
     protected bool $onlyIfPending;
 

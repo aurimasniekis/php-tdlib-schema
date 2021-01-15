@@ -17,11 +17,15 @@ class UpdateSelectedBackground extends Update
 
     /**
      * True, if background for dark theme has changed.
+     *
+     * @var bool
      */
     protected bool $forDarkTheme;
 
     /**
      * The new selected background; may be null.
+     *
+     * @var Background|null
      */
     protected ?Background $background;
 

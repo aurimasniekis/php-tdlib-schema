@@ -17,6 +17,8 @@ class UpdateRecentStickers extends Update
 
     /**
      * True, if the list of stickers attached to photo or video files was updated, otherwise the list of sent stickers is updated.
+     *
+     * @var bool
      */
     protected bool $isAttached;
 

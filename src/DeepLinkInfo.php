@@ -17,11 +17,15 @@ class DeepLinkInfo extends TdObject
 
     /**
      * Text to be shown to the user.
+     *
+     * @var FormattedText
      */
     protected FormattedText $text;
 
     /**
      * True, if user should be asked to update the application.
+     *
+     * @var bool
      */
     protected bool $needUpdateApplication;
 

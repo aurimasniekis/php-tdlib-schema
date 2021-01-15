@@ -17,6 +17,8 @@ class CheckAuthenticationCode extends TdFunction
 
     /**
      * The verification code received via SMS, Telegram message, phone call, or flash call.
+     *
+     * @var string
      */
     protected string $code;
 

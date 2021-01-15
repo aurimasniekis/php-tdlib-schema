@@ -17,11 +17,15 @@ class GetBackgroundUrl extends TdFunction
 
     /**
      * Background name.
+     *
+     * @var string
      */
     protected string $name;
 
     /**
      * Background type.
+     *
+     * @var BackgroundType
      */
     protected BackgroundType $type;
 

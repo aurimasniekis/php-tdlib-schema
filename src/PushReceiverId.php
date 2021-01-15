@@ -17,6 +17,8 @@ class PushReceiverId extends TdObject
 
     /**
      * The globally unique identifier of push notification subscription.
+     *
+     * @var string
      */
     protected string $id;
 

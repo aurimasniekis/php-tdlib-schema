@@ -17,26 +17,36 @@ class GetChatHistory extends TdFunction
 
     /**
      * Chat identifier.
+     *
+     * @var int
      */
     protected int $chatId;
 
     /**
      * Identifier of the message starting from which history must be fetched; use 0 to get results from the last message.
+     *
+     * @var int
      */
     protected int $fromMessageId;
 
     /**
      * Specify 0 to get results from exactly the from_message_id or a negative offset up to 99 to get additionally some newer messages.
+     *
+     * @var int
      */
     protected int $offset;
 
     /**
-     * The maximum number of messages to be returned; must be positive and can't be greater than 100. If the offset is negative, the limit must be greater than or equal to -offset. Fewer messages may be returned than specified by the limit, even if the end of the message history has not been reached.
+     * The maximum number of messages to be returned; must be positive and can't be greater than 100. If the offset is negative, the limit must be greater or equal to -offset. Fewer messages may be returned than specified by the limit, even if the end of the message history has not been reached.
+     *
+     * @var int
      */
     protected int $limit;
 
     /**
      * If true, returns only messages that are available locally without sending network requests.
+     *
+     * @var bool
      */
     protected bool $onlyLocal;
 

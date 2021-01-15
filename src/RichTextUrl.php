@@ -17,16 +17,22 @@ class RichTextUrl extends RichText
 
     /**
      * Text.
+     *
+     * @var RichText
      */
     protected RichText $text;
 
     /**
      * URL.
+     *
+     * @var string
      */
     protected string $url;
 
     /**
      * True, if the URL has cached instant view server-side.
+     *
+     * @var bool
      */
     protected bool $isCached;
 

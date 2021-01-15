@@ -17,6 +17,8 @@ class UpgradeBasicGroupChatToSupergroupChat extends TdFunction
 
     /**
      * Identifier of the chat to upgrade.
+     *
+     * @var int
      */
     protected int $chatId;
 

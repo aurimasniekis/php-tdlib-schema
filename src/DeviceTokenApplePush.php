@@ -17,11 +17,15 @@ class DeviceTokenApplePush extends DeviceToken
 
     /**
      * Device token; may be empty to de-register a device.
+     *
+     * @var string
      */
     protected string $deviceToken;
 
     /**
      * True, if App Sandbox is enabled.
+     *
+     * @var bool
      */
     protected bool $isAppSandbox;
 

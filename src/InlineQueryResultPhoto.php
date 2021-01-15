@@ -17,21 +17,29 @@ class InlineQueryResultPhoto extends InlineQueryResult
 
     /**
      * Unique identifier of the query result.
+     *
+     * @var string
      */
     protected string $id;
 
     /**
      * Photo.
+     *
+     * @var Photo
      */
     protected Photo $photo;
 
     /**
      * Title of the result, if known.
+     *
+     * @var string
      */
     protected string $title;
 
     /**
      * A short description of the result, if known.
+     *
+     * @var string
      */
     protected string $description;
 

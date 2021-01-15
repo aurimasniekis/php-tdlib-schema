@@ -17,6 +17,8 @@ class AddNetworkStatistics extends TdFunction
 
     /**
      * The network statistics entry with the data to be added to statistics.
+     *
+     * @var NetworkStatisticsEntry
      */
     protected NetworkStatisticsEntry $entry;
 

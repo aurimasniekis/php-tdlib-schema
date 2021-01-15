@@ -17,36 +17,50 @@ class Game extends TdObject
 
     /**
      * Game ID.
+     *
+     * @var string
      */
     protected string $id;
 
     /**
      * Game short name. To share a game use the URL https://t.me/{bot_username}?game={game_short_name}.
+     *
+     * @var string
      */
     protected string $shortName;
 
     /**
      * Game title.
+     *
+     * @var string
      */
     protected string $title;
 
     /**
      * Game text, usually containing scoreboards for a game.
+     *
+     * @var FormattedText
      */
     protected FormattedText $text;
 
     /**
      * Game description.
+     *
+     * @var string
      */
     protected string $description;
 
     /**
      * Game photo.
+     *
+     * @var Photo
      */
     protected Photo $photo;
 
     /**
      * Game animation; may be null.
+     *
+     * @var Animation|null
      */
     protected ?Animation $animation;
 

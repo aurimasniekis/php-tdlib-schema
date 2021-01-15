@@ -17,6 +17,8 @@ class InputPassportElementIdentityCard extends InputPassportElement
 
     /**
      * The identity card to be saved.
+     *
+     * @var InputIdentityDocument
      */
     protected InputIdentityDocument $identityCard;
 

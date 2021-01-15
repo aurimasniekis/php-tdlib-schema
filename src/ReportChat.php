@@ -17,11 +17,15 @@ class ReportChat extends TdFunction
 
     /**
      * Chat identifier.
+     *
+     * @var int
      */
     protected int $chatId;
 
     /**
      * The reason for reporting the chat.
+     *
+     * @var ChatReportReason
      */
     protected ChatReportReason $reason;
 

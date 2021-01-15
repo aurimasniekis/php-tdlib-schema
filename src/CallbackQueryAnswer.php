@@ -17,16 +17,22 @@ class CallbackQueryAnswer extends TdObject
 
     /**
      * Text of the answer.
+     *
+     * @var string
      */
     protected string $text;
 
     /**
      * True, if an alert should be shown to the user instead of a toast notification.
+     *
+     * @var bool
      */
     protected bool $showAlert;
 
     /**
      * URL to be opened.
+     *
+     * @var string
      */
     protected string $url;
 

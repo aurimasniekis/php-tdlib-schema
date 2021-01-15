@@ -9,7 +9,7 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * A message with a live location was viewed. When the update is received, the application is supposed to update the live location.
+ * A message with a live location was viewed. When the update is received, the client is supposed to update the live location.
  */
 class UpdateMessageLiveLocationViewed extends Update
 {
@@ -17,11 +17,15 @@ class UpdateMessageLiveLocationViewed extends Update
 
     /**
      * Identifier of the chat with the live location message.
+     *
+     * @var int
      */
     protected int $chatId;
 
     /**
      * Identifier of the message with live location.
+     *
+     * @var int
      */
     protected int $messageId;
 

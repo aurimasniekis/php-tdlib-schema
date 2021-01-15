@@ -17,16 +17,22 @@ class CallStateDiscarded extends CallState
 
     /**
      * The reason, why the call has ended.
+     *
+     * @var CallDiscardReason
      */
     protected CallDiscardReason $reason;
 
     /**
      * True, if the call rating should be sent to the server.
+     *
+     * @var bool
      */
     protected bool $needRating;
 
     /**
      * True, if the call debug information should be sent to the server.
+     *
+     * @var bool
      */
     protected bool $needDebugInformation;
 

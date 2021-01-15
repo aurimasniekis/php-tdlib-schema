@@ -17,11 +17,15 @@ class BotCommand extends TdObject
 
     /**
      * Text of the bot command.
+     *
+     * @var string
      */
     protected string $command;
 
     /**
      * Description of the bot command.
+     *
+     * @var string
      */
     protected string $description;
 

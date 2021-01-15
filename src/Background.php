@@ -17,31 +17,43 @@ class Background extends TdObject
 
     /**
      * Unique background identifier.
+     *
+     * @var string
      */
     protected string $id;
 
     /**
      * True, if this is one of default backgrounds.
+     *
+     * @var bool
      */
     protected bool $isDefault;
 
     /**
      * True, if the background is dark and is recommended to be used with dark theme.
+     *
+     * @var bool
      */
     protected bool $isDark;
 
     /**
      * Unique background name.
+     *
+     * @var string
      */
     protected string $name;
 
     /**
      * Document with the background; may be null. Null only for filled backgrounds.
+     *
+     * @var Document|null
      */
     protected ?Document $document;
 
     /**
      * Type of the background.
+     *
+     * @var BackgroundType
      */
     protected BackgroundType $type;
 

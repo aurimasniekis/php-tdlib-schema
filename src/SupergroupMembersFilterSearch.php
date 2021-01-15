@@ -17,6 +17,8 @@ class SupergroupMembersFilterSearch extends SupergroupMembersFilter
 
     /**
      * Query to search for.
+     *
+     * @var string
      */
     protected string $query;
 

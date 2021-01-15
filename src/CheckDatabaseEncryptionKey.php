@@ -17,6 +17,8 @@ class CheckDatabaseEncryptionKey extends TdFunction
 
     /**
      * Encryption key to check or set up.
+     *
+     * @var string
      */
     protected string $encryptionKey;
 

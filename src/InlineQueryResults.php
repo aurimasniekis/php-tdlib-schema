@@ -17,11 +17,15 @@ class InlineQueryResults extends TdObject
 
     /**
      * Unique identifier of the inline query.
+     *
+     * @var string
      */
     protected string $inlineQueryId;
 
     /**
      * The offset for the next request. If empty, there are no more results.
+     *
+     * @var string
      */
     protected string $nextOffset;
 
@@ -34,11 +38,15 @@ class InlineQueryResults extends TdObject
 
     /**
      * If non-empty, this text should be shown on the button, which opens a private chat with the bot and sends the bot a start message with the switch_pm_parameter.
+     *
+     * @var string
      */
     protected string $switchPmText;
 
     /**
      * Parameter for the bot start message.
+     *
+     * @var string
      */
     protected string $switchPmParameter;
 

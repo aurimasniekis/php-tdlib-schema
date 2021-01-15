@@ -9,7 +9,7 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Sends a Telegram Passport authorization form, effectively sharing data with the service. This method must be called after getPassportAuthorizationFormAvailableElements if some previously available elements are going to be reused.
+ * Sends a Telegram Passport authorization form, effectively sharing data with the service. This method must be called after getPassportAuthorizationFormAvailableElements if some previously available elements need to be used.
  */
 class SendPassportAuthorizationForm extends TdFunction
 {
@@ -17,6 +17,8 @@ class SendPassportAuthorizationForm extends TdFunction
 
     /**
      * Authorization form identifier.
+     *
+     * @var int
      */
     protected int $autorizationFormId;
 

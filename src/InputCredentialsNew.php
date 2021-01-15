@@ -17,11 +17,15 @@ class InputCredentialsNew extends InputCredentials
 
     /**
      * Contains JSON-encoded data with a credential identifier from the payment provider.
+     *
+     * @var string
      */
     protected string $data;
 
     /**
      * True, if the credential identifier can be saved on the server side.
+     *
+     * @var bool
      */
     protected bool $allowSave;
 

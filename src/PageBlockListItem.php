@@ -17,6 +17,8 @@ class PageBlockListItem extends TdObject
 
     /**
      * Item label.
+     *
+     * @var string
      */
     protected string $label;
 

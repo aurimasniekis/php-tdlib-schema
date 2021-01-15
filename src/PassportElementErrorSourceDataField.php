@@ -17,6 +17,8 @@ class PassportElementErrorSourceDataField extends PassportElementErrorSource
 
     /**
      * Field name.
+     *
+     * @var string
      */
     protected string $fieldName;
 

@@ -17,6 +17,8 @@ class MessagePoll extends MessageContent
 
     /**
      * The poll description.
+     *
+     * @var Poll
      */
     protected Poll $poll;
 

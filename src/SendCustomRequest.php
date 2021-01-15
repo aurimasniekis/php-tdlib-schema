@@ -17,11 +17,15 @@ class SendCustomRequest extends TdFunction
 
     /**
      * The method name.
+     *
+     * @var string
      */
     protected string $method;
 
     /**
      * JSON-serialized method parameters.
+     *
+     * @var string
      */
     protected string $parameters;
 

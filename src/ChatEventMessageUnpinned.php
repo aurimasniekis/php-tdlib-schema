@@ -15,35 +15,18 @@ class ChatEventMessageUnpinned extends ChatEventAction
 {
     public const TYPE_NAME = 'chatEventMessageUnpinned';
 
-    /**
-     * Unpinned message.
-     */
-    protected Message $message;
-
-    public function __construct(Message $message)
+    public function __construct()
     {
         parent::__construct();
-
-        $this->message = $message;
     }
 
     public static function fromArray(array $array): ChatEventMessageUnpinned
     {
-        return new static(
-            TdSchemaRegistry::fromArray($array['message']),
-        );
+        return new static();
     }
 
     public function typeSerialize(): array
     {
-        return [
-            '@type'   => static::TYPE_NAME,
-            'message' => $this->message->typeSerialize(),
-        ];
-    }
-
-    public function getMessage(): Message
-    {
-        return $this->message;
+        return ['@type' => static::TYPE_NAME];
     }
 }

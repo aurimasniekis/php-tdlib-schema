@@ -17,26 +17,36 @@ class TestProxy extends TdFunction
 
     /**
      * Proxy server IP address.
+     *
+     * @var string
      */
     protected string $server;
 
     /**
      * Proxy server port.
+     *
+     * @var int
      */
     protected int $port;
 
     /**
      * Proxy type.
+     *
+     * @var ProxyType
      */
     protected ProxyType $type;
 
     /**
      * Identifier of a datacenter, with which to test connection.
+     *
+     * @var int
      */
     protected int $dcId;
 
     /**
      * The maximum overall timeout for the request.
+     *
+     * @var float
      */
     protected float $timeout;
 

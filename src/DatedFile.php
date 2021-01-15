@@ -17,11 +17,15 @@ class DatedFile extends TdObject
 
     /**
      * The file.
+     *
+     * @var File
      */
     protected File $file;
 
     /**
      * Point in time (Unix timestamp) when the file was uploaded.
+     *
+     * @var int
      */
     protected int $date;
 

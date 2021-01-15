@@ -17,16 +17,22 @@ class RichTextIcon extends RichText
 
     /**
      * The image represented as a document. The image can be in GIF, JPEG or PNG format.
+     *
+     * @var Document
      */
     protected Document $document;
 
     /**
      * Width of a bounding box in which the image should be shown; 0 if unknown.
+     *
+     * @var int
      */
     protected int $width;
 
     /**
      * Height of a bounding box in which the image should be shown; 0 if unknown.
+     *
+     * @var int
      */
     protected int $height;
 

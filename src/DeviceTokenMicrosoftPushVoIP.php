@@ -17,6 +17,8 @@ class DeviceTokenMicrosoftPushVoIP extends DeviceToken
 
     /**
      * Push notification channel URI; may be empty to de-register a device.
+     *
+     * @var string
      */
     protected string $channelUri;
 

@@ -17,11 +17,15 @@ class UpdateBasicGroupFullInfo extends Update
 
     /**
      * Identifier of a basic group.
+     *
+     * @var int
      */
     protected int $basicGroupId;
 
     /**
      * New full information about the group.
+     *
+     * @var BasicGroupFullInfo
      */
     protected BasicGroupFullInfo $basicGroupFullInfo;
 

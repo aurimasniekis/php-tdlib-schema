@@ -17,6 +17,8 @@ class PassportElementEmailAddress extends PassportElement
 
     /**
      * Email address.
+     *
+     * @var string
      */
     protected string $emailAddress;
 

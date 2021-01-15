@@ -17,11 +17,15 @@ class SetChatLocation extends TdFunction
 
     /**
      * Chat identifier.
+     *
+     * @var int
      */
     protected int $chatId;
 
     /**
      * New location for the chat; must be valid and not null.
+     *
+     * @var ChatLocation
      */
     protected ChatLocation $location;
 

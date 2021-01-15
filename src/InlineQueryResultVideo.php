@@ -17,21 +17,29 @@ class InlineQueryResultVideo extends InlineQueryResult
 
     /**
      * Unique identifier of the query result.
+     *
+     * @var string
      */
     protected string $id;
 
     /**
      * Video.
+     *
+     * @var Video
      */
     protected Video $video;
 
     /**
      * Title of the video.
+     *
+     * @var string
      */
     protected string $title;
 
     /**
      * Description of the video.
+     *
+     * @var string
      */
     protected string $description;
 

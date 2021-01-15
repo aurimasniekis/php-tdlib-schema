@@ -17,6 +17,8 @@ class EditCustomLanguagePackInfo extends TdFunction
 
     /**
      * New information about the custom local language pack.
+     *
+     * @var LanguagePackInfo
      */
     protected LanguagePackInfo $info;
 

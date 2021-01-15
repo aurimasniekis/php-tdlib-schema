@@ -17,6 +17,8 @@ class UpdateAuthorizationState extends Update
 
     /**
      * New authorization state.
+     *
+     * @var AuthorizationState
      */
     protected AuthorizationState $authorizationState;
 

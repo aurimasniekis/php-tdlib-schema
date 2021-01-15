@@ -17,16 +17,22 @@ class EditInlineMessageCaption extends TdFunction
 
     /**
      * Inline message identifier.
+     *
+     * @var string
      */
     protected string $inlineMessageId;
 
     /**
      * The new message reply markup.
+     *
+     * @var ReplyMarkup
      */
     protected ReplyMarkup $replyMarkup;
 
     /**
      * New message content caption; 0-GetOption("message_caption_length_max") characters.
+     *
+     * @var FormattedText
      */
     protected FormattedText $caption;
 

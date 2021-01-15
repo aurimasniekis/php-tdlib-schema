@@ -17,16 +17,22 @@ class InlineQueryResultVoiceNote extends InlineQueryResult
 
     /**
      * Unique identifier of the query result.
+     *
+     * @var string
      */
     protected string $id;
 
     /**
      * Voice note.
+     *
+     * @var VoiceNote
      */
     protected VoiceNote $voiceNote;
 
     /**
      * Title of the voice note.
+     *
+     * @var string
      */
     protected string $title;
 

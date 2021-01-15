@@ -9,7 +9,7 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Returns an HTTPS link to a message in a chat. Available only for already sent messages in supergroups and channels. This is an offline request.
+ * Returns a private HTTPS link to a message in a chat. Available only for already sent messages in supergroups and channels. The link will work only for members of the chat.
  */
 class GetMessageLink extends TdFunction
 {
@@ -17,30 +17,22 @@ class GetMessageLink extends TdFunction
 
     /**
      * Identifier of the chat to which the message belongs.
+     *
+     * @var int
      */
     protected int $chatId;
 
     /**
      * Identifier of the message.
+     *
+     * @var int
      */
     protected int $messageId;
 
-    /**
-     * Pass true to create a link for the whole media album.
-     */
-    protected bool $forAlbum;
-
-    /**
-     * Pass true to create a link to the message as a channel post comment, or from a message thread.
-     */
-    protected bool $forComment;
-
-    public function __construct(int $chatId, int $messageId, bool $forAlbum, bool $forComment)
+    public function __construct(int $chatId, int $messageId)
     {
-        $this->chatId     = $chatId;
-        $this->messageId  = $messageId;
-        $this->forAlbum   = $forAlbum;
-        $this->forComment = $forComment;
+        $this->chatId    = $chatId;
+        $this->messageId = $messageId;
     }
 
     public static function fromArray(array $array): GetMessageLink
@@ -48,19 +40,15 @@ class GetMessageLink extends TdFunction
         return new static(
             $array['chat_id'],
             $array['message_id'],
-            $array['for_album'],
-            $array['for_comment'],
         );
     }
 
     public function typeSerialize(): array
     {
         return [
-            '@type'       => static::TYPE_NAME,
-            'chat_id'     => $this->chatId,
-            'message_id'  => $this->messageId,
-            'for_album'   => $this->forAlbum,
-            'for_comment' => $this->forComment,
+            '@type'      => static::TYPE_NAME,
+            'chat_id'    => $this->chatId,
+            'message_id' => $this->messageId,
         ];
     }
 
@@ -72,15 +60,5 @@ class GetMessageLink extends TdFunction
     public function getMessageId(): int
     {
         return $this->messageId;
-    }
-
-    public function getForAlbum(): bool
-    {
-        return $this->forAlbum;
-    }
-
-    public function getForComment(): bool
-    {
-        return $this->forComment;
     }
 }

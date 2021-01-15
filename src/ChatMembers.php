@@ -17,6 +17,8 @@ class ChatMembers extends TdObject
 
     /**
      * Approximate total count of chat members found.
+     *
+     * @var int
      */
     protected int $totalCount;
 

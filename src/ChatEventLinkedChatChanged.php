@@ -17,11 +17,15 @@ class ChatEventLinkedChatChanged extends ChatEventAction
 
     /**
      * Previous supergroup linked chat identifier.
+     *
+     * @var int
      */
     protected int $oldLinkedChatId;
 
     /**
      * New supergroup linked chat identifier.
+     *
+     * @var int
      */
     protected int $newLinkedChatId;
 

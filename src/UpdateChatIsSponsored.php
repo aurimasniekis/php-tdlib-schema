@@ -17,16 +17,22 @@ class UpdateChatIsSponsored extends Update
 
     /**
      * Chat identifier.
+     *
+     * @var int
      */
     protected int $chatId;
 
     /**
      * New value of is_sponsored.
+     *
+     * @var bool
      */
     protected bool $isSponsored;
 
     /**
      * New value of chat order.
+     *
+     * @var string
      */
     protected string $order;
 

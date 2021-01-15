@@ -9,7 +9,7 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Returns a string stored in the local database from the specified localization target and language pack by its key. Returns a 404 error if the string is not found. Can be called synchronously.
+ * Returns a string stored in the local database from the specified localization target and language pack by its key. Returns a 404 error if the string is not found. This is an offline method. Can be called before authorization. Can be called synchronously.
  */
 class GetLanguagePackString extends TdFunction
 {
@@ -17,21 +17,29 @@ class GetLanguagePackString extends TdFunction
 
     /**
      * Path to the language pack database in which strings are stored.
+     *
+     * @var string
      */
     protected string $languagePackDatabasePath;
 
     /**
      * Localization target to which the language pack belongs.
+     *
+     * @var string
      */
     protected string $localizationTarget;
 
     /**
      * Language pack identifier.
+     *
+     * @var string
      */
     protected string $languagePackId;
 
     /**
      * Language pack key of the string to be returned.
+     *
+     * @var string
      */
     protected string $key;
 

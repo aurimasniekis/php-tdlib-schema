@@ -17,41 +17,57 @@ class Audio extends TdObject
 
     /**
      * Duration of the audio, in seconds; as defined by the sender.
+     *
+     * @var int
      */
     protected int $duration;
 
     /**
      * Title of the audio; as defined by the sender.
+     *
+     * @var string
      */
     protected string $title;
 
     /**
      * Performer of the audio; as defined by the sender.
+     *
+     * @var string
      */
     protected string $performer;
 
     /**
      * Original name of the file; as defined by the sender.
+     *
+     * @var string
      */
     protected string $fileName;
 
     /**
      * The MIME type of the file; as defined by the sender.
+     *
+     * @var string
      */
     protected string $mimeType;
 
     /**
      * The minithumbnail of the album cover; may be null.
+     *
+     * @var Minithumbnail|null
      */
     protected ?Minithumbnail $albumCoverMinithumbnail;
 
     /**
-     * The thumbnail of the album cover in JPEG format; as defined by the sender. The full size thumbnail should be extracted from the downloaded file; may be null.
+     * The thumbnail of the album cover; as defined by the sender. The full size thumbnail should be extracted from the downloaded file; may be null.
+     *
+     * @var PhotoSize|null
      */
-    protected ?Thumbnail $albumCoverThumbnail;
+    protected ?PhotoSize $albumCoverThumbnail;
 
     /**
      * File containing the audio.
+     *
+     * @var File
      */
     protected File $audio;
 
@@ -62,7 +78,7 @@ class Audio extends TdObject
         string $fileName,
         string $mimeType,
         ?Minithumbnail $albumCoverMinithumbnail,
-        ?Thumbnail $albumCoverThumbnail,
+        ?PhotoSize $albumCoverThumbnail,
         File $audio
     ) {
         $this->duration                = $duration;
@@ -134,7 +150,7 @@ class Audio extends TdObject
         return $this->albumCoverMinithumbnail;
     }
 
-    public function getAlbumCoverThumbnail(): ?Thumbnail
+    public function getAlbumCoverThumbnail(): ?PhotoSize
     {
         return $this->albumCoverThumbnail;
     }
