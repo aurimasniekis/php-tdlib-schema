@@ -88,7 +88,7 @@ class SupergroupFullInfo extends TdObject
     /**
      * True, if new chat members will have access to old messages. In public or discussion groups and both public and private channels, old messages are always available, so this option affects only private supergroups without a linked chat. The value of this field is only available for chat administrators.
      */
-    protected bool $isAllHistoryAvailable;
+    protected ?bool $isAllHistoryAvailable;
 
     /**
      * Identifier of the supergroup sticker set; 0 if none.
@@ -130,7 +130,7 @@ class SupergroupFullInfo extends TdObject
         bool $canSetStickerSet,
         bool $canSetLocation,
         bool $canGetStatistics,
-        bool $isAllHistoryAvailable,
+        ?bool $isAllHistoryAvailable,
         string $stickerSetId,
         ?ChatLocation $location,
         string $inviteLink,
@@ -282,7 +282,7 @@ class SupergroupFullInfo extends TdObject
         return $this->canGetStatistics;
     }
 
-    public function getIsAllHistoryAvailable(): bool
+    public function getIsAllHistoryAvailable(): ?bool
     {
         return $this->isAllHistoryAvailable;
     }

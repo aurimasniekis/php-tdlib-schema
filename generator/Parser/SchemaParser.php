@@ -209,7 +209,9 @@ class SchemaParser
                 $currentClass->typeName    = $typeName;
 
                 foreach ($knownFields as $name => $fieldType) {
-                    $mayBeNull     = false !== stripos($info[$name], 'may be null');
+                    $mayBeNull     =
+                        false !== stripos($info[$name], 'may be null') ||
+                        false !== stripos($info[$name], 'For chat administrators');
                     $fieldName     = $this->getFieldName($name, $className);
                     $fieldTypeName = $this->getTypeName($fieldType);
 
