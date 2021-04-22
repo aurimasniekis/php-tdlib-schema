@@ -17,26 +17,20 @@ class PageBlockChatLink extends PageBlock
 
     /**
      * Chat title.
-     *
-     * @var string
      */
     protected string $title;
 
     /**
      * Chat photo; may be null.
-     *
-     * @var ChatPhoto|null
      */
-    protected ?ChatPhoto $photo;
+    protected ?ChatPhotoInfo $photo;
 
     /**
      * Chat username, by which all other information about the chat should be resolved.
-     *
-     * @var string
      */
     protected string $username;
 
-    public function __construct(string $title, ?ChatPhoto $photo, string $username)
+    public function __construct(string $title, ?ChatPhotoInfo $photo, string $username)
     {
         parent::__construct();
 
@@ -69,7 +63,7 @@ class PageBlockChatLink extends PageBlock
         return $this->title;
     }
 
-    public function getPhoto(): ?ChatPhoto
+    public function getPhoto(): ?ChatPhotoInfo
     {
         return $this->photo;
     }

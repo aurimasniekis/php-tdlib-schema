@@ -17,22 +17,16 @@ class EditMessageReplyMarkup extends TdFunction
 
     /**
      * The chat the message belongs to.
-     *
-     * @var int
      */
     protected int $chatId;
 
     /**
      * Identifier of the message.
-     *
-     * @var int
      */
     protected int $messageId;
 
     /**
      * The new message reply markup.
-     *
-     * @var ReplyMarkup
      */
     protected ReplyMarkup $replyMarkup;
 

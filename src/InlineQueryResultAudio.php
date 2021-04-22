@@ -17,15 +17,11 @@ class InlineQueryResultAudio extends InlineQueryResult
 
     /**
      * Unique identifier of the query result.
-     *
-     * @var string
      */
     protected string $id;
 
     /**
      * Audio file.
-     *
-     * @var Audio
      */
     protected Audio $audio;
 

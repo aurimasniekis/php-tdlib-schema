@@ -9,7 +9,7 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Changes the status of a chat member, needs appropriate privileges. This function is currently not suitable for adding new members to the chat and transferring chat ownership; instead, use addChatMember or transferChatOwnership. The chat member status will not be changed until it has been synchronized with the server.
+ * Changes the status of a chat member, needs appropriate privileges. This function is currently not suitable for adding new members to the chat and transferring chat ownership; instead, use addChatMember or transferChatOwnership.
  */
 class SetChatMemberStatus extends TdFunction
 {
@@ -17,22 +17,16 @@ class SetChatMemberStatus extends TdFunction
 
     /**
      * Chat identifier.
-     *
-     * @var int
      */
     protected int $chatId;
 
     /**
      * User identifier.
-     *
-     * @var int
      */
     protected int $userId;
 
     /**
      * The new status of the member in the chat.
-     *
-     * @var ChatMemberStatus
      */
     protected ChatMemberStatus $status;
 

@@ -17,8 +17,6 @@ class SearchChatsNearby extends TdFunction
 
     /**
      * Current user location.
-     *
-     * @var Location
      */
     protected Location $location;
 

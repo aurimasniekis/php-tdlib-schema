@@ -17,8 +17,6 @@ class UpdateInstalledStickerSets extends Update
 
     /**
      * True, if the list of installed mask sticker sets was updated.
-     *
-     * @var bool
      */
     protected bool $isMasks;
 

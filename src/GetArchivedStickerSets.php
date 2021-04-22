@@ -17,22 +17,16 @@ class GetArchivedStickerSets extends TdFunction
 
     /**
      * Pass true to return mask stickers sets; pass false to return ordinary sticker sets.
-     *
-     * @var bool
      */
     protected bool $isMasks;
 
     /**
      * Identifier of the sticker set from which to return the result.
-     *
-     * @var string
      */
     protected string $offsetStickerSetId;
 
     /**
      * The maximum number of sticker sets to return.
-     *
-     * @var int
      */
     protected int $limit;
 

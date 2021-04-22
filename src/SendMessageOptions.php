@@ -17,22 +17,16 @@ class SendMessageOptions extends TdObject
 
     /**
      * Pass true to disable notification for the message. Must be false if the message is sent to a secret chat.
-     *
-     * @var bool
      */
     protected bool $disableNotification;
 
     /**
      * Pass true if the message is sent from the background.
-     *
-     * @var bool
      */
     protected bool $fromBackground;
 
     /**
      * Message scheduling state. Messages sent to a secret chat, live location messages and self-destructing messages can't be scheduled.
-     *
-     * @var MessageSchedulingState
      */
     protected MessageSchedulingState $schedulingState;
 

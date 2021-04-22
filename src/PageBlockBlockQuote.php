@@ -17,15 +17,11 @@ class PageBlockBlockQuote extends PageBlock
 
     /**
      * Quote text.
-     *
-     * @var RichText
      */
     protected RichText $text;
 
     /**
      * Quote credit.
-     *
-     * @var RichText
      */
     protected RichText $credit;
 

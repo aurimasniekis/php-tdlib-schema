@@ -17,15 +17,11 @@ class PushMessageContentText extends PushMessageContent
 
     /**
      * Message text.
-     *
-     * @var string
      */
     protected string $text;
 
     /**
      * True, if the message is a pinned message with the specified content.
-     *
-     * @var bool
      */
     protected bool $isPinned;
 

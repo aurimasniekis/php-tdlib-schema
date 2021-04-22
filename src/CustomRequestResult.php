@@ -17,8 +17,6 @@ class CustomRequestResult extends TdObject
 
     /**
      * A JSON-serialized result.
-     *
-     * @var string
      */
     protected string $result;
 

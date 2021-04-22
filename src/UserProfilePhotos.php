@@ -17,8 +17,6 @@ class UserProfilePhotos extends TdObject
 
     /**
      * Total number of user profile photos.
-     *
-     * @var int
      */
     protected int $totalCount;
 

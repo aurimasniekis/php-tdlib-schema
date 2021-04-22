@@ -9,7 +9,7 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Returns detailed statistics about a chat. Currently this method can be used only for channels. Requires administrator rights in the channel.
+ * Returns detailed statistics about a chat. Currently this method can be used only for supergroups and channels. Can be used only if SupergroupFullInfo.can_get_statistics == true.
  */
 class GetChatStatistics extends TdFunction
 {
@@ -17,15 +17,11 @@ class GetChatStatistics extends TdFunction
 
     /**
      * Chat identifier.
-     *
-     * @var int
      */
     protected int $chatId;
 
     /**
-     * Pass true if a dark theme is used by the app.
-     *
-     * @var bool
+     * Pass true if a dark theme is used by the application.
      */
     protected bool $isDark;
 

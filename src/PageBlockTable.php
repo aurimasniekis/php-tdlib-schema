@@ -17,8 +17,6 @@ class PageBlockTable extends PageBlock
 
     /**
      * Table caption.
-     *
-     * @var RichText
      */
     protected RichText $caption;
 
@@ -31,15 +29,11 @@ class PageBlockTable extends PageBlock
 
     /**
      * True, if the table is bordered.
-     *
-     * @var bool
      */
     protected bool $isBordered;
 
     /**
      * True, if the table is striped.
-     *
-     * @var bool
      */
     protected bool $isStriped;
 

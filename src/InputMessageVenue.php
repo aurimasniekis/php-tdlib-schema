@@ -17,8 +17,6 @@ class InputMessageVenue extends InputMessageContent
 
     /**
      * Venue to send.
-     *
-     * @var Venue
      */
     protected Venue $venue;
 

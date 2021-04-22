@@ -17,8 +17,6 @@ class TMeUrlTypeUser extends TMeUrlType
 
     /**
      * Identifier of the user.
-     *
-     * @var int
      */
     protected int $userId;
 

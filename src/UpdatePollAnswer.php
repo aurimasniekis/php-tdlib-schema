@@ -17,15 +17,11 @@ class UpdatePollAnswer extends Update
 
     /**
      * Unique poll identifier.
-     *
-     * @var string
      */
     protected string $pollId;
 
     /**
      * The user, who changed the answer to the poll.
-     *
-     * @var int
      */
     protected int $userId;
 

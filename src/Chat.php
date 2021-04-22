@@ -17,198 +17,141 @@ class Chat extends TdObject
 
     /**
      * Chat unique identifier.
-     *
-     * @var int
      */
     protected int $id;
 
     /**
      * Type of the chat.
-     *
-     * @var ChatType
      */
     protected ChatType $type;
 
     /**
-     * A chat list to which the chat belongs; may be null.
-     *
-     * @var ChatList|null
-     */
-    protected ?ChatList $chatList;
-
-    /**
      * Chat title.
-     *
-     * @var string
      */
     protected string $title;
 
     /**
      * Chat photo; may be null.
-     *
-     * @var ChatPhoto|null
      */
-    protected ?ChatPhoto $photo;
+    protected ?ChatPhotoInfo $photo;
 
     /**
      * Actions that non-administrator chat members are allowed to take in the chat.
-     *
-     * @var ChatPermissions
      */
     protected ChatPermissions $permissions;
 
     /**
      * Last message in the chat; may be null.
-     *
-     * @var Message|null
      */
     protected ?Message $lastMessage;
 
     /**
-     * Descending parameter by which chats are sorted in the main chat list. If the order number of two chats is the same, they must be sorted in descending order by ID. If 0, the position of the chat in the list is undetermined.
+     * Positions of the chat in chat lists.
      *
-     * @var string
+     * @var ChatPosition[]
      */
-    protected string $order;
-
-    /**
-     * True, if the chat is pinned.
-     *
-     * @var bool
-     */
-    protected bool $isPinned;
+    protected array $positions;
 
     /**
      * True, if the chat is marked as unread.
-     *
-     * @var bool
      */
     protected bool $isMarkedAsUnread;
 
     /**
-     * True, if the chat is sponsored by the user's MTProxy server.
-     *
-     * @var bool
+     * True, if the chat is blocked by the current user and private messages from the chat can't be received.
      */
-    protected bool $isSponsored;
+    protected bool $isBlocked;
 
     /**
      * True, if the chat has scheduled messages.
-     *
-     * @var bool
      */
     protected bool $hasScheduledMessages;
 
     /**
      * True, if the chat messages can be deleted only for the current user while other users will continue to see the messages.
-     *
-     * @var bool
      */
     protected bool $canBeDeletedOnlyForSelf;
 
     /**
      * True, if the chat messages can be deleted for all users.
-     *
-     * @var bool
      */
     protected bool $canBeDeletedForAllUsers;
 
     /**
-     * True, if the chat can be reported to Telegram moderators through reportChat.
-     *
-     * @var bool
+     * True, if the chat can be reported to Telegram moderators through reportChat or reportChatPhoto.
      */
     protected bool $canBeReported;
 
     /**
      * Default value of the disable_notification parameter, used when a message is sent to the chat.
-     *
-     * @var bool
      */
     protected bool $defaultDisableNotification;
 
     /**
      * Number of unread messages in the chat.
-     *
-     * @var int
      */
     protected int $unreadCount;
 
     /**
      * Identifier of the last read incoming message.
-     *
-     * @var int
      */
     protected int $lastReadInboxMessageId;
 
     /**
      * Identifier of the last read outgoing message.
-     *
-     * @var int
      */
     protected int $lastReadOutboxMessageId;
 
     /**
      * Number of unread messages with a mention/reply in the chat.
-     *
-     * @var int
      */
     protected int $unreadMentionCount;
 
     /**
      * Notification settings for this chat.
-     *
-     * @var ChatNotificationSettings
      */
     protected ChatNotificationSettings $notificationSettings;
 
     /**
+     * Current message Time To Live setting (self-destruct timer) for the chat; 0 if not defined. TTL is counted from the time message or its content is viewed in secret chats and from the send date in other chats.
+     */
+    protected int $messageTtlSetting;
+
+    /**
      * Describes actions which should be possible to do through a chat action bar; may be null.
-     *
-     * @var ChatActionBar|null
      */
     protected ?ChatActionBar $actionBar;
 
     /**
-     * Identifier of the pinned message in the chat; 0 if none.
-     *
-     * @var int
+     * Contains information about voice chat of the chat.
      */
-    protected int $pinnedMessageId;
+    protected VoiceChat $voiceChat;
 
     /**
      * Identifier of the message from which reply markup needs to be used; 0 if there is no default custom reply markup in the chat.
-     *
-     * @var int
      */
     protected int $replyMarkupMessageId;
 
     /**
      * A draft of a message in the chat; may be null.
-     *
-     * @var DraftMessage|null
      */
     protected ?DraftMessage $draftMessage;
 
     /**
-     * Contains client-specific data associated with the chat. (For example, the chat position or local chat notification settings can be stored here.) Persistent if the message database is used.
-     *
-     * @var string
+     * Contains application-specific data associated with the chat. (For example, the chat scroll position or local chat notification settings can be stored here.) Persistent if the message database is used.
      */
     protected string $clientData;
 
     public function __construct(
         int $id,
         ChatType $type,
-        ?ChatList $chatList,
         string $title,
-        ?ChatPhoto $photo,
+        ?ChatPhotoInfo $photo,
         ChatPermissions $permissions,
         ?Message $lastMessage,
-        string $order,
-        bool $isPinned,
+        array $positions,
         bool $isMarkedAsUnread,
-        bool $isSponsored,
+        bool $isBlocked,
         bool $hasScheduledMessages,
         bool $canBeDeletedOnlyForSelf,
         bool $canBeDeletedForAllUsers,
@@ -219,23 +162,22 @@ class Chat extends TdObject
         int $lastReadOutboxMessageId,
         int $unreadMentionCount,
         ChatNotificationSettings $notificationSettings,
+        int $messageTtlSetting,
         ?ChatActionBar $actionBar,
-        int $pinnedMessageId,
+        VoiceChat $voiceChat,
         int $replyMarkupMessageId,
         ?DraftMessage $draftMessage,
         string $clientData
     ) {
         $this->id                         = $id;
         $this->type                       = $type;
-        $this->chatList                   = $chatList;
         $this->title                      = $title;
         $this->photo                      = $photo;
         $this->permissions                = $permissions;
         $this->lastMessage                = $lastMessage;
-        $this->order                      = $order;
-        $this->isPinned                   = $isPinned;
+        $this->positions                  = $positions;
         $this->isMarkedAsUnread           = $isMarkedAsUnread;
-        $this->isSponsored                = $isSponsored;
+        $this->isBlocked                  = $isBlocked;
         $this->hasScheduledMessages       = $hasScheduledMessages;
         $this->canBeDeletedOnlyForSelf    = $canBeDeletedOnlyForSelf;
         $this->canBeDeletedForAllUsers    = $canBeDeletedForAllUsers;
@@ -246,8 +188,9 @@ class Chat extends TdObject
         $this->lastReadOutboxMessageId    = $lastReadOutboxMessageId;
         $this->unreadMentionCount         = $unreadMentionCount;
         $this->notificationSettings       = $notificationSettings;
+        $this->messageTtlSetting          = $messageTtlSetting;
         $this->actionBar                  = $actionBar;
-        $this->pinnedMessageId            = $pinnedMessageId;
+        $this->voiceChat                  = $voiceChat;
         $this->replyMarkupMessageId       = $replyMarkupMessageId;
         $this->draftMessage               = $draftMessage;
         $this->clientData                 = $clientData;
@@ -258,15 +201,13 @@ class Chat extends TdObject
         return new static(
             $array['id'],
             TdSchemaRegistry::fromArray($array['type']),
-            (isset($array['chat_list']) ? TdSchemaRegistry::fromArray($array['chat_list']) : null),
             $array['title'],
             (isset($array['photo']) ? TdSchemaRegistry::fromArray($array['photo']) : null),
             TdSchemaRegistry::fromArray($array['permissions']),
             (isset($array['last_message']) ? TdSchemaRegistry::fromArray($array['last_message']) : null),
-            $array['order'],
-            $array['is_pinned'],
+            array_map(fn ($x) => TdSchemaRegistry::fromArray($x), $array['positions']),
             $array['is_marked_as_unread'],
-            $array['is_sponsored'],
+            $array['is_blocked'],
             $array['has_scheduled_messages'],
             $array['can_be_deleted_only_for_self'],
             $array['can_be_deleted_for_all_users'],
@@ -277,8 +218,9 @@ class Chat extends TdObject
             $array['last_read_outbox_message_id'],
             $array['unread_mention_count'],
             TdSchemaRegistry::fromArray($array['notification_settings']),
+            $array['message_ttl_setting'],
             (isset($array['action_bar']) ? TdSchemaRegistry::fromArray($array['action_bar']) : null),
-            $array['pinned_message_id'],
+            TdSchemaRegistry::fromArray($array['voice_chat']),
             $array['reply_markup_message_id'],
             (isset($array['draft_message']) ? TdSchemaRegistry::fromArray($array['draft_message']) : null),
             $array['client_data'],
@@ -291,15 +233,13 @@ class Chat extends TdObject
             '@type'                        => static::TYPE_NAME,
             'id'                           => $this->id,
             'type'                         => $this->type->typeSerialize(),
-            'chat_list'                    => (isset($this->chatList) ? $this->chatList : null),
             'title'                        => $this->title,
             'photo'                        => (isset($this->photo) ? $this->photo : null),
             'permissions'                  => $this->permissions->typeSerialize(),
             'last_message'                 => (isset($this->lastMessage) ? $this->lastMessage : null),
-            'order'                        => $this->order,
-            'is_pinned'                    => $this->isPinned,
+            array_map(fn ($x)              => $x->typeSerialize(), $this->positions),
             'is_marked_as_unread'          => $this->isMarkedAsUnread,
-            'is_sponsored'                 => $this->isSponsored,
+            'is_blocked'                   => $this->isBlocked,
             'has_scheduled_messages'       => $this->hasScheduledMessages,
             'can_be_deleted_only_for_self' => $this->canBeDeletedOnlyForSelf,
             'can_be_deleted_for_all_users' => $this->canBeDeletedForAllUsers,
@@ -310,8 +250,9 @@ class Chat extends TdObject
             'last_read_outbox_message_id'  => $this->lastReadOutboxMessageId,
             'unread_mention_count'         => $this->unreadMentionCount,
             'notification_settings'        => $this->notificationSettings->typeSerialize(),
+            'message_ttl_setting'          => $this->messageTtlSetting,
             'action_bar'                   => (isset($this->actionBar) ? $this->actionBar : null),
-            'pinned_message_id'            => $this->pinnedMessageId,
+            'voice_chat'                   => $this->voiceChat->typeSerialize(),
             'reply_markup_message_id'      => $this->replyMarkupMessageId,
             'draft_message'                => (isset($this->draftMessage) ? $this->draftMessage : null),
             'client_data'                  => $this->clientData,
@@ -328,17 +269,12 @@ class Chat extends TdObject
         return $this->type;
     }
 
-    public function getChatList(): ?ChatList
-    {
-        return $this->chatList;
-    }
-
     public function getTitle(): string
     {
         return $this->title;
     }
 
-    public function getPhoto(): ?ChatPhoto
+    public function getPhoto(): ?ChatPhotoInfo
     {
         return $this->photo;
     }
@@ -353,14 +289,9 @@ class Chat extends TdObject
         return $this->lastMessage;
     }
 
-    public function getOrder(): string
+    public function getPositions(): array
     {
-        return $this->order;
-    }
-
-    public function getIsPinned(): bool
-    {
-        return $this->isPinned;
+        return $this->positions;
     }
 
     public function getIsMarkedAsUnread(): bool
@@ -368,9 +299,9 @@ class Chat extends TdObject
         return $this->isMarkedAsUnread;
     }
 
-    public function getIsSponsored(): bool
+    public function getIsBlocked(): bool
     {
-        return $this->isSponsored;
+        return $this->isBlocked;
     }
 
     public function getHasScheduledMessages(): bool
@@ -423,14 +354,19 @@ class Chat extends TdObject
         return $this->notificationSettings;
     }
 
+    public function getMessageTtlSetting(): int
+    {
+        return $this->messageTtlSetting;
+    }
+
     public function getActionBar(): ?ChatActionBar
     {
         return $this->actionBar;
     }
 
-    public function getPinnedMessageId(): int
+    public function getVoiceChat(): VoiceChat
     {
-        return $this->pinnedMessageId;
+        return $this->voiceChat;
     }
 
     public function getReplyMarkupMessageId(): int

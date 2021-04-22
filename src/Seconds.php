@@ -17,8 +17,6 @@ class Seconds extends TdObject
 
     /**
      * Number of seconds.
-     *
-     * @var float
      */
     protected float $seconds;
 

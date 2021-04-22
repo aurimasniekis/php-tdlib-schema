@@ -17,71 +17,51 @@ class InputInlineQueryResultArticle extends InputInlineQueryResult
 
     /**
      * Unique identifier of the query result.
-     *
-     * @var string
      */
     protected string $id;
 
     /**
      * URL of the result, if it exists.
-     *
-     * @var string
      */
     protected string $url;
 
     /**
      * True, if the URL must be not shown.
-     *
-     * @var bool
      */
     protected bool $hideUrl;
 
     /**
      * Title of the result.
-     *
-     * @var string
      */
     protected string $title;
 
     /**
      * A short description of the result.
-     *
-     * @var string
      */
     protected string $description;
 
     /**
      * URL of the result thumbnail, if it exists.
-     *
-     * @var string
      */
     protected string $thumbnailUrl;
 
     /**
      * Thumbnail width, if known.
-     *
-     * @var int
      */
     protected int $thumbnailWidth;
 
     /**
      * Thumbnail height, if known.
-     *
-     * @var int
      */
     protected int $thumbnailHeight;
 
     /**
      * The message reply markup. Must be of type replyMarkupInlineKeyboard or null.
-     *
-     * @var ReplyMarkup
      */
     protected ReplyMarkup $replyMarkup;
 
     /**
      * The content of the message to be sent. Must be one of the following types: InputMessageText, InputMessageLocation, InputMessageVenue or InputMessageContact.
-     *
-     * @var InputMessageContent
      */
     protected InputMessageContent $inputMessageContent;
 

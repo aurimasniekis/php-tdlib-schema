@@ -17,22 +17,16 @@ class SendCallRating extends TdFunction
 
     /**
      * Call identifier.
-     *
-     * @var int
      */
     protected int $callId;
 
     /**
      * Call rating; 1-5.
-     *
-     * @var int
      */
     protected int $rating;
 
     /**
      * An optional user comment if the rating is less than 5.
-     *
-     * @var string
      */
     protected string $comment;
 

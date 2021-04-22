@@ -17,15 +17,11 @@ class BankCardActionOpenUrl extends TdObject
 
     /**
      * Action text.
-     *
-     * @var string
      */
     protected string $text;
 
     /**
      * The URL to be opened.
-     *
-     * @var string
      */
     protected string $url;
 

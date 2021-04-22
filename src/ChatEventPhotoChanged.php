@@ -17,19 +17,15 @@ class ChatEventPhotoChanged extends ChatEventAction
 
     /**
      * Previous chat photo value; may be null.
-     *
-     * @var Photo|null
      */
-    protected ?Photo $oldPhoto;
+    protected ?ChatPhoto $oldPhoto;
 
     /**
      * New chat photo value; may be null.
-     *
-     * @var Photo|null
      */
-    protected ?Photo $newPhoto;
+    protected ?ChatPhoto $newPhoto;
 
-    public function __construct(?Photo $oldPhoto, ?Photo $newPhoto)
+    public function __construct(?ChatPhoto $oldPhoto, ?ChatPhoto $newPhoto)
     {
         parent::__construct();
 
@@ -54,12 +50,12 @@ class ChatEventPhotoChanged extends ChatEventAction
         ];
     }
 
-    public function getOldPhoto(): ?Photo
+    public function getOldPhoto(): ?ChatPhoto
     {
         return $this->oldPhoto;
     }
 
-    public function getNewPhoto(): ?Photo
+    public function getNewPhoto(): ?ChatPhoto
     {
         return $this->newPhoto;
     }

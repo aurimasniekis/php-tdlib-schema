@@ -17,15 +17,11 @@ class UpdateMessageSendAcknowledged extends Update
 
     /**
      * The chat identifier of the sent message.
-     *
-     * @var int
      */
     protected int $chatId;
 
     /**
      * A temporary message identifier.
-     *
-     * @var int
      */
     protected int $messageId;
 

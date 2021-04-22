@@ -17,15 +17,11 @@ class ChatNearby extends TdObject
 
     /**
      * Chat identifier.
-     *
-     * @var int
      */
     protected int $chatId;
 
     /**
-     * Distance to the chat location in meters.
-     *
-     * @var int
+     * Distance to the chat location, in meters.
      */
     protected int $distance;
 

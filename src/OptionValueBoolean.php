@@ -17,8 +17,6 @@ class OptionValueBoolean extends OptionValue
 
     /**
      * The value of the option.
-     *
-     * @var bool
      */
     protected bool $value;
 

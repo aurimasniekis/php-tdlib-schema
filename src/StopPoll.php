@@ -17,22 +17,16 @@ class StopPoll extends TdFunction
 
     /**
      * Identifier of the chat to which the poll belongs.
-     *
-     * @var int
      */
     protected int $chatId;
 
     /**
      * Identifier of the message containing the poll.
-     *
-     * @var int
      */
     protected int $messageId;
 
     /**
      * The new message reply markup; for bots only.
-     *
-     * @var ReplyMarkup
      */
     protected ReplyMarkup $replyMarkup;
 

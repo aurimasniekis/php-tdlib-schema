@@ -17,15 +17,11 @@ class InlineKeyboardButton extends TdObject
 
     /**
      * Text of the button.
-     *
-     * @var string
      */
     protected string $text;
 
     /**
      * Type of the button.
-     *
-     * @var InlineKeyboardButtonType
      */
     protected InlineKeyboardButtonType $type;
 

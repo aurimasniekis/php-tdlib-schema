@@ -17,8 +17,6 @@ class StickerSets extends TdObject
 
     /**
      * Approximate total number of sticker sets found.
-     *
-     * @var int
      */
     protected int $totalCount;
 

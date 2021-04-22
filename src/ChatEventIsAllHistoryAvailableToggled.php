@@ -17,8 +17,6 @@ class ChatEventIsAllHistoryAvailableToggled extends ChatEventAction
 
     /**
      * New value of is_all_history_available.
-     *
-     * @var bool
      */
     protected bool $isAllHistoryAvailable;
 

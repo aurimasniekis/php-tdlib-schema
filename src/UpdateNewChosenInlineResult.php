@@ -17,41 +17,36 @@ class UpdateNewChosenInlineResult extends Update
 
     /**
      * Identifier of the user who sent the query.
-     *
-     * @var int
      */
     protected int $senderUserId;
 
     /**
-     * User location, provided by the client; may be null.
-     *
-     * @var Location|null
+     * User location; may be null.
      */
     protected ?Location $userLocation;
 
     /**
      * Text of the query.
-     *
-     * @var string
      */
     protected string $query;
 
     /**
      * Identifier of the chosen result.
-     *
-     * @var string
      */
     protected string $resultId;
 
     /**
      * Identifier of the sent inline message, if known.
-     *
-     * @var string
      */
     protected string $inlineMessageId;
 
-    public function __construct(int $senderUserId, ?Location $userLocation, string $query, string $resultId, string $inlineMessageId)
-    {
+    public function __construct(
+        int $senderUserId,
+        ?Location $userLocation,
+        string $query,
+        string $resultId,
+        string $inlineMessageId
+    ) {
         parent::__construct();
 
         $this->senderUserId    = $senderUserId;

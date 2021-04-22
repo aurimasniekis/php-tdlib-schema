@@ -17,15 +17,11 @@ class ChatEventTitleChanged extends ChatEventAction
 
     /**
      * Previous chat title.
-     *
-     * @var string
      */
     protected string $oldTitle;
 
     /**
      * New chat title.
-     *
-     * @var string
      */
     protected string $newTitle;
 

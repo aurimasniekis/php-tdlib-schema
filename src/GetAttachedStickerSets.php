@@ -17,8 +17,6 @@ class GetAttachedStickerSets extends TdFunction
 
     /**
      * File identifier.
-     *
-     * @var int
      */
     protected int $fileId;
 

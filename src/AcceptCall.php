@@ -17,15 +17,11 @@ class AcceptCall extends TdFunction
 
     /**
      * Call identifier.
-     *
-     * @var int
      */
     protected int $callId;
 
     /**
-     * Description of the call protocols supported by the client.
-     *
-     * @var CallProtocol
+     * Description of the call protocols supported by the application.
      */
     protected CallProtocol $protocol;
 

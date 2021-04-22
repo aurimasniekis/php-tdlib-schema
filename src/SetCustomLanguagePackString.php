@@ -17,15 +17,11 @@ class SetCustomLanguagePackString extends TdFunction
 
     /**
      * Identifier of a previously added custom local language pack in the current localization target.
-     *
-     * @var string
      */
     protected string $languagePackId;
 
     /**
      * New language pack string.
-     *
-     * @var LanguagePackString
      */
     protected LanguagePackString $newString;
 

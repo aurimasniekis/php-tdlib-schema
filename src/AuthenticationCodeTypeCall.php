@@ -17,8 +17,6 @@ class AuthenticationCodeTypeCall extends AuthenticationCodeType
 
     /**
      * Length of the code.
-     *
-     * @var int
      */
     protected int $length;
 

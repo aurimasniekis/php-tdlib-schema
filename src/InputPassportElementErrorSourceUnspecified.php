@@ -17,8 +17,6 @@ class InputPassportElementErrorSourceUnspecified extends InputPassportElementErr
 
     /**
      * Current hash of the entire element.
-     *
-     * @var string
      */
     protected string $elementHash;
 

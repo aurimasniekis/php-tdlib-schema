@@ -17,22 +17,16 @@ class InputStickerStatic extends InputSticker
 
     /**
      * PNG image with the sticker; must be up to 512 KB in size and fit in a 512x512 square.
-     *
-     * @var InputFile
      */
     protected InputFile $sticker;
 
     /**
      * Emojis corresponding to the sticker.
-     *
-     * @var string
      */
     protected string $emojis;
 
     /**
      * For masks, position where the mask should be placed; may be null.
-     *
-     * @var MaskPosition|null
      */
     protected ?MaskPosition $maskPosition;
 

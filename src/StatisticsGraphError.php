@@ -17,8 +17,6 @@ class StatisticsGraphError extends StatisticsGraph
 
     /**
      * The error message.
-     *
-     * @var string
      */
     protected string $errorMessage;
 

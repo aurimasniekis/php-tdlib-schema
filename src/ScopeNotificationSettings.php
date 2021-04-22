@@ -17,36 +17,26 @@ class ScopeNotificationSettings extends TdObject
 
     /**
      * Time left before notifications will be unmuted, in seconds.
-     *
-     * @var int
      */
     protected int $muteFor;
 
     /**
      * The name of an audio file to be used for notification sounds; only applies to iOS applications.
-     *
-     * @var string
      */
     protected string $sound;
 
     /**
      * True, if message content should be displayed in notifications.
-     *
-     * @var bool
      */
     protected bool $showPreview;
 
     /**
      * True, if notifications for incoming pinned messages will be created as for an ordinary unread message.
-     *
-     * @var bool
      */
     protected bool $disablePinnedMessageNotifications;
 
     /**
      * True, if notifications for messages with mentions will be created as for an ordinary unread message.
-     *
-     * @var bool
      */
     protected bool $disableMentionNotifications;
 

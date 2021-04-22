@@ -9,7 +9,7 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Adds a new member to a chat. Members can't be added to private or secret chats. Members will not be added until the chat state has been synchronized with the server.
+ * Adds a new member to a chat. Members can't be added to private or secret chats.
  */
 class AddChatMember extends TdFunction
 {
@@ -17,22 +17,16 @@ class AddChatMember extends TdFunction
 
     /**
      * Chat identifier.
-     *
-     * @var int
      */
     protected int $chatId;
 
     /**
      * Identifier of the user.
-     *
-     * @var int
      */
     protected int $userId;
 
     /**
      * The number of earlier messages from the chat to be forwarded to the new member; up to 100. Ignored for supergroups and channels.
-     *
-     * @var int
      */
     protected int $forwardLimit;
 

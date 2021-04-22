@@ -17,8 +17,6 @@ class MessageBasicGroupChatCreate extends MessageContent
 
     /**
      * Title of the basic group.
-     *
-     * @var string
      */
     protected string $title;
 

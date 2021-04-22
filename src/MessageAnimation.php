@@ -17,22 +17,16 @@ class MessageAnimation extends MessageContent
 
     /**
      * The animation description.
-     *
-     * @var Animation
      */
     protected Animation $animation;
 
     /**
      * Animation caption.
-     *
-     * @var FormattedText
      */
     protected FormattedText $caption;
 
     /**
      * True, if the animation thumbnail must be blurred and the animation must be shown only while tapped.
-     *
-     * @var bool
      */
     protected bool $isSecret;
 

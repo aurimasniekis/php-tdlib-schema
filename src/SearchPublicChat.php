@@ -17,8 +17,6 @@ class SearchPublicChat extends TdFunction
 
     /**
      * Username to be resolved.
-     *
-     * @var string
      */
     protected string $username;
 

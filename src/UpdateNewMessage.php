@@ -17,8 +17,6 @@ class UpdateNewMessage extends Update
 
     /**
      * The new message.
-     *
-     * @var Message
      */
     protected Message $message;
 

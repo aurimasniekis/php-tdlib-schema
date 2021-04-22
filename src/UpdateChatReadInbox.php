@@ -17,22 +17,16 @@ class UpdateChatReadInbox extends Update
 
     /**
      * Chat identifier.
-     *
-     * @var int
      */
     protected int $chatId;
 
     /**
      * Identifier of the last read incoming message.
-     *
-     * @var int
      */
     protected int $lastReadInboxMessageId;
 
     /**
      * The number of unread messages left in the chat.
-     *
-     * @var int
      */
     protected int $unreadCount;
 

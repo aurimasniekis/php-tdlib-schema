@@ -17,106 +17,76 @@ class TdlibParameters extends TdObject
 
     /**
      * If set to true, the Telegram test environment will be used instead of the production environment.
-     *
-     * @var bool
      */
     protected bool $useTestDc;
 
     /**
      * The path to the directory for the persistent database; if empty, the current working directory will be used.
-     *
-     * @var string
      */
     protected string $databaseDirectory;
 
     /**
      * The path to the directory for storing files; if empty, database_directory will be used.
-     *
-     * @var string
      */
     protected string $filesDirectory;
 
     /**
      * If set to true, information about downloaded and uploaded files will be saved between application restarts.
-     *
-     * @var bool
      */
     protected bool $useFileDatabase;
 
     /**
      * If set to true, the library will maintain a cache of users, basic groups, supergroups, channels and secret chats. Implies use_file_database.
-     *
-     * @var bool
      */
     protected bool $useChatInfoDatabase;
 
     /**
      * If set to true, the library will maintain a cache of chats and messages. Implies use_chat_info_database.
-     *
-     * @var bool
      */
     protected bool $useMessageDatabase;
 
     /**
      * If set to true, support for secret chats will be enabled.
-     *
-     * @var bool
      */
     protected bool $useSecretChats;
 
     /**
      * Application identifier for Telegram API access, which can be obtained at https://my.telegram.org.
-     *
-     * @var int
      */
     protected int $apiId;
 
     /**
      * Application identifier hash for Telegram API access, which can be obtained at https://my.telegram.org.
-     *
-     * @var string
      */
     protected string $apiHash;
 
     /**
      * IETF language tag of the user's operating system language; must be non-empty.
-     *
-     * @var string
      */
     protected string $systemLanguageCode;
 
     /**
      * Model of the device the application is being run on; must be non-empty.
-     *
-     * @var string
      */
     protected string $deviceModel;
 
     /**
-     * Version of the operating system the application is being run on; must be non-empty.
-     *
-     * @var string
+     * Version of the operating system the application is being run on. If empty, the version is automatically detected by TDLib.
      */
     protected string $systemVersion;
 
     /**
      * Application version; must be non-empty.
-     *
-     * @var string
      */
     protected string $applicationVersion;
 
     /**
      * If set to true, old files will automatically be deleted.
-     *
-     * @var bool
      */
     protected bool $enableStorageOptimizer;
 
     /**
      * If set to true, original file names will be ignored. Otherwise, downloaded files will be saved under names as close as possible to the original name.
-     *
-     * @var bool
      */
     protected bool $ignoreFileNames;
 

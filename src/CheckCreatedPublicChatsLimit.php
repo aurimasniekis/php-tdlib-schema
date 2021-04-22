@@ -17,8 +17,6 @@ class CheckCreatedPublicChatsLimit extends TdFunction
 
     /**
      * Type of the public chats, for which to check the limit.
-     *
-     * @var PublicChatType
      */
     protected PublicChatType $type;
 

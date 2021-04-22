@@ -16,16 +16,17 @@ class BasicGroupFullInfo extends TdObject
     public const TYPE_NAME = 'basicGroupFullInfo';
 
     /**
-     * Group description.
-     *
-     * @var string
+     * Chat photo; may be null.
+     */
+    protected ?ChatPhoto $photo;
+
+    /**
+     * Group description. Updated only after the basic group is opened.
      */
     protected string $description;
 
     /**
      * User identifier of the creator of the group; 0 if unknown.
-     *
-     * @var int
      */
     protected int $creatorUserId;
 
@@ -37,14 +38,18 @@ class BasicGroupFullInfo extends TdObject
     protected array $members;
 
     /**
-     * Invite link for this group; available only after it has been generated at least once and only for the group creator.
-     *
-     * @var string
+     * Primary invite link for this group; may be null. For chat administrators with can_invite_users right only. Updated only after the basic group is opened.
      */
-    protected string $inviteLink;
+    protected ?ChatInviteLink $inviteLink;
 
-    public function __construct(string $description, int $creatorUserId, array $members, string $inviteLink)
-    {
+    public function __construct(
+        ?ChatPhoto $photo,
+        string $description,
+        int $creatorUserId,
+        array $members,
+        ?ChatInviteLink $inviteLink
+    ) {
+        $this->photo         = $photo;
         $this->description   = $description;
         $this->creatorUserId = $creatorUserId;
         $this->members       = $members;
@@ -54,10 +59,11 @@ class BasicGroupFullInfo extends TdObject
     public static function fromArray(array $array): BasicGroupFullInfo
     {
         return new static(
+            (isset($array['photo']) ? TdSchemaRegistry::fromArray($array['photo']) : null),
             $array['description'],
             $array['creator_user_id'],
             array_map(fn ($x) => TdSchemaRegistry::fromArray($x), $array['members']),
-            $array['invite_link'],
+            (isset($array['invite_link']) ? TdSchemaRegistry::fromArray($array['invite_link']) : null),
         );
     }
 
@@ -65,11 +71,17 @@ class BasicGroupFullInfo extends TdObject
     {
         return [
             '@type'           => static::TYPE_NAME,
+            'photo'           => (isset($this->photo) ? $this->photo : null),
             'description'     => $this->description,
             'creator_user_id' => $this->creatorUserId,
             array_map(fn ($x) => $x->typeSerialize(), $this->members),
-            'invite_link'     => $this->inviteLink,
+            'invite_link'     => (isset($this->inviteLink) ? $this->inviteLink : null),
         ];
+    }
+
+    public function getPhoto(): ?ChatPhoto
+    {
+        return $this->photo;
     }
 
     public function getDescription(): string
@@ -87,7 +99,7 @@ class BasicGroupFullInfo extends TdObject
         return $this->members;
     }
 
-    public function getInviteLink(): string
+    public function getInviteLink(): ?ChatInviteLink
     {
         return $this->inviteLink;
     }

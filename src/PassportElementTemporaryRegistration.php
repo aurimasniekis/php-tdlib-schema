@@ -17,8 +17,6 @@ class PassportElementTemporaryRegistration extends PassportElement
 
     /**
      * Temporary registration.
-     *
-     * @var PersonalDocument
      */
     protected PersonalDocument $temporaryRegistration;
 

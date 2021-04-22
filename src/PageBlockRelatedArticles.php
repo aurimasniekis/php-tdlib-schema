@@ -17,8 +17,6 @@ class PageBlockRelatedArticles extends PageBlock
 
     /**
      * Block header.
-     *
-     * @var RichText
      */
     protected RichText $header;
 

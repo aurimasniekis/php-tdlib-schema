@@ -17,15 +17,11 @@ class GetChatNotificationSettingsExceptions extends TdFunction
 
     /**
      * If specified, only chats from the specified scope will be returned.
-     *
-     * @var NotificationSettingsScope
      */
     protected NotificationSettingsScope $scope;
 
     /**
      * If true, also chats with non-default sound will be returned.
-     *
-     * @var bool
      */
     protected bool $compareSound;
 

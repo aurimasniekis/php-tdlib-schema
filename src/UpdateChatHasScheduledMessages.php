@@ -17,15 +17,11 @@ class UpdateChatHasScheduledMessages extends Update
 
     /**
      * Chat identifier.
-     *
-     * @var int
      */
     protected int $chatId;
 
     /**
      * New value of has_scheduled_messages.
-     *
-     * @var bool
      */
     protected bool $hasScheduledMessages;
 

@@ -17,8 +17,6 @@ class PageBlockTitle extends PageBlock
 
     /**
      * Title.
-     *
-     * @var RichText
      */
     protected RichText $title;
 

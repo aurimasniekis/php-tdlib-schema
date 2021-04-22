@@ -17,8 +17,6 @@ class GetInstalledStickerSets extends TdFunction
 
     /**
      * Pass true to return mask sticker sets; pass false to return ordinary sticker sets.
-     *
-     * @var bool
      */
     protected bool $isMasks;
 

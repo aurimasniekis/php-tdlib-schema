@@ -17,8 +17,6 @@ class GetOption extends TdFunction
 
     /**
      * The name of the option.
-     *
-     * @var string
      */
     protected string $name;
 

@@ -17,15 +17,11 @@ class MessageText extends MessageContent
 
     /**
      * Text of the message.
-     *
-     * @var FormattedText
      */
     protected FormattedText $text;
 
     /**
      * A preview of the web page that's mentioned in the text; may be null.
-     *
-     * @var WebPage|null
      */
     protected ?WebPage $webPage;
 

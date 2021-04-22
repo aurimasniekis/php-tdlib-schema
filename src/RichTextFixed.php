@@ -17,8 +17,6 @@ class RichTextFixed extends RichText
 
     /**
      * Text.
-     *
-     * @var RichText
      */
     protected RichText $text;
 

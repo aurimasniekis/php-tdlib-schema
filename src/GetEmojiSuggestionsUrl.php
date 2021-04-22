@@ -17,8 +17,6 @@ class GetEmojiSuggestionsUrl extends TdFunction
 
     /**
      * Language code for which the emoji replacements will be suggested.
-     *
-     * @var string
      */
     protected string $languageCode;
 

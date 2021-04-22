@@ -17,8 +17,6 @@ class ProcessPushNotification extends TdFunction
 
     /**
      * JSON-encoded push notification payload with all fields sent by the server, and "google.sent_time" and "google.notification.sound" fields added.
-     *
-     * @var string
      */
     protected string $payload;
 

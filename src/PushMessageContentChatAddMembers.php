@@ -17,22 +17,16 @@ class PushMessageContentChatAddMembers extends PushMessageContent
 
     /**
      * Name of the added member.
-     *
-     * @var string
      */
     protected string $memberName;
 
     /**
      * True, if the current user was added to the group.
-     *
-     * @var bool
      */
     protected bool $isCurrentUser;
 
     /**
      * True, if the user has returned to the group themself.
-     *
-     * @var bool
      */
     protected bool $isReturned;
 

@@ -24,8 +24,6 @@ class MessagePassportDataReceived extends MessageContent
 
     /**
      * Encrypted data credentials.
-     *
-     * @var EncryptedCredentials
      */
     protected EncryptedCredentials $credentials;
 

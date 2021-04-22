@@ -17,15 +17,11 @@ class ProxyTypeSocks5 extends ProxyType
 
     /**
      * Username for logging in; may be empty.
-     *
-     * @var string
      */
     protected string $username;
 
     /**
      * Password for logging in; may be empty.
-     *
-     * @var string
      */
     protected string $password;
 

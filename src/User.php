@@ -17,113 +17,86 @@ class User extends TdObject
 
     /**
      * User identifier.
-     *
-     * @var int
      */
     protected int $id;
 
     /**
      * First name of the user.
-     *
-     * @var string
      */
     protected string $firstName;
 
     /**
      * Last name of the user.
-     *
-     * @var string
      */
     protected string $lastName;
 
     /**
      * Username of the user.
-     *
-     * @var string
      */
     protected string $username;
 
     /**
      * Phone number of the user.
-     *
-     * @var string
      */
     protected string $phoneNumber;
 
     /**
      * Current online status of the user.
-     *
-     * @var UserStatus
      */
     protected UserStatus $status;
 
     /**
      * Profile photo of the user; may be null.
-     *
-     * @var ProfilePhoto|null
      */
     protected ?ProfilePhoto $profilePhoto;
 
     /**
      * The user is a contact of the current user.
-     *
-     * @var bool
      */
     protected bool $isContact;
 
     /**
      * The user is a contact of the current user and the current user is a contact of the user.
-     *
-     * @var bool
      */
     protected bool $isMutualContact;
 
     /**
      * True, if the user is verified.
-     *
-     * @var bool
      */
     protected bool $isVerified;
 
     /**
      * True, if the user is Telegram support account.
-     *
-     * @var bool
      */
     protected bool $isSupport;
 
     /**
      * If non-empty, it contains a human-readable description of the reason why access to this user must be restricted.
-     *
-     * @var string
      */
     protected string $restrictionReason;
 
     /**
      * True, if many users reported this user as a scam.
-     *
-     * @var bool
      */
     protected bool $isScam;
 
     /**
+     * True, if many users reported this user as a fake account.
+     */
+    protected bool $isFake;
+
+    /**
      * If false, the user is inaccessible, and the only information known about the user is inside this class. It can't be passed to any method except GetUser.
-     *
-     * @var bool
      */
     protected bool $haveAccess;
 
     /**
      * Type of the user.
-     *
-     * @var UserType
      */
     protected UserType $type;
 
     /**
      * IETF language tag of the user's language; only available to bots.
-     *
-     * @var string
      */
     protected string $languageCode;
 
@@ -141,6 +114,7 @@ class User extends TdObject
         bool $isSupport,
         string $restrictionReason,
         bool $isScam,
+        bool $isFake,
         bool $haveAccess,
         UserType $type,
         string $languageCode
@@ -158,6 +132,7 @@ class User extends TdObject
         $this->isSupport         = $isSupport;
         $this->restrictionReason = $restrictionReason;
         $this->isScam            = $isScam;
+        $this->isFake            = $isFake;
         $this->haveAccess        = $haveAccess;
         $this->type              = $type;
         $this->languageCode      = $languageCode;
@@ -179,6 +154,7 @@ class User extends TdObject
             $array['is_support'],
             $array['restriction_reason'],
             $array['is_scam'],
+            $array['is_fake'],
             $array['have_access'],
             TdSchemaRegistry::fromArray($array['type']),
             $array['language_code'],
@@ -202,6 +178,7 @@ class User extends TdObject
             'is_support'         => $this->isSupport,
             'restriction_reason' => $this->restrictionReason,
             'is_scam'            => $this->isScam,
+            'is_fake'            => $this->isFake,
             'have_access'        => $this->haveAccess,
             'type'               => $this->type->typeSerialize(),
             'language_code'      => $this->languageCode,
@@ -271,6 +248,11 @@ class User extends TdObject
     public function getIsScam(): bool
     {
         return $this->isScam;
+    }
+
+    public function getIsFake(): bool
+    {
+        return $this->isFake;
     }
 
     public function getHaveAccess(): bool

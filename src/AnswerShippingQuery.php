@@ -17,8 +17,6 @@ class AnswerShippingQuery extends TdFunction
 
     /**
      * Identifier of the shipping query.
-     *
-     * @var string
      */
     protected string $shippingQueryId;
 
@@ -31,8 +29,6 @@ class AnswerShippingQuery extends TdFunction
 
     /**
      * An error message, empty on success.
-     *
-     * @var string
      */
     protected string $errorMessage;
 
@@ -47,7 +43,7 @@ class AnswerShippingQuery extends TdFunction
     {
         return new static(
             $array['shipping_query_id'],
-            array_map(fn ($x) => TdSchemaRegistry::fromArray($x), $array['shippingOptions']),
+            array_map(fn ($x) => TdSchemaRegistry::fromArray($x), $array['shipping_options']),
             $array['error_message'],
         );
     }

@@ -17,15 +17,11 @@ class StorageStatistics extends TdObject
 
     /**
      * Total size of files.
-     *
-     * @var int
      */
     protected int $size;
 
     /**
      * Total number of files.
-     *
-     * @var int
      */
     protected int $count;
 
@@ -48,7 +44,7 @@ class StorageStatistics extends TdObject
         return new static(
             $array['size'],
             $array['count'],
-            array_map(fn ($x) => TdSchemaRegistry::fromArray($x), $array['byChat']),
+            array_map(fn ($x) => TdSchemaRegistry::fromArray($x), $array['by_chat']),
         );
     }
 

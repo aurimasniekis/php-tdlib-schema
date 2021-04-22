@@ -17,8 +17,6 @@ class ResendMessages extends TdFunction
 
     /**
      * Identifier of the chat to send messages.
-     *
-     * @var int
      */
     protected int $chatId;
 

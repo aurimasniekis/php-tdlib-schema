@@ -17,29 +17,21 @@ class InlineQueryResultDocument extends InlineQueryResult
 
     /**
      * Unique identifier of the query result.
-     *
-     * @var string
      */
     protected string $id;
 
     /**
      * Document.
-     *
-     * @var Document
      */
     protected Document $document;
 
     /**
      * Document title.
-     *
-     * @var string
      */
     protected string $title;
 
     /**
      * Document description.
-     *
-     * @var string
      */
     protected string $description;
 

@@ -246,9 +246,9 @@ class CodeGenerator
                     if ($fieldDef->mayBeNull) {
                         if ('array' === $typeStyle) {
                             $fromArray->addBody(
-                                '    (isset($array[\'' . $fieldDef->name .
+                                '    (isset($array[\'' . $fieldDef->rawName .
                                 '\']) ? array_map(fn($x) => ' . 'TdSchemaRegistry::fromArray($x), $array[\'' .
-                                $fieldDef->name . '\']) : null),'
+                                $fieldDef->rawName . '\']) : null),'
                             );
 
                             $serialize->addBody(
@@ -257,10 +257,10 @@ class CodeGenerator
                             );
                         } elseif ('array_array' === $typeStyle) {
                             $fromArray->addBody(
-                                '    (isset($array[\'' . $fieldDef->name .
+                                '    (isset($array[\'' . $fieldDef->rawName .
                                 '\']) ? array_map(fn($x) => ' .
                                 'array_map(fn($y) => TdSchemaRegistry::fromArray($y), $x), $array[\'' .
-                                $fieldDef->name . '\']) : null),'
+                                $fieldDef->rawName . '\']) : null),'
                             );
 
                             $serialize->addBody(
@@ -283,7 +283,7 @@ class CodeGenerator
                         if ('array' === $typeStyle) {
                             $fromArray->addBody(
                                 '    array_map(fn($x) => TdSchemaRegistry::fromArray($x), $array[\'' .
-                                $fieldDef->name . '\']),'
+                                $fieldDef->rawName . '\']),'
                             );
 
                             $serialize->addBody(
@@ -292,7 +292,7 @@ class CodeGenerator
                         } elseif ('array_array' === $typeStyle) {
                             $fromArray->addBody(
                                 '    array_map(fn($x) => array_map(fn($y) => TdSchemaRegistry::fromArray($y), $x)' .
-                                ', $array[\'' . $fieldDef->name . '\']),'
+                                ', $array[\'' . $fieldDef->rawName . '\']),'
                             );
 
                             $serialize->addBody(

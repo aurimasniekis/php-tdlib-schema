@@ -17,8 +17,6 @@ class AcceptTermsOfService extends TdFunction
 
     /**
      * Terms of service identifier.
-     *
-     * @var string
      */
     protected string $termsOfServiceId;
 

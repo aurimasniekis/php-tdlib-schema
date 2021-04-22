@@ -17,8 +17,6 @@ class StatisticsGraphAsync extends StatisticsGraph
 
     /**
      * The token to use for data loading.
-     *
-     * @var string
      */
     protected string $token;
 

@@ -17,27 +17,24 @@ class EditInlineMessageMedia extends TdFunction
 
     /**
      * Inline message identifier.
-     *
-     * @var string
      */
     protected string $inlineMessageId;
 
     /**
      * The new message reply markup; for bots only.
-     *
-     * @var ReplyMarkup
      */
     protected ReplyMarkup $replyMarkup;
 
     /**
      * New content of the message. Must be one of the following types: InputMessageAnimation, InputMessageAudio, InputMessageDocument, InputMessagePhoto or InputMessageVideo.
-     *
-     * @var InputMessageContent
      */
     protected InputMessageContent $inputMessageContent;
 
-    public function __construct(string $inlineMessageId, ReplyMarkup $replyMarkup, InputMessageContent $inputMessageContent)
-    {
+    public function __construct(
+        string $inlineMessageId,
+        ReplyMarkup $replyMarkup,
+        InputMessageContent $inputMessageContent
+    ) {
         $this->inlineMessageId     = $inlineMessageId;
         $this->replyMarkup         = $replyMarkup;
         $this->inputMessageContent = $inputMessageContent;

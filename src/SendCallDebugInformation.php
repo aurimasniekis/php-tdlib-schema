@@ -17,15 +17,11 @@ class SendCallDebugInformation extends TdFunction
 
     /**
      * Call identifier.
-     *
-     * @var int
      */
     protected int $callId;
 
     /**
      * Debug information in application-specific format.
-     *
-     * @var string
      */
     protected string $debugInformation;
 

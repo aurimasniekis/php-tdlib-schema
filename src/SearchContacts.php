@@ -17,15 +17,11 @@ class SearchContacts extends TdFunction
 
     /**
      * Query to search for; may be empty to return all contacts.
-     *
-     * @var string
      */
     protected string $query;
 
     /**
      * The maximum number of users to be returned.
-     *
-     * @var int
      */
     protected int $limit;
 

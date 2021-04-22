@@ -17,8 +17,6 @@ class PageBlockListItem extends TdObject
 
     /**
      * Item label.
-     *
-     * @var string
      */
     protected string $label;
 
@@ -39,7 +37,7 @@ class PageBlockListItem extends TdObject
     {
         return new static(
             $array['label'],
-            array_map(fn ($x) => TdSchemaRegistry::fromArray($x), $array['pageBlocks']),
+            array_map(fn ($x) => TdSchemaRegistry::fromArray($x), $array['page_blocks']),
         );
     }
 

@@ -17,8 +17,6 @@ class AddFavoriteSticker extends TdFunction
 
     /**
      * Sticker file to add.
-     *
-     * @var InputFile
      */
     protected InputFile $sticker;
 

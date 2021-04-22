@@ -17,8 +17,6 @@ class AddSavedAnimation extends TdFunction
 
     /**
      * The animation file to be added. Only animations known to the server (i.e. successfully sent via a message) can be added to the list.
-     *
-     * @var InputFile
      */
     protected InputFile $animation;
 

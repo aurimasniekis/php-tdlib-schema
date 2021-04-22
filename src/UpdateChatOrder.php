@@ -17,15 +17,11 @@ class UpdateChatOrder extends Update
 
     /**
      * Chat identifier.
-     *
-     * @var int
      */
     protected int $chatId;
 
     /**
      * New value of the order.
-     *
-     * @var string
      */
     protected string $order;
 

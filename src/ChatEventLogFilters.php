@@ -17,73 +17,63 @@ class ChatEventLogFilters extends TdObject
 
     /**
      * True, if message edits should be returned.
-     *
-     * @var bool
      */
     protected bool $messageEdits;
 
     /**
      * True, if message deletions should be returned.
-     *
-     * @var bool
      */
     protected bool $messageDeletions;
 
     /**
      * True, if pin/unpin events should be returned.
-     *
-     * @var bool
      */
     protected bool $messagePins;
 
     /**
      * True, if members joining events should be returned.
-     *
-     * @var bool
      */
     protected bool $memberJoins;
 
     /**
      * True, if members leaving events should be returned.
-     *
-     * @var bool
      */
     protected bool $memberLeaves;
 
     /**
      * True, if invited member events should be returned.
-     *
-     * @var bool
      */
     protected bool $memberInvites;
 
     /**
      * True, if member promotion/demotion events should be returned.
-     *
-     * @var bool
      */
     protected bool $memberPromotions;
 
     /**
      * True, if member restricted/unrestricted/banned/unbanned events should be returned.
-     *
-     * @var bool
      */
     protected bool $memberRestrictions;
 
     /**
      * True, if changes in chat information should be returned.
-     *
-     * @var bool
      */
     protected bool $infoChanges;
 
     /**
      * True, if changes in chat settings should be returned.
-     *
-     * @var bool
      */
     protected bool $settingChanges;
+
+    /**
+     * True, if changes to invite links should be returned.
+     */
+    protected bool $inviteLinkChanges;
+
+    /**
+     * True, if voice chat actions should be returned.
+     */
+    protected bool $voiceChatChanges;
 
     public function __construct(
         bool $messageEdits,
@@ -95,7 +85,9 @@ class ChatEventLogFilters extends TdObject
         bool $memberPromotions,
         bool $memberRestrictions,
         bool $infoChanges,
-        bool $settingChanges
+        bool $settingChanges,
+        bool $inviteLinkChanges,
+        bool $voiceChatChanges
     ) {
         $this->messageEdits       = $messageEdits;
         $this->messageDeletions   = $messageDeletions;
@@ -107,6 +99,8 @@ class ChatEventLogFilters extends TdObject
         $this->memberRestrictions = $memberRestrictions;
         $this->infoChanges        = $infoChanges;
         $this->settingChanges     = $settingChanges;
+        $this->inviteLinkChanges  = $inviteLinkChanges;
+        $this->voiceChatChanges   = $voiceChatChanges;
     }
 
     public static function fromArray(array $array): ChatEventLogFilters
@@ -122,6 +116,8 @@ class ChatEventLogFilters extends TdObject
             $array['member_restrictions'],
             $array['info_changes'],
             $array['setting_changes'],
+            $array['invite_link_changes'],
+            $array['voice_chat_changes'],
         );
     }
 
@@ -139,6 +135,8 @@ class ChatEventLogFilters extends TdObject
             'member_restrictions' => $this->memberRestrictions,
             'info_changes'        => $this->infoChanges,
             'setting_changes'     => $this->settingChanges,
+            'invite_link_changes' => $this->inviteLinkChanges,
+            'voice_chat_changes'  => $this->voiceChatChanges,
         ];
     }
 
@@ -190,5 +188,15 @@ class ChatEventLogFilters extends TdObject
     public function getSettingChanges(): bool
     {
         return $this->settingChanges;
+    }
+
+    public function getInviteLinkChanges(): bool
+    {
+        return $this->inviteLinkChanges;
+    }
+
+    public function getVoiceChatChanges(): bool
+    {
+        return $this->voiceChatChanges;
     }
 }

@@ -17,48 +17,42 @@ class LanguagePackStringValuePluralized extends LanguagePackStringValue
 
     /**
      * Value for zero objects.
-     *
-     * @var string
      */
     protected string $zeroValue;
 
     /**
      * Value for one object.
-     *
-     * @var string
      */
     protected string $oneValue;
 
     /**
      * Value for two objects.
-     *
-     * @var string
      */
     protected string $twoValue;
 
     /**
      * Value for few objects.
-     *
-     * @var string
      */
     protected string $fewValue;
 
     /**
      * Value for many objects.
-     *
-     * @var string
      */
     protected string $manyValue;
 
     /**
      * Default value.
-     *
-     * @var string
      */
     protected string $otherValue;
 
-    public function __construct(string $zeroValue, string $oneValue, string $twoValue, string $fewValue, string $manyValue, string $otherValue)
-    {
+    public function __construct(
+        string $zeroValue,
+        string $oneValue,
+        string $twoValue,
+        string $fewValue,
+        string $manyValue,
+        string $otherValue
+    ) {
         parent::__construct();
 
         $this->zeroValue  = $zeroValue;

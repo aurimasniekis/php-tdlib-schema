@@ -17,15 +17,11 @@ class PublicMessageLink extends TdObject
 
     /**
      * Message link.
-     *
-     * @var string
      */
     protected string $link;
 
     /**
      * HTML-code for embedding the message.
-     *
-     * @var string
      */
     protected string $html;
 

@@ -17,8 +17,6 @@ class PassportElementErrorSourceTranslationFile extends PassportElementErrorSour
 
     /**
      * Index of a file with the error.
-     *
-     * @var int
      */
     protected int $fileIndex;
 

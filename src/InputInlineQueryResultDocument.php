@@ -17,71 +17,51 @@ class InputInlineQueryResultDocument extends InputInlineQueryResult
 
     /**
      * Unique identifier of the query result.
-     *
-     * @var string
      */
     protected string $id;
 
     /**
      * Title of the resulting file.
-     *
-     * @var string
      */
     protected string $title;
 
     /**
      * Short description of the result, if known.
-     *
-     * @var string
      */
     protected string $description;
 
     /**
      * URL of the file.
-     *
-     * @var string
      */
     protected string $documentUrl;
 
     /**
      * MIME type of the file content; only "application/pdf" and "application/zip" are currently allowed.
-     *
-     * @var string
      */
     protected string $mimeType;
 
     /**
      * The URL of the file thumbnail, if it exists.
-     *
-     * @var string
      */
     protected string $thumbnailUrl;
 
     /**
      * Width of the thumbnail.
-     *
-     * @var int
      */
     protected int $thumbnailWidth;
 
     /**
      * Height of the thumbnail.
-     *
-     * @var int
      */
     protected int $thumbnailHeight;
 
     /**
      * The message reply markup. Must be of type replyMarkupInlineKeyboard or null.
-     *
-     * @var ReplyMarkup
      */
     protected ReplyMarkup $replyMarkup;
 
     /**
      * The content of the message to be sent. Must be one of the following types: InputMessageText, InputMessageDocument, InputMessageLocation, InputMessageVenue or InputMessageContact.
-     *
-     * @var InputMessageContent
      */
     protected InputMessageContent $inputMessageContent;
 

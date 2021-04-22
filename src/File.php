@@ -17,36 +17,26 @@ class File extends TdObject
 
     /**
      * Unique file identifier.
-     *
-     * @var int
      */
     protected int $id;
 
     /**
      * File size; 0 if unknown.
-     *
-     * @var int
      */
     protected int $size;
 
     /**
      * Expected file size in case the exact file size is unknown, but an approximate size is known. Can be used to show download/upload progress.
-     *
-     * @var int
      */
     protected int $expectedSize;
 
     /**
      * Information about the local copy of the file.
-     *
-     * @var LocalFile
      */
     protected LocalFile $local;
 
     /**
      * Information about the remote copy of the file.
-     *
-     * @var RemoteFile
      */
     protected RemoteFile $remote;
 

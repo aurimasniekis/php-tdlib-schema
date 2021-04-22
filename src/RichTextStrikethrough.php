@@ -17,8 +17,6 @@ class RichTextStrikethrough extends RichText
 
     /**
      * Text.
-     *
-     * @var RichText
      */
     protected RichText $text;
 

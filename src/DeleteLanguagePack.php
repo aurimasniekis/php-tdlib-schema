@@ -17,8 +17,6 @@ class DeleteLanguagePack extends TdFunction
 
     /**
      * Identifier of the language pack to delete.
-     *
-     * @var string
      */
     protected string $languagePackId;
 

@@ -17,8 +17,6 @@ class SharePhoneNumber extends TdFunction
 
     /**
      * Identifier of the user with whom to share the phone number. The user must be a mutual contact.
-     *
-     * @var int
      */
     protected int $userId;
 

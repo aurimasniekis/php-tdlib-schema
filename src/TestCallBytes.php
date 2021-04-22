@@ -17,8 +17,6 @@ class TestCallBytes extends TdFunction
 
     /**
      * Bytes to return.
-     *
-     * @var string
      */
     protected string $x;
 

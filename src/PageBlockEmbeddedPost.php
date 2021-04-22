@@ -17,29 +17,21 @@ class PageBlockEmbeddedPost extends PageBlock
 
     /**
      * Web page URL.
-     *
-     * @var string
      */
     protected string $url;
 
     /**
      * Post author.
-     *
-     * @var string
      */
     protected string $author;
 
     /**
      * Post author photo; may be null.
-     *
-     * @var Photo|null
      */
     protected ?Photo $authorPhoto;
 
     /**
      * Point in time (Unix timestamp) when the post was created; 0 if unknown.
-     *
-     * @var int
      */
     protected int $date;
 
@@ -52,13 +44,17 @@ class PageBlockEmbeddedPost extends PageBlock
 
     /**
      * Post caption.
-     *
-     * @var PageBlockCaption
      */
     protected PageBlockCaption $caption;
 
-    public function __construct(string $url, string $author, ?Photo $authorPhoto, int $date, array $pageBlocks, PageBlockCaption $caption)
-    {
+    public function __construct(
+        string $url,
+        string $author,
+        ?Photo $authorPhoto,
+        int $date,
+        array $pageBlocks,
+        PageBlockCaption $caption
+    ) {
         parent::__construct();
 
         $this->url         = $url;
@@ -76,7 +72,7 @@ class PageBlockEmbeddedPost extends PageBlock
             $array['author'],
             (isset($array['author_photo']) ? TdSchemaRegistry::fromArray($array['author_photo']) : null),
             $array['date'],
-            array_map(fn ($x) => TdSchemaRegistry::fromArray($x), $array['pageBlocks']),
+            array_map(fn ($x) => TdSchemaRegistry::fromArray($x), $array['page_blocks']),
             TdSchemaRegistry::fromArray($array['caption']),
         );
     }

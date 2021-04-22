@@ -17,8 +17,6 @@ class GetUserFullInfo extends TdFunction
 
     /**
      * User identifier.
-     *
-     * @var int
      */
     protected int $userId;
 

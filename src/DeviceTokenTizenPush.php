@@ -17,8 +17,6 @@ class DeviceTokenTizenPush extends DeviceToken
 
     /**
      * Push service registration identifier; may be empty to de-register a device.
-     *
-     * @var string
      */
     protected string $regId;
 

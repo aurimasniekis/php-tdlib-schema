@@ -17,15 +17,11 @@ class TMeUrl extends TdObject
 
     /**
      * URL.
-     *
-     * @var string
      */
     protected string $url;
 
     /**
      * Type of the URL.
-     *
-     * @var TMeUrlType
      */
     protected TMeUrlType $type;
 

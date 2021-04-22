@@ -17,8 +17,6 @@ class Invoice extends TdObject
 
     /**
      * ISO 4217 currency code.
-     *
-     * @var string
      */
     protected string $currency;
 
@@ -31,57 +29,41 @@ class Invoice extends TdObject
 
     /**
      * True, if the payment is a test payment.
-     *
-     * @var bool
      */
     protected bool $isTest;
 
     /**
      * True, if the user's name is needed for payment.
-     *
-     * @var bool
      */
     protected bool $needName;
 
     /**
      * True, if the user's phone number is needed for payment.
-     *
-     * @var bool
      */
     protected bool $needPhoneNumber;
 
     /**
      * True, if the user's email address is needed for payment.
-     *
-     * @var bool
      */
     protected bool $needEmailAddress;
 
     /**
      * True, if the user's shipping address is needed for payment.
-     *
-     * @var bool
      */
     protected bool $needShippingAddress;
 
     /**
      * True, if the user's phone number will be sent to the provider.
-     *
-     * @var bool
      */
     protected bool $sendPhoneNumberToProvider;
 
     /**
      * True, if the user's email address will be sent to the provider.
-     *
-     * @var bool
      */
     protected bool $sendEmailAddressToProvider;
 
     /**
      * True, if the total price depends on the shipping method.
-     *
-     * @var bool
      */
     protected bool $isFlexible;
 
@@ -113,7 +95,7 @@ class Invoice extends TdObject
     {
         return new static(
             $array['currency'],
-            array_map(fn ($x) => TdSchemaRegistry::fromArray($x), $array['priceParts']),
+            array_map(fn ($x) => TdSchemaRegistry::fromArray($x), $array['price_parts']),
             $array['is_test'],
             $array['need_name'],
             $array['need_phone_number'],

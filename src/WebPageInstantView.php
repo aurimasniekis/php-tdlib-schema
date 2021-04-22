@@ -24,29 +24,21 @@ class WebPageInstantView extends TdObject
 
     /**
      * Number of the instant view views; 0 if unknown.
-     *
-     * @var int
      */
     protected int $viewCount;
 
     /**
      * Version of the instant view, currently can be 1 or 2.
-     *
-     * @var int
      */
     protected int $version;
 
     /**
      * True, if the instant view must be shown from right to left.
-     *
-     * @var bool
      */
     protected bool $isRtl;
 
     /**
      * True, if the instant view contains the full page. A network request might be needed to get the full web page instant view.
-     *
-     * @var bool
      */
     protected bool $isFull;
 
@@ -62,7 +54,7 @@ class WebPageInstantView extends TdObject
     public static function fromArray(array $array): WebPageInstantView
     {
         return new static(
-            array_map(fn ($x) => TdSchemaRegistry::fromArray($x), $array['pageBlocks']),
+            array_map(fn ($x) => TdSchemaRegistry::fromArray($x), $array['page_blocks']),
             $array['view_count'],
             $array['version'],
             $array['is_rtl'],

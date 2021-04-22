@@ -17,8 +17,6 @@ class MessageSchedulingStateSendAtDate extends MessageSchedulingState
 
     /**
      * Date the message will be sent. The date must be within 367 days in the future.
-     *
-     * @var int
      */
     protected int $sendDate;
 

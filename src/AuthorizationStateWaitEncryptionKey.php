@@ -17,8 +17,6 @@ class AuthorizationStateWaitEncryptionKey extends AuthorizationState
 
     /**
      * True, if the database is currently encrypted.
-     *
-     * @var bool
      */
     protected bool $isEncrypted;
 

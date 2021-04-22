@@ -17,37 +17,35 @@ class Call extends TdObject
 
     /**
      * Call identifier, not persistent.
-     *
-     * @var int
      */
     protected int $id;
 
     /**
      * Peer user identifier.
-     *
-     * @var int
      */
     protected int $userId;
 
     /**
      * True, if the call is outgoing.
-     *
-     * @var bool
      */
     protected bool $isOutgoing;
 
     /**
+     * True, if the call is a video call.
+     */
+    protected bool $isVideo;
+
+    /**
      * Call state.
-     *
-     * @var CallState
      */
     protected CallState $state;
 
-    public function __construct(int $id, int $userId, bool $isOutgoing, CallState $state)
+    public function __construct(int $id, int $userId, bool $isOutgoing, bool $isVideo, CallState $state)
     {
         $this->id         = $id;
         $this->userId     = $userId;
         $this->isOutgoing = $isOutgoing;
+        $this->isVideo    = $isVideo;
         $this->state      = $state;
     }
 
@@ -57,6 +55,7 @@ class Call extends TdObject
             $array['id'],
             $array['user_id'],
             $array['is_outgoing'],
+            $array['is_video'],
             TdSchemaRegistry::fromArray($array['state']),
         );
     }
@@ -68,6 +67,7 @@ class Call extends TdObject
             'id'          => $this->id,
             'user_id'     => $this->userId,
             'is_outgoing' => $this->isOutgoing,
+            'is_video'    => $this->isVideo,
             'state'       => $this->state->typeSerialize(),
         ];
     }
@@ -85,6 +85,11 @@ class Call extends TdObject
     public function getIsOutgoing(): bool
     {
         return $this->isOutgoing;
+    }
+
+    public function getIsVideo(): bool
+    {
+        return $this->isVideo;
     }
 
     public function getState(): CallState

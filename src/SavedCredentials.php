@@ -17,15 +17,11 @@ class SavedCredentials extends TdObject
 
     /**
      * Unique identifier of the saved credentials.
-     *
-     * @var string
      */
     protected string $id;
 
     /**
      * Title of the saved credentials.
-     *
-     * @var string
      */
     protected string $title;
 

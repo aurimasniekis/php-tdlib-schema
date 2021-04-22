@@ -17,22 +17,16 @@ class PageBlockAnimation extends PageBlock
 
     /**
      * Animation file; may be null.
-     *
-     * @var Animation|null
      */
     protected ?Animation $animation;
 
     /**
      * Animation caption.
-     *
-     * @var PageBlockCaption
      */
     protected PageBlockCaption $caption;
 
     /**
      * True, if the animation should be played automatically.
-     *
-     * @var bool
      */
     protected bool $needAutoplay;
 

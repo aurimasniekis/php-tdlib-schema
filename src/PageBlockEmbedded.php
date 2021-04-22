@@ -17,57 +17,41 @@ class PageBlockEmbedded extends PageBlock
 
     /**
      * Web page URL, if available.
-     *
-     * @var string
      */
     protected string $url;
 
     /**
      * HTML-markup of the embedded page.
-     *
-     * @var string
      */
     protected string $html;
 
     /**
      * Poster photo, if available; may be null.
-     *
-     * @var Photo|null
      */
     protected ?Photo $posterPhoto;
 
     /**
      * Block width; 0 if unknown.
-     *
-     * @var int
      */
     protected int $width;
 
     /**
      * Block height; 0 if unknown.
-     *
-     * @var int
      */
     protected int $height;
 
     /**
      * Block caption.
-     *
-     * @var PageBlockCaption
      */
     protected PageBlockCaption $caption;
 
     /**
      * True, if the block should be full width.
-     *
-     * @var bool
      */
     protected bool $isFullWidth;
 
     /**
      * True, if scrolling should be allowed.
-     *
-     * @var bool
      */
     protected bool $allowScrolling;
 

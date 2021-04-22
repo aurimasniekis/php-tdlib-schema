@@ -17,15 +17,11 @@ class MessageChatUpgradeFrom extends MessageContent
 
     /**
      * Title of the newly created supergroup.
-     *
-     * @var string
      */
     protected string $title;
 
     /**
      * The identifier of the original basic group.
-     *
-     * @var int
      */
     protected int $basicGroupId;
 

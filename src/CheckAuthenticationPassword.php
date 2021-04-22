@@ -17,8 +17,6 @@ class CheckAuthenticationPassword extends TdFunction
 
     /**
      * The password to check.
-     *
-     * @var string
      */
     protected string $password;
 

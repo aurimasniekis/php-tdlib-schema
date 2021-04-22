@@ -17,15 +17,11 @@ class GetInlineGameHighScores extends TdFunction
 
     /**
      * Inline message identifier.
-     *
-     * @var string
      */
     protected string $inlineMessageId;
 
     /**
      * User identifier.
-     *
-     * @var int
      */
     protected int $userId;
 

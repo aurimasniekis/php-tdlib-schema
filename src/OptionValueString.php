@@ -17,8 +17,6 @@ class OptionValueString extends OptionValue
 
     /**
      * The value of the option.
-     *
-     * @var string
      */
     protected string $value;
 

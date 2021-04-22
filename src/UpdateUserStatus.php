@@ -17,15 +17,11 @@ class UpdateUserStatus extends Update
 
     /**
      * User identifier.
-     *
-     * @var int
      */
     protected int $userId;
 
     /**
      * New status of the user.
-     *
-     * @var UserStatus
      */
     protected UserStatus $status;
 

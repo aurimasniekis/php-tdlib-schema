@@ -17,15 +17,11 @@ class CreateSupergroupChat extends TdFunction
 
     /**
      * Supergroup or channel identifier.
-     *
-     * @var int
      */
     protected int $supergroupId;
 
     /**
      * If true, the chat will be created without network request. In this case all information about the chat except its type, title and photo can be incorrect.
-     *
-     * @var bool
      */
     protected bool $force;
 

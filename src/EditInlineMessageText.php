@@ -17,27 +17,24 @@ class EditInlineMessageText extends TdFunction
 
     /**
      * Inline message identifier.
-     *
-     * @var string
      */
     protected string $inlineMessageId;
 
     /**
      * The new message reply markup.
-     *
-     * @var ReplyMarkup
      */
     protected ReplyMarkup $replyMarkup;
 
     /**
      * New text content of the message. Should be of type InputMessageText.
-     *
-     * @var InputMessageContent
      */
     protected InputMessageContent $inputMessageContent;
 
-    public function __construct(string $inlineMessageId, ReplyMarkup $replyMarkup, InputMessageContent $inputMessageContent)
-    {
+    public function __construct(
+        string $inlineMessageId,
+        ReplyMarkup $replyMarkup,
+        InputMessageContent $inputMessageContent
+    ) {
         $this->inlineMessageId     = $inlineMessageId;
         $this->replyMarkup         = $replyMarkup;
         $this->inputMessageContent = $inputMessageContent;

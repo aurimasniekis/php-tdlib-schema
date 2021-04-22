@@ -17,15 +17,11 @@ class SetChatSlowModeDelay extends TdFunction
 
     /**
      * Chat identifier.
-     *
-     * @var int
      */
     protected int $chatId;
 
     /**
      * New slow mode delay for the chat; must be one of 0, 10, 30, 60, 300, 900, 3600.
-     *
-     * @var int
      */
     protected int $slowModeDelay;
 

@@ -17,8 +17,6 @@ class RichTextAnchor extends RichText
 
     /**
      * Anchor name.
-     *
-     * @var string
      */
     protected string $name;
 

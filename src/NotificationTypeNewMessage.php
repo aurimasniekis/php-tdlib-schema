@@ -17,8 +17,6 @@ class NotificationTypeNewMessage extends NotificationType
 
     /**
      * The message.
-     *
-     * @var Message
      */
     protected Message $message;
 

@@ -9,7 +9,7 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Converts a JsonValue object to corresponding JSON-serialized string. This is an offline method. Can be called before authorization. Can be called synchronously.
+ * Converts a JsonValue object to corresponding JSON-serialized string. Can be called synchronously.
  */
 class GetJsonString extends TdFunction
 {
@@ -17,8 +17,6 @@ class GetJsonString extends TdFunction
 
     /**
      * The JsonValue object.
-     *
-     * @var JsonValue
      */
     protected JsonValue $jsonValue;
 

@@ -17,43 +17,31 @@ class GetMapThumbnailFile extends TdFunction
 
     /**
      * Location of the map center.
-     *
-     * @var Location
      */
     protected Location $location;
 
     /**
      * Map zoom level; 13-20.
-     *
-     * @var int
      */
     protected int $zoom;
 
     /**
      * Map width in pixels before applying scale; 16-1024.
-     *
-     * @var int
      */
     protected int $width;
 
     /**
      * Map height in pixels before applying scale; 16-1024.
-     *
-     * @var int
      */
     protected int $height;
 
     /**
      * Map scale; 1-3.
-     *
-     * @var int
      */
     protected int $scale;
 
     /**
      * Identifier of a chat, in which the thumbnail will be shown. Use 0 if unknown.
-     *
-     * @var int
      */
     protected int $chatId;
 

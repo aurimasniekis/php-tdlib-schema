@@ -17,22 +17,16 @@ class GetUserProfilePhotos extends TdFunction
 
     /**
      * User identifier.
-     *
-     * @var int
      */
     protected int $userId;
 
     /**
      * The number of photos to skip; must be non-negative.
-     *
-     * @var int
      */
     protected int $offset;
 
     /**
      * The maximum number of photos to be returned; up to 100.
-     *
-     * @var int
      */
     protected int $limit;
 

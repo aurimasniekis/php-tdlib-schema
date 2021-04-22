@@ -17,8 +17,6 @@ class UpdateFile extends Update
 
     /**
      * New data about the file.
-     *
-     * @var File
      */
     protected File $file;
 

@@ -17,15 +17,11 @@ class UpdateLanguagePackStrings extends Update
 
     /**
      * Localization target to which the language pack belongs.
-     *
-     * @var string
      */
     protected string $localizationTarget;
 
     /**
      * Identifier of the updated language pack.
-     *
-     * @var string
      */
     protected string $languagePackId;
 

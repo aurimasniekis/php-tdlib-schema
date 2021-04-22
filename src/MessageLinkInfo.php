@@ -17,38 +17,36 @@ class MessageLinkInfo extends TdObject
 
     /**
      * True, if the link is a public link for a message in a chat.
-     *
-     * @var bool
      */
     protected bool $isPublic;
 
     /**
      * If found, identifier of the chat to which the message belongs, 0 otherwise.
-     *
-     * @var int
      */
     protected int $chatId;
 
     /**
      * If found, the linked message; may be null.
-     *
-     * @var Message|null
      */
     protected ?Message $message;
 
     /**
      * True, if the whole media album to which the message belongs is linked.
-     *
-     * @var bool
      */
     protected bool $forAlbum;
 
-    public function __construct(bool $isPublic, int $chatId, ?Message $message, bool $forAlbum)
+    /**
+     * True, if the message is linked as a channel post comment or from a message thread.
+     */
+    protected bool $forComment;
+
+    public function __construct(bool $isPublic, int $chatId, ?Message $message, bool $forAlbum, bool $forComment)
     {
-        $this->isPublic = $isPublic;
-        $this->chatId   = $chatId;
-        $this->message  = $message;
-        $this->forAlbum = $forAlbum;
+        $this->isPublic   = $isPublic;
+        $this->chatId     = $chatId;
+        $this->message    = $message;
+        $this->forAlbum   = $forAlbum;
+        $this->forComment = $forComment;
     }
 
     public static function fromArray(array $array): MessageLinkInfo
@@ -58,17 +56,19 @@ class MessageLinkInfo extends TdObject
             $array['chat_id'],
             (isset($array['message']) ? TdSchemaRegistry::fromArray($array['message']) : null),
             $array['for_album'],
+            $array['for_comment'],
         );
     }
 
     public function typeSerialize(): array
     {
         return [
-            '@type'     => static::TYPE_NAME,
-            'is_public' => $this->isPublic,
-            'chat_id'   => $this->chatId,
-            'message'   => (isset($this->message) ? $this->message : null),
-            'for_album' => $this->forAlbum,
+            '@type'       => static::TYPE_NAME,
+            'is_public'   => $this->isPublic,
+            'chat_id'     => $this->chatId,
+            'message'     => (isset($this->message) ? $this->message : null),
+            'for_album'   => $this->forAlbum,
+            'for_comment' => $this->forComment,
         ];
     }
 
@@ -90,5 +90,10 @@ class MessageLinkInfo extends TdObject
     public function getForAlbum(): bool
     {
         return $this->forAlbum;
+    }
+
+    public function getForComment(): bool
+    {
+        return $this->forComment;
     }
 }

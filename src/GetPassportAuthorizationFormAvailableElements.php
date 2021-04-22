@@ -17,15 +17,11 @@ class GetPassportAuthorizationFormAvailableElements extends TdFunction
 
     /**
      * Authorization form identifier.
-     *
-     * @var int
      */
     protected int $autorizationFormId;
 
     /**
      * Password of the current user.
-     *
-     * @var string
      */
     protected string $password;
 

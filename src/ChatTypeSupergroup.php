@@ -17,15 +17,11 @@ class ChatTypeSupergroup extends ChatType
 
     /**
      * Supergroup or channel identifier.
-     *
-     * @var int
      */
     protected int $supergroupId;
 
     /**
      * True, if the supergroup is a channel.
-     *
-     * @var bool
      */
     protected bool $isChannel;
 

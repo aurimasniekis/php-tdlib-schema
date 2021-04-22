@@ -17,8 +17,6 @@ class RemoveStickerFromSet extends TdFunction
 
     /**
      * Sticker.
-     *
-     * @var InputFile
      */
     protected InputFile $sticker;
 

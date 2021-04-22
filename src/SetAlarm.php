@@ -9,7 +9,7 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Succeeds after a specified amount of time has passed. Can be called before authorization. Can be called before initialization.
+ * Succeeds after a specified amount of time has passed. Can be called before initialization.
  */
 class SetAlarm extends TdFunction
 {
@@ -17,8 +17,6 @@ class SetAlarm extends TdFunction
 
     /**
      * Number of seconds before the function returns.
-     *
-     * @var float
      */
     protected float $seconds;
 

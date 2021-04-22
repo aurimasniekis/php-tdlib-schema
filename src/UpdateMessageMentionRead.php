@@ -17,22 +17,16 @@ class UpdateMessageMentionRead extends Update
 
     /**
      * Chat identifier.
-     *
-     * @var int
      */
     protected int $chatId;
 
     /**
      * Message identifier.
-     *
-     * @var int
      */
     protected int $messageId;
 
     /**
      * The new number of unread mention messages left in the chat.
-     *
-     * @var int
      */
     protected int $unreadMentionCount;
 

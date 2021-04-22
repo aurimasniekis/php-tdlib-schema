@@ -17,15 +17,11 @@ class SearchStickers extends TdFunction
 
     /**
      * String representation of emoji; must be non-empty.
-     *
-     * @var string
      */
     protected string $emoji;
 
     /**
      * The maximum number of stickers to be returned.
-     *
-     * @var int
      */
     protected int $limit;
 

@@ -17,8 +17,6 @@ class SetTdlibParameters extends TdFunction
 
     /**
      * Parameters.
-     *
-     * @var TdlibParameters
      */
     protected TdlibParameters $parameters;
 

@@ -17,29 +17,21 @@ class InputMessageVideoNote extends InputMessageContent
 
     /**
      * Video note to be sent.
-     *
-     * @var InputFile
      */
     protected InputFile $videoNote;
 
     /**
      * Video thumbnail, if available.
-     *
-     * @var InputThumbnail
      */
     protected InputThumbnail $thumbnail;
 
     /**
      * Duration of the video, in seconds.
-     *
-     * @var int
      */
     protected int $duration;
 
     /**
      * Video width and height; must be positive and not greater than 640.
-     *
-     * @var int
      */
     protected int $length;
 

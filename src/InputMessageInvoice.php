@@ -17,78 +17,56 @@ class InputMessageInvoice extends InputMessageContent
 
     /**
      * Invoice.
-     *
-     * @var Invoice
      */
     protected Invoice $invoice;
 
     /**
      * Product title; 1-32 characters.
-     *
-     * @var string
      */
     protected string $title;
 
     /**
      * Product description; 0-255 characters.
-     *
-     * @var string
      */
     protected string $description;
 
     /**
      * Product photo URL; optional.
-     *
-     * @var string
      */
     protected string $photoUrl;
 
     /**
      * Product photo size.
-     *
-     * @var int
      */
     protected int $photoSize;
 
     /**
      * Product photo width.
-     *
-     * @var int
      */
     protected int $photoWidth;
 
     /**
      * Product photo height.
-     *
-     * @var int
      */
     protected int $photoHeight;
 
     /**
      * The invoice payload.
-     *
-     * @var string
      */
     protected string $payload;
 
     /**
      * Payment provider token.
-     *
-     * @var string
      */
     protected string $providerToken;
 
     /**
      * JSON-encoded data about the invoice, which will be shared with the payment provider.
-     *
-     * @var string
      */
     protected string $providerData;
 
     /**
      * Unique invoice bot start_parameter for the generation of this invoice.
-     *
-     * @var string
      */
     protected string $startParameter;
 

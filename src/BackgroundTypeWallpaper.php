@@ -17,15 +17,11 @@ class BackgroundTypeWallpaper extends BackgroundType
 
     /**
      * True, if the wallpaper must be downscaled to fit in 450x450 square and then box-blurred with radius 12.
-     *
-     * @var bool
      */
     protected bool $isBlurred;
 
     /**
      * True, if the background needs to be slightly moved when device is tilted.
-     *
-     * @var bool
      */
     protected bool $isMoving;
 

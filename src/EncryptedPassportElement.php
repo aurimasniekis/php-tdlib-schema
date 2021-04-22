@@ -17,36 +17,26 @@ class EncryptedPassportElement extends TdObject
 
     /**
      * Type of Telegram Passport element.
-     *
-     * @var PassportElementType
      */
     protected PassportElementType $type;
 
     /**
      * Encrypted JSON-encoded data about the user.
-     *
-     * @var string
      */
     protected string $data;
 
     /**
      * The front side of an identity document.
-     *
-     * @var DatedFile
      */
     protected DatedFile $frontSide;
 
     /**
      * The reverse side of an identity document; may be null.
-     *
-     * @var DatedFile|null
      */
     protected ?DatedFile $reverseSide;
 
     /**
      * Selfie with the document; may be null.
-     *
-     * @var DatedFile|null
      */
     protected ?DatedFile $selfie;
 
@@ -66,15 +56,11 @@ class EncryptedPassportElement extends TdObject
 
     /**
      * Unencrypted data, phone number or email address.
-     *
-     * @var string
      */
     protected string $value;
 
     /**
      * Hash of the entire element.
-     *
-     * @var string
      */
     protected string $hash;
 

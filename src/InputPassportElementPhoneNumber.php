@@ -17,8 +17,6 @@ class InputPassportElementPhoneNumber extends InputPassportElement
 
     /**
      * The phone number to be saved.
-     *
-     * @var string
      */
     protected string $phoneNumber;
 

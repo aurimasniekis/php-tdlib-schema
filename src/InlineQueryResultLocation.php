@@ -17,33 +17,25 @@ class InlineQueryResultLocation extends InlineQueryResult
 
     /**
      * Unique identifier of the query result.
-     *
-     * @var string
      */
     protected string $id;
 
     /**
      * Location result.
-     *
-     * @var Location
      */
     protected Location $location;
 
     /**
      * Title of the result.
-     *
-     * @var string
      */
     protected string $title;
 
     /**
-     * Result thumbnail; may be null.
-     *
-     * @var PhotoSize|null
+     * Result thumbnail in JPEG format; may be null.
      */
-    protected ?PhotoSize $thumbnail;
+    protected ?Thumbnail $thumbnail;
 
-    public function __construct(string $id, Location $location, string $title, ?PhotoSize $thumbnail)
+    public function __construct(string $id, Location $location, string $title, ?Thumbnail $thumbnail)
     {
         parent::__construct();
 
@@ -89,7 +81,7 @@ class InlineQueryResultLocation extends InlineQueryResult
         return $this->title;
     }
 
-    public function getThumbnail(): ?PhotoSize
+    public function getThumbnail(): ?Thumbnail
     {
         return $this->thumbnail;
     }

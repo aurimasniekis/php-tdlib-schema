@@ -17,8 +17,6 @@ class LanguagePackStringValueOrdinary extends LanguagePackStringValue
 
     /**
      * String value.
-     *
-     * @var string
      */
     protected string $value;
 

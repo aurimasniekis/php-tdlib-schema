@@ -17,8 +17,6 @@ class DisconnectWebsite extends TdFunction
 
     /**
      * Website identifier.
-     *
-     * @var string
      */
     protected string $websiteId;
 

@@ -17,22 +17,16 @@ class PassportElementError extends TdObject
 
     /**
      * Type of the Telegram Passport element which has the error.
-     *
-     * @var PassportElementType
      */
     protected PassportElementType $type;
 
     /**
      * Error message.
-     *
-     * @var string
      */
     protected string $message;
 
     /**
      * Error source.
-     *
-     * @var PassportElementErrorSource
      */
     protected PassportElementErrorSource $source;
 

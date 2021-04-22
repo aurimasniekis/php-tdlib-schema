@@ -17,8 +17,6 @@ class InputPassportElementDriverLicense extends InputPassportElement
 
     /**
      * The driver license to be saved.
-     *
-     * @var InputIdentityDocument
      */
     protected InputIdentityDocument $driverLicense;
 

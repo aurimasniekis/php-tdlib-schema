@@ -17,57 +17,41 @@ class AutoDownloadSettings extends TdObject
 
     /**
      * True, if the auto-download is enabled.
-     *
-     * @var bool
      */
     protected bool $isAutoDownloadEnabled;
 
     /**
      * The maximum size of a photo file to be auto-downloaded.
-     *
-     * @var int
      */
     protected int $maxPhotoFileSize;
 
     /**
      * The maximum size of a video file to be auto-downloaded.
-     *
-     * @var int
      */
     protected int $maxVideoFileSize;
 
     /**
      * The maximum size of other file types to be auto-downloaded.
-     *
-     * @var int
      */
     protected int $maxOtherFileSize;
 
     /**
      * The maximum suggested bitrate for uploaded videos.
-     *
-     * @var int
      */
     protected int $videoUploadBitrate;
 
     /**
-     * True, if the beginning of videos needs to be preloaded for instant playback.
-     *
-     * @var bool
+     * True, if the beginning of video files needs to be preloaded for instant playback.
      */
     protected bool $preloadLargeVideos;
 
     /**
      * True, if the next audio track needs to be preloaded while the user is listening to an audio file.
-     *
-     * @var bool
      */
     protected bool $preloadNextAudio;
 
     /**
      * True, if "use less data for calls" option needs to be enabled.
-     *
-     * @var bool
      */
     protected bool $useLessDataForCalls;
 

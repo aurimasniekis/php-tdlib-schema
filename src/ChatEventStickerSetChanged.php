@@ -17,15 +17,11 @@ class ChatEventStickerSetChanged extends ChatEventAction
 
     /**
      * Previous identifier of the chat sticker set; 0 if none.
-     *
-     * @var string
      */
     protected string $oldStickerSetId;
 
     /**
      * New identifier of the chat sticker set; 0 if none.
-     *
-     * @var string
      */
     protected string $newStickerSetId;
 

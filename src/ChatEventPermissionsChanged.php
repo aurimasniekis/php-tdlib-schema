@@ -17,15 +17,11 @@ class ChatEventPermissionsChanged extends ChatEventAction
 
     /**
      * Previous chat permissions.
-     *
-     * @var ChatPermissions
      */
     protected ChatPermissions $oldPermissions;
 
     /**
      * New chat permissions.
-     *
-     * @var ChatPermissions
      */
     protected ChatPermissions $newPermissions;
 

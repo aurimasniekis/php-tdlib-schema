@@ -17,22 +17,16 @@ class InputInlineQueryResultGame extends InputInlineQueryResult
 
     /**
      * Unique identifier of the query result.
-     *
-     * @var string
      */
     protected string $id;
 
     /**
      * Short name of the game.
-     *
-     * @var string
      */
     protected string $gameShortName;
 
     /**
      * Message reply markup. Must be of type replyMarkupInlineKeyboard or null.
-     *
-     * @var ReplyMarkup
      */
     protected ReplyMarkup $replyMarkup;
 

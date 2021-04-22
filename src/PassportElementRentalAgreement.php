@@ -17,8 +17,6 @@ class PassportElementRentalAgreement extends PassportElement
 
     /**
      * Rental agreement.
-     *
-     * @var PersonalDocument
      */
     protected PersonalDocument $rentalAgreement;
 

@@ -17,8 +17,6 @@ class ChatEventInvitesToggled extends ChatEventAction
 
     /**
      * New value of can_invite_users permission.
-     *
-     * @var bool
      */
     protected bool $canInviteUsers;
 

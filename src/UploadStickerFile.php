@@ -17,15 +17,11 @@ class UploadStickerFile extends TdFunction
 
     /**
      * Sticker file owner.
-     *
-     * @var int
      */
     protected int $userId;
 
     /**
      * PNG image with the sticker; must be up to 512 KB in size and fit in 512x512 square.
-     *
-     * @var InputFile
      */
     protected InputFile $pngSticker;
 

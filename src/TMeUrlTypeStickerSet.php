@@ -17,8 +17,6 @@ class TMeUrlTypeStickerSet extends TMeUrlType
 
     /**
      * Identifier of the sticker set.
-     *
-     * @var string
      */
     protected string $stickerSetId;
 

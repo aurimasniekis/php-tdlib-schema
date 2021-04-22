@@ -17,8 +17,6 @@ class TestBytes extends TdObject
 
     /**
      * Bytes.
-     *
-     * @var string
      */
     protected string $value;
 

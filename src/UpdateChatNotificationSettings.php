@@ -17,15 +17,11 @@ class UpdateChatNotificationSettings extends Update
 
     /**
      * Chat identifier.
-     *
-     * @var int
      */
     protected int $chatId;
 
     /**
      * The new notification settings.
-     *
-     * @var ChatNotificationSettings
      */
     protected ChatNotificationSettings $notificationSettings;
 

@@ -17,34 +17,30 @@ class PaymentsProviderStripe extends TdObject
 
     /**
      * Stripe API publishable key.
-     *
-     * @var string
      */
     protected string $publishableKey;
 
     /**
      * True, if the user country must be provided.
-     *
-     * @var bool
      */
     protected bool $needCountry;
 
     /**
      * True, if the user ZIP/postal code must be provided.
-     *
-     * @var bool
      */
     protected bool $needPostalCode;
 
     /**
      * True, if the cardholder name must be provided.
-     *
-     * @var bool
      */
     protected bool $needCardholderName;
 
-    public function __construct(string $publishableKey, bool $needCountry, bool $needPostalCode, bool $needCardholderName)
-    {
+    public function __construct(
+        string $publishableKey,
+        bool $needCountry,
+        bool $needPostalCode,
+        bool $needCardholderName
+    ) {
         $this->publishableKey     = $publishableKey;
         $this->needCountry        = $needCountry;
         $this->needPostalCode     = $needPostalCode;

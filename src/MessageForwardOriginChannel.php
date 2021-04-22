@@ -17,22 +17,16 @@ class MessageForwardOriginChannel extends MessageForwardOrigin
 
     /**
      * Identifier of the chat from which the message was originally forwarded.
-     *
-     * @var int
      */
     protected int $chatId;
 
     /**
-     * Message identifier of the original message; 0 if unknown.
-     *
-     * @var int
+     * Message identifier of the original message.
      */
     protected int $messageId;
 
     /**
      * Original post author signature.
-     *
-     * @var string
      */
     protected string $authorSignature;
 

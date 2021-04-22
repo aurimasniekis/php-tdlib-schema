@@ -17,8 +17,6 @@ class GetNetworkStatistics extends TdFunction
 
     /**
      * If true, returns only data for the current library launch.
-     *
-     * @var bool
      */
     protected bool $onlyCurrent;
 

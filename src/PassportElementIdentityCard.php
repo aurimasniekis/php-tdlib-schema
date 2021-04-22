@@ -17,8 +17,6 @@ class PassportElementIdentityCard extends PassportElement
 
     /**
      * Identity card.
-     *
-     * @var IdentityDocument
      */
     protected IdentityDocument $identityCard;
 

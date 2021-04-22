@@ -17,22 +17,16 @@ class SetFileGenerationProgress extends TdFunction
 
     /**
      * The identifier of the generation process.
-     *
-     * @var string
      */
     protected string $generationId;
 
     /**
      * Expected size of the generated file, in bytes; 0 if unknown.
-     *
-     * @var int
      */
     protected int $expectedSize;
 
     /**
      * The number of bytes already generated.
-     *
-     * @var int
      */
     protected int $localPrefixSize;
 

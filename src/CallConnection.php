@@ -17,36 +17,26 @@ class CallConnection extends TdObject
 
     /**
      * Reflector identifier.
-     *
-     * @var string
      */
     protected string $id;
 
     /**
      * IPv4 reflector address.
-     *
-     * @var string
      */
     protected string $ip;
 
     /**
      * IPv6 reflector address.
-     *
-     * @var string
      */
     protected string $ipv6;
 
     /**
      * Reflector port number.
-     *
-     * @var int
      */
     protected int $port;
 
     /**
      * Connection peer tag.
-     *
-     * @var string
      */
     protected string $peerTag;
 
