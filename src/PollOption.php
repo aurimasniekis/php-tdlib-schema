@@ -9,54 +9,44 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Describes one answer option of a poll
+ * Describes one answer option of a poll.
  */
 class PollOption extends TdObject
 {
     public const TYPE_NAME = 'pollOption';
 
     /**
-     * Option text, 1-100 characters
-     *
-     * @var string
+     * Option text, 1-100 characters.
      */
     protected string $text;
 
     /**
-     * Number of voters for this option, available only for closed or voted polls
-     *
-     * @var int
+     * Number of voters for this option, available only for closed or voted polls.
      */
     protected int $voterCount;
 
     /**
-     * The percentage of votes for this option, 0-100
-     *
-     * @var int
+     * The percentage of votes for this option, 0-100.
      */
     protected int $votePercentage;
 
     /**
-     * True, if the option was chosen by the user
-     *
-     * @var bool
+     * True, if the option was chosen by the user.
      */
     protected bool $isChosen;
 
     /**
-     * True, if the option is being chosen by a pending setPollAnswer request
-     *
-     * @var bool
+     * True, if the option is being chosen by a pending setPollAnswer request.
      */
     protected bool $isBeingChosen;
 
     public function __construct(string $text, int $voterCount, int $votePercentage, bool $isChosen, bool $isBeingChosen)
     {
-        $this->text = $text;
-        $this->voterCount = $voterCount;
+        $this->text           = $text;
+        $this->voterCount     = $voterCount;
         $this->votePercentage = $votePercentage;
-        $this->isChosen = $isChosen;
-        $this->isBeingChosen = $isBeingChosen;
+        $this->isChosen       = $isChosen;
+        $this->isBeingChosen  = $isBeingChosen;
     }
 
     public static function fromArray(array $array): PollOption
@@ -73,11 +63,11 @@ class PollOption extends TdObject
     public function typeSerialize(): array
     {
         return [
-            '@type' => static::TYPE_NAME,
-            'text' => $this->text,
-            'voter_count' => $this->voterCount,
+            '@type'           => static::TYPE_NAME,
+            'text'            => $this->text,
+            'voter_count'     => $this->voterCount,
             'vote_percentage' => $this->votePercentage,
-            'is_chosen' => $this->isChosen,
+            'is_chosen'       => $this->isChosen,
             'is_being_chosen' => $this->isBeingChosen,
         ];
     }

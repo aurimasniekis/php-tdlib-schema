@@ -9,23 +9,19 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Represents information about a game
+ * Represents information about a game.
  */
 class InlineQueryResultGame extends InlineQueryResult
 {
     public const TYPE_NAME = 'inlineQueryResultGame';
 
     /**
-     * Unique identifier of the query result
-     *
-     * @var string
+     * Unique identifier of the query result.
      */
     protected string $id;
 
     /**
-     * Game result
-     *
-     * @var Game
+     * Game result.
      */
     protected Game $game;
 
@@ -33,7 +29,7 @@ class InlineQueryResultGame extends InlineQueryResult
     {
         parent::__construct();
 
-        $this->id = $id;
+        $this->id   = $id;
         $this->game = $game;
     }
 
@@ -49,8 +45,8 @@ class InlineQueryResultGame extends InlineQueryResult
     {
         return [
             '@type' => static::TYPE_NAME,
-            'id' => $this->id,
-            'game' => $this->game->typeSerialize(),
+            'id'    => $this->id,
+            'game'  => $this->game->typeSerialize(),
         ];
     }
 

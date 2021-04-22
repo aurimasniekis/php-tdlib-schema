@@ -9,21 +9,19 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Contains a list of messages
+ * Contains a list of messages.
  */
 class Messages extends TdObject
 {
     public const TYPE_NAME = 'messages';
 
     /**
-     * Approximate total count of messages found
-     *
-     * @var int
+     * Approximate total count of messages found.
      */
     protected int $totalCount;
 
     /**
-     * List of messages; messages may be null
+     * List of messages; messages may be null.
      *
      * @var Message[]|null
      */
@@ -32,23 +30,23 @@ class Messages extends TdObject
     public function __construct(int $totalCount, ?array $messages)
     {
         $this->totalCount = $totalCount;
-        $this->messages = $messages;
+        $this->messages   = $messages;
     }
 
     public static function fromArray(array $array): Messages
     {
         return new static(
             $array['total_count'],
-            (isset($array['messages']) ? array_map(fn($x) => TdSchemaRegistry::fromArray($x), $array['messages']) : null),
+            (isset($array['messages']) ? array_map(fn ($x) => TdSchemaRegistry::fromArray($x), $array['messages']) : null),
         );
     }
 
     public function typeSerialize(): array
     {
         return [
-            '@type' => static::TYPE_NAME,
-            'total_count' => $this->totalCount,
-            (isset($this->messages) ? array_map(fn($x) => $x->typeSerialize(), $this->messages) : null),
+            '@type'                                     => static::TYPE_NAME,
+            'total_count'                               => $this->totalCount,
+            (isset($this->messages) ? array_map(fn ($x) => $x->typeSerialize(), $this->messages) : null),
         ];
     }
 

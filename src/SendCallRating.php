@@ -9,35 +9,29 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Sends a call rating
+ * Sends a call rating.
  */
 class SendCallRating extends TdFunction
 {
     public const TYPE_NAME = 'sendCallRating';
 
     /**
-     * Call identifier
-     *
-     * @var int
+     * Call identifier.
      */
     protected int $callId;
 
     /**
-     * Call rating; 1-5
-     *
-     * @var int
+     * Call rating; 1-5.
      */
     protected int $rating;
 
     /**
-     * An optional user comment if the rating is less than 5
-     *
-     * @var string
+     * An optional user comment if the rating is less than 5.
      */
     protected string $comment;
 
     /**
-     * List of the exact types of problems with the call, specified by the user
+     * List of the exact types of problems with the call, specified by the user.
      *
      * @var CallProblem[]
      */
@@ -45,9 +39,9 @@ class SendCallRating extends TdFunction
 
     public function __construct(int $callId, int $rating, string $comment, array $problems)
     {
-        $this->callId = $callId;
-        $this->rating = $rating;
-        $this->comment = $comment;
+        $this->callId   = $callId;
+        $this->rating   = $rating;
+        $this->comment  = $comment;
         $this->problems = $problems;
     }
 
@@ -57,18 +51,18 @@ class SendCallRating extends TdFunction
             $array['call_id'],
             $array['rating'],
             $array['comment'],
-            array_map(fn($x) => TdSchemaRegistry::fromArray($x), $array['problems']),
+            array_map(fn ($x) => TdSchemaRegistry::fromArray($x), $array['problems']),
         );
     }
 
     public function typeSerialize(): array
     {
         return [
-            '@type' => static::TYPE_NAME,
-            'call_id' => $this->callId,
-            'rating' => $this->rating,
-            'comment' => $this->comment,
-            array_map(fn($x) => $x->typeSerialize(), $this->problems),
+            '@type'           => static::TYPE_NAME,
+            'call_id'         => $this->callId,
+            'rating'          => $this->rating,
+            'comment'         => $this->comment,
+            array_map(fn ($x) => $x->typeSerialize(), $this->problems),
         ];
     }
 

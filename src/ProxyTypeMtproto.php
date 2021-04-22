@@ -9,16 +9,14 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * An MTProto proxy server
+ * An MTProto proxy server.
  */
 class ProxyTypeMtproto extends ProxyType
 {
     public const TYPE_NAME = 'proxyTypeMtproto';
 
     /**
-     * The proxy's secret in hexadecimal encoding
-     *
-     * @var string
+     * The proxy's secret in hexadecimal encoding.
      */
     protected string $secret;
 
@@ -39,7 +37,7 @@ class ProxyTypeMtproto extends ProxyType
     public function typeSerialize(): array
     {
         return [
-            '@type' => static::TYPE_NAME,
+            '@type'  => static::TYPE_NAME,
             'secret' => $this->secret,
         ];
     }

@@ -9,30 +9,24 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * A voice note message
+ * A voice note message.
  */
 class MessageVoiceNote extends MessageContent
 {
     public const TYPE_NAME = 'messageVoiceNote';
 
     /**
-     * The voice note description
-     *
-     * @var VoiceNote
+     * The voice note description.
      */
     protected VoiceNote $voiceNote;
 
     /**
-     * Voice note caption
-     *
-     * @var FormattedText
+     * Voice note caption.
      */
     protected FormattedText $caption;
 
     /**
-     * True, if at least one of the recipients has listened to the voice note
-     *
-     * @var bool
+     * True, if at least one of the recipients has listened to the voice note.
      */
     protected bool $isListened;
 
@@ -40,8 +34,8 @@ class MessageVoiceNote extends MessageContent
     {
         parent::__construct();
 
-        $this->voiceNote = $voiceNote;
-        $this->caption = $caption;
+        $this->voiceNote  = $voiceNote;
+        $this->caption    = $caption;
         $this->isListened = $isListened;
     }
 
@@ -57,9 +51,9 @@ class MessageVoiceNote extends MessageContent
     public function typeSerialize(): array
     {
         return [
-            '@type' => static::TYPE_NAME,
-            'voice_note' => $this->voiceNote->typeSerialize(),
-            'caption' => $this->caption->typeSerialize(),
+            '@type'       => static::TYPE_NAME,
+            'voice_note'  => $this->voiceNote->typeSerialize(),
+            'caption'     => $this->caption->typeSerialize(),
             'is_listened' => $this->isListened,
         ];
     }

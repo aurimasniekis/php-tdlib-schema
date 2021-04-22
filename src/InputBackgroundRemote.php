@@ -9,16 +9,14 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * A background from the server
+ * A background from the server.
  */
 class InputBackgroundRemote extends InputBackground
 {
     public const TYPE_NAME = 'inputBackgroundRemote';
 
     /**
-     * The background identifier
-     *
-     * @var string
+     * The background identifier.
      */
     protected string $backgroundId;
 
@@ -39,7 +37,7 @@ class InputBackgroundRemote extends InputBackground
     public function typeSerialize(): array
     {
         return [
-            '@type' => static::TYPE_NAME,
+            '@type'         => static::TYPE_NAME,
             'background_id' => $this->backgroundId,
         ];
     }

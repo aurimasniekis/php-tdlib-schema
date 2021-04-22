@@ -9,16 +9,14 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Represents a numeric JSON value
+ * Represents a numeric JSON value.
  */
 class JsonValueNumber extends JsonValue
 {
     public const TYPE_NAME = 'jsonValueNumber';
 
     /**
-     * The value
-     *
-     * @var float
+     * The value.
      */
     protected float $value;
 

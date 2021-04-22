@@ -9,7 +9,7 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * The user is a member of a chat, without any additional privileges or restrictions
+ * The user is a member of a chat, without any additional privileges or restrictions.
  */
 class ChatMemberStatusMember extends ChatMemberStatus
 {

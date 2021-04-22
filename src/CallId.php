@@ -9,16 +9,14 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Contains the call identifier
+ * Contains the call identifier.
  */
 class CallId extends TdObject
 {
     public const TYPE_NAME = 'callId';
 
     /**
-     * Call identifier
-     *
-     * @var int
+     * Call identifier.
      */
     protected int $id;
 
@@ -38,7 +36,7 @@ class CallId extends TdObject
     {
         return [
             '@type' => static::TYPE_NAME,
-            'id' => $this->id,
+            'id'    => $this->id,
         ];
     }
 

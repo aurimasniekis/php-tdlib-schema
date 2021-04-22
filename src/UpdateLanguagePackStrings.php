@@ -9,28 +9,24 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Some language pack strings have been updated
+ * Some language pack strings have been updated.
  */
 class UpdateLanguagePackStrings extends Update
 {
     public const TYPE_NAME = 'updateLanguagePackStrings';
 
     /**
-     * Localization target to which the language pack belongs
-     *
-     * @var string
+     * Localization target to which the language pack belongs.
      */
     protected string $localizationTarget;
 
     /**
-     * Identifier of the updated language pack
-     *
-     * @var string
+     * Identifier of the updated language pack.
      */
     protected string $languagePackId;
 
     /**
-     * List of changed language pack strings
+     * List of changed language pack strings.
      *
      * @var LanguagePackString[]
      */
@@ -41,8 +37,8 @@ class UpdateLanguagePackStrings extends Update
         parent::__construct();
 
         $this->localizationTarget = $localizationTarget;
-        $this->languagePackId = $languagePackId;
-        $this->strings = $strings;
+        $this->languagePackId     = $languagePackId;
+        $this->strings            = $strings;
     }
 
     public static function fromArray(array $array): UpdateLanguagePackStrings
@@ -50,17 +46,17 @@ class UpdateLanguagePackStrings extends Update
         return new static(
             $array['localization_target'],
             $array['language_pack_id'],
-            array_map(fn($x) => TdSchemaRegistry::fromArray($x), $array['strings']),
+            array_map(fn ($x) => TdSchemaRegistry::fromArray($x), $array['strings']),
         );
     }
 
     public function typeSerialize(): array
     {
         return [
-            '@type' => static::TYPE_NAME,
+            '@type'               => static::TYPE_NAME,
             'localization_target' => $this->localizationTarget,
-            'language_pack_id' => $this->languagePackId,
-            array_map(fn($x) => $x->typeSerialize(), $this->strings),
+            'language_pack_id'    => $this->languagePackId,
+            array_map(fn ($x)     => $x->typeSerialize(), $this->strings),
         ];
     }
 

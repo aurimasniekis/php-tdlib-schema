@@ -9,7 +9,7 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Returns all active live locations that should be updated by the application. The list is persistent across application restarts only if the message database is used
+ * Returns all active live locations that should be updated by the application. The list is persistent across application restarts only if the message database is used.
  */
 class GetActiveLiveLocationMessages extends TdFunction
 {

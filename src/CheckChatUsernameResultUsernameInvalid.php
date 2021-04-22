@@ -9,7 +9,7 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * The username is invalid
+ * The username is invalid.
  */
 class CheckChatUsernameResultUsernameInvalid extends CheckChatUsernameResult
 {

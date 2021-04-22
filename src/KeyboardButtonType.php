@@ -9,7 +9,7 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Describes a keyboard button type
+ * Describes a keyboard button type.
  */
 class KeyboardButtonType extends TdObject
 {

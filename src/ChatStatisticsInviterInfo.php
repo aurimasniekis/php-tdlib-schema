@@ -9,29 +9,25 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Contains statistics about number of new members invited by a user
+ * Contains statistics about number of new members invited by a user.
  */
 class ChatStatisticsInviterInfo extends TdObject
 {
     public const TYPE_NAME = 'chatStatisticsInviterInfo';
 
     /**
-     * User identifier
-     *
-     * @var int
+     * User identifier.
      */
     protected int $userId;
 
     /**
-     * Number of new members invited by the user
-     *
-     * @var int
+     * Number of new members invited by the user.
      */
     protected int $addedMemberCount;
 
     public function __construct(int $userId, int $addedMemberCount)
     {
-        $this->userId = $userId;
+        $this->userId           = $userId;
         $this->addedMemberCount = $addedMemberCount;
     }
 
@@ -46,8 +42,8 @@ class ChatStatisticsInviterInfo extends TdObject
     public function typeSerialize(): array
     {
         return [
-            '@type' => static::TYPE_NAME,
-            'user_id' => $this->userId,
+            '@type'              => static::TYPE_NAME,
+            'user_id'            => $this->userId,
             'added_member_count' => $this->addedMemberCount,
         ];
     }

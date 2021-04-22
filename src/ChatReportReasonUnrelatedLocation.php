@@ -9,7 +9,7 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * The location-based chat is unrelated to its stated location
+ * The location-based chat is unrelated to its stated location.
  */
 class ChatReportReasonUnrelatedLocation extends ChatReportReason
 {

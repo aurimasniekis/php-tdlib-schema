@@ -9,7 +9,7 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Describes the last time the user was online
+ * Describes the last time the user was online.
  */
 class UserStatus extends TdObject
 {

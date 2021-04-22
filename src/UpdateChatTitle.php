@@ -9,23 +9,19 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * The title of a chat was changed
+ * The title of a chat was changed.
  */
 class UpdateChatTitle extends Update
 {
     public const TYPE_NAME = 'updateChatTitle';
 
     /**
-     * Chat identifier
-     *
-     * @var int
+     * Chat identifier.
      */
     protected int $chatId;
 
     /**
-     * The new chat title
-     *
-     * @var string
+     * The new chat title.
      */
     protected string $title;
 
@@ -34,7 +30,7 @@ class UpdateChatTitle extends Update
         parent::__construct();
 
         $this->chatId = $chatId;
-        $this->title = $title;
+        $this->title  = $title;
     }
 
     public static function fromArray(array $array): UpdateChatTitle
@@ -48,9 +44,9 @@ class UpdateChatTitle extends Update
     public function typeSerialize(): array
     {
         return [
-            '@type' => static::TYPE_NAME,
+            '@type'   => static::TYPE_NAME,
             'chat_id' => $this->chatId,
-            'title' => $this->title,
+            'title'   => $this->title,
         ];
     }
 

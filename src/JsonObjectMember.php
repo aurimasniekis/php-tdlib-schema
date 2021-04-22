@@ -9,29 +9,25 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Represents one member of a JSON object
+ * Represents one member of a JSON object.
  */
 class JsonObjectMember extends TdObject
 {
     public const TYPE_NAME = 'jsonObjectMember';
 
     /**
-     * Member's key
-     *
-     * @var string
+     * Member's key.
      */
     protected string $key;
 
     /**
-     * Member's value
-     *
-     * @var JsonValue
+     * Member's value.
      */
     protected JsonValue $value;
 
     public function __construct(string $key, JsonValue $value)
     {
-        $this->key = $key;
+        $this->key   = $key;
         $this->value = $value;
     }
 
@@ -47,7 +43,7 @@ class JsonObjectMember extends TdObject
     {
         return [
             '@type' => static::TYPE_NAME,
-            'key' => $this->key,
+            'key'   => $this->key,
             'value' => $this->value->typeSerialize(),
         ];
     }

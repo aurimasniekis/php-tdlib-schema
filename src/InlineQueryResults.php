@@ -9,44 +9,36 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Represents the results of the inline query. Use sendInlineQueryResultMessage to send the result of the query
+ * Represents the results of the inline query. Use sendInlineQueryResultMessage to send the result of the query.
  */
 class InlineQueryResults extends TdObject
 {
     public const TYPE_NAME = 'inlineQueryResults';
 
     /**
-     * Unique identifier of the inline query
-     *
-     * @var string
+     * Unique identifier of the inline query.
      */
     protected string $inlineQueryId;
 
     /**
-     * The offset for the next request. If empty, there are no more results
-     *
-     * @var string
+     * The offset for the next request. If empty, there are no more results.
      */
     protected string $nextOffset;
 
     /**
-     * Results of the query
+     * Results of the query.
      *
      * @var InlineQueryResult[]
      */
     protected array $results;
 
     /**
-     * If non-empty, this text should be shown on the button, which opens a private chat with the bot and sends the bot a start message with the switch_pm_parameter
-     *
-     * @var string
+     * If non-empty, this text should be shown on the button, which opens a private chat with the bot and sends the bot a start message with the switch_pm_parameter.
      */
     protected string $switchPmText;
 
     /**
-     * Parameter for the bot start message
-     *
-     * @var string
+     * Parameter for the bot start message.
      */
     protected string $switchPmParameter;
 
@@ -57,10 +49,10 @@ class InlineQueryResults extends TdObject
         string $switchPmText,
         string $switchPmParameter
     ) {
-        $this->inlineQueryId = $inlineQueryId;
-        $this->nextOffset = $nextOffset;
-        $this->results = $results;
-        $this->switchPmText = $switchPmText;
+        $this->inlineQueryId     = $inlineQueryId;
+        $this->nextOffset        = $nextOffset;
+        $this->results           = $results;
+        $this->switchPmText      = $switchPmText;
         $this->switchPmParameter = $switchPmParameter;
     }
 
@@ -69,7 +61,7 @@ class InlineQueryResults extends TdObject
         return new static(
             $array['inline_query_id'],
             $array['next_offset'],
-            array_map(fn($x) => TdSchemaRegistry::fromArray($x), $array['results']),
+            array_map(fn ($x) => TdSchemaRegistry::fromArray($x), $array['results']),
             $array['switch_pm_text'],
             $array['switch_pm_parameter'],
         );
@@ -78,11 +70,11 @@ class InlineQueryResults extends TdObject
     public function typeSerialize(): array
     {
         return [
-            '@type' => static::TYPE_NAME,
-            'inline_query_id' => $this->inlineQueryId,
-            'next_offset' => $this->nextOffset,
-            array_map(fn($x) => $x->typeSerialize(), $this->results),
-            'switch_pm_text' => $this->switchPmText,
+            '@type'               => static::TYPE_NAME,
+            'inline_query_id'     => $this->inlineQueryId,
+            'next_offset'         => $this->nextOffset,
+            array_map(fn ($x)     => $x->typeSerialize(), $this->results),
+            'switch_pm_text'      => $this->switchPmText,
             'switch_pm_parameter' => $this->switchPmParameter,
         ];
     }

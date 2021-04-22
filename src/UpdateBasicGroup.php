@@ -9,16 +9,14 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Some data of a basic group has changed. This update is guaranteed to come before the basic group identifier is returned to the application
+ * Some data of a basic group has changed. This update is guaranteed to come before the basic group identifier is returned to the application.
  */
 class UpdateBasicGroup extends Update
 {
     public const TYPE_NAME = 'updateBasicGroup';
 
     /**
-     * New data about the group
-     *
-     * @var BasicGroup
+     * New data about the group.
      */
     protected BasicGroup $basicGroup;
 
@@ -39,7 +37,7 @@ class UpdateBasicGroup extends Update
     public function typeSerialize(): array
     {
         return [
-            '@type' => static::TYPE_NAME,
+            '@type'       => static::TYPE_NAME,
             'basic_group' => $this->basicGroup->typeSerialize(),
         ];
     }

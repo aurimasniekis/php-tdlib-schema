@@ -9,30 +9,24 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * A new high score was achieved in a game
+ * A new high score was achieved in a game.
  */
 class PushMessageContentGameScore extends PushMessageContent
 {
     public const TYPE_NAME = 'pushMessageContentGameScore';
 
     /**
-     * Game title, empty for pinned message
-     *
-     * @var string
+     * Game title, empty for pinned message.
      */
     protected string $title;
 
     /**
-     * New score, 0 for pinned message
-     *
-     * @var int
+     * New score, 0 for pinned message.
      */
     protected int $score;
 
     /**
-     * True, if the message is a pinned message with the specified content
-     *
-     * @var bool
+     * True, if the message is a pinned message with the specified content.
      */
     protected bool $isPinned;
 
@@ -40,8 +34,8 @@ class PushMessageContentGameScore extends PushMessageContent
     {
         parent::__construct();
 
-        $this->title = $title;
-        $this->score = $score;
+        $this->title    = $title;
+        $this->score    = $score;
         $this->isPinned = $isPinned;
     }
 
@@ -57,9 +51,9 @@ class PushMessageContentGameScore extends PushMessageContent
     public function typeSerialize(): array
     {
         return [
-            '@type' => static::TYPE_NAME,
-            'title' => $this->title,
-            'score' => $this->score,
+            '@type'     => static::TYPE_NAME,
+            'title'     => $this->title,
+            'score'     => $this->score,
             'is_pinned' => $this->isPinned,
         ];
     }

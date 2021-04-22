@@ -9,38 +9,32 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Returns the high scores for a game and some part of the high score table in the range of the specified user; for bots only
+ * Returns the high scores for a game and some part of the high score table in the range of the specified user; for bots only.
  */
 class GetGameHighScores extends TdFunction
 {
     public const TYPE_NAME = 'getGameHighScores';
 
     /**
-     * The chat that contains the message with the game
-     *
-     * @var int
+     * The chat that contains the message with the game.
      */
     protected int $chatId;
 
     /**
-     * Identifier of the message
-     *
-     * @var int
+     * Identifier of the message.
      */
     protected int $messageId;
 
     /**
-     * User identifier
-     *
-     * @var int
+     * User identifier.
      */
     protected int $userId;
 
     public function __construct(int $chatId, int $messageId, int $userId)
     {
-        $this->chatId = $chatId;
+        $this->chatId    = $chatId;
         $this->messageId = $messageId;
-        $this->userId = $userId;
+        $this->userId    = $userId;
     }
 
     public static function fromArray(array $array): GetGameHighScores
@@ -55,10 +49,10 @@ class GetGameHighScores extends TdFunction
     public function typeSerialize(): array
     {
         return [
-            '@type' => static::TYPE_NAME,
-            'chat_id' => $this->chatId,
+            '@type'      => static::TYPE_NAME,
+            'chat_id'    => $this->chatId,
             'message_id' => $this->messageId,
-            'user_id' => $this->userId,
+            'user_id'    => $this->userId,
         ];
     }
 

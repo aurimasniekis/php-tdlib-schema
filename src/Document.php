@@ -9,44 +9,34 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Describes a document of any type
+ * Describes a document of any type.
  */
 class Document extends TdObject
 {
     public const TYPE_NAME = 'document';
 
     /**
-     * Original name of the file; as defined by the sender
-     *
-     * @var string
+     * Original name of the file; as defined by the sender.
      */
     protected string $fileName;
 
     /**
-     * MIME type of the file; as defined by the sender
-     *
-     * @var string
+     * MIME type of the file; as defined by the sender.
      */
     protected string $mimeType;
 
     /**
-     * Document minithumbnail; may be null
-     *
-     * @var Minithumbnail|null
+     * Document minithumbnail; may be null.
      */
     protected ?Minithumbnail $minithumbnail;
 
     /**
-     * Document thumbnail in JPEG or PNG format (PNG will be used only for background patterns); as defined by the sender; may be null
-     *
-     * @var Thumbnail|null
+     * Document thumbnail in JPEG or PNG format (PNG will be used only for background patterns); as defined by the sender; may be null.
      */
     protected ?Thumbnail $thumbnail;
 
     /**
-     * File containing the document
-     *
-     * @var File
+     * File containing the document.
      */
     protected File $document;
 
@@ -57,11 +47,11 @@ class Document extends TdObject
         ?Thumbnail $thumbnail,
         File $document
     ) {
-        $this->fileName = $fileName;
-        $this->mimeType = $mimeType;
+        $this->fileName      = $fileName;
+        $this->mimeType      = $mimeType;
         $this->minithumbnail = $minithumbnail;
-        $this->thumbnail = $thumbnail;
-        $this->document = $document;
+        $this->thumbnail     = $thumbnail;
+        $this->document      = $document;
     }
 
     public static function fromArray(array $array): Document
@@ -78,12 +68,12 @@ class Document extends TdObject
     public function typeSerialize(): array
     {
         return [
-            '@type' => static::TYPE_NAME,
-            'file_name' => $this->fileName,
-            'mime_type' => $this->mimeType,
+            '@type'         => static::TYPE_NAME,
+            'file_name'     => $this->fileName,
+            'mime_type'     => $this->mimeType,
             'minithumbnail' => (isset($this->minithumbnail) ? $this->minithumbnail : null),
-            'thumbnail' => (isset($this->thumbnail) ? $this->thumbnail : null),
-            'document' => $this->document->typeSerialize(),
+            'thumbnail'     => (isset($this->thumbnail) ? $this->thumbnail : null),
+            'document'      => $this->document->typeSerialize(),
         ];
     }
 

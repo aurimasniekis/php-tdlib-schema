@@ -9,58 +9,44 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Represents a user contact
+ * Represents a user contact.
  */
 class InputInlineQueryResultContact extends InputInlineQueryResult
 {
     public const TYPE_NAME = 'inputInlineQueryResultContact';
 
     /**
-     * Unique identifier of the query result
-     *
-     * @var string
+     * Unique identifier of the query result.
      */
     protected string $id;
 
     /**
-     * User contact
-     *
-     * @var Contact
+     * User contact.
      */
     protected Contact $contact;
 
     /**
-     * URL of the result thumbnail, if it exists
-     *
-     * @var string
+     * URL of the result thumbnail, if it exists.
      */
     protected string $thumbnailUrl;
 
     /**
-     * Thumbnail width, if known
-     *
-     * @var int
+     * Thumbnail width, if known.
      */
     protected int $thumbnailWidth;
 
     /**
-     * Thumbnail height, if known
-     *
-     * @var int
+     * Thumbnail height, if known.
      */
     protected int $thumbnailHeight;
 
     /**
-     * The message reply markup. Must be of type replyMarkupInlineKeyboard or null
-     *
-     * @var ReplyMarkup
+     * The message reply markup. Must be of type replyMarkupInlineKeyboard or null.
      */
     protected ReplyMarkup $replyMarkup;
 
     /**
-     * The content of the message to be sent. Must be one of the following types: InputMessageText, InputMessageLocation, InputMessageVenue or InputMessageContact
-     *
-     * @var InputMessageContent
+     * The content of the message to be sent. Must be one of the following types: InputMessageText, InputMessageLocation, InputMessageVenue or InputMessageContact.
      */
     protected InputMessageContent $inputMessageContent;
 
@@ -75,12 +61,12 @@ class InputInlineQueryResultContact extends InputInlineQueryResult
     ) {
         parent::__construct();
 
-        $this->id = $id;
-        $this->contact = $contact;
-        $this->thumbnailUrl = $thumbnailUrl;
-        $this->thumbnailWidth = $thumbnailWidth;
-        $this->thumbnailHeight = $thumbnailHeight;
-        $this->replyMarkup = $replyMarkup;
+        $this->id                  = $id;
+        $this->contact             = $contact;
+        $this->thumbnailUrl        = $thumbnailUrl;
+        $this->thumbnailWidth      = $thumbnailWidth;
+        $this->thumbnailHeight     = $thumbnailHeight;
+        $this->replyMarkup         = $replyMarkup;
         $this->inputMessageContent = $inputMessageContent;
     }
 
@@ -100,13 +86,13 @@ class InputInlineQueryResultContact extends InputInlineQueryResult
     public function typeSerialize(): array
     {
         return [
-            '@type' => static::TYPE_NAME,
-            'id' => $this->id,
-            'contact' => $this->contact->typeSerialize(),
-            'thumbnail_url' => $this->thumbnailUrl,
-            'thumbnail_width' => $this->thumbnailWidth,
-            'thumbnail_height' => $this->thumbnailHeight,
-            'reply_markup' => $this->replyMarkup->typeSerialize(),
+            '@type'                 => static::TYPE_NAME,
+            'id'                    => $this->id,
+            'contact'               => $this->contact->typeSerialize(),
+            'thumbnail_url'         => $this->thumbnailUrl,
+            'thumbnail_width'       => $this->thumbnailWidth,
+            'thumbnail_height'      => $this->thumbnailHeight,
+            'reply_markup'          => $this->replyMarkup->typeSerialize(),
             'input_message_content' => $this->inputMessageContent->typeSerialize(),
         ];
     }

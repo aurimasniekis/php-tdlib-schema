@@ -9,37 +9,29 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * A document message (general file)
+ * A document message (general file).
  */
 class InputMessageDocument extends InputMessageContent
 {
     public const TYPE_NAME = 'inputMessageDocument';
 
     /**
-     * Document to be sent
-     *
-     * @var InputFile
+     * Document to be sent.
      */
     protected InputFile $document;
 
     /**
-     * Document thumbnail, if available
-     *
-     * @var InputThumbnail
+     * Document thumbnail, if available.
      */
     protected InputThumbnail $thumbnail;
 
     /**
-     * If true, automatic file type detection will be disabled and the document will be always sent as file. Always true for files sent to secret chats
-     *
-     * @var bool
+     * If true, automatic file type detection will be disabled and the document will be always sent as file. Always true for files sent to secret chats.
      */
     protected bool $disableContentTypeDetection;
 
     /**
-     * Document caption; 0-GetOption("message_caption_length_max") characters
-     *
-     * @var FormattedText
+     * Document caption; 0-GetOption("message_caption_length_max") characters.
      */
     protected FormattedText $caption;
 
@@ -51,10 +43,10 @@ class InputMessageDocument extends InputMessageContent
     ) {
         parent::__construct();
 
-        $this->document = $document;
-        $this->thumbnail = $thumbnail;
+        $this->document                    = $document;
+        $this->thumbnail                   = $thumbnail;
         $this->disableContentTypeDetection = $disableContentTypeDetection;
-        $this->caption = $caption;
+        $this->caption                     = $caption;
     }
 
     public static function fromArray(array $array): InputMessageDocument
@@ -70,11 +62,11 @@ class InputMessageDocument extends InputMessageContent
     public function typeSerialize(): array
     {
         return [
-            '@type' => static::TYPE_NAME,
-            'document' => $this->document->typeSerialize(),
-            'thumbnail' => $this->thumbnail->typeSerialize(),
+            '@type'                          => static::TYPE_NAME,
+            'document'                       => $this->document->typeSerialize(),
+            'thumbnail'                      => $this->thumbnail->typeSerialize(),
             'disable_content_type_detection' => $this->disableContentTypeDetection,
-            'caption' => $this->caption->typeSerialize(),
+            'caption'                        => $this->caption->typeSerialize(),
         ];
     }
 

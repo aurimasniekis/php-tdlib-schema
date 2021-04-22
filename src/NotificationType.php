@@ -9,7 +9,7 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Contains detailed information about a notification
+ * Contains detailed information about a notification.
  */
 class NotificationType extends TdObject
 {

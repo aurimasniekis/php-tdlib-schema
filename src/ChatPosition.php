@@ -9,46 +9,38 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Describes a position of a chat in a chat list
+ * Describes a position of a chat in a chat list.
  */
 class ChatPosition extends TdObject
 {
     public const TYPE_NAME = 'chatPosition';
 
     /**
-     * The chat list
-     *
-     * @var ChatList
+     * The chat list.
      */
     protected ChatList $list;
 
     /**
-     * A parameter used to determine order of the chat in the chat list. Chats must be sorted by the pair (order, chat.id) in descending order
-     *
-     * @var string
+     * A parameter used to determine order of the chat in the chat list. Chats must be sorted by the pair (order, chat.id) in descending order.
      */
     protected string $order;
 
     /**
-     * True, if the chat is pinned in the chat list
-     *
-     * @var bool
+     * True, if the chat is pinned in the chat list.
      */
     protected bool $isPinned;
 
     /**
-     * Source of the chat in the chat list; may be null
-     *
-     * @var ChatSource|null
+     * Source of the chat in the chat list; may be null.
      */
     protected ?ChatSource $source;
 
     public function __construct(ChatList $list, string $order, bool $isPinned, ?ChatSource $source)
     {
-        $this->list = $list;
-        $this->order = $order;
+        $this->list     = $list;
+        $this->order    = $order;
         $this->isPinned = $isPinned;
-        $this->source = $source;
+        $this->source   = $source;
     }
 
     public static function fromArray(array $array): ChatPosition
@@ -64,11 +56,11 @@ class ChatPosition extends TdObject
     public function typeSerialize(): array
     {
         return [
-            '@type' => static::TYPE_NAME,
-            'list' => $this->list->typeSerialize(),
-            'order' => $this->order,
+            '@type'     => static::TYPE_NAME,
+            'list'      => $this->list->typeSerialize(),
+            'order'     => $this->order,
             'is_pinned' => $this->isPinned,
-            'source' => (isset($this->source) ? $this->source : null),
+            'source'    => (isset($this->source) ? $this->source : null),
         ];
     }
 

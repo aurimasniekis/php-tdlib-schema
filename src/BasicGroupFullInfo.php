@@ -9,44 +9,36 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Contains full information about a basic group
+ * Contains full information about a basic group.
  */
 class BasicGroupFullInfo extends TdObject
 {
     public const TYPE_NAME = 'basicGroupFullInfo';
 
     /**
-     * Chat photo; may be null
-     *
-     * @var ChatPhoto|null
+     * Chat photo; may be null.
      */
     protected ?ChatPhoto $photo;
 
     /**
-     * Group description
-     *
-     * @var string
+     * Group description.
      */
     protected string $description;
 
     /**
-     * User identifier of the creator of the group; 0 if unknown
-     *
-     * @var int
+     * User identifier of the creator of the group; 0 if unknown.
      */
     protected int $creatorUserId;
 
     /**
-     * Group members
+     * Group members.
      *
      * @var ChatMember[]
      */
     protected array $members;
 
     /**
-     * Invite link for this group; available only after it has been generated at least once and only for the group creator
-     *
-     * @var string
+     * Invite link for this group; available only after it has been generated at least once and only for the group creator.
      */
     protected string $inviteLink;
 
@@ -57,11 +49,11 @@ class BasicGroupFullInfo extends TdObject
         array $members,
         string $inviteLink
     ) {
-        $this->photo = $photo;
-        $this->description = $description;
+        $this->photo         = $photo;
+        $this->description   = $description;
         $this->creatorUserId = $creatorUserId;
-        $this->members = $members;
-        $this->inviteLink = $inviteLink;
+        $this->members       = $members;
+        $this->inviteLink    = $inviteLink;
     }
 
     public static function fromArray(array $array): BasicGroupFullInfo
@@ -70,7 +62,7 @@ class BasicGroupFullInfo extends TdObject
             (isset($array['photo']) ? TdSchemaRegistry::fromArray($array['photo']) : null),
             $array['description'],
             $array['creator_user_id'],
-            array_map(fn($x) => TdSchemaRegistry::fromArray($x), $array['members']),
+            array_map(fn ($x) => TdSchemaRegistry::fromArray($x), $array['members']),
             $array['invite_link'],
         );
     }
@@ -78,12 +70,12 @@ class BasicGroupFullInfo extends TdObject
     public function typeSerialize(): array
     {
         return [
-            '@type' => static::TYPE_NAME,
-            'photo' => (isset($this->photo) ? $this->photo : null),
-            'description' => $this->description,
+            '@type'           => static::TYPE_NAME,
+            'photo'           => (isset($this->photo) ? $this->photo : null),
+            'description'     => $this->description,
             'creator_user_id' => $this->creatorUserId,
-            array_map(fn($x) => $x->typeSerialize(), $this->members),
-            'invite_link' => $this->inviteLink,
+            array_map(fn ($x) => $x->typeSerialize(), $this->members),
+            'invite_link'     => $this->inviteLink,
         ];
     }
 

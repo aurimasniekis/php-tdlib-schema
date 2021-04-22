@@ -9,51 +9,39 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * A language pack string which has different forms based on the number of some object it mentions. See https://www.unicode.org/cldr/charts/latest/supplemental/language_plural_rules.html for more info
+ * A language pack string which has different forms based on the number of some object it mentions. See https://www.unicode.org/cldr/charts/latest/supplemental/language_plural_rules.html for more info.
  */
 class LanguagePackStringValuePluralized extends LanguagePackStringValue
 {
     public const TYPE_NAME = 'languagePackStringValuePluralized';
 
     /**
-     * Value for zero objects
-     *
-     * @var string
+     * Value for zero objects.
      */
     protected string $zeroValue;
 
     /**
-     * Value for one object
-     *
-     * @var string
+     * Value for one object.
      */
     protected string $oneValue;
 
     /**
-     * Value for two objects
-     *
-     * @var string
+     * Value for two objects.
      */
     protected string $twoValue;
 
     /**
-     * Value for few objects
-     *
-     * @var string
+     * Value for few objects.
      */
     protected string $fewValue;
 
     /**
-     * Value for many objects
-     *
-     * @var string
+     * Value for many objects.
      */
     protected string $manyValue;
 
     /**
-     * Default value
-     *
-     * @var string
+     * Default value.
      */
     protected string $otherValue;
 
@@ -67,11 +55,11 @@ class LanguagePackStringValuePluralized extends LanguagePackStringValue
     ) {
         parent::__construct();
 
-        $this->zeroValue = $zeroValue;
-        $this->oneValue = $oneValue;
-        $this->twoValue = $twoValue;
-        $this->fewValue = $fewValue;
-        $this->manyValue = $manyValue;
+        $this->zeroValue  = $zeroValue;
+        $this->oneValue   = $oneValue;
+        $this->twoValue   = $twoValue;
+        $this->fewValue   = $fewValue;
+        $this->manyValue  = $manyValue;
         $this->otherValue = $otherValue;
     }
 
@@ -90,12 +78,12 @@ class LanguagePackStringValuePluralized extends LanguagePackStringValue
     public function typeSerialize(): array
     {
         return [
-            '@type' => static::TYPE_NAME,
-            'zero_value' => $this->zeroValue,
-            'one_value' => $this->oneValue,
-            'two_value' => $this->twoValue,
-            'few_value' => $this->fewValue,
-            'many_value' => $this->manyValue,
+            '@type'       => static::TYPE_NAME,
+            'zero_value'  => $this->zeroValue,
+            'one_value'   => $this->oneValue,
+            'two_value'   => $this->twoValue,
+            'few_value'   => $this->fewValue,
+            'many_value'  => $this->manyValue,
             'other_value' => $this->otherValue,
         ];
     }

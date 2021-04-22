@@ -9,16 +9,14 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * A previously used profile photo of the current user
+ * A previously used profile photo of the current user.
  */
 class InputChatPhotoPrevious extends InputChatPhoto
 {
     public const TYPE_NAME = 'inputChatPhotoPrevious';
 
     /**
-     * Identifier of the profile photo to reuse
-     *
-     * @var string
+     * Identifier of the profile photo to reuse.
      */
     protected string $chatPhotoId;
 
@@ -39,7 +37,7 @@ class InputChatPhotoPrevious extends InputChatPhoto
     public function typeSerialize(): array
     {
         return [
-            '@type' => static::TYPE_NAME,
+            '@type'         => static::TYPE_NAME,
             'chat_photo_id' => $this->chatPhotoId,
         ];
     }

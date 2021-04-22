@@ -9,23 +9,19 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * A button that allows the user to create and send a poll when pressed; available only in private chats
+ * A button that allows the user to create and send a poll when pressed; available only in private chats.
  */
 class KeyboardButtonTypeRequestPoll extends KeyboardButtonType
 {
     public const TYPE_NAME = 'keyboardButtonTypeRequestPoll';
 
     /**
-     * If true, only regular polls must be allowed to create
-     *
-     * @var bool
+     * If true, only regular polls must be allowed to create.
      */
     protected bool $forceRegular;
 
     /**
-     * If true, only polls in quiz mode must be allowed to create
-     *
-     * @var bool
+     * If true, only polls in quiz mode must be allowed to create.
      */
     protected bool $forceQuiz;
 
@@ -34,7 +30,7 @@ class KeyboardButtonTypeRequestPoll extends KeyboardButtonType
         parent::__construct();
 
         $this->forceRegular = $forceRegular;
-        $this->forceQuiz = $forceQuiz;
+        $this->forceQuiz    = $forceQuiz;
     }
 
     public static function fromArray(array $array): KeyboardButtonTypeRequestPoll
@@ -48,9 +44,9 @@ class KeyboardButtonTypeRequestPoll extends KeyboardButtonType
     public function typeSerialize(): array
     {
         return [
-            '@type' => static::TYPE_NAME,
+            '@type'         => static::TYPE_NAME,
             'force_regular' => $this->forceRegular,
-            'force_quiz' => $this->forceQuiz,
+            'force_quiz'    => $this->forceQuiz,
         ];
     }
 

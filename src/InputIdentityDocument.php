@@ -9,49 +9,39 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * An identity document to be saved to Telegram Passport
+ * An identity document to be saved to Telegram Passport.
  */
 class InputIdentityDocument extends TdObject
 {
     public const TYPE_NAME = 'inputIdentityDocument';
 
     /**
-     * Document number; 1-24 characters
-     *
-     * @var string
+     * Document number; 1-24 characters.
      */
     protected string $number;
 
     /**
-     * Document expiry date, if available
-     *
-     * @var Date
+     * Document expiry date, if available.
      */
     protected Date $expiryDate;
 
     /**
-     * Front side of the document
-     *
-     * @var InputFile
+     * Front side of the document.
      */
     protected InputFile $frontSide;
 
     /**
-     * Reverse side of the document; only for driver license and identity card
-     *
-     * @var InputFile
+     * Reverse side of the document; only for driver license and identity card.
      */
     protected InputFile $reverseSide;
 
     /**
-     * Selfie with the document, if available
-     *
-     * @var InputFile
+     * Selfie with the document, if available.
      */
     protected InputFile $selfie;
 
     /**
-     * List of files containing a certified English translation of the document
+     * List of files containing a certified English translation of the document.
      *
      * @var InputFile[]
      */
@@ -65,11 +55,11 @@ class InputIdentityDocument extends TdObject
         InputFile $selfie,
         array $translation
     ) {
-        $this->number = $number;
-        $this->expiryDate = $expiryDate;
-        $this->frontSide = $frontSide;
+        $this->number      = $number;
+        $this->expiryDate  = $expiryDate;
+        $this->frontSide   = $frontSide;
         $this->reverseSide = $reverseSide;
-        $this->selfie = $selfie;
+        $this->selfie      = $selfie;
         $this->translation = $translation;
     }
 
@@ -81,20 +71,20 @@ class InputIdentityDocument extends TdObject
             TdSchemaRegistry::fromArray($array['front_side']),
             TdSchemaRegistry::fromArray($array['reverse_side']),
             TdSchemaRegistry::fromArray($array['selfie']),
-            array_map(fn($x) => TdSchemaRegistry::fromArray($x), $array['translation']),
+            array_map(fn ($x) => TdSchemaRegistry::fromArray($x), $array['translation']),
         );
     }
 
     public function typeSerialize(): array
     {
         return [
-            '@type' => static::TYPE_NAME,
-            'number' => $this->number,
-            'expiry_date' => $this->expiryDate->typeSerialize(),
-            'front_side' => $this->frontSide->typeSerialize(),
-            'reverse_side' => $this->reverseSide->typeSerialize(),
-            'selfie' => $this->selfie->typeSerialize(),
-            array_map(fn($x) => $x->typeSerialize(), $this->translation),
+            '@type'           => static::TYPE_NAME,
+            'number'          => $this->number,
+            'expiry_date'     => $this->expiryDate->typeSerialize(),
+            'front_side'      => $this->frontSide->typeSerialize(),
+            'reverse_side'    => $this->reverseSide->typeSerialize(),
+            'selfie'          => $this->selfie->typeSerialize(),
+            array_map(fn ($x) => $x->typeSerialize(), $this->translation),
         ];
     }
 

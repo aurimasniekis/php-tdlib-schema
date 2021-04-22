@@ -9,51 +9,39 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * An audio message
+ * An audio message.
  */
 class InputMessageAudio extends InputMessageContent
 {
     public const TYPE_NAME = 'inputMessageAudio';
 
     /**
-     * Audio file to be sent
-     *
-     * @var InputFile
+     * Audio file to be sent.
      */
     protected InputFile $audio;
 
     /**
-     * Thumbnail of the cover for the album, if available
-     *
-     * @var InputThumbnail
+     * Thumbnail of the cover for the album, if available.
      */
     protected InputThumbnail $albumCoverThumbnail;
 
     /**
-     * Duration of the audio, in seconds; may be replaced by the server
-     *
-     * @var int
+     * Duration of the audio, in seconds; may be replaced by the server.
      */
     protected int $duration;
 
     /**
-     * Title of the audio; 0-64 characters; may be replaced by the server
-     *
-     * @var string
+     * Title of the audio; 0-64 characters; may be replaced by the server.
      */
     protected string $title;
 
     /**
-     * Performer of the audio; 0-64 characters, may be replaced by the server
-     *
-     * @var string
+     * Performer of the audio; 0-64 characters, may be replaced by the server.
      */
     protected string $performer;
 
     /**
-     * Audio caption; 0-GetOption("message_caption_length_max") characters
-     *
-     * @var FormattedText
+     * Audio caption; 0-GetOption("message_caption_length_max") characters.
      */
     protected FormattedText $caption;
 
@@ -67,12 +55,12 @@ class InputMessageAudio extends InputMessageContent
     ) {
         parent::__construct();
 
-        $this->audio = $audio;
+        $this->audio               = $audio;
         $this->albumCoverThumbnail = $albumCoverThumbnail;
-        $this->duration = $duration;
-        $this->title = $title;
-        $this->performer = $performer;
-        $this->caption = $caption;
+        $this->duration            = $duration;
+        $this->title               = $title;
+        $this->performer           = $performer;
+        $this->caption             = $caption;
     }
 
     public static function fromArray(array $array): InputMessageAudio
@@ -90,13 +78,13 @@ class InputMessageAudio extends InputMessageContent
     public function typeSerialize(): array
     {
         return [
-            '@type' => static::TYPE_NAME,
-            'audio' => $this->audio->typeSerialize(),
+            '@type'                 => static::TYPE_NAME,
+            'audio'                 => $this->audio->typeSerialize(),
             'album_cover_thumbnail' => $this->albumCoverThumbnail->typeSerialize(),
-            'duration' => $this->duration,
-            'title' => $this->title,
-            'performer' => $this->performer,
-            'caption' => $this->caption->typeSerialize(),
+            'duration'              => $this->duration,
+            'title'                 => $this->title,
+            'performer'             => $this->performer,
+            'caption'               => $this->caption->typeSerialize(),
         ];
     }
 

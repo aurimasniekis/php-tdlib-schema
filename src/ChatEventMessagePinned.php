@@ -9,16 +9,14 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * A message was pinned
+ * A message was pinned.
  */
 class ChatEventMessagePinned extends ChatEventAction
 {
     public const TYPE_NAME = 'chatEventMessagePinned';
 
     /**
-     * Pinned message
-     *
-     * @var Message
+     * Pinned message.
      */
     protected Message $message;
 
@@ -39,7 +37,7 @@ class ChatEventMessagePinned extends ChatEventAction
     public function typeSerialize(): array
     {
         return [
-            '@type' => static::TYPE_NAME,
+            '@type'   => static::TYPE_NAME,
             'message' => $this->message->typeSerialize(),
         ];
     }

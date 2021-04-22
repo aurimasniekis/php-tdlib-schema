@@ -9,53 +9,43 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Searches for messages in secret chats. Returns the results in reverse chronological order. For optimal performance the number of returned messages is chosen by the library
+ * Searches for messages in secret chats. Returns the results in reverse chronological order. For optimal performance the number of returned messages is chosen by the library.
  */
 class SearchSecretMessages extends TdFunction
 {
     public const TYPE_NAME = 'searchSecretMessages';
 
     /**
-     * Identifier of the chat in which to search. Specify 0 to search in all secret chats
-     *
-     * @var int
+     * Identifier of the chat in which to search. Specify 0 to search in all secret chats.
      */
     protected int $chatId;
 
     /**
-     * Query to search for. If empty, searchChatMessages should be used instead
-     *
-     * @var string
+     * Query to search for. If empty, searchChatMessages should be used instead.
      */
     protected string $query;
 
     /**
-     * Offset of the first entry to return as received from the previous request; use empty string to get first chunk of results
-     *
-     * @var string
+     * Offset of the first entry to return as received from the previous request; use empty string to get first chunk of results.
      */
     protected string $offset;
 
     /**
-     * The maximum number of messages to be returned; up to 100. Fewer messages may be returned than specified by the limit, even if the end of the message history has not been reached
-     *
-     * @var int
+     * The maximum number of messages to be returned; up to 100. Fewer messages may be returned than specified by the limit, even if the end of the message history has not been reached.
      */
     protected int $limit;
 
     /**
-     * A filter for message content in the search results
-     *
-     * @var SearchMessagesFilter
+     * A filter for message content in the search results.
      */
     protected SearchMessagesFilter $filter;
 
     public function __construct(int $chatId, string $query, string $offset, int $limit, SearchMessagesFilter $filter)
     {
         $this->chatId = $chatId;
-        $this->query = $query;
+        $this->query  = $query;
         $this->offset = $offset;
-        $this->limit = $limit;
+        $this->limit  = $limit;
         $this->filter = $filter;
     }
 
@@ -73,12 +63,12 @@ class SearchSecretMessages extends TdFunction
     public function typeSerialize(): array
     {
         return [
-            '@type' => static::TYPE_NAME,
+            '@type'   => static::TYPE_NAME,
             'chat_id' => $this->chatId,
-            'query' => $this->query,
-            'offset' => $this->offset,
-            'limit' => $this->limit,
-            'filter' => $this->filter->typeSerialize(),
+            'query'   => $this->query,
+            'offset'  => $this->offset,
+            'limit'   => $this->limit,
+            'filter'  => $this->filter->typeSerialize(),
         ];
     }
 

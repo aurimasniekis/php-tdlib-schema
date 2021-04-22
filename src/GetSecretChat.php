@@ -9,16 +9,14 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Returns information about a secret chat by its identifier. This is an offline request
+ * Returns information about a secret chat by its identifier. This is an offline request.
  */
 class GetSecretChat extends TdFunction
 {
     public const TYPE_NAME = 'getSecretChat';
 
     /**
-     * Secret chat identifier
-     *
-     * @var int
+     * Secret chat identifier.
      */
     protected int $secretChatId;
 
@@ -37,7 +35,7 @@ class GetSecretChat extends TdFunction
     public function typeSerialize(): array
     {
         return [
-            '@type' => static::TYPE_NAME,
+            '@type'          => static::TYPE_NAME,
             'secret_chat_id' => $this->secretChatId,
         ];
     }

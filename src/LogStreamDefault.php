@@ -9,7 +9,7 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * The log is written to stderr or an OS specific log
+ * The log is written to stderr or an OS specific log.
  */
 class LogStreamDefault extends LogStream
 {

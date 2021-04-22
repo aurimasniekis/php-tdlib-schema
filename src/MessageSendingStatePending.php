@@ -9,7 +9,7 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * The message is being sent now, but has not yet been delivered to the server
+ * The message is being sent now, but has not yet been delivered to the server.
  */
 class MessageSendingStatePending extends MessageSendingState
 {

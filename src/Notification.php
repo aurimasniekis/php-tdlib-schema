@@ -9,46 +9,38 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Contains information about a notification
+ * Contains information about a notification.
  */
 class Notification extends TdObject
 {
     public const TYPE_NAME = 'notification';
 
     /**
-     * Unique persistent identifier of this notification
-     *
-     * @var int
+     * Unique persistent identifier of this notification.
      */
     protected int $id;
 
     /**
-     * Notification date
-     *
-     * @var int
+     * Notification date.
      */
     protected int $date;
 
     /**
-     * True, if the notification was initially silent
-     *
-     * @var bool
+     * True, if the notification was initially silent.
      */
     protected bool $isSilent;
 
     /**
-     * Notification type
-     *
-     * @var NotificationType
+     * Notification type.
      */
     protected NotificationType $type;
 
     public function __construct(int $id, int $date, bool $isSilent, NotificationType $type)
     {
-        $this->id = $id;
-        $this->date = $date;
+        $this->id       = $id;
+        $this->date     = $date;
         $this->isSilent = $isSilent;
-        $this->type = $type;
+        $this->type     = $type;
     }
 
     public static function fromArray(array $array): Notification
@@ -64,11 +56,11 @@ class Notification extends TdObject
     public function typeSerialize(): array
     {
         return [
-            '@type' => static::TYPE_NAME,
-            'id' => $this->id,
-            'date' => $this->date,
+            '@type'     => static::TYPE_NAME,
+            'id'        => $this->id,
+            'date'      => $this->date,
             'is_silent' => $this->isSilent,
-            'type' => $this->type->typeSerialize(),
+            'type'      => $this->type->typeSerialize(),
         ];
     }
 

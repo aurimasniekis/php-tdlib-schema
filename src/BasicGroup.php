@@ -9,44 +9,34 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Represents a basic group of 0-200 users (must be upgraded to a supergroup to accommodate more than 200 users)
+ * Represents a basic group of 0-200 users (must be upgraded to a supergroup to accommodate more than 200 users).
  */
 class BasicGroup extends TdObject
 {
     public const TYPE_NAME = 'basicGroup';
 
     /**
-     * Group identifier
-     *
-     * @var int
+     * Group identifier.
      */
     protected int $id;
 
     /**
-     * Number of members in the group
-     *
-     * @var int
+     * Number of members in the group.
      */
     protected int $memberCount;
 
     /**
-     * Status of the current user in the group
-     *
-     * @var ChatMemberStatus
+     * Status of the current user in the group.
      */
     protected ChatMemberStatus $status;
 
     /**
-     * True, if the group is active
-     *
-     * @var bool
+     * True, if the group is active.
      */
     protected bool $isActive;
 
     /**
-     * Identifier of the supergroup to which this group was upgraded; 0 if none
-     *
-     * @var int
+     * Identifier of the supergroup to which this group was upgraded; 0 if none.
      */
     protected int $upgradedToSupergroupId;
 
@@ -57,10 +47,10 @@ class BasicGroup extends TdObject
         bool $isActive,
         int $upgradedToSupergroupId
     ) {
-        $this->id = $id;
-        $this->memberCount = $memberCount;
-        $this->status = $status;
-        $this->isActive = $isActive;
+        $this->id                     = $id;
+        $this->memberCount            = $memberCount;
+        $this->status                 = $status;
+        $this->isActive               = $isActive;
         $this->upgradedToSupergroupId = $upgradedToSupergroupId;
     }
 
@@ -78,11 +68,11 @@ class BasicGroup extends TdObject
     public function typeSerialize(): array
     {
         return [
-            '@type' => static::TYPE_NAME,
-            'id' => $this->id,
-            'member_count' => $this->memberCount,
-            'status' => $this->status->typeSerialize(),
-            'is_active' => $this->isActive,
+            '@type'                     => static::TYPE_NAME,
+            'id'                        => $this->id,
+            'member_count'              => $this->memberCount,
+            'status'                    => $this->status->typeSerialize(),
+            'is_active'                 => $this->isActive,
             'upgraded_to_supergroup_id' => $this->upgradedToSupergroupId,
         ];
     }

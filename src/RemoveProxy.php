@@ -9,16 +9,14 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Removes a proxy server. Can be called before authorization
+ * Removes a proxy server. Can be called before authorization.
  */
 class RemoveProxy extends TdFunction
 {
     public const TYPE_NAME = 'removeProxy';
 
     /**
-     * Proxy identifier
-     *
-     * @var int
+     * Proxy identifier.
      */
     protected int $proxyId;
 
@@ -37,7 +35,7 @@ class RemoveProxy extends TdFunction
     public function typeSerialize(): array
     {
         return [
-            '@type' => static::TYPE_NAME,
+            '@type'    => static::TYPE_NAME,
             'proxy_id' => $this->proxyId,
         ];
     }

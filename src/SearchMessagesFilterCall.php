@@ -9,7 +9,7 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Returns only call messages
+ * Returns only call messages.
  */
 class SearchMessagesFilterCall extends SearchMessagesFilter
 {

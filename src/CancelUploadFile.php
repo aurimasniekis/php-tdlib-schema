@@ -9,16 +9,14 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Stops the uploading of a file. Supported only for files uploaded by using uploadFile. For other files the behavior is undefined
+ * Stops the uploading of a file. Supported only for files uploaded by using uploadFile. For other files the behavior is undefined.
  */
 class CancelUploadFile extends TdFunction
 {
     public const TYPE_NAME = 'cancelUploadFile';
 
     /**
-     * Identifier of the file to stop uploading
-     *
-     * @var int
+     * Identifier of the file to stop uploading.
      */
     protected int $fileId;
 
@@ -37,7 +35,7 @@ class CancelUploadFile extends TdFunction
     public function typeSerialize(): array
     {
         return [
-            '@type' => static::TYPE_NAME,
+            '@type'   => static::TYPE_NAME,
             'file_id' => $this->fileId,
         ];
     }

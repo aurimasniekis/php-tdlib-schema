@@ -9,16 +9,14 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Contains an HTTP URL
+ * Contains an HTTP URL.
  */
 class HttpUrl extends TdObject
 {
     public const TYPE_NAME = 'httpUrl';
 
     /**
-     * The URL
-     *
-     * @var string
+     * The URL.
      */
     protected string $url;
 
@@ -38,7 +36,7 @@ class HttpUrl extends TdObject
     {
         return [
             '@type' => static::TYPE_NAME,
-            'url' => $this->url,
+            'url'   => $this->url,
         ];
     }
 

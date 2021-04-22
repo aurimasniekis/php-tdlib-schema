@@ -9,16 +9,14 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * A detailed statistics about a message
+ * A detailed statistics about a message.
  */
 class MessageStatistics extends TdObject
 {
     public const TYPE_NAME = 'messageStatistics';
 
     /**
-     * A graph containing number of message views and shares
-     *
-     * @var StatisticalGraph
+     * A graph containing number of message views and shares.
      */
     protected StatisticalGraph $messageInteractionGraph;
 
@@ -37,7 +35,7 @@ class MessageStatistics extends TdObject
     public function typeSerialize(): array
     {
         return [
-            '@type' => static::TYPE_NAME,
+            '@type'                     => static::TYPE_NAME,
             'message_interaction_graph' => $this->messageInteractionGraph->typeSerialize(),
         ];
     }

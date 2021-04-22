@@ -9,7 +9,7 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Returns only incoming call messages with missed/declined discard reasons
+ * Returns only incoming call messages with missed/declined discard reasons.
  */
 class SearchMessagesFilterMissedCall extends SearchMessagesFilter
 {

@@ -9,7 +9,7 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * The call was ended before the conversation started. It was declined by the other party
+ * The call was ended before the conversation started. It was declined by the other party.
  */
 class CallDiscardReasonDeclined extends CallDiscardReason
 {

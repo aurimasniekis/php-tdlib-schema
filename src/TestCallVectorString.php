@@ -9,14 +9,14 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Returns the received vector of strings; for testing only. This is an offline method. Can be called before authorization
+ * Returns the received vector of strings; for testing only. This is an offline method. Can be called before authorization.
  */
 class TestCallVectorString extends TdFunction
 {
     public const TYPE_NAME = 'testCallVectorString';
 
     /**
-     * Vector of strings to return
+     * Vector of strings to return.
      *
      * @var string[]
      */
@@ -38,7 +38,7 @@ class TestCallVectorString extends TdFunction
     {
         return [
             '@type' => static::TYPE_NAME,
-            'x' => $this->x,
+            'x'     => $this->x,
         ];
     }
 

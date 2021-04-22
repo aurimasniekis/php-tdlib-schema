@@ -9,29 +9,25 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Returns information about a message thread. Can be used only if message.can_get_message_thread == true
+ * Returns information about a message thread. Can be used only if message.can_get_message_thread == true.
  */
 class GetMessageThread extends TdFunction
 {
     public const TYPE_NAME = 'getMessageThread';
 
     /**
-     * Chat identifier
-     *
-     * @var int
+     * Chat identifier.
      */
     protected int $chatId;
 
     /**
-     * Identifier of the message
-     *
-     * @var int
+     * Identifier of the message.
      */
     protected int $messageId;
 
     public function __construct(int $chatId, int $messageId)
     {
-        $this->chatId = $chatId;
+        $this->chatId    = $chatId;
         $this->messageId = $messageId;
     }
 
@@ -46,8 +42,8 @@ class GetMessageThread extends TdFunction
     public function typeSerialize(): array
     {
         return [
-            '@type' => static::TYPE_NAME,
-            'chat_id' => $this->chatId,
+            '@type'      => static::TYPE_NAME,
+            'chat_id'    => $this->chatId,
             'message_id' => $this->messageId,
         ];
     }

@@ -9,7 +9,7 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Returns all chat members, including restricted chat members
+ * Returns all chat members, including restricted chat members.
  */
 class ChatMembersFilterMembers extends ChatMembersFilter
 {

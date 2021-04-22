@@ -9,28 +9,24 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Contains the exact storage usage statistics split by chats and file type
+ * Contains the exact storage usage statistics split by chats and file type.
  */
 class StorageStatistics extends TdObject
 {
     public const TYPE_NAME = 'storageStatistics';
 
     /**
-     * Total size of files
-     *
-     * @var int
+     * Total size of files.
      */
     protected int $size;
 
     /**
-     * Total number of files
-     *
-     * @var int
+     * Total number of files.
      */
     protected int $count;
 
     /**
-     * Statistics split by chats
+     * Statistics split by chats.
      *
      * @var StorageStatisticsByChat[]
      */
@@ -38,8 +34,8 @@ class StorageStatistics extends TdObject
 
     public function __construct(int $size, int $count, array $byChat)
     {
-        $this->size = $size;
-        $this->count = $count;
+        $this->size   = $size;
+        $this->count  = $count;
         $this->byChat = $byChat;
     }
 
@@ -48,17 +44,17 @@ class StorageStatistics extends TdObject
         return new static(
             $array['size'],
             $array['count'],
-            array_map(fn($x) => TdSchemaRegistry::fromArray($x), $array['by_chat']),
+            array_map(fn ($x) => TdSchemaRegistry::fromArray($x), $array['by_chat']),
         );
     }
 
     public function typeSerialize(): array
     {
         return [
-            '@type' => static::TYPE_NAME,
-            'size' => $this->size,
-            'count' => $this->count,
-            array_map(fn($x) => $x->typeSerialize(), $this->byChat),
+            '@type'           => static::TYPE_NAME,
+            'size'            => $this->size,
+            'count'           => $this->count,
+            array_map(fn ($x) => $x->typeSerialize(), $this->byChat),
         ];
     }
 

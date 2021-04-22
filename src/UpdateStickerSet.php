@@ -9,16 +9,14 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * A sticker set has changed
+ * A sticker set has changed.
  */
 class UpdateStickerSet extends Update
 {
     public const TYPE_NAME = 'updateStickerSet';
 
     /**
-     * The sticker set
-     *
-     * @var StickerSet
+     * The sticker set.
      */
     protected StickerSet $stickerSet;
 
@@ -39,7 +37,7 @@ class UpdateStickerSet extends Update
     public function typeSerialize(): array
     {
         return [
-            '@type' => static::TYPE_NAME,
+            '@type'       => static::TYPE_NAME,
             'sticker_set' => $this->stickerSet->typeSerialize(),
         ];
     }

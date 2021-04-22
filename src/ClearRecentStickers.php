@@ -9,16 +9,14 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Clears the list of recently used stickers
+ * Clears the list of recently used stickers.
  */
 class ClearRecentStickers extends TdFunction
 {
     public const TYPE_NAME = 'clearRecentStickers';
 
     /**
-     * Pass true to clear the list of stickers recently attached to photo or video files; pass false to clear the list of recently sent stickers
-     *
-     * @var bool
+     * Pass true to clear the list of stickers recently attached to photo or video files; pass false to clear the list of recently sent stickers.
      */
     protected bool $isAttached;
 
@@ -37,7 +35,7 @@ class ClearRecentStickers extends TdFunction
     public function typeSerialize(): array
     {
         return [
-            '@type' => static::TYPE_NAME,
+            '@type'       => static::TYPE_NAME,
             'is_attached' => $this->isAttached,
         ];
     }

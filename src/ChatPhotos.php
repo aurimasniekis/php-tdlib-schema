@@ -9,21 +9,19 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Contains a list of chat or user profile photos
+ * Contains a list of chat or user profile photos.
  */
 class ChatPhotos extends TdObject
 {
     public const TYPE_NAME = 'chatPhotos';
 
     /**
-     * Total number of photos
-     *
-     * @var int
+     * Total number of photos.
      */
     protected int $totalCount;
 
     /**
-     * List of photos
+     * List of photos.
      *
      * @var ChatPhoto[]
      */
@@ -32,23 +30,23 @@ class ChatPhotos extends TdObject
     public function __construct(int $totalCount, array $photos)
     {
         $this->totalCount = $totalCount;
-        $this->photos = $photos;
+        $this->photos     = $photos;
     }
 
     public static function fromArray(array $array): ChatPhotos
     {
         return new static(
             $array['total_count'],
-            array_map(fn($x) => TdSchemaRegistry::fromArray($x), $array['photos']),
+            array_map(fn ($x) => TdSchemaRegistry::fromArray($x), $array['photos']),
         );
     }
 
     public function typeSerialize(): array
     {
         return [
-            '@type' => static::TYPE_NAME,
-            'total_count' => $this->totalCount,
-            array_map(fn($x) => $x->typeSerialize(), $this->photos),
+            '@type'           => static::TYPE_NAME,
+            'total_count'     => $this->totalCount,
+            array_map(fn ($x) => $x->typeSerialize(), $this->photos),
         ];
     }
 

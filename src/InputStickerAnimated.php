@@ -9,23 +9,19 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * An animated sticker in TGS format
+ * An animated sticker in TGS format.
  */
 class InputStickerAnimated extends InputSticker
 {
     public const TYPE_NAME = 'inputStickerAnimated';
 
     /**
-     * File with the animated sticker. Only local or uploaded within a week files are supported. See https://core.telegram.org/animated_stickers#technical-requirements for technical requirements
-     *
-     * @var InputFile
+     * File with the animated sticker. Only local or uploaded within a week files are supported. See https://core.telegram.org/animated_stickers#technical-requirements for technical requirements.
      */
     protected InputFile $sticker;
 
     /**
-     * Emojis corresponding to the sticker
-     *
-     * @var string
+     * Emojis corresponding to the sticker.
      */
     protected string $emojis;
 
@@ -34,7 +30,7 @@ class InputStickerAnimated extends InputSticker
         parent::__construct();
 
         $this->sticker = $sticker;
-        $this->emojis = $emojis;
+        $this->emojis  = $emojis;
     }
 
     public static function fromArray(array $array): InputStickerAnimated
@@ -48,9 +44,9 @@ class InputStickerAnimated extends InputSticker
     public function typeSerialize(): array
     {
         return [
-            '@type' => static::TYPE_NAME,
+            '@type'   => static::TYPE_NAME,
             'sticker' => $this->sticker->typeSerialize(),
-            'emojis' => $this->emojis,
+            'emojis'  => $this->emojis,
         ];
     }
 

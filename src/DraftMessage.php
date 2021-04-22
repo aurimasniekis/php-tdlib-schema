@@ -9,37 +9,31 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Contains information about a message draft
+ * Contains information about a message draft.
  */
 class DraftMessage extends TdObject
 {
     public const TYPE_NAME = 'draftMessage';
 
     /**
-     * Identifier of the message to reply to; 0 if none
-     *
-     * @var int
+     * Identifier of the message to reply to; 0 if none.
      */
     protected int $replyToMessageId;
 
     /**
-     * Point in time (Unix timestamp) when the draft was created
-     *
-     * @var int
+     * Point in time (Unix timestamp) when the draft was created.
      */
     protected int $date;
 
     /**
-     * Content of the message draft; this should always be of type inputMessageText
-     *
-     * @var InputMessageContent
+     * Content of the message draft; this should always be of type inputMessageText.
      */
     protected InputMessageContent $inputMessageText;
 
     public function __construct(int $replyToMessageId, int $date, InputMessageContent $inputMessageText)
     {
         $this->replyToMessageId = $replyToMessageId;
-        $this->date = $date;
+        $this->date             = $date;
         $this->inputMessageText = $inputMessageText;
     }
 
@@ -55,10 +49,10 @@ class DraftMessage extends TdObject
     public function typeSerialize(): array
     {
         return [
-            '@type' => static::TYPE_NAME,
+            '@type'               => static::TYPE_NAME,
             'reply_to_message_id' => $this->replyToMessageId,
-            'date' => $this->date,
-            'input_message_text' => $this->inputMessageText->typeSerialize(),
+            'date'                => $this->date,
+            'input_message_text'  => $this->inputMessageText->typeSerialize(),
         ];
     }
 

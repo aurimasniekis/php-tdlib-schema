@@ -9,23 +9,19 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Toggles sender signatures messages sent in a channel; requires can_change_info rights
+ * Toggles sender signatures messages sent in a channel; requires can_change_info rights.
  */
 class ToggleSupergroupSignMessages extends TdFunction
 {
     public const TYPE_NAME = 'toggleSupergroupSignMessages';
 
     /**
-     * Identifier of the channel
-     *
-     * @var int
+     * Identifier of the channel.
      */
     protected int $supergroupId;
 
     /**
-     * New value of sign_messages
-     *
-     * @var bool
+     * New value of sign_messages.
      */
     protected bool $signMessages;
 
@@ -46,7 +42,7 @@ class ToggleSupergroupSignMessages extends TdFunction
     public function typeSerialize(): array
     {
         return [
-            '@type' => static::TYPE_NAME,
+            '@type'         => static::TYPE_NAME,
             'supergroup_id' => $this->supergroupId,
             'sign_messages' => $this->signMessages,
         ];

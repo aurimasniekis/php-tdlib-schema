@@ -9,30 +9,24 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * A HTTP transparent proxy server
+ * A HTTP transparent proxy server.
  */
 class ProxyTypeHttp extends ProxyType
 {
     public const TYPE_NAME = 'proxyTypeHttp';
 
     /**
-     * Username for logging in; may be empty
-     *
-     * @var string
+     * Username for logging in; may be empty.
      */
     protected string $username;
 
     /**
-     * Password for logging in; may be empty
-     *
-     * @var string
+     * Password for logging in; may be empty.
      */
     protected string $password;
 
     /**
-     * Pass true if the proxy supports only HTTP requests and doesn't support transparent TCP connections via HTTP CONNECT method
-     *
-     * @var bool
+     * Pass true if the proxy supports only HTTP requests and doesn't support transparent TCP connections via HTTP CONNECT method.
      */
     protected bool $httpOnly;
 
@@ -57,9 +51,9 @@ class ProxyTypeHttp extends ProxyType
     public function typeSerialize(): array
     {
         return [
-            '@type' => static::TYPE_NAME,
-            'username' => $this->username,
-            'password' => $this->password,
+            '@type'     => static::TYPE_NAME,
+            'username'  => $this->username,
+            'password'  => $this->password,
             'http_only' => $this->httpOnly,
         ];
     }

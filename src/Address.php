@@ -9,51 +9,39 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Describes an address
+ * Describes an address.
  */
 class Address extends TdObject
 {
     public const TYPE_NAME = 'address';
 
     /**
-     * A two-letter ISO 3166-1 alpha-2 country code
-     *
-     * @var string
+     * A two-letter ISO 3166-1 alpha-2 country code.
      */
     protected string $countryCode;
 
     /**
-     * State, if applicable
-     *
-     * @var string
+     * State, if applicable.
      */
     protected string $state;
 
     /**
-     * City
-     *
-     * @var string
+     * City.
      */
     protected string $city;
 
     /**
-     * First line of the address
-     *
-     * @var string
+     * First line of the address.
      */
     protected string $streetLine1;
 
     /**
-     * Second line of the address
-     *
-     * @var string
+     * Second line of the address.
      */
     protected string $streetLine2;
 
     /**
-     * Address postal code
-     *
-     * @var string
+     * Address postal code.
      */
     protected string $postalCode;
 
@@ -66,11 +54,11 @@ class Address extends TdObject
         string $postalCode
     ) {
         $this->countryCode = $countryCode;
-        $this->state = $state;
-        $this->city = $city;
+        $this->state       = $state;
+        $this->city        = $city;
         $this->streetLine1 = $streetLine1;
         $this->streetLine2 = $streetLine2;
-        $this->postalCode = $postalCode;
+        $this->postalCode  = $postalCode;
     }
 
     public static function fromArray(array $array): Address
@@ -88,13 +76,13 @@ class Address extends TdObject
     public function typeSerialize(): array
     {
         return [
-            '@type' => static::TYPE_NAME,
+            '@type'        => static::TYPE_NAME,
             'country_code' => $this->countryCode,
-            'state' => $this->state,
-            'city' => $this->city,
+            'state'        => $this->state,
+            'city'         => $this->city,
             'street_line1' => $this->streetLine1,
             'street_line2' => $this->streetLine2,
-            'postal_code' => $this->postalCode,
+            'postal_code'  => $this->postalCode,
         ];
     }
 

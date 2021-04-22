@@ -9,30 +9,26 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Finishes the file generation
+ * Finishes the file generation.
  */
 class FinishFileGeneration extends TdFunction
 {
     public const TYPE_NAME = 'finishFileGeneration';
 
     /**
-     * The identifier of the generation process
-     *
-     * @var string
+     * The identifier of the generation process.
      */
     protected string $generationId;
 
     /**
-     * If set, means that file generation has failed and should be terminated
-     *
-     * @var Error
+     * If set, means that file generation has failed and should be terminated.
      */
     protected Error $error;
 
     public function __construct(string $generationId, Error $error)
     {
         $this->generationId = $generationId;
-        $this->error = $error;
+        $this->error        = $error;
     }
 
     public static function fromArray(array $array): FinishFileGeneration
@@ -46,9 +42,9 @@ class FinishFileGeneration extends TdFunction
     public function typeSerialize(): array
     {
         return [
-            '@type' => static::TYPE_NAME,
+            '@type'         => static::TYPE_NAME,
             'generation_id' => $this->generationId,
-            'error' => $this->error->typeSerialize(),
+            'error'         => $this->error->typeSerialize(),
         ];
     }
 

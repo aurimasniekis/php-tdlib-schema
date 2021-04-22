@@ -9,30 +9,24 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * A user in the chat came within proximity alert range
+ * A user in the chat came within proximity alert range.
  */
 class MessageProximityAlertTriggered extends MessageContent
 {
     public const TYPE_NAME = 'messageProximityAlertTriggered';
 
     /**
-     * The user or chat, which triggered the proximity alert
-     *
-     * @var MessageSender
+     * The user or chat, which triggered the proximity alert.
      */
     protected MessageSender $traveler;
 
     /**
-     * The user or chat, which subscribed for the proximity alert
-     *
-     * @var MessageSender
+     * The user or chat, which subscribed for the proximity alert.
      */
     protected MessageSender $watcher;
 
     /**
-     * The distance between the users
-     *
-     * @var int
+     * The distance between the users.
      */
     protected int $distance;
 
@@ -41,7 +35,7 @@ class MessageProximityAlertTriggered extends MessageContent
         parent::__construct();
 
         $this->traveler = $traveler;
-        $this->watcher = $watcher;
+        $this->watcher  = $watcher;
         $this->distance = $distance;
     }
 
@@ -57,9 +51,9 @@ class MessageProximityAlertTriggered extends MessageContent
     public function typeSerialize(): array
     {
         return [
-            '@type' => static::TYPE_NAME,
+            '@type'    => static::TYPE_NAME,
             'traveler' => $this->traveler->typeSerialize(),
-            'watcher' => $this->watcher->typeSerialize(),
+            'watcher'  => $this->watcher->typeSerialize(),
             'distance' => $this->distance,
         ];
     }

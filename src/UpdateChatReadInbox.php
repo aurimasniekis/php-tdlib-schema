@@ -9,30 +9,24 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Incoming messages were read or number of unread messages has been changed
+ * Incoming messages were read or number of unread messages has been changed.
  */
 class UpdateChatReadInbox extends Update
 {
     public const TYPE_NAME = 'updateChatReadInbox';
 
     /**
-     * Chat identifier
-     *
-     * @var int
+     * Chat identifier.
      */
     protected int $chatId;
 
     /**
-     * Identifier of the last read incoming message
-     *
-     * @var int
+     * Identifier of the last read incoming message.
      */
     protected int $lastReadInboxMessageId;
 
     /**
-     * The number of unread messages left in the chat
-     *
-     * @var int
+     * The number of unread messages left in the chat.
      */
     protected int $unreadCount;
 
@@ -40,9 +34,9 @@ class UpdateChatReadInbox extends Update
     {
         parent::__construct();
 
-        $this->chatId = $chatId;
+        $this->chatId                 = $chatId;
         $this->lastReadInboxMessageId = $lastReadInboxMessageId;
-        $this->unreadCount = $unreadCount;
+        $this->unreadCount            = $unreadCount;
     }
 
     public static function fromArray(array $array): UpdateChatReadInbox
@@ -57,10 +51,10 @@ class UpdateChatReadInbox extends Update
     public function typeSerialize(): array
     {
         return [
-            '@type' => static::TYPE_NAME,
-            'chat_id' => $this->chatId,
+            '@type'                      => static::TYPE_NAME,
+            'chat_id'                    => $this->chatId,
             'last_read_inbox_message_id' => $this->lastReadInboxMessageId,
-            'unread_count' => $this->unreadCount,
+            'unread_count'               => $this->unreadCount,
         ];
     }
 

@@ -9,16 +9,14 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * The 2-step verification was enabled recently, user needs to wait
+ * The 2-step verification was enabled recently, user needs to wait.
  */
 class CanTransferOwnershipResultPasswordTooFresh extends CanTransferOwnershipResult
 {
     public const TYPE_NAME = 'canTransferOwnershipResultPasswordTooFresh';
 
     /**
-     * Time left before the session can be used to transfer ownership of a chat, in seconds
-     *
-     * @var int
+     * Time left before the session can be used to transfer ownership of a chat, in seconds.
      */
     protected int $retryAfter;
 
@@ -39,7 +37,7 @@ class CanTransferOwnershipResultPasswordTooFresh extends CanTransferOwnershipRes
     public function typeSerialize(): array
     {
         return [
-            '@type' => static::TYPE_NAME,
+            '@type'       => static::TYPE_NAME,
             'retry_after' => $this->retryAfter,
         ];
     }

@@ -9,7 +9,7 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * The content should be left-aligned
+ * The content should be left-aligned.
  */
 class PageBlockHorizontalAlignmentLeft extends PageBlockHorizontalAlignment
 {

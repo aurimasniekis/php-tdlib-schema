@@ -9,37 +9,29 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * An authorization confirmation dialog needs to be shown to the user
+ * An authorization confirmation dialog needs to be shown to the user.
  */
 class LoginUrlInfoRequestConfirmation extends LoginUrlInfo
 {
     public const TYPE_NAME = 'loginUrlInfoRequestConfirmation';
 
     /**
-     * An HTTP URL to be opened
-     *
-     * @var string
+     * An HTTP URL to be opened.
      */
     protected string $url;
 
     /**
-     * A domain of the URL
-     *
-     * @var string
+     * A domain of the URL.
      */
     protected string $domain;
 
     /**
-     * User identifier of a bot linked with the website
-     *
-     * @var int
+     * User identifier of a bot linked with the website.
      */
     protected int $botUserId;
 
     /**
-     * True, if the user needs to be requested to give the permission to the bot to send them messages
-     *
-     * @var bool
+     * True, if the user needs to be requested to give the permission to the bot to send them messages.
      */
     protected bool $requestWriteAccess;
 
@@ -47,9 +39,9 @@ class LoginUrlInfoRequestConfirmation extends LoginUrlInfo
     {
         parent::__construct();
 
-        $this->url = $url;
-        $this->domain = $domain;
-        $this->botUserId = $botUserId;
+        $this->url                = $url;
+        $this->domain             = $domain;
+        $this->botUserId          = $botUserId;
         $this->requestWriteAccess = $requestWriteAccess;
     }
 
@@ -66,10 +58,10 @@ class LoginUrlInfoRequestConfirmation extends LoginUrlInfo
     public function typeSerialize(): array
     {
         return [
-            '@type' => static::TYPE_NAME,
-            'url' => $this->url,
-            'domain' => $this->domain,
-            'bot_user_id' => $this->botUserId,
+            '@type'                => static::TYPE_NAME,
+            'url'                  => $this->url,
+            'domain'               => $this->domain,
+            'bot_user_id'          => $this->botUserId,
             'request_write_access' => $this->requestWriteAccess,
         ];
     }

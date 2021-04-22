@@ -9,7 +9,7 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Specifies the kind of chat members to return in searchChatMembers
+ * Specifies the kind of chat members to return in searchChatMembers.
  */
 class ChatMembersFilter extends TdObject
 {

@@ -9,23 +9,19 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * File with the date it was uploaded
+ * File with the date it was uploaded.
  */
 class DatedFile extends TdObject
 {
     public const TYPE_NAME = 'datedFile';
 
     /**
-     * The file
-     *
-     * @var File
+     * The file.
      */
     protected File $file;
 
     /**
-     * Point in time (Unix timestamp) when the file was uploaded
-     *
-     * @var int
+     * Point in time (Unix timestamp) when the file was uploaded.
      */
     protected int $date;
 
@@ -47,8 +43,8 @@ class DatedFile extends TdObject
     {
         return [
             '@type' => static::TYPE_NAME,
-            'file' => $this->file->typeSerialize(),
-            'date' => $this->date,
+            'file'  => $this->file->typeSerialize(),
+            'date'  => $this->date,
         ];
     }
 

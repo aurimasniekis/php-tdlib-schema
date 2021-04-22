@@ -9,30 +9,24 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * A new incoming query; for bots only
+ * A new incoming query; for bots only.
  */
 class UpdateNewCustomQuery extends Update
 {
     public const TYPE_NAME = 'updateNewCustomQuery';
 
     /**
-     * The query identifier
-     *
-     * @var string
+     * The query identifier.
      */
     protected string $id;
 
     /**
-     * JSON-serialized query data
-     *
-     * @var string
+     * JSON-serialized query data.
      */
     protected string $data;
 
     /**
-     * Query timeout
-     *
-     * @var int
+     * Query timeout.
      */
     protected int $timeout;
 
@@ -40,8 +34,8 @@ class UpdateNewCustomQuery extends Update
     {
         parent::__construct();
 
-        $this->id = $id;
-        $this->data = $data;
+        $this->id      = $id;
+        $this->data    = $data;
         $this->timeout = $timeout;
     }
 
@@ -57,9 +51,9 @@ class UpdateNewCustomQuery extends Update
     public function typeSerialize(): array
     {
         return [
-            '@type' => static::TYPE_NAME,
-            'id' => $this->id,
-            'data' => $this->data,
+            '@type'   => static::TYPE_NAME,
+            'id'      => $this->id,
+            'data'    => $this->data,
             'timeout' => $this->timeout,
         ];
     }

@@ -9,30 +9,24 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * The user has been authorized, but needs to enter a password to start using the application
+ * The user has been authorized, but needs to enter a password to start using the application.
  */
 class AuthorizationStateWaitPassword extends AuthorizationState
 {
     public const TYPE_NAME = 'authorizationStateWaitPassword';
 
     /**
-     * Hint for the password; may be empty
-     *
-     * @var string
+     * Hint for the password; may be empty.
      */
     protected string $passwordHint;
 
     /**
-     * True, if a recovery email address has been set up
-     *
-     * @var bool
+     * True, if a recovery email address has been set up.
      */
     protected bool $hasRecoveryEmailAddress;
 
     /**
-     * Pattern of the email address to which the recovery email was sent; empty until a recovery email has been sent
-     *
-     * @var string
+     * Pattern of the email address to which the recovery email was sent; empty until a recovery email has been sent.
      */
     protected string $recoveryEmailAddressPattern;
 
@@ -43,8 +37,8 @@ class AuthorizationStateWaitPassword extends AuthorizationState
     ) {
         parent::__construct();
 
-        $this->passwordHint = $passwordHint;
-        $this->hasRecoveryEmailAddress = $hasRecoveryEmailAddress;
+        $this->passwordHint                = $passwordHint;
+        $this->hasRecoveryEmailAddress     = $hasRecoveryEmailAddress;
         $this->recoveryEmailAddressPattern = $recoveryEmailAddressPattern;
     }
 
@@ -60,9 +54,9 @@ class AuthorizationStateWaitPassword extends AuthorizationState
     public function typeSerialize(): array
     {
         return [
-            '@type' => static::TYPE_NAME,
-            'password_hint' => $this->passwordHint,
-            'has_recovery_email_address' => $this->hasRecoveryEmailAddress,
+            '@type'                          => static::TYPE_NAME,
+            'password_hint'                  => $this->passwordHint,
+            'has_recovery_email_address'     => $this->hasRecoveryEmailAddress,
             'recovery_email_address_pattern' => $this->recoveryEmailAddressPattern,
         ];
     }

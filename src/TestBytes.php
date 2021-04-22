@@ -9,16 +9,14 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * A simple object containing a sequence of bytes; for testing only
+ * A simple object containing a sequence of bytes; for testing only.
  */
 class TestBytes extends TdObject
 {
     public const TYPE_NAME = 'testBytes';
 
     /**
-     * Bytes
-     *
-     * @var string
+     * Bytes.
      */
     protected string $value;
 

@@ -9,65 +9,51 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Contains information about a chat invite link
+ * Contains information about a chat invite link.
  */
 class ChatInviteLinkInfo extends TdObject
 {
     public const TYPE_NAME = 'chatInviteLinkInfo';
 
     /**
-     * Chat identifier of the invite link; 0 if the user has no access to the chat before joining
-     *
-     * @var int
+     * Chat identifier of the invite link; 0 if the user has no access to the chat before joining.
      */
     protected int $chatId;
 
     /**
-     * If non-zero, the amount of time for which read access to the chat will remain available, in seconds
-     *
-     * @var int
+     * If non-zero, the amount of time for which read access to the chat will remain available, in seconds.
      */
     protected int $accessibleFor;
 
     /**
-     * Contains information about the type of the chat
-     *
-     * @var ChatType
+     * Contains information about the type of the chat.
      */
     protected ChatType $type;
 
     /**
-     * Title of the chat
-     *
-     * @var string
+     * Title of the chat.
      */
     protected string $title;
 
     /**
-     * Chat photo; may be null
-     *
-     * @var ChatPhotoInfo|null
+     * Chat photo; may be null.
      */
     protected ?ChatPhotoInfo $photo;
 
     /**
-     * Number of members in the chat
-     *
-     * @var int
+     * Number of members in the chat.
      */
     protected int $memberCount;
 
     /**
-     * User identifiers of some chat members that may be known to the current user
+     * User identifiers of some chat members that may be known to the current user.
      *
      * @var int[]
      */
     protected array $memberUserIds;
 
     /**
-     * True, if the chat is a public supergroup or channel, i.e. it has a username or it is a location-based supergroup
-     *
-     * @var bool
+     * True, if the chat is a public supergroup or channel, i.e. it has a username or it is a location-based supergroup.
      */
     protected bool $isPublic;
 
@@ -81,14 +67,14 @@ class ChatInviteLinkInfo extends TdObject
         array $memberUserIds,
         bool $isPublic
     ) {
-        $this->chatId = $chatId;
+        $this->chatId        = $chatId;
         $this->accessibleFor = $accessibleFor;
-        $this->type = $type;
-        $this->title = $title;
-        $this->photo = $photo;
-        $this->memberCount = $memberCount;
+        $this->type          = $type;
+        $this->title         = $title;
+        $this->photo         = $photo;
+        $this->memberCount   = $memberCount;
         $this->memberUserIds = $memberUserIds;
-        $this->isPublic = $isPublic;
+        $this->isPublic      = $isPublic;
     }
 
     public static function fromArray(array $array): ChatInviteLinkInfo
@@ -108,15 +94,15 @@ class ChatInviteLinkInfo extends TdObject
     public function typeSerialize(): array
     {
         return [
-            '@type' => static::TYPE_NAME,
-            'chat_id' => $this->chatId,
-            'accessible_for' => $this->accessibleFor,
-            'type' => $this->type->typeSerialize(),
-            'title' => $this->title,
-            'photo' => (isset($this->photo) ? $this->photo : null),
-            'member_count' => $this->memberCount,
+            '@type'           => static::TYPE_NAME,
+            'chat_id'         => $this->chatId,
+            'accessible_for'  => $this->accessibleFor,
+            'type'            => $this->type->typeSerialize(),
+            'title'           => $this->title,
+            'photo'           => (isset($this->photo) ? $this->photo : null),
+            'member_count'    => $this->memberCount,
             'member_user_ids' => $this->memberUserIds,
-            'is_public' => $this->isPublic,
+            'is_public'       => $this->isPublic,
         ];
     }
 

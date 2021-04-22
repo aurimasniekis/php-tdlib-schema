@@ -16,23 +16,17 @@ class MessageAnimation extends MessageContent
     public const TYPE_NAME = 'messageAnimation';
 
     /**
-     * The animation description
-     *
-     * @var Animation
+     * The animation description.
      */
     protected Animation $animation;
 
     /**
-     * Animation caption
-     *
-     * @var FormattedText
+     * Animation caption.
      */
     protected FormattedText $caption;
 
     /**
-     * True, if the animation thumbnail must be blurred and the animation must be shown only while tapped
-     *
-     * @var bool
+     * True, if the animation thumbnail must be blurred and the animation must be shown only while tapped.
      */
     protected bool $isSecret;
 
@@ -41,8 +35,8 @@ class MessageAnimation extends MessageContent
         parent::__construct();
 
         $this->animation = $animation;
-        $this->caption = $caption;
-        $this->isSecret = $isSecret;
+        $this->caption   = $caption;
+        $this->isSecret  = $isSecret;
     }
 
     public static function fromArray(array $array): MessageAnimation
@@ -57,9 +51,9 @@ class MessageAnimation extends MessageContent
     public function typeSerialize(): array
     {
         return [
-            '@type' => static::TYPE_NAME,
+            '@type'     => static::TYPE_NAME,
             'animation' => $this->animation->typeSerialize(),
-            'caption' => $this->caption->typeSerialize(),
+            'caption'   => $this->caption->typeSerialize(),
             'is_secret' => $this->isSecret,
         ];
     }

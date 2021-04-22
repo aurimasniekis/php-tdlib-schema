@@ -9,7 +9,7 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Returns only voice note messages
+ * Returns only voice note messages.
  */
 class SearchMessagesFilterVoiceNote extends SearchMessagesFilter
 {

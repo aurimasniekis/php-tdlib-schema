@@ -9,30 +9,24 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Edits the text of an inline text or game message sent via a bot; for bots only
+ * Edits the text of an inline text or game message sent via a bot; for bots only.
  */
 class EditInlineMessageText extends TdFunction
 {
     public const TYPE_NAME = 'editInlineMessageText';
 
     /**
-     * Inline message identifier
-     *
-     * @var string
+     * Inline message identifier.
      */
     protected string $inlineMessageId;
 
     /**
-     * The new message reply markup
-     *
-     * @var ReplyMarkup
+     * The new message reply markup.
      */
     protected ReplyMarkup $replyMarkup;
 
     /**
-     * New text content of the message. Should be of type InputMessageText
-     *
-     * @var InputMessageContent
+     * New text content of the message. Should be of type InputMessageText.
      */
     protected InputMessageContent $inputMessageContent;
 
@@ -41,8 +35,8 @@ class EditInlineMessageText extends TdFunction
         ReplyMarkup $replyMarkup,
         InputMessageContent $inputMessageContent
     ) {
-        $this->inlineMessageId = $inlineMessageId;
-        $this->replyMarkup = $replyMarkup;
+        $this->inlineMessageId     = $inlineMessageId;
+        $this->replyMarkup         = $replyMarkup;
         $this->inputMessageContent = $inputMessageContent;
     }
 
@@ -58,9 +52,9 @@ class EditInlineMessageText extends TdFunction
     public function typeSerialize(): array
     {
         return [
-            '@type' => static::TYPE_NAME,
-            'inline_message_id' => $this->inlineMessageId,
-            'reply_markup' => $this->replyMarkup->typeSerialize(),
+            '@type'                 => static::TYPE_NAME,
+            'inline_message_id'     => $this->inlineMessageId,
+            'reply_markup'          => $this->replyMarkup->typeSerialize(),
             'input_message_content' => $this->inputMessageContent->typeSerialize(),
         ];
     }

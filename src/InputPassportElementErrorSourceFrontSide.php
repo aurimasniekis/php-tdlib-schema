@@ -9,16 +9,14 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * The front side of the document contains an error. The error is considered resolved when the file with the front side of the document changes
+ * The front side of the document contains an error. The error is considered resolved when the file with the front side of the document changes.
  */
 class InputPassportElementErrorSourceFrontSide extends InputPassportElementErrorSource
 {
     public const TYPE_NAME = 'inputPassportElementErrorSourceFrontSide';
 
     /**
-     * Current hash of the file containing the front side
-     *
-     * @var string
+     * Current hash of the file containing the front side.
      */
     protected string $fileHash;
 
@@ -39,7 +37,7 @@ class InputPassportElementErrorSourceFrontSide extends InputPassportElementError
     public function typeSerialize(): array
     {
         return [
-            '@type' => static::TYPE_NAME,
+            '@type'     => static::TYPE_NAME,
             'file_hash' => $this->fileHash,
         ];
     }

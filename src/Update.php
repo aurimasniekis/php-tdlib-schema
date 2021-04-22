@@ -9,7 +9,7 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Contains notifications about data changes
+ * Contains notifications about data changes.
  */
 class Update extends TdObject
 {

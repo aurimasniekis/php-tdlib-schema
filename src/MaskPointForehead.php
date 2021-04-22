@@ -9,7 +9,7 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * A mask should be placed relatively to the forehead
+ * A mask should be placed relatively to the forehead.
  */
 class MaskPointForehead extends MaskPoint
 {

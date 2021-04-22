@@ -9,23 +9,19 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Returns users which can be mentioned in the supergroup
+ * Returns users which can be mentioned in the supergroup.
  */
 class SupergroupMembersFilterMention extends SupergroupMembersFilter
 {
     public const TYPE_NAME = 'supergroupMembersFilterMention';
 
     /**
-     * Query to search for
-     *
-     * @var string
+     * Query to search for.
      */
     protected string $query;
 
     /**
-     * If non-zero, the identifier of the current message thread
-     *
-     * @var int
+     * If non-zero, the identifier of the current message thread.
      */
     protected int $messageThreadId;
 
@@ -33,7 +29,7 @@ class SupergroupMembersFilterMention extends SupergroupMembersFilter
     {
         parent::__construct();
 
-        $this->query = $query;
+        $this->query           = $query;
         $this->messageThreadId = $messageThreadId;
     }
 
@@ -48,8 +44,8 @@ class SupergroupMembersFilterMention extends SupergroupMembersFilter
     public function typeSerialize(): array
     {
         return [
-            '@type' => static::TYPE_NAME,
-            'query' => $this->query,
+            '@type'             => static::TYPE_NAME,
+            'query'             => $this->query,
             'message_thread_id' => $this->messageThreadId,
         ];
     }

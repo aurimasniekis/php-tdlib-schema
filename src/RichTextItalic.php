@@ -9,16 +9,14 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * An italicized rich text
+ * An italicized rich text.
  */
 class RichTextItalic extends RichText
 {
     public const TYPE_NAME = 'richTextItalic';
 
     /**
-     * Text
-     *
-     * @var RichText
+     * Text.
      */
     protected RichText $text;
 
@@ -40,7 +38,7 @@ class RichTextItalic extends RichText
     {
         return [
             '@type' => static::TYPE_NAME,
-            'text' => $this->text->typeSerialize(),
+            'text'  => $this->text->typeSerialize(),
         ];
     }
 

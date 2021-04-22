@@ -9,16 +9,14 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * A new incoming event; for bots only
+ * A new incoming event; for bots only.
  */
 class UpdateNewCustomEvent extends Update
 {
     public const TYPE_NAME = 'updateNewCustomEvent';
 
     /**
-     * A JSON-serialized event
-     *
-     * @var string
+     * A JSON-serialized event.
      */
     protected string $event;
 

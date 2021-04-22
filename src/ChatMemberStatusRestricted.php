@@ -9,30 +9,24 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * The user is under certain restrictions in the chat. Not supported in basic groups and channels
+ * The user is under certain restrictions in the chat. Not supported in basic groups and channels.
  */
 class ChatMemberStatusRestricted extends ChatMemberStatus
 {
     public const TYPE_NAME = 'chatMemberStatusRestricted';
 
     /**
-     * True, if the user is a member of the chat
-     *
-     * @var bool
+     * True, if the user is a member of the chat.
      */
     protected bool $isMember;
 
     /**
-     * Point in time (Unix timestamp) when restrictions will be lifted from the user; 0 if never. If the user is restricted for more than 366 days or for less than 30 seconds from the current time, the user is considered to be restricted forever
-     *
-     * @var int
+     * Point in time (Unix timestamp) when restrictions will be lifted from the user; 0 if never. If the user is restricted for more than 366 days or for less than 30 seconds from the current time, the user is considered to be restricted forever.
      */
     protected int $restrictedUntilDate;
 
     /**
-     * User permissions in the chat
-     *
-     * @var ChatPermissions
+     * User permissions in the chat.
      */
     protected ChatPermissions $permissions;
 
@@ -40,9 +34,9 @@ class ChatMemberStatusRestricted extends ChatMemberStatus
     {
         parent::__construct();
 
-        $this->isMember = $isMember;
+        $this->isMember            = $isMember;
         $this->restrictedUntilDate = $restrictedUntilDate;
-        $this->permissions = $permissions;
+        $this->permissions         = $permissions;
     }
 
     public static function fromArray(array $array): ChatMemberStatusRestricted
@@ -57,10 +51,10 @@ class ChatMemberStatusRestricted extends ChatMemberStatus
     public function typeSerialize(): array
     {
         return [
-            '@type' => static::TYPE_NAME,
-            'is_member' => $this->isMember,
+            '@type'                 => static::TYPE_NAME,
+            'is_member'             => $this->isMember,
             'restricted_until_date' => $this->restrictedUntilDate,
-            'permissions' => $this->permissions->typeSerialize(),
+            'permissions'           => $this->permissions->typeSerialize(),
         ];
     }
 

@@ -9,37 +9,29 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * A new incoming shipping query; for bots only. Only for invoices with flexible price
+ * A new incoming shipping query; for bots only. Only for invoices with flexible price.
  */
 class UpdateNewShippingQuery extends Update
 {
     public const TYPE_NAME = 'updateNewShippingQuery';
 
     /**
-     * Unique query identifier
-     *
-     * @var string
+     * Unique query identifier.
      */
     protected string $id;
 
     /**
-     * Identifier of the user who sent the query
-     *
-     * @var int
+     * Identifier of the user who sent the query.
      */
     protected int $senderUserId;
 
     /**
-     * Invoice payload
-     *
-     * @var string
+     * Invoice payload.
      */
     protected string $invoicePayload;
 
     /**
-     * User shipping address
-     *
-     * @var Address
+     * User shipping address.
      */
     protected Address $shippingAddress;
 
@@ -47,9 +39,9 @@ class UpdateNewShippingQuery extends Update
     {
         parent::__construct();
 
-        $this->id = $id;
-        $this->senderUserId = $senderUserId;
-        $this->invoicePayload = $invoicePayload;
+        $this->id              = $id;
+        $this->senderUserId    = $senderUserId;
+        $this->invoicePayload  = $invoicePayload;
         $this->shippingAddress = $shippingAddress;
     }
 
@@ -66,10 +58,10 @@ class UpdateNewShippingQuery extends Update
     public function typeSerialize(): array
     {
         return [
-            '@type' => static::TYPE_NAME,
-            'id' => $this->id,
-            'sender_user_id' => $this->senderUserId,
-            'invoice_payload' => $this->invoicePayload,
+            '@type'            => static::TYPE_NAME,
+            'id'               => $this->id,
+            'sender_user_id'   => $this->senderUserId,
+            'invoice_payload'  => $this->invoicePayload,
             'shipping_address' => $this->shippingAddress->typeSerialize(),
         ];
     }

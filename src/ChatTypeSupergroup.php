@@ -9,23 +9,19 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * A supergroup (i.e. a chat with up to GetOption("supergroup_max_size") other users), or channel (with unlimited members)
+ * A supergroup (i.e. a chat with up to GetOption("supergroup_max_size") other users), or channel (with unlimited members).
  */
 class ChatTypeSupergroup extends ChatType
 {
     public const TYPE_NAME = 'chatTypeSupergroup';
 
     /**
-     * Supergroup or channel identifier
-     *
-     * @var int
+     * Supergroup or channel identifier.
      */
     protected int $supergroupId;
 
     /**
-     * True, if the supergroup is a channel
-     *
-     * @var bool
+     * True, if the supergroup is a channel.
      */
     protected bool $isChannel;
 
@@ -34,7 +30,7 @@ class ChatTypeSupergroup extends ChatType
         parent::__construct();
 
         $this->supergroupId = $supergroupId;
-        $this->isChannel = $isChannel;
+        $this->isChannel    = $isChannel;
     }
 
     public static function fromArray(array $array): ChatTypeSupergroup
@@ -48,9 +44,9 @@ class ChatTypeSupergroup extends ChatType
     public function typeSerialize(): array
     {
         return [
-            '@type' => static::TYPE_NAME,
+            '@type'         => static::TYPE_NAME,
             'supergroup_id' => $this->supergroupId,
-            'is_channel' => $this->isChannel,
+            'is_channel'    => $this->isChannel,
         ];
     }
 

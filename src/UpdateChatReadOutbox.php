@@ -9,23 +9,19 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Outgoing messages were read
+ * Outgoing messages were read.
  */
 class UpdateChatReadOutbox extends Update
 {
     public const TYPE_NAME = 'updateChatReadOutbox';
 
     /**
-     * Chat identifier
-     *
-     * @var int
+     * Chat identifier.
      */
     protected int $chatId;
 
     /**
-     * Identifier of last read outgoing message
-     *
-     * @var int
+     * Identifier of last read outgoing message.
      */
     protected int $lastReadOutboxMessageId;
 
@@ -33,7 +29,7 @@ class UpdateChatReadOutbox extends Update
     {
         parent::__construct();
 
-        $this->chatId = $chatId;
+        $this->chatId                  = $chatId;
         $this->lastReadOutboxMessageId = $lastReadOutboxMessageId;
     }
 
@@ -48,8 +44,8 @@ class UpdateChatReadOutbox extends Update
     public function typeSerialize(): array
     {
         return [
-            '@type' => static::TYPE_NAME,
-            'chat_id' => $this->chatId,
+            '@type'                       => static::TYPE_NAME,
+            'chat_id'                     => $this->chatId,
             'last_read_outbox_message_id' => $this->lastReadOutboxMessageId,
         ];
     }

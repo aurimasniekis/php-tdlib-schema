@@ -9,35 +9,29 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Contains the storage usage statistics for a specific chat
+ * Contains the storage usage statistics for a specific chat.
  */
 class StorageStatisticsByChat extends TdObject
 {
     public const TYPE_NAME = 'storageStatisticsByChat';
 
     /**
-     * Chat identifier; 0 if none
-     *
-     * @var int
+     * Chat identifier; 0 if none.
      */
     protected int $chatId;
 
     /**
-     * Total size of the files in the chat
-     *
-     * @var int
+     * Total size of the files in the chat.
      */
     protected int $size;
 
     /**
-     * Total number of files in the chat
-     *
-     * @var int
+     * Total number of files in the chat.
      */
     protected int $count;
 
     /**
-     * Statistics split by file types
+     * Statistics split by file types.
      *
      * @var StorageStatisticsByFileType[]
      */
@@ -45,9 +39,9 @@ class StorageStatisticsByChat extends TdObject
 
     public function __construct(int $chatId, int $size, int $count, array $byFileType)
     {
-        $this->chatId = $chatId;
-        $this->size = $size;
-        $this->count = $count;
+        $this->chatId     = $chatId;
+        $this->size       = $size;
+        $this->count      = $count;
         $this->byFileType = $byFileType;
     }
 
@@ -57,18 +51,18 @@ class StorageStatisticsByChat extends TdObject
             $array['chat_id'],
             $array['size'],
             $array['count'],
-            array_map(fn($x) => TdSchemaRegistry::fromArray($x), $array['by_file_type']),
+            array_map(fn ($x) => TdSchemaRegistry::fromArray($x), $array['by_file_type']),
         );
     }
 
     public function typeSerialize(): array
     {
         return [
-            '@type' => static::TYPE_NAME,
-            'chat_id' => $this->chatId,
-            'size' => $this->size,
-            'count' => $this->count,
-            array_map(fn($x) => $x->typeSerialize(), $this->byFileType),
+            '@type'           => static::TYPE_NAME,
+            'chat_id'         => $this->chatId,
+            'size'            => $this->size,
+            'count'           => $this->count,
+            array_map(fn ($x) => $x->typeSerialize(), $this->byFileType),
         ];
     }
 

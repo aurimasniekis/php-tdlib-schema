@@ -9,23 +9,19 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Constructs a persistent HTTP URL for a background
+ * Constructs a persistent HTTP URL for a background.
  */
 class GetBackgroundUrl extends TdFunction
 {
     public const TYPE_NAME = 'getBackgroundUrl';
 
     /**
-     * Background name
-     *
-     * @var string
+     * Background name.
      */
     protected string $name;
 
     /**
-     * Background type
-     *
-     * @var BackgroundType
+     * Background type.
      */
     protected BackgroundType $type;
 
@@ -47,8 +43,8 @@ class GetBackgroundUrl extends TdFunction
     {
         return [
             '@type' => static::TYPE_NAME,
-            'name' => $this->name,
-            'type' => $this->type->typeSerialize(),
+            'name'  => $this->name,
+            'type'  => $this->type->typeSerialize(),
         ];
     }
 

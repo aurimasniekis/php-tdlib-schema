@@ -9,16 +9,14 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * A Telegram call reflector
+ * A Telegram call reflector.
  */
 class CallServerTypeTelegramReflector extends CallServerType
 {
     public const TYPE_NAME = 'callServerTypeTelegramReflector';
 
     /**
-     * A peer tag to be used with the reflector
-     *
-     * @var string
+     * A peer tag to be used with the reflector.
      */
     protected string $peerTag;
 
@@ -39,7 +37,7 @@ class CallServerTypeTelegramReflector extends CallServerType
     public function typeSerialize(): array
     {
         return [
-            '@type' => static::TYPE_NAME,
+            '@type'    => static::TYPE_NAME,
             'peer_tag' => $this->peerTag,
         ];
     }

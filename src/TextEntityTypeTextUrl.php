@@ -9,16 +9,14 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * A text description shown instead of a raw URL
+ * A text description shown instead of a raw URL.
  */
 class TextEntityTypeTextUrl extends TextEntityType
 {
     public const TYPE_NAME = 'textEntityTypeTextUrl';
 
     /**
-     * HTTP or tg:// URL to be opened when the link is clicked
-     *
-     * @var string
+     * HTTP or tg:// URL to be opened when the link is clicked.
      */
     protected string $url;
 
@@ -40,7 +38,7 @@ class TextEntityTypeTextUrl extends TextEntityType
     {
         return [
             '@type' => static::TYPE_NAME,
-            'url' => $this->url,
+            'url'   => $this->url,
         ];
     }
 

@@ -9,29 +9,25 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Sets the verbosity level for a specified TDLib internal log tag. Can be called synchronously
+ * Sets the verbosity level for a specified TDLib internal log tag. Can be called synchronously.
  */
 class SetLogTagVerbosityLevel extends TdFunction
 {
     public const TYPE_NAME = 'setLogTagVerbosityLevel';
 
     /**
-     * Logging tag to change verbosity level
-     *
-     * @var string
+     * Logging tag to change verbosity level.
      */
     protected string $tag;
 
     /**
-     * New verbosity level; 1-1024
-     *
-     * @var int
+     * New verbosity level; 1-1024.
      */
     protected int $newVerbosityLevel;
 
     public function __construct(string $tag, int $newVerbosityLevel)
     {
-        $this->tag = $tag;
+        $this->tag               = $tag;
         $this->newVerbosityLevel = $newVerbosityLevel;
     }
 
@@ -46,8 +42,8 @@ class SetLogTagVerbosityLevel extends TdFunction
     public function typeSerialize(): array
     {
         return [
-            '@type' => static::TYPE_NAME,
-            'tag' => $this->tag,
+            '@type'               => static::TYPE_NAME,
+            'tag'                 => $this->tag,
             'new_verbosity_level' => $this->newVerbosityLevel,
         ];
     }

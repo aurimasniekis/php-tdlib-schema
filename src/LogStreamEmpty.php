@@ -9,7 +9,7 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * The log is written nowhere
+ * The log is written nowhere.
  */
 class LogStreamEmpty extends LogStream
 {

@@ -9,45 +9,37 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Returns an HTTPS link to a message in a chat. Available only for already sent messages in supergroups and channels. This is an offline request
+ * Returns an HTTPS link to a message in a chat. Available only for already sent messages in supergroups and channels. This is an offline request.
  */
 class GetMessageLink extends TdFunction
 {
     public const TYPE_NAME = 'getMessageLink';
 
     /**
-     * Identifier of the chat to which the message belongs
-     *
-     * @var int
+     * Identifier of the chat to which the message belongs.
      */
     protected int $chatId;
 
     /**
-     * Identifier of the message
-     *
-     * @var int
+     * Identifier of the message.
      */
     protected int $messageId;
 
     /**
-     * Pass true to create a link for the whole media album
-     *
-     * @var bool
+     * Pass true to create a link for the whole media album.
      */
     protected bool $forAlbum;
 
     /**
-     * Pass true to create a link to the message as a channel post comment, or from a message thread
-     *
-     * @var bool
+     * Pass true to create a link to the message as a channel post comment, or from a message thread.
      */
     protected bool $forComment;
 
     public function __construct(int $chatId, int $messageId, bool $forAlbum, bool $forComment)
     {
-        $this->chatId = $chatId;
-        $this->messageId = $messageId;
-        $this->forAlbum = $forAlbum;
+        $this->chatId     = $chatId;
+        $this->messageId  = $messageId;
+        $this->forAlbum   = $forAlbum;
         $this->forComment = $forComment;
     }
 
@@ -64,10 +56,10 @@ class GetMessageLink extends TdFunction
     public function typeSerialize(): array
     {
         return [
-            '@type' => static::TYPE_NAME,
-            'chat_id' => $this->chatId,
-            'message_id' => $this->messageId,
-            'for_album' => $this->forAlbum,
+            '@type'       => static::TYPE_NAME,
+            'chat_id'     => $this->chatId,
+            'message_id'  => $this->messageId,
+            'for_album'   => $this->forAlbum,
             'for_comment' => $this->forComment,
         ];
     }

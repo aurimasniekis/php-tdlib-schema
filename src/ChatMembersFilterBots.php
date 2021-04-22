@@ -9,7 +9,7 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Returns bot members of the chat
+ * Returns bot members of the chat.
  */
 class ChatMembersFilterBots extends ChatMembersFilter
 {

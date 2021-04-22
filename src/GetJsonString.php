@@ -9,16 +9,14 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Converts a JsonValue object to corresponding JSON-serialized string. Can be called synchronously
+ * Converts a JsonValue object to corresponding JSON-serialized string. Can be called synchronously.
  */
 class GetJsonString extends TdFunction
 {
     public const TYPE_NAME = 'getJsonString';
 
     /**
-     * The JsonValue object
-     *
-     * @var JsonValue
+     * The JsonValue object.
      */
     protected JsonValue $jsonValue;
 
@@ -37,7 +35,7 @@ class GetJsonString extends TdFunction
     public function typeSerialize(): array
     {
         return [
-            '@type' => static::TYPE_NAME,
+            '@type'      => static::TYPE_NAME,
             'json_value' => $this->jsonValue->typeSerialize(),
         ];
     }

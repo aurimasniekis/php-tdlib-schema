@@ -9,54 +9,44 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Describes a call
+ * Describes a call.
  */
 class Call extends TdObject
 {
     public const TYPE_NAME = 'call';
 
     /**
-     * Call identifier, not persistent
-     *
-     * @var int
+     * Call identifier, not persistent.
      */
     protected int $id;
 
     /**
-     * Peer user identifier
-     *
-     * @var int
+     * Peer user identifier.
      */
     protected int $userId;
 
     /**
-     * True, if the call is outgoing
-     *
-     * @var bool
+     * True, if the call is outgoing.
      */
     protected bool $isOutgoing;
 
     /**
-     * True, if the call is a video call
-     *
-     * @var bool
+     * True, if the call is a video call.
      */
     protected bool $isVideo;
 
     /**
-     * Call state
-     *
-     * @var CallState
+     * Call state.
      */
     protected CallState $state;
 
     public function __construct(int $id, int $userId, bool $isOutgoing, bool $isVideo, CallState $state)
     {
-        $this->id = $id;
-        $this->userId = $userId;
+        $this->id         = $id;
+        $this->userId     = $userId;
         $this->isOutgoing = $isOutgoing;
-        $this->isVideo = $isVideo;
-        $this->state = $state;
+        $this->isVideo    = $isVideo;
+        $this->state      = $state;
     }
 
     public static function fromArray(array $array): Call
@@ -73,12 +63,12 @@ class Call extends TdObject
     public function typeSerialize(): array
     {
         return [
-            '@type' => static::TYPE_NAME,
-            'id' => $this->id,
-            'user_id' => $this->userId,
+            '@type'       => static::TYPE_NAME,
+            'id'          => $this->id,
+            'user_id'     => $this->userId,
             'is_outgoing' => $this->isOutgoing,
-            'is_video' => $this->isVideo,
-            'state' => $this->state->typeSerialize(),
+            'is_video'    => $this->isVideo,
+            'state'       => $this->state->typeSerialize(),
         ];
     }
 

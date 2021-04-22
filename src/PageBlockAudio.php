@@ -9,23 +9,19 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * An audio file
+ * An audio file.
  */
 class PageBlockAudio extends PageBlock
 {
     public const TYPE_NAME = 'pageBlockAudio';
 
     /**
-     * Audio file; may be null
-     *
-     * @var Audio|null
+     * Audio file; may be null.
      */
     protected ?Audio $audio;
 
     /**
-     * Audio file caption
-     *
-     * @var PageBlockCaption
+     * Audio file caption.
      */
     protected PageBlockCaption $caption;
 
@@ -33,7 +29,7 @@ class PageBlockAudio extends PageBlock
     {
         parent::__construct();
 
-        $this->audio = $audio;
+        $this->audio   = $audio;
         $this->caption = $caption;
     }
 
@@ -48,8 +44,8 @@ class PageBlockAudio extends PageBlock
     public function typeSerialize(): array
     {
         return [
-            '@type' => static::TYPE_NAME,
-            'audio' => (isset($this->audio) ? $this->audio : null),
+            '@type'   => static::TYPE_NAME,
+            'audio'   => (isset($this->audio) ? $this->audio : null),
             'caption' => $this->caption->typeSerialize(),
         ];
     }

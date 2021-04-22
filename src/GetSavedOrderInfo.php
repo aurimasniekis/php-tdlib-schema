@@ -9,7 +9,7 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Returns saved order info, if any
+ * Returns saved order info, if any.
  */
 class GetSavedOrderInfo extends TdFunction
 {

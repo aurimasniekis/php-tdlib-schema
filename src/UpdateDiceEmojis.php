@@ -9,14 +9,14 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * The list of supported dice emojis has changed
+ * The list of supported dice emojis has changed.
  */
 class UpdateDiceEmojis extends Update
 {
     public const TYPE_NAME = 'updateDiceEmojis';
 
     /**
-     * The new list of supported dice emojis
+     * The new list of supported dice emojis.
      *
      * @var string[]
      */
@@ -39,7 +39,7 @@ class UpdateDiceEmojis extends Update
     public function typeSerialize(): array
     {
         return [
-            '@type' => static::TYPE_NAME,
+            '@type'  => static::TYPE_NAME,
             'emojis' => $this->emojis,
         ];
     }

@@ -9,44 +9,34 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * The user has chosen a result of an inline query; for bots only
+ * The user has chosen a result of an inline query; for bots only.
  */
 class UpdateNewChosenInlineResult extends Update
 {
     public const TYPE_NAME = 'updateNewChosenInlineResult';
 
     /**
-     * Identifier of the user who sent the query
-     *
-     * @var int
+     * Identifier of the user who sent the query.
      */
     protected int $senderUserId;
 
     /**
-     * User location; may be null
-     *
-     * @var Location|null
+     * User location; may be null.
      */
     protected ?Location $userLocation;
 
     /**
-     * Text of the query
-     *
-     * @var string
+     * Text of the query.
      */
     protected string $query;
 
     /**
-     * Identifier of the chosen result
-     *
-     * @var string
+     * Identifier of the chosen result.
      */
     protected string $resultId;
 
     /**
-     * Identifier of the sent inline message, if known
-     *
-     * @var string
+     * Identifier of the sent inline message, if known.
      */
     protected string $inlineMessageId;
 
@@ -59,10 +49,10 @@ class UpdateNewChosenInlineResult extends Update
     ) {
         parent::__construct();
 
-        $this->senderUserId = $senderUserId;
-        $this->userLocation = $userLocation;
-        $this->query = $query;
-        $this->resultId = $resultId;
+        $this->senderUserId    = $senderUserId;
+        $this->userLocation    = $userLocation;
+        $this->query           = $query;
+        $this->resultId        = $resultId;
         $this->inlineMessageId = $inlineMessageId;
     }
 
@@ -80,11 +70,11 @@ class UpdateNewChosenInlineResult extends Update
     public function typeSerialize(): array
     {
         return [
-            '@type' => static::TYPE_NAME,
-            'sender_user_id' => $this->senderUserId,
-            'user_location' => (isset($this->userLocation) ? $this->userLocation : null),
-            'query' => $this->query,
-            'result_id' => $this->resultId,
+            '@type'             => static::TYPE_NAME,
+            'sender_user_id'    => $this->senderUserId,
+            'user_location'     => (isset($this->userLocation) ? $this->userLocation : null),
+            'query'             => $this->query,
+            'result_id'         => $this->resultId,
             'inline_message_id' => $this->inlineMessageId,
         ];
     }

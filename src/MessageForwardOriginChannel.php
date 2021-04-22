@@ -9,30 +9,24 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * The message was originally a post in a channel
+ * The message was originally a post in a channel.
  */
 class MessageForwardOriginChannel extends MessageForwardOrigin
 {
     public const TYPE_NAME = 'messageForwardOriginChannel';
 
     /**
-     * Identifier of the chat from which the message was originally forwarded
-     *
-     * @var int
+     * Identifier of the chat from which the message was originally forwarded.
      */
     protected int $chatId;
 
     /**
-     * Message identifier of the original message
-     *
-     * @var int
+     * Message identifier of the original message.
      */
     protected int $messageId;
 
     /**
-     * Original post author signature
-     *
-     * @var string
+     * Original post author signature.
      */
     protected string $authorSignature;
 
@@ -40,8 +34,8 @@ class MessageForwardOriginChannel extends MessageForwardOrigin
     {
         parent::__construct();
 
-        $this->chatId = $chatId;
-        $this->messageId = $messageId;
+        $this->chatId          = $chatId;
+        $this->messageId       = $messageId;
         $this->authorSignature = $authorSignature;
     }
 
@@ -57,9 +51,9 @@ class MessageForwardOriginChannel extends MessageForwardOrigin
     public function typeSerialize(): array
     {
         return [
-            '@type' => static::TYPE_NAME,
-            'chat_id' => $this->chatId,
-            'message_id' => $this->messageId,
+            '@type'            => static::TYPE_NAME,
+            'chat_id'          => $this->chatId,
+            'message_id'       => $this->messageId,
             'author_signature' => $this->authorSignature,
         ];
     }

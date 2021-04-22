@@ -9,16 +9,14 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Checks the validity of an invite link for a chat and returns information about the corresponding chat
+ * Checks the validity of an invite link for a chat and returns information about the corresponding chat.
  */
 class CheckChatInviteLink extends TdFunction
 {
     public const TYPE_NAME = 'checkChatInviteLink';
 
     /**
-     * Invite link to be checked; should begin with "https://t.me/joinchat/", "https://telegram.me/joinchat/", or "https://telegram.dog/joinchat/"
-     *
-     * @var string
+     * Invite link to be checked; should begin with "https://t.me/joinchat/", "https://telegram.me/joinchat/", or "https://telegram.dog/joinchat/".
      */
     protected string $inviteLink;
 
@@ -37,7 +35,7 @@ class CheckChatInviteLink extends TdFunction
     public function typeSerialize(): array
     {
         return [
-            '@type' => static::TYPE_NAME,
+            '@type'       => static::TYPE_NAME,
             'invite_link' => $this->inviteLink,
         ];
     }

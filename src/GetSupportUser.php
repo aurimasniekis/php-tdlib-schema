@@ -9,7 +9,7 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Returns a user that can be contacted to get support
+ * Returns a user that can be contacted to get support.
  */
 class GetSupportUser extends TdFunction
 {

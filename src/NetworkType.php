@@ -9,7 +9,7 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Represents the type of a network
+ * Represents the type of a network.
  */
 class NetworkType extends TdObject
 {

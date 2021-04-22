@@ -9,23 +9,19 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * The chat action bar was changed
+ * The chat action bar was changed.
  */
 class UpdateChatActionBar extends Update
 {
     public const TYPE_NAME = 'updateChatActionBar';
 
     /**
-     * Chat identifier
-     *
-     * @var int
+     * Chat identifier.
      */
     protected int $chatId;
 
     /**
-     * The new value of the action bar; may be null
-     *
-     * @var ChatActionBar|null
+     * The new value of the action bar; may be null.
      */
     protected ?ChatActionBar $actionBar;
 
@@ -33,7 +29,7 @@ class UpdateChatActionBar extends Update
     {
         parent::__construct();
 
-        $this->chatId = $chatId;
+        $this->chatId    = $chatId;
         $this->actionBar = $actionBar;
     }
 
@@ -48,8 +44,8 @@ class UpdateChatActionBar extends Update
     public function typeSerialize(): array
     {
         return [
-            '@type' => static::TYPE_NAME,
-            'chat_id' => $this->chatId,
+            '@type'      => static::TYPE_NAME,
+            'chat_id'    => $this->chatId,
             'action_bar' => (isset($this->actionBar) ? $this->actionBar : null),
         ];
     }

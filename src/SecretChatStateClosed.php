@@ -9,7 +9,7 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * The secret chat is closed
+ * The secret chat is closed.
  */
 class SecretChatStateClosed extends SecretChatState
 {

@@ -9,16 +9,14 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * A message was deleted
+ * A message was deleted.
  */
 class ChatEventMessageDeleted extends ChatEventAction
 {
     public const TYPE_NAME = 'chatEventMessageDeleted';
 
     /**
-     * Deleted message
-     *
-     * @var Message
+     * Deleted message.
      */
     protected Message $message;
 
@@ -39,7 +37,7 @@ class ChatEventMessageDeleted extends ChatEventAction
     public function typeSerialize(): array
     {
         return [
-            '@type' => static::TYPE_NAME,
+            '@type'   => static::TYPE_NAME,
             'message' => $this->message->typeSerialize(),
         ];
     }

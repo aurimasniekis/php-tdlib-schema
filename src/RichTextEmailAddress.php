@@ -9,23 +9,19 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * A rich text email link
+ * A rich text email link.
  */
 class RichTextEmailAddress extends RichText
 {
     public const TYPE_NAME = 'richTextEmailAddress';
 
     /**
-     * Text
-     *
-     * @var RichText
+     * Text.
      */
     protected RichText $text;
 
     /**
-     * Email address
-     *
-     * @var string
+     * Email address.
      */
     protected string $emailAddress;
 
@@ -33,7 +29,7 @@ class RichTextEmailAddress extends RichText
     {
         parent::__construct();
 
-        $this->text = $text;
+        $this->text         = $text;
         $this->emailAddress = $emailAddress;
     }
 
@@ -48,8 +44,8 @@ class RichTextEmailAddress extends RichText
     public function typeSerialize(): array
     {
         return [
-            '@type' => static::TYPE_NAME,
-            'text' => $this->text->typeSerialize(),
+            '@type'         => static::TYPE_NAME,
+            'text'          => $this->text->typeSerialize(),
             'email_address' => $this->emailAddress,
         ];
     }

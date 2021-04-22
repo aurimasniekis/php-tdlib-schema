@@ -9,16 +9,14 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Returns information about a phone number by its prefix. Can be called before authorization
+ * Returns information about a phone number by its prefix. Can be called before authorization.
  */
 class GetPhoneNumberInfo extends TdFunction
 {
     public const TYPE_NAME = 'getPhoneNumberInfo';
 
     /**
-     * The phone number prefix
-     *
-     * @var string
+     * The phone number prefix.
      */
     protected string $phoneNumberPrefix;
 
@@ -37,7 +35,7 @@ class GetPhoneNumberInfo extends TdFunction
     public function typeSerialize(): array
     {
         return [
-            '@type' => static::TYPE_NAME,
+            '@type'               => static::TYPE_NAME,
             'phone_number_prefix' => $this->phoneNumberPrefix,
         ];
     }

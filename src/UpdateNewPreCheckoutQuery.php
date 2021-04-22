@@ -9,58 +9,44 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * A new incoming pre-checkout query; for bots only. Contains full information about a checkout
+ * A new incoming pre-checkout query; for bots only. Contains full information about a checkout.
  */
 class UpdateNewPreCheckoutQuery extends Update
 {
     public const TYPE_NAME = 'updateNewPreCheckoutQuery';
 
     /**
-     * Unique query identifier
-     *
-     * @var string
+     * Unique query identifier.
      */
     protected string $id;
 
     /**
-     * Identifier of the user who sent the query
-     *
-     * @var int
+     * Identifier of the user who sent the query.
      */
     protected int $senderUserId;
 
     /**
-     * Currency for the product price
-     *
-     * @var string
+     * Currency for the product price.
      */
     protected string $currency;
 
     /**
-     * Total price for the product, in the minimal quantity of the currency
-     *
-     * @var int
+     * Total price for the product, in the minimal quantity of the currency.
      */
     protected int $totalAmount;
 
     /**
-     * Invoice payload
-     *
-     * @var string
+     * Invoice payload.
      */
     protected string $invoicePayload;
 
     /**
-     * Identifier of a shipping option chosen by the user; may be empty if not applicable
-     *
-     * @var string
+     * Identifier of a shipping option chosen by the user; may be empty if not applicable.
      */
     protected string $shippingOptionId;
 
     /**
-     * Information about the order; may be null
-     *
-     * @var OrderInfo|null
+     * Information about the order; may be null.
      */
     protected ?OrderInfo $orderInfo;
 
@@ -75,13 +61,13 @@ class UpdateNewPreCheckoutQuery extends Update
     ) {
         parent::__construct();
 
-        $this->id = $id;
-        $this->senderUserId = $senderUserId;
-        $this->currency = $currency;
-        $this->totalAmount = $totalAmount;
-        $this->invoicePayload = $invoicePayload;
+        $this->id               = $id;
+        $this->senderUserId     = $senderUserId;
+        $this->currency         = $currency;
+        $this->totalAmount      = $totalAmount;
+        $this->invoicePayload   = $invoicePayload;
         $this->shippingOptionId = $shippingOptionId;
-        $this->orderInfo = $orderInfo;
+        $this->orderInfo        = $orderInfo;
     }
 
     public static function fromArray(array $array): UpdateNewPreCheckoutQuery
@@ -100,14 +86,14 @@ class UpdateNewPreCheckoutQuery extends Update
     public function typeSerialize(): array
     {
         return [
-            '@type' => static::TYPE_NAME,
-            'id' => $this->id,
-            'sender_user_id' => $this->senderUserId,
-            'currency' => $this->currency,
-            'total_amount' => $this->totalAmount,
-            'invoice_payload' => $this->invoicePayload,
+            '@type'              => static::TYPE_NAME,
+            'id'                 => $this->id,
+            'sender_user_id'     => $this->senderUserId,
+            'currency'           => $this->currency,
+            'total_amount'       => $this->totalAmount,
+            'invoice_payload'    => $this->invoicePayload,
             'shipping_option_id' => $this->shippingOptionId,
-            'order_info' => (isset($this->orderInfo) ? $this->orderInfo : null),
+            'order_info'         => (isset($this->orderInfo) ? $this->orderInfo : null),
         ];
     }
 

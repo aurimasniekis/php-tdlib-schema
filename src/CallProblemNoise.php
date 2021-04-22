@@ -9,7 +9,7 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * The user heard background noise
+ * The user heard background noise.
  */
 class CallProblemNoise extends CallProblem
 {

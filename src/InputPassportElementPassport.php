@@ -9,16 +9,14 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * A Telegram Passport element to be saved containing the user's passport
+ * A Telegram Passport element to be saved containing the user's passport.
  */
 class InputPassportElementPassport extends InputPassportElement
 {
     public const TYPE_NAME = 'inputPassportElementPassport';
 
     /**
-     * The passport to be saved
-     *
-     * @var InputIdentityDocument
+     * The passport to be saved.
      */
     protected InputIdentityDocument $passport;
 
@@ -39,7 +37,7 @@ class InputPassportElementPassport extends InputPassportElement
     public function typeSerialize(): array
     {
         return [
-            '@type' => static::TYPE_NAME,
+            '@type'    => static::TYPE_NAME,
             'passport' => $this->passport->typeSerialize(),
         ];
     }

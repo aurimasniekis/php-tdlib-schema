@@ -9,72 +9,54 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Describes a sticker
+ * Describes a sticker.
  */
 class Sticker extends TdObject
 {
     public const TYPE_NAME = 'sticker';
 
     /**
-     * The identifier of the sticker set to which the sticker belongs; 0 if none
-     *
-     * @var string
+     * The identifier of the sticker set to which the sticker belongs; 0 if none.
      */
     protected string $setId;
 
     /**
-     * Sticker width; as defined by the sender
-     *
-     * @var int
+     * Sticker width; as defined by the sender.
      */
     protected int $width;
 
     /**
-     * Sticker height; as defined by the sender
-     *
-     * @var int
+     * Sticker height; as defined by the sender.
      */
     protected int $height;
 
     /**
-     * Emoji corresponding to the sticker
-     *
-     * @var string
+     * Emoji corresponding to the sticker.
      */
     protected string $emoji;
 
     /**
-     * True, if the sticker is an animated sticker in TGS format
-     *
-     * @var bool
+     * True, if the sticker is an animated sticker in TGS format.
      */
     protected bool $isAnimated;
 
     /**
-     * True, if the sticker is a mask
-     *
-     * @var bool
+     * True, if the sticker is a mask.
      */
     protected bool $isMask;
 
     /**
-     * Position where the mask should be placed; may be null
-     *
-     * @var MaskPosition|null
+     * Position where the mask should be placed; may be null.
      */
     protected ?MaskPosition $maskPosition;
 
     /**
-     * Sticker thumbnail in WEBP or JPEG format; may be null
-     *
-     * @var Thumbnail|null
+     * Sticker thumbnail in WEBP or JPEG format; may be null.
      */
     protected ?Thumbnail $thumbnail;
 
     /**
-     * File containing the sticker
-     *
-     * @var File
+     * File containing the sticker.
      */
     protected File $sticker;
 
@@ -89,15 +71,15 @@ class Sticker extends TdObject
         ?Thumbnail $thumbnail,
         File $sticker
     ) {
-        $this->setId = $setId;
-        $this->width = $width;
-        $this->height = $height;
-        $this->emoji = $emoji;
-        $this->isAnimated = $isAnimated;
-        $this->isMask = $isMask;
+        $this->setId        = $setId;
+        $this->width        = $width;
+        $this->height       = $height;
+        $this->emoji        = $emoji;
+        $this->isAnimated   = $isAnimated;
+        $this->isMask       = $isMask;
         $this->maskPosition = $maskPosition;
-        $this->thumbnail = $thumbnail;
-        $this->sticker = $sticker;
+        $this->thumbnail    = $thumbnail;
+        $this->sticker      = $sticker;
     }
 
     public static function fromArray(array $array): Sticker
@@ -118,16 +100,16 @@ class Sticker extends TdObject
     public function typeSerialize(): array
     {
         return [
-            '@type' => static::TYPE_NAME,
-            'set_id' => $this->setId,
-            'width' => $this->width,
-            'height' => $this->height,
-            'emoji' => $this->emoji,
-            'is_animated' => $this->isAnimated,
-            'is_mask' => $this->isMask,
+            '@type'         => static::TYPE_NAME,
+            'set_id'        => $this->setId,
+            'width'         => $this->width,
+            'height'        => $this->height,
+            'emoji'         => $this->emoji,
+            'is_animated'   => $this->isAnimated,
+            'is_mask'       => $this->isMask,
             'mask_position' => (isset($this->maskPosition) ? $this->maskPosition : null),
-            'thumbnail' => (isset($this->thumbnail) ? $this->thumbnail : null),
-            'sticker' => $this->sticker->typeSerialize(),
+            'thumbnail'     => (isset($this->thumbnail) ? $this->thumbnail : null),
+            'sticker'       => $this->sticker->typeSerialize(),
         ];
     }
 

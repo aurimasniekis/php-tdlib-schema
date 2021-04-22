@@ -9,72 +9,56 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * A video message
+ * A video message.
  */
 class InputMessageVideo extends InputMessageContent
 {
     public const TYPE_NAME = 'inputMessageVideo';
 
     /**
-     * Video to be sent
-     *
-     * @var InputFile
+     * Video to be sent.
      */
     protected InputFile $video;
 
     /**
-     * Video thumbnail, if available
-     *
-     * @var InputThumbnail
+     * Video thumbnail, if available.
      */
     protected InputThumbnail $thumbnail;
 
     /**
-     * File identifiers of the stickers added to the video, if applicable
+     * File identifiers of the stickers added to the video, if applicable.
      *
      * @var int[]
      */
     protected array $addedStickerFileIds;
 
     /**
-     * Duration of the video, in seconds
-     *
-     * @var int
+     * Duration of the video, in seconds.
      */
     protected int $duration;
 
     /**
-     * Video width
-     *
-     * @var int
+     * Video width.
      */
     protected int $width;
 
     /**
-     * Video height
-     *
-     * @var int
+     * Video height.
      */
     protected int $height;
 
     /**
-     * True, if the video should be tried to be streamed
-     *
-     * @var bool
+     * True, if the video should be tried to be streamed.
      */
     protected bool $supportsStreaming;
 
     /**
-     * Video caption; 0-GetOption("message_caption_length_max") characters
-     *
-     * @var FormattedText
+     * Video caption; 0-GetOption("message_caption_length_max") characters.
      */
     protected FormattedText $caption;
 
     /**
-     * Video TTL (Time To Live), in seconds (0-60). A non-zero TTL can be specified only in private chats
-     *
-     * @var int
+     * Video TTL (Time To Live), in seconds (0-60). A non-zero TTL can be specified only in private chats.
      */
     protected int $ttl;
 
@@ -91,15 +75,15 @@ class InputMessageVideo extends InputMessageContent
     ) {
         parent::__construct();
 
-        $this->video = $video;
-        $this->thumbnail = $thumbnail;
+        $this->video               = $video;
+        $this->thumbnail           = $thumbnail;
         $this->addedStickerFileIds = $addedStickerFileIds;
-        $this->duration = $duration;
-        $this->width = $width;
-        $this->height = $height;
-        $this->supportsStreaming = $supportsStreaming;
-        $this->caption = $caption;
-        $this->ttl = $ttl;
+        $this->duration            = $duration;
+        $this->width               = $width;
+        $this->height              = $height;
+        $this->supportsStreaming   = $supportsStreaming;
+        $this->caption             = $caption;
+        $this->ttl                 = $ttl;
     }
 
     public static function fromArray(array $array): InputMessageVideo
@@ -120,16 +104,16 @@ class InputMessageVideo extends InputMessageContent
     public function typeSerialize(): array
     {
         return [
-            '@type' => static::TYPE_NAME,
-            'video' => $this->video->typeSerialize(),
-            'thumbnail' => $this->thumbnail->typeSerialize(),
+            '@type'                  => static::TYPE_NAME,
+            'video'                  => $this->video->typeSerialize(),
+            'thumbnail'              => $this->thumbnail->typeSerialize(),
             'added_sticker_file_ids' => $this->addedStickerFileIds,
-            'duration' => $this->duration,
-            'width' => $this->width,
-            'height' => $this->height,
-            'supports_streaming' => $this->supportsStreaming,
-            'caption' => $this->caption->typeSerialize(),
-            'ttl' => $this->ttl,
+            'duration'               => $this->duration,
+            'width'                  => $this->width,
+            'height'                 => $this->height,
+            'supports_streaming'     => $this->supportsStreaming,
+            'caption'                => $this->caption->typeSerialize(),
+            'ttl'                    => $this->ttl,
         ];
     }
 

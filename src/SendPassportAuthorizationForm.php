@@ -9,21 +9,19 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Sends a Telegram Passport authorization form, effectively sharing data with the service. This method must be called after getPassportAuthorizationFormAvailableElements if some previously available elements are going to be reused
+ * Sends a Telegram Passport authorization form, effectively sharing data with the service. This method must be called after getPassportAuthorizationFormAvailableElements if some previously available elements are going to be reused.
  */
 class SendPassportAuthorizationForm extends TdFunction
 {
     public const TYPE_NAME = 'sendPassportAuthorizationForm';
 
     /**
-     * Authorization form identifier
-     *
-     * @var int
+     * Authorization form identifier.
      */
     protected int $autorizationFormId;
 
     /**
-     * Types of Telegram Passport elements chosen by user to complete the authorization form
+     * Types of Telegram Passport elements chosen by user to complete the authorization form.
      *
      * @var PassportElementType[]
      */
@@ -32,23 +30,23 @@ class SendPassportAuthorizationForm extends TdFunction
     public function __construct(int $autorizationFormId, array $types)
     {
         $this->autorizationFormId = $autorizationFormId;
-        $this->types = $types;
+        $this->types              = $types;
     }
 
     public static function fromArray(array $array): SendPassportAuthorizationForm
     {
         return new static(
             $array['autorization_form_id'],
-            array_map(fn($x) => TdSchemaRegistry::fromArray($x), $array['types']),
+            array_map(fn ($x) => TdSchemaRegistry::fromArray($x), $array['types']),
         );
     }
 
     public function typeSerialize(): array
     {
         return [
-            '@type' => static::TYPE_NAME,
+            '@type'                => static::TYPE_NAME,
             'autorization_form_id' => $this->autorizationFormId,
-            array_map(fn($x) => $x->typeSerialize(), $this->types),
+            array_map(fn ($x)      => $x->typeSerialize(), $this->types),
         ];
     }
 

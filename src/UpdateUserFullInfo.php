@@ -9,23 +9,19 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Some data from userFullInfo has been changed
+ * Some data from userFullInfo has been changed.
  */
 class UpdateUserFullInfo extends Update
 {
     public const TYPE_NAME = 'updateUserFullInfo';
 
     /**
-     * User identifier
-     *
-     * @var int
+     * User identifier.
      */
     protected int $userId;
 
     /**
-     * New full information about the user
-     *
-     * @var UserFullInfo
+     * New full information about the user.
      */
     protected UserFullInfo $userFullInfo;
 
@@ -33,7 +29,7 @@ class UpdateUserFullInfo extends Update
     {
         parent::__construct();
 
-        $this->userId = $userId;
+        $this->userId       = $userId;
         $this->userFullInfo = $userFullInfo;
     }
 
@@ -48,8 +44,8 @@ class UpdateUserFullInfo extends Update
     public function typeSerialize(): array
     {
         return [
-            '@type' => static::TYPE_NAME,
-            'user_id' => $this->userId,
+            '@type'          => static::TYPE_NAME,
+            'user_id'        => $this->userId,
             'user_full_info' => $this->userFullInfo->typeSerialize(),
         ];
     }

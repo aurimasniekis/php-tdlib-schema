@@ -9,7 +9,7 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Represents a JSON value
+ * Represents a JSON value.
  */
 class JsonValue extends TdObject
 {

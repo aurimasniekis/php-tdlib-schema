@@ -9,30 +9,24 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Represents a voice note
+ * Represents a voice note.
  */
 class InlineQueryResultVoiceNote extends InlineQueryResult
 {
     public const TYPE_NAME = 'inlineQueryResultVoiceNote';
 
     /**
-     * Unique identifier of the query result
-     *
-     * @var string
+     * Unique identifier of the query result.
      */
     protected string $id;
 
     /**
-     * Voice note
-     *
-     * @var VoiceNote
+     * Voice note.
      */
     protected VoiceNote $voiceNote;
 
     /**
-     * Title of the voice note
-     *
-     * @var string
+     * Title of the voice note.
      */
     protected string $title;
 
@@ -40,9 +34,9 @@ class InlineQueryResultVoiceNote extends InlineQueryResult
     {
         parent::__construct();
 
-        $this->id = $id;
+        $this->id        = $id;
         $this->voiceNote = $voiceNote;
-        $this->title = $title;
+        $this->title     = $title;
     }
 
     public static function fromArray(array $array): InlineQueryResultVoiceNote
@@ -57,10 +51,10 @@ class InlineQueryResultVoiceNote extends InlineQueryResult
     public function typeSerialize(): array
     {
         return [
-            '@type' => static::TYPE_NAME,
-            'id' => $this->id,
+            '@type'      => static::TYPE_NAME,
+            'id'         => $this->id,
             'voice_note' => $this->voiceNote->typeSerialize(),
-            'title' => $this->title,
+            'title'      => $this->title,
         ];
     }
 

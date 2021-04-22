@@ -9,7 +9,7 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * The user status was never changed
+ * The user status was never changed.
  */
 class UserStatusEmpty extends UserStatus
 {

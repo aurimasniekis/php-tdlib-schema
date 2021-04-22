@@ -9,7 +9,7 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * The user was online recently
+ * The user was online recently.
  */
 class UserStatusRecently extends UserStatus
 {

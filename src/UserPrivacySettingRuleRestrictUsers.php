@@ -9,14 +9,14 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * A rule to restrict all specified users from doing something
+ * A rule to restrict all specified users from doing something.
  */
 class UserPrivacySettingRuleRestrictUsers extends UserPrivacySettingRule
 {
     public const TYPE_NAME = 'userPrivacySettingRuleRestrictUsers';
 
     /**
-     * The user identifiers, total number of users in all rules must not exceed 1000
+     * The user identifiers, total number of users in all rules must not exceed 1000.
      *
      * @var int[]
      */
@@ -39,7 +39,7 @@ class UserPrivacySettingRuleRestrictUsers extends UserPrivacySettingRule
     public function typeSerialize(): array
     {
         return [
-            '@type' => static::TYPE_NAME,
+            '@type'    => static::TYPE_NAME,
             'user_ids' => $this->userIds,
         ];
     }

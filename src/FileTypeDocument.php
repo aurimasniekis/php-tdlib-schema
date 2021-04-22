@@ -9,7 +9,7 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * The file is a document
+ * The file is a document.
  */
 class FileTypeDocument extends FileType
 {

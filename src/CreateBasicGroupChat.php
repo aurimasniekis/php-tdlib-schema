@@ -9,30 +9,26 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Returns an existing chat corresponding to a known basic group
+ * Returns an existing chat corresponding to a known basic group.
  */
 class CreateBasicGroupChat extends TdFunction
 {
     public const TYPE_NAME = 'createBasicGroupChat';
 
     /**
-     * Basic group identifier
-     *
-     * @var int
+     * Basic group identifier.
      */
     protected int $basicGroupId;
 
     /**
-     * If true, the chat will be created without network request. In this case all information about the chat except its type, title and photo can be incorrect
-     *
-     * @var bool
+     * If true, the chat will be created without network request. In this case all information about the chat except its type, title and photo can be incorrect.
      */
     protected bool $force;
 
     public function __construct(int $basicGroupId, bool $force)
     {
         $this->basicGroupId = $basicGroupId;
-        $this->force = $force;
+        $this->force        = $force;
     }
 
     public static function fromArray(array $array): CreateBasicGroupChat
@@ -46,9 +42,9 @@ class CreateBasicGroupChat extends TdFunction
     public function typeSerialize(): array
     {
         return [
-            '@type' => static::TYPE_NAME,
+            '@type'          => static::TYPE_NAME,
             'basic_group_id' => $this->basicGroupId,
-            'force' => $this->force,
+            'force'          => $this->force,
         ];
     }
 

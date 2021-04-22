@@ -9,16 +9,14 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Returns emoji corresponding to a sticker. The list is only for informational purposes, because a sticker is always sent with a fixed emoji from the corresponding Sticker object
+ * Returns emoji corresponding to a sticker. The list is only for informational purposes, because a sticker is always sent with a fixed emoji from the corresponding Sticker object.
  */
 class GetStickerEmojis extends TdFunction
 {
     public const TYPE_NAME = 'getStickerEmojis';
 
     /**
-     * Sticker file identifier
-     *
-     * @var InputFile
+     * Sticker file identifier.
      */
     protected InputFile $sticker;
 
@@ -37,7 +35,7 @@ class GetStickerEmojis extends TdFunction
     public function typeSerialize(): array
     {
         return [
-            '@type' => static::TYPE_NAME,
+            '@type'   => static::TYPE_NAME,
             'sticker' => $this->sticker->typeSerialize(),
         ];
     }

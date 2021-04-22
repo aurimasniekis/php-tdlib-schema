@@ -9,16 +9,14 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Checks whether the maximum number of owned public chats has been reached. Returns corresponding error if the limit was reached
+ * Checks whether the maximum number of owned public chats has been reached. Returns corresponding error if the limit was reached.
  */
 class CheckCreatedPublicChatsLimit extends TdFunction
 {
     public const TYPE_NAME = 'checkCreatedPublicChatsLimit';
 
     /**
-     * Type of the public chats, for which to check the limit
-     *
-     * @var PublicChatType
+     * Type of the public chats, for which to check the limit.
      */
     protected PublicChatType $type;
 
@@ -38,7 +36,7 @@ class CheckCreatedPublicChatsLimit extends TdFunction
     {
         return [
             '@type' => static::TYPE_NAME,
-            'type' => $this->type->typeSerialize(),
+            'type'  => $this->type->typeSerialize(),
         ];
     }
 

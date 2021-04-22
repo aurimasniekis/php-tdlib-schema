@@ -9,121 +9,89 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Represents a user
+ * Represents a user.
  */
 class User extends TdObject
 {
     public const TYPE_NAME = 'user';
 
     /**
-     * User identifier
-     *
-     * @var int
+     * User identifier.
      */
     protected int $id;
 
     /**
-     * First name of the user
-     *
-     * @var string
+     * First name of the user.
      */
     protected string $firstName;
 
     /**
-     * Last name of the user
-     *
-     * @var string
+     * Last name of the user.
      */
     protected string $lastName;
 
     /**
-     * Username of the user
-     *
-     * @var string
+     * Username of the user.
      */
     protected string $username;
 
     /**
-     * Phone number of the user
-     *
-     * @var string
+     * Phone number of the user.
      */
     protected string $phoneNumber;
 
     /**
-     * Current online status of the user
-     *
-     * @var UserStatus
+     * Current online status of the user.
      */
     protected UserStatus $status;
 
     /**
-     * Profile photo of the user; may be null
-     *
-     * @var ProfilePhoto|null
+     * Profile photo of the user; may be null.
      */
     protected ?ProfilePhoto $profilePhoto;
 
     /**
-     * The user is a contact of the current user
-     *
-     * @var bool
+     * The user is a contact of the current user.
      */
     protected bool $isContact;
 
     /**
-     * The user is a contact of the current user and the current user is a contact of the user
-     *
-     * @var bool
+     * The user is a contact of the current user and the current user is a contact of the user.
      */
     protected bool $isMutualContact;
 
     /**
-     * True, if the user is verified
-     *
-     * @var bool
+     * True, if the user is verified.
      */
     protected bool $isVerified;
 
     /**
-     * True, if the user is Telegram support account
-     *
-     * @var bool
+     * True, if the user is Telegram support account.
      */
     protected bool $isSupport;
 
     /**
-     * If non-empty, it contains a human-readable description of the reason why access to this user must be restricted
-     *
-     * @var string
+     * If non-empty, it contains a human-readable description of the reason why access to this user must be restricted.
      */
     protected string $restrictionReason;
 
     /**
-     * True, if many users reported this user as a scam
-     *
-     * @var bool
+     * True, if many users reported this user as a scam.
      */
     protected bool $isScam;
 
     /**
-     * If false, the user is inaccessible, and the only information known about the user is inside this class. It can't be passed to any method except GetUser
-     *
-     * @var bool
+     * If false, the user is inaccessible, and the only information known about the user is inside this class. It can't be passed to any method except GetUser.
      */
     protected bool $haveAccess;
 
     /**
-     * Type of the user
-     *
-     * @var UserType
+     * Type of the user.
      */
     protected UserType $type;
 
     /**
-     * IETF language tag of the user's language; only available to bots
-     *
-     * @var string
+     * IETF language tag of the user's language; only available to bots.
      */
     protected string $languageCode;
 
@@ -145,22 +113,22 @@ class User extends TdObject
         UserType $type,
         string $languageCode
     ) {
-        $this->id = $id;
-        $this->firstName = $firstName;
-        $this->lastName = $lastName;
-        $this->username = $username;
-        $this->phoneNumber = $phoneNumber;
-        $this->status = $status;
-        $this->profilePhoto = $profilePhoto;
-        $this->isContact = $isContact;
-        $this->isMutualContact = $isMutualContact;
-        $this->isVerified = $isVerified;
-        $this->isSupport = $isSupport;
+        $this->id                = $id;
+        $this->firstName         = $firstName;
+        $this->lastName          = $lastName;
+        $this->username          = $username;
+        $this->phoneNumber       = $phoneNumber;
+        $this->status            = $status;
+        $this->profilePhoto      = $profilePhoto;
+        $this->isContact         = $isContact;
+        $this->isMutualContact   = $isMutualContact;
+        $this->isVerified        = $isVerified;
+        $this->isSupport         = $isSupport;
         $this->restrictionReason = $restrictionReason;
-        $this->isScam = $isScam;
-        $this->haveAccess = $haveAccess;
-        $this->type = $type;
-        $this->languageCode = $languageCode;
+        $this->isScam            = $isScam;
+        $this->haveAccess        = $haveAccess;
+        $this->type              = $type;
+        $this->languageCode      = $languageCode;
     }
 
     public static function fromArray(array $array): User
@@ -188,23 +156,23 @@ class User extends TdObject
     public function typeSerialize(): array
     {
         return [
-            '@type' => static::TYPE_NAME,
-            'id' => $this->id,
-            'first_name' => $this->firstName,
-            'last_name' => $this->lastName,
-            'username' => $this->username,
-            'phone_number' => $this->phoneNumber,
-            'status' => $this->status->typeSerialize(),
-            'profile_photo' => (isset($this->profilePhoto) ? $this->profilePhoto : null),
-            'is_contact' => $this->isContact,
-            'is_mutual_contact' => $this->isMutualContact,
-            'is_verified' => $this->isVerified,
-            'is_support' => $this->isSupport,
+            '@type'              => static::TYPE_NAME,
+            'id'                 => $this->id,
+            'first_name'         => $this->firstName,
+            'last_name'          => $this->lastName,
+            'username'           => $this->username,
+            'phone_number'       => $this->phoneNumber,
+            'status'             => $this->status->typeSerialize(),
+            'profile_photo'      => (isset($this->profilePhoto) ? $this->profilePhoto : null),
+            'is_contact'         => $this->isContact,
+            'is_mutual_contact'  => $this->isMutualContact,
+            'is_verified'        => $this->isVerified,
+            'is_support'         => $this->isSupport,
             'restriction_reason' => $this->restrictionReason,
-            'is_scam' => $this->isScam,
-            'have_access' => $this->haveAccess,
-            'type' => $this->type->typeSerialize(),
-            'language_code' => $this->languageCode,
+            'is_scam'            => $this->isScam,
+            'have_access'        => $this->haveAccess,
+            'type'               => $this->type->typeSerialize(),
+            'language_code'      => $this->languageCode,
         ];
     }
 

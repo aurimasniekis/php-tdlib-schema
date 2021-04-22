@@ -9,21 +9,19 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Contains a temporary identifier of validated order information, which is stored for one hour. Also contains the available shipping options
+ * Contains a temporary identifier of validated order information, which is stored for one hour. Also contains the available shipping options.
  */
 class ValidatedOrderInfo extends TdObject
 {
     public const TYPE_NAME = 'validatedOrderInfo';
 
     /**
-     * Temporary identifier of the order information
-     *
-     * @var string
+     * Temporary identifier of the order information.
      */
     protected string $orderInfoId;
 
     /**
-     * Available shipping options
+     * Available shipping options.
      *
      * @var ShippingOption[]
      */
@@ -31,7 +29,7 @@ class ValidatedOrderInfo extends TdObject
 
     public function __construct(string $orderInfoId, array $shippingOptions)
     {
-        $this->orderInfoId = $orderInfoId;
+        $this->orderInfoId     = $orderInfoId;
         $this->shippingOptions = $shippingOptions;
     }
 
@@ -39,16 +37,16 @@ class ValidatedOrderInfo extends TdObject
     {
         return new static(
             $array['order_info_id'],
-            array_map(fn($x) => TdSchemaRegistry::fromArray($x), $array['shipping_options']),
+            array_map(fn ($x) => TdSchemaRegistry::fromArray($x), $array['shipping_options']),
         );
     }
 
     public function typeSerialize(): array
     {
         return [
-            '@type' => static::TYPE_NAME,
-            'order_info_id' => $this->orderInfoId,
-            array_map(fn($x) => $x->typeSerialize(), $this->shippingOptions),
+            '@type'           => static::TYPE_NAME,
+            'order_info_id'   => $this->orderInfoId,
+            array_map(fn ($x) => $x->typeSerialize(), $this->shippingOptions),
         ];
     }
 

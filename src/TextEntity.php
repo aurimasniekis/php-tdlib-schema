@@ -9,30 +9,24 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Represents a part of the text that needs to be formatted in some unusual way
+ * Represents a part of the text that needs to be formatted in some unusual way.
  */
 class TextEntity extends TdObject
 {
     public const TYPE_NAME = 'textEntity';
 
     /**
-     * Offset of the entity, in UTF-16 code units
-     *
-     * @var int
+     * Offset of the entity, in UTF-16 code units.
      */
     protected int $offset;
 
     /**
-     * Length of the entity, in UTF-16 code units
-     *
-     * @var int
+     * Length of the entity, in UTF-16 code units.
      */
     protected int $length;
 
     /**
-     * Type of the entity
-     *
-     * @var TextEntityType
+     * Type of the entity.
      */
     protected TextEntityType $type;
 
@@ -40,7 +34,7 @@ class TextEntity extends TdObject
     {
         $this->offset = $offset;
         $this->length = $length;
-        $this->type = $type;
+        $this->type   = $type;
     }
 
     public static function fromArray(array $array): TextEntity
@@ -55,10 +49,10 @@ class TextEntity extends TdObject
     public function typeSerialize(): array
     {
         return [
-            '@type' => static::TYPE_NAME,
+            '@type'  => static::TYPE_NAME,
             'offset' => $this->offset,
             'length' => $this->length,
-            'type' => $this->type->typeSerialize(),
+            'type'   => $this->type->typeSerialize(),
         ];
     }
 

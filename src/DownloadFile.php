@@ -9,53 +9,43 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Downloads a file from the cloud. Download progress and completion of the download will be notified through updateFile updates
+ * Downloads a file from the cloud. Download progress and completion of the download will be notified through updateFile updates.
  */
 class DownloadFile extends TdFunction
 {
     public const TYPE_NAME = 'downloadFile';
 
     /**
-     * Identifier of the file to download
-     *
-     * @var int
+     * Identifier of the file to download.
      */
     protected int $fileId;
 
     /**
-     * Priority of the download (1-32). The higher the priority, the earlier the file will be downloaded. If the priorities of two files are equal, then the last one for which downloadFile was called will be downloaded first
-     *
-     * @var int
+     * Priority of the download (1-32). The higher the priority, the earlier the file will be downloaded. If the priorities of two files are equal, then the last one for which downloadFile was called will be downloaded first.
      */
     protected int $priority;
 
     /**
-     * The starting position from which the file should be downloaded
-     *
-     * @var int
+     * The starting position from which the file should be downloaded.
      */
     protected int $offset;
 
     /**
-     * Number of bytes which should be downloaded starting from the "offset" position before the download will be automatically cancelled; use 0 to download without a limit
-     *
-     * @var int
+     * Number of bytes which should be downloaded starting from the "offset" position before the download will be automatically cancelled; use 0 to download without a limit.
      */
     protected int $limit;
 
     /**
-     * If false, this request returns file state just after the download has been started. If true, this request returns file state only after the download has succeeded, has failed, has been cancelled or a new downloadFile request with different offset/limit parameters was sent
-     *
-     * @var bool
+     * If false, this request returns file state just after the download has been started. If true, this request returns file state only after the download has succeeded, has failed, has been cancelled or a new downloadFile request with different offset/limit parameters was sent.
      */
     protected bool $synchronous;
 
     public function __construct(int $fileId, int $priority, int $offset, int $limit, bool $synchronous)
     {
-        $this->fileId = $fileId;
-        $this->priority = $priority;
-        $this->offset = $offset;
-        $this->limit = $limit;
+        $this->fileId      = $fileId;
+        $this->priority    = $priority;
+        $this->offset      = $offset;
+        $this->limit       = $limit;
         $this->synchronous = $synchronous;
     }
 
@@ -73,11 +63,11 @@ class DownloadFile extends TdFunction
     public function typeSerialize(): array
     {
         return [
-            '@type' => static::TYPE_NAME,
-            'file_id' => $this->fileId,
-            'priority' => $this->priority,
-            'offset' => $this->offset,
-            'limit' => $this->limit,
+            '@type'       => static::TYPE_NAME,
+            'file_id'     => $this->fileId,
+            'priority'    => $this->priority,
+            'offset'      => $this->offset,
+            'limit'       => $this->limit,
             'synchronous' => $this->synchronous,
         ];
     }

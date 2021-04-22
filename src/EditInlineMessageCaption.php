@@ -9,38 +9,32 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Edits the caption of an inline message sent via a bot; for bots only
+ * Edits the caption of an inline message sent via a bot; for bots only.
  */
 class EditInlineMessageCaption extends TdFunction
 {
     public const TYPE_NAME = 'editInlineMessageCaption';
 
     /**
-     * Inline message identifier
-     *
-     * @var string
+     * Inline message identifier.
      */
     protected string $inlineMessageId;
 
     /**
-     * The new message reply markup
-     *
-     * @var ReplyMarkup
+     * The new message reply markup.
      */
     protected ReplyMarkup $replyMarkup;
 
     /**
-     * New message content caption; 0-GetOption("message_caption_length_max") characters
-     *
-     * @var FormattedText
+     * New message content caption; 0-GetOption("message_caption_length_max") characters.
      */
     protected FormattedText $caption;
 
     public function __construct(string $inlineMessageId, ReplyMarkup $replyMarkup, FormattedText $caption)
     {
         $this->inlineMessageId = $inlineMessageId;
-        $this->replyMarkup = $replyMarkup;
-        $this->caption = $caption;
+        $this->replyMarkup     = $replyMarkup;
+        $this->caption         = $caption;
     }
 
     public static function fromArray(array $array): EditInlineMessageCaption
@@ -55,10 +49,10 @@ class EditInlineMessageCaption extends TdFunction
     public function typeSerialize(): array
     {
         return [
-            '@type' => static::TYPE_NAME,
+            '@type'             => static::TYPE_NAME,
             'inline_message_id' => $this->inlineMessageId,
-            'reply_markup' => $this->replyMarkup->typeSerialize(),
-            'caption' => $this->caption->typeSerialize(),
+            'reply_markup'      => $this->replyMarkup->typeSerialize(),
+            'caption'           => $this->caption->typeSerialize(),
         ];
     }
 

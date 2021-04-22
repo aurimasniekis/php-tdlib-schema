@@ -9,29 +9,25 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Deletes the default reply markup from a chat. Must be called after a one-time keyboard or a ForceReply reply markup has been used. UpdateChatReplyMarkup will be sent if the reply markup will be changed
+ * Deletes the default reply markup from a chat. Must be called after a one-time keyboard or a ForceReply reply markup has been used. UpdateChatReplyMarkup will be sent if the reply markup will be changed.
  */
 class DeleteChatReplyMarkup extends TdFunction
 {
     public const TYPE_NAME = 'deleteChatReplyMarkup';
 
     /**
-     * Chat identifier
-     *
-     * @var int
+     * Chat identifier.
      */
     protected int $chatId;
 
     /**
-     * The message identifier of the used keyboard
-     *
-     * @var int
+     * The message identifier of the used keyboard.
      */
     protected int $messageId;
 
     public function __construct(int $chatId, int $messageId)
     {
-        $this->chatId = $chatId;
+        $this->chatId    = $chatId;
         $this->messageId = $messageId;
     }
 
@@ -46,8 +42,8 @@ class DeleteChatReplyMarkup extends TdFunction
     public function typeSerialize(): array
     {
         return [
-            '@type' => static::TYPE_NAME,
-            'chat_id' => $this->chatId,
+            '@type'      => static::TYPE_NAME,
+            'chat_id'    => $this->chatId,
             'message_id' => $this->messageId,
         ];
     }

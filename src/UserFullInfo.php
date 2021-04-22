@@ -9,79 +9,59 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Contains full information about a user
+ * Contains full information about a user.
  */
 class UserFullInfo extends TdObject
 {
     public const TYPE_NAME = 'userFullInfo';
 
     /**
-     * User profile photo; may be null
-     *
-     * @var ChatPhoto|null
+     * User profile photo; may be null.
      */
     protected ?ChatPhoto $photo;
 
     /**
-     * True, if the user is blocked by the current user
-     *
-     * @var bool
+     * True, if the user is blocked by the current user.
      */
     protected bool $isBlocked;
 
     /**
-     * True, if the user can be called
-     *
-     * @var bool
+     * True, if the user can be called.
      */
     protected bool $canBeCalled;
 
     /**
-     * True, if a video call can be created with the user
-     *
-     * @var bool
+     * True, if a video call can be created with the user.
      */
     protected bool $supportsVideoCalls;
 
     /**
-     * True, if the user can't be called due to their privacy settings
-     *
-     * @var bool
+     * True, if the user can't be called due to their privacy settings.
      */
     protected bool $hasPrivateCalls;
 
     /**
-     * True, if the current user needs to explicitly allow to share their phone number with the user when the method addContact is used
-     *
-     * @var bool
+     * True, if the current user needs to explicitly allow to share their phone number with the user when the method addContact is used.
      */
     protected bool $needPhoneNumberPrivacyException;
 
     /**
-     * A short user bio
-     *
-     * @var string
+     * A short user bio.
      */
     protected string $bio;
 
     /**
-     * For bots, the text that is included with the link when users share the bot
-     *
-     * @var string
+     * For bots, the text that is included with the link when users share the bot.
      */
     protected string $shareText;
 
     /**
-     * Number of group chats where both the other user and the current user are a member; 0 for the current user
-     *
-     * @var int
+     * Number of group chats where both the other user and the current user are a member; 0 for the current user.
      */
     protected int $groupInCommonCount;
 
     /**
-     * If the user is a bot, information about the bot; may be null
-     *
-     * @var BotInfo|null
+     * If the user is a bot, information about the bot; may be null.
      */
     protected ?BotInfo $botInfo;
 
@@ -97,16 +77,16 @@ class UserFullInfo extends TdObject
         int $groupInCommonCount,
         ?BotInfo $botInfo
     ) {
-        $this->photo = $photo;
-        $this->isBlocked = $isBlocked;
-        $this->canBeCalled = $canBeCalled;
-        $this->supportsVideoCalls = $supportsVideoCalls;
-        $this->hasPrivateCalls = $hasPrivateCalls;
+        $this->photo                           = $photo;
+        $this->isBlocked                       = $isBlocked;
+        $this->canBeCalled                     = $canBeCalled;
+        $this->supportsVideoCalls              = $supportsVideoCalls;
+        $this->hasPrivateCalls                 = $hasPrivateCalls;
         $this->needPhoneNumberPrivacyException = $needPhoneNumberPrivacyException;
-        $this->bio = $bio;
-        $this->shareText = $shareText;
-        $this->groupInCommonCount = $groupInCommonCount;
-        $this->botInfo = $botInfo;
+        $this->bio                             = $bio;
+        $this->shareText                       = $shareText;
+        $this->groupInCommonCount              = $groupInCommonCount;
+        $this->botInfo                         = $botInfo;
     }
 
     public static function fromArray(array $array): UserFullInfo
@@ -128,17 +108,17 @@ class UserFullInfo extends TdObject
     public function typeSerialize(): array
     {
         return [
-            '@type' => static::TYPE_NAME,
-            'photo' => (isset($this->photo) ? $this->photo : null),
-            'is_blocked' => $this->isBlocked,
-            'can_be_called' => $this->canBeCalled,
-            'supports_video_calls' => $this->supportsVideoCalls,
-            'has_private_calls' => $this->hasPrivateCalls,
+            '@type'                               => static::TYPE_NAME,
+            'photo'                               => (isset($this->photo) ? $this->photo : null),
+            'is_blocked'                          => $this->isBlocked,
+            'can_be_called'                       => $this->canBeCalled,
+            'supports_video_calls'                => $this->supportsVideoCalls,
+            'has_private_calls'                   => $this->hasPrivateCalls,
             'need_phone_number_privacy_exception' => $this->needPhoneNumberPrivacyException,
-            'bio' => $this->bio,
-            'share_text' => $this->shareText,
-            'group_in_common_count' => $this->groupInCommonCount,
-            'bot_info' => (isset($this->botInfo) ? $this->botInfo : null),
+            'bio'                                 => $this->bio,
+            'share_text'                          => $this->shareText,
+            'group_in_common_count'               => $this->groupInCommonCount,
+            'bot_info'                            => (isset($this->botInfo) ? $this->botInfo : null),
         ];
     }
 

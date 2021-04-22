@@ -9,46 +9,38 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Edits the message content caption. Returns the edited message after the edit is completed on the server side
+ * Edits the message content caption. Returns the edited message after the edit is completed on the server side.
  */
 class EditMessageCaption extends TdFunction
 {
     public const TYPE_NAME = 'editMessageCaption';
 
     /**
-     * The chat the message belongs to
-     *
-     * @var int
+     * The chat the message belongs to.
      */
     protected int $chatId;
 
     /**
-     * Identifier of the message
-     *
-     * @var int
+     * Identifier of the message.
      */
     protected int $messageId;
 
     /**
-     * The new message reply markup; for bots only
-     *
-     * @var ReplyMarkup
+     * The new message reply markup; for bots only.
      */
     protected ReplyMarkup $replyMarkup;
 
     /**
-     * New message content caption; 0-GetOption("message_caption_length_max") characters
-     *
-     * @var FormattedText
+     * New message content caption; 0-GetOption("message_caption_length_max") characters.
      */
     protected FormattedText $caption;
 
     public function __construct(int $chatId, int $messageId, ReplyMarkup $replyMarkup, FormattedText $caption)
     {
-        $this->chatId = $chatId;
-        $this->messageId = $messageId;
+        $this->chatId      = $chatId;
+        $this->messageId   = $messageId;
         $this->replyMarkup = $replyMarkup;
-        $this->caption = $caption;
+        $this->caption     = $caption;
     }
 
     public static function fromArray(array $array): EditMessageCaption
@@ -64,11 +56,11 @@ class EditMessageCaption extends TdFunction
     public function typeSerialize(): array
     {
         return [
-            '@type' => static::TYPE_NAME,
-            'chat_id' => $this->chatId,
-            'message_id' => $this->messageId,
+            '@type'        => static::TYPE_NAME,
+            'chat_id'      => $this->chatId,
+            'message_id'   => $this->messageId,
             'reply_markup' => $this->replyMarkup->typeSerialize(),
-            'caption' => $this->caption->typeSerialize(),
+            'caption'      => $this->caption->typeSerialize(),
         ];
     }
 

@@ -9,65 +9,49 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Searches for messages with given words in the chat. Returns the results in reverse chronological order, i.e. in order of decreasing message_id. Cannot be used in secret chats with a non-empty query (searchSecretMessages should be used instead), or without an enabled message database. For optimal performance the number of returned messages is chosen by the library
+ * Searches for messages with given words in the chat. Returns the results in reverse chronological order, i.e. in order of decreasing message_id. Cannot be used in secret chats with a non-empty query (searchSecretMessages should be used instead), or without an enabled message database. For optimal performance the number of returned messages is chosen by the library.
  */
 class SearchChatMessages extends TdFunction
 {
     public const TYPE_NAME = 'searchChatMessages';
 
     /**
-     * Identifier of the chat in which to search messages
-     *
-     * @var int
+     * Identifier of the chat in which to search messages.
      */
     protected int $chatId;
 
     /**
-     * Query to search for
-     *
-     * @var string
+     * Query to search for.
      */
     protected string $query;
 
     /**
-     * If not null, only messages sent by the specified sender will be returned. Not supported in secret chats
-     *
-     * @var MessageSender
+     * If not null, only messages sent by the specified sender will be returned. Not supported in secret chats.
      */
     protected MessageSender $sender;
 
     /**
-     * Identifier of the message starting from which history must be fetched; use 0 to get results from the last message
-     *
-     * @var int
+     * Identifier of the message starting from which history must be fetched; use 0 to get results from the last message.
      */
     protected int $fromMessageId;
 
     /**
-     * Specify 0 to get results from exactly the from_message_id or a negative offset to get the specified message and some newer messages
-     *
-     * @var int
+     * Specify 0 to get results from exactly the from_message_id or a negative offset to get the specified message and some newer messages.
      */
     protected int $offset;
 
     /**
-     * The maximum number of messages to be returned; must be positive and can't be greater than 100. If the offset is negative, the limit must be greater than -offset. Fewer messages may be returned than specified by the limit, even if the end of the message history has not been reached
-     *
-     * @var int
+     * The maximum number of messages to be returned; must be positive and can't be greater than 100. If the offset is negative, the limit must be greater than -offset. Fewer messages may be returned than specified by the limit, even if the end of the message history has not been reached.
      */
     protected int $limit;
 
     /**
-     * Filter for message content in the search results
-     *
-     * @var SearchMessagesFilter
+     * Filter for message content in the search results.
      */
     protected SearchMessagesFilter $filter;
 
     /**
-     * If not 0, only messages in the specified thread will be returned; supergroups only
-     *
-     * @var int
+     * If not 0, only messages in the specified thread will be returned; supergroups only.
      */
     protected int $messageThreadId;
 
@@ -81,13 +65,13 @@ class SearchChatMessages extends TdFunction
         SearchMessagesFilter $filter,
         int $messageThreadId
     ) {
-        $this->chatId = $chatId;
-        $this->query = $query;
-        $this->sender = $sender;
-        $this->fromMessageId = $fromMessageId;
-        $this->offset = $offset;
-        $this->limit = $limit;
-        $this->filter = $filter;
+        $this->chatId          = $chatId;
+        $this->query           = $query;
+        $this->sender          = $sender;
+        $this->fromMessageId   = $fromMessageId;
+        $this->offset          = $offset;
+        $this->limit           = $limit;
+        $this->filter          = $filter;
         $this->messageThreadId = $messageThreadId;
     }
 
@@ -108,14 +92,14 @@ class SearchChatMessages extends TdFunction
     public function typeSerialize(): array
     {
         return [
-            '@type' => static::TYPE_NAME,
-            'chat_id' => $this->chatId,
-            'query' => $this->query,
-            'sender' => $this->sender->typeSerialize(),
-            'from_message_id' => $this->fromMessageId,
-            'offset' => $this->offset,
-            'limit' => $this->limit,
-            'filter' => $this->filter->typeSerialize(),
+            '@type'             => static::TYPE_NAME,
+            'chat_id'           => $this->chatId,
+            'query'             => $this->query,
+            'sender'            => $this->sender->typeSerialize(),
+            'from_message_id'   => $this->fromMessageId,
+            'offset'            => $this->offset,
+            'limit'             => $this->limit,
+            'filter'            => $this->filter->typeSerialize(),
             'message_thread_id' => $this->messageThreadId,
         ];
     }

@@ -9,16 +9,14 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Returns users which can be mentioned in the chat
+ * Returns users which can be mentioned in the chat.
  */
 class ChatMembersFilterMention extends ChatMembersFilter
 {
     public const TYPE_NAME = 'chatMembersFilterMention';
 
     /**
-     * If non-zero, the identifier of the current message thread
-     *
-     * @var int
+     * If non-zero, the identifier of the current message thread.
      */
     protected int $messageThreadId;
 
@@ -39,7 +37,7 @@ class ChatMembersFilterMention extends ChatMembersFilter
     public function typeSerialize(): array
     {
         return [
-            '@type' => static::TYPE_NAME,
+            '@type'             => static::TYPE_NAME,
             'message_thread_id' => $this->messageThreadId,
         ];
     }

@@ -9,44 +9,34 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Represents the current state of 2-step verification
+ * Represents the current state of 2-step verification.
  */
 class PasswordState extends TdObject
 {
     public const TYPE_NAME = 'passwordState';
 
     /**
-     * True, if a 2-step verification password is set
-     *
-     * @var bool
+     * True, if a 2-step verification password is set.
      */
     protected bool $hasPassword;
 
     /**
-     * Hint for the password; may be empty
-     *
-     * @var string
+     * Hint for the password; may be empty.
      */
     protected string $passwordHint;
 
     /**
-     * True, if a recovery email is set
-     *
-     * @var bool
+     * True, if a recovery email is set.
      */
     protected bool $hasRecoveryEmailAddress;
 
     /**
-     * True, if some Telegram Passport elements were saved
-     *
-     * @var bool
+     * True, if some Telegram Passport elements were saved.
      */
     protected bool $hasPassportData;
 
     /**
-     * Information about the recovery email address to which the confirmation email was sent; may be null
-     *
-     * @var EmailAddressAuthenticationCodeInfo|null
+     * Information about the recovery email address to which the confirmation email was sent; may be null.
      */
     protected ?EmailAddressAuthenticationCodeInfo $recoveryEmailAddressCodeInfo;
 
@@ -57,10 +47,10 @@ class PasswordState extends TdObject
         bool $hasPassportData,
         ?EmailAddressAuthenticationCodeInfo $recoveryEmailAddressCodeInfo
     ) {
-        $this->hasPassword = $hasPassword;
-        $this->passwordHint = $passwordHint;
-        $this->hasRecoveryEmailAddress = $hasRecoveryEmailAddress;
-        $this->hasPassportData = $hasPassportData;
+        $this->hasPassword                  = $hasPassword;
+        $this->passwordHint                 = $passwordHint;
+        $this->hasRecoveryEmailAddress      = $hasRecoveryEmailAddress;
+        $this->hasPassportData              = $hasPassportData;
         $this->recoveryEmailAddressCodeInfo = $recoveryEmailAddressCodeInfo;
     }
 
@@ -78,11 +68,11 @@ class PasswordState extends TdObject
     public function typeSerialize(): array
     {
         return [
-            '@type' => static::TYPE_NAME,
-            'has_password' => $this->hasPassword,
-            'password_hint' => $this->passwordHint,
-            'has_recovery_email_address' => $this->hasRecoveryEmailAddress,
-            'has_passport_data' => $this->hasPassportData,
+            '@type'                            => static::TYPE_NAME,
+            'has_password'                     => $this->hasPassword,
+            'password_hint'                    => $this->passwordHint,
+            'has_recovery_email_address'       => $this->hasRecoveryEmailAddress,
+            'has_passport_data'                => $this->hasPassportData,
             'recovery_email_address_code_info' => (isset($this->recoveryEmailAddressCodeInfo) ? $this->recoveryEmailAddressCodeInfo : null),
         ];
     }

@@ -9,16 +9,14 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Returns network data usage statistics. Can be called before authorization
+ * Returns network data usage statistics. Can be called before authorization.
  */
 class GetNetworkStatistics extends TdFunction
 {
     public const TYPE_NAME = 'getNetworkStatistics';
 
     /**
-     * If true, returns only data for the current library launch
-     *
-     * @var bool
+     * If true, returns only data for the current library launch.
      */
     protected bool $onlyCurrent;
 
@@ -37,7 +35,7 @@ class GetNetworkStatistics extends TdFunction
     public function typeSerialize(): array
     {
         return [
-            '@type' => static::TYPE_NAME,
+            '@type'        => static::TYPE_NAME,
             'only_current' => $this->onlyCurrent,
         ];
     }

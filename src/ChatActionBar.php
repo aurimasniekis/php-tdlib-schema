@@ -9,7 +9,7 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Describes actions which should be possible to do through a chat action bar
+ * Describes actions which should be possible to do through a chat action bar.
  */
 class ChatActionBar extends TdObject
 {

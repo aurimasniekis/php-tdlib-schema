@@ -9,7 +9,7 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Requests to send a password recovery code to an email address that was previously set up
+ * Requests to send a password recovery code to an email address that was previously set up.
  */
 class RequestPasswordRecovery extends TdFunction
 {

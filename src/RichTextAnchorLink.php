@@ -9,30 +9,24 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * A link to an anchor on the same web page
+ * A link to an anchor on the same web page.
  */
 class RichTextAnchorLink extends RichText
 {
     public const TYPE_NAME = 'richTextAnchorLink';
 
     /**
-     * The link text
-     *
-     * @var RichText
+     * The link text.
      */
     protected RichText $text;
 
     /**
-     * The anchor name. If the name is empty, the link should bring back to top
-     *
-     * @var string
+     * The anchor name. If the name is empty, the link should bring back to top.
      */
     protected string $anchorName;
 
     /**
-     * An HTTP URL, opening the anchor
-     *
-     * @var string
+     * An HTTP URL, opening the anchor.
      */
     protected string $url;
 
@@ -40,9 +34,9 @@ class RichTextAnchorLink extends RichText
     {
         parent::__construct();
 
-        $this->text = $text;
+        $this->text       = $text;
         $this->anchorName = $anchorName;
-        $this->url = $url;
+        $this->url        = $url;
     }
 
     public static function fromArray(array $array): RichTextAnchorLink
@@ -57,10 +51,10 @@ class RichTextAnchorLink extends RichText
     public function typeSerialize(): array
     {
         return [
-            '@type' => static::TYPE_NAME,
-            'text' => $this->text->typeSerialize(),
+            '@type'       => static::TYPE_NAME,
+            'text'        => $this->text->typeSerialize(),
             'anchor_name' => $this->anchorName,
-            'url' => $this->url,
+            'url'         => $this->url,
         ];
     }
 

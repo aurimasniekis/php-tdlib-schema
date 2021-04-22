@@ -9,16 +9,14 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * A token for BlackBerry Push Service
+ * A token for BlackBerry Push Service.
  */
 class DeviceTokenBlackBerryPush extends DeviceToken
 {
     public const TYPE_NAME = 'deviceTokenBlackBerryPush';
 
     /**
-     * Token; may be empty to de-register a device
-     *
-     * @var string
+     * Token; may be empty to de-register a device.
      */
     protected string $token;
 

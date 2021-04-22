@@ -9,23 +9,19 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * An audio message
+ * An audio message.
  */
 class PushMessageContentAudio extends PushMessageContent
 {
     public const TYPE_NAME = 'pushMessageContentAudio';
 
     /**
-     * Message content; may be null
-     *
-     * @var Audio|null
+     * Message content; may be null.
      */
     protected ?Audio $audio;
 
     /**
-     * True, if the message is a pinned message with the specified content
-     *
-     * @var bool
+     * True, if the message is a pinned message with the specified content.
      */
     protected bool $isPinned;
 
@@ -33,7 +29,7 @@ class PushMessageContentAudio extends PushMessageContent
     {
         parent::__construct();
 
-        $this->audio = $audio;
+        $this->audio    = $audio;
         $this->isPinned = $isPinned;
     }
 
@@ -48,8 +44,8 @@ class PushMessageContentAudio extends PushMessageContent
     public function typeSerialize(): array
     {
         return [
-            '@type' => static::TYPE_NAME,
-            'audio' => (isset($this->audio) ? $this->audio : null),
+            '@type'     => static::TYPE_NAME,
+            'audio'     => (isset($this->audio) ? $this->audio : null),
             'is_pinned' => $this->isPinned,
         ];
     }

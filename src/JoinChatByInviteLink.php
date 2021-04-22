@@ -9,16 +9,14 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Uses an invite link to add the current user to the chat if possible. The new member will not be added until the chat state has been synchronized with the server
+ * Uses an invite link to add the current user to the chat if possible. The new member will not be added until the chat state has been synchronized with the server.
  */
 class JoinChatByInviteLink extends TdFunction
 {
     public const TYPE_NAME = 'joinChatByInviteLink';
 
     /**
-     * Invite link to import; should begin with "https://t.me/joinchat/", "https://telegram.me/joinchat/", or "https://telegram.dog/joinchat/"
-     *
-     * @var string
+     * Invite link to import; should begin with "https://t.me/joinchat/", "https://telegram.me/joinchat/", or "https://telegram.dog/joinchat/".
      */
     protected string $inviteLink;
 
@@ -37,7 +35,7 @@ class JoinChatByInviteLink extends TdFunction
     public function typeSerialize(): array
     {
         return [
-            '@type' => static::TYPE_NAME,
+            '@type'       => static::TYPE_NAME,
             'invite_link' => $this->inviteLink,
         ];
     }

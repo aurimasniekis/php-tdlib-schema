@@ -9,16 +9,14 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Checks the authentication code sent to confirm a new phone number of the user
+ * Checks the authentication code sent to confirm a new phone number of the user.
  */
 class CheckChangePhoneNumberCode extends TdFunction
 {
     public const TYPE_NAME = 'checkChangePhoneNumberCode';
 
     /**
-     * Verification code received by SMS, phone call or flash call
-     *
-     * @var string
+     * Verification code received by SMS, phone call or flash call.
      */
     protected string $code;
 
@@ -38,7 +36,7 @@ class CheckChangePhoneNumberCode extends TdFunction
     {
         return [
             '@type' => static::TYPE_NAME,
-            'code' => $this->code,
+            'code'  => $this->code,
         ];
     }
 

@@ -9,7 +9,7 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * An italic text
+ * An italic text.
  */
 class TextEntityTypeItalic extends TextEntityType
 {

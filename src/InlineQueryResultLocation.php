@@ -9,37 +9,29 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Represents a point on the map
+ * Represents a point on the map.
  */
 class InlineQueryResultLocation extends InlineQueryResult
 {
     public const TYPE_NAME = 'inlineQueryResultLocation';
 
     /**
-     * Unique identifier of the query result
-     *
-     * @var string
+     * Unique identifier of the query result.
      */
     protected string $id;
 
     /**
-     * Location result
-     *
-     * @var Location
+     * Location result.
      */
     protected Location $location;
 
     /**
-     * Title of the result
-     *
-     * @var string
+     * Title of the result.
      */
     protected string $title;
 
     /**
-     * Result thumbnail in JPEG format; may be null
-     *
-     * @var Thumbnail|null
+     * Result thumbnail in JPEG format; may be null.
      */
     protected ?Thumbnail $thumbnail;
 
@@ -47,9 +39,9 @@ class InlineQueryResultLocation extends InlineQueryResult
     {
         parent::__construct();
 
-        $this->id = $id;
-        $this->location = $location;
-        $this->title = $title;
+        $this->id        = $id;
+        $this->location  = $location;
+        $this->title     = $title;
         $this->thumbnail = $thumbnail;
     }
 
@@ -66,10 +58,10 @@ class InlineQueryResultLocation extends InlineQueryResult
     public function typeSerialize(): array
     {
         return [
-            '@type' => static::TYPE_NAME,
-            'id' => $this->id,
-            'location' => $this->location->typeSerialize(),
-            'title' => $this->title,
+            '@type'     => static::TYPE_NAME,
+            'id'        => $this->id,
+            'location'  => $this->location->typeSerialize(),
+            'title'     => $this->title,
             'thumbnail' => (isset($this->thumbnail) ? $this->thumbnail : null),
         ];
     }

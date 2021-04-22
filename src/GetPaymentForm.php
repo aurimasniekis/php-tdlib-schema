@@ -9,29 +9,25 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Returns an invoice payment form. This method should be called when the user presses inlineKeyboardButtonBuy
+ * Returns an invoice payment form. This method should be called when the user presses inlineKeyboardButtonBuy.
  */
 class GetPaymentForm extends TdFunction
 {
     public const TYPE_NAME = 'getPaymentForm';
 
     /**
-     * Chat identifier of the Invoice message
-     *
-     * @var int
+     * Chat identifier of the Invoice message.
      */
     protected int $chatId;
 
     /**
-     * Message identifier
-     *
-     * @var int
+     * Message identifier.
      */
     protected int $messageId;
 
     public function __construct(int $chatId, int $messageId)
     {
-        $this->chatId = $chatId;
+        $this->chatId    = $chatId;
         $this->messageId = $messageId;
     }
 
@@ -46,8 +42,8 @@ class GetPaymentForm extends TdFunction
     public function typeSerialize(): array
     {
         return [
-            '@type' => static::TYPE_NAME,
-            'chat_id' => $this->chatId,
+            '@type'      => static::TYPE_NAME,
+            'chat_id'    => $this->chatId,
             'message_id' => $this->messageId,
         ];
     }

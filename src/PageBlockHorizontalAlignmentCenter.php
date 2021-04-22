@@ -9,7 +9,7 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * The content should be center-aligned
+ * The content should be center-aligned.
  */
 class PageBlockHorizontalAlignmentCenter extends PageBlockHorizontalAlignment
 {

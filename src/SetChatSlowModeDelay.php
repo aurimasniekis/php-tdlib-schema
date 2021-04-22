@@ -9,29 +9,25 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Changes the slow mode delay of a chat. Available only for supergroups; requires can_restrict_members rights
+ * Changes the slow mode delay of a chat. Available only for supergroups; requires can_restrict_members rights.
  */
 class SetChatSlowModeDelay extends TdFunction
 {
     public const TYPE_NAME = 'setChatSlowModeDelay';
 
     /**
-     * Chat identifier
-     *
-     * @var int
+     * Chat identifier.
      */
     protected int $chatId;
 
     /**
-     * New slow mode delay for the chat; must be one of 0, 10, 30, 60, 300, 900, 3600
-     *
-     * @var int
+     * New slow mode delay for the chat; must be one of 0, 10, 30, 60, 300, 900, 3600.
      */
     protected int $slowModeDelay;
 
     public function __construct(int $chatId, int $slowModeDelay)
     {
-        $this->chatId = $chatId;
+        $this->chatId        = $chatId;
         $this->slowModeDelay = $slowModeDelay;
     }
 
@@ -46,8 +42,8 @@ class SetChatSlowModeDelay extends TdFunction
     public function typeSerialize(): array
     {
         return [
-            '@type' => static::TYPE_NAME,
-            'chat_id' => $this->chatId,
+            '@type'           => static::TYPE_NAME,
+            'chat_id'         => $this->chatId,
             'slow_mode_delay' => $this->slowModeDelay,
         ];
     }

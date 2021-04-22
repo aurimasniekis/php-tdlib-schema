@@ -9,7 +9,7 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Returns auto-download settings presets for the current user
+ * Returns auto-download settings presets for the current user.
  */
 class GetAutoDownloadSettingsPresets extends TdFunction
 {

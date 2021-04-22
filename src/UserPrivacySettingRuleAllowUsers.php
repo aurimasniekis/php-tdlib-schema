@@ -9,14 +9,14 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * A rule to allow certain specified users to do something
+ * A rule to allow certain specified users to do something.
  */
 class UserPrivacySettingRuleAllowUsers extends UserPrivacySettingRule
 {
     public const TYPE_NAME = 'userPrivacySettingRuleAllowUsers';
 
     /**
-     * The user identifiers, total number of users in all rules must not exceed 1000
+     * The user identifiers, total number of users in all rules must not exceed 1000.
      *
      * @var int[]
      */
@@ -39,7 +39,7 @@ class UserPrivacySettingRuleAllowUsers extends UserPrivacySettingRule
     public function typeSerialize(): array
     {
         return [
-            '@type' => static::TYPE_NAME,
+            '@type'    => static::TYPE_NAME,
             'user_ids' => $this->userIds,
         ];
     }

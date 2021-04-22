@@ -9,7 +9,7 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * The call has been answered and encryption keys are being exchanged
+ * The call has been answered and encryption keys are being exchanged.
  */
 class CallStateExchangingKeys extends CallState
 {

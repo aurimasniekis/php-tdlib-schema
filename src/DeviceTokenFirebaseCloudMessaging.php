@@ -9,23 +9,19 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * A token for Firebase Cloud Messaging
+ * A token for Firebase Cloud Messaging.
  */
 class DeviceTokenFirebaseCloudMessaging extends DeviceToken
 {
     public const TYPE_NAME = 'deviceTokenFirebaseCloudMessaging';
 
     /**
-     * Device registration token; may be empty to de-register a device
-     *
-     * @var string
+     * Device registration token; may be empty to de-register a device.
      */
     protected string $token;
 
     /**
-     * True, if push notifications should be additionally encrypted
-     *
-     * @var bool
+     * True, if push notifications should be additionally encrypted.
      */
     protected bool $encrypt;
 
@@ -33,7 +29,7 @@ class DeviceTokenFirebaseCloudMessaging extends DeviceToken
     {
         parent::__construct();
 
-        $this->token = $token;
+        $this->token   = $token;
         $this->encrypt = $encrypt;
     }
 
@@ -48,8 +44,8 @@ class DeviceTokenFirebaseCloudMessaging extends DeviceToken
     public function typeSerialize(): array
     {
         return [
-            '@type' => static::TYPE_NAME,
-            'token' => $this->token,
+            '@type'   => static::TYPE_NAME,
+            'token'   => $this->token,
             'encrypt' => $this->encrypt,
         ];
     }

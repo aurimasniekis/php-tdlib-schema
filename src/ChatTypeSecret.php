@@ -9,23 +9,19 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * A secret chat with a user
+ * A secret chat with a user.
  */
 class ChatTypeSecret extends ChatType
 {
     public const TYPE_NAME = 'chatTypeSecret';
 
     /**
-     * Secret chat identifier
-     *
-     * @var int
+     * Secret chat identifier.
      */
     protected int $secretChatId;
 
     /**
-     * User identifier of the secret chat peer
-     *
-     * @var int
+     * User identifier of the secret chat peer.
      */
     protected int $userId;
 
@@ -34,7 +30,7 @@ class ChatTypeSecret extends ChatType
         parent::__construct();
 
         $this->secretChatId = $secretChatId;
-        $this->userId = $userId;
+        $this->userId       = $userId;
     }
 
     public static function fromArray(array $array): ChatTypeSecret
@@ -48,9 +44,9 @@ class ChatTypeSecret extends ChatType
     public function typeSerialize(): array
     {
         return [
-            '@type' => static::TYPE_NAME,
+            '@type'          => static::TYPE_NAME,
             'secret_chat_id' => $this->secretChatId,
-            'user_id' => $this->userId,
+            'user_id'        => $this->userId,
         ];
     }
 

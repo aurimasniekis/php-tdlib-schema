@@ -9,7 +9,7 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Returns all website where the current user used Telegram to log in
+ * Returns all website where the current user used Telegram to log in.
  */
 class GetConnectedWebsites extends TdFunction
 {

@@ -9,16 +9,14 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * A new message was received; can also be an outgoing message
+ * A new message was received; can also be an outgoing message.
  */
 class UpdateNewMessage extends Update
 {
     public const TYPE_NAME = 'updateNewMessage';
 
     /**
-     * The new message
-     *
-     * @var Message
+     * The new message.
      */
     protected Message $message;
 
@@ -39,7 +37,7 @@ class UpdateNewMessage extends Update
     public function typeSerialize(): array
     {
         return [
-            '@type' => static::TYPE_NAME,
+            '@type'   => static::TYPE_NAME,
             'message' => $this->message->typeSerialize(),
         ];
     }

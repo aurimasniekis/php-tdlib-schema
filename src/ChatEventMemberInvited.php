@@ -9,23 +9,19 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * A new chat member was invited
+ * A new chat member was invited.
  */
 class ChatEventMemberInvited extends ChatEventAction
 {
     public const TYPE_NAME = 'chatEventMemberInvited';
 
     /**
-     * New member user identifier
-     *
-     * @var int
+     * New member user identifier.
      */
     protected int $userId;
 
     /**
-     * New member status
-     *
-     * @var ChatMemberStatus
+     * New member status.
      */
     protected ChatMemberStatus $status;
 
@@ -48,9 +44,9 @@ class ChatEventMemberInvited extends ChatEventAction
     public function typeSerialize(): array
     {
         return [
-            '@type' => static::TYPE_NAME,
+            '@type'   => static::TYPE_NAME,
             'user_id' => $this->userId,
-            'status' => $this->status->typeSerialize(),
+            'status'  => $this->status->typeSerialize(),
         ];
     }
 

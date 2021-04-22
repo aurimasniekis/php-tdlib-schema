@@ -9,7 +9,7 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * The other side kept disappearing
+ * The other side kept disappearing.
  */
 class CallProblemInterruptions extends CallProblem
 {

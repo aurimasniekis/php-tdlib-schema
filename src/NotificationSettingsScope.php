@@ -9,7 +9,7 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Describes the types of chats to which notification settings are applied
+ * Describes the types of chats to which notification settings are applied.
  */
 class NotificationSettingsScope extends TdObject
 {

@@ -9,23 +9,19 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * The supergroup location was changed
+ * The supergroup location was changed.
  */
 class ChatEventLocationChanged extends ChatEventAction
 {
     public const TYPE_NAME = 'chatEventLocationChanged';
 
     /**
-     * Previous location; may be null
-     *
-     * @var ChatLocation|null
+     * Previous location; may be null.
      */
     protected ?ChatLocation $oldLocation;
 
     /**
-     * New location; may be null
-     *
-     * @var ChatLocation|null
+     * New location; may be null.
      */
     protected ?ChatLocation $newLocation;
 
@@ -48,7 +44,7 @@ class ChatEventLocationChanged extends ChatEventAction
     public function typeSerialize(): array
     {
         return [
-            '@type' => static::TYPE_NAME,
+            '@type'        => static::TYPE_NAME,
             'old_location' => (isset($this->oldLocation) ? $this->oldLocation : null),
             'new_location' => (isset($this->newLocation) ? $this->newLocation : null),
         ];

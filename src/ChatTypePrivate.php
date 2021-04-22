@@ -9,16 +9,14 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * An ordinary chat with a user
+ * An ordinary chat with a user.
  */
 class ChatTypePrivate extends ChatType
 {
     public const TYPE_NAME = 'chatTypePrivate';
 
     /**
-     * User identifier
-     *
-     * @var int
+     * User identifier.
      */
     protected int $userId;
 
@@ -39,7 +37,7 @@ class ChatTypePrivate extends ChatType
     public function typeSerialize(): array
     {
         return [
-            '@type' => static::TYPE_NAME,
+            '@type'   => static::TYPE_NAME,
             'user_id' => $this->userId,
         ];
     }

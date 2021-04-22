@@ -9,7 +9,7 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Re-sends the code to verify a phone number to be added to a user's Telegram Passport
+ * Re-sends the code to verify a phone number to be added to a user's Telegram Passport.
  */
 class ResendPhoneNumberVerificationCode extends TdFunction
 {

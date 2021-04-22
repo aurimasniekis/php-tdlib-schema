@@ -9,30 +9,24 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Describes a gradient fill of a background
+ * Describes a gradient fill of a background.
  */
 class BackgroundFillGradient extends BackgroundFill
 {
     public const TYPE_NAME = 'backgroundFillGradient';
 
     /**
-     * A top color of the background in the RGB24 format
-     *
-     * @var int
+     * A top color of the background in the RGB24 format.
      */
     protected int $topColor;
 
     /**
-     * A bottom color of the background in the RGB24 format
-     *
-     * @var int
+     * A bottom color of the background in the RGB24 format.
      */
     protected int $bottomColor;
 
     /**
-     * Clockwise rotation angle of the gradient, in degrees; 0-359. Should be always divisible by 45
-     *
-     * @var int
+     * Clockwise rotation angle of the gradient, in degrees; 0-359. Should be always divisible by 45.
      */
     protected int $rotationAngle;
 
@@ -40,8 +34,8 @@ class BackgroundFillGradient extends BackgroundFill
     {
         parent::__construct();
 
-        $this->topColor = $topColor;
-        $this->bottomColor = $bottomColor;
+        $this->topColor      = $topColor;
+        $this->bottomColor   = $bottomColor;
         $this->rotationAngle = $rotationAngle;
     }
 
@@ -57,9 +51,9 @@ class BackgroundFillGradient extends BackgroundFill
     public function typeSerialize(): array
     {
         return [
-            '@type' => static::TYPE_NAME,
-            'top_color' => $this->topColor,
-            'bottom_color' => $this->bottomColor,
+            '@type'          => static::TYPE_NAME,
+            'top_color'      => $this->topColor,
+            'bottom_color'   => $this->bottomColor,
             'rotation_angle' => $this->rotationAngle,
         ];
     }

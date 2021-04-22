@@ -9,16 +9,14 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * The message was sent on behalf of a chat
+ * The message was sent on behalf of a chat.
  */
 class MessageSenderChat extends MessageSender
 {
     public const TYPE_NAME = 'messageSenderChat';
 
     /**
-     * Identifier of the chat that sent the message
-     *
-     * @var int
+     * Identifier of the chat that sent the message.
      */
     protected int $chatId;
 
@@ -39,7 +37,7 @@ class MessageSenderChat extends MessageSender
     public function typeSerialize(): array
     {
         return [
-            '@type' => static::TYPE_NAME,
+            '@type'   => static::TYPE_NAME,
             'chat_id' => $this->chatId,
         ];
     }

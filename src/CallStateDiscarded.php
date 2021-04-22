@@ -9,30 +9,24 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * The call has ended successfully
+ * The call has ended successfully.
  */
 class CallStateDiscarded extends CallState
 {
     public const TYPE_NAME = 'callStateDiscarded';
 
     /**
-     * The reason, why the call has ended
-     *
-     * @var CallDiscardReason
+     * The reason, why the call has ended.
      */
     protected CallDiscardReason $reason;
 
     /**
-     * True, if the call rating should be sent to the server
-     *
-     * @var bool
+     * True, if the call rating should be sent to the server.
      */
     protected bool $needRating;
 
     /**
-     * True, if the call debug information should be sent to the server
-     *
-     * @var bool
+     * True, if the call debug information should be sent to the server.
      */
     protected bool $needDebugInformation;
 
@@ -40,8 +34,8 @@ class CallStateDiscarded extends CallState
     {
         parent::__construct();
 
-        $this->reason = $reason;
-        $this->needRating = $needRating;
+        $this->reason               = $reason;
+        $this->needRating           = $needRating;
         $this->needDebugInformation = $needDebugInformation;
     }
 
@@ -57,9 +51,9 @@ class CallStateDiscarded extends CallState
     public function typeSerialize(): array
     {
         return [
-            '@type' => static::TYPE_NAME,
-            'reason' => $this->reason->typeSerialize(),
-            'need_rating' => $this->needRating,
+            '@type'                  => static::TYPE_NAME,
+            'reason'                 => $this->reason->typeSerialize(),
+            'need_rating'            => $this->needRating,
             'need_debug_information' => $this->needDebugInformation,
         ];
     }

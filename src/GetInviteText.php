@@ -9,7 +9,7 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Returns the default text for invitation messages to be used as a placeholder when the current user invites friends to Telegram
+ * Returns the default text for invitation messages to be used as a placeholder when the current user invites friends to Telegram.
  */
 class GetInviteText extends TdFunction
 {

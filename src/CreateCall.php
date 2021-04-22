@@ -9,38 +9,32 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Creates a new call
+ * Creates a new call.
  */
 class CreateCall extends TdFunction
 {
     public const TYPE_NAME = 'createCall';
 
     /**
-     * Identifier of the user to be called
-     *
-     * @var int
+     * Identifier of the user to be called.
      */
     protected int $userId;
 
     /**
-     * Description of the call protocols supported by the application
-     *
-     * @var CallProtocol
+     * Description of the call protocols supported by the application.
      */
     protected CallProtocol $protocol;
 
     /**
-     * True, if a video call needs to be created
-     *
-     * @var bool
+     * True, if a video call needs to be created.
      */
     protected bool $isVideo;
 
     public function __construct(int $userId, CallProtocol $protocol, bool $isVideo)
     {
-        $this->userId = $userId;
+        $this->userId   = $userId;
         $this->protocol = $protocol;
-        $this->isVideo = $isVideo;
+        $this->isVideo  = $isVideo;
     }
 
     public static function fromArray(array $array): CreateCall
@@ -55,8 +49,8 @@ class CreateCall extends TdFunction
     public function typeSerialize(): array
     {
         return [
-            '@type' => static::TYPE_NAME,
-            'user_id' => $this->userId,
+            '@type'    => static::TYPE_NAME,
+            'user_id'  => $this->userId,
             'protocol' => $this->protocol->typeSerialize(),
             'is_video' => $this->isVideo,
         ];

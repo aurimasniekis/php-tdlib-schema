@@ -9,7 +9,7 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * The chat contains copyrighted content
+ * The chat contains copyrighted content.
  */
 class ChatReportReasonCopyright extends ChatReportReason
 {

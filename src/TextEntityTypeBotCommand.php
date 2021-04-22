@@ -9,7 +9,7 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * A bot command, beginning with "/". This shouldn't be highlighted if there are no bots in the chat
+ * A bot command, beginning with "/". This shouldn't be highlighted if there are no bots in the chat.
  */
 class TextEntityTypeBotCommand extends TextEntityType
 {

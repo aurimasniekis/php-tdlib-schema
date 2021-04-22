@@ -9,7 +9,7 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * The call was ended during the conversation because the users were disconnected
+ * The call was ended during the conversation because the users were disconnected.
  */
 class CallDiscardReasonDisconnected extends CallDiscardReason
 {

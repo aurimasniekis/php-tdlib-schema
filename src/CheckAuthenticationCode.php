@@ -9,16 +9,14 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Checks the authentication code. Works only when the current authorization state is authorizationStateWaitCode
+ * Checks the authentication code. Works only when the current authorization state is authorizationStateWaitCode.
  */
 class CheckAuthenticationCode extends TdFunction
 {
     public const TYPE_NAME = 'checkAuthenticationCode';
 
     /**
-     * The verification code received via SMS, Telegram message, phone call, or flash call
-     *
-     * @var string
+     * The verification code received via SMS, Telegram message, phone call, or flash call.
      */
     protected string $code;
 
@@ -38,7 +36,7 @@ class CheckAuthenticationCode extends TdFunction
     {
         return [
             '@type' => static::TYPE_NAME,
-            'code' => $this->code,
+            'code'  => $this->code,
         ];
     }
 

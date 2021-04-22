@@ -9,21 +9,19 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Describes an item of a list page block
+ * Describes an item of a list page block.
  */
 class PageBlockListItem extends TdObject
 {
     public const TYPE_NAME = 'pageBlockListItem';
 
     /**
-     * Item label
-     *
-     * @var string
+     * Item label.
      */
     protected string $label;
 
     /**
-     * Item blocks
+     * Item blocks.
      *
      * @var PageBlock[]
      */
@@ -31,7 +29,7 @@ class PageBlockListItem extends TdObject
 
     public function __construct(string $label, array $pageBlocks)
     {
-        $this->label = $label;
+        $this->label      = $label;
         $this->pageBlocks = $pageBlocks;
     }
 
@@ -39,16 +37,16 @@ class PageBlockListItem extends TdObject
     {
         return new static(
             $array['label'],
-            array_map(fn($x) => TdSchemaRegistry::fromArray($x), $array['page_blocks']),
+            array_map(fn ($x) => TdSchemaRegistry::fromArray($x), $array['page_blocks']),
         );
     }
 
     public function typeSerialize(): array
     {
         return [
-            '@type' => static::TYPE_NAME,
-            'label' => $this->label,
-            array_map(fn($x) => $x->typeSerialize(), $this->pageBlocks),
+            '@type'           => static::TYPE_NAME,
+            'label'           => $this->label,
+            array_map(fn ($x) => $x->typeSerialize(), $this->pageBlocks),
         ];
     }
 

@@ -9,51 +9,39 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Represents a link to an article or web page
+ * Represents a link to an article or web page.
  */
 class InlineQueryResultArticle extends InlineQueryResult
 {
     public const TYPE_NAME = 'inlineQueryResultArticle';
 
     /**
-     * Unique identifier of the query result
-     *
-     * @var string
+     * Unique identifier of the query result.
      */
     protected string $id;
 
     /**
-     * URL of the result, if it exists
-     *
-     * @var string
+     * URL of the result, if it exists.
      */
     protected string $url;
 
     /**
-     * True, if the URL must be not shown
-     *
-     * @var bool
+     * True, if the URL must be not shown.
      */
     protected bool $hideUrl;
 
     /**
-     * Title of the result
-     *
-     * @var string
+     * Title of the result.
      */
     protected string $title;
 
     /**
-     * A short description of the result
-     *
-     * @var string
+     * A short description of the result.
      */
     protected string $description;
 
     /**
-     * Result thumbnail in JPEG format; may be null
-     *
-     * @var Thumbnail|null
+     * Result thumbnail in JPEG format; may be null.
      */
     protected ?Thumbnail $thumbnail;
 
@@ -67,12 +55,12 @@ class InlineQueryResultArticle extends InlineQueryResult
     ) {
         parent::__construct();
 
-        $this->id = $id;
-        $this->url = $url;
-        $this->hideUrl = $hideUrl;
-        $this->title = $title;
+        $this->id          = $id;
+        $this->url         = $url;
+        $this->hideUrl     = $hideUrl;
+        $this->title       = $title;
         $this->description = $description;
-        $this->thumbnail = $thumbnail;
+        $this->thumbnail   = $thumbnail;
     }
 
     public static function fromArray(array $array): InlineQueryResultArticle
@@ -90,13 +78,13 @@ class InlineQueryResultArticle extends InlineQueryResult
     public function typeSerialize(): array
     {
         return [
-            '@type' => static::TYPE_NAME,
-            'id' => $this->id,
-            'url' => $this->url,
-            'hide_url' => $this->hideUrl,
-            'title' => $this->title,
+            '@type'       => static::TYPE_NAME,
+            'id'          => $this->id,
+            'url'         => $this->url,
+            'hide_url'    => $this->hideUrl,
+            'title'       => $this->title,
             'description' => $this->description,
-            'thumbnail' => (isset($this->thumbnail) ? $this->thumbnail : null),
+            'thumbnail'   => (isset($this->thumbnail) ? $this->thumbnail : null),
         ];
     }
 

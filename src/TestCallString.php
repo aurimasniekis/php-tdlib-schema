@@ -9,16 +9,14 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Returns the received string; for testing only. This is an offline method. Can be called before authorization
+ * Returns the received string; for testing only. This is an offline method. Can be called before authorization.
  */
 class TestCallString extends TdFunction
 {
     public const TYPE_NAME = 'testCallString';
 
     /**
-     * String to return
-     *
-     * @var string
+     * String to return.
      */
     protected string $x;
 
@@ -38,7 +36,7 @@ class TestCallString extends TdFunction
     {
         return [
             '@type' => static::TYPE_NAME,
-            'x' => $this->x,
+            'x'     => $this->x,
         ];
     }
 

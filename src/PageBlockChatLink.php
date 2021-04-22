@@ -9,30 +9,24 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * A link to a chat
+ * A link to a chat.
  */
 class PageBlockChatLink extends PageBlock
 {
     public const TYPE_NAME = 'pageBlockChatLink';
 
     /**
-     * Chat title
-     *
-     * @var string
+     * Chat title.
      */
     protected string $title;
 
     /**
-     * Chat photo; may be null
-     *
-     * @var ChatPhotoInfo|null
+     * Chat photo; may be null.
      */
     protected ?ChatPhotoInfo $photo;
 
     /**
-     * Chat username, by which all other information about the chat should be resolved
-     *
-     * @var string
+     * Chat username, by which all other information about the chat should be resolved.
      */
     protected string $username;
 
@@ -40,8 +34,8 @@ class PageBlockChatLink extends PageBlock
     {
         parent::__construct();
 
-        $this->title = $title;
-        $this->photo = $photo;
+        $this->title    = $title;
+        $this->photo    = $photo;
         $this->username = $username;
     }
 
@@ -57,9 +51,9 @@ class PageBlockChatLink extends PageBlock
     public function typeSerialize(): array
     {
         return [
-            '@type' => static::TYPE_NAME,
-            'title' => $this->title,
-            'photo' => (isset($this->photo) ? $this->photo : null),
+            '@type'    => static::TYPE_NAME,
+            'title'    => $this->title,
+            'photo'    => (isset($this->photo) ? $this->photo : null),
             'username' => $this->username,
         ];
     }

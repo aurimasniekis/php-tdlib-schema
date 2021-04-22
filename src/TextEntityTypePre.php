@@ -9,7 +9,7 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Text that must be formatted as if inside a pre HTML tag
+ * Text that must be formatted as if inside a pre HTML tag.
  */
 class TextEntityTypePre extends TextEntityType
 {

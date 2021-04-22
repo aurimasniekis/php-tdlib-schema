@@ -9,7 +9,7 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Returns only messages containing URLs
+ * Returns only messages containing URLs.
  */
 class SearchMessagesFilterUrl extends SearchMessagesFilter
 {

@@ -9,16 +9,14 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Returns current verbosity level for a specified TDLib internal log tag. Can be called synchronously
+ * Returns current verbosity level for a specified TDLib internal log tag. Can be called synchronously.
  */
 class GetLogTagVerbosityLevel extends TdFunction
 {
     public const TYPE_NAME = 'getLogTagVerbosityLevel';
 
     /**
-     * Logging tag to change verbosity level
-     *
-     * @var string
+     * Logging tag to change verbosity level.
      */
     protected string $tag;
 
@@ -38,7 +36,7 @@ class GetLogTagVerbosityLevel extends TdFunction
     {
         return [
             '@type' => static::TYPE_NAME,
-            'tag' => $this->tag,
+            'tag'   => $this->tag,
         ];
     }
 

@@ -9,7 +9,7 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Describes the current call state
+ * Describes the current call state.
  */
 class CallState extends TdObject
 {

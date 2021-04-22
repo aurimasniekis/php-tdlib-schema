@@ -9,23 +9,19 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * A preformatted text paragraph
+ * A preformatted text paragraph.
  */
 class PageBlockPreformatted extends PageBlock
 {
     public const TYPE_NAME = 'pageBlockPreformatted';
 
     /**
-     * Paragraph text
-     *
-     * @var RichText
+     * Paragraph text.
      */
     protected RichText $text;
 
     /**
-     * Programming language for which the text should be formatted
-     *
-     * @var string
+     * Programming language for which the text should be formatted.
      */
     protected string $language;
 
@@ -33,7 +29,7 @@ class PageBlockPreformatted extends PageBlock
     {
         parent::__construct();
 
-        $this->text = $text;
+        $this->text     = $text;
         $this->language = $language;
     }
 
@@ -48,8 +44,8 @@ class PageBlockPreformatted extends PageBlock
     public function typeSerialize(): array
     {
         return [
-            '@type' => static::TYPE_NAME,
-            'text' => $this->text->typeSerialize(),
+            '@type'    => static::TYPE_NAME,
+            'text'     => $this->text->typeSerialize(),
             'language' => $this->language,
         ];
     }

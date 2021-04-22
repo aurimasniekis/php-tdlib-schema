@@ -9,16 +9,14 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Informs TDLib that the chat is closed by the user. Many useful activities depend on the chat being opened or closed
+ * Informs TDLib that the chat is closed by the user. Many useful activities depend on the chat being opened or closed.
  */
 class CloseChat extends TdFunction
 {
     public const TYPE_NAME = 'closeChat';
 
     /**
-     * Chat identifier
-     *
-     * @var int
+     * Chat identifier.
      */
     protected int $chatId;
 
@@ -37,7 +35,7 @@ class CloseChat extends TdFunction
     public function typeSerialize(): array
     {
         return [
-            '@type' => static::TYPE_NAME,
+            '@type'   => static::TYPE_NAME,
             'chat_id' => $this->chatId,
         ];
     }

@@ -9,7 +9,7 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * The file is an audio file
+ * The file is an audio file.
  */
 class FileTypeAudio extends FileType
 {

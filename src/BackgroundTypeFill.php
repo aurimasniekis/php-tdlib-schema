@@ -9,16 +9,14 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * A filled background
+ * A filled background.
  */
 class BackgroundTypeFill extends BackgroundType
 {
     public const TYPE_NAME = 'backgroundTypeFill';
 
     /**
-     * Description of the background fill
-     *
-     * @var BackgroundFill
+     * Description of the background fill.
      */
     protected BackgroundFill $fill;
 
@@ -40,7 +38,7 @@ class BackgroundTypeFill extends BackgroundType
     {
         return [
             '@type' => static::TYPE_NAME,
-            'fill' => $this->fill->typeSerialize(),
+            'fill'  => $this->fill->typeSerialize(),
         ];
     }
 

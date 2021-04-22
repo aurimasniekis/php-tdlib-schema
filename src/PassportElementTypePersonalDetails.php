@@ -9,7 +9,7 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * A Telegram Passport element containing the user's personal details
+ * A Telegram Passport element containing the user's personal details.
  */
 class PassportElementTypePersonalDetails extends PassportElementType
 {

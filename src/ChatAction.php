@@ -9,7 +9,7 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Describes the different types of activity in a chat
+ * Describes the different types of activity in a chat.
  */
 class ChatAction extends TdObject
 {

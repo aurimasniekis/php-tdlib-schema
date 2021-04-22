@@ -9,16 +9,14 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Searches for a sticker set by its name
+ * Searches for a sticker set by its name.
  */
 class SearchStickerSet extends TdFunction
 {
     public const TYPE_NAME = 'searchStickerSet';
 
     /**
-     * Name of the sticker set
-     *
-     * @var string
+     * Name of the sticker set.
      */
     protected string $name;
 
@@ -38,7 +36,7 @@ class SearchStickerSet extends TdFunction
     {
         return [
             '@type' => static::TYPE_NAME,
-            'name' => $this->name,
+            'name'  => $this->name,
         ];
     }
 

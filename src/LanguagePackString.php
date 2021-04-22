@@ -9,29 +9,25 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Represents one language pack string
+ * Represents one language pack string.
  */
 class LanguagePackString extends TdObject
 {
     public const TYPE_NAME = 'languagePackString';
 
     /**
-     * String key
-     *
-     * @var string
+     * String key.
      */
     protected string $key;
 
     /**
-     * String value
-     *
-     * @var LanguagePackStringValue
+     * String value.
      */
     protected LanguagePackStringValue $value;
 
     public function __construct(string $key, LanguagePackStringValue $value)
     {
-        $this->key = $key;
+        $this->key   = $key;
         $this->value = $value;
     }
 
@@ -47,7 +43,7 @@ class LanguagePackString extends TdObject
     {
         return [
             '@type' => static::TYPE_NAME,
-            'key' => $this->key,
+            'key'   => $this->key,
             'value' => $this->value->typeSerialize(),
         ];
     }

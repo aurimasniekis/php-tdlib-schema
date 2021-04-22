@@ -9,7 +9,7 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * A deleted language pack string, the value should be taken from the built-in english language pack
+ * A deleted language pack string, the value should be taken from the built-in english language pack.
  */
 class LanguagePackStringValueDeleted extends LanguagePackStringValue
 {

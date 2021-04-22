@@ -9,7 +9,7 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * A hashtag text, beginning with "#"
+ * A hashtag text, beginning with "#".
  */
 class TextEntityTypeHashtag extends TextEntityType
 {

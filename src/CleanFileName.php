@@ -9,16 +9,14 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Removes potentially dangerous characters from the name of a file. The encoding of the file name is supposed to be UTF-8. Returns an empty string on failure. Can be called synchronously
+ * Removes potentially dangerous characters from the name of a file. The encoding of the file name is supposed to be UTF-8. Returns an empty string on failure. Can be called synchronously.
  */
 class CleanFileName extends TdFunction
 {
     public const TYPE_NAME = 'cleanFileName';
 
     /**
-     * File name or path to the file
-     *
-     * @var string
+     * File name or path to the file.
      */
     protected string $fileName;
 
@@ -37,7 +35,7 @@ class CleanFileName extends TdFunction
     public function typeSerialize(): array
     {
         return [
-            '@type' => static::TYPE_NAME,
+            '@type'     => static::TYPE_NAME,
             'file_name' => $this->fileName,
         ];
     }

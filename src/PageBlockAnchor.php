@@ -9,16 +9,14 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * An invisible anchor on a page, which can be used in a URL to open the page from the specified anchor
+ * An invisible anchor on a page, which can be used in a URL to open the page from the specified anchor.
  */
 class PageBlockAnchor extends PageBlock
 {
     public const TYPE_NAME = 'pageBlockAnchor';
 
     /**
-     * Name of the anchor
-     *
-     * @var string
+     * Name of the anchor.
      */
     protected string $name;
 
@@ -40,7 +38,7 @@ class PageBlockAnchor extends PageBlock
     {
         return [
             '@type' => static::TYPE_NAME,
-            'name' => $this->name,
+            'name'  => $this->name,
         ];
     }
 

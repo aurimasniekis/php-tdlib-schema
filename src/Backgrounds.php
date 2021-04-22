@@ -9,14 +9,14 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Contains a list of backgrounds
+ * Contains a list of backgrounds.
  */
 class Backgrounds extends TdObject
 {
     public const TYPE_NAME = 'backgrounds';
 
     /**
-     * A list of backgrounds
+     * A list of backgrounds.
      *
      * @var Background[]
      */
@@ -30,15 +30,15 @@ class Backgrounds extends TdObject
     public static function fromArray(array $array): Backgrounds
     {
         return new static(
-            array_map(fn($x) => TdSchemaRegistry::fromArray($x), $array['backgrounds']),
+            array_map(fn ($x) => TdSchemaRegistry::fromArray($x), $array['backgrounds']),
         );
     }
 
     public function typeSerialize(): array
     {
         return [
-            '@type' => static::TYPE_NAME,
-            array_map(fn($x) => $x->typeSerialize(), $this->backgrounds),
+            '@type'           => static::TYPE_NAME,
+            array_map(fn ($x) => $x->typeSerialize(), $this->backgrounds),
         ];
     }
 

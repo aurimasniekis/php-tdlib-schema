@@ -9,16 +9,14 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Returns contacts of the user, which are members of the supergroup or channel
+ * Returns contacts of the user, which are members of the supergroup or channel.
  */
 class SupergroupMembersFilterContacts extends SupergroupMembersFilter
 {
     public const TYPE_NAME = 'supergroupMembersFilterContacts';
 
     /**
-     * Query to search for
-     *
-     * @var string
+     * Query to search for.
      */
     protected string $query;
 

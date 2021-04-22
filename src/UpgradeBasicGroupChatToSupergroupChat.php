@@ -9,16 +9,14 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Creates a new supergroup from an existing basic group and sends a corresponding messageChatUpgradeTo and messageChatUpgradeFrom; requires creator privileges. Deactivates the original basic group
+ * Creates a new supergroup from an existing basic group and sends a corresponding messageChatUpgradeTo and messageChatUpgradeFrom; requires creator privileges. Deactivates the original basic group.
  */
 class UpgradeBasicGroupChatToSupergroupChat extends TdFunction
 {
     public const TYPE_NAME = 'upgradeBasicGroupChatToSupergroupChat';
 
     /**
-     * Identifier of the chat to upgrade
-     *
-     * @var int
+     * Identifier of the chat to upgrade.
      */
     protected int $chatId;
 
@@ -37,7 +35,7 @@ class UpgradeBasicGroupChatToSupergroupChat extends TdFunction
     public function typeSerialize(): array
     {
         return [
-            '@type' => static::TYPE_NAME,
+            '@type'   => static::TYPE_NAME,
             'chat_id' => $this->chatId,
         ];
     }

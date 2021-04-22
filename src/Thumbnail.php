@@ -9,46 +9,38 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Represents a thumbnail
+ * Represents a thumbnail.
  */
 class Thumbnail extends TdObject
 {
     public const TYPE_NAME = 'thumbnail';
 
     /**
-     * Thumbnail format
-     *
-     * @var ThumbnailFormat
+     * Thumbnail format.
      */
     protected ThumbnailFormat $format;
 
     /**
-     * Thumbnail width
-     *
-     * @var int
+     * Thumbnail width.
      */
     protected int $width;
 
     /**
-     * Thumbnail height
-     *
-     * @var int
+     * Thumbnail height.
      */
     protected int $height;
 
     /**
-     * The thumbnail
-     *
-     * @var File
+     * The thumbnail.
      */
     protected File $file;
 
     public function __construct(ThumbnailFormat $format, int $width, int $height, File $file)
     {
         $this->format = $format;
-        $this->width = $width;
+        $this->width  = $width;
         $this->height = $height;
-        $this->file = $file;
+        $this->file   = $file;
     }
 
     public static function fromArray(array $array): Thumbnail
@@ -64,11 +56,11 @@ class Thumbnail extends TdObject
     public function typeSerialize(): array
     {
         return [
-            '@type' => static::TYPE_NAME,
+            '@type'  => static::TYPE_NAME,
             'format' => $this->format->typeSerialize(),
-            'width' => $this->width,
+            'width'  => $this->width,
             'height' => $this->height,
-            'file' => $this->file->typeSerialize(),
+            'file'   => $this->file->typeSerialize(),
         ];
     }
 

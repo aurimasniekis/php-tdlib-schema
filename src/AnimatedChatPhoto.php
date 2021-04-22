@@ -9,37 +9,31 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Animated variant of a chat photo in MPEG4 format
+ * Animated variant of a chat photo in MPEG4 format.
  */
 class AnimatedChatPhoto extends TdObject
 {
     public const TYPE_NAME = 'animatedChatPhoto';
 
     /**
-     * Animation width and height
-     *
-     * @var int
+     * Animation width and height.
      */
     protected int $length;
 
     /**
-     * Information about the animation file
-     *
-     * @var File
+     * Information about the animation file.
      */
     protected File $file;
 
     /**
-     * Timestamp of the frame, used as a static chat photo
-     *
-     * @var float
+     * Timestamp of the frame, used as a static chat photo.
      */
     protected float $mainFrameTimestamp;
 
     public function __construct(int $length, File $file, float $mainFrameTimestamp)
     {
-        $this->length = $length;
-        $this->file = $file;
+        $this->length             = $length;
+        $this->file               = $file;
         $this->mainFrameTimestamp = $mainFrameTimestamp;
     }
 
@@ -55,9 +49,9 @@ class AnimatedChatPhoto extends TdObject
     public function typeSerialize(): array
     {
         return [
-            '@type' => static::TYPE_NAME,
-            'length' => $this->length,
-            'file' => $this->file->typeSerialize(),
+            '@type'                => static::TYPE_NAME,
+            'length'               => $this->length,
+            'file'                 => $this->file->typeSerialize(),
             'main_frame_timestamp' => $this->mainFrameTimestamp,
         ];
     }

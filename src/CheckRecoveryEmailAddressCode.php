@@ -9,16 +9,14 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Checks the 2-step verification recovery email address verification code
+ * Checks the 2-step verification recovery email address verification code.
  */
 class CheckRecoveryEmailAddressCode extends TdFunction
 {
     public const TYPE_NAME = 'checkRecoveryEmailAddressCode';
 
     /**
-     * Verification code
-     *
-     * @var string
+     * Verification code.
      */
     protected string $code;
 
@@ -38,7 +36,7 @@ class CheckRecoveryEmailAddressCode extends TdFunction
     {
         return [
             '@type' => static::TYPE_NAME,
-            'code' => $this->code,
+            'code'  => $this->code,
         ];
     }
 

@@ -9,51 +9,43 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * The call is ready to use
+ * The call is ready to use.
  */
 class CallStateReady extends CallState
 {
     public const TYPE_NAME = 'callStateReady';
 
     /**
-     * Call protocols supported by the peer
-     *
-     * @var CallProtocol
+     * Call protocols supported by the peer.
      */
     protected CallProtocol $protocol;
 
     /**
-     * List of available call servers
+     * List of available call servers.
      *
      * @var CallServer[]
      */
     protected array $servers;
 
     /**
-     * A JSON-encoded call config
-     *
-     * @var string
+     * A JSON-encoded call config.
      */
     protected string $config;
 
     /**
-     * Call encryption key
-     *
-     * @var string
+     * Call encryption key.
      */
     protected string $encryptionKey;
 
     /**
-     * Encryption key emojis fingerprint
+     * Encryption key emojis fingerprint.
      *
      * @var string[]
      */
     protected array $emojis;
 
     /**
-     * True, if peer-to-peer connection is allowed by users privacy settings
-     *
-     * @var bool
+     * True, if peer-to-peer connection is allowed by users privacy settings.
      */
     protected bool $allowP2p;
 
@@ -67,19 +59,19 @@ class CallStateReady extends CallState
     ) {
         parent::__construct();
 
-        $this->protocol = $protocol;
-        $this->servers = $servers;
-        $this->config = $config;
+        $this->protocol      = $protocol;
+        $this->servers       = $servers;
+        $this->config        = $config;
         $this->encryptionKey = $encryptionKey;
-        $this->emojis = $emojis;
-        $this->allowP2p = $allowP2p;
+        $this->emojis        = $emojis;
+        $this->allowP2p      = $allowP2p;
     }
 
     public static function fromArray(array $array): CallStateReady
     {
         return new static(
             TdSchemaRegistry::fromArray($array['protocol']),
-            array_map(fn($x) => TdSchemaRegistry::fromArray($x), $array['servers']),
+            array_map(fn ($x) => TdSchemaRegistry::fromArray($x), $array['servers']),
             $array['config'],
             $array['encryption_key'],
             $array['emojis'],
@@ -90,13 +82,13 @@ class CallStateReady extends CallState
     public function typeSerialize(): array
     {
         return [
-            '@type' => static::TYPE_NAME,
-            'protocol' => $this->protocol->typeSerialize(),
-            array_map(fn($x) => $x->typeSerialize(), $this->servers),
-            'config' => $this->config,
-            'encryption_key' => $this->encryptionKey,
-            'emojis' => $this->emojis,
-            'allow_p2p' => $this->allowP2p,
+            '@type'           => static::TYPE_NAME,
+            'protocol'        => $this->protocol->typeSerialize(),
+            array_map(fn ($x) => $x->typeSerialize(), $this->servers),
+            'config'          => $this->config,
+            'encryption_key'  => $this->encryptionKey,
+            'emojis'          => $this->emojis,
+            'allow_p2p'       => $this->allowP2p,
         ];
     }
 

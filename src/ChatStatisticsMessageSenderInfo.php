@@ -9,37 +9,31 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Contains statistics about messages sent by a user
+ * Contains statistics about messages sent by a user.
  */
 class ChatStatisticsMessageSenderInfo extends TdObject
 {
     public const TYPE_NAME = 'chatStatisticsMessageSenderInfo';
 
     /**
-     * User identifier
-     *
-     * @var int
+     * User identifier.
      */
     protected int $userId;
 
     /**
-     * Number of sent messages
-     *
-     * @var int
+     * Number of sent messages.
      */
     protected int $sentMessageCount;
 
     /**
-     * Average number of characters in sent messages
-     *
-     * @var int
+     * Average number of characters in sent messages.
      */
     protected int $averageCharacterCount;
 
     public function __construct(int $userId, int $sentMessageCount, int $averageCharacterCount)
     {
-        $this->userId = $userId;
-        $this->sentMessageCount = $sentMessageCount;
+        $this->userId                = $userId;
+        $this->sentMessageCount      = $sentMessageCount;
         $this->averageCharacterCount = $averageCharacterCount;
     }
 
@@ -55,9 +49,9 @@ class ChatStatisticsMessageSenderInfo extends TdObject
     public function typeSerialize(): array
     {
         return [
-            '@type' => static::TYPE_NAME,
-            'user_id' => $this->userId,
-            'sent_message_count' => $this->sentMessageCount,
+            '@type'                   => static::TYPE_NAME,
+            'user_id'                 => $this->userId,
+            'sent_message_count'      => $this->sentMessageCount,
             'average_character_count' => $this->averageCharacterCount,
         ];
     }

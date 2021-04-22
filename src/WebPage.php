@@ -9,156 +9,114 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Describes a web page preview
+ * Describes a web page preview.
  */
 class WebPage extends TdObject
 {
     public const TYPE_NAME = 'webPage';
 
     /**
-     * Original URL of the link
-     *
-     * @var string
+     * Original URL of the link.
      */
     protected string $url;
 
     /**
-     * URL to display
-     *
-     * @var string
+     * URL to display.
      */
     protected string $displayUrl;
 
     /**
-     * Type of the web page. Can be: article, photo, audio, video, document, profile, app, or something else
-     *
-     * @var string
+     * Type of the web page. Can be: article, photo, audio, video, document, profile, app, or something else.
      */
     protected string $type;
 
     /**
-     * Short name of the site (e.g., Google Docs, App Store)
-     *
-     * @var string
+     * Short name of the site (e.g., Google Docs, App Store).
      */
     protected string $siteName;
 
     /**
-     * Title of the content
-     *
-     * @var string
+     * Title of the content.
      */
     protected string $title;
 
     /**
-     * Description of the content
-     *
-     * @var FormattedText
+     * Description of the content.
      */
     protected FormattedText $description;
 
     /**
-     * Image representing the content; may be null
-     *
-     * @var Photo|null
+     * Image representing the content; may be null.
      */
     protected ?Photo $photo;
 
     /**
-     * URL to show in the embedded preview
-     *
-     * @var string
+     * URL to show in the embedded preview.
      */
     protected string $embedUrl;
 
     /**
-     * MIME type of the embedded preview, (e.g., text/html or video/mp4)
-     *
-     * @var string
+     * MIME type of the embedded preview, (e.g., text/html or video/mp4).
      */
     protected string $embedType;
 
     /**
-     * Width of the embedded preview
-     *
-     * @var int
+     * Width of the embedded preview.
      */
     protected int $embedWidth;
 
     /**
-     * Height of the embedded preview
-     *
-     * @var int
+     * Height of the embedded preview.
      */
     protected int $embedHeight;
 
     /**
-     * Duration of the content, in seconds
-     *
-     * @var int
+     * Duration of the content, in seconds.
      */
     protected int $duration;
 
     /**
-     * Author of the content
-     *
-     * @var string
+     * Author of the content.
      */
     protected string $author;
 
     /**
-     * Preview of the content as an animation, if available; may be null
-     *
-     * @var Animation|null
+     * Preview of the content as an animation, if available; may be null.
      */
     protected ?Animation $animation;
 
     /**
-     * Preview of the content as an audio file, if available; may be null
-     *
-     * @var Audio|null
+     * Preview of the content as an audio file, if available; may be null.
      */
     protected ?Audio $audio;
 
     /**
-     * Preview of the content as a document, if available (currently only available for small PDF files and ZIP archives); may be null
-     *
-     * @var Document|null
+     * Preview of the content as a document, if available (currently only available for small PDF files and ZIP archives); may be null.
      */
     protected ?Document $document;
 
     /**
-     * Preview of the content as a sticker for small WEBP files, if available; may be null
-     *
-     * @var Sticker|null
+     * Preview of the content as a sticker for small WEBP files, if available; may be null.
      */
     protected ?Sticker $sticker;
 
     /**
-     * Preview of the content as a video, if available; may be null
-     *
-     * @var Video|null
+     * Preview of the content as a video, if available; may be null.
      */
     protected ?Video $video;
 
     /**
-     * Preview of the content as a video note, if available; may be null
-     *
-     * @var VideoNote|null
+     * Preview of the content as a video note, if available; may be null.
      */
     protected ?VideoNote $videoNote;
 
     /**
-     * Preview of the content as a voice note, if available; may be null
-     *
-     * @var VoiceNote|null
+     * Preview of the content as a voice note, if available; may be null.
      */
     protected ?VoiceNote $voiceNote;
 
     /**
-     * Version of instant view, available for the web page (currently can be 1 or 2), 0 if none
-     *
-     * @var int
+     * Version of instant view, available for the web page (currently can be 1 or 2), 0 if none.
      */
     protected int $instantViewVersion;
 
@@ -185,26 +143,26 @@ class WebPage extends TdObject
         ?VoiceNote $voiceNote,
         int $instantViewVersion
     ) {
-        $this->url = $url;
-        $this->displayUrl = $displayUrl;
-        $this->type = $type;
-        $this->siteName = $siteName;
-        $this->title = $title;
-        $this->description = $description;
-        $this->photo = $photo;
-        $this->embedUrl = $embedUrl;
-        $this->embedType = $embedType;
-        $this->embedWidth = $embedWidth;
-        $this->embedHeight = $embedHeight;
-        $this->duration = $duration;
-        $this->author = $author;
-        $this->animation = $animation;
-        $this->audio = $audio;
-        $this->document = $document;
-        $this->sticker = $sticker;
-        $this->video = $video;
-        $this->videoNote = $videoNote;
-        $this->voiceNote = $voiceNote;
+        $this->url                = $url;
+        $this->displayUrl         = $displayUrl;
+        $this->type               = $type;
+        $this->siteName           = $siteName;
+        $this->title              = $title;
+        $this->description        = $description;
+        $this->photo              = $photo;
+        $this->embedUrl           = $embedUrl;
+        $this->embedType          = $embedType;
+        $this->embedWidth         = $embedWidth;
+        $this->embedHeight        = $embedHeight;
+        $this->duration           = $duration;
+        $this->author             = $author;
+        $this->animation          = $animation;
+        $this->audio              = $audio;
+        $this->document           = $document;
+        $this->sticker            = $sticker;
+        $this->video              = $video;
+        $this->videoNote          = $videoNote;
+        $this->voiceNote          = $voiceNote;
         $this->instantViewVersion = $instantViewVersion;
     }
 
@@ -238,27 +196,27 @@ class WebPage extends TdObject
     public function typeSerialize(): array
     {
         return [
-            '@type' => static::TYPE_NAME,
-            'url' => $this->url,
-            'display_url' => $this->displayUrl,
-            'type' => $this->type,
-            'site_name' => $this->siteName,
-            'title' => $this->title,
-            'description' => $this->description->typeSerialize(),
-            'photo' => (isset($this->photo) ? $this->photo : null),
-            'embed_url' => $this->embedUrl,
-            'embed_type' => $this->embedType,
-            'embed_width' => $this->embedWidth,
-            'embed_height' => $this->embedHeight,
-            'duration' => $this->duration,
-            'author' => $this->author,
-            'animation' => (isset($this->animation) ? $this->animation : null),
-            'audio' => (isset($this->audio) ? $this->audio : null),
-            'document' => (isset($this->document) ? $this->document : null),
-            'sticker' => (isset($this->sticker) ? $this->sticker : null),
-            'video' => (isset($this->video) ? $this->video : null),
-            'video_note' => (isset($this->videoNote) ? $this->videoNote : null),
-            'voice_note' => (isset($this->voiceNote) ? $this->voiceNote : null),
+            '@type'                => static::TYPE_NAME,
+            'url'                  => $this->url,
+            'display_url'          => $this->displayUrl,
+            'type'                 => $this->type,
+            'site_name'            => $this->siteName,
+            'title'                => $this->title,
+            'description'          => $this->description->typeSerialize(),
+            'photo'                => (isset($this->photo) ? $this->photo : null),
+            'embed_url'            => $this->embedUrl,
+            'embed_type'           => $this->embedType,
+            'embed_width'          => $this->embedWidth,
+            'embed_height'         => $this->embedHeight,
+            'duration'             => $this->duration,
+            'author'               => $this->author,
+            'animation'            => (isset($this->animation) ? $this->animation : null),
+            'audio'                => (isset($this->audio) ? $this->audio : null),
+            'document'             => (isset($this->document) ? $this->document : null),
+            'sticker'              => (isset($this->sticker) ? $this->sticker : null),
+            'video'                => (isset($this->video) ? $this->video : null),
+            'video_note'           => (isset($this->videoNote) ? $this->videoNote : null),
+            'voice_note'           => (isset($this->voiceNote) ? $this->voiceNote : null),
             'instant_view_version' => $this->instantViewVersion,
         ];
     }

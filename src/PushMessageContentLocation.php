@@ -9,23 +9,19 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * A message with a location
+ * A message with a location.
  */
 class PushMessageContentLocation extends PushMessageContent
 {
     public const TYPE_NAME = 'pushMessageContentLocation';
 
     /**
-     * True, if the location is live
-     *
-     * @var bool
+     * True, if the location is live.
      */
     protected bool $isLive;
 
     /**
-     * True, if the message is a pinned message with the specified content
-     *
-     * @var bool
+     * True, if the message is a pinned message with the specified content.
      */
     protected bool $isPinned;
 
@@ -33,7 +29,7 @@ class PushMessageContentLocation extends PushMessageContent
     {
         parent::__construct();
 
-        $this->isLive = $isLive;
+        $this->isLive   = $isLive;
         $this->isPinned = $isPinned;
     }
 
@@ -48,8 +44,8 @@ class PushMessageContentLocation extends PushMessageContent
     public function typeSerialize(): array
     {
         return [
-            '@type' => static::TYPE_NAME,
-            'is_live' => $this->isLive,
+            '@type'     => static::TYPE_NAME,
+            'is_live'   => $this->isLive,
             'is_pinned' => $this->isPinned,
         ];
     }

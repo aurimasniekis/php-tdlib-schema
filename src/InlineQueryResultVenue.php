@@ -9,30 +9,24 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Represents information about a venue
+ * Represents information about a venue.
  */
 class InlineQueryResultVenue extends InlineQueryResult
 {
     public const TYPE_NAME = 'inlineQueryResultVenue';
 
     /**
-     * Unique identifier of the query result
-     *
-     * @var string
+     * Unique identifier of the query result.
      */
     protected string $id;
 
     /**
-     * Venue result
-     *
-     * @var Venue
+     * Venue result.
      */
     protected Venue $venue;
 
     /**
-     * Result thumbnail in JPEG format; may be null
-     *
-     * @var Thumbnail|null
+     * Result thumbnail in JPEG format; may be null.
      */
     protected ?Thumbnail $thumbnail;
 
@@ -40,8 +34,8 @@ class InlineQueryResultVenue extends InlineQueryResult
     {
         parent::__construct();
 
-        $this->id = $id;
-        $this->venue = $venue;
+        $this->id        = $id;
+        $this->venue     = $venue;
         $this->thumbnail = $thumbnail;
     }
 
@@ -57,9 +51,9 @@ class InlineQueryResultVenue extends InlineQueryResult
     public function typeSerialize(): array
     {
         return [
-            '@type' => static::TYPE_NAME,
-            'id' => $this->id,
-            'venue' => $this->venue->typeSerialize(),
+            '@type'     => static::TYPE_NAME,
+            'id'        => $this->id,
+            'venue'     => $this->venue->typeSerialize(),
             'thumbnail' => (isset($this->thumbnail) ? $this->thumbnail : null),
         ];
     }

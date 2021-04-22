@@ -9,51 +9,39 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Edits the message content of a live location. Messages can be edited for a limited period of time specified in the live location. Returns the edited message after the edit is completed on the server side
+ * Edits the message content of a live location. Messages can be edited for a limited period of time specified in the live location. Returns the edited message after the edit is completed on the server side.
  */
 class EditMessageLiveLocation extends TdFunction
 {
     public const TYPE_NAME = 'editMessageLiveLocation';
 
     /**
-     * The chat the message belongs to
-     *
-     * @var int
+     * The chat the message belongs to.
      */
     protected int $chatId;
 
     /**
-     * Identifier of the message
-     *
-     * @var int
+     * Identifier of the message.
      */
     protected int $messageId;
 
     /**
-     * The new message reply markup; for bots only
-     *
-     * @var ReplyMarkup
+     * The new message reply markup; for bots only.
      */
     protected ReplyMarkup $replyMarkup;
 
     /**
-     * New location content of the message; may be null. Pass null to stop sharing the live location
-     *
-     * @var Location|null
+     * New location content of the message; may be null. Pass null to stop sharing the live location.
      */
     protected ?Location $location;
 
     /**
-     * The new direction in which the location moves, in degrees; 1-360. Pass 0 if unknown
-     *
-     * @var int
+     * The new direction in which the location moves, in degrees; 1-360. Pass 0 if unknown.
      */
     protected int $heading;
 
     /**
-     * The new maximum distance for proximity alerts, in meters (0-100000). Pass 0 if the notification is disabled
-     *
-     * @var int
+     * The new maximum distance for proximity alerts, in meters (0-100000). Pass 0 if the notification is disabled.
      */
     protected int $proximityAlertRadius;
 
@@ -65,11 +53,11 @@ class EditMessageLiveLocation extends TdFunction
         int $heading,
         int $proximityAlertRadius
     ) {
-        $this->chatId = $chatId;
-        $this->messageId = $messageId;
-        $this->replyMarkup = $replyMarkup;
-        $this->location = $location;
-        $this->heading = $heading;
+        $this->chatId               = $chatId;
+        $this->messageId            = $messageId;
+        $this->replyMarkup          = $replyMarkup;
+        $this->location             = $location;
+        $this->heading              = $heading;
         $this->proximityAlertRadius = $proximityAlertRadius;
     }
 
@@ -88,12 +76,12 @@ class EditMessageLiveLocation extends TdFunction
     public function typeSerialize(): array
     {
         return [
-            '@type' => static::TYPE_NAME,
-            'chat_id' => $this->chatId,
-            'message_id' => $this->messageId,
-            'reply_markup' => $this->replyMarkup->typeSerialize(),
-            'location' => (isset($this->location) ? $this->location : null),
-            'heading' => $this->heading,
+            '@type'                  => static::TYPE_NAME,
+            'chat_id'                => $this->chatId,
+            'message_id'             => $this->messageId,
+            'reply_markup'           => $this->replyMarkup->typeSerialize(),
+            'location'               => (isset($this->location) ? $this->location : null),
+            'heading'                => $this->heading,
             'proximity_alert_radius' => $this->proximityAlertRadius,
         ];
     }

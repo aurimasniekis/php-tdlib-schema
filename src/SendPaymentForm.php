@@ -9,44 +9,34 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Sends a filled-out payment form to the bot for final verification
+ * Sends a filled-out payment form to the bot for final verification.
  */
 class SendPaymentForm extends TdFunction
 {
     public const TYPE_NAME = 'sendPaymentForm';
 
     /**
-     * Chat identifier of the Invoice message
-     *
-     * @var int
+     * Chat identifier of the Invoice message.
      */
     protected int $chatId;
 
     /**
-     * Message identifier
-     *
-     * @var int
+     * Message identifier.
      */
     protected int $messageId;
 
     /**
-     * Identifier returned by ValidateOrderInfo, or an empty string
-     *
-     * @var string
+     * Identifier returned by ValidateOrderInfo, or an empty string.
      */
     protected string $orderInfoId;
 
     /**
-     * Identifier of a chosen shipping option, if applicable
-     *
-     * @var string
+     * Identifier of a chosen shipping option, if applicable.
      */
     protected string $shippingOptionId;
 
     /**
-     * The credentials chosen by user for payment
-     *
-     * @var InputCredentials
+     * The credentials chosen by user for payment.
      */
     protected InputCredentials $credentials;
 
@@ -57,11 +47,11 @@ class SendPaymentForm extends TdFunction
         string $shippingOptionId,
         InputCredentials $credentials
     ) {
-        $this->chatId = $chatId;
-        $this->messageId = $messageId;
-        $this->orderInfoId = $orderInfoId;
+        $this->chatId           = $chatId;
+        $this->messageId        = $messageId;
+        $this->orderInfoId      = $orderInfoId;
         $this->shippingOptionId = $shippingOptionId;
-        $this->credentials = $credentials;
+        $this->credentials      = $credentials;
     }
 
     public static function fromArray(array $array): SendPaymentForm
@@ -78,12 +68,12 @@ class SendPaymentForm extends TdFunction
     public function typeSerialize(): array
     {
         return [
-            '@type' => static::TYPE_NAME,
-            'chat_id' => $this->chatId,
-            'message_id' => $this->messageId,
-            'order_info_id' => $this->orderInfoId,
+            '@type'              => static::TYPE_NAME,
+            'chat_id'            => $this->chatId,
+            'message_id'         => $this->messageId,
+            'order_info_id'      => $this->orderInfoId,
             'shipping_option_id' => $this->shippingOptionId,
-            'credentials' => $this->credentials->typeSerialize(),
+            'credentials'        => $this->credentials->typeSerialize(),
         ];
     }
 

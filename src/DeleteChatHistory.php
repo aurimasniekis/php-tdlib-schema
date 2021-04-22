@@ -9,38 +9,32 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Deletes all messages in the chat. Use Chat.can_be_deleted_only_for_self and Chat.can_be_deleted_for_all_users fields to find whether and how the method can be applied to the chat
+ * Deletes all messages in the chat. Use Chat.can_be_deleted_only_for_self and Chat.can_be_deleted_for_all_users fields to find whether and how the method can be applied to the chat.
  */
 class DeleteChatHistory extends TdFunction
 {
     public const TYPE_NAME = 'deleteChatHistory';
 
     /**
-     * Chat identifier
-     *
-     * @var int
+     * Chat identifier.
      */
     protected int $chatId;
 
     /**
-     * Pass true if the chat should be removed from the chat list
-     *
-     * @var bool
+     * Pass true if the chat should be removed from the chat list.
      */
     protected bool $removeFromChatList;
 
     /**
-     * Pass true to try to delete chat history for all users
-     *
-     * @var bool
+     * Pass true to try to delete chat history for all users.
      */
     protected bool $revoke;
 
     public function __construct(int $chatId, bool $removeFromChatList, bool $revoke)
     {
-        $this->chatId = $chatId;
+        $this->chatId             = $chatId;
         $this->removeFromChatList = $removeFromChatList;
-        $this->revoke = $revoke;
+        $this->revoke             = $revoke;
     }
 
     public static function fromArray(array $array): DeleteChatHistory
@@ -55,10 +49,10 @@ class DeleteChatHistory extends TdFunction
     public function typeSerialize(): array
     {
         return [
-            '@type' => static::TYPE_NAME,
-            'chat_id' => $this->chatId,
+            '@type'                 => static::TYPE_NAME,
+            'chat_id'               => $this->chatId,
             'remove_from_chat_list' => $this->removeFromChatList,
-            'revoke' => $this->revoke,
+            'revoke'                => $this->revoke,
         ];
     }
 

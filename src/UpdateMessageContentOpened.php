@@ -9,23 +9,19 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * The message content was opened. Updates voice note messages to "listened", video note messages to "viewed" and starts the TTL timer for self-destructing messages
+ * The message content was opened. Updates voice note messages to "listened", video note messages to "viewed" and starts the TTL timer for self-destructing messages.
  */
 class UpdateMessageContentOpened extends Update
 {
     public const TYPE_NAME = 'updateMessageContentOpened';
 
     /**
-     * Chat identifier
-     *
-     * @var int
+     * Chat identifier.
      */
     protected int $chatId;
 
     /**
-     * Message identifier
-     *
-     * @var int
+     * Message identifier.
      */
     protected int $messageId;
 
@@ -33,7 +29,7 @@ class UpdateMessageContentOpened extends Update
     {
         parent::__construct();
 
-        $this->chatId = $chatId;
+        $this->chatId    = $chatId;
         $this->messageId = $messageId;
     }
 
@@ -48,8 +44,8 @@ class UpdateMessageContentOpened extends Update
     public function typeSerialize(): array
     {
         return [
-            '@type' => static::TYPE_NAME,
-            'chat_id' => $this->chatId,
+            '@type'      => static::TYPE_NAME,
+            'chat_id'    => $this->chatId,
             'message_id' => $this->messageId,
         ];
     }

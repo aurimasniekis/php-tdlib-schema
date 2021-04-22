@@ -9,7 +9,7 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Represents the type of a file
+ * Represents the type of a file.
  */
 class FileType extends TdObject
 {

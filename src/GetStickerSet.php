@@ -9,16 +9,14 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Returns information about a sticker set by its identifier
+ * Returns information about a sticker set by its identifier.
  */
 class GetStickerSet extends TdFunction
 {
     public const TYPE_NAME = 'getStickerSet';
 
     /**
-     * Identifier of the sticker set
-     *
-     * @var string
+     * Identifier of the sticker set.
      */
     protected string $setId;
 
@@ -37,7 +35,7 @@ class GetStickerSet extends TdFunction
     public function typeSerialize(): array
     {
         return [
-            '@type' => static::TYPE_NAME,
+            '@type'  => static::TYPE_NAME,
             'set_id' => $this->setId,
         ];
     }

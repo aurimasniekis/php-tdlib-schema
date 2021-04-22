@@ -9,23 +9,19 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * The slow_mode_delay setting of a supergroup was changed
+ * The slow_mode_delay setting of a supergroup was changed.
  */
 class ChatEventSlowModeDelayChanged extends ChatEventAction
 {
     public const TYPE_NAME = 'chatEventSlowModeDelayChanged';
 
     /**
-     * Previous value of slow_mode_delay
-     *
-     * @var int
+     * Previous value of slow_mode_delay.
      */
     protected int $oldSlowModeDelay;
 
     /**
-     * New value of slow_mode_delay
-     *
-     * @var int
+     * New value of slow_mode_delay.
      */
     protected int $newSlowModeDelay;
 
@@ -48,7 +44,7 @@ class ChatEventSlowModeDelayChanged extends ChatEventAction
     public function typeSerialize(): array
     {
         return [
-            '@type' => static::TYPE_NAME,
+            '@type'               => static::TYPE_NAME,
             'old_slow_mode_delay' => $this->oldSlowModeDelay,
             'new_slow_mode_delay' => $this->newSlowModeDelay,
         ];

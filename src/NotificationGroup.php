@@ -9,42 +9,34 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Describes a group of notifications
+ * Describes a group of notifications.
  */
 class NotificationGroup extends TdObject
 {
     public const TYPE_NAME = 'notificationGroup';
 
     /**
-     * Unique persistent auto-incremented from 1 identifier of the notification group
-     *
-     * @var int
+     * Unique persistent auto-incremented from 1 identifier of the notification group.
      */
     protected int $id;
 
     /**
-     * Type of the group
-     *
-     * @var NotificationGroupType
+     * Type of the group.
      */
     protected NotificationGroupType $type;
 
     /**
-     * Identifier of a chat to which all notifications in the group belong
-     *
-     * @var int
+     * Identifier of a chat to which all notifications in the group belong.
      */
     protected int $chatId;
 
     /**
-     * Total number of active notifications in the group
-     *
-     * @var int
+     * Total number of active notifications in the group.
      */
     protected int $totalCount;
 
     /**
-     * The list of active notifications
+     * The list of active notifications.
      *
      * @var Notification[]
      */
@@ -57,10 +49,10 @@ class NotificationGroup extends TdObject
         int $totalCount,
         array $notifications
     ) {
-        $this->id = $id;
-        $this->type = $type;
-        $this->chatId = $chatId;
-        $this->totalCount = $totalCount;
+        $this->id            = $id;
+        $this->type          = $type;
+        $this->chatId        = $chatId;
+        $this->totalCount    = $totalCount;
         $this->notifications = $notifications;
     }
 
@@ -71,19 +63,19 @@ class NotificationGroup extends TdObject
             TdSchemaRegistry::fromArray($array['type']),
             $array['chat_id'],
             $array['total_count'],
-            array_map(fn($x) => TdSchemaRegistry::fromArray($x), $array['notifications']),
+            array_map(fn ($x) => TdSchemaRegistry::fromArray($x), $array['notifications']),
         );
     }
 
     public function typeSerialize(): array
     {
         return [
-            '@type' => static::TYPE_NAME,
-            'id' => $this->id,
-            'type' => $this->type->typeSerialize(),
-            'chat_id' => $this->chatId,
-            'total_count' => $this->totalCount,
-            array_map(fn($x) => $x->typeSerialize(), $this->notifications),
+            '@type'           => static::TYPE_NAME,
+            'id'              => $this->id,
+            'type'            => $this->type->typeSerialize(),
+            'chat_id'         => $this->chatId,
+            'total_count'     => $this->totalCount,
+            array_map(fn ($x) => $x->typeSerialize(), $this->notifications),
         ];
     }
 

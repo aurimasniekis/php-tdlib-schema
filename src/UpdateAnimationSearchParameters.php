@@ -9,21 +9,19 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * The parameters of animation search through GetOption("animation_search_bot_username") bot has changed
+ * The parameters of animation search through GetOption("animation_search_bot_username") bot has changed.
  */
 class UpdateAnimationSearchParameters extends Update
 {
     public const TYPE_NAME = 'updateAnimationSearchParameters';
 
     /**
-     * Name of the animation search provider
-     *
-     * @var string
+     * Name of the animation search provider.
      */
     protected string $provider;
 
     /**
-     * The new list of emojis suggested for searching
+     * The new list of emojis suggested for searching.
      *
      * @var string[]
      */
@@ -34,7 +32,7 @@ class UpdateAnimationSearchParameters extends Update
         parent::__construct();
 
         $this->provider = $provider;
-        $this->emojis = $emojis;
+        $this->emojis   = $emojis;
     }
 
     public static function fromArray(array $array): UpdateAnimationSearchParameters
@@ -48,9 +46,9 @@ class UpdateAnimationSearchParameters extends Update
     public function typeSerialize(): array
     {
         return [
-            '@type' => static::TYPE_NAME,
+            '@type'    => static::TYPE_NAME,
             'provider' => $this->provider,
-            'emojis' => $this->emojis,
+            'emojis'   => $this->emojis,
         ];
     }
 

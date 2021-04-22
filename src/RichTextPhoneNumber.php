@@ -9,23 +9,19 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * A rich text phone number
+ * A rich text phone number.
  */
 class RichTextPhoneNumber extends RichText
 {
     public const TYPE_NAME = 'richTextPhoneNumber';
 
     /**
-     * Text
-     *
-     * @var RichText
+     * Text.
      */
     protected RichText $text;
 
     /**
-     * Phone number
-     *
-     * @var string
+     * Phone number.
      */
     protected string $phoneNumber;
 
@@ -33,7 +29,7 @@ class RichTextPhoneNumber extends RichText
     {
         parent::__construct();
 
-        $this->text = $text;
+        $this->text        = $text;
         $this->phoneNumber = $phoneNumber;
     }
 
@@ -48,8 +44,8 @@ class RichTextPhoneNumber extends RichText
     public function typeSerialize(): array
     {
         return [
-            '@type' => static::TYPE_NAME,
-            'text' => $this->text->typeSerialize(),
+            '@type'        => static::TYPE_NAME,
+            'text'         => $this->text->typeSerialize(),
             'phone_number' => $this->phoneNumber,
         ];
     }

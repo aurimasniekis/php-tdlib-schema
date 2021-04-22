@@ -9,7 +9,7 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * A category containing frequently used private chats with bot users
+ * A category containing frequently used private chats with bot users.
  */
 class TopChatCategoryBots extends TopChatCategory
 {

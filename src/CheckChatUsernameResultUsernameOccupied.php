@@ -9,7 +9,7 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * The username is occupied
+ * The username is occupied.
  */
 class CheckChatUsernameResultUsernameOccupied extends CheckChatUsernameResult
 {

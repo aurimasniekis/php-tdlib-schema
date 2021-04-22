@@ -9,46 +9,38 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Returns a Telegram Passport authorization form for sharing data with a service
+ * Returns a Telegram Passport authorization form for sharing data with a service.
  */
 class GetPassportAuthorizationForm extends TdFunction
 {
     public const TYPE_NAME = 'getPassportAuthorizationForm';
 
     /**
-     * User identifier of the service's bot
-     *
-     * @var int
+     * User identifier of the service's bot.
      */
     protected int $botUserId;
 
     /**
-     * Telegram Passport element types requested by the service
-     *
-     * @var string
+     * Telegram Passport element types requested by the service.
      */
     protected string $scope;
 
     /**
-     * Service's public_key
-     *
-     * @var string
+     * Service's public_key.
      */
     protected string $publicKey;
 
     /**
-     * Authorization form nonce provided by the service
-     *
-     * @var string
+     * Authorization form nonce provided by the service.
      */
     protected string $nonce;
 
     public function __construct(int $botUserId, string $scope, string $publicKey, string $nonce)
     {
         $this->botUserId = $botUserId;
-        $this->scope = $scope;
+        $this->scope     = $scope;
         $this->publicKey = $publicKey;
-        $this->nonce = $nonce;
+        $this->nonce     = $nonce;
     }
 
     public static function fromArray(array $array): GetPassportAuthorizationForm
@@ -64,11 +56,11 @@ class GetPassportAuthorizationForm extends TdFunction
     public function typeSerialize(): array
     {
         return [
-            '@type' => static::TYPE_NAME,
+            '@type'       => static::TYPE_NAME,
             'bot_user_id' => $this->botUserId,
-            'scope' => $this->scope,
-            'public_key' => $this->publicKey,
-            'nonce' => $this->nonce,
+            'scope'       => $this->scope,
+            'public_key'  => $this->publicKey,
+            'nonce'       => $this->nonce,
         ];
     }
 

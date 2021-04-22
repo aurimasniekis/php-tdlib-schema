@@ -9,7 +9,7 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Describes the type of a poll
+ * Describes the type of a poll.
  */
 class PollType extends TdObject
 {

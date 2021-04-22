@@ -9,14 +9,14 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * A list of data blocks
+ * A list of data blocks.
  */
 class PageBlockList extends PageBlock
 {
     public const TYPE_NAME = 'pageBlockList';
 
     /**
-     * The items of the list
+     * The items of the list.
      *
      * @var PageBlockListItem[]
      */
@@ -32,15 +32,15 @@ class PageBlockList extends PageBlock
     public static function fromArray(array $array): PageBlockList
     {
         return new static(
-            array_map(fn($x) => TdSchemaRegistry::fromArray($x), $array['items']),
+            array_map(fn ($x) => TdSchemaRegistry::fromArray($x), $array['items']),
         );
     }
 
     public function typeSerialize(): array
     {
         return [
-            '@type' => static::TYPE_NAME,
-            array_map(fn($x) => $x->typeSerialize(), $this->items),
+            '@type'           => static::TYPE_NAME,
+            array_map(fn ($x) => $x->typeSerialize(), $this->items),
         ];
     }
 

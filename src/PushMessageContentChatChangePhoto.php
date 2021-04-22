@@ -9,7 +9,7 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * A chat photo was edited
+ * A chat photo was edited.
  */
 class PushMessageContentChatChangePhoto extends PushMessageContent
 {

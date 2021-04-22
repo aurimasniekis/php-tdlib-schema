@@ -9,7 +9,7 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * A screenshot of a message in the chat has been taken
+ * A screenshot of a message in the chat has been taken.
  */
 class MessageScreenshotTaken extends MessageContent
 {

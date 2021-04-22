@@ -9,16 +9,14 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * A plain text
+ * A plain text.
  */
 class RichTextPlain extends RichText
 {
     public const TYPE_NAME = 'richTextPlain';
 
     /**
-     * Text
-     *
-     * @var string
+     * Text.
      */
     protected string $text;
 
@@ -40,7 +38,7 @@ class RichTextPlain extends RichText
     {
         return [
             '@type' => static::TYPE_NAME,
-            'text' => $this->text,
+            'text'  => $this->text,
         ];
     }
 

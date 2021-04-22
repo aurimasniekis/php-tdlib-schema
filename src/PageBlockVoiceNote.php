@@ -9,23 +9,19 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * A voice note
+ * A voice note.
  */
 class PageBlockVoiceNote extends PageBlock
 {
     public const TYPE_NAME = 'pageBlockVoiceNote';
 
     /**
-     * Voice note; may be null
-     *
-     * @var VoiceNote|null
+     * Voice note; may be null.
      */
     protected ?VoiceNote $voiceNote;
 
     /**
-     * Voice note caption
-     *
-     * @var PageBlockCaption
+     * Voice note caption.
      */
     protected PageBlockCaption $caption;
 
@@ -34,7 +30,7 @@ class PageBlockVoiceNote extends PageBlock
         parent::__construct();
 
         $this->voiceNote = $voiceNote;
-        $this->caption = $caption;
+        $this->caption   = $caption;
     }
 
     public static function fromArray(array $array): PageBlockVoiceNote
@@ -48,9 +44,9 @@ class PageBlockVoiceNote extends PageBlock
     public function typeSerialize(): array
     {
         return [
-            '@type' => static::TYPE_NAME,
+            '@type'      => static::TYPE_NAME,
             'voice_note' => (isset($this->voiceNote) ? $this->voiceNote : null),
-            'caption' => $this->caption->typeSerialize(),
+            'caption'    => $this->caption->typeSerialize(),
         ];
     }
 

@@ -9,16 +9,14 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * A token for Simple Push API for Firefox OS
+ * A token for Simple Push API for Firefox OS.
  */
 class DeviceTokenSimplePush extends DeviceToken
 {
     public const TYPE_NAME = 'deviceTokenSimplePush';
 
     /**
-     * Absolute URL exposed by the push service where the application server can send push messages; may be empty to de-register a device
-     *
-     * @var string
+     * Absolute URL exposed by the push service where the application server can send push messages; may be empty to de-register a device.
      */
     protected string $endpoint;
 
@@ -39,7 +37,7 @@ class DeviceTokenSimplePush extends DeviceToken
     public function typeSerialize(): array
     {
         return [
-            '@type' => static::TYPE_NAME,
+            '@type'    => static::TYPE_NAME,
             'endpoint' => $this->endpoint,
         ];
     }

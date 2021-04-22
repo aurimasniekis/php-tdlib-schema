@@ -9,16 +9,14 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * A Telegram Passport element containing the user's address
+ * A Telegram Passport element containing the user's address.
  */
 class PassportElementAddress extends PassportElement
 {
     public const TYPE_NAME = 'passportElementAddress';
 
     /**
-     * Address
-     *
-     * @var Address
+     * Address.
      */
     protected Address $address;
 
@@ -39,7 +37,7 @@ class PassportElementAddress extends PassportElement
     public function typeSerialize(): array
     {
         return [
-            '@type' => static::TYPE_NAME,
+            '@type'   => static::TYPE_NAME,
             'address' => $this->address->typeSerialize(),
         ];
     }

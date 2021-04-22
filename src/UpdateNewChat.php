@@ -9,16 +9,14 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * A new chat has been loaded/created. This update is guaranteed to come before the chat identifier is returned to the application. The chat field changes will be reported through separate updates
+ * A new chat has been loaded/created. This update is guaranteed to come before the chat identifier is returned to the application. The chat field changes will be reported through separate updates.
  */
 class UpdateNewChat extends Update
 {
     public const TYPE_NAME = 'updateNewChat';
 
     /**
-     * The chat
-     *
-     * @var Chat
+     * The chat.
      */
     protected Chat $chat;
 
@@ -40,7 +38,7 @@ class UpdateNewChat extends Update
     {
         return [
             '@type' => static::TYPE_NAME,
-            'chat' => $this->chat->typeSerialize(),
+            'chat'  => $this->chat->typeSerialize(),
         ];
     }
 

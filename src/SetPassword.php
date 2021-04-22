@@ -9,44 +9,34 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Changes the password for the user. If a new recovery email address is specified, then the change will not be applied until the new recovery email address is confirmed
+ * Changes the password for the user. If a new recovery email address is specified, then the change will not be applied until the new recovery email address is confirmed.
  */
 class SetPassword extends TdFunction
 {
     public const TYPE_NAME = 'setPassword';
 
     /**
-     * Previous password of the user
-     *
-     * @var string
+     * Previous password of the user.
      */
     protected string $oldPassword;
 
     /**
-     * New password of the user; may be empty to remove the password
-     *
-     * @var string
+     * New password of the user; may be empty to remove the password.
      */
     protected string $newPassword;
 
     /**
-     * New password hint; may be empty
-     *
-     * @var string
+     * New password hint; may be empty.
      */
     protected string $newHint;
 
     /**
-     * Pass true if the recovery email address should be changed
-     *
-     * @var bool
+     * Pass true if the recovery email address should be changed.
      */
     protected bool $setRecoveryEmailAddress;
 
     /**
-     * New recovery email address; may be empty
-     *
-     * @var string
+     * New recovery email address; may be empty.
      */
     protected string $newRecoveryEmailAddress;
 
@@ -57,9 +47,9 @@ class SetPassword extends TdFunction
         bool $setRecoveryEmailAddress,
         string $newRecoveryEmailAddress
     ) {
-        $this->oldPassword = $oldPassword;
-        $this->newPassword = $newPassword;
-        $this->newHint = $newHint;
+        $this->oldPassword             = $oldPassword;
+        $this->newPassword             = $newPassword;
+        $this->newHint                 = $newHint;
         $this->setRecoveryEmailAddress = $setRecoveryEmailAddress;
         $this->newRecoveryEmailAddress = $newRecoveryEmailAddress;
     }
@@ -78,10 +68,10 @@ class SetPassword extends TdFunction
     public function typeSerialize(): array
     {
         return [
-            '@type' => static::TYPE_NAME,
-            'old_password' => $this->oldPassword,
-            'new_password' => $this->newPassword,
-            'new_hint' => $this->newHint,
+            '@type'                      => static::TYPE_NAME,
+            'old_password'               => $this->oldPassword,
+            'new_password'               => $this->newPassword,
+            'new_hint'                   => $this->newHint,
             'set_recovery_email_address' => $this->setRecoveryEmailAddress,
             'new_recovery_email_address' => $this->newRecoveryEmailAddress,
         ];

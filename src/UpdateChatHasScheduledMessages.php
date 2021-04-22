@@ -9,23 +9,19 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * A chat's has_scheduled_messages field has changed
+ * A chat's has_scheduled_messages field has changed.
  */
 class UpdateChatHasScheduledMessages extends Update
 {
     public const TYPE_NAME = 'updateChatHasScheduledMessages';
 
     /**
-     * Chat identifier
-     *
-     * @var int
+     * Chat identifier.
      */
     protected int $chatId;
 
     /**
-     * New value of has_scheduled_messages
-     *
-     * @var bool
+     * New value of has_scheduled_messages.
      */
     protected bool $hasScheduledMessages;
 
@@ -33,7 +29,7 @@ class UpdateChatHasScheduledMessages extends Update
     {
         parent::__construct();
 
-        $this->chatId = $chatId;
+        $this->chatId               = $chatId;
         $this->hasScheduledMessages = $hasScheduledMessages;
     }
 
@@ -48,8 +44,8 @@ class UpdateChatHasScheduledMessages extends Update
     public function typeSerialize(): array
     {
         return [
-            '@type' => static::TYPE_NAME,
-            'chat_id' => $this->chatId,
+            '@type'                  => static::TYPE_NAME,
+            'chat_id'                => $this->chatId,
             'has_scheduled_messages' => $this->hasScheduledMessages,
         ];
     }

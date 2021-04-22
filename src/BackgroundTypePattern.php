@@ -9,30 +9,24 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * A PNG or TGV (gzipped subset of SVG with MIME type "application/x-tgwallpattern") pattern to be combined with the background fill chosen by the user
+ * A PNG or TGV (gzipped subset of SVG with MIME type "application/x-tgwallpattern") pattern to be combined with the background fill chosen by the user.
  */
 class BackgroundTypePattern extends BackgroundType
 {
     public const TYPE_NAME = 'backgroundTypePattern';
 
     /**
-     * Description of the background fill
-     *
-     * @var BackgroundFill
+     * Description of the background fill.
      */
     protected BackgroundFill $fill;
 
     /**
-     * Intensity of the pattern when it is shown above the filled background, 0-100
-     *
-     * @var int
+     * Intensity of the pattern when it is shown above the filled background, 0-100.
      */
     protected int $intensity;
 
     /**
-     * True, if the background needs to be slightly moved when device is tilted
-     *
-     * @var bool
+     * True, if the background needs to be slightly moved when device is tilted.
      */
     protected bool $isMoving;
 
@@ -40,9 +34,9 @@ class BackgroundTypePattern extends BackgroundType
     {
         parent::__construct();
 
-        $this->fill = $fill;
+        $this->fill      = $fill;
         $this->intensity = $intensity;
-        $this->isMoving = $isMoving;
+        $this->isMoving  = $isMoving;
     }
 
     public static function fromArray(array $array): BackgroundTypePattern
@@ -57,8 +51,8 @@ class BackgroundTypePattern extends BackgroundType
     public function typeSerialize(): array
     {
         return [
-            '@type' => static::TYPE_NAME,
-            'fill' => $this->fill->typeSerialize(),
+            '@type'     => static::TYPE_NAME,
+            'fill'      => $this->fill->typeSerialize(),
             'intensity' => $this->intensity,
             'is_moving' => $this->isMoving,
         ];

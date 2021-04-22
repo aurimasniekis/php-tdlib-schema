@@ -9,7 +9,7 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Returns the current state of 2-step verification
+ * Returns the current state of 2-step verification.
  */
 class GetPasswordState extends TdFunction
 {

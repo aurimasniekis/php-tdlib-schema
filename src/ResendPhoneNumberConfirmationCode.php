@@ -9,7 +9,7 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Resends phone number confirmation code
+ * Resends phone number confirmation code.
  */
 class ResendPhoneNumberConfirmationCode extends TdFunction
 {

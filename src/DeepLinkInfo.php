@@ -9,29 +9,25 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Contains information about a tg:// deep link
+ * Contains information about a tg:// deep link.
  */
 class DeepLinkInfo extends TdObject
 {
     public const TYPE_NAME = 'deepLinkInfo';
 
     /**
-     * Text to be shown to the user
-     *
-     * @var FormattedText
+     * Text to be shown to the user.
      */
     protected FormattedText $text;
 
     /**
-     * True, if user should be asked to update the application
-     *
-     * @var bool
+     * True, if user should be asked to update the application.
      */
     protected bool $needUpdateApplication;
 
     public function __construct(FormattedText $text, bool $needUpdateApplication)
     {
-        $this->text = $text;
+        $this->text                  = $text;
         $this->needUpdateApplication = $needUpdateApplication;
     }
 
@@ -46,8 +42,8 @@ class DeepLinkInfo extends TdObject
     public function typeSerialize(): array
     {
         return [
-            '@type' => static::TYPE_NAME,
-            'text' => $this->text->typeSerialize(),
+            '@type'                   => static::TYPE_NAME,
+            'text'                    => $this->text->typeSerialize(),
             'need_update_application' => $this->needUpdateApplication,
         ];
     }

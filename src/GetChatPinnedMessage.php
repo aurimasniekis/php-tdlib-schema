@@ -9,16 +9,14 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Returns information about a newest pinned message in the chat
+ * Returns information about a newest pinned message in the chat.
  */
 class GetChatPinnedMessage extends TdFunction
 {
     public const TYPE_NAME = 'getChatPinnedMessage';
 
     /**
-     * Identifier of the chat the message belongs to
-     *
-     * @var int
+     * Identifier of the chat the message belongs to.
      */
     protected int $chatId;
 
@@ -37,7 +35,7 @@ class GetChatPinnedMessage extends TdFunction
     public function typeSerialize(): array
     {
         return [
-            '@type' => static::TYPE_NAME,
+            '@type'   => static::TYPE_NAME,
             'chat_id' => $this->chatId,
         ];
     }

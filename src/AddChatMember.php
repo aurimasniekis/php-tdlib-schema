@@ -9,37 +9,31 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Adds a new member to a chat. Members can't be added to private or secret chats. Members will not be added until the chat state has been synchronized with the server
+ * Adds a new member to a chat. Members can't be added to private or secret chats. Members will not be added until the chat state has been synchronized with the server.
  */
 class AddChatMember extends TdFunction
 {
     public const TYPE_NAME = 'addChatMember';
 
     /**
-     * Chat identifier
-     *
-     * @var int
+     * Chat identifier.
      */
     protected int $chatId;
 
     /**
-     * Identifier of the user
-     *
-     * @var int
+     * Identifier of the user.
      */
     protected int $userId;
 
     /**
-     * The number of earlier messages from the chat to be forwarded to the new member; up to 100. Ignored for supergroups and channels
-     *
-     * @var int
+     * The number of earlier messages from the chat to be forwarded to the new member; up to 100. Ignored for supergroups and channels.
      */
     protected int $forwardLimit;
 
     public function __construct(int $chatId, int $userId, int $forwardLimit)
     {
-        $this->chatId = $chatId;
-        $this->userId = $userId;
+        $this->chatId       = $chatId;
+        $this->userId       = $userId;
         $this->forwardLimit = $forwardLimit;
     }
 
@@ -55,9 +49,9 @@ class AddChatMember extends TdFunction
     public function typeSerialize(): array
     {
         return [
-            '@type' => static::TYPE_NAME,
-            'chat_id' => $this->chatId,
-            'user_id' => $this->userId,
+            '@type'         => static::TYPE_NAME,
+            'chat_id'       => $this->chatId,
+            'user_id'       => $this->userId,
             'forward_limit' => $this->forwardLimit,
         ];
     }

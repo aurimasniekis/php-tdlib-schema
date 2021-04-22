@@ -9,16 +9,14 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * A page cover
+ * A page cover.
  */
 class PageBlockCover extends PageBlock
 {
     public const TYPE_NAME = 'pageBlockCover';
 
     /**
-     * Cover
-     *
-     * @var PageBlock
+     * Cover.
      */
     protected PageBlock $cover;
 

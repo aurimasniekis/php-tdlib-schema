@@ -9,23 +9,19 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * The author and publishing date of a page
+ * The author and publishing date of a page.
  */
 class PageBlockAuthorDate extends PageBlock
 {
     public const TYPE_NAME = 'pageBlockAuthorDate';
 
     /**
-     * Author
-     *
-     * @var RichText
+     * Author.
      */
     protected RichText $author;
 
     /**
-     * Point in time (Unix timestamp) when the article was published; 0 if unknown
-     *
-     * @var int
+     * Point in time (Unix timestamp) when the article was published; 0 if unknown.
      */
     protected int $publishDate;
 
@@ -33,7 +29,7 @@ class PageBlockAuthorDate extends PageBlock
     {
         parent::__construct();
 
-        $this->author = $author;
+        $this->author      = $author;
         $this->publishDate = $publishDate;
     }
 
@@ -48,8 +44,8 @@ class PageBlockAuthorDate extends PageBlock
     public function typeSerialize(): array
     {
         return [
-            '@type' => static::TYPE_NAME,
-            'author' => $this->author->typeSerialize(),
+            '@type'        => static::TYPE_NAME,
+            'author'       => $this->author->typeSerialize(),
             'publish_date' => $this->publishDate,
         ];
     }

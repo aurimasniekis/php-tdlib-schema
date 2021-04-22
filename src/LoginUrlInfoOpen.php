@@ -9,23 +9,19 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * An HTTP url needs to be open
+ * An HTTP url needs to be open.
  */
 class LoginUrlInfoOpen extends LoginUrlInfo
 {
     public const TYPE_NAME = 'loginUrlInfoOpen';
 
     /**
-     * The URL to open
-     *
-     * @var string
+     * The URL to open.
      */
     protected string $url;
 
     /**
-     * True, if there is no need to show an ordinary open URL confirm
-     *
-     * @var bool
+     * True, if there is no need to show an ordinary open URL confirm.
      */
     protected bool $skipConfirm;
 
@@ -33,7 +29,7 @@ class LoginUrlInfoOpen extends LoginUrlInfo
     {
         parent::__construct();
 
-        $this->url = $url;
+        $this->url         = $url;
         $this->skipConfirm = $skipConfirm;
     }
 
@@ -48,8 +44,8 @@ class LoginUrlInfoOpen extends LoginUrlInfo
     public function typeSerialize(): array
     {
         return [
-            '@type' => static::TYPE_NAME,
-            'url' => $this->url,
+            '@type'        => static::TYPE_NAME,
+            'url'          => $this->url,
             'skip_confirm' => $this->skipConfirm,
         ];
     }

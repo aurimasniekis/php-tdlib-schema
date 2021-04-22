@@ -9,29 +9,25 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Describes a chat located nearby
+ * Describes a chat located nearby.
  */
 class ChatNearby extends TdObject
 {
     public const TYPE_NAME = 'chatNearby';
 
     /**
-     * Chat identifier
-     *
-     * @var int
+     * Chat identifier.
      */
     protected int $chatId;
 
     /**
-     * Distance to the chat location, in meters
-     *
-     * @var int
+     * Distance to the chat location, in meters.
      */
     protected int $distance;
 
     public function __construct(int $chatId, int $distance)
     {
-        $this->chatId = $chatId;
+        $this->chatId   = $chatId;
         $this->distance = $distance;
     }
 
@@ -46,8 +42,8 @@ class ChatNearby extends TdObject
     public function typeSerialize(): array
     {
         return [
-            '@type' => static::TYPE_NAME,
-            'chat_id' => $this->chatId,
+            '@type'    => static::TYPE_NAME,
+            'chat_id'  => $this->chatId,
             'distance' => $this->distance,
         ];
     }

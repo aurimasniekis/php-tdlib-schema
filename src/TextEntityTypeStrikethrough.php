@@ -9,7 +9,7 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * A strikethrough text
+ * A strikethrough text.
  */
 class TextEntityTypeStrikethrough extends TextEntityType
 {

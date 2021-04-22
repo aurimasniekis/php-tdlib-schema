@@ -9,44 +9,34 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * A bot (see https://core.telegram.org/bots)
+ * A bot (see https://core.telegram.org/bots).
  */
 class UserTypeBot extends UserType
 {
     public const TYPE_NAME = 'userTypeBot';
 
     /**
-     * True, if the bot can be invited to basic group and supergroup chats
-     *
-     * @var bool
+     * True, if the bot can be invited to basic group and supergroup chats.
      */
     protected bool $canJoinGroups;
 
     /**
-     * True, if the bot can read all messages in basic group or supergroup chats and not just those addressed to the bot. In private and channel chats a bot can always read all messages
-     *
-     * @var bool
+     * True, if the bot can read all messages in basic group or supergroup chats and not just those addressed to the bot. In private and channel chats a bot can always read all messages.
      */
     protected bool $canReadAllGroupMessages;
 
     /**
-     * True, if the bot supports inline queries
-     *
-     * @var bool
+     * True, if the bot supports inline queries.
      */
     protected bool $isInline;
 
     /**
-     * Placeholder for inline queries (displayed on the application input field)
-     *
-     * @var string
+     * Placeholder for inline queries (displayed on the application input field).
      */
     protected string $inlineQueryPlaceholder;
 
     /**
-     * True, if the location of the user should be sent with every inline query to this bot
-     *
-     * @var bool
+     * True, if the location of the user should be sent with every inline query to this bot.
      */
     protected bool $needLocation;
 
@@ -59,11 +49,11 @@ class UserTypeBot extends UserType
     ) {
         parent::__construct();
 
-        $this->canJoinGroups = $canJoinGroups;
+        $this->canJoinGroups           = $canJoinGroups;
         $this->canReadAllGroupMessages = $canReadAllGroupMessages;
-        $this->isInline = $isInline;
-        $this->inlineQueryPlaceholder = $inlineQueryPlaceholder;
-        $this->needLocation = $needLocation;
+        $this->isInline                = $isInline;
+        $this->inlineQueryPlaceholder  = $inlineQueryPlaceholder;
+        $this->needLocation            = $needLocation;
     }
 
     public static function fromArray(array $array): UserTypeBot
@@ -80,12 +70,12 @@ class UserTypeBot extends UserType
     public function typeSerialize(): array
     {
         return [
-            '@type' => static::TYPE_NAME,
-            'can_join_groups' => $this->canJoinGroups,
+            '@type'                       => static::TYPE_NAME,
+            'can_join_groups'             => $this->canJoinGroups,
             'can_read_all_group_messages' => $this->canReadAllGroupMessages,
-            'is_inline' => $this->isInline,
-            'inline_query_placeholder' => $this->inlineQueryPlaceholder,
-            'need_location' => $this->needLocation,
+            'is_inline'                   => $this->isInline,
+            'inline_query_placeholder'    => $this->inlineQueryPlaceholder,
+            'need_location'               => $this->needLocation,
         ];
     }
 

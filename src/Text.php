@@ -9,16 +9,14 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Contains some text
+ * Contains some text.
  */
 class Text extends TdObject
 {
     public const TYPE_NAME = 'text';
 
     /**
-     * Text
-     *
-     * @var string
+     * Text.
      */
     protected string $text;
 
@@ -38,7 +36,7 @@ class Text extends TdObject
     {
         return [
             '@type' => static::TYPE_NAME,
-            'text' => $this->text,
+            'text'  => $this->text,
         ];
     }
 

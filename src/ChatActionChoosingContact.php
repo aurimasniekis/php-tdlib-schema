@@ -9,7 +9,7 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * The user is picking a contact to send
+ * The user is picking a contact to send.
  */
 class ChatActionChoosingContact extends ChatAction
 {

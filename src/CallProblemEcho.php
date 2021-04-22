@@ -9,7 +9,7 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * The user heard their own voice
+ * The user heard their own voice.
  */
 class CallProblemEcho extends CallProblem
 {

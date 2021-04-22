@@ -9,38 +9,32 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Contains Telegram terms of service
+ * Contains Telegram terms of service.
  */
 class TermsOfService extends TdObject
 {
     public const TYPE_NAME = 'termsOfService';
 
     /**
-     * Text of the terms of service
-     *
-     * @var FormattedText
+     * Text of the terms of service.
      */
     protected FormattedText $text;
 
     /**
-     * The minimum age of a user to be able to accept the terms; 0 if any
-     *
-     * @var int
+     * The minimum age of a user to be able to accept the terms; 0 if any.
      */
     protected int $minUserAge;
 
     /**
-     * True, if a blocking popup with terms of service must be shown to the user
-     *
-     * @var bool
+     * True, if a blocking popup with terms of service must be shown to the user.
      */
     protected bool $showPopup;
 
     public function __construct(FormattedText $text, int $minUserAge, bool $showPopup)
     {
-        $this->text = $text;
+        $this->text       = $text;
         $this->minUserAge = $minUserAge;
-        $this->showPopup = $showPopup;
+        $this->showPopup  = $showPopup;
     }
 
     public static function fromArray(array $array): TermsOfService
@@ -55,10 +49,10 @@ class TermsOfService extends TdObject
     public function typeSerialize(): array
     {
         return [
-            '@type' => static::TYPE_NAME,
-            'text' => $this->text->typeSerialize(),
+            '@type'        => static::TYPE_NAME,
+            'text'         => $this->text->typeSerialize(),
             'min_user_age' => $this->minUserAge,
-            'show_popup' => $this->showPopup,
+            'show_popup'   => $this->showPopup,
         ];
     }
 

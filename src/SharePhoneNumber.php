@@ -9,16 +9,14 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Shares the phone number of the current user with a mutual contact. Supposed to be called when the user clicks on chatActionBarSharePhoneNumber
+ * Shares the phone number of the current user with a mutual contact. Supposed to be called when the user clicks on chatActionBarSharePhoneNumber.
  */
 class SharePhoneNumber extends TdFunction
 {
     public const TYPE_NAME = 'sharePhoneNumber';
 
     /**
-     * Identifier of the user with whom to share the phone number. The user must be a mutual contact
-     *
-     * @var int
+     * Identifier of the user with whom to share the phone number. The user must be a mutual contact.
      */
     protected int $userId;
 
@@ -37,7 +35,7 @@ class SharePhoneNumber extends TdFunction
     public function typeSerialize(): array
     {
         return [
-            '@type' => static::TYPE_NAME,
+            '@type'   => static::TYPE_NAME,
             'user_id' => $this->userId,
         ];
     }

@@ -9,30 +9,24 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * A small image inside the text
+ * A small image inside the text.
  */
 class RichTextIcon extends RichText
 {
     public const TYPE_NAME = 'richTextIcon';
 
     /**
-     * The image represented as a document. The image can be in GIF, JPEG or PNG format
-     *
-     * @var Document
+     * The image represented as a document. The image can be in GIF, JPEG or PNG format.
      */
     protected Document $document;
 
     /**
-     * Width of a bounding box in which the image should be shown; 0 if unknown
-     *
-     * @var int
+     * Width of a bounding box in which the image should be shown; 0 if unknown.
      */
     protected int $width;
 
     /**
-     * Height of a bounding box in which the image should be shown; 0 if unknown
-     *
-     * @var int
+     * Height of a bounding box in which the image should be shown; 0 if unknown.
      */
     protected int $height;
 
@@ -41,8 +35,8 @@ class RichTextIcon extends RichText
         parent::__construct();
 
         $this->document = $document;
-        $this->width = $width;
-        $this->height = $height;
+        $this->width    = $width;
+        $this->height   = $height;
     }
 
     public static function fromArray(array $array): RichTextIcon
@@ -57,10 +51,10 @@ class RichTextIcon extends RichText
     public function typeSerialize(): array
     {
         return [
-            '@type' => static::TYPE_NAME,
+            '@type'    => static::TYPE_NAME,
             'document' => $this->document->typeSerialize(),
-            'width' => $this->width,
-            'height' => $this->height,
+            'width'    => $this->width,
+            'height'   => $this->height,
         ];
     }
 

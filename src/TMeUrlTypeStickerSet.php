@@ -9,16 +9,14 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * A URL linking to a sticker set
+ * A URL linking to a sticker set.
  */
 class TMeUrlTypeStickerSet extends TMeUrlType
 {
     public const TYPE_NAME = 'tMeUrlTypeStickerSet';
 
     /**
-     * Identifier of the sticker set
-     *
-     * @var string
+     * Identifier of the sticker set.
      */
     protected string $stickerSetId;
 
@@ -39,7 +37,7 @@ class TMeUrlTypeStickerSet extends TMeUrlType
     public function typeSerialize(): array
     {
         return [
-            '@type' => static::TYPE_NAME,
+            '@type'          => static::TYPE_NAME,
             'sticker_set_id' => $this->stickerSetId,
         ];
     }

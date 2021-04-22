@@ -9,7 +9,7 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * The secret chat is ready to use
+ * The secret chat is ready to use.
  */
 class SecretChatStateReady extends SecretChatState
 {

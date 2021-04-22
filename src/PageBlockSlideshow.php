@@ -9,23 +9,21 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * A slideshow
+ * A slideshow.
  */
 class PageBlockSlideshow extends PageBlock
 {
     public const TYPE_NAME = 'pageBlockSlideshow';
 
     /**
-     * Slideshow item contents
+     * Slideshow item contents.
      *
      * @var PageBlock[]
      */
     protected array $pageBlocks;
 
     /**
-     * Block caption
-     *
-     * @var PageBlockCaption
+     * Block caption.
      */
     protected PageBlockCaption $caption;
 
@@ -34,13 +32,13 @@ class PageBlockSlideshow extends PageBlock
         parent::__construct();
 
         $this->pageBlocks = $pageBlocks;
-        $this->caption = $caption;
+        $this->caption    = $caption;
     }
 
     public static function fromArray(array $array): PageBlockSlideshow
     {
         return new static(
-            array_map(fn($x) => TdSchemaRegistry::fromArray($x), $array['page_blocks']),
+            array_map(fn ($x) => TdSchemaRegistry::fromArray($x), $array['page_blocks']),
             TdSchemaRegistry::fromArray($array['caption']),
         );
     }
@@ -48,9 +46,9 @@ class PageBlockSlideshow extends PageBlock
     public function typeSerialize(): array
     {
         return [
-            '@type' => static::TYPE_NAME,
-            array_map(fn($x) => $x->typeSerialize(), $this->pageBlocks),
-            'caption' => $this->caption->typeSerialize(),
+            '@type'           => static::TYPE_NAME,
+            array_map(fn ($x) => $x->typeSerialize(), $this->pageBlocks),
+            'caption'         => $this->caption->typeSerialize(),
         ];
     }
 

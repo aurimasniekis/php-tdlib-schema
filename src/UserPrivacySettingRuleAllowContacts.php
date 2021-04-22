@@ -9,7 +9,7 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * A rule to allow all of a user's contacts to do something
+ * A rule to allow all of a user's contacts to do something.
  */
 class UserPrivacySettingRuleAllowContacts extends UserPrivacySettingRule
 {

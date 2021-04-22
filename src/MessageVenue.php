@@ -9,16 +9,14 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * A message with information about a venue
+ * A message with information about a venue.
  */
 class MessageVenue extends MessageContent
 {
     public const TYPE_NAME = 'messageVenue';
 
     /**
-     * The venue description
-     *
-     * @var Venue
+     * The venue description.
      */
     protected Venue $venue;
 

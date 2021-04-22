@@ -9,16 +9,14 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * An authentication code is delivered via a phone call to the specified phone number
+ * An authentication code is delivered via a phone call to the specified phone number.
  */
 class AuthenticationCodeTypeCall extends AuthenticationCodeType
 {
     public const TYPE_NAME = 'authenticationCodeTypeCall';
 
     /**
-     * Length of the code
-     *
-     * @var int
+     * Length of the code.
      */
     protected int $length;
 
@@ -39,7 +37,7 @@ class AuthenticationCodeTypeCall extends AuthenticationCodeType
     public function typeSerialize(): array
     {
         return [
-            '@type' => static::TYPE_NAME,
+            '@type'  => static::TYPE_NAME,
             'length' => $this->length,
         ];
     }

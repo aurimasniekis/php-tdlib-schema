@@ -9,16 +9,14 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * A message with a poll
+ * A message with a poll.
  */
 class MessagePoll extends MessageContent
 {
     public const TYPE_NAME = 'messagePoll';
 
     /**
-     * The poll description
-     *
-     * @var Poll
+     * The poll description.
      */
     protected Poll $poll;
 
@@ -40,7 +38,7 @@ class MessagePoll extends MessageContent
     {
         return [
             '@type' => static::TYPE_NAME,
-            'poll' => $this->poll->typeSerialize(),
+            'poll'  => $this->poll->typeSerialize(),
         ];
     }
 

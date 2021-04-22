@@ -9,16 +9,14 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * A static photo in JPEG format
+ * A static photo in JPEG format.
  */
 class InputChatPhotoStatic extends InputChatPhoto
 {
     public const TYPE_NAME = 'inputChatPhotoStatic';
 
     /**
-     * Photo to be set as profile photo. Only inputFileLocal and inputFileGenerated are allowed
-     *
-     * @var InputFile
+     * Photo to be set as profile photo. Only inputFileLocal and inputFileGenerated are allowed.
      */
     protected InputFile $photo;
 

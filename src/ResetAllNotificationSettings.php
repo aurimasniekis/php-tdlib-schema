@@ -9,7 +9,7 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Resets all notification settings to their default values. By default, all chats are unmuted, the sound is set to "default" and message previews are shown
+ * Resets all notification settings to their default values. By default, all chats are unmuted, the sound is set to "default" and message previews are shown.
  */
 class ResetAllNotificationSettings extends TdFunction
 {

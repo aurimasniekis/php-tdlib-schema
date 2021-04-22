@@ -9,7 +9,7 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Represents the value of a string in a language pack
+ * Represents the value of a string in a language pack.
  */
 class LanguagePackStringValue extends TdObject
 {

@@ -9,7 +9,7 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * An HTTP URL
+ * An HTTP URL.
  */
 class TextEntityTypeUrl extends TextEntityType
 {

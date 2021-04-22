@@ -9,51 +9,39 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * A new incoming callback query; for bots only
+ * A new incoming callback query; for bots only.
  */
 class UpdateNewCallbackQuery extends Update
 {
     public const TYPE_NAME = 'updateNewCallbackQuery';
 
     /**
-     * Unique query identifier
-     *
-     * @var string
+     * Unique query identifier.
      */
     protected string $id;
 
     /**
-     * Identifier of the user who sent the query
-     *
-     * @var int
+     * Identifier of the user who sent the query.
      */
     protected int $senderUserId;
 
     /**
-     * Identifier of the chat where the query was sent
-     *
-     * @var int
+     * Identifier of the chat where the query was sent.
      */
     protected int $chatId;
 
     /**
-     * Identifier of the message, from which the query originated
-     *
-     * @var int
+     * Identifier of the message, from which the query originated.
      */
     protected int $messageId;
 
     /**
-     * Identifier that uniquely corresponds to the chat to which the message was sent
-     *
-     * @var string
+     * Identifier that uniquely corresponds to the chat to which the message was sent.
      */
     protected string $chatInstance;
 
     /**
-     * Query payload
-     *
-     * @var CallbackQueryPayload
+     * Query payload.
      */
     protected CallbackQueryPayload $payload;
 
@@ -67,12 +55,12 @@ class UpdateNewCallbackQuery extends Update
     ) {
         parent::__construct();
 
-        $this->id = $id;
+        $this->id           = $id;
         $this->senderUserId = $senderUserId;
-        $this->chatId = $chatId;
-        $this->messageId = $messageId;
+        $this->chatId       = $chatId;
+        $this->messageId    = $messageId;
         $this->chatInstance = $chatInstance;
-        $this->payload = $payload;
+        $this->payload      = $payload;
     }
 
     public static function fromArray(array $array): UpdateNewCallbackQuery
@@ -90,13 +78,13 @@ class UpdateNewCallbackQuery extends Update
     public function typeSerialize(): array
     {
         return [
-            '@type' => static::TYPE_NAME,
-            'id' => $this->id,
+            '@type'          => static::TYPE_NAME,
+            'id'             => $this->id,
             'sender_user_id' => $this->senderUserId,
-            'chat_id' => $this->chatId,
-            'message_id' => $this->messageId,
-            'chat_instance' => $this->chatInstance,
-            'payload' => $this->payload->typeSerialize(),
+            'chat_id'        => $this->chatId,
+            'message_id'     => $this->messageId,
+            'chat_instance'  => $this->chatInstance,
+            'payload'        => $this->payload->typeSerialize(),
         ];
     }
 

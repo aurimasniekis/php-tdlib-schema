@@ -9,16 +9,14 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * A token for Windows Push Notification Services
+ * A token for Windows Push Notification Services.
  */
 class DeviceTokenWindowsPush extends DeviceToken
 {
     public const TYPE_NAME = 'deviceTokenWindowsPush';
 
     /**
-     * The access token that will be used to send notifications; may be empty to de-register a device
-     *
-     * @var string
+     * The access token that will be used to send notifications; may be empty to de-register a device.
      */
     protected string $accessToken;
 
@@ -39,7 +37,7 @@ class DeviceTokenWindowsPush extends DeviceToken
     public function typeSerialize(): array
     {
         return [
-            '@type' => static::TYPE_NAME,
+            '@type'        => static::TYPE_NAME,
             'access_token' => $this->accessToken,
         ];
     }

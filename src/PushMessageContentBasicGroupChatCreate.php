@@ -9,7 +9,7 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * A newly created basic group
+ * A newly created basic group.
  */
 class PushMessageContentBasicGroupChatCreate extends PushMessageContent
 {

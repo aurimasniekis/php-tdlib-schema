@@ -9,7 +9,7 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * New secret chat was created
+ * New secret chat was created.
  */
 class NotificationTypeNewSecretChat extends NotificationType
 {

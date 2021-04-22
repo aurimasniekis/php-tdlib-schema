@@ -9,16 +9,14 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Some data of a secret chat has changed. This update is guaranteed to come before the secret chat identifier is returned to the application
+ * Some data of a secret chat has changed. This update is guaranteed to come before the secret chat identifier is returned to the application.
  */
 class UpdateSecretChat extends Update
 {
     public const TYPE_NAME = 'updateSecretChat';
 
     /**
-     * New data about the secret chat
-     *
-     * @var SecretChat
+     * New data about the secret chat.
      */
     protected SecretChat $secretChat;
 
@@ -39,7 +37,7 @@ class UpdateSecretChat extends Update
     public function typeSerialize(): array
     {
         return [
-            '@type' => static::TYPE_NAME,
+            '@type'       => static::TYPE_NAME,
             'secret_chat' => $this->secretChat->typeSerialize(),
         ];
     }

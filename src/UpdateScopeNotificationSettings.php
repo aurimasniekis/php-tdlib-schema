@@ -9,23 +9,19 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Notification settings for some type of chats were updated
+ * Notification settings for some type of chats were updated.
  */
 class UpdateScopeNotificationSettings extends Update
 {
     public const TYPE_NAME = 'updateScopeNotificationSettings';
 
     /**
-     * Types of chats for which notification settings were updated
-     *
-     * @var NotificationSettingsScope
+     * Types of chats for which notification settings were updated.
      */
     protected NotificationSettingsScope $scope;
 
     /**
-     * The new notification settings
-     *
-     * @var ScopeNotificationSettings
+     * The new notification settings.
      */
     protected ScopeNotificationSettings $notificationSettings;
 
@@ -33,7 +29,7 @@ class UpdateScopeNotificationSettings extends Update
     {
         parent::__construct();
 
-        $this->scope = $scope;
+        $this->scope                = $scope;
         $this->notificationSettings = $notificationSettings;
     }
 
@@ -48,8 +44,8 @@ class UpdateScopeNotificationSettings extends Update
     public function typeSerialize(): array
     {
         return [
-            '@type' => static::TYPE_NAME,
-            'scope' => $this->scope->typeSerialize(),
+            '@type'                 => static::TYPE_NAME,
+            'scope'                 => $this->scope->typeSerialize(),
             'notification_settings' => $this->notificationSettings->typeSerialize(),
         ];
     }

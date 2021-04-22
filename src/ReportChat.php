@@ -9,28 +9,24 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Reports a chat to the Telegram moderators. A chat can be reported only from the chat action bar, or if this is a private chats with a bot, a private chat with a user sharing their location, a supergroup, or a channel, since other chats can't be checked by moderators
+ * Reports a chat to the Telegram moderators. A chat can be reported only from the chat action bar, or if this is a private chats with a bot, a private chat with a user sharing their location, a supergroup, or a channel, since other chats can't be checked by moderators.
  */
 class ReportChat extends TdFunction
 {
     public const TYPE_NAME = 'reportChat';
 
     /**
-     * Chat identifier
-     *
-     * @var int
+     * Chat identifier.
      */
     protected int $chatId;
 
     /**
-     * The reason for reporting the chat
-     *
-     * @var ChatReportReason
+     * The reason for reporting the chat.
      */
     protected ChatReportReason $reason;
 
     /**
-     * Identifiers of reported messages, if any
+     * Identifiers of reported messages, if any.
      *
      * @var int[]
      */
@@ -38,8 +34,8 @@ class ReportChat extends TdFunction
 
     public function __construct(int $chatId, ChatReportReason $reason, array $messageIds)
     {
-        $this->chatId = $chatId;
-        $this->reason = $reason;
+        $this->chatId     = $chatId;
+        $this->reason     = $reason;
         $this->messageIds = $messageIds;
     }
 
@@ -55,9 +51,9 @@ class ReportChat extends TdFunction
     public function typeSerialize(): array
     {
         return [
-            '@type' => static::TYPE_NAME,
-            'chat_id' => $this->chatId,
-            'reason' => $this->reason->typeSerialize(),
+            '@type'       => static::TYPE_NAME,
+            'chat_id'     => $this->chatId,
+            'reason'      => $this->reason->typeSerialize(),
             'message_ids' => $this->messageIds,
         ];
     }

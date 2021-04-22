@@ -9,30 +9,26 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Edits existing chat filter. Returns information about the edited chat filter
+ * Edits existing chat filter. Returns information about the edited chat filter.
  */
 class EditChatFilter extends TdFunction
 {
     public const TYPE_NAME = 'editChatFilter';
 
     /**
-     * Chat filter identifier
-     *
-     * @var int
+     * Chat filter identifier.
      */
     protected int $chatFilterId;
 
     /**
-     * The edited chat filter
-     *
-     * @var ChatFilter
+     * The edited chat filter.
      */
     protected ChatFilter $filter;
 
     public function __construct(int $chatFilterId, ChatFilter $filter)
     {
         $this->chatFilterId = $chatFilterId;
-        $this->filter = $filter;
+        $this->filter       = $filter;
     }
 
     public static function fromArray(array $array): EditChatFilter
@@ -46,9 +42,9 @@ class EditChatFilter extends TdFunction
     public function typeSerialize(): array
     {
         return [
-            '@type' => static::TYPE_NAME,
+            '@type'          => static::TYPE_NAME,
             'chat_filter_id' => $this->chatFilterId,
-            'filter' => $this->filter->typeSerialize(),
+            'filter'         => $this->filter->typeSerialize(),
         ];
     }
 

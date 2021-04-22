@@ -9,7 +9,7 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * The user is offline, but was online last week
+ * The user is offline, but was online last week.
  */
 class UserStatusLastWeek extends UserStatus
 {

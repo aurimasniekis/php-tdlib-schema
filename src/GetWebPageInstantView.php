@@ -9,29 +9,25 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Returns an instant view version of a web page if available. Returns a 404 error if the web page has no instant view page
+ * Returns an instant view version of a web page if available. Returns a 404 error if the web page has no instant view page.
  */
 class GetWebPageInstantView extends TdFunction
 {
     public const TYPE_NAME = 'getWebPageInstantView';
 
     /**
-     * The web page URL
-     *
-     * @var string
+     * The web page URL.
      */
     protected string $url;
 
     /**
-     * If true, the full instant view for the web page will be returned
-     *
-     * @var bool
+     * If true, the full instant view for the web page will be returned.
      */
     protected bool $forceFull;
 
     public function __construct(string $url, bool $forceFull)
     {
-        $this->url = $url;
+        $this->url       = $url;
         $this->forceFull = $forceFull;
     }
 
@@ -46,8 +42,8 @@ class GetWebPageInstantView extends TdFunction
     public function typeSerialize(): array
     {
         return [
-            '@type' => static::TYPE_NAME,
-            'url' => $this->url,
+            '@type'      => static::TYPE_NAME,
+            'url'        => $this->url,
             'force_full' => $this->forceFull,
         ];
     }

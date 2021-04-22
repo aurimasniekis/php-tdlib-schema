@@ -9,30 +9,24 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * A chat member was restricted/unrestricted or banned/unbanned, or the list of their restrictions has changed
+ * A chat member was restricted/unrestricted or banned/unbanned, or the list of their restrictions has changed.
  */
 class ChatEventMemberRestricted extends ChatEventAction
 {
     public const TYPE_NAME = 'chatEventMemberRestricted';
 
     /**
-     * Chat member user identifier
-     *
-     * @var int
+     * Chat member user identifier.
      */
     protected int $userId;
 
     /**
-     * Previous status of the chat member
-     *
-     * @var ChatMemberStatus
+     * Previous status of the chat member.
      */
     protected ChatMemberStatus $oldStatus;
 
     /**
-     * New status of the chat member
-     *
-     * @var ChatMemberStatus
+     * New status of the chat member.
      */
     protected ChatMemberStatus $newStatus;
 
@@ -40,7 +34,7 @@ class ChatEventMemberRestricted extends ChatEventAction
     {
         parent::__construct();
 
-        $this->userId = $userId;
+        $this->userId    = $userId;
         $this->oldStatus = $oldStatus;
         $this->newStatus = $newStatus;
     }
@@ -57,8 +51,8 @@ class ChatEventMemberRestricted extends ChatEventAction
     public function typeSerialize(): array
     {
         return [
-            '@type' => static::TYPE_NAME,
-            'user_id' => $this->userId,
+            '@type'      => static::TYPE_NAME,
+            'user_id'    => $this->userId,
             'old_status' => $this->oldStatus->typeSerialize(),
             'new_status' => $this->newStatus->typeSerialize(),
         ];

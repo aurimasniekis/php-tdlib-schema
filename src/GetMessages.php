@@ -9,21 +9,19 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Returns information about messages. If a message is not found, returns null on the corresponding position of the result
+ * Returns information about messages. If a message is not found, returns null on the corresponding position of the result.
  */
 class GetMessages extends TdFunction
 {
     public const TYPE_NAME = 'getMessages';
 
     /**
-     * Identifier of the chat the messages belong to
-     *
-     * @var int
+     * Identifier of the chat the messages belong to.
      */
     protected int $chatId;
 
     /**
-     * Identifiers of the messages to get
+     * Identifiers of the messages to get.
      *
      * @var int[]
      */
@@ -31,7 +29,7 @@ class GetMessages extends TdFunction
 
     public function __construct(int $chatId, array $messageIds)
     {
-        $this->chatId = $chatId;
+        $this->chatId     = $chatId;
         $this->messageIds = $messageIds;
     }
 
@@ -46,8 +44,8 @@ class GetMessages extends TdFunction
     public function typeSerialize(): array
     {
         return [
-            '@type' => static::TYPE_NAME,
-            'chat_id' => $this->chatId,
+            '@type'       => static::TYPE_NAME,
+            'chat_id'     => $this->chatId,
             'message_ids' => $this->messageIds,
         ];
     }

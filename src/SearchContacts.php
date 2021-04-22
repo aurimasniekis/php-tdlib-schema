@@ -9,23 +9,19 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Searches for the specified query in the first names, last names and usernames of the known user contacts
+ * Searches for the specified query in the first names, last names and usernames of the known user contacts.
  */
 class SearchContacts extends TdFunction
 {
     public const TYPE_NAME = 'searchContacts';
 
     /**
-     * Query to search for; may be empty to return all contacts
-     *
-     * @var string
+     * Query to search for; may be empty to return all contacts.
      */
     protected string $query;
 
     /**
-     * The maximum number of users to be returned
-     *
-     * @var int
+     * The maximum number of users to be returned.
      */
     protected int $limit;
 

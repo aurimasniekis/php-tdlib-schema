@@ -9,7 +9,7 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Describes a block of an instant view web page
+ * Describes a block of an instant view web page.
  */
 class PageBlock extends TdObject
 {

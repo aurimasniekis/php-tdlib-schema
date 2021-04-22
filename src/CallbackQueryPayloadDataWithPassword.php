@@ -9,23 +9,19 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * The payload for a callback button requiring password
+ * The payload for a callback button requiring password.
  */
 class CallbackQueryPayloadDataWithPassword extends CallbackQueryPayload
 {
     public const TYPE_NAME = 'callbackQueryPayloadDataWithPassword';
 
     /**
-     * The password for the current user
-     *
-     * @var string
+     * The password for the current user.
      */
     protected string $password;
 
     /**
-     * Data that was attached to the callback button
-     *
-     * @var string
+     * Data that was attached to the callback button.
      */
     protected string $data;
 
@@ -34,7 +30,7 @@ class CallbackQueryPayloadDataWithPassword extends CallbackQueryPayload
         parent::__construct();
 
         $this->password = $password;
-        $this->data = $data;
+        $this->data     = $data;
     }
 
     public static function fromArray(array $array): CallbackQueryPayloadDataWithPassword
@@ -48,9 +44,9 @@ class CallbackQueryPayloadDataWithPassword extends CallbackQueryPayload
     public function typeSerialize(): array
     {
         return [
-            '@type' => static::TYPE_NAME,
+            '@type'    => static::TYPE_NAME,
             'password' => $this->password,
-            'data' => $this->data,
+            'data'     => $this->data,
         ];
     }
 

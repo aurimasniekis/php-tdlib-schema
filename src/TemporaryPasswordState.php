@@ -9,30 +9,26 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Returns information about the availability of a temporary password, which can be used for payments
+ * Returns information about the availability of a temporary password, which can be used for payments.
  */
 class TemporaryPasswordState extends TdObject
 {
     public const TYPE_NAME = 'temporaryPasswordState';
 
     /**
-     * True, if a temporary password is available
-     *
-     * @var bool
+     * True, if a temporary password is available.
      */
     protected bool $hasPassword;
 
     /**
-     * Time left before the temporary password expires, in seconds
-     *
-     * @var int
+     * Time left before the temporary password expires, in seconds.
      */
     protected int $validFor;
 
     public function __construct(bool $hasPassword, int $validFor)
     {
         $this->hasPassword = $hasPassword;
-        $this->validFor = $validFor;
+        $this->validFor    = $validFor;
     }
 
     public static function fromArray(array $array): TemporaryPasswordState
@@ -46,9 +42,9 @@ class TemporaryPasswordState extends TdObject
     public function typeSerialize(): array
     {
         return [
-            '@type' => static::TYPE_NAME,
+            '@type'        => static::TYPE_NAME,
             'has_password' => $this->hasPassword,
-            'valid_for' => $this->validFor,
+            'valid_for'    => $this->validFor,
         ];
     }
 

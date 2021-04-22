@@ -9,7 +9,7 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Returns only photo and video messages
+ * Returns only photo and video messages.
  */
 class SearchMessagesFilterPhotoAndVideo extends SearchMessagesFilter
 {

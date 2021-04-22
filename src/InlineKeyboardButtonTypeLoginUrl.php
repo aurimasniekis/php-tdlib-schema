@@ -9,30 +9,24 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * A button that opens a specified URL and automatically logs in in current user if they allowed to do that
+ * A button that opens a specified URL and automatically logs in in current user if they allowed to do that.
  */
 class InlineKeyboardButtonTypeLoginUrl extends InlineKeyboardButtonType
 {
     public const TYPE_NAME = 'inlineKeyboardButtonTypeLoginUrl';
 
     /**
-     * An HTTP URL to open
-     *
-     * @var string
+     * An HTTP URL to open.
      */
     protected string $url;
 
     /**
-     * Unique button identifier
-     *
-     * @var int
+     * Unique button identifier.
      */
     protected int $id;
 
     /**
-     * If non-empty, new text of the button in forwarded messages
-     *
-     * @var string
+     * If non-empty, new text of the button in forwarded messages.
      */
     protected string $forwardText;
 
@@ -40,8 +34,8 @@ class InlineKeyboardButtonTypeLoginUrl extends InlineKeyboardButtonType
     {
         parent::__construct();
 
-        $this->url = $url;
-        $this->id = $id;
+        $this->url         = $url;
+        $this->id          = $id;
         $this->forwardText = $forwardText;
     }
 
@@ -57,9 +51,9 @@ class InlineKeyboardButtonTypeLoginUrl extends InlineKeyboardButtonType
     public function typeSerialize(): array
     {
         return [
-            '@type' => static::TYPE_NAME,
-            'url' => $this->url,
-            'id' => $this->id,
+            '@type'        => static::TYPE_NAME,
+            'url'          => $this->url,
+            'id'           => $this->id,
             'forward_text' => $this->forwardText,
         ];
     }

@@ -9,38 +9,32 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Returns detailed statistics about a message. Can be used only if Message.can_get_statistics == true
+ * Returns detailed statistics about a message. Can be used only if Message.can_get_statistics == true.
  */
 class GetMessageStatistics extends TdFunction
 {
     public const TYPE_NAME = 'getMessageStatistics';
 
     /**
-     * Chat identifier
-     *
-     * @var int
+     * Chat identifier.
      */
     protected int $chatId;
 
     /**
-     * Message identifier
-     *
-     * @var int
+     * Message identifier.
      */
     protected int $messageId;
 
     /**
-     * Pass true if a dark theme is used by the application
-     *
-     * @var bool
+     * Pass true if a dark theme is used by the application.
      */
     protected bool $isDark;
 
     public function __construct(int $chatId, int $messageId, bool $isDark)
     {
-        $this->chatId = $chatId;
+        $this->chatId    = $chatId;
         $this->messageId = $messageId;
-        $this->isDark = $isDark;
+        $this->isDark    = $isDark;
     }
 
     public static function fromArray(array $array): GetMessageStatistics
@@ -55,10 +49,10 @@ class GetMessageStatistics extends TdFunction
     public function typeSerialize(): array
     {
         return [
-            '@type' => static::TYPE_NAME,
-            'chat_id' => $this->chatId,
+            '@type'      => static::TYPE_NAME,
+            'chat_id'    => $this->chatId,
             'message_id' => $this->messageId,
-            'is_dark' => $this->isDark,
+            'is_dark'    => $this->isDark,
         ];
     }
 

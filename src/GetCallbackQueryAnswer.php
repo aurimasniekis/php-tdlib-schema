@@ -9,38 +9,32 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Sends a callback query to a bot and returns an answer. Returns an error with code 502 if the bot fails to answer the query before the query timeout expires
+ * Sends a callback query to a bot and returns an answer. Returns an error with code 502 if the bot fails to answer the query before the query timeout expires.
  */
 class GetCallbackQueryAnswer extends TdFunction
 {
     public const TYPE_NAME = 'getCallbackQueryAnswer';
 
     /**
-     * Identifier of the chat with the message
-     *
-     * @var int
+     * Identifier of the chat with the message.
      */
     protected int $chatId;
 
     /**
-     * Identifier of the message from which the query originated
-     *
-     * @var int
+     * Identifier of the message from which the query originated.
      */
     protected int $messageId;
 
     /**
-     * Query payload
-     *
-     * @var CallbackQueryPayload
+     * Query payload.
      */
     protected CallbackQueryPayload $payload;
 
     public function __construct(int $chatId, int $messageId, CallbackQueryPayload $payload)
     {
-        $this->chatId = $chatId;
+        $this->chatId    = $chatId;
         $this->messageId = $messageId;
-        $this->payload = $payload;
+        $this->payload   = $payload;
     }
 
     public static function fromArray(array $array): GetCallbackQueryAnswer
@@ -55,10 +49,10 @@ class GetCallbackQueryAnswer extends TdFunction
     public function typeSerialize(): array
     {
         return [
-            '@type' => static::TYPE_NAME,
-            'chat_id' => $this->chatId,
+            '@type'      => static::TYPE_NAME,
+            'chat_id'    => $this->chatId,
             'message_id' => $this->messageId,
-            'payload' => $this->payload->typeSerialize(),
+            'payload'    => $this->payload->typeSerialize(),
         ];
     }
 

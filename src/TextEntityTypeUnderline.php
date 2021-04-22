@@ -9,7 +9,7 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * An underlined text
+ * An underlined text.
  */
 class TextEntityTypeUnderline extends TextEntityType
 {

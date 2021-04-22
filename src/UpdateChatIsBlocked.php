@@ -9,23 +9,19 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * A chat was blocked or unblocked
+ * A chat was blocked or unblocked.
  */
 class UpdateChatIsBlocked extends Update
 {
     public const TYPE_NAME = 'updateChatIsBlocked';
 
     /**
-     * Chat identifier
-     *
-     * @var int
+     * Chat identifier.
      */
     protected int $chatId;
 
     /**
-     * New value of is_blocked
-     *
-     * @var bool
+     * New value of is_blocked.
      */
     protected bool $isBlocked;
 
@@ -33,7 +29,7 @@ class UpdateChatIsBlocked extends Update
     {
         parent::__construct();
 
-        $this->chatId = $chatId;
+        $this->chatId    = $chatId;
         $this->isBlocked = $isBlocked;
     }
 
@@ -48,8 +44,8 @@ class UpdateChatIsBlocked extends Update
     public function typeSerialize(): array
     {
         return [
-            '@type' => static::TYPE_NAME,
-            'chat_id' => $this->chatId,
+            '@type'      => static::TYPE_NAME,
+            'chat_id'    => $this->chatId,
             'is_blocked' => $this->isBlocked,
         ];
     }

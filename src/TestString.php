@@ -9,16 +9,14 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * A simple object containing a string; for testing only
+ * A simple object containing a string; for testing only.
  */
 class TestString extends TdObject
 {
     public const TYPE_NAME = 'testString';
 
     /**
-     * String
-     *
-     * @var string
+     * String.
      */
     protected string $value;
 

@@ -9,30 +9,24 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * A static sticker in PNG format, which will be converted to WEBP server-side
+ * A static sticker in PNG format, which will be converted to WEBP server-side.
  */
 class InputStickerStatic extends InputSticker
 {
     public const TYPE_NAME = 'inputStickerStatic';
 
     /**
-     * PNG image with the sticker; must be up to 512 KB in size and fit in a 512x512 square
-     *
-     * @var InputFile
+     * PNG image with the sticker; must be up to 512 KB in size and fit in a 512x512 square.
      */
     protected InputFile $sticker;
 
     /**
-     * Emojis corresponding to the sticker
-     *
-     * @var string
+     * Emojis corresponding to the sticker.
      */
     protected string $emojis;
 
     /**
-     * For masks, position where the mask should be placed; may be null
-     *
-     * @var MaskPosition|null
+     * For masks, position where the mask should be placed; may be null.
      */
     protected ?MaskPosition $maskPosition;
 
@@ -40,8 +34,8 @@ class InputStickerStatic extends InputSticker
     {
         parent::__construct();
 
-        $this->sticker = $sticker;
-        $this->emojis = $emojis;
+        $this->sticker      = $sticker;
+        $this->emojis       = $emojis;
         $this->maskPosition = $maskPosition;
     }
 
@@ -57,9 +51,9 @@ class InputStickerStatic extends InputSticker
     public function typeSerialize(): array
     {
         return [
-            '@type' => static::TYPE_NAME,
-            'sticker' => $this->sticker->typeSerialize(),
-            'emojis' => $this->emojis,
+            '@type'         => static::TYPE_NAME,
+            'sticker'       => $this->sticker->typeSerialize(),
+            'emojis'        => $this->emojis,
             'mask_position' => (isset($this->maskPosition) ? $this->maskPosition : null),
         ];
     }

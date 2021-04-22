@@ -9,23 +9,19 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Searches for stickers from public sticker sets that correspond to a given emoji
+ * Searches for stickers from public sticker sets that correspond to a given emoji.
  */
 class SearchStickers extends TdFunction
 {
     public const TYPE_NAME = 'searchStickers';
 
     /**
-     * String representation of emoji; must be non-empty
-     *
-     * @var string
+     * String representation of emoji; must be non-empty.
      */
     protected string $emoji;
 
     /**
-     * The maximum number of stickers to be returned
-     *
-     * @var int
+     * The maximum number of stickers to be returned.
      */
     protected int $limit;
 

@@ -9,51 +9,39 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Describes a chat background
+ * Describes a chat background.
  */
 class Background extends TdObject
 {
     public const TYPE_NAME = 'background';
 
     /**
-     * Unique background identifier
-     *
-     * @var string
+     * Unique background identifier.
      */
     protected string $id;
 
     /**
-     * True, if this is one of default backgrounds
-     *
-     * @var bool
+     * True, if this is one of default backgrounds.
      */
     protected bool $isDefault;
 
     /**
-     * True, if the background is dark and is recommended to be used with dark theme
-     *
-     * @var bool
+     * True, if the background is dark and is recommended to be used with dark theme.
      */
     protected bool $isDark;
 
     /**
-     * Unique background name
-     *
-     * @var string
+     * Unique background name.
      */
     protected string $name;
 
     /**
-     * Document with the background; may be null. Null only for filled backgrounds
-     *
-     * @var Document|null
+     * Document with the background; may be null. Null only for filled backgrounds.
      */
     protected ?Document $document;
 
     /**
-     * Type of the background
-     *
-     * @var BackgroundType
+     * Type of the background.
      */
     protected BackgroundType $type;
 
@@ -65,12 +53,12 @@ class Background extends TdObject
         ?Document $document,
         BackgroundType $type
     ) {
-        $this->id = $id;
+        $this->id        = $id;
         $this->isDefault = $isDefault;
-        $this->isDark = $isDark;
-        $this->name = $name;
-        $this->document = $document;
-        $this->type = $type;
+        $this->isDark    = $isDark;
+        $this->name      = $name;
+        $this->document  = $document;
+        $this->type      = $type;
     }
 
     public static function fromArray(array $array): Background
@@ -88,13 +76,13 @@ class Background extends TdObject
     public function typeSerialize(): array
     {
         return [
-            '@type' => static::TYPE_NAME,
-            'id' => $this->id,
+            '@type'      => static::TYPE_NAME,
+            'id'         => $this->id,
             'is_default' => $this->isDefault,
-            'is_dark' => $this->isDark,
-            'name' => $this->name,
-            'document' => (isset($this->document) ? $this->document : null),
-            'type' => $this->type->typeSerialize(),
+            'is_dark'    => $this->isDark,
+            'name'       => $this->name,
+            'document'   => (isset($this->document) ? $this->document : null),
+            'type'       => $this->type->typeSerialize(),
         ];
     }
 

@@ -9,7 +9,7 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Represents a null JSON value
+ * Represents a null JSON value.
  */
 class JsonValueNull extends JsonValue
 {

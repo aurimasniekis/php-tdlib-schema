@@ -9,65 +9,49 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * An embedded web page
+ * An embedded web page.
  */
 class PageBlockEmbedded extends PageBlock
 {
     public const TYPE_NAME = 'pageBlockEmbedded';
 
     /**
-     * Web page URL, if available
-     *
-     * @var string
+     * Web page URL, if available.
      */
     protected string $url;
 
     /**
-     * HTML-markup of the embedded page
-     *
-     * @var string
+     * HTML-markup of the embedded page.
      */
     protected string $html;
 
     /**
-     * Poster photo, if available; may be null
-     *
-     * @var Photo|null
+     * Poster photo, if available; may be null.
      */
     protected ?Photo $posterPhoto;
 
     /**
-     * Block width; 0 if unknown
-     *
-     * @var int
+     * Block width; 0 if unknown.
      */
     protected int $width;
 
     /**
-     * Block height; 0 if unknown
-     *
-     * @var int
+     * Block height; 0 if unknown.
      */
     protected int $height;
 
     /**
-     * Block caption
-     *
-     * @var PageBlockCaption
+     * Block caption.
      */
     protected PageBlockCaption $caption;
 
     /**
-     * True, if the block should be full width
-     *
-     * @var bool
+     * True, if the block should be full width.
      */
     protected bool $isFullWidth;
 
     /**
-     * True, if scrolling should be allowed
-     *
-     * @var bool
+     * True, if scrolling should be allowed.
      */
     protected bool $allowScrolling;
 
@@ -83,13 +67,13 @@ class PageBlockEmbedded extends PageBlock
     ) {
         parent::__construct();
 
-        $this->url = $url;
-        $this->html = $html;
-        $this->posterPhoto = $posterPhoto;
-        $this->width = $width;
-        $this->height = $height;
-        $this->caption = $caption;
-        $this->isFullWidth = $isFullWidth;
+        $this->url            = $url;
+        $this->html           = $html;
+        $this->posterPhoto    = $posterPhoto;
+        $this->width          = $width;
+        $this->height         = $height;
+        $this->caption        = $caption;
+        $this->isFullWidth    = $isFullWidth;
         $this->allowScrolling = $allowScrolling;
     }
 
@@ -110,14 +94,14 @@ class PageBlockEmbedded extends PageBlock
     public function typeSerialize(): array
     {
         return [
-            '@type' => static::TYPE_NAME,
-            'url' => $this->url,
-            'html' => $this->html,
-            'poster_photo' => (isset($this->posterPhoto) ? $this->posterPhoto : null),
-            'width' => $this->width,
-            'height' => $this->height,
-            'caption' => $this->caption->typeSerialize(),
-            'is_full_width' => $this->isFullWidth,
+            '@type'           => static::TYPE_NAME,
+            'url'             => $this->url,
+            'html'            => $this->html,
+            'poster_photo'    => (isset($this->posterPhoto) ? $this->posterPhoto : null),
+            'width'           => $this->width,
+            'height'          => $this->height,
+            'caption'         => $this->caption->typeSerialize(),
+            'is_full_width'   => $this->isFullWidth,
             'allow_scrolling' => $this->allowScrolling,
         ];
     }

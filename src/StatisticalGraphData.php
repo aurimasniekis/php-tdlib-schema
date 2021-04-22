@@ -9,23 +9,19 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * A graph data
+ * A graph data.
  */
 class StatisticalGraphData extends StatisticalGraph
 {
     public const TYPE_NAME = 'statisticalGraphData';
 
     /**
-     * Graph data in JSON format
-     *
-     * @var string
+     * Graph data in JSON format.
      */
     protected string $jsonData;
 
     /**
-     * If non-empty, a token which can be used to receive a zoomed in graph
-     *
-     * @var string
+     * If non-empty, a token which can be used to receive a zoomed in graph.
      */
     protected string $zoomToken;
 
@@ -33,7 +29,7 @@ class StatisticalGraphData extends StatisticalGraph
     {
         parent::__construct();
 
-        $this->jsonData = $jsonData;
+        $this->jsonData  = $jsonData;
         $this->zoomToken = $zoomToken;
     }
 
@@ -48,8 +44,8 @@ class StatisticalGraphData extends StatisticalGraph
     public function typeSerialize(): array
     {
         return [
-            '@type' => static::TYPE_NAME,
-            'json_data' => $this->jsonData,
+            '@type'      => static::TYPE_NAME,
+            'json_data'  => $this->jsonData,
             'zoom_token' => $this->zoomToken,
         ];
     }

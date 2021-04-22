@@ -9,7 +9,7 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Describes the type of a chat
+ * Describes the type of a chat.
  */
 class ChatType extends TdObject
 {

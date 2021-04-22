@@ -9,62 +9,50 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Updates the game score of the specified user in the game; for bots only
+ * Updates the game score of the specified user in the game; for bots only.
  */
 class SetGameScore extends TdFunction
 {
     public const TYPE_NAME = 'setGameScore';
 
     /**
-     * The chat to which the message with the game belongs
-     *
-     * @var int
+     * The chat to which the message with the game belongs.
      */
     protected int $chatId;
 
     /**
-     * Identifier of the message
-     *
-     * @var int
+     * Identifier of the message.
      */
     protected int $messageId;
 
     /**
-     * True, if the message should be edited
-     *
-     * @var bool
+     * True, if the message should be edited.
      */
     protected bool $editMessage;
 
     /**
-     * User identifier
-     *
-     * @var int
+     * User identifier.
      */
     protected int $userId;
 
     /**
-     * The new score
-     *
-     * @var int
+     * The new score.
      */
     protected int $score;
 
     /**
-     * Pass true to update the score even if it decreases. If the score is 0, the user will be deleted from the high score table
-     *
-     * @var bool
+     * Pass true to update the score even if it decreases. If the score is 0, the user will be deleted from the high score table.
      */
     protected bool $force;
 
     public function __construct(int $chatId, int $messageId, bool $editMessage, int $userId, int $score, bool $force)
     {
-        $this->chatId = $chatId;
-        $this->messageId = $messageId;
+        $this->chatId      = $chatId;
+        $this->messageId   = $messageId;
         $this->editMessage = $editMessage;
-        $this->userId = $userId;
-        $this->score = $score;
-        $this->force = $force;
+        $this->userId      = $userId;
+        $this->score       = $score;
+        $this->force       = $force;
     }
 
     public static function fromArray(array $array): SetGameScore
@@ -82,13 +70,13 @@ class SetGameScore extends TdFunction
     public function typeSerialize(): array
     {
         return [
-            '@type' => static::TYPE_NAME,
-            'chat_id' => $this->chatId,
-            'message_id' => $this->messageId,
+            '@type'        => static::TYPE_NAME,
+            'chat_id'      => $this->chatId,
+            'message_id'   => $this->messageId,
             'edit_message' => $this->editMessage,
-            'user_id' => $this->userId,
-            'score' => $this->score,
-            'force' => $this->force,
+            'user_id'      => $this->userId,
+            'score'        => $this->score,
+            'force'        => $this->force,
         ];
     }
 

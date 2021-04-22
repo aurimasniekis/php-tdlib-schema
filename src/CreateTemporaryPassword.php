@@ -9,23 +9,19 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Creates a new temporary password for processing payments
+ * Creates a new temporary password for processing payments.
  */
 class CreateTemporaryPassword extends TdFunction
 {
     public const TYPE_NAME = 'createTemporaryPassword';
 
     /**
-     * Persistent user password
-     *
-     * @var string
+     * Persistent user password.
      */
     protected string $password;
 
     /**
-     * Time during which the temporary password will be valid, in seconds; should be between 60 and 86400
-     *
-     * @var int
+     * Time during which the temporary password will be valid, in seconds; should be between 60 and 86400.
      */
     protected int $validFor;
 
@@ -46,8 +42,8 @@ class CreateTemporaryPassword extends TdFunction
     public function typeSerialize(): array
     {
         return [
-            '@type' => static::TYPE_NAME,
-            'password' => $this->password,
+            '@type'     => static::TYPE_NAME,
+            'password'  => $this->password,
             'valid_for' => $this->validFor,
         ];
     }

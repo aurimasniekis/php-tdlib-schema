@@ -9,7 +9,7 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * A cashtag text, beginning with "$" and consisting of capital english letters (i.e. "$USD")
+ * A cashtag text, beginning with "$" and consisting of capital english letters (i.e. "$USD").
  */
 class TextEntityTypeCashtag extends TextEntityType
 {

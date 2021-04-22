@@ -9,7 +9,7 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * A group containing notifications of type notificationTypeNewCall
+ * A group containing notifications of type notificationTypeNewCall.
  */
 class NotificationGroupTypeCalls extends NotificationGroupType
 {

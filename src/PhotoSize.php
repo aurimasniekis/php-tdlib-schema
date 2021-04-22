@@ -9,42 +9,34 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Describes an image in JPEG format
+ * Describes an image in JPEG format.
  */
 class PhotoSize extends TdObject
 {
     public const TYPE_NAME = 'photoSize';
 
     /**
-     * Image type (see https://core.telegram.org/constructor/photoSize)
-     *
-     * @var string
+     * Image type (see https://core.telegram.org/constructor/photoSize).
      */
     protected string $type;
 
     /**
-     * Information about the image file
-     *
-     * @var File
+     * Information about the image file.
      */
     protected File $photo;
 
     /**
-     * Image width
-     *
-     * @var int
+     * Image width.
      */
     protected int $width;
 
     /**
-     * Image height
-     *
-     * @var int
+     * Image height.
      */
     protected int $height;
 
     /**
-     * Sizes of progressive JPEG file prefixes, which can be used to preliminarily show the image
+     * Sizes of progressive JPEG file prefixes, which can be used to preliminarily show the image.
      *
      * @var int[]
      */
@@ -52,10 +44,10 @@ class PhotoSize extends TdObject
 
     public function __construct(string $type, File $photo, int $width, int $height, array $progressiveSizes)
     {
-        $this->type = $type;
-        $this->photo = $photo;
-        $this->width = $width;
-        $this->height = $height;
+        $this->type             = $type;
+        $this->photo            = $photo;
+        $this->width            = $width;
+        $this->height           = $height;
         $this->progressiveSizes = $progressiveSizes;
     }
 
@@ -73,11 +65,11 @@ class PhotoSize extends TdObject
     public function typeSerialize(): array
     {
         return [
-            '@type' => static::TYPE_NAME,
-            'type' => $this->type,
-            'photo' => $this->photo->typeSerialize(),
-            'width' => $this->width,
-            'height' => $this->height,
+            '@type'             => static::TYPE_NAME,
+            'type'              => $this->type,
+            'photo'             => $this->photo->typeSerialize(),
+            'width'             => $this->width,
+            'height'            => $this->height,
             'progressive_sizes' => $this->progressiveSizes,
         ];
     }

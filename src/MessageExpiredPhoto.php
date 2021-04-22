@@ -9,7 +9,7 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * An expired photo message (self-destructed after TTL has elapsed)
+ * An expired photo message (self-destructed after TTL has elapsed).
  */
 class MessageExpiredPhoto extends MessageContent
 {

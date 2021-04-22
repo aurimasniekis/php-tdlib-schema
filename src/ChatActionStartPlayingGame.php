@@ -9,7 +9,7 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * The user has started to play a game
+ * The user has started to play a game.
  */
 class ChatActionStartPlayingGame extends ChatAction
 {

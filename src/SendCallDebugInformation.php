@@ -9,29 +9,25 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Sends debug information for a call
+ * Sends debug information for a call.
  */
 class SendCallDebugInformation extends TdFunction
 {
     public const TYPE_NAME = 'sendCallDebugInformation';
 
     /**
-     * Call identifier
-     *
-     * @var int
+     * Call identifier.
      */
     protected int $callId;
 
     /**
-     * Debug information in application-specific format
-     *
-     * @var string
+     * Debug information in application-specific format.
      */
     protected string $debugInformation;
 
     public function __construct(int $callId, string $debugInformation)
     {
-        $this->callId = $callId;
+        $this->callId           = $callId;
         $this->debugInformation = $debugInformation;
     }
 
@@ -46,8 +42,8 @@ class SendCallDebugInformation extends TdFunction
     public function typeSerialize(): array
     {
         return [
-            '@type' => static::TYPE_NAME,
-            'call_id' => $this->callId,
+            '@type'             => static::TYPE_NAME,
+            'call_id'           => $this->callId,
             'debug_information' => $this->debugInformation,
         ];
     }

@@ -9,16 +9,14 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Sends a notification about a screenshot taken in a chat. Supported only in private and secret chats
+ * Sends a notification about a screenshot taken in a chat. Supported only in private and secret chats.
  */
 class SendChatScreenshotTakenNotification extends TdFunction
 {
     public const TYPE_NAME = 'sendChatScreenshotTakenNotification';
 
     /**
-     * Chat identifier
-     *
-     * @var int
+     * Chat identifier.
      */
     protected int $chatId;
 
@@ -37,7 +35,7 @@ class SendChatScreenshotTakenNotification extends TdFunction
     public function typeSerialize(): array
     {
         return [
-            '@type' => static::TYPE_NAME,
+            '@type'   => static::TYPE_NAME,
             'chat_id' => $this->chatId,
         ];
     }

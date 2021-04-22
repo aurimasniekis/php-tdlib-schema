@@ -9,28 +9,24 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Reports some messages from a user in a supergroup as spam; requires administrator rights in the supergroup
+ * Reports some messages from a user in a supergroup as spam; requires administrator rights in the supergroup.
  */
 class ReportSupergroupSpam extends TdFunction
 {
     public const TYPE_NAME = 'reportSupergroupSpam';
 
     /**
-     * Supergroup identifier
-     *
-     * @var int
+     * Supergroup identifier.
      */
     protected int $supergroupId;
 
     /**
-     * User identifier
-     *
-     * @var int
+     * User identifier.
      */
     protected int $userId;
 
     /**
-     * Identifiers of messages sent in the supergroup by the user. This list must be non-empty
+     * Identifiers of messages sent in the supergroup by the user. This list must be non-empty.
      *
      * @var int[]
      */
@@ -39,8 +35,8 @@ class ReportSupergroupSpam extends TdFunction
     public function __construct(int $supergroupId, int $userId, array $messageIds)
     {
         $this->supergroupId = $supergroupId;
-        $this->userId = $userId;
-        $this->messageIds = $messageIds;
+        $this->userId       = $userId;
+        $this->messageIds   = $messageIds;
     }
 
     public static function fromArray(array $array): ReportSupergroupSpam
@@ -55,10 +51,10 @@ class ReportSupergroupSpam extends TdFunction
     public function typeSerialize(): array
     {
         return [
-            '@type' => static::TYPE_NAME,
+            '@type'         => static::TYPE_NAME,
             'supergroup_id' => $this->supergroupId,
-            'user_id' => $this->userId,
-            'message_ids' => $this->messageIds,
+            'user_id'       => $this->userId,
+            'message_ids'   => $this->messageIds,
         ];
     }
 

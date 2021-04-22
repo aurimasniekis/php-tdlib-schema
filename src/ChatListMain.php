@@ -9,7 +9,7 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * A main list of chats
+ * A main list of chats.
  */
 class ChatListMain extends ChatList
 {

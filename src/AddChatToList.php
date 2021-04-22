@@ -9,29 +9,25 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Adds a chat to a chat list. A chat can't be simultaneously in Main and Archive chat lists, so it is automatically removed from another one if needed
+ * Adds a chat to a chat list. A chat can't be simultaneously in Main and Archive chat lists, so it is automatically removed from another one if needed.
  */
 class AddChatToList extends TdFunction
 {
     public const TYPE_NAME = 'addChatToList';
 
     /**
-     * Chat identifier
-     *
-     * @var int
+     * Chat identifier.
      */
     protected int $chatId;
 
     /**
-     * The chat list. Use getChatListsToAddChat to get suitable chat lists
-     *
-     * @var ChatList
+     * The chat list. Use getChatListsToAddChat to get suitable chat lists.
      */
     protected ChatList $chatList;
 
     public function __construct(int $chatId, ChatList $chatList)
     {
-        $this->chatId = $chatId;
+        $this->chatId   = $chatId;
         $this->chatList = $chatList;
     }
 
@@ -46,8 +42,8 @@ class AddChatToList extends TdFunction
     public function typeSerialize(): array
     {
         return [
-            '@type' => static::TYPE_NAME,
-            'chat_id' => $this->chatId,
+            '@type'     => static::TYPE_NAME,
+            'chat_id'   => $this->chatId,
             'chat_list' => $this->chatList->typeSerialize(),
         ];
     }

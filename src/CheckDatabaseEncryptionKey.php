@@ -9,16 +9,14 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Checks the database encryption key for correctness. Works only when the current authorization state is authorizationStateWaitEncryptionKey
+ * Checks the database encryption key for correctness. Works only when the current authorization state is authorizationStateWaitEncryptionKey.
  */
 class CheckDatabaseEncryptionKey extends TdFunction
 {
     public const TYPE_NAME = 'checkDatabaseEncryptionKey';
 
     /**
-     * Encryption key to check or set up
-     *
-     * @var string
+     * Encryption key to check or set up.
      */
     protected string $encryptionKey;
 
@@ -37,7 +35,7 @@ class CheckDatabaseEncryptionKey extends TdFunction
     public function typeSerialize(): array
     {
         return [
-            '@type' => static::TYPE_NAME,
+            '@type'          => static::TYPE_NAME,
             'encryption_key' => $this->encryptionKey,
         ];
     }

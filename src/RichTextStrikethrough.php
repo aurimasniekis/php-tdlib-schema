@@ -9,16 +9,14 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * A strikethrough rich text
+ * A strikethrough rich text.
  */
 class RichTextStrikethrough extends RichText
 {
     public const TYPE_NAME = 'richTextStrikethrough';
 
     /**
-     * Text
-     *
-     * @var RichText
+     * Text.
      */
     protected RichText $text;
 
@@ -40,7 +38,7 @@ class RichTextStrikethrough extends RichText
     {
         return [
             '@type' => static::TYPE_NAME,
-            'text' => $this->text->typeSerialize(),
+            'text'  => $this->text->typeSerialize(),
         ];
     }
 

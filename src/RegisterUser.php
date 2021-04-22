@@ -9,30 +9,26 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Finishes user registration. Works only when the current authorization state is authorizationStateWaitRegistration
+ * Finishes user registration. Works only when the current authorization state is authorizationStateWaitRegistration.
  */
 class RegisterUser extends TdFunction
 {
     public const TYPE_NAME = 'registerUser';
 
     /**
-     * The first name of the user; 1-64 characters
-     *
-     * @var string
+     * The first name of the user; 1-64 characters.
      */
     protected string $firstName;
 
     /**
-     * The last name of the user; 0-64 characters
-     *
-     * @var string
+     * The last name of the user; 0-64 characters.
      */
     protected string $lastName;
 
     public function __construct(string $firstName, string $lastName)
     {
         $this->firstName = $firstName;
-        $this->lastName = $lastName;
+        $this->lastName  = $lastName;
     }
 
     public static function fromArray(array $array): RegisterUser
@@ -46,9 +42,9 @@ class RegisterUser extends TdFunction
     public function typeSerialize(): array
     {
         return [
-            '@type' => static::TYPE_NAME,
+            '@type'      => static::TYPE_NAME,
             'first_name' => $this->firstName,
-            'last_name' => $this->lastName,
+            'last_name'  => $this->lastName,
         ];
     }
 

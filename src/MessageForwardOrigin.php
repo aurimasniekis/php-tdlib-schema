@@ -9,7 +9,7 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Contains information about the origin of a forwarded message
+ * Contains information about the origin of a forwarded message.
  */
 class MessageForwardOrigin extends TdObject
 {

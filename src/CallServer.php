@@ -9,54 +9,44 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Describes a server for relaying call data
+ * Describes a server for relaying call data.
  */
 class CallServer extends TdObject
 {
     public const TYPE_NAME = 'callServer';
 
     /**
-     * Server identifier
-     *
-     * @var string
+     * Server identifier.
      */
     protected string $id;
 
     /**
-     * Server IPv4 address
-     *
-     * @var string
+     * Server IPv4 address.
      */
     protected string $ipAddress;
 
     /**
-     * Server IPv6 address
-     *
-     * @var string
+     * Server IPv6 address.
      */
     protected string $ipv6Address;
 
     /**
-     * Server port number
-     *
-     * @var int
+     * Server port number.
      */
     protected int $port;
 
     /**
-     * Server type
-     *
-     * @var CallServerType
+     * Server type.
      */
     protected CallServerType $type;
 
     public function __construct(string $id, string $ipAddress, string $ipv6Address, int $port, CallServerType $type)
     {
-        $this->id = $id;
-        $this->ipAddress = $ipAddress;
+        $this->id          = $id;
+        $this->ipAddress   = $ipAddress;
         $this->ipv6Address = $ipv6Address;
-        $this->port = $port;
-        $this->type = $type;
+        $this->port        = $port;
+        $this->type        = $type;
     }
 
     public static function fromArray(array $array): CallServer
@@ -73,12 +63,12 @@ class CallServer extends TdObject
     public function typeSerialize(): array
     {
         return [
-            '@type' => static::TYPE_NAME,
-            'id' => $this->id,
-            'ip_address' => $this->ipAddress,
+            '@type'        => static::TYPE_NAME,
+            'id'           => $this->id,
+            'ip_address'   => $this->ipAddress,
             'ipv6_address' => $this->ipv6Address,
-            'port' => $this->port,
-            'type' => $this->type->typeSerialize(),
+            'port'         => $this->port,
+            'type'         => $this->type->typeSerialize(),
         ];
     }
 

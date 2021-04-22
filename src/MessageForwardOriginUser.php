@@ -9,16 +9,14 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * The message was originally sent by a known user
+ * The message was originally sent by a known user.
  */
 class MessageForwardOriginUser extends MessageForwardOrigin
 {
     public const TYPE_NAME = 'messageForwardOriginUser';
 
     /**
-     * Identifier of the user that originally sent the message
-     *
-     * @var int
+     * Identifier of the user that originally sent the message.
      */
     protected int $senderUserId;
 
@@ -39,7 +37,7 @@ class MessageForwardOriginUser extends MessageForwardOrigin
     public function typeSerialize(): array
     {
         return [
-            '@type' => static::TYPE_NAME,
+            '@type'          => static::TYPE_NAME,
             'sender_user_id' => $this->senderUserId,
         ];
     }

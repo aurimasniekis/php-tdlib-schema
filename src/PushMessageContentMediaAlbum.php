@@ -9,44 +9,34 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * A media album
+ * A media album.
  */
 class PushMessageContentMediaAlbum extends PushMessageContent
 {
     public const TYPE_NAME = 'pushMessageContentMediaAlbum';
 
     /**
-     * Number of messages in the album
-     *
-     * @var int
+     * Number of messages in the album.
      */
     protected int $totalCount;
 
     /**
-     * True, if the album has at least one photo
-     *
-     * @var bool
+     * True, if the album has at least one photo.
      */
     protected bool $hasPhotos;
 
     /**
-     * True, if the album has at least one video
-     *
-     * @var bool
+     * True, if the album has at least one video.
      */
     protected bool $hasVideos;
 
     /**
-     * True, if the album has at least one audio file
-     *
-     * @var bool
+     * True, if the album has at least one audio file.
      */
     protected bool $hasAudios;
 
     /**
-     * True, if the album has at least one document
-     *
-     * @var bool
+     * True, if the album has at least one document.
      */
     protected bool $hasDocuments;
 
@@ -54,10 +44,10 @@ class PushMessageContentMediaAlbum extends PushMessageContent
     {
         parent::__construct();
 
-        $this->totalCount = $totalCount;
-        $this->hasPhotos = $hasPhotos;
-        $this->hasVideos = $hasVideos;
-        $this->hasAudios = $hasAudios;
+        $this->totalCount   = $totalCount;
+        $this->hasPhotos    = $hasPhotos;
+        $this->hasVideos    = $hasVideos;
+        $this->hasAudios    = $hasAudios;
         $this->hasDocuments = $hasDocuments;
     }
 
@@ -75,11 +65,11 @@ class PushMessageContentMediaAlbum extends PushMessageContent
     public function typeSerialize(): array
     {
         return [
-            '@type' => static::TYPE_NAME,
-            'total_count' => $this->totalCount,
-            'has_photos' => $this->hasPhotos,
-            'has_videos' => $this->hasVideos,
-            'has_audios' => $this->hasAudios,
+            '@type'         => static::TYPE_NAME,
+            'total_count'   => $this->totalCount,
+            'has_photos'    => $this->hasPhotos,
+            'has_videos'    => $this->hasVideos,
+            'has_audios'    => $this->hasAudios,
             'has_documents' => $this->hasDocuments,
         ];
     }

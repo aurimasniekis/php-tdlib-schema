@@ -9,7 +9,7 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Provides information about the method by which an authentication code is delivered to the user
+ * Provides information about the method by which an authentication code is delivered to the user.
  */
 class AuthenticationCodeType extends TdObject
 {

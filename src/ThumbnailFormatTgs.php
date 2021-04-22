@@ -9,7 +9,7 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * The thumbnail is in TGS format. It will be used only for animated sticker sets
+ * The thumbnail is in TGS format. It will be used only for animated sticker sets.
  */
 class ThumbnailFormatTgs extends ThumbnailFormat
 {

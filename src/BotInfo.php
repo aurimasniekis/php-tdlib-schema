@@ -9,21 +9,19 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Provides information about a bot and its supported commands
+ * Provides information about a bot and its supported commands.
  */
 class BotInfo extends TdObject
 {
     public const TYPE_NAME = 'botInfo';
 
     /**
-     * Long description shown on the user info page
-     *
-     * @var string
+     * Long description shown on the user info page.
      */
     protected string $description;
 
     /**
-     * A list of commands supported by the bot
+     * A list of commands supported by the bot.
      *
      * @var BotCommand[]
      */
@@ -32,23 +30,23 @@ class BotInfo extends TdObject
     public function __construct(string $description, array $commands)
     {
         $this->description = $description;
-        $this->commands = $commands;
+        $this->commands    = $commands;
     }
 
     public static function fromArray(array $array): BotInfo
     {
         return new static(
             $array['description'],
-            array_map(fn($x) => TdSchemaRegistry::fromArray($x), $array['commands']),
+            array_map(fn ($x) => TdSchemaRegistry::fromArray($x), $array['commands']),
         );
     }
 
     public function typeSerialize(): array
     {
         return [
-            '@type' => static::TYPE_NAME,
-            'description' => $this->description,
-            array_map(fn($x) => $x->typeSerialize(), $this->commands),
+            '@type'           => static::TYPE_NAME,
+            'description'     => $this->description,
+            array_map(fn ($x) => $x->typeSerialize(), $this->commands),
         ];
     }
 

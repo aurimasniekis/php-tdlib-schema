@@ -9,16 +9,14 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Searches for a background by its name
+ * Searches for a background by its name.
  */
 class SearchBackground extends TdFunction
 {
     public const TYPE_NAME = 'searchBackground';
 
     /**
-     * The name of the background
-     *
-     * @var string
+     * The name of the background.
      */
     protected string $name;
 
@@ -38,7 +36,7 @@ class SearchBackground extends TdFunction
     {
         return [
             '@type' => static::TYPE_NAME,
-            'name' => $this->name,
+            'name'  => $this->name,
         ];
     }
 

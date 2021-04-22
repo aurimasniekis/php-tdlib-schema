@@ -9,65 +9,49 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * A payment has been completed; for bots only
+ * A payment has been completed; for bots only.
  */
 class MessagePaymentSuccessfulBot extends MessageContent
 {
     public const TYPE_NAME = 'messagePaymentSuccessfulBot';
 
     /**
-     * Identifier of the message with the corresponding invoice; can be an identifier of a deleted message
-     *
-     * @var int
+     * Identifier of the message with the corresponding invoice; can be an identifier of a deleted message.
      */
     protected int $invoiceMessageId;
 
     /**
-     * Currency for price of the product
-     *
-     * @var string
+     * Currency for price of the product.
      */
     protected string $currency;
 
     /**
-     * Total price for the product, in the minimal quantity of the currency
-     *
-     * @var int
+     * Total price for the product, in the minimal quantity of the currency.
      */
     protected int $totalAmount;
 
     /**
-     * Invoice payload
-     *
-     * @var string
+     * Invoice payload.
      */
     protected string $invoicePayload;
 
     /**
-     * Identifier of the shipping option chosen by the user; may be empty if not applicable
-     *
-     * @var string
+     * Identifier of the shipping option chosen by the user; may be empty if not applicable.
      */
     protected string $shippingOptionId;
 
     /**
-     * Information about the order; may be null
-     *
-     * @var OrderInfo|null
+     * Information about the order; may be null.
      */
     protected ?OrderInfo $orderInfo;
 
     /**
-     * Telegram payment identifier
-     *
-     * @var string
+     * Telegram payment identifier.
      */
     protected string $telegramPaymentChargeId;
 
     /**
-     * Provider payment identifier
-     *
-     * @var string
+     * Provider payment identifier.
      */
     protected string $providerPaymentChargeId;
 
@@ -83,12 +67,12 @@ class MessagePaymentSuccessfulBot extends MessageContent
     ) {
         parent::__construct();
 
-        $this->invoiceMessageId = $invoiceMessageId;
-        $this->currency = $currency;
-        $this->totalAmount = $totalAmount;
-        $this->invoicePayload = $invoicePayload;
-        $this->shippingOptionId = $shippingOptionId;
-        $this->orderInfo = $orderInfo;
+        $this->invoiceMessageId        = $invoiceMessageId;
+        $this->currency                = $currency;
+        $this->totalAmount             = $totalAmount;
+        $this->invoicePayload          = $invoicePayload;
+        $this->shippingOptionId        = $shippingOptionId;
+        $this->orderInfo               = $orderInfo;
         $this->telegramPaymentChargeId = $telegramPaymentChargeId;
         $this->providerPaymentChargeId = $providerPaymentChargeId;
     }
@@ -110,13 +94,13 @@ class MessagePaymentSuccessfulBot extends MessageContent
     public function typeSerialize(): array
     {
         return [
-            '@type' => static::TYPE_NAME,
-            'invoice_message_id' => $this->invoiceMessageId,
-            'currency' => $this->currency,
-            'total_amount' => $this->totalAmount,
-            'invoice_payload' => $this->invoicePayload,
-            'shipping_option_id' => $this->shippingOptionId,
-            'order_info' => (isset($this->orderInfo) ? $this->orderInfo : null),
+            '@type'                      => static::TYPE_NAME,
+            'invoice_message_id'         => $this->invoiceMessageId,
+            'currency'                   => $this->currency,
+            'total_amount'               => $this->totalAmount,
+            'invoice_payload'            => $this->invoicePayload,
+            'shipping_option_id'         => $this->shippingOptionId,
+            'order_info'                 => (isset($this->orderInfo) ? $this->orderInfo : null),
             'telegram_payment_charge_id' => $this->telegramPaymentChargeId,
             'provider_payment_charge_id' => $this->providerPaymentChargeId,
         ];

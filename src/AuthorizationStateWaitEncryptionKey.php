@@ -9,16 +9,14 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * TDLib needs an encryption key to decrypt the local database
+ * TDLib needs an encryption key to decrypt the local database.
  */
 class AuthorizationStateWaitEncryptionKey extends AuthorizationState
 {
     public const TYPE_NAME = 'authorizationStateWaitEncryptionKey';
 
     /**
-     * True, if the database is currently encrypted
-     *
-     * @var bool
+     * True, if the database is currently encrypted.
      */
     protected bool $isEncrypted;
 
@@ -39,7 +37,7 @@ class AuthorizationStateWaitEncryptionKey extends AuthorizationState
     public function typeSerialize(): array
     {
         return [
-            '@type' => static::TYPE_NAME,
+            '@type'        => static::TYPE_NAME,
             'is_encrypted' => $this->isEncrypted,
         ];
     }

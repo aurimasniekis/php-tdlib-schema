@@ -9,29 +9,25 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Parses Bold, Italic, Underline, Strikethrough, Code, Pre, PreCode, TextUrl and MentionName entities contained in the text. Can be called synchronously
+ * Parses Bold, Italic, Underline, Strikethrough, Code, Pre, PreCode, TextUrl and MentionName entities contained in the text. Can be called synchronously.
  */
 class ParseTextEntities extends TdFunction
 {
     public const TYPE_NAME = 'parseTextEntities';
 
     /**
-     * The text to parse
-     *
-     * @var string
+     * The text to parse.
      */
     protected string $text;
 
     /**
-     * Text parse mode
-     *
-     * @var TextParseMode
+     * Text parse mode.
      */
     protected TextParseMode $parseMode;
 
     public function __construct(string $text, TextParseMode $parseMode)
     {
-        $this->text = $text;
+        $this->text      = $text;
         $this->parseMode = $parseMode;
     }
 
@@ -46,8 +42,8 @@ class ParseTextEntities extends TdFunction
     public function typeSerialize(): array
     {
         return [
-            '@type' => static::TYPE_NAME,
-            'text' => $this->text,
+            '@type'      => static::TYPE_NAME,
+            'text'       => $this->text,
             'parse_mode' => $this->parseMode->typeSerialize(),
         ];
     }

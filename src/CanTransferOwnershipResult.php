@@ -9,7 +9,7 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Represents result of checking whether the current session can be used to transfer a chat ownership to another user
+ * Represents result of checking whether the current session can be used to transfer a chat ownership to another user.
  */
 class CanTransferOwnershipResult extends TdObject
 {

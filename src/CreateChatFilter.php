@@ -9,16 +9,14 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Creates new chat filter. Returns information about the created chat filter
+ * Creates new chat filter. Returns information about the created chat filter.
  */
 class CreateChatFilter extends TdFunction
 {
     public const TYPE_NAME = 'createChatFilter';
 
     /**
-     * Chat filter
-     *
-     * @var ChatFilter
+     * Chat filter.
      */
     protected ChatFilter $filter;
 
@@ -37,7 +35,7 @@ class CreateChatFilter extends TdFunction
     public function typeSerialize(): array
     {
         return [
-            '@type' => static::TYPE_NAME,
+            '@type'  => static::TYPE_NAME,
             'filter' => $this->filter->typeSerialize(),
         ];
     }

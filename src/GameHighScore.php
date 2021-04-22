@@ -9,38 +9,32 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Contains one row of the game high score table
+ * Contains one row of the game high score table.
  */
 class GameHighScore extends TdObject
 {
     public const TYPE_NAME = 'gameHighScore';
 
     /**
-     * Position in the high score table
-     *
-     * @var int
+     * Position in the high score table.
      */
     protected int $position;
 
     /**
-     * User identifier
-     *
-     * @var int
+     * User identifier.
      */
     protected int $userId;
 
     /**
-     * User score
-     *
-     * @var int
+     * User score.
      */
     protected int $score;
 
     public function __construct(int $position, int $userId, int $score)
     {
         $this->position = $position;
-        $this->userId = $userId;
-        $this->score = $score;
+        $this->userId   = $userId;
+        $this->score    = $score;
     }
 
     public static function fromArray(array $array): GameHighScore
@@ -55,10 +49,10 @@ class GameHighScore extends TdObject
     public function typeSerialize(): array
     {
         return [
-            '@type' => static::TYPE_NAME,
+            '@type'    => static::TYPE_NAME,
             'position' => $this->position,
-            'user_id' => $this->userId,
-            'score' => $this->score,
+            'user_id'  => $this->userId,
+            'score'    => $this->score,
         ];
     }
 

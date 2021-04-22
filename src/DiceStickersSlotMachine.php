@@ -9,44 +9,34 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Animated stickers to be combined into a slot machine
+ * Animated stickers to be combined into a slot machine.
  */
 class DiceStickersSlotMachine extends DiceStickers
 {
     public const TYPE_NAME = 'diceStickersSlotMachine';
 
     /**
-     * The animated sticker with the slot machine background. The background animation must start playing after all reel animations finish
-     *
-     * @var Sticker
+     * The animated sticker with the slot machine background. The background animation must start playing after all reel animations finish.
      */
     protected Sticker $background;
 
     /**
-     * The animated sticker with the lever animation. The lever animation must play once in the initial dice state
-     *
-     * @var Sticker
+     * The animated sticker with the lever animation. The lever animation must play once in the initial dice state.
      */
     protected Sticker $lever;
 
     /**
-     * The animated sticker with the left reel
-     *
-     * @var Sticker
+     * The animated sticker with the left reel.
      */
     protected Sticker $leftReel;
 
     /**
-     * The animated sticker with the center reel
-     *
-     * @var Sticker
+     * The animated sticker with the center reel.
      */
     protected Sticker $centerReel;
 
     /**
-     * The animated sticker with the right reel
-     *
-     * @var Sticker
+     * The animated sticker with the right reel.
      */
     protected Sticker $rightReel;
 
@@ -60,10 +50,10 @@ class DiceStickersSlotMachine extends DiceStickers
         parent::__construct();
 
         $this->background = $background;
-        $this->lever = $lever;
-        $this->leftReel = $leftReel;
+        $this->lever      = $lever;
+        $this->leftReel   = $leftReel;
         $this->centerReel = $centerReel;
-        $this->rightReel = $rightReel;
+        $this->rightReel  = $rightReel;
     }
 
     public static function fromArray(array $array): DiceStickersSlotMachine
@@ -80,12 +70,12 @@ class DiceStickersSlotMachine extends DiceStickers
     public function typeSerialize(): array
     {
         return [
-            '@type' => static::TYPE_NAME,
-            'background' => $this->background->typeSerialize(),
-            'lever' => $this->lever->typeSerialize(),
-            'left_reel' => $this->leftReel->typeSerialize(),
+            '@type'       => static::TYPE_NAME,
+            'background'  => $this->background->typeSerialize(),
+            'lever'       => $this->lever->typeSerialize(),
+            'left_reel'   => $this->leftReel->typeSerialize(),
             'center_reel' => $this->centerReel->typeSerialize(),
-            'right_reel' => $this->rightReel->typeSerialize(),
+            'right_reel'  => $this->rightReel->typeSerialize(),
         ];
     }
 

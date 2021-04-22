@@ -9,16 +9,14 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Contains a chat invite link
+ * Contains a chat invite link.
  */
 class ChatInviteLink extends TdObject
 {
     public const TYPE_NAME = 'chatInviteLink';
 
     /**
-     * Chat invite link
-     *
-     * @var string
+     * Chat invite link.
      */
     protected string $inviteLink;
 
@@ -37,7 +35,7 @@ class ChatInviteLink extends TdObject
     public function typeSerialize(): array
     {
         return [
-            '@type' => static::TYPE_NAME,
+            '@type'       => static::TYPE_NAME,
             'invite_link' => $this->inviteLink,
         ];
     }

@@ -9,14 +9,14 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Represents a JSON object
+ * Represents a JSON object.
  */
 class JsonValueObject extends JsonValue
 {
     public const TYPE_NAME = 'jsonValueObject';
 
     /**
-     * The list of object members
+     * The list of object members.
      *
      * @var JsonObjectMember[]
      */
@@ -32,15 +32,15 @@ class JsonValueObject extends JsonValue
     public static function fromArray(array $array): JsonValueObject
     {
         return new static(
-            array_map(fn($x) => TdSchemaRegistry::fromArray($x), $array['members']),
+            array_map(fn ($x) => TdSchemaRegistry::fromArray($x), $array['members']),
         );
     }
 
     public function typeSerialize(): array
     {
         return [
-            '@type' => static::TYPE_NAME,
-            array_map(fn($x) => $x->typeSerialize(), $this->members),
+            '@type'           => static::TYPE_NAME,
+            array_map(fn ($x) => $x->typeSerialize(), $this->members),
         ];
     }
 

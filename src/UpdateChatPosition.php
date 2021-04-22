@@ -9,23 +9,19 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * The position of a chat in a chat list has changed. Instead of this update updateChatLastMessage or updateChatDraftMessage might be sent
+ * The position of a chat in a chat list has changed. Instead of this update updateChatLastMessage or updateChatDraftMessage might be sent.
  */
 class UpdateChatPosition extends Update
 {
     public const TYPE_NAME = 'updateChatPosition';
 
     /**
-     * Chat identifier
-     *
-     * @var int
+     * Chat identifier.
      */
     protected int $chatId;
 
     /**
-     * New chat position. If new order is 0, then the chat needs to be removed from the list
-     *
-     * @var ChatPosition
+     * New chat position. If new order is 0, then the chat needs to be removed from the list.
      */
     protected ChatPosition $position;
 
@@ -33,7 +29,7 @@ class UpdateChatPosition extends Update
     {
         parent::__construct();
 
-        $this->chatId = $chatId;
+        $this->chatId   = $chatId;
         $this->position = $position;
     }
 
@@ -48,8 +44,8 @@ class UpdateChatPosition extends Update
     public function typeSerialize(): array
     {
         return [
-            '@type' => static::TYPE_NAME,
-            'chat_id' => $this->chatId,
+            '@type'    => static::TYPE_NAME,
+            'chat_id'  => $this->chatId,
             'position' => $this->position->typeSerialize(),
         ];
     }

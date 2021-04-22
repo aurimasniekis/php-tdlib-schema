@@ -9,38 +9,32 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Returns a list of archived sticker sets
+ * Returns a list of archived sticker sets.
  */
 class GetArchivedStickerSets extends TdFunction
 {
     public const TYPE_NAME = 'getArchivedStickerSets';
 
     /**
-     * Pass true to return mask stickers sets; pass false to return ordinary sticker sets
-     *
-     * @var bool
+     * Pass true to return mask stickers sets; pass false to return ordinary sticker sets.
      */
     protected bool $isMasks;
 
     /**
-     * Identifier of the sticker set from which to return the result
-     *
-     * @var string
+     * Identifier of the sticker set from which to return the result.
      */
     protected string $offsetStickerSetId;
 
     /**
-     * The maximum number of sticker sets to return
-     *
-     * @var int
+     * The maximum number of sticker sets to return.
      */
     protected int $limit;
 
     public function __construct(bool $isMasks, string $offsetStickerSetId, int $limit)
     {
-        $this->isMasks = $isMasks;
+        $this->isMasks            = $isMasks;
         $this->offsetStickerSetId = $offsetStickerSetId;
-        $this->limit = $limit;
+        $this->limit              = $limit;
     }
 
     public static function fromArray(array $array): GetArchivedStickerSets
@@ -55,10 +49,10 @@ class GetArchivedStickerSets extends TdFunction
     public function typeSerialize(): array
     {
         return [
-            '@type' => static::TYPE_NAME,
-            'is_masks' => $this->isMasks,
+            '@type'                 => static::TYPE_NAME,
+            'is_masks'              => $this->isMasks,
             'offset_sticker_set_id' => $this->offsetStickerSetId,
-            'limit' => $this->limit,
+            'limit'                 => $this->limit,
         ];
     }
 

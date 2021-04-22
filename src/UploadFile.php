@@ -9,36 +9,30 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Asynchronously uploads a file to the cloud without sending it in a message. updateFile will be used to notify about upload progress and successful completion of the upload. The file will not have a persistent remote identifier until it will be sent in a message
+ * Asynchronously uploads a file to the cloud without sending it in a message. updateFile will be used to notify about upload progress and successful completion of the upload. The file will not have a persistent remote identifier until it will be sent in a message.
  */
 class UploadFile extends TdFunction
 {
     public const TYPE_NAME = 'uploadFile';
 
     /**
-     * File to upload
-     *
-     * @var InputFile
+     * File to upload.
      */
     protected InputFile $file;
 
     /**
-     * File type
-     *
-     * @var FileType
+     * File type.
      */
     protected FileType $fileType;
 
     /**
-     * Priority of the upload (1-32). The higher the priority, the earlier the file will be uploaded. If the priorities of two files are equal, then the first one for which uploadFile was called will be uploaded first
-     *
-     * @var int
+     * Priority of the upload (1-32). The higher the priority, the earlier the file will be uploaded. If the priorities of two files are equal, then the first one for which uploadFile was called will be uploaded first.
      */
     protected int $priority;
 
     public function __construct(InputFile $file, FileType $fileType, int $priority)
     {
-        $this->file = $file;
+        $this->file     = $file;
         $this->fileType = $fileType;
         $this->priority = $priority;
     }
@@ -55,10 +49,10 @@ class UploadFile extends TdFunction
     public function typeSerialize(): array
     {
         return [
-            '@type' => static::TYPE_NAME,
-            'file' => $this->file->typeSerialize(),
+            '@type'     => static::TYPE_NAME,
+            'file'      => $this->file->typeSerialize(),
             'file_type' => $this->fileType->typeSerialize(),
-            'priority' => $this->priority,
+            'priority'  => $this->priority,
         ];
     }
 

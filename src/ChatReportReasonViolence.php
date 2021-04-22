@@ -9,7 +9,7 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * The chat promotes violence
+ * The chat promotes violence.
  */
 class ChatReportReasonViolence extends ChatReportReason
 {

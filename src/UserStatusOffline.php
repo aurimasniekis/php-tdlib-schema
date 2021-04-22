@@ -9,16 +9,14 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * The user is offline
+ * The user is offline.
  */
 class UserStatusOffline extends UserStatus
 {
     public const TYPE_NAME = 'userStatusOffline';
 
     /**
-     * Point in time (Unix timestamp) when the user was last online
-     *
-     * @var int
+     * Point in time (Unix timestamp) when the user was last online.
      */
     protected int $wasOnline;
 
@@ -39,7 +37,7 @@ class UserStatusOffline extends UserStatus
     public function typeSerialize(): array
     {
         return [
-            '@type' => static::TYPE_NAME,
+            '@type'      => static::TYPE_NAME,
             'was_online' => $this->wasOnline,
         ];
     }

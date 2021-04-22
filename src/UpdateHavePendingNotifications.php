@@ -9,23 +9,19 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Describes whether there are some pending notification updates. Can be used to prevent application from killing, while there are some pending notifications
+ * Describes whether there are some pending notification updates. Can be used to prevent application from killing, while there are some pending notifications.
  */
 class UpdateHavePendingNotifications extends Update
 {
     public const TYPE_NAME = 'updateHavePendingNotifications';
 
     /**
-     * True, if there are some delayed notification updates, which will be sent soon
-     *
-     * @var bool
+     * True, if there are some delayed notification updates, which will be sent soon.
      */
     protected bool $haveDelayedNotifications;
 
     /**
-     * True, if there can be some yet unreceived notifications, which are being fetched from the server
-     *
-     * @var bool
+     * True, if there can be some yet unreceived notifications, which are being fetched from the server.
      */
     protected bool $haveUnreceivedNotifications;
 
@@ -33,7 +29,7 @@ class UpdateHavePendingNotifications extends Update
     {
         parent::__construct();
 
-        $this->haveDelayedNotifications = $haveDelayedNotifications;
+        $this->haveDelayedNotifications    = $haveDelayedNotifications;
         $this->haveUnreceivedNotifications = $haveUnreceivedNotifications;
     }
 
@@ -48,8 +44,8 @@ class UpdateHavePendingNotifications extends Update
     public function typeSerialize(): array
     {
         return [
-            '@type' => static::TYPE_NAME,
-            'have_delayed_notifications' => $this->haveDelayedNotifications,
+            '@type'                         => static::TYPE_NAME,
+            'have_delayed_notifications'    => $this->haveDelayedNotifications,
             'have_unreceived_notifications' => $this->haveUnreceivedNotifications,
         ];
     }

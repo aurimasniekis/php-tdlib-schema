@@ -9,28 +9,24 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * A chat draft has changed. Be aware that the update may come in the currently opened chat but with old content of the draft. If the user has changed the content of the draft, this update shouldn't be applied
+ * A chat draft has changed. Be aware that the update may come in the currently opened chat but with old content of the draft. If the user has changed the content of the draft, this update shouldn't be applied.
  */
 class UpdateChatDraftMessage extends Update
 {
     public const TYPE_NAME = 'updateChatDraftMessage';
 
     /**
-     * Chat identifier
-     *
-     * @var int
+     * Chat identifier.
      */
     protected int $chatId;
 
     /**
-     * The new draft message; may be null
-     *
-     * @var DraftMessage|null
+     * The new draft message; may be null.
      */
     protected ?DraftMessage $draftMessage;
 
     /**
-     * The new chat positions in the chat lists
+     * The new chat positions in the chat lists.
      *
      * @var ChatPosition[]
      */
@@ -40,9 +36,9 @@ class UpdateChatDraftMessage extends Update
     {
         parent::__construct();
 
-        $this->chatId = $chatId;
+        $this->chatId       = $chatId;
         $this->draftMessage = $draftMessage;
-        $this->positions = $positions;
+        $this->positions    = $positions;
     }
 
     public static function fromArray(array $array): UpdateChatDraftMessage
@@ -50,17 +46,17 @@ class UpdateChatDraftMessage extends Update
         return new static(
             $array['chat_id'],
             (isset($array['draft_message']) ? TdSchemaRegistry::fromArray($array['draft_message']) : null),
-            array_map(fn($x) => TdSchemaRegistry::fromArray($x), $array['positions']),
+            array_map(fn ($x) => TdSchemaRegistry::fromArray($x), $array['positions']),
         );
     }
 
     public function typeSerialize(): array
     {
         return [
-            '@type' => static::TYPE_NAME,
-            'chat_id' => $this->chatId,
-            'draft_message' => (isset($this->draftMessage) ? $this->draftMessage : null),
-            array_map(fn($x) => $x->typeSerialize(), $this->positions),
+            '@type'           => static::TYPE_NAME,
+            'chat_id'         => $this->chatId,
+            'draft_message'   => (isset($this->draftMessage) ? $this->draftMessage : null),
+            array_map(fn ($x) => $x->typeSerialize(), $this->positions),
         ];
     }
 

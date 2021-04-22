@@ -9,16 +9,14 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Sets the parameters for TDLib initialization. Works only when the current authorization state is authorizationStateWaitTdlibParameters
+ * Sets the parameters for TDLib initialization. Works only when the current authorization state is authorizationStateWaitTdlibParameters.
  */
 class SetTdlibParameters extends TdFunction
 {
     public const TYPE_NAME = 'setTdlibParameters';
 
     /**
-     * Parameters
-     *
-     * @var TdlibParameters
+     * Parameters.
      */
     protected TdlibParameters $parameters;
 
@@ -37,7 +35,7 @@ class SetTdlibParameters extends TdFunction
     public function typeSerialize(): array
     {
         return [
-            '@type' => static::TYPE_NAME,
+            '@type'      => static::TYPE_NAME,
             'parameters' => $this->parameters->typeSerialize(),
         ];
     }

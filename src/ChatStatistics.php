@@ -9,7 +9,7 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Contains a detailed statistics about a chat
+ * Contains a detailed statistics about a chat.
  */
 class ChatStatistics extends TdObject
 {

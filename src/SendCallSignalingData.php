@@ -9,30 +9,26 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Sends call signaling data
+ * Sends call signaling data.
  */
 class SendCallSignalingData extends TdFunction
 {
     public const TYPE_NAME = 'sendCallSignalingData';
 
     /**
-     * Call identifier
-     *
-     * @var int
+     * Call identifier.
      */
     protected int $callId;
 
     /**
-     * The data
-     *
-     * @var string
+     * The data.
      */
     protected string $data;
 
     public function __construct(int $callId, string $data)
     {
         $this->callId = $callId;
-        $this->data = $data;
+        $this->data   = $data;
     }
 
     public static function fromArray(array $array): SendCallSignalingData
@@ -46,9 +42,9 @@ class SendCallSignalingData extends TdFunction
     public function typeSerialize(): array
     {
         return [
-            '@type' => static::TYPE_NAME,
+            '@type'   => static::TYPE_NAME,
             'call_id' => $this->callId,
-            'data' => $this->data,
+            'data'    => $this->data,
         ];
     }
 

@@ -9,7 +9,7 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * The username can be set
+ * The username can be set.
  */
 class CheckChatUsernameResultOk extends CheckChatUsernameResult
 {

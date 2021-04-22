@@ -9,7 +9,7 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * The user is currently logging out
+ * The user is currently logging out.
  */
 class AuthorizationStateLoggingOut extends AuthorizationState
 {

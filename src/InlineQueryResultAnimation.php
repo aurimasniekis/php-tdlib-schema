@@ -9,30 +9,24 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Represents an animation file
+ * Represents an animation file.
  */
 class InlineQueryResultAnimation extends InlineQueryResult
 {
     public const TYPE_NAME = 'inlineQueryResultAnimation';
 
     /**
-     * Unique identifier of the query result
-     *
-     * @var string
+     * Unique identifier of the query result.
      */
     protected string $id;
 
     /**
-     * Animation file
-     *
-     * @var Animation
+     * Animation file.
      */
     protected Animation $animation;
 
     /**
-     * Animation title
-     *
-     * @var string
+     * Animation title.
      */
     protected string $title;
 
@@ -40,9 +34,9 @@ class InlineQueryResultAnimation extends InlineQueryResult
     {
         parent::__construct();
 
-        $this->id = $id;
+        $this->id        = $id;
         $this->animation = $animation;
-        $this->title = $title;
+        $this->title     = $title;
     }
 
     public static function fromArray(array $array): InlineQueryResultAnimation
@@ -57,10 +51,10 @@ class InlineQueryResultAnimation extends InlineQueryResult
     public function typeSerialize(): array
     {
         return [
-            '@type' => static::TYPE_NAME,
-            'id' => $this->id,
+            '@type'     => static::TYPE_NAME,
+            'id'        => $this->id,
             'animation' => $this->animation->typeSerialize(),
-            'title' => $this->title,
+            'title'     => $this->title,
         ];
     }
 

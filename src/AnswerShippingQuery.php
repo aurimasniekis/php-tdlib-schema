@@ -9,30 +9,26 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Sets the result of a shipping query; for bots only
+ * Sets the result of a shipping query; for bots only.
  */
 class AnswerShippingQuery extends TdFunction
 {
     public const TYPE_NAME = 'answerShippingQuery';
 
     /**
-     * Identifier of the shipping query
-     *
-     * @var string
+     * Identifier of the shipping query.
      */
     protected string $shippingQueryId;
 
     /**
-     * Available shipping options
+     * Available shipping options.
      *
      * @var ShippingOption[]
      */
     protected array $shippingOptions;
 
     /**
-     * An error message, empty on success
-     *
-     * @var string
+     * An error message, empty on success.
      */
     protected string $errorMessage;
 
@@ -40,14 +36,14 @@ class AnswerShippingQuery extends TdFunction
     {
         $this->shippingQueryId = $shippingQueryId;
         $this->shippingOptions = $shippingOptions;
-        $this->errorMessage = $errorMessage;
+        $this->errorMessage    = $errorMessage;
     }
 
     public static function fromArray(array $array): AnswerShippingQuery
     {
         return new static(
             $array['shipping_query_id'],
-            array_map(fn($x) => TdSchemaRegistry::fromArray($x), $array['shipping_options']),
+            array_map(fn ($x) => TdSchemaRegistry::fromArray($x), $array['shipping_options']),
             $array['error_message'],
         );
     }
@@ -55,10 +51,10 @@ class AnswerShippingQuery extends TdFunction
     public function typeSerialize(): array
     {
         return [
-            '@type' => static::TYPE_NAME,
+            '@type'             => static::TYPE_NAME,
             'shipping_query_id' => $this->shippingQueryId,
-            array_map(fn($x) => $x->typeSerialize(), $this->shippingOptions),
-            'error_message' => $this->errorMessage,
+            array_map(fn ($x)   => $x->typeSerialize(), $this->shippingOptions),
+            'error_message'     => $this->errorMessage,
         ];
     }
 

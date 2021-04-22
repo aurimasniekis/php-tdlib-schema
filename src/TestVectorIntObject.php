@@ -9,14 +9,14 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * A simple object containing a vector of objects that hold a number; for testing only
+ * A simple object containing a vector of objects that hold a number; for testing only.
  */
 class TestVectorIntObject extends TdObject
 {
     public const TYPE_NAME = 'testVectorIntObject';
 
     /**
-     * Vector of objects
+     * Vector of objects.
      *
      * @var TestInt[]
      */
@@ -30,15 +30,15 @@ class TestVectorIntObject extends TdObject
     public static function fromArray(array $array): TestVectorIntObject
     {
         return new static(
-            array_map(fn($x) => TdSchemaRegistry::fromArray($x), $array['value']),
+            array_map(fn ($x) => TdSchemaRegistry::fromArray($x), $array['value']),
         );
     }
 
     public function typeSerialize(): array
     {
         return [
-            '@type' => static::TYPE_NAME,
-            array_map(fn($x) => $x->typeSerialize(), $this->value),
+            '@type'           => static::TYPE_NAME,
+            array_map(fn ($x) => $x->typeSerialize(), $this->value),
         ];
     }
 

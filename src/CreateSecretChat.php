@@ -9,16 +9,14 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Returns an existing chat corresponding to a known secret chat
+ * Returns an existing chat corresponding to a known secret chat.
  */
 class CreateSecretChat extends TdFunction
 {
     public const TYPE_NAME = 'createSecretChat';
 
     /**
-     * Secret chat identifier
-     *
-     * @var int
+     * Secret chat identifier.
      */
     protected int $secretChatId;
 
@@ -37,7 +35,7 @@ class CreateSecretChat extends TdFunction
     public function typeSerialize(): array
     {
         return [
-            '@type' => static::TYPE_NAME,
+            '@type'          => static::TYPE_NAME,
             'secret_chat_id' => $this->secretChatId,
         ];
     }

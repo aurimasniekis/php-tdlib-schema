@@ -9,14 +9,14 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * The list of favorite stickers was updated
+ * The list of favorite stickers was updated.
  */
 class UpdateFavoriteStickers extends Update
 {
     public const TYPE_NAME = 'updateFavoriteStickers';
 
     /**
-     * The new list of file identifiers of favorite stickers
+     * The new list of file identifiers of favorite stickers.
      *
      * @var int[]
      */
@@ -39,7 +39,7 @@ class UpdateFavoriteStickers extends Update
     public function typeSerialize(): array
     {
         return [
-            '@type' => static::TYPE_NAME,
+            '@type'       => static::TYPE_NAME,
             'sticker_ids' => $this->stickerIds,
         ];
     }

@@ -9,44 +9,34 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * A map
+ * A map.
  */
 class PageBlockMap extends PageBlock
 {
     public const TYPE_NAME = 'pageBlockMap';
 
     /**
-     * Location of the map center
-     *
-     * @var Location
+     * Location of the map center.
      */
     protected Location $location;
 
     /**
-     * Map zoom level
-     *
-     * @var int
+     * Map zoom level.
      */
     protected int $zoom;
 
     /**
-     * Map width
-     *
-     * @var int
+     * Map width.
      */
     protected int $width;
 
     /**
-     * Map height
-     *
-     * @var int
+     * Map height.
      */
     protected int $height;
 
     /**
-     * Block caption
-     *
-     * @var PageBlockCaption
+     * Block caption.
      */
     protected PageBlockCaption $caption;
 
@@ -55,10 +45,10 @@ class PageBlockMap extends PageBlock
         parent::__construct();
 
         $this->location = $location;
-        $this->zoom = $zoom;
-        $this->width = $width;
-        $this->height = $height;
-        $this->caption = $caption;
+        $this->zoom     = $zoom;
+        $this->width    = $width;
+        $this->height   = $height;
+        $this->caption  = $caption;
     }
 
     public static function fromArray(array $array): PageBlockMap
@@ -75,12 +65,12 @@ class PageBlockMap extends PageBlock
     public function typeSerialize(): array
     {
         return [
-            '@type' => static::TYPE_NAME,
+            '@type'    => static::TYPE_NAME,
             'location' => $this->location->typeSerialize(),
-            'zoom' => $this->zoom,
-            'width' => $this->width,
-            'height' => $this->height,
-            'caption' => $this->caption->typeSerialize(),
+            'zoom'     => $this->zoom,
+            'width'    => $this->width,
+            'height'   => $this->height,
+            'caption'  => $this->caption->typeSerialize(),
         ];
     }
 

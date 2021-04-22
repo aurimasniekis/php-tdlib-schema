@@ -9,44 +9,34 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * A user with information about joining/leaving a chat
+ * A user with information about joining/leaving a chat.
  */
 class ChatMember extends TdObject
 {
     public const TYPE_NAME = 'chatMember';
 
     /**
-     * User identifier of the chat member
-     *
-     * @var int
+     * User identifier of the chat member.
      */
     protected int $userId;
 
     /**
-     * Identifier of a user that invited/promoted/banned this member in the chat; 0 if unknown
-     *
-     * @var int
+     * Identifier of a user that invited/promoted/banned this member in the chat; 0 if unknown.
      */
     protected int $inviterUserId;
 
     /**
-     * Point in time (Unix timestamp) when the user joined the chat
-     *
-     * @var int
+     * Point in time (Unix timestamp) when the user joined the chat.
      */
     protected int $joinedChatDate;
 
     /**
-     * Status of the member in the chat
-     *
-     * @var ChatMemberStatus
+     * Status of the member in the chat.
      */
     protected ChatMemberStatus $status;
 
     /**
-     * If the user is a bot, information about the bot; may be null. Can be null even for a bot if the bot is not the chat member
-     *
-     * @var BotInfo|null
+     * If the user is a bot, information about the bot; may be null. Can be null even for a bot if the bot is not the chat member.
      */
     protected ?BotInfo $botInfo;
 
@@ -57,11 +47,11 @@ class ChatMember extends TdObject
         ChatMemberStatus $status,
         ?BotInfo $botInfo
     ) {
-        $this->userId = $userId;
-        $this->inviterUserId = $inviterUserId;
+        $this->userId         = $userId;
+        $this->inviterUserId  = $inviterUserId;
         $this->joinedChatDate = $joinedChatDate;
-        $this->status = $status;
-        $this->botInfo = $botInfo;
+        $this->status         = $status;
+        $this->botInfo        = $botInfo;
     }
 
     public static function fromArray(array $array): ChatMember
@@ -78,12 +68,12 @@ class ChatMember extends TdObject
     public function typeSerialize(): array
     {
         return [
-            '@type' => static::TYPE_NAME,
-            'user_id' => $this->userId,
-            'inviter_user_id' => $this->inviterUserId,
+            '@type'            => static::TYPE_NAME,
+            'user_id'          => $this->userId,
+            'inviter_user_id'  => $this->inviterUserId,
             'joined_chat_date' => $this->joinedChatDate,
-            'status' => $this->status->typeSerialize(),
-            'bot_info' => (isset($this->botInfo) ? $this->botInfo : null),
+            'status'           => $this->status->typeSerialize(),
+            'bot_info'         => (isset($this->botInfo) ? $this->botInfo : null),
         ];
     }
 

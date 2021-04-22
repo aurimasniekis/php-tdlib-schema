@@ -9,14 +9,14 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Represents a list of proxy servers
+ * Represents a list of proxy servers.
  */
 class Proxies extends TdObject
 {
     public const TYPE_NAME = 'proxies';
 
     /**
-     * List of proxy servers
+     * List of proxy servers.
      *
      * @var Proxy[]
      */
@@ -30,15 +30,15 @@ class Proxies extends TdObject
     public static function fromArray(array $array): Proxies
     {
         return new static(
-            array_map(fn($x) => TdSchemaRegistry::fromArray($x), $array['proxies']),
+            array_map(fn ($x) => TdSchemaRegistry::fromArray($x), $array['proxies']),
         );
     }
 
     public function typeSerialize(): array
     {
         return [
-            '@type' => static::TYPE_NAME,
-            array_map(fn($x) => $x->typeSerialize(), $this->proxies),
+            '@type'           => static::TYPE_NAME,
+            array_map(fn ($x) => $x->typeSerialize(), $this->proxies),
         ];
     }
 

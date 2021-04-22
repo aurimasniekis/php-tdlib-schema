@@ -9,38 +9,32 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Returns information about a button of type inlineKeyboardButtonTypeLoginUrl. The method needs to be called when the user presses the button
+ * Returns information about a button of type inlineKeyboardButtonTypeLoginUrl. The method needs to be called when the user presses the button.
  */
 class GetLoginUrlInfo extends TdFunction
 {
     public const TYPE_NAME = 'getLoginUrlInfo';
 
     /**
-     * Chat identifier of the message with the button
-     *
-     * @var int
+     * Chat identifier of the message with the button.
      */
     protected int $chatId;
 
     /**
-     * Message identifier of the message with the button
-     *
-     * @var int
+     * Message identifier of the message with the button.
      */
     protected int $messageId;
 
     /**
-     * Button identifier
-     *
-     * @var int
+     * Button identifier.
      */
     protected int $buttonId;
 
     public function __construct(int $chatId, int $messageId, int $buttonId)
     {
-        $this->chatId = $chatId;
+        $this->chatId    = $chatId;
         $this->messageId = $messageId;
-        $this->buttonId = $buttonId;
+        $this->buttonId  = $buttonId;
     }
 
     public static function fromArray(array $array): GetLoginUrlInfo
@@ -55,10 +49,10 @@ class GetLoginUrlInfo extends TdFunction
     public function typeSerialize(): array
     {
         return [
-            '@type' => static::TYPE_NAME,
-            'chat_id' => $this->chatId,
+            '@type'      => static::TYPE_NAME,
+            'chat_id'    => $this->chatId,
             'message_id' => $this->messageId,
-            'button_id' => $this->buttonId,
+            'button_id'  => $this->buttonId,
         ];
     }
 

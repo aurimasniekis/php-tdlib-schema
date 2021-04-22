@@ -9,114 +9,84 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Contains information about one session in a Telegram application used by the current user. Sessions should be shown to the user in the returned order
+ * Contains information about one session in a Telegram application used by the current user. Sessions should be shown to the user in the returned order.
  */
 class Session extends TdObject
 {
     public const TYPE_NAME = 'session';
 
     /**
-     * Session identifier
-     *
-     * @var string
+     * Session identifier.
      */
     protected string $id;
 
     /**
-     * True, if this session is the current session
-     *
-     * @var bool
+     * True, if this session is the current session.
      */
     protected bool $isCurrent;
 
     /**
-     * True, if a password is needed to complete authorization of the session
-     *
-     * @var bool
+     * True, if a password is needed to complete authorization of the session.
      */
     protected bool $isPasswordPending;
 
     /**
-     * Telegram API identifier, as provided by the application
-     *
-     * @var int
+     * Telegram API identifier, as provided by the application.
      */
     protected int $apiId;
 
     /**
-     * Name of the application, as provided by the application
-     *
-     * @var string
+     * Name of the application, as provided by the application.
      */
     protected string $applicationName;
 
     /**
-     * The version of the application, as provided by the application
-     *
-     * @var string
+     * The version of the application, as provided by the application.
      */
     protected string $applicationVersion;
 
     /**
-     * True, if the application is an official application or uses the api_id of an official application
-     *
-     * @var bool
+     * True, if the application is an official application or uses the api_id of an official application.
      */
     protected bool $isOfficialApplication;
 
     /**
-     * Model of the device the application has been run or is running on, as provided by the application
-     *
-     * @var string
+     * Model of the device the application has been run or is running on, as provided by the application.
      */
     protected string $deviceModel;
 
     /**
-     * Operating system the application has been run or is running on, as provided by the application
-     *
-     * @var string
+     * Operating system the application has been run or is running on, as provided by the application.
      */
     protected string $platform;
 
     /**
-     * Version of the operating system the application has been run or is running on, as provided by the application
-     *
-     * @var string
+     * Version of the operating system the application has been run or is running on, as provided by the application.
      */
     protected string $systemVersion;
 
     /**
-     * Point in time (Unix timestamp) when the user has logged in
-     *
-     * @var int
+     * Point in time (Unix timestamp) when the user has logged in.
      */
     protected int $logInDate;
 
     /**
-     * Point in time (Unix timestamp) when the session was last used
-     *
-     * @var int
+     * Point in time (Unix timestamp) when the session was last used.
      */
     protected int $lastActiveDate;
 
     /**
-     * IP address from which the session was created, in human-readable format
-     *
-     * @var string
+     * IP address from which the session was created, in human-readable format.
      */
     protected string $ip;
 
     /**
-     * A two-letter country code for the country from which the session was created, based on the IP address
-     *
-     * @var string
+     * A two-letter country code for the country from which the session was created, based on the IP address.
      */
     protected string $country;
 
     /**
-     * Region code from which the session was created, based on the IP address
-     *
-     * @var string
+     * Region code from which the session was created, based on the IP address.
      */
     protected string $region;
 
@@ -137,21 +107,21 @@ class Session extends TdObject
         string $country,
         string $region
     ) {
-        $this->id = $id;
-        $this->isCurrent = $isCurrent;
-        $this->isPasswordPending = $isPasswordPending;
-        $this->apiId = $apiId;
-        $this->applicationName = $applicationName;
-        $this->applicationVersion = $applicationVersion;
+        $this->id                    = $id;
+        $this->isCurrent             = $isCurrent;
+        $this->isPasswordPending     = $isPasswordPending;
+        $this->apiId                 = $apiId;
+        $this->applicationName       = $applicationName;
+        $this->applicationVersion    = $applicationVersion;
         $this->isOfficialApplication = $isOfficialApplication;
-        $this->deviceModel = $deviceModel;
-        $this->platform = $platform;
-        $this->systemVersion = $systemVersion;
-        $this->logInDate = $logInDate;
-        $this->lastActiveDate = $lastActiveDate;
-        $this->ip = $ip;
-        $this->country = $country;
-        $this->region = $region;
+        $this->deviceModel           = $deviceModel;
+        $this->platform              = $platform;
+        $this->systemVersion         = $systemVersion;
+        $this->logInDate             = $logInDate;
+        $this->lastActiveDate        = $lastActiveDate;
+        $this->ip                    = $ip;
+        $this->country               = $country;
+        $this->region                = $region;
     }
 
     public static function fromArray(array $array): Session
@@ -178,22 +148,22 @@ class Session extends TdObject
     public function typeSerialize(): array
     {
         return [
-            '@type' => static::TYPE_NAME,
-            'id' => $this->id,
-            'is_current' => $this->isCurrent,
-            'is_password_pending' => $this->isPasswordPending,
-            'api_id' => $this->apiId,
-            'application_name' => $this->applicationName,
-            'application_version' => $this->applicationVersion,
+            '@type'                   => static::TYPE_NAME,
+            'id'                      => $this->id,
+            'is_current'              => $this->isCurrent,
+            'is_password_pending'     => $this->isPasswordPending,
+            'api_id'                  => $this->apiId,
+            'application_name'        => $this->applicationName,
+            'application_version'     => $this->applicationVersion,
             'is_official_application' => $this->isOfficialApplication,
-            'device_model' => $this->deviceModel,
-            'platform' => $this->platform,
-            'system_version' => $this->systemVersion,
-            'log_in_date' => $this->logInDate,
-            'last_active_date' => $this->lastActiveDate,
-            'ip' => $this->ip,
-            'country' => $this->country,
-            'region' => $this->region,
+            'device_model'            => $this->deviceModel,
+            'platform'                => $this->platform,
+            'system_version'          => $this->systemVersion,
+            'log_in_date'             => $this->logInDate,
+            'last_active_date'        => $this->lastActiveDate,
+            'ip'                      => $this->ip,
+            'country'                 => $this->country,
+            'region'                  => $this->region,
         ];
     }
 

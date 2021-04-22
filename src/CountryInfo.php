@@ -9,42 +9,34 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Contains information about a country
+ * Contains information about a country.
  */
 class CountryInfo extends TdObject
 {
     public const TYPE_NAME = 'countryInfo';
 
     /**
-     * A two-letter ISO 3166-1 alpha-2 country code
-     *
-     * @var string
+     * A two-letter ISO 3166-1 alpha-2 country code.
      */
     protected string $countryCode;
 
     /**
-     * Native name of the country
-     *
-     * @var string
+     * Native name of the country.
      */
     protected string $name;
 
     /**
-     * English name of the country
-     *
-     * @var string
+     * English name of the country.
      */
     protected string $englishName;
 
     /**
-     * True, if the country should be hidden from the list of all countries
-     *
-     * @var bool
+     * True, if the country should be hidden from the list of all countries.
      */
     protected bool $isHidden;
 
     /**
-     * List of country calling codes
+     * List of country calling codes.
      *
      * @var string[]
      */
@@ -57,10 +49,10 @@ class CountryInfo extends TdObject
         bool $isHidden,
         array $callingCodes
     ) {
-        $this->countryCode = $countryCode;
-        $this->name = $name;
-        $this->englishName = $englishName;
-        $this->isHidden = $isHidden;
+        $this->countryCode  = $countryCode;
+        $this->name         = $name;
+        $this->englishName  = $englishName;
+        $this->isHidden     = $isHidden;
         $this->callingCodes = $callingCodes;
     }
 
@@ -78,11 +70,11 @@ class CountryInfo extends TdObject
     public function typeSerialize(): array
     {
         return [
-            '@type' => static::TYPE_NAME,
-            'country_code' => $this->countryCode,
-            'name' => $this->name,
-            'english_name' => $this->englishName,
-            'is_hidden' => $this->isHidden,
+            '@type'         => static::TYPE_NAME,
+            'country_code'  => $this->countryCode,
+            'name'          => $this->name,
+            'english_name'  => $this->englishName,
+            'is_hidden'     => $this->isHidden,
             'calling_codes' => $this->callingCodes,
         ];
     }

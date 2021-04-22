@@ -9,7 +9,7 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Currently establishing a connection to the Telegram servers
+ * Currently establishing a connection to the Telegram servers.
  */
 class ConnectionStateConnecting extends ConnectionState
 {

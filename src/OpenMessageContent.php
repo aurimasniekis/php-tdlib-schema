@@ -9,29 +9,25 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Informs TDLib that the message content has been opened (e.g., the user has opened a photo, video, document, location or venue, or has listened to an audio file or voice note message). An updateMessageContentOpened update will be generated if something has changed
+ * Informs TDLib that the message content has been opened (e.g., the user has opened a photo, video, document, location or venue, or has listened to an audio file or voice note message). An updateMessageContentOpened update will be generated if something has changed.
  */
 class OpenMessageContent extends TdFunction
 {
     public const TYPE_NAME = 'openMessageContent';
 
     /**
-     * Chat identifier of the message
-     *
-     * @var int
+     * Chat identifier of the message.
      */
     protected int $chatId;
 
     /**
-     * Identifier of the message with the opened content
-     *
-     * @var int
+     * Identifier of the message with the opened content.
      */
     protected int $messageId;
 
     public function __construct(int $chatId, int $messageId)
     {
-        $this->chatId = $chatId;
+        $this->chatId    = $chatId;
         $this->messageId = $messageId;
     }
 
@@ -46,8 +42,8 @@ class OpenMessageContent extends TdFunction
     public function typeSerialize(): array
     {
         return [
-            '@type' => static::TYPE_NAME,
-            'chat_id' => $this->chatId,
+            '@type'      => static::TYPE_NAME,
+            'chat_id'    => $this->chatId,
             'message_id' => $this->messageId,
         ];
     }

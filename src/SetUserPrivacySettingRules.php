@@ -9,30 +9,26 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Changes user privacy settings
+ * Changes user privacy settings.
  */
 class SetUserPrivacySettingRules extends TdFunction
 {
     public const TYPE_NAME = 'setUserPrivacySettingRules';
 
     /**
-     * The privacy setting
-     *
-     * @var UserPrivacySetting
+     * The privacy setting.
      */
     protected UserPrivacySetting $setting;
 
     /**
-     * The new privacy rules
-     *
-     * @var UserPrivacySettingRules
+     * The new privacy rules.
      */
     protected UserPrivacySettingRules $rules;
 
     public function __construct(UserPrivacySetting $setting, UserPrivacySettingRules $rules)
     {
         $this->setting = $setting;
-        $this->rules = $rules;
+        $this->rules   = $rules;
     }
 
     public static function fromArray(array $array): SetUserPrivacySettingRules
@@ -46,9 +42,9 @@ class SetUserPrivacySettingRules extends TdFunction
     public function typeSerialize(): array
     {
         return [
-            '@type' => static::TYPE_NAME,
+            '@type'   => static::TYPE_NAME,
             'setting' => $this->setting->typeSerialize(),
-            'rules' => $this->rules->typeSerialize(),
+            'rules'   => $this->rules->typeSerialize(),
         ];
     }
 

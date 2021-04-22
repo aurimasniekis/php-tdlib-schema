@@ -9,7 +9,7 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * The text uses HTML-style formatting. The same as Telegram Bot API "HTML" parse mode
+ * The text uses HTML-style formatting. The same as Telegram Bot API "HTML" parse mode.
  */
 class TextParseModeHTML extends TextParseMode
 {

@@ -9,38 +9,32 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Changes the draft message in a chat
+ * Changes the draft message in a chat.
  */
 class SetChatDraftMessage extends TdFunction
 {
     public const TYPE_NAME = 'setChatDraftMessage';
 
     /**
-     * Chat identifier
-     *
-     * @var int
+     * Chat identifier.
      */
     protected int $chatId;
 
     /**
-     * If not 0, a message thread identifier in which the draft was changed
-     *
-     * @var int
+     * If not 0, a message thread identifier in which the draft was changed.
      */
     protected int $messageThreadId;
 
     /**
-     * New draft message; may be null
-     *
-     * @var DraftMessage|null
+     * New draft message; may be null.
      */
     protected ?DraftMessage $draftMessage;
 
     public function __construct(int $chatId, int $messageThreadId, ?DraftMessage $draftMessage)
     {
-        $this->chatId = $chatId;
+        $this->chatId          = $chatId;
         $this->messageThreadId = $messageThreadId;
-        $this->draftMessage = $draftMessage;
+        $this->draftMessage    = $draftMessage;
     }
 
     public static function fromArray(array $array): SetChatDraftMessage
@@ -55,10 +49,10 @@ class SetChatDraftMessage extends TdFunction
     public function typeSerialize(): array
     {
         return [
-            '@type' => static::TYPE_NAME,
-            'chat_id' => $this->chatId,
+            '@type'             => static::TYPE_NAME,
+            'chat_id'           => $this->chatId,
             'message_thread_id' => $this->messageThreadId,
-            'draft_message' => (isset($this->draftMessage) ? $this->draftMessage : null),
+            'draft_message'     => (isset($this->draftMessage) ? $this->draftMessage : null),
         ];
     }
 

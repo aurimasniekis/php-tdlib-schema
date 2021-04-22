@@ -9,91 +9,69 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Represents short information about a sticker set
+ * Represents short information about a sticker set.
  */
 class StickerSetInfo extends TdObject
 {
     public const TYPE_NAME = 'stickerSetInfo';
 
     /**
-     * Identifier of the sticker set
-     *
-     * @var string
+     * Identifier of the sticker set.
      */
     protected string $id;
 
     /**
-     * Title of the sticker set
-     *
-     * @var string
+     * Title of the sticker set.
      */
     protected string $title;
 
     /**
-     * Name of the sticker set
-     *
-     * @var string
+     * Name of the sticker set.
      */
     protected string $name;
 
     /**
-     * Sticker set thumbnail in WEBP or TGS format with width and height 100; may be null
-     *
-     * @var Thumbnail|null
+     * Sticker set thumbnail in WEBP or TGS format with width and height 100; may be null.
      */
     protected ?Thumbnail $thumbnail;
 
     /**
-     * True, if the sticker set has been installed by current user
-     *
-     * @var bool
+     * True, if the sticker set has been installed by current user.
      */
     protected bool $isInstalled;
 
     /**
-     * True, if the sticker set has been archived. A sticker set can't be installed and archived simultaneously
-     *
-     * @var bool
+     * True, if the sticker set has been archived. A sticker set can't be installed and archived simultaneously.
      */
     protected bool $isArchived;
 
     /**
-     * True, if the sticker set is official
-     *
-     * @var bool
+     * True, if the sticker set is official.
      */
     protected bool $isOfficial;
 
     /**
-     * True, is the stickers in the set are animated
-     *
-     * @var bool
+     * True, is the stickers in the set are animated.
      */
     protected bool $isAnimated;
 
     /**
-     * True, if the stickers in the set are masks
-     *
-     * @var bool
+     * True, if the stickers in the set are masks.
      */
     protected bool $isMasks;
 
     /**
-     * True for already viewed trending sticker sets
-     *
-     * @var bool
+     * True for already viewed trending sticker sets.
      */
     protected bool $isViewed;
 
     /**
-     * Total number of stickers in the set
-     *
-     * @var int
+     * Total number of stickers in the set.
      */
     protected int $size;
 
     /**
-     * Contains up to the first 5 stickers from the set, depending on the context. If the application needs more stickers the full set should be requested
+     * Contains up to the first 5 stickers from the set, depending on the context. If the application needs more stickers the full set should be requested.
      *
      * @var Sticker[]
      */
@@ -113,18 +91,18 @@ class StickerSetInfo extends TdObject
         int $size,
         array $covers
     ) {
-        $this->id = $id;
-        $this->title = $title;
-        $this->name = $name;
-        $this->thumbnail = $thumbnail;
+        $this->id          = $id;
+        $this->title       = $title;
+        $this->name        = $name;
+        $this->thumbnail   = $thumbnail;
         $this->isInstalled = $isInstalled;
-        $this->isArchived = $isArchived;
-        $this->isOfficial = $isOfficial;
-        $this->isAnimated = $isAnimated;
-        $this->isMasks = $isMasks;
-        $this->isViewed = $isViewed;
-        $this->size = $size;
-        $this->covers = $covers;
+        $this->isArchived  = $isArchived;
+        $this->isOfficial  = $isOfficial;
+        $this->isAnimated  = $isAnimated;
+        $this->isMasks     = $isMasks;
+        $this->isViewed    = $isViewed;
+        $this->size        = $size;
+        $this->covers      = $covers;
     }
 
     public static function fromArray(array $array): StickerSetInfo
@@ -141,26 +119,26 @@ class StickerSetInfo extends TdObject
             $array['is_masks'],
             $array['is_viewed'],
             $array['size'],
-            array_map(fn($x) => TdSchemaRegistry::fromArray($x), $array['covers']),
+            array_map(fn ($x) => TdSchemaRegistry::fromArray($x), $array['covers']),
         );
     }
 
     public function typeSerialize(): array
     {
         return [
-            '@type' => static::TYPE_NAME,
-            'id' => $this->id,
-            'title' => $this->title,
-            'name' => $this->name,
-            'thumbnail' => (isset($this->thumbnail) ? $this->thumbnail : null),
-            'is_installed' => $this->isInstalled,
-            'is_archived' => $this->isArchived,
-            'is_official' => $this->isOfficial,
-            'is_animated' => $this->isAnimated,
-            'is_masks' => $this->isMasks,
-            'is_viewed' => $this->isViewed,
-            'size' => $this->size,
-            array_map(fn($x) => $x->typeSerialize(), $this->covers),
+            '@type'           => static::TYPE_NAME,
+            'id'              => $this->id,
+            'title'           => $this->title,
+            'name'            => $this->name,
+            'thumbnail'       => (isset($this->thumbnail) ? $this->thumbnail : null),
+            'is_installed'    => $this->isInstalled,
+            'is_archived'     => $this->isArchived,
+            'is_official'     => $this->isOfficial,
+            'is_animated'     => $this->isAnimated,
+            'is_masks'        => $this->isMasks,
+            'is_viewed'       => $this->isViewed,
+            'size'            => $this->size,
+            array_map(fn ($x) => $x->typeSerialize(), $this->covers),
         ];
     }
 

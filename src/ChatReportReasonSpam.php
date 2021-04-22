@@ -9,7 +9,7 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * The chat contains spam messages
+ * The chat contains spam messages.
  */
 class ChatReportReasonSpam extends ChatReportReason
 {

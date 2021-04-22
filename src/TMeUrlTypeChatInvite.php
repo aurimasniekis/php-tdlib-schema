@@ -9,16 +9,14 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * A chat invite link
+ * A chat invite link.
  */
 class TMeUrlTypeChatInvite extends TMeUrlType
 {
     public const TYPE_NAME = 'tMeUrlTypeChatInvite';
 
     /**
-     * Chat invite link info
-     *
-     * @var ChatInviteLinkInfo
+     * Chat invite link info.
      */
     protected ChatInviteLinkInfo $info;
 
@@ -40,7 +38,7 @@ class TMeUrlTypeChatInvite extends TMeUrlType
     {
         return [
             '@type' => static::TYPE_NAME,
-            'info' => $this->info->typeSerialize(),
+            'info'  => $this->info->typeSerialize(),
         ];
     }
 

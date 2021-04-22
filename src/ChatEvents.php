@@ -9,14 +9,14 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Contains a list of chat events
+ * Contains a list of chat events.
  */
 class ChatEvents extends TdObject
 {
     public const TYPE_NAME = 'chatEvents';
 
     /**
-     * List of events
+     * List of events.
      *
      * @var ChatEvent[]
      */
@@ -30,15 +30,15 @@ class ChatEvents extends TdObject
     public static function fromArray(array $array): ChatEvents
     {
         return new static(
-            array_map(fn($x) => TdSchemaRegistry::fromArray($x), $array['events']),
+            array_map(fn ($x) => TdSchemaRegistry::fromArray($x), $array['events']),
         );
     }
 
     public function typeSerialize(): array
     {
         return [
-            '@type' => static::TYPE_NAME,
-            array_map(fn($x) => $x->typeSerialize(), $this->events),
+            '@type'           => static::TYPE_NAME,
+            array_map(fn ($x) => $x->typeSerialize(), $this->events),
         ];
     }
 

@@ -9,16 +9,14 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Changes a profile photo for the current user
+ * Changes a profile photo for the current user.
  */
 class SetProfilePhoto extends TdFunction
 {
     public const TYPE_NAME = 'setProfilePhoto';
 
     /**
-     * Profile photo to set
-     *
-     * @var InputChatPhoto
+     * Profile photo to set.
      */
     protected InputChatPhoto $photo;
 

@@ -9,30 +9,24 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * An animation
+ * An animation.
  */
 class PageBlockAnimation extends PageBlock
 {
     public const TYPE_NAME = 'pageBlockAnimation';
 
     /**
-     * Animation file; may be null
-     *
-     * @var Animation|null
+     * Animation file; may be null.
      */
     protected ?Animation $animation;
 
     /**
-     * Animation caption
-     *
-     * @var PageBlockCaption
+     * Animation caption.
      */
     protected PageBlockCaption $caption;
 
     /**
-     * True, if the animation should be played automatically
-     *
-     * @var bool
+     * True, if the animation should be played automatically.
      */
     protected bool $needAutoplay;
 
@@ -40,8 +34,8 @@ class PageBlockAnimation extends PageBlock
     {
         parent::__construct();
 
-        $this->animation = $animation;
-        $this->caption = $caption;
+        $this->animation    = $animation;
+        $this->caption      = $caption;
         $this->needAutoplay = $needAutoplay;
     }
 
@@ -57,9 +51,9 @@ class PageBlockAnimation extends PageBlock
     public function typeSerialize(): array
     {
         return [
-            '@type' => static::TYPE_NAME,
-            'animation' => (isset($this->animation) ? $this->animation : null),
-            'caption' => $this->caption->typeSerialize(),
+            '@type'         => static::TYPE_NAME,
+            'animation'     => (isset($this->animation) ? $this->animation : null),
+            'caption'       => $this->caption->typeSerialize(),
             'need_autoplay' => $this->needAutoplay,
         ];
     }

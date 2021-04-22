@@ -9,7 +9,7 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Describes the type of an inline keyboard button
+ * Describes the type of an inline keyboard button.
  */
 class InlineKeyboardButtonType extends TdObject
 {

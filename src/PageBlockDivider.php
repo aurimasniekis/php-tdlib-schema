@@ -9,7 +9,7 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * An empty block separating a page
+ * An empty block separating a page.
  */
 class PageBlockDivider extends PageBlock
 {

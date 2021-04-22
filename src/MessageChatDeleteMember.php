@@ -9,16 +9,14 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * A chat member was deleted
+ * A chat member was deleted.
  */
 class MessageChatDeleteMember extends MessageContent
 {
     public const TYPE_NAME = 'messageChatDeleteMember';
 
     /**
-     * User identifier of the deleted chat member
-     *
-     * @var int
+     * User identifier of the deleted chat member.
      */
     protected int $userId;
 
@@ -39,7 +37,7 @@ class MessageChatDeleteMember extends MessageContent
     public function typeSerialize(): array
     {
         return [
-            '@type' => static::TYPE_NAME,
+            '@type'   => static::TYPE_NAME,
             'user_id' => $this->userId,
         ];
     }

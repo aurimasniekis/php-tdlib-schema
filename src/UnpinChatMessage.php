@@ -9,29 +9,25 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Removes a pinned message from a chat; requires can_pin_messages rights in the group or can_edit_messages rights in the channel
+ * Removes a pinned message from a chat; requires can_pin_messages rights in the group or can_edit_messages rights in the channel.
  */
 class UnpinChatMessage extends TdFunction
 {
     public const TYPE_NAME = 'unpinChatMessage';
 
     /**
-     * Identifier of the chat
-     *
-     * @var int
+     * Identifier of the chat.
      */
     protected int $chatId;
 
     /**
-     * Identifier of the removed pinned message
-     *
-     * @var int
+     * Identifier of the removed pinned message.
      */
     protected int $messageId;
 
     public function __construct(int $chatId, int $messageId)
     {
-        $this->chatId = $chatId;
+        $this->chatId    = $chatId;
         $this->messageId = $messageId;
     }
 
@@ -46,8 +42,8 @@ class UnpinChatMessage extends TdFunction
     public function typeSerialize(): array
     {
         return [
-            '@type' => static::TYPE_NAME,
-            'chat_id' => $this->chatId,
+            '@type'      => static::TYPE_NAME,
+            'chat_id'    => $this->chatId,
             'message_id' => $this->messageId,
         ];
     }

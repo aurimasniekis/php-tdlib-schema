@@ -9,23 +9,19 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * The chat unread_mention_count has changed
+ * The chat unread_mention_count has changed.
  */
 class UpdateChatUnreadMentionCount extends Update
 {
     public const TYPE_NAME = 'updateChatUnreadMentionCount';
 
     /**
-     * Chat identifier
-     *
-     * @var int
+     * Chat identifier.
      */
     protected int $chatId;
 
     /**
-     * The number of unread mention messages left in the chat
-     *
-     * @var int
+     * The number of unread mention messages left in the chat.
      */
     protected int $unreadMentionCount;
 
@@ -33,7 +29,7 @@ class UpdateChatUnreadMentionCount extends Update
     {
         parent::__construct();
 
-        $this->chatId = $chatId;
+        $this->chatId             = $chatId;
         $this->unreadMentionCount = $unreadMentionCount;
     }
 
@@ -48,8 +44,8 @@ class UpdateChatUnreadMentionCount extends Update
     public function typeSerialize(): array
     {
         return [
-            '@type' => static::TYPE_NAME,
-            'chat_id' => $this->chatId,
+            '@type'                => static::TYPE_NAME,
+            'chat_id'              => $this->chatId,
             'unread_mention_count' => $this->unreadMentionCount,
         ];
     }

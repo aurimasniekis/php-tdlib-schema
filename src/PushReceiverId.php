@@ -9,16 +9,14 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Contains a globally unique push receiver identifier, which can be used to identify which account has received a push notification
+ * Contains a globally unique push receiver identifier, which can be used to identify which account has received a push notification.
  */
 class PushReceiverId extends TdObject
 {
     public const TYPE_NAME = 'pushReceiverId';
 
     /**
-     * The globally unique identifier of push notification subscription
-     *
-     * @var string
+     * The globally unique identifier of push notification subscription.
      */
     protected string $id;
 
@@ -38,7 +36,7 @@ class PushReceiverId extends TdObject
     {
         return [
             '@type' => static::TYPE_NAME,
-            'id' => $this->id,
+            'id'    => $this->id,
         ];
     }
 

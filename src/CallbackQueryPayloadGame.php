@@ -9,16 +9,14 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * The payload for a game callback button
+ * The payload for a game callback button.
  */
 class CallbackQueryPayloadGame extends CallbackQueryPayload
 {
     public const TYPE_NAME = 'callbackQueryPayloadGame';
 
     /**
-     * A short name of the game that was attached to the callback button
-     *
-     * @var string
+     * A short name of the game that was attached to the callback button.
      */
     protected string $gameShortName;
 
@@ -39,7 +37,7 @@ class CallbackQueryPayloadGame extends CallbackQueryPayload
     public function typeSerialize(): array
     {
         return [
-            '@type' => static::TYPE_NAME,
+            '@type'           => static::TYPE_NAME,
             'game_short_name' => $this->gameShortName,
         ];
     }

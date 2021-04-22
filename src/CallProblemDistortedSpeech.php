@@ -9,7 +9,7 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * The speech was distorted
+ * The speech was distorted.
  */
 class CallProblemDistortedSpeech extends CallProblem
 {

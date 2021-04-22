@@ -9,7 +9,7 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * A mention of a user by their username
+ * A mention of a user by their username.
  */
 class TextEntityTypeMention extends TextEntityType
 {

@@ -9,16 +9,14 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Contains information about the current recovery email address
+ * Contains information about the current recovery email address.
  */
 class RecoveryEmailAddress extends TdObject
 {
     public const TYPE_NAME = 'recoveryEmailAddress';
 
     /**
-     * Recovery email address
-     *
-     * @var string
+     * Recovery email address.
      */
     protected string $recoveryEmailAddress;
 
@@ -37,7 +35,7 @@ class RecoveryEmailAddress extends TdObject
     public function typeSerialize(): array
     {
         return [
-            '@type' => static::TYPE_NAME,
+            '@type'                  => static::TYPE_NAME,
             'recovery_email_address' => $this->recoveryEmailAddress,
         ];
     }

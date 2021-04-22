@@ -9,7 +9,7 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * A new member joined the chat
+ * A new member joined the chat.
  */
 class ChatEventMemberJoined extends ChatEventAction
 {

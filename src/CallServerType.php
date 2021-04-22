@@ -9,7 +9,7 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Describes the type of a call server
+ * Describes the type of a call server.
  */
 class CallServerType extends TdObject
 {

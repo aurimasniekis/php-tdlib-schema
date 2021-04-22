@@ -9,44 +9,34 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Edits the content of a live location in an inline message sent via a bot; for bots only
+ * Edits the content of a live location in an inline message sent via a bot; for bots only.
  */
 class EditInlineMessageLiveLocation extends TdFunction
 {
     public const TYPE_NAME = 'editInlineMessageLiveLocation';
 
     /**
-     * Inline message identifier
-     *
-     * @var string
+     * Inline message identifier.
      */
     protected string $inlineMessageId;
 
     /**
-     * The new message reply markup
-     *
-     * @var ReplyMarkup
+     * The new message reply markup.
      */
     protected ReplyMarkup $replyMarkup;
 
     /**
-     * New location content of the message; may be null. Pass null to stop sharing the live location
-     *
-     * @var Location|null
+     * New location content of the message; may be null. Pass null to stop sharing the live location.
      */
     protected ?Location $location;
 
     /**
-     * The new direction in which the location moves, in degrees; 1-360. Pass 0 if unknown
-     *
-     * @var int
+     * The new direction in which the location moves, in degrees; 1-360. Pass 0 if unknown.
      */
     protected int $heading;
 
     /**
-     * The new maximum distance for proximity alerts, in meters (0-100000). Pass 0 if the notification is disabled
-     *
-     * @var int
+     * The new maximum distance for proximity alerts, in meters (0-100000). Pass 0 if the notification is disabled.
      */
     protected int $proximityAlertRadius;
 
@@ -57,10 +47,10 @@ class EditInlineMessageLiveLocation extends TdFunction
         int $heading,
         int $proximityAlertRadius
     ) {
-        $this->inlineMessageId = $inlineMessageId;
-        $this->replyMarkup = $replyMarkup;
-        $this->location = $location;
-        $this->heading = $heading;
+        $this->inlineMessageId      = $inlineMessageId;
+        $this->replyMarkup          = $replyMarkup;
+        $this->location             = $location;
+        $this->heading              = $heading;
         $this->proximityAlertRadius = $proximityAlertRadius;
     }
 
@@ -78,11 +68,11 @@ class EditInlineMessageLiveLocation extends TdFunction
     public function typeSerialize(): array
     {
         return [
-            '@type' => static::TYPE_NAME,
-            'inline_message_id' => $this->inlineMessageId,
-            'reply_markup' => $this->replyMarkup->typeSerialize(),
-            'location' => (isset($this->location) ? $this->location : null),
-            'heading' => $this->heading,
+            '@type'                  => static::TYPE_NAME,
+            'inline_message_id'      => $this->inlineMessageId,
+            'reply_markup'           => $this->replyMarkup->typeSerialize(),
+            'location'               => (isset($this->location) ? $this->location : null),
+            'heading'                => $this->heading,
             'proximity_alert_radius' => $this->proximityAlertRadius,
         ];
     }

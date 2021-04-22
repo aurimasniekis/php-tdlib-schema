@@ -9,7 +9,7 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Contains information about an inline button of type inlineKeyboardButtonTypeLoginUrl
+ * Contains information about an inline button of type inlineKeyboardButtonTypeLoginUrl.
  */
 class LoginUrlInfo extends TdObject
 {

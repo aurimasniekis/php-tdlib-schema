@@ -9,16 +9,14 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Instructs application to force a reply to this message
+ * Instructs application to force a reply to this message.
  */
 class ReplyMarkupForceReply extends ReplyMarkup
 {
     public const TYPE_NAME = 'replyMarkupForceReply';
 
     /**
-     * True, if a forced reply must automatically be shown to the current user. For outgoing messages, specify true to show the forced reply only for the mentioned users and for the target user of a reply
-     *
-     * @var bool
+     * True, if a forced reply must automatically be shown to the current user. For outgoing messages, specify true to show the forced reply only for the mentioned users and for the target user of a reply.
      */
     protected bool $isPersonal;
 
@@ -39,7 +37,7 @@ class ReplyMarkupForceReply extends ReplyMarkup
     public function typeSerialize(): array
     {
         return [
-            '@type' => static::TYPE_NAME,
+            '@type'       => static::TYPE_NAME,
             'is_personal' => $this->isPersonal,
         ];
     }

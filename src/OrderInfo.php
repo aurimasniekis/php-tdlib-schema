@@ -9,45 +9,37 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Order information
+ * Order information.
  */
 class OrderInfo extends TdObject
 {
     public const TYPE_NAME = 'orderInfo';
 
     /**
-     * Name of the user
-     *
-     * @var string
+     * Name of the user.
      */
     protected string $name;
 
     /**
-     * Phone number of the user
-     *
-     * @var string
+     * Phone number of the user.
      */
     protected string $phoneNumber;
 
     /**
-     * Email address of the user
-     *
-     * @var string
+     * Email address of the user.
      */
     protected string $emailAddress;
 
     /**
-     * Shipping address for this order; may be null
-     *
-     * @var Address|null
+     * Shipping address for this order; may be null.
      */
     protected ?Address $shippingAddress;
 
     public function __construct(string $name, string $phoneNumber, string $emailAddress, ?Address $shippingAddress)
     {
-        $this->name = $name;
-        $this->phoneNumber = $phoneNumber;
-        $this->emailAddress = $emailAddress;
+        $this->name            = $name;
+        $this->phoneNumber     = $phoneNumber;
+        $this->emailAddress    = $emailAddress;
         $this->shippingAddress = $shippingAddress;
     }
 
@@ -64,10 +56,10 @@ class OrderInfo extends TdObject
     public function typeSerialize(): array
     {
         return [
-            '@type' => static::TYPE_NAME,
-            'name' => $this->name,
-            'phone_number' => $this->phoneNumber,
-            'email_address' => $this->emailAddress,
+            '@type'            => static::TYPE_NAME,
+            'name'             => $this->name,
+            'phone_number'     => $this->phoneNumber,
+            'email_address'    => $this->emailAddress,
             'shipping_address' => (isset($this->shippingAddress) ? $this->shippingAddress : null),
         ];
     }

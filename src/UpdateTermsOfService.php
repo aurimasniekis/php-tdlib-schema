@@ -9,23 +9,19 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * New terms of service must be accepted by the user. If the terms of service are declined, then the deleteAccount method should be called with the reason "Decline ToS update"
+ * New terms of service must be accepted by the user. If the terms of service are declined, then the deleteAccount method should be called with the reason "Decline ToS update".
  */
 class UpdateTermsOfService extends Update
 {
     public const TYPE_NAME = 'updateTermsOfService';
 
     /**
-     * Identifier of the terms of service
-     *
-     * @var string
+     * Identifier of the terms of service.
      */
     protected string $termsOfServiceId;
 
     /**
-     * The new terms of service
-     *
-     * @var TermsOfService
+     * The new terms of service.
      */
     protected TermsOfService $termsOfService;
 
@@ -34,7 +30,7 @@ class UpdateTermsOfService extends Update
         parent::__construct();
 
         $this->termsOfServiceId = $termsOfServiceId;
-        $this->termsOfService = $termsOfService;
+        $this->termsOfService   = $termsOfService;
     }
 
     public static function fromArray(array $array): UpdateTermsOfService
@@ -48,9 +44,9 @@ class UpdateTermsOfService extends Update
     public function typeSerialize(): array
     {
         return [
-            '@type' => static::TYPE_NAME,
+            '@type'               => static::TYPE_NAME,
             'terms_of_service_id' => $this->termsOfServiceId,
-            'terms_of_service' => $this->termsOfService->typeSerialize(),
+            'terms_of_service'    => $this->termsOfService->typeSerialize(),
         ];
     }
 

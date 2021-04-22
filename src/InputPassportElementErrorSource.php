@@ -9,7 +9,7 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Contains the description of an error in a Telegram Passport element; for bots only
+ * Contains the description of an error in a Telegram Passport element; for bots only.
  */
 class InputPassportElementErrorSource extends TdObject
 {

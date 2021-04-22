@@ -9,30 +9,24 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * A rich text URL link
+ * A rich text URL link.
  */
 class RichTextUrl extends RichText
 {
     public const TYPE_NAME = 'richTextUrl';
 
     /**
-     * Text
-     *
-     * @var RichText
+     * Text.
      */
     protected RichText $text;
 
     /**
-     * URL
-     *
-     * @var string
+     * URL.
      */
     protected string $url;
 
     /**
-     * True, if the URL has cached instant view server-side
-     *
-     * @var bool
+     * True, if the URL has cached instant view server-side.
      */
     protected bool $isCached;
 
@@ -40,8 +34,8 @@ class RichTextUrl extends RichText
     {
         parent::__construct();
 
-        $this->text = $text;
-        $this->url = $url;
+        $this->text     = $text;
+        $this->url      = $url;
         $this->isCached = $isCached;
     }
 
@@ -57,9 +51,9 @@ class RichTextUrl extends RichText
     public function typeSerialize(): array
     {
         return [
-            '@type' => static::TYPE_NAME,
-            'text' => $this->text->typeSerialize(),
-            'url' => $this->url,
+            '@type'     => static::TYPE_NAME,
+            'text'      => $this->text->typeSerialize(),
+            'url'       => $this->url,
             'is_cached' => $this->isCached,
         ];
     }

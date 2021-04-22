@@ -9,30 +9,26 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Removes a chat from the list of frequently used chats. Supported only if the chat info database is enabled
+ * Removes a chat from the list of frequently used chats. Supported only if the chat info database is enabled.
  */
 class RemoveTopChat extends TdFunction
 {
     public const TYPE_NAME = 'removeTopChat';
 
     /**
-     * Category of frequently used chats
-     *
-     * @var TopChatCategory
+     * Category of frequently used chats.
      */
     protected TopChatCategory $category;
 
     /**
-     * Chat identifier
-     *
-     * @var int
+     * Chat identifier.
      */
     protected int $chatId;
 
     public function __construct(TopChatCategory $category, int $chatId)
     {
         $this->category = $category;
-        $this->chatId = $chatId;
+        $this->chatId   = $chatId;
     }
 
     public static function fromArray(array $array): RemoveTopChat
@@ -46,9 +42,9 @@ class RemoveTopChat extends TdFunction
     public function typeSerialize(): array
     {
         return [
-            '@type' => static::TYPE_NAME,
+            '@type'    => static::TYPE_NAME,
             'category' => $this->category->typeSerialize(),
-            'chat_id' => $this->chatId,
+            'chat_id'  => $this->chatId,
         ];
     }
 

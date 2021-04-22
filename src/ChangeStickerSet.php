@@ -9,38 +9,32 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Installs/uninstalls or activates/archives a sticker set
+ * Installs/uninstalls or activates/archives a sticker set.
  */
 class ChangeStickerSet extends TdFunction
 {
     public const TYPE_NAME = 'changeStickerSet';
 
     /**
-     * Identifier of the sticker set
-     *
-     * @var string
+     * Identifier of the sticker set.
      */
     protected string $setId;
 
     /**
-     * The new value of is_installed
-     *
-     * @var bool
+     * The new value of is_installed.
      */
     protected bool $isInstalled;
 
     /**
-     * The new value of is_archived. A sticker set can't be installed and archived simultaneously
-     *
-     * @var bool
+     * The new value of is_archived. A sticker set can't be installed and archived simultaneously.
      */
     protected bool $isArchived;
 
     public function __construct(string $setId, bool $isInstalled, bool $isArchived)
     {
-        $this->setId = $setId;
+        $this->setId       = $setId;
         $this->isInstalled = $isInstalled;
-        $this->isArchived = $isArchived;
+        $this->isArchived  = $isArchived;
     }
 
     public static function fromArray(array $array): ChangeStickerSet
@@ -55,10 +49,10 @@ class ChangeStickerSet extends TdFunction
     public function typeSerialize(): array
     {
         return [
-            '@type' => static::TYPE_NAME,
-            'set_id' => $this->setId,
+            '@type'        => static::TYPE_NAME,
+            'set_id'       => $this->setId,
             'is_installed' => $this->isInstalled,
-            'is_archived' => $this->isArchived,
+            'is_archived'  => $this->isArchived,
         ];
     }
 

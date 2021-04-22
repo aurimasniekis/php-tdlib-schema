@@ -9,7 +9,7 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Returns favorite stickers
+ * Returns favorite stickers.
  */
 class GetFavoriteStickers extends TdFunction
 {

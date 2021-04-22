@@ -9,16 +9,14 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Returns a list of administrators of the chat with their custom titles
+ * Returns a list of administrators of the chat with their custom titles.
  */
 class GetChatAdministrators extends TdFunction
 {
     public const TYPE_NAME = 'getChatAdministrators';
 
     /**
-     * Chat identifier
-     *
-     * @var int
+     * Chat identifier.
      */
     protected int $chatId;
 
@@ -37,7 +35,7 @@ class GetChatAdministrators extends TdFunction
     public function typeSerialize(): array
     {
         return [
-            '@type' => static::TYPE_NAME,
+            '@type'   => static::TYPE_NAME,
             'chat_id' => $this->chatId,
         ];
     }

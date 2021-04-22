@@ -9,53 +9,43 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Sends a simple network request to the Telegram servers via proxy; for testing only. Can be called before authorization
+ * Sends a simple network request to the Telegram servers via proxy; for testing only. Can be called before authorization.
  */
 class TestProxy extends TdFunction
 {
     public const TYPE_NAME = 'testProxy';
 
     /**
-     * Proxy server IP address
-     *
-     * @var string
+     * Proxy server IP address.
      */
     protected string $server;
 
     /**
-     * Proxy server port
-     *
-     * @var int
+     * Proxy server port.
      */
     protected int $port;
 
     /**
-     * Proxy type
-     *
-     * @var ProxyType
+     * Proxy type.
      */
     protected ProxyType $type;
 
     /**
-     * Identifier of a datacenter, with which to test connection
-     *
-     * @var int
+     * Identifier of a datacenter, with which to test connection.
      */
     protected int $dcId;
 
     /**
-     * The maximum overall timeout for the request
-     *
-     * @var float
+     * The maximum overall timeout for the request.
      */
     protected float $timeout;
 
     public function __construct(string $server, int $port, ProxyType $type, int $dcId, float $timeout)
     {
-        $this->server = $server;
-        $this->port = $port;
-        $this->type = $type;
-        $this->dcId = $dcId;
+        $this->server  = $server;
+        $this->port    = $port;
+        $this->type    = $type;
+        $this->dcId    = $dcId;
         $this->timeout = $timeout;
     }
 
@@ -73,11 +63,11 @@ class TestProxy extends TdFunction
     public function typeSerialize(): array
     {
         return [
-            '@type' => static::TYPE_NAME,
-            'server' => $this->server,
-            'port' => $this->port,
-            'type' => $this->type->typeSerialize(),
-            'dc_id' => $this->dcId,
+            '@type'   => static::TYPE_NAME,
+            'server'  => $this->server,
+            'port'    => $this->port,
+            'type'    => $this->type->typeSerialize(),
+            'dc_id'   => $this->dcId,
             'timeout' => $this->timeout,
         ];
     }

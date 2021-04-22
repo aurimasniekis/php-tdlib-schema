@@ -9,30 +9,24 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * A message with a sticker
+ * A message with a sticker.
  */
 class PushMessageContentSticker extends PushMessageContent
 {
     public const TYPE_NAME = 'pushMessageContentSticker';
 
     /**
-     * Message content; may be null
-     *
-     * @var Sticker|null
+     * Message content; may be null.
      */
     protected ?Sticker $sticker;
 
     /**
-     * Emoji corresponding to the sticker; may be empty
-     *
-     * @var string
+     * Emoji corresponding to the sticker; may be empty.
      */
     protected string $emoji;
 
     /**
-     * True, if the message is a pinned message with the specified content
-     *
-     * @var bool
+     * True, if the message is a pinned message with the specified content.
      */
     protected bool $isPinned;
 
@@ -40,8 +34,8 @@ class PushMessageContentSticker extends PushMessageContent
     {
         parent::__construct();
 
-        $this->sticker = $sticker;
-        $this->emoji = $emoji;
+        $this->sticker  = $sticker;
+        $this->emoji    = $emoji;
         $this->isPinned = $isPinned;
     }
 
@@ -57,9 +51,9 @@ class PushMessageContentSticker extends PushMessageContent
     public function typeSerialize(): array
     {
         return [
-            '@type' => static::TYPE_NAME,
-            'sticker' => (isset($this->sticker) ? $this->sticker : null),
-            'emoji' => $this->emoji,
+            '@type'     => static::TYPE_NAME,
+            'sticker'   => (isset($this->sticker) ? $this->sticker : null),
+            'emoji'     => $this->emoji,
             'is_pinned' => $this->isPinned,
         ];
     }

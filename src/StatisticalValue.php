@@ -9,37 +9,31 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * A value with information about its recent changes
+ * A value with information about its recent changes.
  */
 class StatisticalValue extends TdObject
 {
     public const TYPE_NAME = 'statisticalValue';
 
     /**
-     * The current value
-     *
-     * @var float
+     * The current value.
      */
     protected float $value;
 
     /**
-     * The value for the previous day
-     *
-     * @var float
+     * The value for the previous day.
      */
     protected float $previousValue;
 
     /**
-     * The growth rate of the value, as a percentage
-     *
-     * @var float
+     * The growth rate of the value, as a percentage.
      */
     protected float $growthRatePercentage;
 
     public function __construct(float $value, float $previousValue, float $growthRatePercentage)
     {
-        $this->value = $value;
-        $this->previousValue = $previousValue;
+        $this->value                = $value;
+        $this->previousValue        = $previousValue;
         $this->growthRatePercentage = $growthRatePercentage;
     }
 
@@ -55,9 +49,9 @@ class StatisticalValue extends TdObject
     public function typeSerialize(): array
     {
         return [
-            '@type' => static::TYPE_NAME,
-            'value' => $this->value,
-            'previous_value' => $this->previousValue,
+            '@type'                  => static::TYPE_NAME,
+            'value'                  => $this->value,
+            'previous_value'         => $this->previousValue,
             'growth_rate_percentage' => $this->growthRatePercentage,
         ];
     }

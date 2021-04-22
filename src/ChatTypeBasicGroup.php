@@ -9,16 +9,14 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * A basic group (i.e., a chat with 0-200 other users)
+ * A basic group (i.e., a chat with 0-200 other users).
  */
 class ChatTypeBasicGroup extends ChatType
 {
     public const TYPE_NAME = 'chatTypeBasicGroup';
 
     /**
-     * Basic group identifier
-     *
-     * @var int
+     * Basic group identifier.
      */
     protected int $basicGroupId;
 
@@ -39,7 +37,7 @@ class ChatTypeBasicGroup extends ChatType
     public function typeSerialize(): array
     {
         return [
-            '@type' => static::TYPE_NAME,
+            '@type'          => static::TYPE_NAME,
             'basic_group_id' => $this->basicGroupId,
         ];
     }

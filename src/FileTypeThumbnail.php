@@ -9,7 +9,7 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * The file is a thumbnail of another file
+ * The file is a thumbnail of another file.
  */
 class FileTypeThumbnail extends FileType
 {

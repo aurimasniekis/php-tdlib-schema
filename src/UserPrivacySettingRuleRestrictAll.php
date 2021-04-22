@@ -9,7 +9,7 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * A rule to restrict all users from doing something
+ * A rule to restrict all users from doing something.
  */
 class UserPrivacySettingRuleRestrictAll extends UserPrivacySettingRule
 {

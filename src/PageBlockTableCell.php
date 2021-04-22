@@ -9,51 +9,39 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Represents a cell of a table
+ * Represents a cell of a table.
  */
 class PageBlockTableCell extends TdObject
 {
     public const TYPE_NAME = 'pageBlockTableCell';
 
     /**
-     * Cell text; may be null. If the text is null, then the cell should be invisible
-     *
-     * @var RichText|null
+     * Cell text; may be null. If the text is null, then the cell should be invisible.
      */
     protected ?RichText $text;
 
     /**
-     * True, if it is a header cell
-     *
-     * @var bool
+     * True, if it is a header cell.
      */
     protected bool $isHeader;
 
     /**
-     * The number of columns the cell should span
-     *
-     * @var int
+     * The number of columns the cell should span.
      */
     protected int $colspan;
 
     /**
-     * The number of rows the cell should span
-     *
-     * @var int
+     * The number of rows the cell should span.
      */
     protected int $rowspan;
 
     /**
-     * Horizontal cell content alignment
-     *
-     * @var PageBlockHorizontalAlignment
+     * Horizontal cell content alignment.
      */
     protected PageBlockHorizontalAlignment $align;
 
     /**
-     * Vertical cell content alignment
-     *
-     * @var PageBlockVerticalAlignment
+     * Vertical cell content alignment.
      */
     protected PageBlockVerticalAlignment $valign;
 
@@ -65,12 +53,12 @@ class PageBlockTableCell extends TdObject
         PageBlockHorizontalAlignment $align,
         PageBlockVerticalAlignment $valign
     ) {
-        $this->text = $text;
+        $this->text     = $text;
         $this->isHeader = $isHeader;
-        $this->colspan = $colspan;
-        $this->rowspan = $rowspan;
-        $this->align = $align;
-        $this->valign = $valign;
+        $this->colspan  = $colspan;
+        $this->rowspan  = $rowspan;
+        $this->align    = $align;
+        $this->valign   = $valign;
     }
 
     public static function fromArray(array $array): PageBlockTableCell
@@ -88,13 +76,13 @@ class PageBlockTableCell extends TdObject
     public function typeSerialize(): array
     {
         return [
-            '@type' => static::TYPE_NAME,
-            'text' => (isset($this->text) ? $this->text : null),
+            '@type'     => static::TYPE_NAME,
+            'text'      => (isset($this->text) ? $this->text : null),
             'is_header' => $this->isHeader,
-            'colspan' => $this->colspan,
-            'rowspan' => $this->rowspan,
-            'align' => $this->align->typeSerialize(),
-            'valign' => $this->valign->typeSerialize(),
+            'colspan'   => $this->colspan,
+            'rowspan'   => $this->rowspan,
+            'align'     => $this->align->typeSerialize(),
+            'valign'    => $this->valign->typeSerialize(),
         ];
     }
 

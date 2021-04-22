@@ -9,16 +9,14 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Returns a list of users and location-based supergroups nearby. The list of users nearby will be updated for 60 seconds after the request by the updates updateUsersNearby. The request should be sent again every 25 seconds with adjusted location to not miss new chats
+ * Returns a list of users and location-based supergroups nearby. The list of users nearby will be updated for 60 seconds after the request by the updates updateUsersNearby. The request should be sent again every 25 seconds with adjusted location to not miss new chats.
  */
 class SearchChatsNearby extends TdFunction
 {
     public const TYPE_NAME = 'searchChatsNearby';
 
     /**
-     * Current user location
-     *
-     * @var Location
+     * Current user location.
      */
     protected Location $location;
 
@@ -37,7 +35,7 @@ class SearchChatsNearby extends TdFunction
     public function typeSerialize(): array
     {
         return [
-            '@type' => static::TYPE_NAME,
+            '@type'    => static::TYPE_NAME,
             'location' => $this->location->typeSerialize(),
         ];
     }

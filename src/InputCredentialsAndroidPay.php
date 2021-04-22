@@ -9,16 +9,14 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Applies if a user enters new credentials using Android Pay
+ * Applies if a user enters new credentials using Android Pay.
  */
 class InputCredentialsAndroidPay extends InputCredentials
 {
     public const TYPE_NAME = 'inputCredentialsAndroidPay';
 
     /**
-     * JSON-encoded data with the credential identifier
-     *
-     * @var string
+     * JSON-encoded data with the credential identifier.
      */
     protected string $data;
 
@@ -40,7 +38,7 @@ class InputCredentialsAndroidPay extends InputCredentials
     {
         return [
             '@type' => static::TYPE_NAME,
-            'data' => $this->data,
+            'data'  => $this->data,
         ];
     }
 

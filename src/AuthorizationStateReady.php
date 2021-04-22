@@ -9,7 +9,7 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * The user has been successfully authorized. TDLib is now ready to answer queries
+ * The user has been successfully authorized. TDLib is now ready to answer queries.
  */
 class AuthorizationStateReady extends AuthorizationState
 {

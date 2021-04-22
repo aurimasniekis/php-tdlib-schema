@@ -9,16 +9,14 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * The sign_messages setting of a channel was toggled
+ * The sign_messages setting of a channel was toggled.
  */
 class ChatEventSignMessagesToggled extends ChatEventAction
 {
     public const TYPE_NAME = 'chatEventSignMessagesToggled';
 
     /**
-     * New value of sign_messages
-     *
-     * @var bool
+     * New value of sign_messages.
      */
     protected bool $signMessages;
 
@@ -39,7 +37,7 @@ class ChatEventSignMessagesToggled extends ChatEventAction
     public function typeSerialize(): array
     {
         return [
-            '@type' => static::TYPE_NAME,
+            '@type'         => static::TYPE_NAME,
             'sign_messages' => $this->signMessages,
         ];
     }

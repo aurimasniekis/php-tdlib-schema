@@ -9,16 +9,14 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Deletes existing chat filter
+ * Deletes existing chat filter.
  */
 class DeleteChatFilter extends TdFunction
 {
     public const TYPE_NAME = 'deleteChatFilter';
 
     /**
-     * Chat filter identifier
-     *
-     * @var int
+     * Chat filter identifier.
      */
     protected int $chatFilterId;
 
@@ -37,7 +35,7 @@ class DeleteChatFilter extends TdFunction
     public function typeSerialize(): array
     {
         return [
-            '@type' => static::TYPE_NAME,
+            '@type'          => static::TYPE_NAME,
             'chat_filter_id' => $this->chatFilterId,
         ];
     }

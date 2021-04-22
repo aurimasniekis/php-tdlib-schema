@@ -9,46 +9,38 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Pins a message in a chat; requires can_pin_messages rights or can_edit_messages rights in the channel
+ * Pins a message in a chat; requires can_pin_messages rights or can_edit_messages rights in the channel.
  */
 class PinChatMessage extends TdFunction
 {
     public const TYPE_NAME = 'pinChatMessage';
 
     /**
-     * Identifier of the chat
-     *
-     * @var int
+     * Identifier of the chat.
      */
     protected int $chatId;
 
     /**
-     * Identifier of the new pinned message
-     *
-     * @var int
+     * Identifier of the new pinned message.
      */
     protected int $messageId;
 
     /**
-     * True, if there should be no notification about the pinned message. Notifications are always disabled in channels and private chats
-     *
-     * @var bool
+     * True, if there should be no notification about the pinned message. Notifications are always disabled in channels and private chats.
      */
     protected bool $disableNotification;
 
     /**
-     * True, if the message needs to be pinned for one side only; private chats only
-     *
-     * @var bool
+     * True, if the message needs to be pinned for one side only; private chats only.
      */
     protected bool $onlyForSelf;
 
     public function __construct(int $chatId, int $messageId, bool $disableNotification, bool $onlyForSelf)
     {
-        $this->chatId = $chatId;
-        $this->messageId = $messageId;
+        $this->chatId              = $chatId;
+        $this->messageId           = $messageId;
         $this->disableNotification = $disableNotification;
-        $this->onlyForSelf = $onlyForSelf;
+        $this->onlyForSelf         = $onlyForSelf;
     }
 
     public static function fromArray(array $array): PinChatMessage
@@ -64,11 +56,11 @@ class PinChatMessage extends TdFunction
     public function typeSerialize(): array
     {
         return [
-            '@type' => static::TYPE_NAME,
-            'chat_id' => $this->chatId,
-            'message_id' => $this->messageId,
+            '@type'                => static::TYPE_NAME,
+            'chat_id'              => $this->chatId,
+            'message_id'           => $this->messageId,
             'disable_notification' => $this->disableNotification,
-            'only_for_self' => $this->onlyForSelf,
+            'only_for_self'        => $this->onlyForSelf,
         ];
     }
 

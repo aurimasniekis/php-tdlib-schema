@@ -9,7 +9,7 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Returns database statistics
+ * Returns database statistics.
  */
 class GetDatabaseStatistics extends TdFunction
 {

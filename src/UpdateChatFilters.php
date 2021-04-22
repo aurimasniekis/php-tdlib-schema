@@ -9,14 +9,14 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * The list of chat filters or a chat filter has changed
+ * The list of chat filters or a chat filter has changed.
  */
 class UpdateChatFilters extends Update
 {
     public const TYPE_NAME = 'updateChatFilters';
 
     /**
-     * The new list of chat filters
+     * The new list of chat filters.
      *
      * @var ChatFilterInfo[]
      */
@@ -32,15 +32,15 @@ class UpdateChatFilters extends Update
     public static function fromArray(array $array): UpdateChatFilters
     {
         return new static(
-            array_map(fn($x) => TdSchemaRegistry::fromArray($x), $array['chat_filters']),
+            array_map(fn ($x) => TdSchemaRegistry::fromArray($x), $array['chat_filters']),
         );
     }
 
     public function typeSerialize(): array
     {
         return [
-            '@type' => static::TYPE_NAME,
-            array_map(fn($x) => $x->typeSerialize(), $this->chatFilters),
+            '@type'           => static::TYPE_NAME,
+            array_map(fn ($x) => $x->typeSerialize(), $this->chatFilters),
         ];
     }
 

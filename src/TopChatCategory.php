@@ -9,7 +9,7 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Represents the categories of chats for which a list of frequently used chats can be retrieved
+ * Represents the categories of chats for which a list of frequently used chats can be retrieved.
  */
 class TopChatCategory extends TdObject
 {

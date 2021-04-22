@@ -9,7 +9,7 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * The list of attached files contains an error. The error will be considered resolved when the list of files changes
+ * The list of attached files contains an error. The error will be considered resolved when the list of files changes.
  */
 class PassportElementErrorSourceFiles extends PassportElementErrorSource
 {

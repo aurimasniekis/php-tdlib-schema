@@ -9,7 +9,7 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Describes an action suggested to the current user
+ * Describes an action suggested to the current user.
  */
 class SuggestedAction extends TdObject
 {

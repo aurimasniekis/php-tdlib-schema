@@ -9,7 +9,7 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Represents a single rule for managing privacy settings
+ * Represents a single rule for managing privacy settings.
  */
 class UserPrivacySettingRule extends TdObject
 {

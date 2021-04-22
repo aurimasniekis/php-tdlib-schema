@@ -9,16 +9,14 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * A file defined by its unique ID
+ * A file defined by its unique ID.
  */
 class InputFileId extends InputFile
 {
     public const TYPE_NAME = 'inputFileId';
 
     /**
-     * Unique file identifier
-     *
-     * @var int
+     * Unique file identifier.
      */
     protected int $id;
 
@@ -40,7 +38,7 @@ class InputFileId extends InputFile
     {
         return [
             '@type' => static::TYPE_NAME,
-            'id' => $this->id,
+            'id'    => $this->id,
         ];
     }
 

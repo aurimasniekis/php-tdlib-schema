@@ -9,7 +9,7 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Returns contacts of the user
+ * Returns contacts of the user.
  */
 class ChatMembersFilterContacts extends ChatMembersFilter
 {

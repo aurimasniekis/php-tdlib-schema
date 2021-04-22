@@ -9,30 +9,26 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Sets auto-download settings
+ * Sets auto-download settings.
  */
 class SetAutoDownloadSettings extends TdFunction
 {
     public const TYPE_NAME = 'setAutoDownloadSettings';
 
     /**
-     * New user auto-download settings
-     *
-     * @var AutoDownloadSettings
+     * New user auto-download settings.
      */
     protected AutoDownloadSettings $settings;
 
     /**
-     * Type of the network for which the new settings are applied
-     *
-     * @var NetworkType
+     * Type of the network for which the new settings are applied.
      */
     protected NetworkType $type;
 
     public function __construct(AutoDownloadSettings $settings, NetworkType $type)
     {
         $this->settings = $settings;
-        $this->type = $type;
+        $this->type     = $type;
     }
 
     public static function fromArray(array $array): SetAutoDownloadSettings
@@ -46,9 +42,9 @@ class SetAutoDownloadSettings extends TdFunction
     public function typeSerialize(): array
     {
         return [
-            '@type' => static::TYPE_NAME,
+            '@type'    => static::TYPE_NAME,
             'settings' => $this->settings->typeSerialize(),
-            'type' => $this->type->typeSerialize(),
+            'type'     => $this->type->typeSerialize(),
         ];
     }
 

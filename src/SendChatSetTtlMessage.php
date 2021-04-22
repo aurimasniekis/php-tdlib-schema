@@ -9,30 +9,26 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Changes the current TTL setting (sets a new self-destruct timer) in a secret chat and sends the corresponding message
+ * Changes the current TTL setting (sets a new self-destruct timer) in a secret chat and sends the corresponding message.
  */
 class SendChatSetTtlMessage extends TdFunction
 {
     public const TYPE_NAME = 'sendChatSetTtlMessage';
 
     /**
-     * Chat identifier
-     *
-     * @var int
+     * Chat identifier.
      */
     protected int $chatId;
 
     /**
-     * New TTL value, in seconds
-     *
-     * @var int
+     * New TTL value, in seconds.
      */
     protected int $ttl;
 
     public function __construct(int $chatId, int $ttl)
     {
         $this->chatId = $chatId;
-        $this->ttl = $ttl;
+        $this->ttl    = $ttl;
     }
 
     public static function fromArray(array $array): SendChatSetTtlMessage
@@ -46,9 +42,9 @@ class SendChatSetTtlMessage extends TdFunction
     public function typeSerialize(): array
     {
         return [
-            '@type' => static::TYPE_NAME,
+            '@type'   => static::TYPE_NAME,
             'chat_id' => $this->chatId,
-            'ttl' => $this->ttl,
+            'ttl'     => $this->ttl,
         ];
     }
 

@@ -9,16 +9,14 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Information about a file was updated
+ * Information about a file was updated.
  */
 class UpdateFile extends Update
 {
     public const TYPE_NAME = 'updateFile';
 
     /**
-     * New data about the file
-     *
-     * @var File
+     * New data about the file.
      */
     protected File $file;
 
@@ -40,7 +38,7 @@ class UpdateFile extends Update
     {
         return [
             '@type' => static::TYPE_NAME,
-            'file' => $this->file->typeSerialize(),
+            'file'  => $this->file->typeSerialize(),
         ];
     }
 

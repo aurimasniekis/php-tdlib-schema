@@ -16,51 +16,39 @@ class InputMessageAnimation extends InputMessageContent
     public const TYPE_NAME = 'inputMessageAnimation';
 
     /**
-     * Animation file to be sent
-     *
-     * @var InputFile
+     * Animation file to be sent.
      */
     protected InputFile $animation;
 
     /**
-     * Animation thumbnail, if available
-     *
-     * @var InputThumbnail
+     * Animation thumbnail, if available.
      */
     protected InputThumbnail $thumbnail;
 
     /**
-     * File identifiers of the stickers added to the animation, if applicable
+     * File identifiers of the stickers added to the animation, if applicable.
      *
      * @var int[]
      */
     protected array $addedStickerFileIds;
 
     /**
-     * Duration of the animation, in seconds
-     *
-     * @var int
+     * Duration of the animation, in seconds.
      */
     protected int $duration;
 
     /**
-     * Width of the animation; may be replaced by the server
-     *
-     * @var int
+     * Width of the animation; may be replaced by the server.
      */
     protected int $width;
 
     /**
-     * Height of the animation; may be replaced by the server
-     *
-     * @var int
+     * Height of the animation; may be replaced by the server.
      */
     protected int $height;
 
     /**
-     * Animation caption; 0-GetOption("message_caption_length_max") characters
-     *
-     * @var FormattedText
+     * Animation caption; 0-GetOption("message_caption_length_max") characters.
      */
     protected FormattedText $caption;
 
@@ -75,13 +63,13 @@ class InputMessageAnimation extends InputMessageContent
     ) {
         parent::__construct();
 
-        $this->animation = $animation;
-        $this->thumbnail = $thumbnail;
+        $this->animation           = $animation;
+        $this->thumbnail           = $thumbnail;
         $this->addedStickerFileIds = $addedStickerFileIds;
-        $this->duration = $duration;
-        $this->width = $width;
-        $this->height = $height;
-        $this->caption = $caption;
+        $this->duration            = $duration;
+        $this->width               = $width;
+        $this->height              = $height;
+        $this->caption             = $caption;
     }
 
     public static function fromArray(array $array): InputMessageAnimation
@@ -100,14 +88,14 @@ class InputMessageAnimation extends InputMessageContent
     public function typeSerialize(): array
     {
         return [
-            '@type' => static::TYPE_NAME,
-            'animation' => $this->animation->typeSerialize(),
-            'thumbnail' => $this->thumbnail->typeSerialize(),
+            '@type'                  => static::TYPE_NAME,
+            'animation'              => $this->animation->typeSerialize(),
+            'thumbnail'              => $this->thumbnail->typeSerialize(),
             'added_sticker_file_ids' => $this->addedStickerFileIds,
-            'duration' => $this->duration,
-            'width' => $this->width,
-            'height' => $this->height,
-            'caption' => $this->caption->typeSerialize(),
+            'duration'               => $this->duration,
+            'width'                  => $this->width,
+            'height'                 => $this->height,
+            'caption'                => $this->caption->typeSerialize(),
         ];
     }
 
