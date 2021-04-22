@@ -9,26 +9,30 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Answers a custom query; for bots only.
+ * Answers a custom query; for bots only
  */
 class AnswerCustomQuery extends TdFunction
 {
     public const TYPE_NAME = 'answerCustomQuery';
 
     /**
-     * Identifier of a custom query.
+     * Identifier of a custom query
+     *
+     * @var string
      */
     protected string $customQueryId;
 
     /**
-     * JSON-serialized answer to the query.
+     * JSON-serialized answer to the query
+     *
+     * @var string
      */
     protected string $data;
 
     public function __construct(string $customQueryId, string $data)
     {
         $this->customQueryId = $customQueryId;
-        $this->data          = $data;
+        $this->data = $data;
     }
 
     public static function fromArray(array $array): AnswerCustomQuery
@@ -42,9 +46,9 @@ class AnswerCustomQuery extends TdFunction
     public function typeSerialize(): array
     {
         return [
-            '@type'           => static::TYPE_NAME,
+            '@type' => static::TYPE_NAME,
             'custom_query_id' => $this->customQueryId,
-            'data'            => $this->data,
+            'data' => $this->data,
         ];
     }
 

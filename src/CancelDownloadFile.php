@@ -9,25 +9,29 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Stops the downloading of a file. If a file has already been downloaded, does nothing.
+ * Stops the downloading of a file. If a file has already been downloaded, does nothing
  */
 class CancelDownloadFile extends TdFunction
 {
     public const TYPE_NAME = 'cancelDownloadFile';
 
     /**
-     * Identifier of a file to stop downloading.
+     * Identifier of a file to stop downloading
+     *
+     * @var int
      */
     protected int $fileId;
 
     /**
-     * Pass true to stop downloading only if it hasn't been started, i.e. request hasn't been sent to server.
+     * Pass true to stop downloading only if it hasn't been started, i.e. request hasn't been sent to server
+     *
+     * @var bool
      */
     protected bool $onlyIfPending;
 
     public function __construct(int $fileId, bool $onlyIfPending)
     {
-        $this->fileId        = $fileId;
+        $this->fileId = $fileId;
         $this->onlyIfPending = $onlyIfPending;
     }
 
@@ -42,8 +46,8 @@ class CancelDownloadFile extends TdFunction
     public function typeSerialize(): array
     {
         return [
-            '@type'           => static::TYPE_NAME,
-            'file_id'         => $this->fileId,
+            '@type' => static::TYPE_NAME,
+            'file_id' => $this->fileId,
             'only_if_pending' => $this->onlyIfPending,
         ];
     }

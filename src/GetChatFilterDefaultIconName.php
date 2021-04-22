@@ -9,14 +9,16 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Returns default icon name for a filter. Can be called synchronously.
+ * Returns default icon name for a filter. Can be called synchronously
  */
 class GetChatFilterDefaultIconName extends TdFunction
 {
     public const TYPE_NAME = 'getChatFilterDefaultIconName';
 
     /**
-     * Chat filter.
+     * Chat filter
+     *
+     * @var ChatFilter
      */
     protected ChatFilter $filter;
 
@@ -35,7 +37,7 @@ class GetChatFilterDefaultIconName extends TdFunction
     public function typeSerialize(): array
     {
         return [
-            '@type'  => static::TYPE_NAME,
+            '@type' => static::TYPE_NAME,
             'filter' => $this->filter->typeSerialize(),
         ];
     }

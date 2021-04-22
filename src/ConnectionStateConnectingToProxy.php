@@ -9,7 +9,7 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Currently establishing a connection with a proxy server.
+ * Currently establishing a connection with a proxy server
  */
 class ConnectionStateConnectingToProxy extends ConnectionState
 {

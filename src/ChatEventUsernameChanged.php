@@ -9,19 +9,23 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * The chat username was changed.
+ * The chat username was changed
  */
 class ChatEventUsernameChanged extends ChatEventAction
 {
     public const TYPE_NAME = 'chatEventUsernameChanged';
 
     /**
-     * Previous chat username.
+     * Previous chat username
+     *
+     * @var string
      */
     protected string $oldUsername;
 
     /**
-     * New chat username.
+     * New chat username
+     *
+     * @var string
      */
     protected string $newUsername;
 
@@ -44,7 +48,7 @@ class ChatEventUsernameChanged extends ChatEventAction
     public function typeSerialize(): array
     {
         return [
-            '@type'        => static::TYPE_NAME,
+            '@type' => static::TYPE_NAME,
             'old_username' => $this->oldUsername,
             'new_username' => $this->newUsername,
         ];

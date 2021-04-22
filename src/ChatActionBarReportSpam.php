@@ -9,14 +9,16 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * The chat can be reported as spam using the method reportChat with the reason chatReportReasonSpam.
+ * The chat can be reported as spam using the method reportChat with the reason chatReportReasonSpam
  */
 class ChatActionBarReportSpam extends ChatActionBar
 {
     public const TYPE_NAME = 'chatActionBarReportSpam';
 
     /**
-     * If true, the chat was automatically archived and can be moved back to the main chat list using addChatToList simultaneously with setting chat notification settings to default using setChatNotificationSettings.
+     * If true, the chat was automatically archived and can be moved back to the main chat list using addChatToList simultaneously with setting chat notification settings to default using setChatNotificationSettings
+     *
+     * @var bool
      */
     protected bool $canUnarchive;
 
@@ -37,7 +39,7 @@ class ChatActionBarReportSpam extends ChatActionBar
     public function typeSerialize(): array
     {
         return [
-            '@type'         => static::TYPE_NAME,
+            '@type' => static::TYPE_NAME,
             'can_unarchive' => $this->canUnarchive,
         ];
     }

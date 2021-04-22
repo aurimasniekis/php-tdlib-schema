@@ -9,34 +9,44 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Adds a local message to a chat. The message is persistent across application restarts only if the message database is used. Returns the added message.
+ * Adds a local message to a chat. The message is persistent across application restarts only if the message database is used. Returns the added message
  */
 class AddLocalMessage extends TdFunction
 {
     public const TYPE_NAME = 'addLocalMessage';
 
     /**
-     * Target chat.
+     * Target chat
+     *
+     * @var int
      */
     protected int $chatId;
 
     /**
-     * The sender sender of the message.
+     * The sender sender of the message
+     *
+     * @var MessageSender
      */
     protected MessageSender $sender;
 
     /**
-     * Identifier of the message to reply to or 0.
+     * Identifier of the message to reply to or 0
+     *
+     * @var int
      */
     protected int $replyToMessageId;
 
     /**
-     * Pass true to disable notification for the message.
+     * Pass true to disable notification for the message
+     *
+     * @var bool
      */
     protected bool $disableNotification;
 
     /**
-     * The content of the message to be added.
+     * The content of the message to be added
+     *
+     * @var InputMessageContent
      */
     protected InputMessageContent $inputMessageContent;
 
@@ -47,9 +57,9 @@ class AddLocalMessage extends TdFunction
         bool $disableNotification,
         InputMessageContent $inputMessageContent
     ) {
-        $this->chatId              = $chatId;
-        $this->sender              = $sender;
-        $this->replyToMessageId    = $replyToMessageId;
+        $this->chatId = $chatId;
+        $this->sender = $sender;
+        $this->replyToMessageId = $replyToMessageId;
         $this->disableNotification = $disableNotification;
         $this->inputMessageContent = $inputMessageContent;
     }
@@ -68,11 +78,11 @@ class AddLocalMessage extends TdFunction
     public function typeSerialize(): array
     {
         return [
-            '@type'                 => static::TYPE_NAME,
-            'chat_id'               => $this->chatId,
-            'sender'                => $this->sender->typeSerialize(),
-            'reply_to_message_id'   => $this->replyToMessageId,
-            'disable_notification'  => $this->disableNotification,
+            '@type' => static::TYPE_NAME,
+            'chat_id' => $this->chatId,
+            'sender' => $this->sender->typeSerialize(),
+            'reply_to_message_id' => $this->replyToMessageId,
+            'disable_notification' => $this->disableNotification,
             'input_message_content' => $this->inputMessageContent->typeSerialize(),
         ];
     }

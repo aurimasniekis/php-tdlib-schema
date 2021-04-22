@@ -9,14 +9,16 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Removes a chat action bar without any other action.
+ * Removes a chat action bar without any other action
  */
 class RemoveChatActionBar extends TdFunction
 {
     public const TYPE_NAME = 'removeChatActionBar';
 
     /**
-     * Chat identifier.
+     * Chat identifier
+     *
+     * @var int
      */
     protected int $chatId;
 
@@ -35,7 +37,7 @@ class RemoveChatActionBar extends TdFunction
     public function typeSerialize(): array
     {
         return [
-            '@type'   => static::TYPE_NAME,
+            '@type' => static::TYPE_NAME,
             'chat_id' => $this->chatId,
         ];
     }

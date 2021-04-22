@@ -9,25 +9,29 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Represents a URL linking to an internal Telegram entity.
+ * Represents a URL linking to an internal Telegram entity
  */
 class TMeUrl extends TdObject
 {
     public const TYPE_NAME = 'tMeUrl';
 
     /**
-     * URL.
+     * URL
+     *
+     * @var string
      */
     protected string $url;
 
     /**
-     * Type of the URL.
+     * Type of the URL
+     *
+     * @var TMeUrlType
      */
     protected TMeUrlType $type;
 
     public function __construct(string $url, TMeUrlType $type)
     {
-        $this->url  = $url;
+        $this->url = $url;
         $this->type = $type;
     }
 
@@ -43,8 +47,8 @@ class TMeUrl extends TdObject
     {
         return [
             '@type' => static::TYPE_NAME,
-            'url'   => $this->url,
-            'type'  => $this->type->typeSerialize(),
+            'url' => $this->url,
+            'type' => $this->type->typeSerialize(),
         ];
     }
 

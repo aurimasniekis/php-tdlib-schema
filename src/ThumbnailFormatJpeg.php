@@ -9,7 +9,7 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * The thumbnail is in JPEG format.
+ * The thumbnail is in JPEG format
  */
 class ThumbnailFormatJpeg extends ThumbnailFormat
 {

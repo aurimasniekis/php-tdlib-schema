@@ -9,7 +9,7 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Represents a payload of a callback query.
+ * Represents a payload of a callback query
  */
 class CallbackQueryPayload extends TdObject
 {

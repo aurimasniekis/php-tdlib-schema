@@ -9,14 +9,16 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Returns information about a tg:// deep link. Use "tg://need_update_for_some_feature" or "tg:some_unsupported_feature" for testing. Returns a 404 error for unknown links. Can be called before authorization.
+ * Returns information about a tg:// deep link. Use "tg://need_update_for_some_feature" or "tg:some_unsupported_feature" for testing. Returns a 404 error for unknown links. Can be called before authorization
  */
 class GetDeepLinkInfo extends TdFunction
 {
     public const TYPE_NAME = 'getDeepLinkInfo';
 
     /**
-     * The link.
+     * The link
+     *
+     * @var string
      */
     protected string $link;
 
@@ -36,7 +38,7 @@ class GetDeepLinkInfo extends TdFunction
     {
         return [
             '@type' => static::TYPE_NAME,
-            'link'  => $this->link,
+            'link' => $this->link,
         ];
     }
 

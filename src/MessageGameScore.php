@@ -9,24 +9,30 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * A new high score was achieved in a game.
+ * A new high score was achieved in a game
  */
 class MessageGameScore extends MessageContent
 {
     public const TYPE_NAME = 'messageGameScore';
 
     /**
-     * Identifier of the message with the game, can be an identifier of a deleted message.
+     * Identifier of the message with the game, can be an identifier of a deleted message
+     *
+     * @var int
      */
     protected int $gameMessageId;
 
     /**
-     * Identifier of the game; may be different from the games presented in the message with the game.
+     * Identifier of the game; may be different from the games presented in the message with the game
+     *
+     * @var string
      */
     protected string $gameId;
 
     /**
-     * New score.
+     * New score
+     *
+     * @var int
      */
     protected int $score;
 
@@ -35,8 +41,8 @@ class MessageGameScore extends MessageContent
         parent::__construct();
 
         $this->gameMessageId = $gameMessageId;
-        $this->gameId        = $gameId;
-        $this->score         = $score;
+        $this->gameId = $gameId;
+        $this->score = $score;
     }
 
     public static function fromArray(array $array): MessageGameScore
@@ -51,10 +57,10 @@ class MessageGameScore extends MessageContent
     public function typeSerialize(): array
     {
         return [
-            '@type'           => static::TYPE_NAME,
+            '@type' => static::TYPE_NAME,
             'game_message_id' => $this->gameMessageId,
-            'game_id'         => $this->gameId,
-            'score'           => $this->score,
+            'game_id' => $this->gameId,
+            'score' => $this->score,
         ];
     }
 

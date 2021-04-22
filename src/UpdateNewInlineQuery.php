@@ -9,34 +9,44 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * A new incoming inline query; for bots only.
+ * A new incoming inline query; for bots only
  */
 class UpdateNewInlineQuery extends Update
 {
     public const TYPE_NAME = 'updateNewInlineQuery';
 
     /**
-     * Unique query identifier.
+     * Unique query identifier
+     *
+     * @var string
      */
     protected string $id;
 
     /**
-     * Identifier of the user who sent the query.
+     * Identifier of the user who sent the query
+     *
+     * @var int
      */
     protected int $senderUserId;
 
     /**
-     * User location; may be null.
+     * User location; may be null
+     *
+     * @var Location|null
      */
     protected ?Location $userLocation;
 
     /**
-     * Text of the query.
+     * Text of the query
+     *
+     * @var string
      */
     protected string $query;
 
     /**
-     * Offset of the first entry to return.
+     * Offset of the first entry to return
+     *
+     * @var string
      */
     protected string $offset;
 
@@ -44,11 +54,11 @@ class UpdateNewInlineQuery extends Update
     {
         parent::__construct();
 
-        $this->id           = $id;
+        $this->id = $id;
         $this->senderUserId = $senderUserId;
         $this->userLocation = $userLocation;
-        $this->query        = $query;
-        $this->offset       = $offset;
+        $this->query = $query;
+        $this->offset = $offset;
     }
 
     public static function fromArray(array $array): UpdateNewInlineQuery
@@ -65,12 +75,12 @@ class UpdateNewInlineQuery extends Update
     public function typeSerialize(): array
     {
         return [
-            '@type'          => static::TYPE_NAME,
-            'id'             => $this->id,
+            '@type' => static::TYPE_NAME,
+            'id' => $this->id,
             'sender_user_id' => $this->senderUserId,
-            'user_location'  => (isset($this->userLocation) ? $this->userLocation : null),
-            'query'          => $this->query,
-            'offset'         => $this->offset,
+            'user_location' => (isset($this->userLocation) ? $this->userLocation : null),
+            'query' => $this->query,
+            'offset' => $this->offset,
         ];
     }
 

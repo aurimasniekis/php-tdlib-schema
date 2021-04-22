@@ -9,31 +9,37 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Contains basic information about the photo of a chat.
+ * Contains basic information about the photo of a chat
  */
 class ChatPhotoInfo extends TdObject
 {
     public const TYPE_NAME = 'chatPhotoInfo';
 
     /**
-     * A small (160x160) chat photo variant in JPEG format. The file can be downloaded only before the photo is changed.
+     * A small (160x160) chat photo variant in JPEG format. The file can be downloaded only before the photo is changed
+     *
+     * @var File
      */
     protected File $small;
 
     /**
-     * A big (640x640) chat photo variant in JPEG format. The file can be downloaded only before the photo is changed.
+     * A big (640x640) chat photo variant in JPEG format. The file can be downloaded only before the photo is changed
+     *
+     * @var File
      */
     protected File $big;
 
     /**
-     * True, if the photo has animated variant.
+     * True, if the photo has animated variant
+     *
+     * @var bool
      */
     protected bool $hasAnimation;
 
     public function __construct(File $small, File $big, bool $hasAnimation)
     {
-        $this->small        = $small;
-        $this->big          = $big;
+        $this->small = $small;
+        $this->big = $big;
         $this->hasAnimation = $hasAnimation;
     }
 
@@ -49,9 +55,9 @@ class ChatPhotoInfo extends TdObject
     public function typeSerialize(): array
     {
         return [
-            '@type'         => static::TYPE_NAME,
-            'small'         => $this->small->typeSerialize(),
-            'big'           => $this->big->typeSerialize(),
+            '@type' => static::TYPE_NAME,
+            'small' => $this->small->typeSerialize(),
+            'big' => $this->big->typeSerialize(),
             'has_animation' => $this->hasAnimation,
         ];
     }

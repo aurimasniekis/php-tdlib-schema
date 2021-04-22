@@ -9,43 +9,58 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Represents a basic group of 0-200 users (must be upgraded to a supergroup to accommodate more than 200 users).
+ * Represents a basic group of 0-200 users (must be upgraded to a supergroup to accommodate more than 200 users)
  */
 class BasicGroup extends TdObject
 {
     public const TYPE_NAME = 'basicGroup';
 
     /**
-     * Group identifier.
+     * Group identifier
+     *
+     * @var int
      */
     protected int $id;
 
     /**
-     * Number of members in the group.
+     * Number of members in the group
+     *
+     * @var int
      */
     protected int $memberCount;
 
     /**
-     * Status of the current user in the group.
+     * Status of the current user in the group
+     *
+     * @var ChatMemberStatus
      */
     protected ChatMemberStatus $status;
 
     /**
-     * True, if the group is active.
+     * True, if the group is active
+     *
+     * @var bool
      */
     protected bool $isActive;
 
     /**
-     * Identifier of the supergroup to which this group was upgraded; 0 if none.
+     * Identifier of the supergroup to which this group was upgraded; 0 if none
+     *
+     * @var int
      */
     protected int $upgradedToSupergroupId;
 
-    public function __construct(int $id, int $memberCount, ChatMemberStatus $status, bool $isActive, int $upgradedToSupergroupId)
-    {
-        $this->id                     = $id;
-        $this->memberCount            = $memberCount;
-        $this->status                 = $status;
-        $this->isActive               = $isActive;
+    public function __construct(
+        int $id,
+        int $memberCount,
+        ChatMemberStatus $status,
+        bool $isActive,
+        int $upgradedToSupergroupId
+    ) {
+        $this->id = $id;
+        $this->memberCount = $memberCount;
+        $this->status = $status;
+        $this->isActive = $isActive;
         $this->upgradedToSupergroupId = $upgradedToSupergroupId;
     }
 
@@ -63,11 +78,11 @@ class BasicGroup extends TdObject
     public function typeSerialize(): array
     {
         return [
-            '@type'                     => static::TYPE_NAME,
-            'id'                        => $this->id,
-            'member_count'              => $this->memberCount,
-            'status'                    => $this->status->typeSerialize(),
-            'is_active'                 => $this->isActive,
+            '@type' => static::TYPE_NAME,
+            'id' => $this->id,
+            'member_count' => $this->memberCount,
+            'status' => $this->status->typeSerialize(),
+            'is_active' => $this->isActive,
             'upgraded_to_supergroup_id' => $this->upgradedToSupergroupId,
         ];
     }

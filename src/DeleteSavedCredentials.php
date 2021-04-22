@@ -9,7 +9,7 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Deletes saved credentials for all payment provider bots.
+ * Deletes saved credentials for all payment provider bots
  */
 class DeleteSavedCredentials extends TdFunction
 {

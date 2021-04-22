@@ -9,14 +9,16 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Clears draft messages in all chats.
+ * Clears draft messages in all chats
  */
 class ClearAllDraftMessages extends TdFunction
 {
     public const TYPE_NAME = 'clearAllDraftMessages';
 
     /**
-     * If true, local draft messages in secret chats will not be cleared.
+     * If true, local draft messages in secret chats will not be cleared
+     *
+     * @var bool
      */
     protected bool $excludeSecretChats;
 
@@ -35,7 +37,7 @@ class ClearAllDraftMessages extends TdFunction
     public function typeSerialize(): array
     {
         return [
-            '@type'                => static::TYPE_NAME,
+            '@type' => static::TYPE_NAME,
             'exclude_secret_chats' => $this->excludeSecretChats,
         ];
     }

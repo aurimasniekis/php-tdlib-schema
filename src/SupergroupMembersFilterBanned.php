@@ -9,14 +9,16 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Returns users banned from the supergroup or channel; can be used only by administrators.
+ * Returns users banned from the supergroup or channel; can be used only by administrators
  */
 class SupergroupMembersFilterBanned extends SupergroupMembersFilter
 {
     public const TYPE_NAME = 'supergroupMembersFilterBanned';
 
     /**
-     * Query to search for.
+     * Query to search for
+     *
+     * @var string
      */
     protected string $query;
 

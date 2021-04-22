@@ -9,24 +9,30 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Changes the status of a chat member, needs appropriate privileges. This function is currently not suitable for adding new members to the chat and transferring chat ownership; instead, use addChatMember or transferChatOwnership. The chat member status will not be changed until it has been synchronized with the server.
+ * Changes the status of a chat member, needs appropriate privileges. This function is currently not suitable for adding new members to the chat and transferring chat ownership; instead, use addChatMember or transferChatOwnership. The chat member status will not be changed until it has been synchronized with the server
  */
 class SetChatMemberStatus extends TdFunction
 {
     public const TYPE_NAME = 'setChatMemberStatus';
 
     /**
-     * Chat identifier.
+     * Chat identifier
+     *
+     * @var int
      */
     protected int $chatId;
 
     /**
-     * User identifier.
+     * User identifier
+     *
+     * @var int
      */
     protected int $userId;
 
     /**
-     * The new status of the member in the chat.
+     * The new status of the member in the chat
+     *
+     * @var ChatMemberStatus
      */
     protected ChatMemberStatus $status;
 
@@ -49,10 +55,10 @@ class SetChatMemberStatus extends TdFunction
     public function typeSerialize(): array
     {
         return [
-            '@type'   => static::TYPE_NAME,
+            '@type' => static::TYPE_NAME,
             'chat_id' => $this->chatId,
             'user_id' => $this->userId,
-            'status'  => $this->status->typeSerialize(),
+            'status' => $this->status->typeSerialize(),
         ];
     }
 

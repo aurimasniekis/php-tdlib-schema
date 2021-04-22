@@ -9,7 +9,7 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * The user is not a chat member.
+ * The user is not a chat member
  */
 class ChatMemberStatusLeft extends ChatMemberStatus
 {

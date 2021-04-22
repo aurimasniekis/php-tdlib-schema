@@ -9,14 +9,16 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Changes the bio of the current user.
+ * Changes the bio of the current user
  */
 class SetBio extends TdFunction
 {
     public const TYPE_NAME = 'setBio';
 
     /**
-     * The new value of the user bio; 0-70 characters without line feeds.
+     * The new value of the user bio; 0-70 characters without line feeds
+     *
+     * @var string
      */
     protected string $bio;
 
@@ -36,7 +38,7 @@ class SetBio extends TdFunction
     {
         return [
             '@type' => static::TYPE_NAME,
-            'bio'   => $this->bio,
+            'bio' => $this->bio,
         ];
     }
 

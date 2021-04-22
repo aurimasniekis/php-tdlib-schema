@@ -9,29 +9,37 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * A forwarded message.
+ * A forwarded message
  */
 class InputMessageForwarded extends InputMessageContent
 {
     public const TYPE_NAME = 'inputMessageForwarded';
 
     /**
-     * Identifier for the chat this forwarded message came from.
+     * Identifier for the chat this forwarded message came from
+     *
+     * @var int
      */
     protected int $fromChatId;
 
     /**
-     * Identifier of the message to forward.
+     * Identifier of the message to forward
+     *
+     * @var int
      */
     protected int $messageId;
 
     /**
-     * True, if a game message should be shared within a launched game; applies only to game messages.
+     * True, if a game message should be shared within a launched game; applies only to game messages
+     *
+     * @var bool
      */
     protected bool $inGameShare;
 
     /**
-     * Options to be used to copy content of the message without a link to the original message.
+     * Options to be used to copy content of the message without a link to the original message
+     *
+     * @var MessageCopyOptions
      */
     protected MessageCopyOptions $copyOptions;
 
@@ -39,8 +47,8 @@ class InputMessageForwarded extends InputMessageContent
     {
         parent::__construct();
 
-        $this->fromChatId  = $fromChatId;
-        $this->messageId   = $messageId;
+        $this->fromChatId = $fromChatId;
+        $this->messageId = $messageId;
         $this->inGameShare = $inGameShare;
         $this->copyOptions = $copyOptions;
     }
@@ -58,11 +66,11 @@ class InputMessageForwarded extends InputMessageContent
     public function typeSerialize(): array
     {
         return [
-            '@type'         => static::TYPE_NAME,
-            'from_chat_id'  => $this->fromChatId,
-            'message_id'    => $this->messageId,
+            '@type' => static::TYPE_NAME,
+            'from_chat_id' => $this->fromChatId,
+            'message_id' => $this->messageId,
             'in_game_share' => $this->inGameShare,
-            'copy_options'  => $this->copyOptions->typeSerialize(),
+            'copy_options' => $this->copyOptions->typeSerialize(),
         ];
     }
 

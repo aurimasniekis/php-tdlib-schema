@@ -9,7 +9,7 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * The user is typing a message.
+ * The user is typing a message
  */
 class ChatActionTyping extends ChatAction
 {

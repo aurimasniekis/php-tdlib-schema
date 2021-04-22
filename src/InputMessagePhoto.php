@@ -9,46 +9,58 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * A photo message.
+ * A photo message
  */
 class InputMessagePhoto extends InputMessageContent
 {
     public const TYPE_NAME = 'inputMessagePhoto';
 
     /**
-     * Photo to send.
+     * Photo to send
+     *
+     * @var InputFile
      */
     protected InputFile $photo;
 
     /**
-     * Photo thumbnail to be sent, this is sent to the other party in secret chats only.
+     * Photo thumbnail to be sent, this is sent to the other party in secret chats only
+     *
+     * @var InputThumbnail
      */
     protected InputThumbnail $thumbnail;
 
     /**
-     * File identifiers of the stickers added to the photo, if applicable.
+     * File identifiers of the stickers added to the photo, if applicable
      *
      * @var int[]
      */
     protected array $addedStickerFileIds;
 
     /**
-     * Photo width.
+     * Photo width
+     *
+     * @var int
      */
     protected int $width;
 
     /**
-     * Photo height.
+     * Photo height
+     *
+     * @var int
      */
     protected int $height;
 
     /**
-     * Photo caption; 0-GetOption("message_caption_length_max") characters.
+     * Photo caption; 0-GetOption("message_caption_length_max") characters
+     *
+     * @var FormattedText
      */
     protected FormattedText $caption;
 
     /**
-     * Photo TTL (Time To Live), in seconds (0-60). A non-zero TTL can be specified only in private chats.
+     * Photo TTL (Time To Live), in seconds (0-60). A non-zero TTL can be specified only in private chats
+     *
+     * @var int
      */
     protected int $ttl;
 
@@ -63,13 +75,13 @@ class InputMessagePhoto extends InputMessageContent
     ) {
         parent::__construct();
 
-        $this->photo               = $photo;
-        $this->thumbnail           = $thumbnail;
+        $this->photo = $photo;
+        $this->thumbnail = $thumbnail;
         $this->addedStickerFileIds = $addedStickerFileIds;
-        $this->width               = $width;
-        $this->height              = $height;
-        $this->caption             = $caption;
-        $this->ttl                 = $ttl;
+        $this->width = $width;
+        $this->height = $height;
+        $this->caption = $caption;
+        $this->ttl = $ttl;
     }
 
     public static function fromArray(array $array): InputMessagePhoto
@@ -88,14 +100,14 @@ class InputMessagePhoto extends InputMessageContent
     public function typeSerialize(): array
     {
         return [
-            '@type'                  => static::TYPE_NAME,
-            'photo'                  => $this->photo->typeSerialize(),
-            'thumbnail'              => $this->thumbnail->typeSerialize(),
+            '@type' => static::TYPE_NAME,
+            'photo' => $this->photo->typeSerialize(),
+            'thumbnail' => $this->thumbnail->typeSerialize(),
             'added_sticker_file_ids' => $this->addedStickerFileIds,
-            'width'                  => $this->width,
-            'height'                 => $this->height,
-            'caption'                => $this->caption->typeSerialize(),
-            'ttl'                    => $this->ttl,
+            'width' => $this->width,
+            'height' => $this->height,
+            'caption' => $this->caption->typeSerialize(),
+            'ttl' => $this->ttl,
         ];
     }
 

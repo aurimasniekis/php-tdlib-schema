@@ -9,29 +9,37 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * A sticker message.
+ * A sticker message
  */
 class InputMessageSticker extends InputMessageContent
 {
     public const TYPE_NAME = 'inputMessageSticker';
 
     /**
-     * Sticker to be sent.
+     * Sticker to be sent
+     *
+     * @var InputFile
      */
     protected InputFile $sticker;
 
     /**
-     * Sticker thumbnail, if available.
+     * Sticker thumbnail, if available
+     *
+     * @var InputThumbnail
      */
     protected InputThumbnail $thumbnail;
 
     /**
-     * Sticker width.
+     * Sticker width
+     *
+     * @var int
      */
     protected int $width;
 
     /**
-     * Sticker height.
+     * Sticker height
+     *
+     * @var int
      */
     protected int $height;
 
@@ -39,10 +47,10 @@ class InputMessageSticker extends InputMessageContent
     {
         parent::__construct();
 
-        $this->sticker   = $sticker;
+        $this->sticker = $sticker;
         $this->thumbnail = $thumbnail;
-        $this->width     = $width;
-        $this->height    = $height;
+        $this->width = $width;
+        $this->height = $height;
     }
 
     public static function fromArray(array $array): InputMessageSticker
@@ -58,11 +66,11 @@ class InputMessageSticker extends InputMessageContent
     public function typeSerialize(): array
     {
         return [
-            '@type'     => static::TYPE_NAME,
-            'sticker'   => $this->sticker->typeSerialize(),
+            '@type' => static::TYPE_NAME,
+            'sticker' => $this->sticker->typeSerialize(),
             'thumbnail' => $this->thumbnail->typeSerialize(),
-            'width'     => $this->width,
-            'height'    => $this->height,
+            'width' => $this->width,
+            'height' => $this->height,
         ];
     }
 

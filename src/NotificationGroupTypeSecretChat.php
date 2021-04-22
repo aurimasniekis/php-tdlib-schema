@@ -9,7 +9,7 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * A group containing a notification of type notificationTypeNewSecretChat.
+ * A group containing a notification of type notificationTypeNewSecretChat
  */
 class NotificationGroupTypeSecretChat extends NotificationGroupType
 {

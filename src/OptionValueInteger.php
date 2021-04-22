@@ -9,14 +9,16 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Represents an integer option.
+ * Represents an integer option
  */
 class OptionValueInteger extends OptionValue
 {
     public const TYPE_NAME = 'optionValueInteger';
 
     /**
-     * The value of the option.
+     * The value of the option
+     *
+     * @var string
      */
     protected string $value;
 

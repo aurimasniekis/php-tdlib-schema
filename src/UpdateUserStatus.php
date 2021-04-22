@@ -9,19 +9,23 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * The user went online or offline.
+ * The user went online or offline
  */
 class UpdateUserStatus extends Update
 {
     public const TYPE_NAME = 'updateUserStatus';
 
     /**
-     * User identifier.
+     * User identifier
+     *
+     * @var int
      */
     protected int $userId;
 
     /**
-     * New status of the user.
+     * New status of the user
+     *
+     * @var UserStatus
      */
     protected UserStatus $status;
 
@@ -44,9 +48,9 @@ class UpdateUserStatus extends Update
     public function typeSerialize(): array
     {
         return [
-            '@type'   => static::TYPE_NAME,
+            '@type' => static::TYPE_NAME,
             'user_id' => $this->userId,
-            'status'  => $this->status->typeSerialize(),
+            'status' => $this->status->typeSerialize(),
         ];
     }
 

@@ -9,44 +9,58 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Describes a game.
+ * Describes a game
  */
 class Game extends TdObject
 {
     public const TYPE_NAME = 'game';
 
     /**
-     * Game ID.
+     * Game ID
+     *
+     * @var string
      */
     protected string $id;
 
     /**
-     * Game short name. To share a game use the URL https://t.me/{bot_username}?game={game_short_name}.
+     * Game short name. To share a game use the URL https://t.me/{bot_username}?game={game_short_name}
+     *
+     * @var string
      */
     protected string $shortName;
 
     /**
-     * Game title.
+     * Game title
+     *
+     * @var string
      */
     protected string $title;
 
     /**
-     * Game text, usually containing scoreboards for a game.
+     * Game text, usually containing scoreboards for a game
+     *
+     * @var FormattedText
      */
     protected FormattedText $text;
 
     /**
-     * Game description.
+     * Game description
+     *
+     * @var string
      */
     protected string $description;
 
     /**
-     * Game photo.
+     * Game photo
+     *
+     * @var Photo
      */
     protected Photo $photo;
 
     /**
-     * Game animation; may be null.
+     * Game animation; may be null
+     *
+     * @var Animation|null
      */
     protected ?Animation $animation;
 
@@ -59,13 +73,13 @@ class Game extends TdObject
         Photo $photo,
         ?Animation $animation
     ) {
-        $this->id          = $id;
-        $this->shortName   = $shortName;
-        $this->title       = $title;
-        $this->text        = $text;
+        $this->id = $id;
+        $this->shortName = $shortName;
+        $this->title = $title;
+        $this->text = $text;
         $this->description = $description;
-        $this->photo       = $photo;
-        $this->animation   = $animation;
+        $this->photo = $photo;
+        $this->animation = $animation;
     }
 
     public static function fromArray(array $array): Game
@@ -84,14 +98,14 @@ class Game extends TdObject
     public function typeSerialize(): array
     {
         return [
-            '@type'       => static::TYPE_NAME,
-            'id'          => $this->id,
-            'short_name'  => $this->shortName,
-            'title'       => $this->title,
-            'text'        => $this->text->typeSerialize(),
+            '@type' => static::TYPE_NAME,
+            'id' => $this->id,
+            'short_name' => $this->shortName,
+            'title' => $this->title,
+            'text' => $this->text->typeSerialize(),
             'description' => $this->description,
-            'photo'       => $this->photo->typeSerialize(),
-            'animation'   => (isset($this->animation) ? $this->animation : null),
+            'photo' => $this->photo->typeSerialize(),
+            'animation' => (isset($this->animation) ? $this->animation : null),
         ];
     }
 

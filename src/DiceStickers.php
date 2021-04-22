@@ -9,7 +9,7 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Contains animated stickers which should be used for dice animation rendering.
+ * Contains animated stickers which should be used for dice animation rendering
  */
 class DiceStickers extends TdObject
 {

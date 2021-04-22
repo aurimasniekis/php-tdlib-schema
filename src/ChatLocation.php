@@ -9,26 +9,30 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Represents a location to which a chat is connected.
+ * Represents a location to which a chat is connected
  */
 class ChatLocation extends TdObject
 {
     public const TYPE_NAME = 'chatLocation';
 
     /**
-     * The location.
+     * The location
+     *
+     * @var Location
      */
     protected Location $location;
 
     /**
-     * Location address; 1-64 characters, as defined by the chat owner.
+     * Location address; 1-64 characters, as defined by the chat owner
+     *
+     * @var string
      */
     protected string $address;
 
     public function __construct(Location $location, string $address)
     {
         $this->location = $location;
-        $this->address  = $address;
+        $this->address = $address;
     }
 
     public static function fromArray(array $array): ChatLocation
@@ -42,9 +46,9 @@ class ChatLocation extends TdObject
     public function typeSerialize(): array
     {
         return [
-            '@type'    => static::TYPE_NAME,
+            '@type' => static::TYPE_NAME,
             'location' => $this->location->typeSerialize(),
-            'address'  => $this->address,
+            'address' => $this->address,
         ];
     }
 

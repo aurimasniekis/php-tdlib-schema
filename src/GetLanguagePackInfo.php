@@ -9,14 +9,16 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Returns information about a language pack. Returned language pack identifier may be different from a provided one. Can be called before authorization.
+ * Returns information about a language pack. Returned language pack identifier may be different from a provided one. Can be called before authorization
  */
 class GetLanguagePackInfo extends TdFunction
 {
     public const TYPE_NAME = 'getLanguagePackInfo';
 
     /**
-     * Language pack identifier.
+     * Language pack identifier
+     *
+     * @var string
      */
     protected string $languagePackId;
 
@@ -35,7 +37,7 @@ class GetLanguagePackInfo extends TdFunction
     public function typeSerialize(): array
     {
         return [
-            '@type'            => static::TYPE_NAME,
+            '@type' => static::TYPE_NAME,
             'language_pack_id' => $this->languagePackId,
         ];
     }

@@ -9,44 +9,58 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Contains information about an invoice payment form.
+ * Contains information about an invoice payment form
  */
 class PaymentForm extends TdObject
 {
     public const TYPE_NAME = 'paymentForm';
 
     /**
-     * Full information of the invoice.
+     * Full information of the invoice
+     *
+     * @var Invoice
      */
     protected Invoice $invoice;
 
     /**
-     * Payment form URL.
+     * Payment form URL
+     *
+     * @var string
      */
     protected string $url;
 
     /**
-     * Contains information about the payment provider, if available, to support it natively without the need for opening the URL; may be null.
+     * Contains information about the payment provider, if available, to support it natively without the need for opening the URL; may be null
+     *
+     * @var PaymentsProviderStripe|null
      */
     protected ?PaymentsProviderStripe $paymentsProvider;
 
     /**
-     * Saved server-side order information; may be null.
+     * Saved server-side order information; may be null
+     *
+     * @var OrderInfo|null
      */
     protected ?OrderInfo $savedOrderInfo;
 
     /**
-     * Contains information about saved card credentials; may be null.
+     * Contains information about saved card credentials; may be null
+     *
+     * @var SavedCredentials|null
      */
     protected ?SavedCredentials $savedCredentials;
 
     /**
-     * True, if the user can choose to save credentials.
+     * True, if the user can choose to save credentials
+     *
+     * @var bool
      */
     protected bool $canSaveCredentials;
 
     /**
-     * True, if the user will be able to save credentials protected by a password they set up.
+     * True, if the user will be able to save credentials protected by a password they set up
+     *
+     * @var bool
      */
     protected bool $needPassword;
 
@@ -59,13 +73,13 @@ class PaymentForm extends TdObject
         bool $canSaveCredentials,
         bool $needPassword
     ) {
-        $this->invoice            = $invoice;
-        $this->url                = $url;
-        $this->paymentsProvider   = $paymentsProvider;
-        $this->savedOrderInfo     = $savedOrderInfo;
-        $this->savedCredentials   = $savedCredentials;
+        $this->invoice = $invoice;
+        $this->url = $url;
+        $this->paymentsProvider = $paymentsProvider;
+        $this->savedOrderInfo = $savedOrderInfo;
+        $this->savedCredentials = $savedCredentials;
         $this->canSaveCredentials = $canSaveCredentials;
-        $this->needPassword       = $needPassword;
+        $this->needPassword = $needPassword;
     }
 
     public static function fromArray(array $array): PaymentForm
@@ -84,14 +98,14 @@ class PaymentForm extends TdObject
     public function typeSerialize(): array
     {
         return [
-            '@type'                => static::TYPE_NAME,
-            'invoice'              => $this->invoice->typeSerialize(),
-            'url'                  => $this->url,
-            'payments_provider'    => (isset($this->paymentsProvider) ? $this->paymentsProvider : null),
-            'saved_order_info'     => (isset($this->savedOrderInfo) ? $this->savedOrderInfo : null),
-            'saved_credentials'    => (isset($this->savedCredentials) ? $this->savedCredentials : null),
+            '@type' => static::TYPE_NAME,
+            'invoice' => $this->invoice->typeSerialize(),
+            'url' => $this->url,
+            'payments_provider' => (isset($this->paymentsProvider) ? $this->paymentsProvider : null),
+            'saved_order_info' => (isset($this->savedOrderInfo) ? $this->savedOrderInfo : null),
+            'saved_credentials' => (isset($this->savedCredentials) ? $this->savedCredentials : null),
             'can_save_credentials' => $this->canSaveCredentials,
-            'need_password'        => $this->needPassword,
+            'need_password' => $this->needPassword,
         ];
     }
 

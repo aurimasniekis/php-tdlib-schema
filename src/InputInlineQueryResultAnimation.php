@@ -9,64 +9,86 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Represents a link to an animated GIF or an animated (i.e. without sound) H.264/MPEG-4 AVC video.
+ * Represents a link to an animated GIF or an animated (i.e. without sound) H.264/MPEG-4 AVC video
  */
 class InputInlineQueryResultAnimation extends InputInlineQueryResult
 {
     public const TYPE_NAME = 'inputInlineQueryResultAnimation';
 
     /**
-     * Unique identifier of the query result.
+     * Unique identifier of the query result
+     *
+     * @var string
      */
     protected string $id;
 
     /**
-     * Title of the query result.
+     * Title of the query result
+     *
+     * @var string
      */
     protected string $title;
 
     /**
-     * URL of the result thumbnail (JPEG, GIF, or MPEG4), if it exists.
+     * URL of the result thumbnail (JPEG, GIF, or MPEG4), if it exists
+     *
+     * @var string
      */
     protected string $thumbnailUrl;
 
     /**
-     * MIME type of the video thumbnail. If non-empty, must be one of "image/jpeg", "image/gif" and "video/mp4".
+     * MIME type of the video thumbnail. If non-empty, must be one of "image/jpeg", "image/gif" and "video/mp4"
+     *
+     * @var string
      */
     protected string $thumbnailMimeType;
 
     /**
-     * The URL of the video file (file size must not exceed 1MB).
+     * The URL of the video file (file size must not exceed 1MB)
+     *
+     * @var string
      */
     protected string $videoUrl;
 
     /**
-     * MIME type of the video file. Must be one of "image/gif" and "video/mp4".
+     * MIME type of the video file. Must be one of "image/gif" and "video/mp4"
+     *
+     * @var string
      */
     protected string $videoMimeType;
 
     /**
-     * Duration of the video, in seconds.
+     * Duration of the video, in seconds
+     *
+     * @var int
      */
     protected int $videoDuration;
 
     /**
-     * Width of the video.
+     * Width of the video
+     *
+     * @var int
      */
     protected int $videoWidth;
 
     /**
-     * Height of the video.
+     * Height of the video
+     *
+     * @var int
      */
     protected int $videoHeight;
 
     /**
-     * The message reply markup. Must be of type replyMarkupInlineKeyboard or null.
+     * The message reply markup. Must be of type replyMarkupInlineKeyboard or null
+     *
+     * @var ReplyMarkup
      */
     protected ReplyMarkup $replyMarkup;
 
     /**
-     * The content of the message to be sent. Must be one of the following types: InputMessageText, InputMessageAnimation, InputMessageLocation, InputMessageVenue or InputMessageContact.
+     * The content of the message to be sent. Must be one of the following types: InputMessageText, InputMessageAnimation, InputMessageLocation, InputMessageVenue or InputMessageContact
+     *
+     * @var InputMessageContent
      */
     protected InputMessageContent $inputMessageContent;
 
@@ -85,16 +107,16 @@ class InputInlineQueryResultAnimation extends InputInlineQueryResult
     ) {
         parent::__construct();
 
-        $this->id                  = $id;
-        $this->title               = $title;
-        $this->thumbnailUrl        = $thumbnailUrl;
-        $this->thumbnailMimeType   = $thumbnailMimeType;
-        $this->videoUrl            = $videoUrl;
-        $this->videoMimeType       = $videoMimeType;
-        $this->videoDuration       = $videoDuration;
-        $this->videoWidth          = $videoWidth;
-        $this->videoHeight         = $videoHeight;
-        $this->replyMarkup         = $replyMarkup;
+        $this->id = $id;
+        $this->title = $title;
+        $this->thumbnailUrl = $thumbnailUrl;
+        $this->thumbnailMimeType = $thumbnailMimeType;
+        $this->videoUrl = $videoUrl;
+        $this->videoMimeType = $videoMimeType;
+        $this->videoDuration = $videoDuration;
+        $this->videoWidth = $videoWidth;
+        $this->videoHeight = $videoHeight;
+        $this->replyMarkup = $replyMarkup;
         $this->inputMessageContent = $inputMessageContent;
     }
 
@@ -118,17 +140,17 @@ class InputInlineQueryResultAnimation extends InputInlineQueryResult
     public function typeSerialize(): array
     {
         return [
-            '@type'                 => static::TYPE_NAME,
-            'id'                    => $this->id,
-            'title'                 => $this->title,
-            'thumbnail_url'         => $this->thumbnailUrl,
-            'thumbnail_mime_type'   => $this->thumbnailMimeType,
-            'video_url'             => $this->videoUrl,
-            'video_mime_type'       => $this->videoMimeType,
-            'video_duration'        => $this->videoDuration,
-            'video_width'           => $this->videoWidth,
-            'video_height'          => $this->videoHeight,
-            'reply_markup'          => $this->replyMarkup->typeSerialize(),
+            '@type' => static::TYPE_NAME,
+            'id' => $this->id,
+            'title' => $this->title,
+            'thumbnail_url' => $this->thumbnailUrl,
+            'thumbnail_mime_type' => $this->thumbnailMimeType,
+            'video_url' => $this->videoUrl,
+            'video_mime_type' => $this->videoMimeType,
+            'video_duration' => $this->videoDuration,
+            'video_width' => $this->videoWidth,
+            'video_height' => $this->videoHeight,
+            'reply_markup' => $this->replyMarkup->typeSerialize(),
             'input_message_content' => $this->inputMessageContent->typeSerialize(),
         ];
     }

@@ -9,14 +9,16 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Adds current user as a new member to a chat. Private and secret chats can't be joined using this method.
+ * Adds current user as a new member to a chat. Private and secret chats can't be joined using this method
  */
 class JoinChat extends TdFunction
 {
     public const TYPE_NAME = 'joinChat';
 
     /**
-     * Chat identifier.
+     * Chat identifier
+     *
+     * @var int
      */
     protected int $chatId;
 
@@ -35,7 +37,7 @@ class JoinChat extends TdFunction
     public function typeSerialize(): array
     {
         return [
-            '@type'   => static::TYPE_NAME,
+            '@type' => static::TYPE_NAME,
             'chat_id' => $this->chatId,
         ];
     }

@@ -9,14 +9,16 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * A header.
+ * A header
  */
 class PageBlockHeader extends PageBlock
 {
     public const TYPE_NAME = 'pageBlockHeader';
 
     /**
-     * Header.
+     * Header
+     *
+     * @var RichText
      */
     protected RichText $header;
 
@@ -37,7 +39,7 @@ class PageBlockHeader extends PageBlock
     public function typeSerialize(): array
     {
         return [
-            '@type'  => static::TYPE_NAME,
+            '@type' => static::TYPE_NAME,
             'header' => $this->header->typeSerialize(),
         ];
     }

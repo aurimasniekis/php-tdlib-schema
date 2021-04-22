@@ -9,7 +9,7 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Notification settings applied to all channels when the corresponding chat setting has a default value.
+ * Notification settings applied to all channels when the corresponding chat setting has a default value
  */
 class NotificationSettingsScopeChannelChats extends NotificationSettingsScope
 {

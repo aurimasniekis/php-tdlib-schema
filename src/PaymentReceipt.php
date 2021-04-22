@@ -9,39 +9,51 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Contains information about a successful payment.
+ * Contains information about a successful payment
  */
 class PaymentReceipt extends TdObject
 {
     public const TYPE_NAME = 'paymentReceipt';
 
     /**
-     * Point in time (Unix timestamp) when the payment was made.
+     * Point in time (Unix timestamp) when the payment was made
+     *
+     * @var int
      */
     protected int $date;
 
     /**
-     * User identifier of the payment provider bot.
+     * User identifier of the payment provider bot
+     *
+     * @var int
      */
     protected int $paymentsProviderUserId;
 
     /**
-     * Contains information about the invoice.
+     * Contains information about the invoice
+     *
+     * @var Invoice
      */
     protected Invoice $invoice;
 
     /**
-     * Contains order information; may be null.
+     * Contains order information; may be null
+     *
+     * @var OrderInfo|null
      */
     protected ?OrderInfo $orderInfo;
 
     /**
-     * Chosen shipping option; may be null.
+     * Chosen shipping option; may be null
+     *
+     * @var ShippingOption|null
      */
     protected ?ShippingOption $shippingOption;
 
     /**
-     * Title of the saved credentials.
+     * Title of the saved credentials
+     *
+     * @var string
      */
     protected string $credentialsTitle;
 
@@ -53,12 +65,12 @@ class PaymentReceipt extends TdObject
         ?ShippingOption $shippingOption,
         string $credentialsTitle
     ) {
-        $this->date                   = $date;
+        $this->date = $date;
         $this->paymentsProviderUserId = $paymentsProviderUserId;
-        $this->invoice                = $invoice;
-        $this->orderInfo              = $orderInfo;
-        $this->shippingOption         = $shippingOption;
-        $this->credentialsTitle       = $credentialsTitle;
+        $this->invoice = $invoice;
+        $this->orderInfo = $orderInfo;
+        $this->shippingOption = $shippingOption;
+        $this->credentialsTitle = $credentialsTitle;
     }
 
     public static function fromArray(array $array): PaymentReceipt
@@ -76,13 +88,13 @@ class PaymentReceipt extends TdObject
     public function typeSerialize(): array
     {
         return [
-            '@type'                     => static::TYPE_NAME,
-            'date'                      => $this->date,
+            '@type' => static::TYPE_NAME,
+            'date' => $this->date,
             'payments_provider_user_id' => $this->paymentsProviderUserId,
-            'invoice'                   => $this->invoice->typeSerialize(),
-            'order_info'                => (isset($this->orderInfo) ? $this->orderInfo : null),
-            'shipping_option'           => (isset($this->shippingOption) ? $this->shippingOption : null),
-            'credentials_title'         => $this->credentialsTitle,
+            'invoice' => $this->invoice->typeSerialize(),
+            'order_info' => (isset($this->orderInfo) ? $this->orderInfo : null),
+            'shipping_option' => (isset($this->shippingOption) ? $this->shippingOption : null),
+            'credentials_title' => $this->credentialsTitle,
         ];
     }
 

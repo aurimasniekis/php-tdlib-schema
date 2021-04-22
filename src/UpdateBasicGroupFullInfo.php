@@ -9,19 +9,23 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Some data from basicGroupFullInfo has been changed.
+ * Some data from basicGroupFullInfo has been changed
  */
 class UpdateBasicGroupFullInfo extends Update
 {
     public const TYPE_NAME = 'updateBasicGroupFullInfo';
 
     /**
-     * Identifier of a basic group.
+     * Identifier of a basic group
+     *
+     * @var int
      */
     protected int $basicGroupId;
 
     /**
-     * New full information about the group.
+     * New full information about the group
+     *
+     * @var BasicGroupFullInfo
      */
     protected BasicGroupFullInfo $basicGroupFullInfo;
 
@@ -29,7 +33,7 @@ class UpdateBasicGroupFullInfo extends Update
     {
         parent::__construct();
 
-        $this->basicGroupId       = $basicGroupId;
+        $this->basicGroupId = $basicGroupId;
         $this->basicGroupFullInfo = $basicGroupFullInfo;
     }
 
@@ -44,8 +48,8 @@ class UpdateBasicGroupFullInfo extends Update
     public function typeSerialize(): array
     {
         return [
-            '@type'                 => static::TYPE_NAME,
-            'basic_group_id'        => $this->basicGroupId,
+            '@type' => static::TYPE_NAME,
+            'basic_group_id' => $this->basicGroupId,
             'basic_group_full_info' => $this->basicGroupFullInfo->typeSerialize(),
         ];
     }

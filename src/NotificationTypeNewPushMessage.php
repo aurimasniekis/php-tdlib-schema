@@ -9,46 +9,61 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * New message was received through a push notification.
+ * New message was received through a push notification
  */
 class NotificationTypeNewPushMessage extends NotificationType
 {
     public const TYPE_NAME = 'notificationTypeNewPushMessage';
 
     /**
-     * The message identifier. The message will not be available in the chat history, but the ID can be used in viewMessages, or as reply_to_message_id.
+     * The message identifier. The message will not be available in the chat history, but the ID can be used in viewMessages, or as reply_to_message_id
+     *
+     * @var int
      */
     protected int $messageId;
 
     /**
-     * The sender of the message. Corresponding user or chat may be inaccessible.
+     * The sender of the message. Corresponding user or chat may be inaccessible
+     *
+     * @var MessageSender
      */
     protected MessageSender $sender;
 
     /**
-     * Name of the sender.
+     * Name of the sender
+     *
+     * @var string
      */
     protected string $senderName;
 
     /**
-     * True, if the message is outgoing.
+     * True, if the message is outgoing
+     *
+     * @var bool
      */
     protected bool $isOutgoing;
 
     /**
-     * Push message content.
+     * Push message content
+     *
+     * @var PushMessageContent
      */
     protected PushMessageContent $content;
 
-    public function __construct(int $messageId, MessageSender $sender, string $senderName, bool $isOutgoing, PushMessageContent $content)
-    {
+    public function __construct(
+        int $messageId,
+        MessageSender $sender,
+        string $senderName,
+        bool $isOutgoing,
+        PushMessageContent $content
+    ) {
         parent::__construct();
 
-        $this->messageId  = $messageId;
-        $this->sender     = $sender;
+        $this->messageId = $messageId;
+        $this->sender = $sender;
         $this->senderName = $senderName;
         $this->isOutgoing = $isOutgoing;
-        $this->content    = $content;
+        $this->content = $content;
     }
 
     public static function fromArray(array $array): NotificationTypeNewPushMessage
@@ -65,12 +80,12 @@ class NotificationTypeNewPushMessage extends NotificationType
     public function typeSerialize(): array
     {
         return [
-            '@type'       => static::TYPE_NAME,
-            'message_id'  => $this->messageId,
-            'sender'      => $this->sender->typeSerialize(),
+            '@type' => static::TYPE_NAME,
+            'message_id' => $this->messageId,
+            'sender' => $this->sender->typeSerialize(),
             'sender_name' => $this->senderName,
             'is_outgoing' => $this->isOutgoing,
-            'content'     => $this->content->typeSerialize(),
+            'content' => $this->content->typeSerialize(),
         ];
     }
 

@@ -9,14 +9,16 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Closes a secret chat, effectively transferring its state to secretChatStateClosed.
+ * Closes a secret chat, effectively transferring its state to secretChatStateClosed
  */
 class CloseSecretChat extends TdFunction
 {
     public const TYPE_NAME = 'closeSecretChat';
 
     /**
-     * Secret chat identifier.
+     * Secret chat identifier
+     *
+     * @var int
      */
     protected int $secretChatId;
 
@@ -35,7 +37,7 @@ class CloseSecretChat extends TdFunction
     public function typeSerialize(): array
     {
         return [
-            '@type'          => static::TYPE_NAME,
+            '@type' => static::TYPE_NAME,
             'secret_chat_id' => $this->secretChatId,
         ];
     }

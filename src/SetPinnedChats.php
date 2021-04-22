@@ -9,19 +9,21 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Changes the order of pinned chats.
+ * Changes the order of pinned chats
  */
 class SetPinnedChats extends TdFunction
 {
     public const TYPE_NAME = 'setPinnedChats';
 
     /**
-     * Chat list in which to change the order of pinned chats.
+     * Chat list in which to change the order of pinned chats
+     *
+     * @var ChatList
      */
     protected ChatList $chatList;
 
     /**
-     * The new list of pinned chats.
+     * The new list of pinned chats
      *
      * @var int[]
      */
@@ -30,7 +32,7 @@ class SetPinnedChats extends TdFunction
     public function __construct(ChatList $chatList, array $chatIds)
     {
         $this->chatList = $chatList;
-        $this->chatIds  = $chatIds;
+        $this->chatIds = $chatIds;
     }
 
     public static function fromArray(array $array): SetPinnedChats
@@ -44,9 +46,9 @@ class SetPinnedChats extends TdFunction
     public function typeSerialize(): array
     {
         return [
-            '@type'     => static::TYPE_NAME,
+            '@type' => static::TYPE_NAME,
             'chat_list' => $this->chatList->typeSerialize(),
-            'chat_ids'  => $this->chatIds,
+            'chat_ids' => $this->chatIds,
         ];
     }
 

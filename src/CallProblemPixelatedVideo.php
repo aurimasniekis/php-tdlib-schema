@@ -9,7 +9,7 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * The video was pixelated.
+ * The video was pixelated
  */
 class CallProblemPixelatedVideo extends CallProblem
 {

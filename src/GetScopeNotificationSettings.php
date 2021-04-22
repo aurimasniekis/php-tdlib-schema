@@ -9,14 +9,16 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Returns the notification settings for chats of a given type.
+ * Returns the notification settings for chats of a given type
  */
 class GetScopeNotificationSettings extends TdFunction
 {
     public const TYPE_NAME = 'getScopeNotificationSettings';
 
     /**
-     * Types of chats for which to return the notification settings information.
+     * Types of chats for which to return the notification settings information
+     *
+     * @var NotificationSettingsScope
      */
     protected NotificationSettingsScope $scope;
 

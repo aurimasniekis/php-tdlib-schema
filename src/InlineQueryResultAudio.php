@@ -9,19 +9,23 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Represents an audio file.
+ * Represents an audio file
  */
 class InlineQueryResultAudio extends InlineQueryResult
 {
     public const TYPE_NAME = 'inlineQueryResultAudio';
 
     /**
-     * Unique identifier of the query result.
+     * Unique identifier of the query result
+     *
+     * @var string
      */
     protected string $id;
 
     /**
-     * Audio file.
+     * Audio file
+     *
+     * @var Audio
      */
     protected Audio $audio;
 
@@ -29,7 +33,7 @@ class InlineQueryResultAudio extends InlineQueryResult
     {
         parent::__construct();
 
-        $this->id    = $id;
+        $this->id = $id;
         $this->audio = $audio;
     }
 
@@ -45,7 +49,7 @@ class InlineQueryResultAudio extends InlineQueryResult
     {
         return [
             '@type' => static::TYPE_NAME,
-            'id'    => $this->id,
+            'id' => $this->id,
             'audio' => $this->audio->typeSerialize(),
         ];
     }

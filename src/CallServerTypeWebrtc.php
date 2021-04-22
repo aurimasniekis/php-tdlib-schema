@@ -9,29 +9,37 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * A WebRTC server.
+ * A WebRTC server
  */
 class CallServerTypeWebrtc extends CallServerType
 {
     public const TYPE_NAME = 'callServerTypeWebrtc';
 
     /**
-     * Username to be used for authentication.
+     * Username to be used for authentication
+     *
+     * @var string
      */
     protected string $username;
 
     /**
-     * Authentication password.
+     * Authentication password
+     *
+     * @var string
      */
     protected string $password;
 
     /**
-     * True, if the server supports TURN.
+     * True, if the server supports TURN
+     *
+     * @var bool
      */
     protected bool $supportsTurn;
 
     /**
-     * True, if the server supports STUN.
+     * True, if the server supports STUN
+     *
+     * @var bool
      */
     protected bool $supportsStun;
 
@@ -39,8 +47,8 @@ class CallServerTypeWebrtc extends CallServerType
     {
         parent::__construct();
 
-        $this->username     = $username;
-        $this->password     = $password;
+        $this->username = $username;
+        $this->password = $password;
         $this->supportsTurn = $supportsTurn;
         $this->supportsStun = $supportsStun;
     }
@@ -58,9 +66,9 @@ class CallServerTypeWebrtc extends CallServerType
     public function typeSerialize(): array
     {
         return [
-            '@type'         => static::TYPE_NAME,
-            'username'      => $this->username,
-            'password'      => $this->password,
+            '@type' => static::TYPE_NAME,
+            'username' => $this->username,
+            'password' => $this->password,
             'supports_turn' => $this->supportsTurn,
             'supports_stun' => $this->supportsStun,
         ];

@@ -9,14 +9,16 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Returns the current privacy settings.
+ * Returns the current privacy settings
  */
 class GetUserPrivacySettingRules extends TdFunction
 {
     public const TYPE_NAME = 'getUserPrivacySettingRules';
 
     /**
-     * The privacy setting.
+     * The privacy setting
+     *
+     * @var UserPrivacySetting
      */
     protected UserPrivacySetting $setting;
 
@@ -35,7 +37,7 @@ class GetUserPrivacySettingRules extends TdFunction
     public function typeSerialize(): array
     {
         return [
-            '@type'   => static::TYPE_NAME,
+            '@type' => static::TYPE_NAME,
             'setting' => $this->setting->typeSerialize(),
         ];
     }

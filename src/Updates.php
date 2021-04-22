@@ -9,14 +9,14 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Contains a list of updates.
+ * Contains a list of updates
  */
 class Updates extends TdObject
 {
     public const TYPE_NAME = 'updates';
 
     /**
-     * List of updates.
+     * List of updates
      *
      * @var Update[]
      */
@@ -30,15 +30,15 @@ class Updates extends TdObject
     public static function fromArray(array $array): Updates
     {
         return new static(
-            array_map(fn ($x) => TdSchemaRegistry::fromArray($x), $array['updates']),
+            array_map(fn($x) => TdSchemaRegistry::fromArray($x), $array['updates']),
         );
     }
 
     public function typeSerialize(): array
     {
         return [
-            '@type'           => static::TYPE_NAME,
-            array_map(fn ($x) => $x->typeSerialize(), $this->updates),
+            '@type' => static::TYPE_NAME,
+            array_map(fn($x) => $x->typeSerialize(), $this->updates),
         ];
     }
 

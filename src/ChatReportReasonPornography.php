@@ -9,7 +9,7 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * The chat contains pornographic messages.
+ * The chat contains pornographic messages
  */
 class ChatReportReasonPornography extends ChatReportReason
 {

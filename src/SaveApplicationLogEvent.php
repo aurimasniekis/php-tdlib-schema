@@ -9,32 +9,38 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Saves application log event on the server. Can be called before authorization.
+ * Saves application log event on the server. Can be called before authorization
  */
 class SaveApplicationLogEvent extends TdFunction
 {
     public const TYPE_NAME = 'saveApplicationLogEvent';
 
     /**
-     * Event type.
+     * Event type
+     *
+     * @var string
      */
     protected string $type;
 
     /**
-     * Optional chat identifier, associated with the event.
+     * Optional chat identifier, associated with the event
+     *
+     * @var int
      */
     protected int $chatId;
 
     /**
-     * The log event data.
+     * The log event data
+     *
+     * @var JsonValue
      */
     protected JsonValue $data;
 
     public function __construct(string $type, int $chatId, JsonValue $data)
     {
-        $this->type   = $type;
+        $this->type = $type;
         $this->chatId = $chatId;
-        $this->data   = $data;
+        $this->data = $data;
     }
 
     public static function fromArray(array $array): SaveApplicationLogEvent
@@ -49,10 +55,10 @@ class SaveApplicationLogEvent extends TdFunction
     public function typeSerialize(): array
     {
         return [
-            '@type'   => static::TYPE_NAME,
-            'type'    => $this->type,
+            '@type' => static::TYPE_NAME,
+            'type' => $this->type,
             'chat_id' => $this->chatId,
-            'data'    => $this->data->typeSerialize(),
+            'data' => $this->data->typeSerialize(),
         ];
     }
 

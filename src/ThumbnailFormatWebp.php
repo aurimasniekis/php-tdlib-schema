@@ -9,7 +9,7 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * The thumbnail is in WEBP format. It will be used only for some stickers.
+ * The thumbnail is in WEBP format. It will be used only for some stickers
  */
 class ThumbnailFormatWebp extends ThumbnailFormat
 {

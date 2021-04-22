@@ -9,159 +9,219 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Describes a message.
+ * Describes a message
  */
 class Message extends TdObject
 {
     public const TYPE_NAME = 'message';
 
     /**
-     * Message identifier; unique for the chat to which the message belongs.
+     * Message identifier; unique for the chat to which the message belongs
+     *
+     * @var int
      */
     protected int $id;
 
     /**
-     * The sender of the message.
+     * The sender of the message
+     *
+     * @var MessageSender
      */
     protected MessageSender $sender;
 
     /**
-     * Chat identifier.
+     * Chat identifier
+     *
+     * @var int
      */
     protected int $chatId;
 
     /**
-     * Information about the sending state of the message; may be null.
+     * Information about the sending state of the message; may be null
+     *
+     * @var MessageSendingState|null
      */
     protected ?MessageSendingState $sendingState;
 
     /**
-     * Information about the scheduling state of the message; may be null.
+     * Information about the scheduling state of the message; may be null
+     *
+     * @var MessageSchedulingState|null
      */
     protected ?MessageSchedulingState $schedulingState;
 
     /**
-     * True, if the message is outgoing.
+     * True, if the message is outgoing
+     *
+     * @var bool
      */
     protected bool $isOutgoing;
 
     /**
-     * True, if the message is pinned.
+     * True, if the message is pinned
+     *
+     * @var bool
      */
     protected bool $isPinned;
 
     /**
-     * True, if the message can be edited. For live location and poll messages this fields shows whether editMessageLiveLocation or stopPoll can be used with this message by the application.
+     * True, if the message can be edited. For live location and poll messages this fields shows whether editMessageLiveLocation or stopPoll can be used with this message by the application
+     *
+     * @var bool
      */
     protected bool $canBeEdited;
 
     /**
-     * True, if the message can be forwarded.
+     * True, if the message can be forwarded
+     *
+     * @var bool
      */
     protected bool $canBeForwarded;
 
     /**
-     * True, if the message can be deleted only for the current user while other users will continue to see it.
+     * True, if the message can be deleted only for the current user while other users will continue to see it
+     *
+     * @var bool
      */
     protected bool $canBeDeletedOnlyForSelf;
 
     /**
-     * True, if the message can be deleted for all users.
+     * True, if the message can be deleted for all users
+     *
+     * @var bool
      */
     protected bool $canBeDeletedForAllUsers;
 
     /**
-     * True, if the message statistics are available.
+     * True, if the message statistics are available
+     *
+     * @var bool
      */
     protected bool $canGetStatistics;
 
     /**
-     * True, if the message thread info is available.
+     * True, if the message thread info is available
+     *
+     * @var bool
      */
     protected bool $canGetMessageThread;
 
     /**
-     * True, if the message is a channel post. All messages to channels are channel posts, all other messages are not channel posts.
+     * True, if the message is a channel post. All messages to channels are channel posts, all other messages are not channel posts
+     *
+     * @var bool
      */
     protected bool $isChannelPost;
 
     /**
-     * True, if the message contains an unread mention for the current user.
+     * True, if the message contains an unread mention for the current user
+     *
+     * @var bool
      */
     protected bool $containsUnreadMention;
 
     /**
-     * Point in time (Unix timestamp) when the message was sent.
+     * Point in time (Unix timestamp) when the message was sent
+     *
+     * @var int
      */
     protected int $date;
 
     /**
-     * Point in time (Unix timestamp) when the message was last edited.
+     * Point in time (Unix timestamp) when the message was last edited
+     *
+     * @var int
      */
     protected int $editDate;
 
     /**
-     * Information about the initial message sender; may be null.
+     * Information about the initial message sender; may be null
+     *
+     * @var MessageForwardInfo|null
      */
     protected ?MessageForwardInfo $forwardInfo;
 
     /**
-     * Information about interactions with the message; may be null.
+     * Information about interactions with the message; may be null
+     *
+     * @var MessageInteractionInfo|null
      */
     protected ?MessageInteractionInfo $interactionInfo;
 
     /**
-     * If non-zero, the identifier of the chat to which the replied message belongs; Currently, only messages in the Replies chat can have different reply_in_chat_id and chat_id.
+     * If non-zero, the identifier of the chat to which the replied message belongs; Currently, only messages in the Replies chat can have different reply_in_chat_id and chat_id
+     *
+     * @var int
      */
     protected int $replyInChatId;
 
     /**
-     * If non-zero, the identifier of the message this message is replying to; can be the identifier of a deleted message.
+     * If non-zero, the identifier of the message this message is replying to; can be the identifier of a deleted message
+     *
+     * @var int
      */
     protected int $replyToMessageId;
 
     /**
-     * If non-zero, the identifier of the message thread the message belongs to; unique within the chat to which the message belongs.
+     * If non-zero, the identifier of the message thread the message belongs to; unique within the chat to which the message belongs
+     *
+     * @var int
      */
     protected int $messageThreadId;
 
     /**
-     * For self-destructing messages, the message's TTL (Time To Live), in seconds; 0 if none. TDLib will send updateDeleteMessages or updateMessageContent once the TTL expires.
+     * For self-destructing messages, the message's TTL (Time To Live), in seconds; 0 if none. TDLib will send updateDeleteMessages or updateMessageContent once the TTL expires
+     *
+     * @var int
      */
     protected int $ttl;
 
     /**
-     * Time left before the message expires, in seconds.
+     * Time left before the message expires, in seconds
+     *
+     * @var float
      */
     protected float $ttlExpiresIn;
 
     /**
-     * If non-zero, the user identifier of the bot through which this message was sent.
+     * If non-zero, the user identifier of the bot through which this message was sent
+     *
+     * @var int
      */
     protected int $viaBotUserId;
 
     /**
-     * For channel posts and anonymous group messages, optional author signature.
+     * For channel posts and anonymous group messages, optional author signature
+     *
+     * @var string
      */
     protected string $authorSignature;
 
     /**
-     * Unique identifier of an album this message belongs to. Only photos and videos can be grouped together in albums.
+     * Unique identifier of an album this message belongs to. Only photos and videos can be grouped together in albums
+     *
+     * @var string
      */
     protected string $mediaAlbumId;
 
     /**
-     * If non-empty, contains a human-readable description of the reason why access to this message must be restricted.
+     * If non-empty, contains a human-readable description of the reason why access to this message must be restricted
+     *
+     * @var string
      */
     protected string $restrictionReason;
 
     /**
-     * Content of the message.
+     * Content of the message
+     *
+     * @var MessageContent
      */
     protected MessageContent $content;
 
     /**
-     * Reply markup for the message; may be null.
+     * Reply markup for the message; may be null
+     *
+     * @var ReplyMarkup|null
      */
     protected ?ReplyMarkup $replyMarkup;
 
@@ -197,36 +257,36 @@ class Message extends TdObject
         MessageContent $content,
         ?ReplyMarkup $replyMarkup
     ) {
-        $this->id                      = $id;
-        $this->sender                  = $sender;
-        $this->chatId                  = $chatId;
-        $this->sendingState            = $sendingState;
-        $this->schedulingState         = $schedulingState;
-        $this->isOutgoing              = $isOutgoing;
-        $this->isPinned                = $isPinned;
-        $this->canBeEdited             = $canBeEdited;
-        $this->canBeForwarded          = $canBeForwarded;
+        $this->id = $id;
+        $this->sender = $sender;
+        $this->chatId = $chatId;
+        $this->sendingState = $sendingState;
+        $this->schedulingState = $schedulingState;
+        $this->isOutgoing = $isOutgoing;
+        $this->isPinned = $isPinned;
+        $this->canBeEdited = $canBeEdited;
+        $this->canBeForwarded = $canBeForwarded;
         $this->canBeDeletedOnlyForSelf = $canBeDeletedOnlyForSelf;
         $this->canBeDeletedForAllUsers = $canBeDeletedForAllUsers;
-        $this->canGetStatistics        = $canGetStatistics;
-        $this->canGetMessageThread     = $canGetMessageThread;
-        $this->isChannelPost           = $isChannelPost;
-        $this->containsUnreadMention   = $containsUnreadMention;
-        $this->date                    = $date;
-        $this->editDate                = $editDate;
-        $this->forwardInfo             = $forwardInfo;
-        $this->interactionInfo         = $interactionInfo;
-        $this->replyInChatId           = $replyInChatId;
-        $this->replyToMessageId        = $replyToMessageId;
-        $this->messageThreadId         = $messageThreadId;
-        $this->ttl                     = $ttl;
-        $this->ttlExpiresIn            = $ttlExpiresIn;
-        $this->viaBotUserId            = $viaBotUserId;
-        $this->authorSignature         = $authorSignature;
-        $this->mediaAlbumId            = $mediaAlbumId;
-        $this->restrictionReason       = $restrictionReason;
-        $this->content                 = $content;
-        $this->replyMarkup             = $replyMarkup;
+        $this->canGetStatistics = $canGetStatistics;
+        $this->canGetMessageThread = $canGetMessageThread;
+        $this->isChannelPost = $isChannelPost;
+        $this->containsUnreadMention = $containsUnreadMention;
+        $this->date = $date;
+        $this->editDate = $editDate;
+        $this->forwardInfo = $forwardInfo;
+        $this->interactionInfo = $interactionInfo;
+        $this->replyInChatId = $replyInChatId;
+        $this->replyToMessageId = $replyToMessageId;
+        $this->messageThreadId = $messageThreadId;
+        $this->ttl = $ttl;
+        $this->ttlExpiresIn = $ttlExpiresIn;
+        $this->viaBotUserId = $viaBotUserId;
+        $this->authorSignature = $authorSignature;
+        $this->mediaAlbumId = $mediaAlbumId;
+        $this->restrictionReason = $restrictionReason;
+        $this->content = $content;
+        $this->replyMarkup = $replyMarkup;
     }
 
     public static function fromArray(array $array): Message
@@ -268,37 +328,37 @@ class Message extends TdObject
     public function typeSerialize(): array
     {
         return [
-            '@type'                        => static::TYPE_NAME,
-            'id'                           => $this->id,
-            'sender'                       => $this->sender->typeSerialize(),
-            'chat_id'                      => $this->chatId,
-            'sending_state'                => (isset($this->sendingState) ? $this->sendingState : null),
-            'scheduling_state'             => (isset($this->schedulingState) ? $this->schedulingState : null),
-            'is_outgoing'                  => $this->isOutgoing,
-            'is_pinned'                    => $this->isPinned,
-            'can_be_edited'                => $this->canBeEdited,
-            'can_be_forwarded'             => $this->canBeForwarded,
+            '@type' => static::TYPE_NAME,
+            'id' => $this->id,
+            'sender' => $this->sender->typeSerialize(),
+            'chat_id' => $this->chatId,
+            'sending_state' => (isset($this->sendingState) ? $this->sendingState : null),
+            'scheduling_state' => (isset($this->schedulingState) ? $this->schedulingState : null),
+            'is_outgoing' => $this->isOutgoing,
+            'is_pinned' => $this->isPinned,
+            'can_be_edited' => $this->canBeEdited,
+            'can_be_forwarded' => $this->canBeForwarded,
             'can_be_deleted_only_for_self' => $this->canBeDeletedOnlyForSelf,
             'can_be_deleted_for_all_users' => $this->canBeDeletedForAllUsers,
-            'can_get_statistics'           => $this->canGetStatistics,
-            'can_get_message_thread'       => $this->canGetMessageThread,
-            'is_channel_post'              => $this->isChannelPost,
-            'contains_unread_mention'      => $this->containsUnreadMention,
-            'date'                         => $this->date,
-            'edit_date'                    => $this->editDate,
-            'forward_info'                 => (isset($this->forwardInfo) ? $this->forwardInfo : null),
-            'interaction_info'             => (isset($this->interactionInfo) ? $this->interactionInfo : null),
-            'reply_in_chat_id'             => $this->replyInChatId,
-            'reply_to_message_id'          => $this->replyToMessageId,
-            'message_thread_id'            => $this->messageThreadId,
-            'ttl'                          => $this->ttl,
-            'ttl_expires_in'               => $this->ttlExpiresIn,
-            'via_bot_user_id'              => $this->viaBotUserId,
-            'author_signature'             => $this->authorSignature,
-            'media_album_id'               => $this->mediaAlbumId,
-            'restriction_reason'           => $this->restrictionReason,
-            'content'                      => $this->content->typeSerialize(),
-            'reply_markup'                 => (isset($this->replyMarkup) ? $this->replyMarkup : null),
+            'can_get_statistics' => $this->canGetStatistics,
+            'can_get_message_thread' => $this->canGetMessageThread,
+            'is_channel_post' => $this->isChannelPost,
+            'contains_unread_mention' => $this->containsUnreadMention,
+            'date' => $this->date,
+            'edit_date' => $this->editDate,
+            'forward_info' => (isset($this->forwardInfo) ? $this->forwardInfo : null),
+            'interaction_info' => (isset($this->interactionInfo) ? $this->interactionInfo : null),
+            'reply_in_chat_id' => $this->replyInChatId,
+            'reply_to_message_id' => $this->replyToMessageId,
+            'message_thread_id' => $this->messageThreadId,
+            'ttl' => $this->ttl,
+            'ttl_expires_in' => $this->ttlExpiresIn,
+            'via_bot_user_id' => $this->viaBotUserId,
+            'author_signature' => $this->authorSignature,
+            'media_album_id' => $this->mediaAlbumId,
+            'restriction_reason' => $this->restrictionReason,
+            'content' => $this->content->typeSerialize(),
+            'reply_markup' => (isset($this->replyMarkup) ? $this->replyMarkup : null),
         ];
     }
 

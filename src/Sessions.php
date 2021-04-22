@@ -9,14 +9,14 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Contains a list of sessions.
+ * Contains a list of sessions
  */
 class Sessions extends TdObject
 {
     public const TYPE_NAME = 'sessions';
 
     /**
-     * List of sessions.
+     * List of sessions
      *
      * @var Session[]
      */
@@ -30,15 +30,15 @@ class Sessions extends TdObject
     public static function fromArray(array $array): Sessions
     {
         return new static(
-            array_map(fn ($x) => TdSchemaRegistry::fromArray($x), $array['sessions']),
+            array_map(fn($x) => TdSchemaRegistry::fromArray($x), $array['sessions']),
         );
     }
 
     public function typeSerialize(): array
     {
         return [
-            '@type'           => static::TYPE_NAME,
-            array_map(fn ($x) => $x->typeSerialize(), $this->sessions),
+            '@type' => static::TYPE_NAME,
+            array_map(fn($x) => $x->typeSerialize(), $this->sessions),
         ];
     }
 

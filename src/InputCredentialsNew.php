@@ -9,19 +9,23 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Applies if a user enters new credentials on a payment provider website.
+ * Applies if a user enters new credentials on a payment provider website
  */
 class InputCredentialsNew extends InputCredentials
 {
     public const TYPE_NAME = 'inputCredentialsNew';
 
     /**
-     * Contains JSON-encoded data with a credential identifier from the payment provider.
+     * Contains JSON-encoded data with a credential identifier from the payment provider
+     *
+     * @var string
      */
     protected string $data;
 
     /**
-     * True, if the credential identifier can be saved on the server side.
+     * True, if the credential identifier can be saved on the server side
+     *
+     * @var bool
      */
     protected bool $allowSave;
 
@@ -29,7 +33,7 @@ class InputCredentialsNew extends InputCredentials
     {
         parent::__construct();
 
-        $this->data      = $data;
+        $this->data = $data;
         $this->allowSave = $allowSave;
     }
 
@@ -44,8 +48,8 @@ class InputCredentialsNew extends InputCredentials
     public function typeSerialize(): array
     {
         return [
-            '@type'      => static::TYPE_NAME,
-            'data'       => $this->data,
+            '@type' => static::TYPE_NAME,
+            'data' => $this->data,
             'allow_save' => $this->allowSave,
         ];
     }

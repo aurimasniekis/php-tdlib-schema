@@ -9,32 +9,38 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Represents a date according to the Gregorian calendar.
+ * Represents a date according to the Gregorian calendar
  */
 class Date extends TdObject
 {
     public const TYPE_NAME = 'date';
 
     /**
-     * Day of the month, 1-31.
+     * Day of the month, 1-31
+     *
+     * @var int
      */
     protected int $day;
 
     /**
-     * Month, 1-12.
+     * Month, 1-12
+     *
+     * @var int
      */
     protected int $month;
 
     /**
-     * Year, 1-9999.
+     * Year, 1-9999
+     *
+     * @var int
      */
     protected int $year;
 
     public function __construct(int $day, int $month, int $year)
     {
-        $this->day   = $day;
+        $this->day = $day;
         $this->month = $month;
-        $this->year  = $year;
+        $this->year = $year;
     }
 
     public static function fromArray(array $array): Date
@@ -50,9 +56,9 @@ class Date extends TdObject
     {
         return [
             '@type' => static::TYPE_NAME,
-            'day'   => $this->day,
+            'day' => $this->day,
             'month' => $this->month,
-            'year'  => $this->year,
+            'year' => $this->year,
         ];
     }
 

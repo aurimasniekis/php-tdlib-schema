@@ -9,26 +9,30 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Removes a sticker from the list of recently used stickers.
+ * Removes a sticker from the list of recently used stickers
  */
 class RemoveRecentSticker extends TdFunction
 {
     public const TYPE_NAME = 'removeRecentSticker';
 
     /**
-     * Pass true to remove the sticker from the list of stickers recently attached to photo or video files; pass false to remove the sticker from the list of recently sent stickers.
+     * Pass true to remove the sticker from the list of stickers recently attached to photo or video files; pass false to remove the sticker from the list of recently sent stickers
+     *
+     * @var bool
      */
     protected bool $isAttached;
 
     /**
-     * Sticker file to delete.
+     * Sticker file to delete
+     *
+     * @var InputFile
      */
     protected InputFile $sticker;
 
     public function __construct(bool $isAttached, InputFile $sticker)
     {
         $this->isAttached = $isAttached;
-        $this->sticker    = $sticker;
+        $this->sticker = $sticker;
     }
 
     public static function fromArray(array $array): RemoveRecentSticker
@@ -42,9 +46,9 @@ class RemoveRecentSticker extends TdFunction
     public function typeSerialize(): array
     {
         return [
-            '@type'       => static::TYPE_NAME,
+            '@type' => static::TYPE_NAME,
             'is_attached' => $this->isAttached,
-            'sticker'     => $this->sticker->typeSerialize(),
+            'sticker' => $this->sticker->typeSerialize(),
         ];
     }
 

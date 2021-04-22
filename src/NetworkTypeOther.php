@@ -9,7 +9,7 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * A different network type (e.g., Ethernet network).
+ * A different network type (e.g., Ethernet network)
  */
 class NetworkTypeOther extends NetworkType
 {

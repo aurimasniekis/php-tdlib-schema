@@ -9,14 +9,16 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Contains information about the period of inactivity after which the current user's account will automatically be deleted.
+ * Contains information about the period of inactivity after which the current user's account will automatically be deleted
  */
 class AccountTtl extends TdObject
 {
     public const TYPE_NAME = 'accountTtl';
 
     /**
-     * Number of days of inactivity before the account will be flagged for deletion; should range from 30-366 days.
+     * Number of days of inactivity before the account will be flagged for deletion; should range from 30-366 days
+     *
+     * @var int
      */
     protected int $days;
 
@@ -36,7 +38,7 @@ class AccountTtl extends TdObject
     {
         return [
             '@type' => static::TYPE_NAME,
-            'days'  => $this->days,
+            'days' => $this->days,
         ];
     }
 

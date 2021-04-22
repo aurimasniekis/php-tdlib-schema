@@ -9,14 +9,16 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * A button that asks for password of the current user and then sends a callback query to a bot.
+ * A button that asks for password of the current user and then sends a callback query to a bot
  */
 class InlineKeyboardButtonTypeCallbackWithPassword extends InlineKeyboardButtonType
 {
     public const TYPE_NAME = 'inlineKeyboardButtonTypeCallbackWithPassword';
 
     /**
-     * Data to be sent to the bot via a callback query.
+     * Data to be sent to the bot via a callback query
+     *
+     * @var string
      */
     protected string $data;
 
@@ -38,7 +40,7 @@ class InlineKeyboardButtonTypeCallbackWithPassword extends InlineKeyboardButtonT
     {
         return [
             '@type' => static::TYPE_NAME,
-            'data'  => $this->data,
+            'data' => $this->data,
         ];
     }
 

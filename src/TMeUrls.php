@@ -9,14 +9,14 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Contains a list of t.me URLs.
+ * Contains a list of t.me URLs
  */
 class TMeUrls extends TdObject
 {
     public const TYPE_NAME = 'tMeUrls';
 
     /**
-     * List of URLs.
+     * List of URLs
      *
      * @var TMeUrl[]
      */
@@ -30,15 +30,15 @@ class TMeUrls extends TdObject
     public static function fromArray(array $array): TMeUrls
     {
         return new static(
-            array_map(fn ($x) => TdSchemaRegistry::fromArray($x), $array['urls']),
+            array_map(fn($x) => TdSchemaRegistry::fromArray($x), $array['urls']),
         );
     }
 
     public function typeSerialize(): array
     {
         return [
-            '@type'           => static::TYPE_NAME,
-            array_map(fn ($x) => $x->typeSerialize(), $this->urls),
+            '@type' => static::TYPE_NAME,
+            array_map(fn($x) => $x->typeSerialize(), $this->urls),
         ];
     }
 

@@ -9,26 +9,30 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Returns users and chats that were blocked by the current user.
+ * Returns users and chats that were blocked by the current user
  */
 class GetBlockedMessageSenders extends TdFunction
 {
     public const TYPE_NAME = 'getBlockedMessageSenders';
 
     /**
-     * Number of users and chats to skip in the result; must be non-negative.
+     * Number of users and chats to skip in the result; must be non-negative
+     *
+     * @var int
      */
     protected int $offset;
 
     /**
-     * The maximum number of users and chats to return; up to 100.
+     * The maximum number of users and chats to return; up to 100
+     *
+     * @var int
      */
     protected int $limit;
 
     public function __construct(int $offset, int $limit)
     {
         $this->offset = $offset;
-        $this->limit  = $limit;
+        $this->limit = $limit;
     }
 
     public static function fromArray(array $array): GetBlockedMessageSenders
@@ -42,9 +46,9 @@ class GetBlockedMessageSenders extends TdFunction
     public function typeSerialize(): array
     {
         return [
-            '@type'  => static::TYPE_NAME,
+            '@type' => static::TYPE_NAME,
             'offset' => $this->offset,
-            'limit'  => $this->limit,
+            'limit' => $this->limit,
         ];
     }
 

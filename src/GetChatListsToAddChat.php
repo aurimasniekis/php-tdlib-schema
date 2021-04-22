@@ -9,14 +9,16 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Returns chat lists to which the chat can be added. This is an offline request.
+ * Returns chat lists to which the chat can be added. This is an offline request
  */
 class GetChatListsToAddChat extends TdFunction
 {
     public const TYPE_NAME = 'getChatListsToAddChat';
 
     /**
-     * Chat identifier.
+     * Chat identifier
+     *
+     * @var int
      */
     protected int $chatId;
 
@@ -35,7 +37,7 @@ class GetChatListsToAddChat extends TdFunction
     public function typeSerialize(): array
     {
         return [
-            '@type'   => static::TYPE_NAME,
+            '@type' => static::TYPE_NAME,
             'chat_id' => $this->chatId,
         ];
     }

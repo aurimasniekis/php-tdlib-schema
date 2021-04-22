@@ -9,14 +9,16 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Represents a string option.
+ * Represents a string option
  */
 class OptionValueString extends OptionValue
 {
     public const TYPE_NAME = 'optionValueString';
 
     /**
-     * The value of the option.
+     * The value of the option
+     *
+     * @var string
      */
     protected string $value;
 

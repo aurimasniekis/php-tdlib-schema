@@ -9,29 +9,37 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * A message with a location.
+ * A message with a location
  */
 class InputMessageLocation extends InputMessageContent
 {
     public const TYPE_NAME = 'inputMessageLocation';
 
     /**
-     * Location to be sent.
+     * Location to be sent
+     *
+     * @var Location
      */
     protected Location $location;
 
     /**
-     * Period for which the location can be updated, in seconds; should be between 60 and 86400 for a live location and 0 otherwise.
+     * Period for which the location can be updated, in seconds; should be between 60 and 86400 for a live location and 0 otherwise
+     *
+     * @var int
      */
     protected int $livePeriod;
 
     /**
-     * For live locations, a direction in which the location moves, in degrees; 1-360. Pass 0 if unknown.
+     * For live locations, a direction in which the location moves, in degrees; 1-360. Pass 0 if unknown
+     *
+     * @var int
      */
     protected int $heading;
 
     /**
-     * For live locations, a maximum distance to another chat member for proximity alerts, in meters (0-100000). Pass 0 if the notification is disabled. Can't be enabled in channels and Saved Messages.
+     * For live locations, a maximum distance to another chat member for proximity alerts, in meters (0-100000). Pass 0 if the notification is disabled. Can't be enabled in channels and Saved Messages
+     *
+     * @var int
      */
     protected int $proximityAlertRadius;
 
@@ -39,9 +47,9 @@ class InputMessageLocation extends InputMessageContent
     {
         parent::__construct();
 
-        $this->location             = $location;
-        $this->livePeriod           = $livePeriod;
-        $this->heading              = $heading;
+        $this->location = $location;
+        $this->livePeriod = $livePeriod;
+        $this->heading = $heading;
         $this->proximityAlertRadius = $proximityAlertRadius;
     }
 
@@ -58,10 +66,10 @@ class InputMessageLocation extends InputMessageContent
     public function typeSerialize(): array
     {
         return [
-            '@type'                  => static::TYPE_NAME,
-            'location'               => $this->location->typeSerialize(),
-            'live_period'            => $this->livePeriod,
-            'heading'                => $this->heading,
+            '@type' => static::TYPE_NAME,
+            'location' => $this->location->typeSerialize(),
+            'live_period' => $this->livePeriod,
+            'heading' => $this->heading,
             'proximity_alert_radius' => $this->proximityAlertRadius,
         ];
     }

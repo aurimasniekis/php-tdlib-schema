@@ -9,29 +9,37 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * A message was edited. Changes in the message content will come in a separate updateMessageContent.
+ * A message was edited. Changes in the message content will come in a separate updateMessageContent
  */
 class UpdateMessageEdited extends Update
 {
     public const TYPE_NAME = 'updateMessageEdited';
 
     /**
-     * Chat identifier.
+     * Chat identifier
+     *
+     * @var int
      */
     protected int $chatId;
 
     /**
-     * Message identifier.
+     * Message identifier
+     *
+     * @var int
      */
     protected int $messageId;
 
     /**
-     * Point in time (Unix timestamp) when the message was edited.
+     * Point in time (Unix timestamp) when the message was edited
+     *
+     * @var int
      */
     protected int $editDate;
 
     /**
-     * New message reply markup; may be null.
+     * New message reply markup; may be null
+     *
+     * @var ReplyMarkup|null
      */
     protected ?ReplyMarkup $replyMarkup;
 
@@ -39,9 +47,9 @@ class UpdateMessageEdited extends Update
     {
         parent::__construct();
 
-        $this->chatId      = $chatId;
-        $this->messageId   = $messageId;
-        $this->editDate    = $editDate;
+        $this->chatId = $chatId;
+        $this->messageId = $messageId;
+        $this->editDate = $editDate;
         $this->replyMarkup = $replyMarkup;
     }
 
@@ -58,10 +66,10 @@ class UpdateMessageEdited extends Update
     public function typeSerialize(): array
     {
         return [
-            '@type'        => static::TYPE_NAME,
-            'chat_id'      => $this->chatId,
-            'message_id'   => $this->messageId,
-            'edit_date'    => $this->editDate,
+            '@type' => static::TYPE_NAME,
+            'chat_id' => $this->chatId,
+            'message_id' => $this->messageId,
+            'edit_date' => $this->editDate,
             'reply_markup' => (isset($this->replyMarkup) ? $this->replyMarkup : null),
         ];
     }

@@ -9,37 +9,49 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Stripe payment provider.
+ * Stripe payment provider
  */
 class PaymentsProviderStripe extends TdObject
 {
     public const TYPE_NAME = 'paymentsProviderStripe';
 
     /**
-     * Stripe API publishable key.
+     * Stripe API publishable key
+     *
+     * @var string
      */
     protected string $publishableKey;
 
     /**
-     * True, if the user country must be provided.
+     * True, if the user country must be provided
+     *
+     * @var bool
      */
     protected bool $needCountry;
 
     /**
-     * True, if the user ZIP/postal code must be provided.
+     * True, if the user ZIP/postal code must be provided
+     *
+     * @var bool
      */
     protected bool $needPostalCode;
 
     /**
-     * True, if the cardholder name must be provided.
+     * True, if the cardholder name must be provided
+     *
+     * @var bool
      */
     protected bool $needCardholderName;
 
-    public function __construct(string $publishableKey, bool $needCountry, bool $needPostalCode, bool $needCardholderName)
-    {
-        $this->publishableKey     = $publishableKey;
-        $this->needCountry        = $needCountry;
-        $this->needPostalCode     = $needPostalCode;
+    public function __construct(
+        string $publishableKey,
+        bool $needCountry,
+        bool $needPostalCode,
+        bool $needCardholderName
+    ) {
+        $this->publishableKey = $publishableKey;
+        $this->needCountry = $needCountry;
+        $this->needPostalCode = $needPostalCode;
         $this->needCardholderName = $needCardholderName;
     }
 
@@ -56,10 +68,10 @@ class PaymentsProviderStripe extends TdObject
     public function typeSerialize(): array
     {
         return [
-            '@type'                => static::TYPE_NAME,
-            'publishable_key'      => $this->publishableKey,
-            'need_country'         => $this->needCountry,
-            'need_postal_code'     => $this->needPostalCode,
+            '@type' => static::TYPE_NAME,
+            'publishable_key' => $this->publishableKey,
+            'need_country' => $this->needCountry,
+            'need_postal_code' => $this->needPostalCode,
             'need_cardholder_name' => $this->needCardholderName,
         ];
     }

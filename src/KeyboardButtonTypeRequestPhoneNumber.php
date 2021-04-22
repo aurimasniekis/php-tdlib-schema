@@ -9,7 +9,7 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * A button that sends the user's phone number when pressed; available only in private chats.
+ * A button that sends the user's phone number when pressed; available only in private chats
  */
 class KeyboardButtonTypeRequestPhoneNumber extends KeyboardButtonType
 {

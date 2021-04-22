@@ -9,14 +9,16 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * A message with a user contact.
+ * A message with a user contact
  */
 class MessageContact extends MessageContent
 {
     public const TYPE_NAME = 'messageContact';
 
     /**
-     * The contact description.
+     * The contact description
+     *
+     * @var Contact
      */
     protected Contact $contact;
 
@@ -37,7 +39,7 @@ class MessageContact extends MessageContent
     public function typeSerialize(): array
     {
         return [
-            '@type'   => static::TYPE_NAME,
+            '@type' => static::TYPE_NAME,
             'contact' => $this->contact->typeSerialize(),
         ];
     }

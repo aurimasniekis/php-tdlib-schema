@@ -9,44 +9,54 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Edits an existing proxy server for network requests. Can be called before authorization.
+ * Edits an existing proxy server for network requests. Can be called before authorization
  */
 class EditProxy extends TdFunction
 {
     public const TYPE_NAME = 'editProxy';
 
     /**
-     * Proxy identifier.
+     * Proxy identifier
+     *
+     * @var int
      */
     protected int $proxyId;
 
     /**
-     * Proxy server IP address.
+     * Proxy server IP address
+     *
+     * @var string
      */
     protected string $server;
 
     /**
-     * Proxy server port.
+     * Proxy server port
+     *
+     * @var int
      */
     protected int $port;
 
     /**
-     * True, if the proxy should be enabled.
+     * True, if the proxy should be enabled
+     *
+     * @var bool
      */
     protected bool $enable;
 
     /**
-     * Proxy type.
+     * Proxy type
+     *
+     * @var ProxyType
      */
     protected ProxyType $type;
 
     public function __construct(int $proxyId, string $server, int $port, bool $enable, ProxyType $type)
     {
         $this->proxyId = $proxyId;
-        $this->server  = $server;
-        $this->port    = $port;
-        $this->enable  = $enable;
-        $this->type    = $type;
+        $this->server = $server;
+        $this->port = $port;
+        $this->enable = $enable;
+        $this->type = $type;
     }
 
     public static function fromArray(array $array): EditProxy
@@ -63,12 +73,12 @@ class EditProxy extends TdFunction
     public function typeSerialize(): array
     {
         return [
-            '@type'    => static::TYPE_NAME,
+            '@type' => static::TYPE_NAME,
             'proxy_id' => $this->proxyId,
-            'server'   => $this->server,
-            'port'     => $this->port,
-            'enable'   => $this->enable,
-            'type'     => $this->type->typeSerialize(),
+            'server' => $this->server,
+            'port' => $this->port,
+            'enable' => $this->enable,
+            'type' => $this->type->typeSerialize(),
         ];
     }
 

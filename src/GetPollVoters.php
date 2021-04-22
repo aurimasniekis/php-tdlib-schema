@@ -9,44 +9,54 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Returns users voted for the specified option in a non-anonymous polls. For the optimal performance the number of returned users is chosen by the library.
+ * Returns users voted for the specified option in a non-anonymous polls. For the optimal performance the number of returned users is chosen by the library
  */
 class GetPollVoters extends TdFunction
 {
     public const TYPE_NAME = 'getPollVoters';
 
     /**
-     * Identifier of the chat to which the poll belongs.
+     * Identifier of the chat to which the poll belongs
+     *
+     * @var int
      */
     protected int $chatId;
 
     /**
-     * Identifier of the message containing the poll.
+     * Identifier of the message containing the poll
+     *
+     * @var int
      */
     protected int $messageId;
 
     /**
-     * 0-based identifier of the answer option.
+     * 0-based identifier of the answer option
+     *
+     * @var int
      */
     protected int $optionId;
 
     /**
-     * Number of users to skip in the result; must be non-negative.
+     * Number of users to skip in the result; must be non-negative
+     *
+     * @var int
      */
     protected int $offset;
 
     /**
-     * The maximum number of users to be returned; must be positive and can't be greater than 50. Fewer users may be returned than specified by the limit, even if the end of the voter list has not been reached.
+     * The maximum number of users to be returned; must be positive and can't be greater than 50. Fewer users may be returned than specified by the limit, even if the end of the voter list has not been reached
+     *
+     * @var int
      */
     protected int $limit;
 
     public function __construct(int $chatId, int $messageId, int $optionId, int $offset, int $limit)
     {
-        $this->chatId    = $chatId;
+        $this->chatId = $chatId;
         $this->messageId = $messageId;
-        $this->optionId  = $optionId;
-        $this->offset    = $offset;
-        $this->limit     = $limit;
+        $this->optionId = $optionId;
+        $this->offset = $offset;
+        $this->limit = $limit;
     }
 
     public static function fromArray(array $array): GetPollVoters
@@ -63,12 +73,12 @@ class GetPollVoters extends TdFunction
     public function typeSerialize(): array
     {
         return [
-            '@type'      => static::TYPE_NAME,
-            'chat_id'    => $this->chatId,
+            '@type' => static::TYPE_NAME,
+            'chat_id' => $this->chatId,
             'message_id' => $this->messageId,
-            'option_id'  => $this->optionId,
-            'offset'     => $this->offset,
-            'limit'      => $this->limit,
+            'option_id' => $this->optionId,
+            'offset' => $this->offset,
+            'limit' => $this->limit,
         ];
     }
 

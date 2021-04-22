@@ -9,14 +9,16 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Applies if a user chooses some previously saved payment credentials. To use their previously saved credentials, the user must have a valid temporary password.
+ * Applies if a user chooses some previously saved payment credentials. To use their previously saved credentials, the user must have a valid temporary password
  */
 class InputCredentialsSaved extends InputCredentials
 {
     public const TYPE_NAME = 'inputCredentialsSaved';
 
     /**
-     * Identifier of the saved credentials.
+     * Identifier of the saved credentials
+     *
+     * @var string
      */
     protected string $savedCredentialsId;
 
@@ -37,7 +39,7 @@ class InputCredentialsSaved extends InputCredentials
     public function typeSerialize(): array
     {
         return [
-            '@type'                => static::TYPE_NAME,
+            '@type' => static::TYPE_NAME,
             'saved_credentials_id' => $this->savedCredentialsId,
         ];
     }

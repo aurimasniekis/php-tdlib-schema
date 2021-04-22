@@ -9,14 +9,16 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * A regular animated sticker.
+ * A regular animated sticker
  */
 class DiceStickersRegular extends DiceStickers
 {
     public const TYPE_NAME = 'diceStickersRegular';
 
     /**
-     * The animated sticker with the dice animation.
+     * The animated sticker with the dice animation
+     *
+     * @var Sticker
      */
     protected Sticker $sticker;
 
@@ -37,7 +39,7 @@ class DiceStickersRegular extends DiceStickers
     public function typeSerialize(): array
     {
         return [
-            '@type'   => static::TYPE_NAME,
+            '@type' => static::TYPE_NAME,
             'sticker' => $this->sticker->typeSerialize(),
         ];
     }

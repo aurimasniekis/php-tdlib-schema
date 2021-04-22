@@ -9,7 +9,7 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Describes the exact type of a problem with a call.
+ * Describes the exact type of a problem with a call
  */
 class CallProblem extends TdObject
 {

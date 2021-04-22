@@ -9,14 +9,16 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Recovers the password using a recovery code sent to an email address that was previously set up.
+ * Recovers the password using a recovery code sent to an email address that was previously set up
  */
 class RecoverPassword extends TdFunction
 {
     public const TYPE_NAME = 'recoverPassword';
 
     /**
-     * Recovery code to check.
+     * Recovery code to check
+     *
+     * @var string
      */
     protected string $recoveryCode;
 
@@ -35,7 +37,7 @@ class RecoverPassword extends TdFunction
     public function typeSerialize(): array
     {
         return [
-            '@type'         => static::TYPE_NAME,
+            '@type' => static::TYPE_NAME,
             'recovery_code' => $this->recoveryCode,
         ];
     }

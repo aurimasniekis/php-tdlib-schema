@@ -9,7 +9,7 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Represents a chat event.
+ * Represents a chat event
  */
 class ChatEventAction extends TdObject
 {

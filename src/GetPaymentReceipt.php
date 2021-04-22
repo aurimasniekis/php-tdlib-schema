@@ -9,25 +9,29 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Returns information about a successful payment.
+ * Returns information about a successful payment
  */
 class GetPaymentReceipt extends TdFunction
 {
     public const TYPE_NAME = 'getPaymentReceipt';
 
     /**
-     * Chat identifier of the PaymentSuccessful message.
+     * Chat identifier of the PaymentSuccessful message
+     *
+     * @var int
      */
     protected int $chatId;
 
     /**
-     * Message identifier.
+     * Message identifier
+     *
+     * @var int
      */
     protected int $messageId;
 
     public function __construct(int $chatId, int $messageId)
     {
-        $this->chatId    = $chatId;
+        $this->chatId = $chatId;
         $this->messageId = $messageId;
     }
 
@@ -42,8 +46,8 @@ class GetPaymentReceipt extends TdFunction
     public function typeSerialize(): array
     {
         return [
-            '@type'      => static::TYPE_NAME,
-            'chat_id'    => $this->chatId,
+            '@type' => static::TYPE_NAME,
+            'chat_id' => $this->chatId,
             'message_id' => $this->messageId,
         ];
     }

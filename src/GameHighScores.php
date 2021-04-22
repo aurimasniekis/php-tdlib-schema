@@ -9,14 +9,14 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Contains a list of game high scores.
+ * Contains a list of game high scores
  */
 class GameHighScores extends TdObject
 {
     public const TYPE_NAME = 'gameHighScores';
 
     /**
-     * A list of game high scores.
+     * A list of game high scores
      *
      * @var GameHighScore[]
      */
@@ -30,15 +30,15 @@ class GameHighScores extends TdObject
     public static function fromArray(array $array): GameHighScores
     {
         return new static(
-            array_map(fn ($x) => TdSchemaRegistry::fromArray($x), $array['scores']),
+            array_map(fn($x) => TdSchemaRegistry::fromArray($x), $array['scores']),
         );
     }
 
     public function typeSerialize(): array
     {
         return [
-            '@type'           => static::TYPE_NAME,
-            array_map(fn ($x) => $x->typeSerialize(), $this->scores),
+            '@type' => static::TYPE_NAME,
+            array_map(fn($x) => $x->typeSerialize(), $this->scores),
         ];
     }
 

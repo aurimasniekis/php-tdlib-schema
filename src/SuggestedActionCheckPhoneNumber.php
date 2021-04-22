@@ -9,7 +9,7 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Suggests the user to check authorization phone number and change the phone number if it is inaccessible.
+ * Suggests the user to check authorization phone number and change the phone number if it is inaccessible
  */
 class SuggestedActionCheckPhoneNumber extends SuggestedAction
 {

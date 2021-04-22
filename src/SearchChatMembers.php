@@ -9,37 +9,45 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Searches for a specified query in the first name, last name and username of the members of a specified chat. Requires administrator rights in channels.
+ * Searches for a specified query in the first name, last name and username of the members of a specified chat. Requires administrator rights in channels
  */
 class SearchChatMembers extends TdFunction
 {
     public const TYPE_NAME = 'searchChatMembers';
 
     /**
-     * Chat identifier.
+     * Chat identifier
+     *
+     * @var int
      */
     protected int $chatId;
 
     /**
-     * Query to search for.
+     * Query to search for
+     *
+     * @var string
      */
     protected string $query;
 
     /**
-     * The maximum number of users to be returned.
+     * The maximum number of users to be returned
+     *
+     * @var int
      */
     protected int $limit;
 
     /**
-     * The type of users to return. By default, chatMembersFilterMembers.
+     * The type of users to return. By default, chatMembersFilterMembers
+     *
+     * @var ChatMembersFilter
      */
     protected ChatMembersFilter $filter;
 
     public function __construct(int $chatId, string $query, int $limit, ChatMembersFilter $filter)
     {
         $this->chatId = $chatId;
-        $this->query  = $query;
-        $this->limit  = $limit;
+        $this->query = $query;
+        $this->limit = $limit;
         $this->filter = $filter;
     }
 
@@ -56,11 +64,11 @@ class SearchChatMembers extends TdFunction
     public function typeSerialize(): array
     {
         return [
-            '@type'   => static::TYPE_NAME,
+            '@type' => static::TYPE_NAME,
             'chat_id' => $this->chatId,
-            'query'   => $this->query,
-            'limit'   => $this->limit,
-            'filter'  => $this->filter->typeSerialize(),
+            'query' => $this->query,
+            'limit' => $this->limit,
+            'filter' => $this->filter->typeSerialize(),
         ];
     }
 

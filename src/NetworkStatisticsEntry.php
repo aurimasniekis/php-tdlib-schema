@@ -9,7 +9,7 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Contains statistics about network usage.
+ * Contains statistics about network usage
  */
 class NetworkStatisticsEntry extends TdObject
 {

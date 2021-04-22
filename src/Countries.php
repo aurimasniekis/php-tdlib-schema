@@ -9,14 +9,14 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Contains information about countries.
+ * Contains information about countries
  */
 class Countries extends TdObject
 {
     public const TYPE_NAME = 'countries';
 
     /**
-     * The list of countries.
+     * The list of countries
      *
      * @var CountryInfo[]
      */
@@ -30,15 +30,15 @@ class Countries extends TdObject
     public static function fromArray(array $array): Countries
     {
         return new static(
-            array_map(fn ($x) => TdSchemaRegistry::fromArray($x), $array['countries']),
+            array_map(fn($x) => TdSchemaRegistry::fromArray($x), $array['countries']),
         );
     }
 
     public function typeSerialize(): array
     {
         return [
-            '@type'           => static::TYPE_NAME,
-            array_map(fn ($x) => $x->typeSerialize(), $this->countries),
+            '@type' => static::TYPE_NAME,
+            array_map(fn($x) => $x->typeSerialize(), $this->countries),
         ];
     }
 

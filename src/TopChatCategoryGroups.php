@@ -9,7 +9,7 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * A category containing frequently used basic groups and supergroups.
+ * A category containing frequently used basic groups and supergroups
  */
 class TopChatCategoryGroups extends TopChatCategory
 {

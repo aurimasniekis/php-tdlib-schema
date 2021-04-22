@@ -9,19 +9,23 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Some data from supergroupFullInfo has been changed.
+ * Some data from supergroupFullInfo has been changed
  */
 class UpdateSupergroupFullInfo extends Update
 {
     public const TYPE_NAME = 'updateSupergroupFullInfo';
 
     /**
-     * Identifier of the supergroup or channel.
+     * Identifier of the supergroup or channel
+     *
+     * @var int
      */
     protected int $supergroupId;
 
     /**
-     * New full information about the supergroup.
+     * New full information about the supergroup
+     *
+     * @var SupergroupFullInfo
      */
     protected SupergroupFullInfo $supergroupFullInfo;
 
@@ -29,7 +33,7 @@ class UpdateSupergroupFullInfo extends Update
     {
         parent::__construct();
 
-        $this->supergroupId       = $supergroupId;
+        $this->supergroupId = $supergroupId;
         $this->supergroupFullInfo = $supergroupFullInfo;
     }
 
@@ -44,8 +48,8 @@ class UpdateSupergroupFullInfo extends Update
     public function typeSerialize(): array
     {
         return [
-            '@type'                => static::TYPE_NAME,
-            'supergroup_id'        => $this->supergroupId,
+            '@type' => static::TYPE_NAME,
+            'supergroup_id' => $this->supergroupId,
             'supergroup_full_info' => $this->supergroupFullInfo->typeSerialize(),
         ];
     }

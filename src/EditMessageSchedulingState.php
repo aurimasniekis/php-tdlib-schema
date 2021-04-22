@@ -9,31 +9,37 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Edits the time when a scheduled message will be sent. Scheduling state of all messages in the same album or forwarded together with the message will be also changed.
+ * Edits the time when a scheduled message will be sent. Scheduling state of all messages in the same album or forwarded together with the message will be also changed
  */
 class EditMessageSchedulingState extends TdFunction
 {
     public const TYPE_NAME = 'editMessageSchedulingState';
 
     /**
-     * The chat the message belongs to.
+     * The chat the message belongs to
+     *
+     * @var int
      */
     protected int $chatId;
 
     /**
-     * Identifier of the message.
+     * Identifier of the message
+     *
+     * @var int
      */
     protected int $messageId;
 
     /**
-     * The new message scheduling state. Pass null to send the message immediately.
+     * The new message scheduling state. Pass null to send the message immediately
+     *
+     * @var MessageSchedulingState
      */
     protected MessageSchedulingState $schedulingState;
 
     public function __construct(int $chatId, int $messageId, MessageSchedulingState $schedulingState)
     {
-        $this->chatId          = $chatId;
-        $this->messageId       = $messageId;
+        $this->chatId = $chatId;
+        $this->messageId = $messageId;
         $this->schedulingState = $schedulingState;
     }
 
@@ -49,9 +55,9 @@ class EditMessageSchedulingState extends TdFunction
     public function typeSerialize(): array
     {
         return [
-            '@type'            => static::TYPE_NAME,
-            'chat_id'          => $this->chatId,
-            'message_id'       => $this->messageId,
+            '@type' => static::TYPE_NAME,
+            'chat_id' => $this->chatId,
+            'message_id' => $this->messageId,
             'scheduling_state' => $this->schedulingState->typeSerialize(),
         ];
     }

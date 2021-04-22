@@ -9,14 +9,16 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * A custom reason provided by the user.
+ * A custom reason provided by the user
  */
 class ChatReportReasonCustom extends ChatReportReason
 {
     public const TYPE_NAME = 'chatReportReasonCustom';
 
     /**
-     * Report text.
+     * Report text
+     *
+     * @var string
      */
     protected string $text;
 
@@ -38,7 +40,7 @@ class ChatReportReasonCustom extends ChatReportReason
     {
         return [
             '@type' => static::TYPE_NAME,
-            'text'  => $this->text,
+            'text' => $this->text,
         ];
     }
 

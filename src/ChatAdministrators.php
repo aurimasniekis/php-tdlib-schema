@@ -9,14 +9,14 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Represents a list of chat administrators.
+ * Represents a list of chat administrators
  */
 class ChatAdministrators extends TdObject
 {
     public const TYPE_NAME = 'chatAdministrators';
 
     /**
-     * A list of chat administrators.
+     * A list of chat administrators
      *
      * @var ChatAdministrator[]
      */
@@ -30,15 +30,15 @@ class ChatAdministrators extends TdObject
     public static function fromArray(array $array): ChatAdministrators
     {
         return new static(
-            array_map(fn ($x) => TdSchemaRegistry::fromArray($x), $array['administrators']),
+            array_map(fn($x) => TdSchemaRegistry::fromArray($x), $array['administrators']),
         );
     }
 
     public function typeSerialize(): array
     {
         return [
-            '@type'           => static::TYPE_NAME,
-            array_map(fn ($x) => $x->typeSerialize(), $this->administrators),
+            '@type' => static::TYPE_NAME,
+            array_map(fn($x) => $x->typeSerialize(), $this->administrators),
         ];
     }
 

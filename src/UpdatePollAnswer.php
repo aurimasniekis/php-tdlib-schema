@@ -9,24 +9,28 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * A user changed the answer to a poll; for bots only.
+ * A user changed the answer to a poll; for bots only
  */
 class UpdatePollAnswer extends Update
 {
     public const TYPE_NAME = 'updatePollAnswer';
 
     /**
-     * Unique poll identifier.
+     * Unique poll identifier
+     *
+     * @var string
      */
     protected string $pollId;
 
     /**
-     * The user, who changed the answer to the poll.
+     * The user, who changed the answer to the poll
+     *
+     * @var int
      */
     protected int $userId;
 
     /**
-     * 0-based identifiers of answer options, chosen by the user.
+     * 0-based identifiers of answer options, chosen by the user
      *
      * @var int[]
      */
@@ -36,8 +40,8 @@ class UpdatePollAnswer extends Update
     {
         parent::__construct();
 
-        $this->pollId    = $pollId;
-        $this->userId    = $userId;
+        $this->pollId = $pollId;
+        $this->userId = $userId;
         $this->optionIds = $optionIds;
     }
 
@@ -53,9 +57,9 @@ class UpdatePollAnswer extends Update
     public function typeSerialize(): array
     {
         return [
-            '@type'      => static::TYPE_NAME,
-            'poll_id'    => $this->pollId,
-            'user_id'    => $this->userId,
+            '@type' => static::TYPE_NAME,
+            'poll_id' => $this->pollId,
+            'user_id' => $this->userId,
             'option_ids' => $this->optionIds,
         ];
     }

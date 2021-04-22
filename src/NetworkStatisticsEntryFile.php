@@ -9,29 +9,37 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Contains information about the total amount of data that was used to send and receive files.
+ * Contains information about the total amount of data that was used to send and receive files
  */
 class NetworkStatisticsEntryFile extends NetworkStatisticsEntry
 {
     public const TYPE_NAME = 'networkStatisticsEntryFile';
 
     /**
-     * Type of the file the data is part of.
+     * Type of the file the data is part of
+     *
+     * @var FileType
      */
     protected FileType $fileType;
 
     /**
-     * Type of the network the data was sent through. Call setNetworkType to maintain the actual network type.
+     * Type of the network the data was sent through. Call setNetworkType to maintain the actual network type
+     *
+     * @var NetworkType
      */
     protected NetworkType $networkType;
 
     /**
-     * Total number of bytes sent.
+     * Total number of bytes sent
+     *
+     * @var int
      */
     protected int $sentBytes;
 
     /**
-     * Total number of bytes received.
+     * Total number of bytes received
+     *
+     * @var int
      */
     protected int $receivedBytes;
 
@@ -39,9 +47,9 @@ class NetworkStatisticsEntryFile extends NetworkStatisticsEntry
     {
         parent::__construct();
 
-        $this->fileType      = $fileType;
-        $this->networkType   = $networkType;
-        $this->sentBytes     = $sentBytes;
+        $this->fileType = $fileType;
+        $this->networkType = $networkType;
+        $this->sentBytes = $sentBytes;
         $this->receivedBytes = $receivedBytes;
     }
 
@@ -58,10 +66,10 @@ class NetworkStatisticsEntryFile extends NetworkStatisticsEntry
     public function typeSerialize(): array
     {
         return [
-            '@type'          => static::TYPE_NAME,
-            'file_type'      => $this->fileType->typeSerialize(),
-            'network_type'   => $this->networkType->typeSerialize(),
-            'sent_bytes'     => $this->sentBytes,
+            '@type' => static::TYPE_NAME,
+            'file_type' => $this->fileType->typeSerialize(),
+            'network_type' => $this->networkType->typeSerialize(),
+            'sent_bytes' => $this->sentBytes,
             'received_bytes' => $this->receivedBytes,
         ];
     }

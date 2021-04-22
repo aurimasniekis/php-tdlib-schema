@@ -9,7 +9,7 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Describes a sticker that needs to be added to a sticker set.
+ * Describes a sticker that needs to be added to a sticker set
  */
 class InputSticker extends TdObject
 {

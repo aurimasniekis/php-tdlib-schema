@@ -9,14 +9,16 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Sends a code to verify an email address to be added to a user's Telegram Passport.
+ * Sends a code to verify an email address to be added to a user's Telegram Passport
  */
 class SendEmailAddressVerificationCode extends TdFunction
 {
     public const TYPE_NAME = 'sendEmailAddressVerificationCode';
 
     /**
-     * Email address.
+     * Email address
+     *
+     * @var string
      */
     protected string $emailAddress;
 
@@ -35,7 +37,7 @@ class SendEmailAddressVerificationCode extends TdFunction
     public function typeSerialize(): array
     {
         return [
-            '@type'         => static::TYPE_NAME,
+            '@type' => static::TYPE_NAME,
             'email_address' => $this->emailAddress,
         ];
     }

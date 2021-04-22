@@ -9,29 +9,37 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * The message failed to be sent.
+ * The message failed to be sent
  */
 class MessageSendingStateFailed extends MessageSendingState
 {
     public const TYPE_NAME = 'messageSendingStateFailed';
 
     /**
-     * An error code; 0 if unknown.
+     * An error code; 0 if unknown
+     *
+     * @var int
      */
     protected int $errorCode;
 
     /**
-     * Error message.
+     * Error message
+     *
+     * @var string
      */
     protected string $errorMessage;
 
     /**
-     * True, if the message can be re-sent.
+     * True, if the message can be re-sent
+     *
+     * @var bool
      */
     protected bool $canRetry;
 
     /**
-     * Time left before the message can be re-sent, in seconds. No update is sent when this field changes.
+     * Time left before the message can be re-sent, in seconds. No update is sent when this field changes
+     *
+     * @var float
      */
     protected float $retryAfter;
 
@@ -39,10 +47,10 @@ class MessageSendingStateFailed extends MessageSendingState
     {
         parent::__construct();
 
-        $this->errorCode    = $errorCode;
+        $this->errorCode = $errorCode;
         $this->errorMessage = $errorMessage;
-        $this->canRetry     = $canRetry;
-        $this->retryAfter   = $retryAfter;
+        $this->canRetry = $canRetry;
+        $this->retryAfter = $retryAfter;
     }
 
     public static function fromArray(array $array): MessageSendingStateFailed
@@ -58,11 +66,11 @@ class MessageSendingStateFailed extends MessageSendingState
     public function typeSerialize(): array
     {
         return [
-            '@type'         => static::TYPE_NAME,
-            'error_code'    => $this->errorCode,
+            '@type' => static::TYPE_NAME,
+            'error_code' => $this->errorCode,
             'error_message' => $this->errorMessage,
-            'can_retry'     => $this->canRetry,
-            'retry_after'   => $this->retryAfter,
+            'can_retry' => $this->canRetry,
+            'retry_after' => $this->retryAfter,
         ];
     }
 

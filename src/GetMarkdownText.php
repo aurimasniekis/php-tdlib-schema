@@ -9,14 +9,16 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Replaces text entities with Markdown formatting in a human-friendly format. Entities that can't be represented in Markdown unambiguously are kept as is. Can be called synchronously.
+ * Replaces text entities with Markdown formatting in a human-friendly format. Entities that can't be represented in Markdown unambiguously are kept as is. Can be called synchronously
  */
 class GetMarkdownText extends TdFunction
 {
     public const TYPE_NAME = 'getMarkdownText';
 
     /**
-     * The text.
+     * The text
+     *
+     * @var FormattedText
      */
     protected FormattedText $text;
 
@@ -36,7 +38,7 @@ class GetMarkdownText extends TdFunction
     {
         return [
             '@type' => static::TYPE_NAME,
-            'text'  => $this->text->typeSerialize(),
+            'text' => $this->text->typeSerialize(),
         ];
     }
 

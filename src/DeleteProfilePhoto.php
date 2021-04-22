@@ -9,14 +9,16 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Deletes a profile photo.
+ * Deletes a profile photo
  */
 class DeleteProfilePhoto extends TdFunction
 {
     public const TYPE_NAME = 'deleteProfilePhoto';
 
     /**
-     * Identifier of the profile photo to delete.
+     * Identifier of the profile photo to delete
+     *
+     * @var string
      */
     protected string $profilePhotoId;
 
@@ -35,7 +37,7 @@ class DeleteProfilePhoto extends TdFunction
     public function typeSerialize(): array
     {
         return [
-            '@type'            => static::TYPE_NAME,
+            '@type' => static::TYPE_NAME,
             'profile_photo_id' => $this->profilePhotoId,
         ];
     }

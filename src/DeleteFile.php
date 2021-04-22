@@ -9,14 +9,16 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Deletes a file from the TDLib file cache.
+ * Deletes a file from the TDLib file cache
  */
 class DeleteFile extends TdFunction
 {
     public const TYPE_NAME = 'deleteFile';
 
     /**
-     * Identifier of the file to delete.
+     * Identifier of the file to delete
+     *
+     * @var int
      */
     protected int $fileId;
 
@@ -35,7 +37,7 @@ class DeleteFile extends TdFunction
     public function typeSerialize(): array
     {
         return [
-            '@type'   => static::TYPE_NAME,
+            '@type' => static::TYPE_NAME,
             'file_id' => $this->fileId,
         ];
     }

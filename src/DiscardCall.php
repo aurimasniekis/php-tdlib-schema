@@ -9,44 +9,54 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Discards a call.
+ * Discards a call
  */
 class DiscardCall extends TdFunction
 {
     public const TYPE_NAME = 'discardCall';
 
     /**
-     * Call identifier.
+     * Call identifier
+     *
+     * @var int
      */
     protected int $callId;
 
     /**
-     * True, if the user was disconnected.
+     * True, if the user was disconnected
+     *
+     * @var bool
      */
     protected bool $isDisconnected;
 
     /**
-     * The call duration, in seconds.
+     * The call duration, in seconds
+     *
+     * @var int
      */
     protected int $duration;
 
     /**
-     * True, if the call was a video call.
+     * True, if the call was a video call
+     *
+     * @var bool
      */
     protected bool $isVideo;
 
     /**
-     * Identifier of the connection used during the call.
+     * Identifier of the connection used during the call
+     *
+     * @var string
      */
     protected string $connectionId;
 
     public function __construct(int $callId, bool $isDisconnected, int $duration, bool $isVideo, string $connectionId)
     {
-        $this->callId         = $callId;
+        $this->callId = $callId;
         $this->isDisconnected = $isDisconnected;
-        $this->duration       = $duration;
-        $this->isVideo        = $isVideo;
-        $this->connectionId   = $connectionId;
+        $this->duration = $duration;
+        $this->isVideo = $isVideo;
+        $this->connectionId = $connectionId;
     }
 
     public static function fromArray(array $array): DiscardCall
@@ -63,12 +73,12 @@ class DiscardCall extends TdFunction
     public function typeSerialize(): array
     {
         return [
-            '@type'           => static::TYPE_NAME,
-            'call_id'         => $this->callId,
+            '@type' => static::TYPE_NAME,
+            'call_id' => $this->callId,
             'is_disconnected' => $this->isDisconnected,
-            'duration'        => $this->duration,
-            'is_video'        => $this->isVideo,
-            'connection_id'   => $this->connectionId,
+            'duration' => $this->duration,
+            'is_video' => $this->isVideo,
+            'connection_id' => $this->connectionId,
         ];
     }
 

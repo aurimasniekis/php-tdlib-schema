@@ -9,7 +9,7 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * The user has cancelled the previous action.
+ * The user has cancelled the previous action
  */
 class ChatActionCancel extends ChatAction
 {

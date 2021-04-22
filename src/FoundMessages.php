@@ -9,33 +9,37 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Contains a list of messages found by a search.
+ * Contains a list of messages found by a search
  */
 class FoundMessages extends TdObject
 {
     public const TYPE_NAME = 'foundMessages';
 
     /**
-     * Approximate total count of messages found; -1 if unknown.
+     * Approximate total count of messages found; -1 if unknown
+     *
+     * @var int
      */
     protected int $totalCount;
 
     /**
-     * List of messages.
+     * List of messages
      *
      * @var Message[]
      */
     protected array $messages;
 
     /**
-     * The offset for the next request. If empty, there are no more results.
+     * The offset for the next request. If empty, there are no more results
+     *
+     * @var string
      */
     protected string $nextOffset;
 
     public function __construct(int $totalCount, array $messages, string $nextOffset)
     {
         $this->totalCount = $totalCount;
-        $this->messages   = $messages;
+        $this->messages = $messages;
         $this->nextOffset = $nextOffset;
     }
 
@@ -43,7 +47,7 @@ class FoundMessages extends TdObject
     {
         return new static(
             $array['total_count'],
-            array_map(fn ($x) => TdSchemaRegistry::fromArray($x), $array['messages']),
+            array_map(fn($x) => TdSchemaRegistry::fromArray($x), $array['messages']),
             $array['next_offset'],
         );
     }
@@ -51,10 +55,10 @@ class FoundMessages extends TdObject
     public function typeSerialize(): array
     {
         return [
-            '@type'           => static::TYPE_NAME,
-            'total_count'     => $this->totalCount,
-            array_map(fn ($x) => $x->typeSerialize(), $this->messages),
-            'next_offset'     => $this->nextOffset,
+            '@type' => static::TYPE_NAME,
+            'total_count' => $this->totalCount,
+            array_map(fn($x) => $x->typeSerialize(), $this->messages),
+            'next_offset' => $this->nextOffset,
         ];
     }
 

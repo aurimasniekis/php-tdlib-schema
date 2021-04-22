@@ -9,14 +9,16 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Enables a proxy. Only one proxy can be enabled at a time. Can be called before authorization.
+ * Enables a proxy. Only one proxy can be enabled at a time. Can be called before authorization
  */
 class EnableProxy extends TdFunction
 {
     public const TYPE_NAME = 'enableProxy';
 
     /**
-     * Proxy identifier.
+     * Proxy identifier
+     *
+     * @var int
      */
     protected int $proxyId;
 
@@ -35,7 +37,7 @@ class EnableProxy extends TdFunction
     public function typeSerialize(): array
     {
         return [
-            '@type'    => static::TYPE_NAME,
+            '@type' => static::TYPE_NAME,
             'proxy_id' => $this->proxyId,
         ];
     }

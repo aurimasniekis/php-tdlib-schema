@@ -9,14 +9,16 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * A forwarded messages.
+ * A forwarded messages
  */
 class PushMessageContentMessageForwards extends PushMessageContent
 {
     public const TYPE_NAME = 'pushMessageContentMessageForwards';
 
     /**
-     * Number of forwarded messages.
+     * Number of forwarded messages
+     *
+     * @var int
      */
     protected int $totalCount;
 
@@ -37,7 +39,7 @@ class PushMessageContentMessageForwards extends PushMessageContent
     public function typeSerialize(): array
     {
         return [
-            '@type'       => static::TYPE_NAME,
+            '@type' => static::TYPE_NAME,
             'total_count' => $this->totalCount,
         ];
     }

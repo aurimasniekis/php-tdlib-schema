@@ -9,7 +9,7 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * The file is a sticker.
+ * The file is a sticker
  */
 class FileTypeSticker extends FileType
 {

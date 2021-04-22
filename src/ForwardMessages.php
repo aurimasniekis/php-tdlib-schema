@@ -9,51 +9,67 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Forwards previously sent messages. Returns the forwarded messages in the same order as the message identifiers passed in message_ids. If a message can't be forwarded, null will be returned instead of the message.
+ * Forwards previously sent messages. Returns the forwarded messages in the same order as the message identifiers passed in message_ids. If a message can't be forwarded, null will be returned instead of the message
  */
 class ForwardMessages extends TdFunction
 {
     public const TYPE_NAME = 'forwardMessages';
 
     /**
-     * Identifier of the chat to which to forward messages.
+     * Identifier of the chat to which to forward messages
+     *
+     * @var int
      */
     protected int $chatId;
 
     /**
-     * Identifier of the chat from which to forward messages.
+     * Identifier of the chat from which to forward messages
+     *
+     * @var int
      */
     protected int $fromChatId;
 
     /**
-     * Identifiers of the messages to forward. Message identifiers must be in a strictly increasing order.
+     * Identifiers of the messages to forward. Message identifiers must be in a strictly increasing order
      *
      * @var int[]
      */
     protected array $messageIds;
 
     /**
-     * Options to be used to send the messages.
+     * Options to be used to send the messages
+     *
+     * @var MessageSendOptions
      */
     protected MessageSendOptions $options;
 
     /**
-     * True, if content of the messages needs to be copied without links to the original messages. Always true if the messages are forwarded to a secret chat.
+     * True, if content of the messages needs to be copied without links to the original messages. Always true if the messages are forwarded to a secret chat
+     *
+     * @var bool
      */
     protected bool $sendCopy;
 
     /**
-     * True, if media caption of message copies needs to be removed. Ignored if send_copy is false.
+     * True, if media caption of message copies needs to be removed. Ignored if send_copy is false
+     *
+     * @var bool
      */
     protected bool $removeCaption;
 
-    public function __construct(int $chatId, int $fromChatId, array $messageIds, MessageSendOptions $options, bool $sendCopy, bool $removeCaption)
-    {
-        $this->chatId        = $chatId;
-        $this->fromChatId    = $fromChatId;
-        $this->messageIds    = $messageIds;
-        $this->options       = $options;
-        $this->sendCopy      = $sendCopy;
+    public function __construct(
+        int $chatId,
+        int $fromChatId,
+        array $messageIds,
+        MessageSendOptions $options,
+        bool $sendCopy,
+        bool $removeCaption
+    ) {
+        $this->chatId = $chatId;
+        $this->fromChatId = $fromChatId;
+        $this->messageIds = $messageIds;
+        $this->options = $options;
+        $this->sendCopy = $sendCopy;
         $this->removeCaption = $removeCaption;
     }
 
@@ -72,12 +88,12 @@ class ForwardMessages extends TdFunction
     public function typeSerialize(): array
     {
         return [
-            '@type'          => static::TYPE_NAME,
-            'chat_id'        => $this->chatId,
-            'from_chat_id'   => $this->fromChatId,
-            'message_ids'    => $this->messageIds,
-            'options'        => $this->options->typeSerialize(),
-            'send_copy'      => $this->sendCopy,
+            '@type' => static::TYPE_NAME,
+            'chat_id' => $this->chatId,
+            'from_chat_id' => $this->fromChatId,
+            'message_ids' => $this->messageIds,
+            'options' => $this->options->typeSerialize(),
+            'send_copy' => $this->sendCopy,
             'remove_caption' => $this->removeCaption,
         ];
     }

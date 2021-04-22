@@ -9,14 +9,14 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Represents a list of stickers.
+ * Represents a list of stickers
  */
 class Stickers extends TdObject
 {
     public const TYPE_NAME = 'stickers';
 
     /**
-     * List of stickers.
+     * List of stickers
      *
      * @var Sticker[]
      */
@@ -30,15 +30,15 @@ class Stickers extends TdObject
     public static function fromArray(array $array): Stickers
     {
         return new static(
-            array_map(fn ($x) => TdSchemaRegistry::fromArray($x), $array['stickers']),
+            array_map(fn($x) => TdSchemaRegistry::fromArray($x), $array['stickers']),
         );
     }
 
     public function typeSerialize(): array
     {
         return [
-            '@type'           => static::TYPE_NAME,
-            array_map(fn ($x) => $x->typeSerialize(), $this->stickers),
+            '@type' => static::TYPE_NAME,
+            array_map(fn($x) => $x->typeSerialize(), $this->stickers),
         ];
     }
 

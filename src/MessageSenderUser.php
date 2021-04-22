@@ -9,14 +9,16 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * The message was sent by a known user.
+ * The message was sent by a known user
  */
 class MessageSenderUser extends MessageSender
 {
     public const TYPE_NAME = 'messageSenderUser';
 
     /**
-     * Identifier of the user that sent the message.
+     * Identifier of the user that sent the message
+     *
+     * @var int
      */
     protected int $userId;
 
@@ -37,7 +39,7 @@ class MessageSenderUser extends MessageSender
     public function typeSerialize(): array
     {
         return [
-            '@type'   => static::TYPE_NAME,
+            '@type' => static::TYPE_NAME,
             'user_id' => $this->userId,
         ];
     }

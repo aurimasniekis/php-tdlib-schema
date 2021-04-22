@@ -9,14 +9,16 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * The user is uploading a photo.
+ * The user is uploading a photo
  */
 class ChatActionUploadingPhoto extends ChatAction
 {
     public const TYPE_NAME = 'chatActionUploadingPhoto';
 
     /**
-     * Upload progress, as a percentage.
+     * Upload progress, as a percentage
+     *
+     * @var int
      */
     protected int $progress;
 
@@ -37,7 +39,7 @@ class ChatActionUploadingPhoto extends ChatAction
     public function typeSerialize(): array
     {
         return [
-            '@type'    => static::TYPE_NAME,
+            '@type' => static::TYPE_NAME,
             'progress' => $this->progress,
         ];
     }

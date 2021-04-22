@@ -9,14 +9,14 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Contains a list of hashtags.
+ * Contains a list of hashtags
  */
 class Hashtags extends TdObject
 {
     public const TYPE_NAME = 'hashtags';
 
     /**
-     * A list of hashtags.
+     * A list of hashtags
      *
      * @var string[]
      */
@@ -37,7 +37,7 @@ class Hashtags extends TdObject
     public function typeSerialize(): array
     {
         return [
-            '@type'    => static::TYPE_NAME,
+            '@type' => static::TYPE_NAME,
             'hashtags' => $this->hashtags,
         ];
     }

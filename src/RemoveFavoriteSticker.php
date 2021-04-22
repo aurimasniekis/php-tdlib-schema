@@ -9,14 +9,16 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Removes a sticker from the list of favorite stickers.
+ * Removes a sticker from the list of favorite stickers
  */
 class RemoveFavoriteSticker extends TdFunction
 {
     public const TYPE_NAME = 'removeFavoriteSticker';
 
     /**
-     * Sticker file to delete from the list.
+     * Sticker file to delete from the list
+     *
+     * @var InputFile
      */
     protected InputFile $sticker;
 
@@ -35,7 +37,7 @@ class RemoveFavoriteSticker extends TdFunction
     public function typeSerialize(): array
     {
         return [
-            '@type'   => static::TYPE_NAME,
+            '@type' => static::TYPE_NAME,
             'sticker' => $this->sticker->typeSerialize(),
         ];
     }

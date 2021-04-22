@@ -9,21 +9,21 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * A personal document, containing some information about a user.
+ * A personal document, containing some information about a user
  */
 class PersonalDocument extends TdObject
 {
     public const TYPE_NAME = 'personalDocument';
 
     /**
-     * List of files containing the pages of the document.
+     * List of files containing the pages of the document
      *
      * @var DatedFile[]
      */
     protected array $files;
 
     /**
-     * List of files containing a certified English translation of the document.
+     * List of files containing a certified English translation of the document
      *
      * @var DatedFile[]
      */
@@ -31,24 +31,24 @@ class PersonalDocument extends TdObject
 
     public function __construct(array $files, array $translation)
     {
-        $this->files       = $files;
+        $this->files = $files;
         $this->translation = $translation;
     }
 
     public static function fromArray(array $array): PersonalDocument
     {
         return new static(
-            array_map(fn ($x) => TdSchemaRegistry::fromArray($x), $array['files']),
-            array_map(fn ($x) => TdSchemaRegistry::fromArray($x), $array['translation']),
+            array_map(fn($x) => TdSchemaRegistry::fromArray($x), $array['files']),
+            array_map(fn($x) => TdSchemaRegistry::fromArray($x), $array['translation']),
         );
     }
 
     public function typeSerialize(): array
     {
         return [
-            '@type'           => static::TYPE_NAME,
-            array_map(fn ($x) => $x->typeSerialize(), $this->files),
-            array_map(fn ($x) => $x->typeSerialize(), $this->translation),
+            '@type' => static::TYPE_NAME,
+            array_map(fn($x) => $x->typeSerialize(), $this->files),
+            array_map(fn($x) => $x->typeSerialize(), $this->translation),
         ];
     }
 

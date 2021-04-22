@@ -9,32 +9,41 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Options to be used when a message is sent.
+ * Options to be used when a message is sent
  */
 class MessageSendOptions extends TdObject
 {
     public const TYPE_NAME = 'messageSendOptions';
 
     /**
-     * Pass true to disable notification for the message.
+     * Pass true to disable notification for the message
+     *
+     * @var bool
      */
     protected bool $disableNotification;
 
     /**
-     * Pass true if the message is sent from the background.
+     * Pass true if the message is sent from the background
+     *
+     * @var bool
      */
     protected bool $fromBackground;
 
     /**
-     * Message scheduling state. Messages sent to a secret chat, live location messages and self-destructing messages can't be scheduled.
+     * Message scheduling state. Messages sent to a secret chat, live location messages and self-destructing messages can't be scheduled
+     *
+     * @var MessageSchedulingState
      */
     protected MessageSchedulingState $schedulingState;
 
-    public function __construct(bool $disableNotification, bool $fromBackground, MessageSchedulingState $schedulingState)
-    {
+    public function __construct(
+        bool $disableNotification,
+        bool $fromBackground,
+        MessageSchedulingState $schedulingState
+    ) {
         $this->disableNotification = $disableNotification;
-        $this->fromBackground      = $fromBackground;
-        $this->schedulingState     = $schedulingState;
+        $this->fromBackground = $fromBackground;
+        $this->schedulingState = $schedulingState;
     }
 
     public static function fromArray(array $array): MessageSendOptions
@@ -49,10 +58,10 @@ class MessageSendOptions extends TdObject
     public function typeSerialize(): array
     {
         return [
-            '@type'                => static::TYPE_NAME,
+            '@type' => static::TYPE_NAME,
             'disable_notification' => $this->disableNotification,
-            'from_background'      => $this->fromBackground,
-            'scheduling_state'     => $this->schedulingState->typeSerialize(),
+            'from_background' => $this->fromBackground,
+            'scheduling_state' => $this->schedulingState->typeSerialize(),
         ];
     }
 

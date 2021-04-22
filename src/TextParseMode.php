@@ -9,7 +9,7 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Describes the way the text should be parsed for TextEntities.
+ * Describes the way the text should be parsed for TextEntities
  */
 class TextParseMode extends TdObject
 {

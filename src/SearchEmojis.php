@@ -9,24 +9,28 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Searches for emojis by keywords. Supported only if the file database is enabled.
+ * Searches for emojis by keywords. Supported only if the file database is enabled
  */
 class SearchEmojis extends TdFunction
 {
     public const TYPE_NAME = 'searchEmojis';
 
     /**
-     * Text to search for.
+     * Text to search for
+     *
+     * @var string
      */
     protected string $text;
 
     /**
-     * True, if only emojis, which exactly match text needs to be returned.
+     * True, if only emojis, which exactly match text needs to be returned
+     *
+     * @var bool
      */
     protected bool $exactMatch;
 
     /**
-     * List of possible IETF language tags of the user's input language; may be empty if unknown.
+     * List of possible IETF language tags of the user's input language; may be empty if unknown
      *
      * @var string[]
      */
@@ -34,8 +38,8 @@ class SearchEmojis extends TdFunction
 
     public function __construct(string $text, bool $exactMatch, array $inputLanguageCodes)
     {
-        $this->text               = $text;
-        $this->exactMatch         = $exactMatch;
+        $this->text = $text;
+        $this->exactMatch = $exactMatch;
         $this->inputLanguageCodes = $inputLanguageCodes;
     }
 
@@ -51,9 +55,9 @@ class SearchEmojis extends TdFunction
     public function typeSerialize(): array
     {
         return [
-            '@type'                => static::TYPE_NAME,
-            'text'                 => $this->text,
-            'exact_match'          => $this->exactMatch,
+            '@type' => static::TYPE_NAME,
+            'text' => $this->text,
+            'exact_match' => $this->exactMatch,
             'input_language_codes' => $this->inputLanguageCodes,
         ];
     }

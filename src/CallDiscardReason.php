@@ -9,7 +9,7 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Describes the reason why a call was discarded.
+ * Describes the reason why a call was discarded
  */
 class CallDiscardReason extends TdObject
 {

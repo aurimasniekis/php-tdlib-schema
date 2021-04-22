@@ -9,14 +9,14 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Changes the order of chat filters.
+ * Changes the order of chat filters
  */
 class ReorderChatFilters extends TdFunction
 {
     public const TYPE_NAME = 'reorderChatFilters';
 
     /**
-     * Identifiers of chat filters in the new correct order.
+     * Identifiers of chat filters in the new correct order
      *
      * @var int[]
      */
@@ -37,7 +37,7 @@ class ReorderChatFilters extends TdFunction
     public function typeSerialize(): array
     {
         return [
-            '@type'           => static::TYPE_NAME,
+            '@type' => static::TYPE_NAME,
             'chat_filter_ids' => $this->chatFilterIds,
         ];
     }

@@ -9,14 +9,16 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Returns information about a user by their identifier. This is an offline request if the current user is not a bot.
+ * Returns information about a user by their identifier. This is an offline request if the current user is not a bot
  */
 class GetUser extends TdFunction
 {
     public const TYPE_NAME = 'getUser';
 
     /**
-     * User identifier.
+     * User identifier
+     *
+     * @var int
      */
     protected int $userId;
 
@@ -35,7 +37,7 @@ class GetUser extends TdFunction
     public function typeSerialize(): array
     {
         return [
-            '@type'   => static::TYPE_NAME,
+            '@type' => static::TYPE_NAME,
             'user_id' => $this->userId,
         ];
     }

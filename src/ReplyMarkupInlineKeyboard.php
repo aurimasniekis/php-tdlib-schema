@@ -9,14 +9,14 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Contains an inline keyboard layout.
+ * Contains an inline keyboard layout
  */
 class ReplyMarkupInlineKeyboard extends ReplyMarkup
 {
     public const TYPE_NAME = 'replyMarkupInlineKeyboard';
 
     /**
-     * A list of rows of inline keyboard buttons.
+     * A list of rows of inline keyboard buttons
      *
      * @var InlineKeyboardButton[][]
      */
@@ -32,15 +32,15 @@ class ReplyMarkupInlineKeyboard extends ReplyMarkup
     public static function fromArray(array $array): ReplyMarkupInlineKeyboard
     {
         return new static(
-            array_map(fn ($x) => array_map(fn ($y) => TdSchemaRegistry::fromArray($y), $x), $array['rows']),
+            array_map(fn($x) => array_map(fn($y) => TdSchemaRegistry::fromArray($y), $x), $array['rows']),
         );
     }
 
     public function typeSerialize(): array
     {
         return [
-            '@type'           => static::TYPE_NAME,
-            array_map(fn ($x) => array_map(fn ($y) => $y->typeSerialize(), $x), $this->rows),
+            '@type' => static::TYPE_NAME,
+            array_map(fn($x) => array_map(fn($y) => $y->typeSerialize(), $x), $this->rows),
         ];
     }
 

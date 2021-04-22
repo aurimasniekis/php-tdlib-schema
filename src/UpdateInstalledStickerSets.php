@@ -9,19 +9,21 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * The list of installed sticker sets was updated.
+ * The list of installed sticker sets was updated
  */
 class UpdateInstalledStickerSets extends Update
 {
     public const TYPE_NAME = 'updateInstalledStickerSets';
 
     /**
-     * True, if the list of installed mask sticker sets was updated.
+     * True, if the list of installed mask sticker sets was updated
+     *
+     * @var bool
      */
     protected bool $isMasks;
 
     /**
-     * The new list of installed ordinary sticker sets.
+     * The new list of installed ordinary sticker sets
      *
      * @var string[]
      */
@@ -31,7 +33,7 @@ class UpdateInstalledStickerSets extends Update
     {
         parent::__construct();
 
-        $this->isMasks       = $isMasks;
+        $this->isMasks = $isMasks;
         $this->stickerSetIds = $stickerSetIds;
     }
 
@@ -46,8 +48,8 @@ class UpdateInstalledStickerSets extends Update
     public function typeSerialize(): array
     {
         return [
-            '@type'           => static::TYPE_NAME,
-            'is_masks'        => $this->isMasks,
+            '@type' => static::TYPE_NAME,
+            'is_masks' => $this->isMasks,
             'sticker_set_ids' => $this->stickerSetIds,
         ];
     }

@@ -9,14 +9,16 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * The reverse side of the document contains an error. The error is considered resolved when the file with the reverse side of the document changes.
+ * The reverse side of the document contains an error. The error is considered resolved when the file with the reverse side of the document changes
  */
 class InputPassportElementErrorSourceReverseSide extends InputPassportElementErrorSource
 {
     public const TYPE_NAME = 'inputPassportElementErrorSourceReverseSide';
 
     /**
-     * Current hash of the file containing the reverse side.
+     * Current hash of the file containing the reverse side
+     *
+     * @var string
      */
     protected string $fileHash;
 
@@ -37,7 +39,7 @@ class InputPassportElementErrorSourceReverseSide extends InputPassportElementErr
     public function typeSerialize(): array
     {
         return [
-            '@type'     => static::TYPE_NAME,
+            '@type' => static::TYPE_NAME,
             'file_hash' => $this->fileHash,
         ];
     }

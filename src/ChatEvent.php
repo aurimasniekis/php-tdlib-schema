@@ -9,36 +9,44 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Represents a chat event.
+ * Represents a chat event
  */
 class ChatEvent extends TdObject
 {
     public const TYPE_NAME = 'chatEvent';
 
     /**
-     * Chat event identifier.
+     * Chat event identifier
+     *
+     * @var string
      */
     protected string $id;
 
     /**
-     * Point in time (Unix timestamp) when the event happened.
+     * Point in time (Unix timestamp) when the event happened
+     *
+     * @var int
      */
     protected int $date;
 
     /**
-     * Identifier of the user who performed the action that triggered the event.
+     * Identifier of the user who performed the action that triggered the event
+     *
+     * @var int
      */
     protected int $userId;
 
     /**
-     * Action performed by the user.
+     * Action performed by the user
+     *
+     * @var ChatEventAction
      */
     protected ChatEventAction $action;
 
     public function __construct(string $id, int $date, int $userId, ChatEventAction $action)
     {
-        $this->id     = $id;
-        $this->date   = $date;
+        $this->id = $id;
+        $this->date = $date;
         $this->userId = $userId;
         $this->action = $action;
     }
@@ -56,11 +64,11 @@ class ChatEvent extends TdObject
     public function typeSerialize(): array
     {
         return [
-            '@type'   => static::TYPE_NAME,
-            'id'      => $this->id,
-            'date'    => $this->date,
+            '@type' => static::TYPE_NAME,
+            'id' => $this->id,
+            'date' => $this->date,
             'user_id' => $this->userId,
-            'action'  => $this->action->typeSerialize(),
+            'action' => $this->action->typeSerialize(),
         ];
     }
 

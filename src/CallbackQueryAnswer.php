@@ -9,32 +9,38 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Contains a bot's answer to a callback query.
+ * Contains a bot's answer to a callback query
  */
 class CallbackQueryAnswer extends TdObject
 {
     public const TYPE_NAME = 'callbackQueryAnswer';
 
     /**
-     * Text of the answer.
+     * Text of the answer
+     *
+     * @var string
      */
     protected string $text;
 
     /**
-     * True, if an alert should be shown to the user instead of a toast notification.
+     * True, if an alert should be shown to the user instead of a toast notification
+     *
+     * @var bool
      */
     protected bool $showAlert;
 
     /**
-     * URL to be opened.
+     * URL to be opened
+     *
+     * @var string
      */
     protected string $url;
 
     public function __construct(string $text, bool $showAlert, string $url)
     {
-        $this->text      = $text;
+        $this->text = $text;
         $this->showAlert = $showAlert;
-        $this->url       = $url;
+        $this->url = $url;
     }
 
     public static function fromArray(array $array): CallbackQueryAnswer
@@ -49,10 +55,10 @@ class CallbackQueryAnswer extends TdObject
     public function typeSerialize(): array
     {
         return [
-            '@type'      => static::TYPE_NAME,
-            'text'       => $this->text,
+            '@type' => static::TYPE_NAME,
+            'text' => $this->text,
             'show_alert' => $this->showAlert,
-            'url'        => $this->url,
+            'url' => $this->url,
         ];
     }
 

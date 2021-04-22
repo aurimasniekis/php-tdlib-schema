@@ -9,19 +9,23 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Searches for the specified query in the title and username of already known chats via request to the server. Returns chats in the order seen in the main chat list.
+ * Searches for the specified query in the title and username of already known chats via request to the server. Returns chats in the order seen in the main chat list
  */
 class SearchChatsOnServer extends TdFunction
 {
     public const TYPE_NAME = 'searchChatsOnServer';
 
     /**
-     * Query to search for.
+     * Query to search for
+     *
+     * @var string
      */
     protected string $query;
 
     /**
-     * The maximum number of chats to be returned.
+     * The maximum number of chats to be returned
+     *
+     * @var int
      */
     protected int $limit;
 

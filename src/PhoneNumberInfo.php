@@ -9,31 +9,37 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Contains information about a phone number.
+ * Contains information about a phone number
  */
 class PhoneNumberInfo extends TdObject
 {
     public const TYPE_NAME = 'phoneNumberInfo';
 
     /**
-     * Information about the country to which the phone number belongs; may be null.
+     * Information about the country to which the phone number belongs; may be null
+     *
+     * @var CountryInfo|null
      */
     protected ?CountryInfo $country;
 
     /**
-     * The part of the phone number denoting country calling code or its part.
+     * The part of the phone number denoting country calling code or its part
+     *
+     * @var string
      */
     protected string $countryCallingCode;
 
     /**
-     * The phone number without country calling code formatted accordingly to local rules.
+     * The phone number without country calling code formatted accordingly to local rules
+     *
+     * @var string
      */
     protected string $formattedPhoneNumber;
 
     public function __construct(?CountryInfo $country, string $countryCallingCode, string $formattedPhoneNumber)
     {
-        $this->country              = $country;
-        $this->countryCallingCode   = $countryCallingCode;
+        $this->country = $country;
+        $this->countryCallingCode = $countryCallingCode;
         $this->formattedPhoneNumber = $formattedPhoneNumber;
     }
 
@@ -49,9 +55,9 @@ class PhoneNumberInfo extends TdObject
     public function typeSerialize(): array
     {
         return [
-            '@type'                  => static::TYPE_NAME,
-            'country'                => (isset($this->country) ? $this->country : null),
-            'country_calling_code'   => $this->countryCallingCode,
+            '@type' => static::TYPE_NAME,
+            'country' => (isset($this->country) ? $this->country : null),
+            'country_calling_code' => $this->countryCallingCode,
             'formatted_phone_number' => $this->formattedPhoneNumber,
         ];
     }

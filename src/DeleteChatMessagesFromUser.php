@@ -9,19 +9,23 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Deletes all messages sent by the specified user to a chat. Supported only for supergroups; requires can_delete_messages administrator privileges.
+ * Deletes all messages sent by the specified user to a chat. Supported only for supergroups; requires can_delete_messages administrator privileges
  */
 class DeleteChatMessagesFromUser extends TdFunction
 {
     public const TYPE_NAME = 'deleteChatMessagesFromUser';
 
     /**
-     * Chat identifier.
+     * Chat identifier
+     *
+     * @var int
      */
     protected int $chatId;
 
     /**
-     * User identifier.
+     * User identifier
+     *
+     * @var int
      */
     protected int $userId;
 
@@ -42,7 +46,7 @@ class DeleteChatMessagesFromUser extends TdFunction
     public function typeSerialize(): array
     {
         return [
-            '@type'   => static::TYPE_NAME,
+            '@type' => static::TYPE_NAME,
             'chat_id' => $this->chatId,
             'user_id' => $this->userId,
         ];

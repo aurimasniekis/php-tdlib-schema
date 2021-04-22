@@ -9,7 +9,7 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Returns only pinned messages.
+ * Returns only pinned messages
  */
 class SearchMessagesFilterPinned extends SearchMessagesFilter
 {

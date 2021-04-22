@@ -9,24 +9,30 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * A payment has been completed.
+ * A payment has been completed
  */
 class MessagePaymentSuccessful extends MessageContent
 {
     public const TYPE_NAME = 'messagePaymentSuccessful';
 
     /**
-     * Identifier of the message with the corresponding invoice; can be an identifier of a deleted message.
+     * Identifier of the message with the corresponding invoice; can be an identifier of a deleted message
+     *
+     * @var int
      */
     protected int $invoiceMessageId;
 
     /**
-     * Currency for the price of the product.
+     * Currency for the price of the product
+     *
+     * @var string
      */
     protected string $currency;
 
     /**
-     * Total price for the product, in the minimal quantity of the currency.
+     * Total price for the product, in the minimal quantity of the currency
+     *
+     * @var int
      */
     protected int $totalAmount;
 
@@ -35,8 +41,8 @@ class MessagePaymentSuccessful extends MessageContent
         parent::__construct();
 
         $this->invoiceMessageId = $invoiceMessageId;
-        $this->currency         = $currency;
-        $this->totalAmount      = $totalAmount;
+        $this->currency = $currency;
+        $this->totalAmount = $totalAmount;
     }
 
     public static function fromArray(array $array): MessagePaymentSuccessful
@@ -51,10 +57,10 @@ class MessagePaymentSuccessful extends MessageContent
     public function typeSerialize(): array
     {
         return [
-            '@type'              => static::TYPE_NAME,
+            '@type' => static::TYPE_NAME,
             'invoice_message_id' => $this->invoiceMessageId,
-            'currency'           => $this->currency,
-            'total_amount'       => $this->totalAmount,
+            'currency' => $this->currency,
+            'total_amount' => $this->totalAmount,
         ];
     }
 

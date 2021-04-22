@@ -9,7 +9,7 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Returns information about existing countries. Can be called before authorization.
+ * Returns information about existing countries. Can be called before authorization
  */
 class GetCountries extends TdFunction
 {

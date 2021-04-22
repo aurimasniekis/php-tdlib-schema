@@ -9,7 +9,7 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Contains information about the sending state of the message.
+ * Contains information about the sending state of the message
  */
 class MessageSendingState extends TdObject
 {

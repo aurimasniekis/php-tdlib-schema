@@ -9,14 +9,16 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Returns information about a chat filter by its identifier.
+ * Returns information about a chat filter by its identifier
  */
 class GetChatFilter extends TdFunction
 {
     public const TYPE_NAME = 'getChatFilter';
 
     /**
-     * Chat filter identifier.
+     * Chat filter identifier
+     *
+     * @var int
      */
     protected int $chatFilterId;
 
@@ -35,7 +37,7 @@ class GetChatFilter extends TdFunction
     public function typeSerialize(): array
     {
         return [
-            '@type'          => static::TYPE_NAME,
+            '@type' => static::TYPE_NAME,
             'chat_filter_id' => $this->chatFilterId,
         ];
     }

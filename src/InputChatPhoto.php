@@ -9,7 +9,7 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Describes a photo to be set as a user profile or chat photo.
+ * Describes a photo to be set as a user profile or chat photo
  */
 class InputChatPhoto extends TdObject
 {

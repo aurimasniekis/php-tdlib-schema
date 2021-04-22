@@ -9,31 +9,37 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Changes the background selected by the user; adds background to the list of installed backgrounds.
+ * Changes the background selected by the user; adds background to the list of installed backgrounds
  */
 class SetBackground extends TdFunction
 {
     public const TYPE_NAME = 'setBackground';
 
     /**
-     * The input background to use, null for filled backgrounds.
+     * The input background to use, null for filled backgrounds
+     *
+     * @var InputBackground
      */
     protected InputBackground $background;
 
     /**
-     * Background type; null for default background. The method will return error 404 if type is null.
+     * Background type; null for default background. The method will return error 404 if type is null
+     *
+     * @var BackgroundType
      */
     protected BackgroundType $type;
 
     /**
-     * True, if the background is chosen for dark theme.
+     * True, if the background is chosen for dark theme
+     *
+     * @var bool
      */
     protected bool $forDarkTheme;
 
     public function __construct(InputBackground $background, BackgroundType $type, bool $forDarkTheme)
     {
-        $this->background   = $background;
-        $this->type         = $type;
+        $this->background = $background;
+        $this->type = $type;
         $this->forDarkTheme = $forDarkTheme;
     }
 
@@ -49,9 +55,9 @@ class SetBackground extends TdFunction
     public function typeSerialize(): array
     {
         return [
-            '@type'          => static::TYPE_NAME,
-            'background'     => $this->background->typeSerialize(),
-            'type'           => $this->type->typeSerialize(),
+            '@type' => static::TYPE_NAME,
+            'background' => $this->background->typeSerialize(),
+            'type' => $this->type->typeSerialize(),
             'for_dark_theme' => $this->forDarkTheme,
         ];
     }

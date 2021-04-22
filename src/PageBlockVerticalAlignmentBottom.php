@@ -9,7 +9,7 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * The content should be bottom-aligned.
+ * The content should be bottom-aligned
  */
 class PageBlockVerticalAlignmentBottom extends PageBlockVerticalAlignment
 {

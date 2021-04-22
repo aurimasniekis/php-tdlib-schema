@@ -9,44 +9,59 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Describes a video note. The video must be equal in width and height, cropped to a circle, and stored in MPEG4 format.
+ * Describes a video note. The video must be equal in width and height, cropped to a circle, and stored in MPEG4 format
  */
 class VideoNote extends TdObject
 {
     public const TYPE_NAME = 'videoNote';
 
     /**
-     * Duration of the video, in seconds; as defined by the sender.
+     * Duration of the video, in seconds; as defined by the sender
+     *
+     * @var int
      */
     protected int $duration;
 
     /**
-     * Video width and height; as defined by the sender.
+     * Video width and height; as defined by the sender
+     *
+     * @var int
      */
     protected int $length;
 
     /**
-     * Video minithumbnail; may be null.
+     * Video minithumbnail; may be null
+     *
+     * @var Minithumbnail|null
      */
     protected ?Minithumbnail $minithumbnail;
 
     /**
-     * Video thumbnail in JPEG format; as defined by the sender; may be null.
+     * Video thumbnail in JPEG format; as defined by the sender; may be null
+     *
+     * @var Thumbnail|null
      */
     protected ?Thumbnail $thumbnail;
 
     /**
-     * File containing the video.
+     * File containing the video
+     *
+     * @var File
      */
     protected File $video;
 
-    public function __construct(int $duration, int $length, ?Minithumbnail $minithumbnail, ?Thumbnail $thumbnail, File $video)
-    {
-        $this->duration      = $duration;
-        $this->length        = $length;
+    public function __construct(
+        int $duration,
+        int $length,
+        ?Minithumbnail $minithumbnail,
+        ?Thumbnail $thumbnail,
+        File $video
+    ) {
+        $this->duration = $duration;
+        $this->length = $length;
         $this->minithumbnail = $minithumbnail;
-        $this->thumbnail     = $thumbnail;
-        $this->video         = $video;
+        $this->thumbnail = $thumbnail;
+        $this->video = $video;
     }
 
     public static function fromArray(array $array): VideoNote
@@ -63,12 +78,12 @@ class VideoNote extends TdObject
     public function typeSerialize(): array
     {
         return [
-            '@type'         => static::TYPE_NAME,
-            'duration'      => $this->duration,
-            'length'        => $this->length,
+            '@type' => static::TYPE_NAME,
+            'duration' => $this->duration,
+            'length' => $this->length,
             'minithumbnail' => (isset($this->minithumbnail) ? $this->minithumbnail : null),
-            'thumbnail'     => (isset($this->thumbnail) ? $this->thumbnail : null),
-            'video'         => $this->video->typeSerialize(),
+            'thumbnail' => (isset($this->thumbnail) ? $this->thumbnail : null),
+            'video' => $this->video->typeSerialize(),
         ];
     }
 

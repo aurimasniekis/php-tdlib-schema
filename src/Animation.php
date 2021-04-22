@@ -9,54 +9,72 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Describes an animation file. The animation must be encoded in GIF or MPEG4 format.
+ * Describes an animation file. The animation must be encoded in GIF or MPEG4 format
  */
 class Animation extends TdObject
 {
     public const TYPE_NAME = 'animation';
 
     /**
-     * Duration of the animation, in seconds; as defined by the sender.
+     * Duration of the animation, in seconds; as defined by the sender
+     *
+     * @var int
      */
     protected int $duration;
 
     /**
-     * Width of the animation.
+     * Width of the animation
+     *
+     * @var int
      */
     protected int $width;
 
     /**
-     * Height of the animation.
+     * Height of the animation
+     *
+     * @var int
      */
     protected int $height;
 
     /**
-     * Original name of the file; as defined by the sender.
+     * Original name of the file; as defined by the sender
+     *
+     * @var string
      */
     protected string $fileName;
 
     /**
-     * MIME type of the file, usually "image/gif" or "video/mp4".
+     * MIME type of the file, usually "image/gif" or "video/mp4"
+     *
+     * @var string
      */
     protected string $mimeType;
 
     /**
-     * True, if stickers were added to the animation. The list of corresponding sticker set can be received using getAttachedStickerSets.
+     * True, if stickers were added to the animation. The list of corresponding sticker set can be received using getAttachedStickerSets
+     *
+     * @var bool
      */
     protected bool $hasStickers;
 
     /**
-     * Animation minithumbnail; may be null.
+     * Animation minithumbnail; may be null
+     *
+     * @var Minithumbnail|null
      */
     protected ?Minithumbnail $minithumbnail;
 
     /**
-     * Animation thumbnail in JPEG or MPEG4 format; may be null.
+     * Animation thumbnail in JPEG or MPEG4 format; may be null
+     *
+     * @var Thumbnail|null
      */
     protected ?Thumbnail $thumbnail;
 
     /**
-     * File containing the animation.
+     * File containing the animation
+     *
+     * @var File
      */
     protected File $animation;
 
@@ -71,15 +89,15 @@ class Animation extends TdObject
         ?Thumbnail $thumbnail,
         File $animation
     ) {
-        $this->duration      = $duration;
-        $this->width         = $width;
-        $this->height        = $height;
-        $this->fileName      = $fileName;
-        $this->mimeType      = $mimeType;
-        $this->hasStickers   = $hasStickers;
+        $this->duration = $duration;
+        $this->width = $width;
+        $this->height = $height;
+        $this->fileName = $fileName;
+        $this->mimeType = $mimeType;
+        $this->hasStickers = $hasStickers;
         $this->minithumbnail = $minithumbnail;
-        $this->thumbnail     = $thumbnail;
-        $this->animation     = $animation;
+        $this->thumbnail = $thumbnail;
+        $this->animation = $animation;
     }
 
     public static function fromArray(array $array): Animation
@@ -100,16 +118,16 @@ class Animation extends TdObject
     public function typeSerialize(): array
     {
         return [
-            '@type'         => static::TYPE_NAME,
-            'duration'      => $this->duration,
-            'width'         => $this->width,
-            'height'        => $this->height,
-            'file_name'     => $this->fileName,
-            'mime_type'     => $this->mimeType,
-            'has_stickers'  => $this->hasStickers,
+            '@type' => static::TYPE_NAME,
+            'duration' => $this->duration,
+            'width' => $this->width,
+            'height' => $this->height,
+            'file_name' => $this->fileName,
+            'mime_type' => $this->mimeType,
+            'has_stickers' => $this->hasStickers,
             'minithumbnail' => (isset($this->minithumbnail) ? $this->minithumbnail : null),
-            'thumbnail'     => (isset($this->thumbnail) ? $this->thumbnail : null),
-            'animation'     => $this->animation->typeSerialize(),
+            'thumbnail' => (isset($this->thumbnail) ? $this->thumbnail : null),
+            'animation' => $this->animation->typeSerialize(),
         ];
     }
 

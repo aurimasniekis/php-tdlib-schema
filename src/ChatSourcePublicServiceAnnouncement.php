@@ -9,19 +9,23 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * The chat contains a public service announcement.
+ * The chat contains a public service announcement
  */
 class ChatSourcePublicServiceAnnouncement extends ChatSource
 {
     public const TYPE_NAME = 'chatSourcePublicServiceAnnouncement';
 
     /**
-     * The type of the announcement.
+     * The type of the announcement
+     *
+     * @var string
      */
     protected string $type;
 
     /**
-     * The text of the announcement.
+     * The text of the announcement
+     *
+     * @var string
      */
     protected string $text;
 
@@ -45,8 +49,8 @@ class ChatSourcePublicServiceAnnouncement extends ChatSource
     {
         return [
             '@type' => static::TYPE_NAME,
-            'type'  => $this->type,
-            'text'  => $this->text,
+            'type' => $this->type,
+            'text' => $this->text,
         ];
     }
 

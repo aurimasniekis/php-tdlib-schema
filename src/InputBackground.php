@@ -9,7 +9,7 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Contains information about background to set.
+ * Contains information about background to set
  */
 class InputBackground extends TdObject
 {

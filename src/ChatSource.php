@@ -9,7 +9,7 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Describes a reason why an external chat is shown in a chat list.
+ * Describes a reason why an external chat is shown in a chat list
  */
 class ChatSource extends TdObject
 {

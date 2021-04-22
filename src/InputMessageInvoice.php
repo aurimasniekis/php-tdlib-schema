@@ -9,64 +9,86 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * A message with an invoice; can be used only by bots and only in private chats.
+ * A message with an invoice; can be used only by bots and only in private chats
  */
 class InputMessageInvoice extends InputMessageContent
 {
     public const TYPE_NAME = 'inputMessageInvoice';
 
     /**
-     * Invoice.
+     * Invoice
+     *
+     * @var Invoice
      */
     protected Invoice $invoice;
 
     /**
-     * Product title; 1-32 characters.
+     * Product title; 1-32 characters
+     *
+     * @var string
      */
     protected string $title;
 
     /**
-     * Product description; 0-255 characters.
+     * Product description; 0-255 characters
+     *
+     * @var string
      */
     protected string $description;
 
     /**
-     * Product photo URL; optional.
+     * Product photo URL; optional
+     *
+     * @var string
      */
     protected string $photoUrl;
 
     /**
-     * Product photo size.
+     * Product photo size
+     *
+     * @var int
      */
     protected int $photoSize;
 
     /**
-     * Product photo width.
+     * Product photo width
+     *
+     * @var int
      */
     protected int $photoWidth;
 
     /**
-     * Product photo height.
+     * Product photo height
+     *
+     * @var int
      */
     protected int $photoHeight;
 
     /**
-     * The invoice payload.
+     * The invoice payload
+     *
+     * @var string
      */
     protected string $payload;
 
     /**
-     * Payment provider token.
+     * Payment provider token
+     *
+     * @var string
      */
     protected string $providerToken;
 
     /**
-     * JSON-encoded data about the invoice, which will be shared with the payment provider.
+     * JSON-encoded data about the invoice, which will be shared with the payment provider
+     *
+     * @var string
      */
     protected string $providerData;
 
     /**
-     * Unique invoice bot start_parameter for the generation of this invoice.
+     * Unique invoice bot start_parameter for the generation of this invoice
+     *
+     * @var string
      */
     protected string $startParameter;
 
@@ -85,16 +107,16 @@ class InputMessageInvoice extends InputMessageContent
     ) {
         parent::__construct();
 
-        $this->invoice        = $invoice;
-        $this->title          = $title;
-        $this->description    = $description;
-        $this->photoUrl       = $photoUrl;
-        $this->photoSize      = $photoSize;
-        $this->photoWidth     = $photoWidth;
-        $this->photoHeight    = $photoHeight;
-        $this->payload        = $payload;
-        $this->providerToken  = $providerToken;
-        $this->providerData   = $providerData;
+        $this->invoice = $invoice;
+        $this->title = $title;
+        $this->description = $description;
+        $this->photoUrl = $photoUrl;
+        $this->photoSize = $photoSize;
+        $this->photoWidth = $photoWidth;
+        $this->photoHeight = $photoHeight;
+        $this->payload = $payload;
+        $this->providerToken = $providerToken;
+        $this->providerData = $providerData;
         $this->startParameter = $startParameter;
     }
 
@@ -118,17 +140,17 @@ class InputMessageInvoice extends InputMessageContent
     public function typeSerialize(): array
     {
         return [
-            '@type'           => static::TYPE_NAME,
-            'invoice'         => $this->invoice->typeSerialize(),
-            'title'           => $this->title,
-            'description'     => $this->description,
-            'photo_url'       => $this->photoUrl,
-            'photo_size'      => $this->photoSize,
-            'photo_width'     => $this->photoWidth,
-            'photo_height'    => $this->photoHeight,
-            'payload'         => $this->payload,
-            'provider_token'  => $this->providerToken,
-            'provider_data'   => $this->providerData,
+            '@type' => static::TYPE_NAME,
+            'invoice' => $this->invoice->typeSerialize(),
+            'title' => $this->title,
+            'description' => $this->description,
+            'photo_url' => $this->photoUrl,
+            'photo_size' => $this->photoSize,
+            'photo_width' => $this->photoWidth,
+            'photo_height' => $this->photoHeight,
+            'payload' => $this->payload,
+            'provider_token' => $this->providerToken,
+            'provider_data' => $this->providerData,
             'start_parameter' => $this->startParameter,
         ];
     }
