@@ -16,7 +16,7 @@ class PollOption extends TdObject
     public const TYPE_NAME = 'pollOption';
 
     /**
-     * Option text, 1-100 characters.
+     * Option text; 1-100 characters.
      */
     protected string $text;
 
@@ -26,7 +26,7 @@ class PollOption extends TdObject
     protected int $voterCount;
 
     /**
-     * The percentage of votes for this option, 0-100.
+     * The percentage of votes for this option; 0-100.
      */
     protected int $votePercentage;
 

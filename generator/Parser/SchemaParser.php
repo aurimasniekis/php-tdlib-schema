@@ -12,7 +12,7 @@ use Psr\Log\NullLogger;
  */
 class SchemaParser
 {
-    public const MASTER_TL_API_SOURCE_URL = 'https://raw.githubusercontent.com/tdlib/td/v1.7.0/td/generate/scheme/td_api.tl';
+    public const MASTER_TL_API_SOURCE_URL = 'https://raw.githubusercontent.com/tdlib/td/master/td/generate/scheme/td_api.tl';
 
     private LoggerInterface $logger;
 
@@ -209,9 +209,7 @@ class SchemaParser
                 $currentClass->typeName    = $typeName;
 
                 foreach ($knownFields as $name => $fieldType) {
-                    $mayBeNull     =
-                        false !== stripos($info[$name], 'may be null') ||
-                        false !== stripos($info[$name], 'For chat administrators');
+                    $mayBeNull     = false !== stripos($info[$name], 'may be null');
                     $fieldName     = $this->getFieldName($name, $className);
                     $fieldTypeName = $this->getTypeName($fieldType);
 

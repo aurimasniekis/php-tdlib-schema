@@ -146,7 +146,7 @@ class Message extends TdObject
     protected string $authorSignature;
 
     /**
-     * Unique identifier of an album this message belongs to. Only photos and videos can be grouped together in albums.
+     * Unique identifier of an album this message belongs to. Only audios, documents, photos and videos can be grouped together in albums.
      */
     protected string $mediaAlbumId;
 

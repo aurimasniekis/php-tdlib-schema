@@ -88,7 +88,7 @@ class SupergroupFullInfo extends TdObject
     /**
      * True, if new chat members will have access to old messages. In public or discussion groups and both public and private channels, old messages are always available, so this option affects only private supergroups without a linked chat. The value of this field is only available for chat administrators.
      */
-    protected ?bool $isAllHistoryAvailable;
+    protected bool $isAllHistoryAvailable;
 
     /**
      * Identifier of the supergroup sticker set; 0 if none.
@@ -101,9 +101,9 @@ class SupergroupFullInfo extends TdObject
     protected ?ChatLocation $location;
 
     /**
-     * Invite link for this chat.
+     * Primary invite link for this chat; may be null. For chat administrators with can_invite_users right only.
      */
-    protected string $inviteLink;
+    protected ?ChatInviteLink $inviteLink;
 
     /**
      * Identifier of the basic group from which supergroup was upgraded; 0 if none.
@@ -130,10 +130,10 @@ class SupergroupFullInfo extends TdObject
         bool $canSetStickerSet,
         bool $canSetLocation,
         bool $canGetStatistics,
-        ?bool $isAllHistoryAvailable,
+        bool $isAllHistoryAvailable,
         string $stickerSetId,
         ?ChatLocation $location,
-        string $inviteLink,
+        ?ChatInviteLink $inviteLink,
         int $upgradedFromBasicGroupId,
         int $upgradedFromMaxMessageId
     ) {
@@ -179,7 +179,7 @@ class SupergroupFullInfo extends TdObject
             $array['is_all_history_available'],
             $array['sticker_set_id'],
             (isset($array['location']) ? TdSchemaRegistry::fromArray($array['location']) : null),
-            $array['invite_link'],
+            (isset($array['invite_link']) ? TdSchemaRegistry::fromArray($array['invite_link']) : null),
             $array['upgraded_from_basic_group_id'],
             $array['upgraded_from_max_message_id'],
         );
@@ -206,7 +206,7 @@ class SupergroupFullInfo extends TdObject
             'is_all_history_available'     => $this->isAllHistoryAvailable,
             'sticker_set_id'               => $this->stickerSetId,
             'location'                     => (isset($this->location) ? $this->location : null),
-            'invite_link'                  => $this->inviteLink,
+            'invite_link'                  => (isset($this->inviteLink) ? $this->inviteLink : null),
             'upgraded_from_basic_group_id' => $this->upgradedFromBasicGroupId,
             'upgraded_from_max_message_id' => $this->upgradedFromMaxMessageId,
         ];
@@ -282,7 +282,7 @@ class SupergroupFullInfo extends TdObject
         return $this->canGetStatistics;
     }
 
-    public function getIsAllHistoryAvailable(): ?bool
+    public function getIsAllHistoryAvailable(): bool
     {
         return $this->isAllHistoryAvailable;
     }
@@ -297,7 +297,7 @@ class SupergroupFullInfo extends TdObject
         return $this->location;
     }
 
-    public function getInviteLink(): string
+    public function getInviteLink(): ?ChatInviteLink
     {
         return $this->inviteLink;
     }

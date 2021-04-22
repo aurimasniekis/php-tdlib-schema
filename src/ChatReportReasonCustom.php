@@ -15,35 +15,18 @@ class ChatReportReasonCustom extends ChatReportReason
 {
     public const TYPE_NAME = 'chatReportReasonCustom';
 
-    /**
-     * Report text.
-     */
-    protected string $text;
-
-    public function __construct(string $text)
+    public function __construct()
     {
         parent::__construct();
-
-        $this->text = $text;
     }
 
     public static function fromArray(array $array): ChatReportReasonCustom
     {
-        return new static(
-            $array['text'],
-        );
+        return new static();
     }
 
     public function typeSerialize(): array
     {
-        return [
-            '@type' => static::TYPE_NAME,
-            'text'  => $this->text,
-        ];
-    }
-
-    public function getText(): string
-    {
-        return $this->text;
+        return ['@type' => static::TYPE_NAME];
     }
 }

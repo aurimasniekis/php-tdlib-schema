@@ -16,7 +16,7 @@ class SearchMessages extends TdFunction
     public const TYPE_NAME = 'searchMessages';
 
     /**
-     * Chat list in which to search messages; pass null to search in all chats regardless of their chat list.
+     * Chat list in which to search messages; pass null to search in all chats regardless of their chat list. Only Main and Archive chat lists are supported.
      */
     protected ChatList $chatList;
 

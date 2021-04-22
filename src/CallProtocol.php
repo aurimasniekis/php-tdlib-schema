@@ -36,7 +36,7 @@ class CallProtocol extends TdObject
     protected int $maxLayer;
 
     /**
-     * List of supported libtgvoip versions.
+     * List of supported tgcalls versions.
      *
      * @var string[]
      */

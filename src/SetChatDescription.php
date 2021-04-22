@@ -9,7 +9,7 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Changes information about a chat. Available for basic groups, supergroups, and channels. Requires can_change_info rights.
+ * Changes information about a chat. Available for basic groups, supergroups, and channels. Requires can_change_info administrator right.
  */
 class SetChatDescription extends TdFunction
 {

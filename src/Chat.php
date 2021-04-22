@@ -78,7 +78,7 @@ class Chat extends TdObject
     protected bool $canBeDeletedForAllUsers;
 
     /**
-     * True, if the chat can be reported to Telegram moderators through reportChat.
+     * True, if the chat can be reported to Telegram moderators through reportChat or reportChatPhoto.
      */
     protected bool $canBeReported;
 
@@ -113,9 +113,19 @@ class Chat extends TdObject
     protected ChatNotificationSettings $notificationSettings;
 
     /**
+     * Current message Time To Live setting (self-destruct timer) for the chat; 0 if not defined. TTL is counted from the time message or its content is viewed in secret chats and from the send date in other chats.
+     */
+    protected int $messageTtlSetting;
+
+    /**
      * Describes actions which should be possible to do through a chat action bar; may be null.
      */
     protected ?ChatActionBar $actionBar;
+
+    /**
+     * Contains information about voice chat of the chat.
+     */
+    protected VoiceChat $voiceChat;
 
     /**
      * Identifier of the message from which reply markup needs to be used; 0 if there is no default custom reply markup in the chat.
@@ -152,7 +162,9 @@ class Chat extends TdObject
         int $lastReadOutboxMessageId,
         int $unreadMentionCount,
         ChatNotificationSettings $notificationSettings,
+        int $messageTtlSetting,
         ?ChatActionBar $actionBar,
+        VoiceChat $voiceChat,
         int $replyMarkupMessageId,
         ?DraftMessage $draftMessage,
         string $clientData
@@ -176,7 +188,9 @@ class Chat extends TdObject
         $this->lastReadOutboxMessageId    = $lastReadOutboxMessageId;
         $this->unreadMentionCount         = $unreadMentionCount;
         $this->notificationSettings       = $notificationSettings;
+        $this->messageTtlSetting          = $messageTtlSetting;
         $this->actionBar                  = $actionBar;
+        $this->voiceChat                  = $voiceChat;
         $this->replyMarkupMessageId       = $replyMarkupMessageId;
         $this->draftMessage               = $draftMessage;
         $this->clientData                 = $clientData;
@@ -204,7 +218,9 @@ class Chat extends TdObject
             $array['last_read_outbox_message_id'],
             $array['unread_mention_count'],
             TdSchemaRegistry::fromArray($array['notification_settings']),
+            $array['message_ttl_setting'],
             (isset($array['action_bar']) ? TdSchemaRegistry::fromArray($array['action_bar']) : null),
+            TdSchemaRegistry::fromArray($array['voice_chat']),
             $array['reply_markup_message_id'],
             (isset($array['draft_message']) ? TdSchemaRegistry::fromArray($array['draft_message']) : null),
             $array['client_data'],
@@ -234,7 +250,9 @@ class Chat extends TdObject
             'last_read_outbox_message_id'  => $this->lastReadOutboxMessageId,
             'unread_mention_count'         => $this->unreadMentionCount,
             'notification_settings'        => $this->notificationSettings->typeSerialize(),
+            'message_ttl_setting'          => $this->messageTtlSetting,
             'action_bar'                   => (isset($this->actionBar) ? $this->actionBar : null),
+            'voice_chat'                   => $this->voiceChat->typeSerialize(),
             'reply_markup_message_id'      => $this->replyMarkupMessageId,
             'draft_message'                => (isset($this->draftMessage) ? $this->draftMessage : null),
             'client_data'                  => $this->clientData,
@@ -336,9 +354,19 @@ class Chat extends TdObject
         return $this->notificationSettings;
     }
 
+    public function getMessageTtlSetting(): int
+    {
+        return $this->messageTtlSetting;
+    }
+
     public function getActionBar(): ?ChatActionBar
     {
         return $this->actionBar;
+    }
+
+    public function getVoiceChat(): VoiceChat
+    {
+        return $this->voiceChat;
     }
 
     public function getReplyMarkupMessageId(): int

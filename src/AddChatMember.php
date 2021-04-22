@@ -9,7 +9,7 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Adds a new member to a chat. Members can't be added to private or secret chats. Members will not be added until the chat state has been synchronized with the server.
+ * Adds a new member to a chat. Members can't be added to private or secret chats.
  */
 class AddChatMember extends TdFunction
 {

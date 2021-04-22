@@ -36,11 +36,6 @@ class SecretChat extends TdObject
     protected bool $isOutbound;
 
     /**
-     * Current message Time To Live setting (self-destruct timer) for the chat, in seconds.
-     */
-    protected int $ttl;
-
-    /**
      * Hash of the currently used key for comparison with the hash of the chat partner's key. This is a string of 36 little-endian bytes, which must be split into groups of 2 bits, each denoting a pixel of one of 4 colors FFFFFF, D5E6F3, 2D5775, and 2F99C9. The pixels must be used to make a 12x12 square image filled from left to right, top to bottom. Alternatively, the first 32 bytes of the hash can be converted to the hexadecimal format and printed as 32 2-digit hex numbers.
      */
     protected string $keyHash;
@@ -55,7 +50,6 @@ class SecretChat extends TdObject
         int $userId,
         SecretChatState $state,
         bool $isOutbound,
-        int $ttl,
         string $keyHash,
         int $layer
     ) {
@@ -63,7 +57,6 @@ class SecretChat extends TdObject
         $this->userId     = $userId;
         $this->state      = $state;
         $this->isOutbound = $isOutbound;
-        $this->ttl        = $ttl;
         $this->keyHash    = $keyHash;
         $this->layer      = $layer;
     }
@@ -75,7 +68,6 @@ class SecretChat extends TdObject
             $array['user_id'],
             TdSchemaRegistry::fromArray($array['state']),
             $array['is_outbound'],
-            $array['ttl'],
             $array['key_hash'],
             $array['layer'],
         );
@@ -89,7 +81,6 @@ class SecretChat extends TdObject
             'user_id'     => $this->userId,
             'state'       => $this->state->typeSerialize(),
             'is_outbound' => $this->isOutbound,
-            'ttl'         => $this->ttl,
             'key_hash'    => $this->keyHash,
             'layer'       => $this->layer,
         ];
@@ -113,11 +104,6 @@ class SecretChat extends TdObject
     public function getIsOutbound(): bool
     {
         return $this->isOutbound;
-    }
-
-    public function getTtl(): int
-    {
-        return $this->ttl;
     }
 
     public function getKeyHash(): string

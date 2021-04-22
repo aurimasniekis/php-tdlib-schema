@@ -21,7 +21,7 @@ class Poll extends TdObject
     protected string $id;
 
     /**
-     * Poll question, 1-300 characters.
+     * Poll question; 1-300 characters.
      */
     protected string $question;
 

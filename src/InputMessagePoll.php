@@ -16,7 +16,7 @@ class InputMessagePoll extends InputMessageContent
     public const TYPE_NAME = 'inputMessagePoll';
 
     /**
-     * Poll question, 1-255 characters (up to 300 characters for bots).
+     * Poll question; 1-255 characters (up to 300 characters for bots).
      */
     protected string $question;
 

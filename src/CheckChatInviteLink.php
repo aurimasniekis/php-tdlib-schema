@@ -16,7 +16,7 @@ class CheckChatInviteLink extends TdFunction
     public const TYPE_NAME = 'checkChatInviteLink';
 
     /**
-     * Invite link to be checked; should begin with "https://t.me/joinchat/", "https://telegram.me/joinchat/", or "https://telegram.dog/joinchat/".
+     * Invite link to be checked; must have URL "t.me", "telegram.me", or "telegram.dog" and query beginning with "/joinchat/" or "/+".
      */
     protected string $inviteLink;
 

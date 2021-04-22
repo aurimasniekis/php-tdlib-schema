@@ -26,7 +26,7 @@ class ForwardMessages extends TdFunction
     protected int $fromChatId;
 
     /**
-     * Identifiers of the messages to forward. Message identifiers must be in a strictly increasing order.
+     * Identifiers of the messages to forward. Message identifiers must be in a strictly increasing order. At most 100 messages can be forwarded simultaneously.
      *
      * @var int[]
      */

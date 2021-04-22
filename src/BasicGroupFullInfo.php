@@ -21,7 +21,7 @@ class BasicGroupFullInfo extends TdObject
     protected ?ChatPhoto $photo;
 
     /**
-     * Group description.
+     * Group description. Updated only after the basic group is opened.
      */
     protected string $description;
 
@@ -38,16 +38,16 @@ class BasicGroupFullInfo extends TdObject
     protected array $members;
 
     /**
-     * Invite link for this group; available only after it has been generated at least once and only for the group creator.
+     * Primary invite link for this group; may be null. For chat administrators with can_invite_users right only. Updated only after the basic group is opened.
      */
-    protected string $inviteLink;
+    protected ?ChatInviteLink $inviteLink;
 
     public function __construct(
         ?ChatPhoto $photo,
         string $description,
         int $creatorUserId,
         array $members,
-        string $inviteLink
+        ?ChatInviteLink $inviteLink
     ) {
         $this->photo         = $photo;
         $this->description   = $description;
@@ -63,7 +63,7 @@ class BasicGroupFullInfo extends TdObject
             $array['description'],
             $array['creator_user_id'],
             array_map(fn ($x) => TdSchemaRegistry::fromArray($x), $array['members']),
-            $array['invite_link'],
+            (isset($array['invite_link']) ? TdSchemaRegistry::fromArray($array['invite_link']) : null),
         );
     }
 
@@ -75,7 +75,7 @@ class BasicGroupFullInfo extends TdObject
             'description'     => $this->description,
             'creator_user_id' => $this->creatorUserId,
             array_map(fn ($x) => $x->typeSerialize(), $this->members),
-            'invite_link'     => $this->inviteLink,
+            'invite_link'     => (isset($this->inviteLink) ? $this->inviteLink : null),
         ];
     }
 
@@ -99,7 +99,7 @@ class BasicGroupFullInfo extends TdObject
         return $this->members;
     }
 
-    public function getInviteLink(): string
+    public function getInviteLink(): ?ChatInviteLink
     {
         return $this->inviteLink;
     }

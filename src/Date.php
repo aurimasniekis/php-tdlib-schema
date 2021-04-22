@@ -16,17 +16,17 @@ class Date extends TdObject
     public const TYPE_NAME = 'date';
 
     /**
-     * Day of the month, 1-31.
+     * Day of the month; 1-31.
      */
     protected int $day;
 
     /**
-     * Month, 1-12.
+     * Month; 1-12.
      */
     protected int $month;
 
     /**
-     * Year, 1-9999.
+     * Year; 1-9999.
      */
     protected int $year;
 

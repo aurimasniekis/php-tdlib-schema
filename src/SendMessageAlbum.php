@@ -9,7 +9,7 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Sends messages grouped together into an album. Currently only audio, document, photo and video messages can be grouped into an album. Documents and audio files can be only grouped in an album with messages of the same type. Returns sent messages.
+ * Sends 2-10 messages grouped together into an album. Currently only audio, document, photo and video messages can be grouped into an album. Documents and audio files can be only grouped in an album with messages of the same type. Returns sent messages.
  */
 class SendMessageAlbum extends TdFunction
 {
@@ -36,7 +36,7 @@ class SendMessageAlbum extends TdFunction
     protected MessageSendOptions $options;
 
     /**
-     * Contents of messages to be sent.
+     * Contents of messages to be sent. At most 10 messages can be added to an album.
      *
      * @var InputMessageContent[]
      */

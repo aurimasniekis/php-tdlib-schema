@@ -9,7 +9,7 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Changes the sticker set of a supergroup; requires can_change_info rights.
+ * Changes the sticker set of a supergroup; requires can_change_info administrator right.
  */
 class SetSupergroupStickerSet extends TdFunction
 {

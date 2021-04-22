@@ -66,6 +66,11 @@ class Supergroup extends TdObject
     protected bool $isChannel;
 
     /**
+     * True, if the supergroup is a broadcast group, i.e. only administrators can send messages and there is no limit on number of members.
+     */
+    protected bool $isBroadcastGroup;
+
+    /**
      * True, if the supergroup or channel is verified.
      */
     protected bool $isVerified;
@@ -76,9 +81,14 @@ class Supergroup extends TdObject
     protected string $restrictionReason;
 
     /**
-     * True, if many users reported this supergroup as a scam.
+     * True, if many users reported this supergroup or channel as a scam.
      */
     protected bool $isScam;
+
+    /**
+     * True, if many users reported this supergroup or channel as a fake account.
+     */
+    protected bool $isFake;
 
     public function __construct(
         int $id,
@@ -91,9 +101,11 @@ class Supergroup extends TdObject
         bool $signMessages,
         bool $isSlowModeEnabled,
         bool $isChannel,
+        bool $isBroadcastGroup,
         bool $isVerified,
         string $restrictionReason,
-        bool $isScam
+        bool $isScam,
+        bool $isFake
     ) {
         $this->id                = $id;
         $this->username          = $username;
@@ -105,9 +117,11 @@ class Supergroup extends TdObject
         $this->signMessages      = $signMessages;
         $this->isSlowModeEnabled = $isSlowModeEnabled;
         $this->isChannel         = $isChannel;
+        $this->isBroadcastGroup  = $isBroadcastGroup;
         $this->isVerified        = $isVerified;
         $this->restrictionReason = $restrictionReason;
         $this->isScam            = $isScam;
+        $this->isFake            = $isFake;
     }
 
     public static function fromArray(array $array): Supergroup
@@ -123,9 +137,11 @@ class Supergroup extends TdObject
             $array['sign_messages'],
             $array['is_slow_mode_enabled'],
             $array['is_channel'],
+            $array['is_broadcast_group'],
             $array['is_verified'],
             $array['restriction_reason'],
             $array['is_scam'],
+            $array['is_fake'],
         );
     }
 
@@ -143,9 +159,11 @@ class Supergroup extends TdObject
             'sign_messages'        => $this->signMessages,
             'is_slow_mode_enabled' => $this->isSlowModeEnabled,
             'is_channel'           => $this->isChannel,
+            'is_broadcast_group'   => $this->isBroadcastGroup,
             'is_verified'          => $this->isVerified,
             'restriction_reason'   => $this->restrictionReason,
             'is_scam'              => $this->isScam,
+            'is_fake'              => $this->isFake,
         ];
     }
 
@@ -199,6 +217,11 @@ class Supergroup extends TdObject
         return $this->isChannel;
     }
 
+    public function getIsBroadcastGroup(): bool
+    {
+        return $this->isBroadcastGroup;
+    }
+
     public function getIsVerified(): bool
     {
         return $this->isVerified;
@@ -212,5 +235,10 @@ class Supergroup extends TdObject
     public function getIsScam(): bool
     {
         return $this->isScam;
+    }
+
+    public function getIsFake(): bool
+    {
+        return $this->isFake;
     }
 }

@@ -21,7 +21,7 @@ class BackgroundTypePattern extends BackgroundType
     protected BackgroundFill $fill;
 
     /**
-     * Intensity of the pattern when it is shown above the filled background, 0-100.
+     * Intensity of the pattern when it is shown above the filled background; 0-100.
      */
     protected int $intensity;
 

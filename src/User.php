@@ -81,6 +81,11 @@ class User extends TdObject
     protected bool $isScam;
 
     /**
+     * True, if many users reported this user as a fake account.
+     */
+    protected bool $isFake;
+
+    /**
      * If false, the user is inaccessible, and the only information known about the user is inside this class. It can't be passed to any method except GetUser.
      */
     protected bool $haveAccess;
@@ -109,6 +114,7 @@ class User extends TdObject
         bool $isSupport,
         string $restrictionReason,
         bool $isScam,
+        bool $isFake,
         bool $haveAccess,
         UserType $type,
         string $languageCode
@@ -126,6 +132,7 @@ class User extends TdObject
         $this->isSupport         = $isSupport;
         $this->restrictionReason = $restrictionReason;
         $this->isScam            = $isScam;
+        $this->isFake            = $isFake;
         $this->haveAccess        = $haveAccess;
         $this->type              = $type;
         $this->languageCode      = $languageCode;
@@ -147,6 +154,7 @@ class User extends TdObject
             $array['is_support'],
             $array['restriction_reason'],
             $array['is_scam'],
+            $array['is_fake'],
             $array['have_access'],
             TdSchemaRegistry::fromArray($array['type']),
             $array['language_code'],
@@ -170,6 +178,7 @@ class User extends TdObject
             'is_support'         => $this->isSupport,
             'restriction_reason' => $this->restrictionReason,
             'is_scam'            => $this->isScam,
+            'is_fake'            => $this->isFake,
             'have_access'        => $this->haveAccess,
             'type'               => $this->type->typeSerialize(),
             'language_code'      => $this->languageCode,
@@ -239,6 +248,11 @@ class User extends TdObject
     public function getIsScam(): bool
     {
         return $this->isScam;
+    }
+
+    public function getIsFake(): bool
+    {
+        return $this->isFake;
     }
 
     public function getHaveAccess(): bool

@@ -16,7 +16,7 @@ class AddLogMessage extends TdFunction
     public const TYPE_NAME = 'addLogMessage';
 
     /**
-     * The minimum verbosity level needed for the message to be logged, 0-1023.
+     * The minimum verbosity level needed for the message to be logged; 0-1023.
      */
     protected int $verbosityLevel;
 

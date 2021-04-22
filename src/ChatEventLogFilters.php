@@ -65,6 +65,16 @@ class ChatEventLogFilters extends TdObject
      */
     protected bool $settingChanges;
 
+    /**
+     * True, if changes to invite links should be returned.
+     */
+    protected bool $inviteLinkChanges;
+
+    /**
+     * True, if voice chat actions should be returned.
+     */
+    protected bool $voiceChatChanges;
+
     public function __construct(
         bool $messageEdits,
         bool $messageDeletions,
@@ -75,7 +85,9 @@ class ChatEventLogFilters extends TdObject
         bool $memberPromotions,
         bool $memberRestrictions,
         bool $infoChanges,
-        bool $settingChanges
+        bool $settingChanges,
+        bool $inviteLinkChanges,
+        bool $voiceChatChanges
     ) {
         $this->messageEdits       = $messageEdits;
         $this->messageDeletions   = $messageDeletions;
@@ -87,6 +99,8 @@ class ChatEventLogFilters extends TdObject
         $this->memberRestrictions = $memberRestrictions;
         $this->infoChanges        = $infoChanges;
         $this->settingChanges     = $settingChanges;
+        $this->inviteLinkChanges  = $inviteLinkChanges;
+        $this->voiceChatChanges   = $voiceChatChanges;
     }
 
     public static function fromArray(array $array): ChatEventLogFilters
@@ -102,6 +116,8 @@ class ChatEventLogFilters extends TdObject
             $array['member_restrictions'],
             $array['info_changes'],
             $array['setting_changes'],
+            $array['invite_link_changes'],
+            $array['voice_chat_changes'],
         );
     }
 
@@ -119,6 +135,8 @@ class ChatEventLogFilters extends TdObject
             'member_restrictions' => $this->memberRestrictions,
             'info_changes'        => $this->infoChanges,
             'setting_changes'     => $this->settingChanges,
+            'invite_link_changes' => $this->inviteLinkChanges,
+            'voice_chat_changes'  => $this->voiceChatChanges,
         ];
     }
 
@@ -170,5 +188,15 @@ class ChatEventLogFilters extends TdObject
     public function getSettingChanges(): bool
     {
         return $this->settingChanges;
+    }
+
+    public function getInviteLinkChanges(): bool
+    {
+        return $this->inviteLinkChanges;
+    }
+
+    public function getVoiceChatChanges(): bool
+    {
+        return $this->voiceChatChanges;
     }
 }

@@ -36,6 +36,13 @@ class StickerSet extends TdObject
     protected ?Thumbnail $thumbnail;
 
     /**
+     * Sticker set thumbnail's outline represented as a list of closed vector paths; may be empty. The coordinate system origin is in the upper-left corner.
+     *
+     * @var ClosedVectorPath[]
+     */
+    protected array $thumbnailOutline;
+
+    /**
      * True, if the sticker set has been installed by the current user.
      */
     protected bool $isInstalled;
@@ -84,6 +91,7 @@ class StickerSet extends TdObject
         string $title,
         string $name,
         ?Thumbnail $thumbnail,
+        array $thumbnailOutline,
         bool $isInstalled,
         bool $isArchived,
         bool $isOfficial,
@@ -93,18 +101,19 @@ class StickerSet extends TdObject
         array $stickers,
         array $emojis
     ) {
-        $this->id          = $id;
-        $this->title       = $title;
-        $this->name        = $name;
-        $this->thumbnail   = $thumbnail;
-        $this->isInstalled = $isInstalled;
-        $this->isArchived  = $isArchived;
-        $this->isOfficial  = $isOfficial;
-        $this->isAnimated  = $isAnimated;
-        $this->isMasks     = $isMasks;
-        $this->isViewed    = $isViewed;
-        $this->stickers    = $stickers;
-        $this->emojis      = $emojis;
+        $this->id               = $id;
+        $this->title            = $title;
+        $this->name             = $name;
+        $this->thumbnail        = $thumbnail;
+        $this->thumbnailOutline = $thumbnailOutline;
+        $this->isInstalled      = $isInstalled;
+        $this->isArchived       = $isArchived;
+        $this->isOfficial       = $isOfficial;
+        $this->isAnimated       = $isAnimated;
+        $this->isMasks          = $isMasks;
+        $this->isViewed         = $isViewed;
+        $this->stickers         = $stickers;
+        $this->emojis           = $emojis;
     }
 
     public static function fromArray(array $array): StickerSet
@@ -114,6 +123,7 @@ class StickerSet extends TdObject
             $array['title'],
             $array['name'],
             (isset($array['thumbnail']) ? TdSchemaRegistry::fromArray($array['thumbnail']) : null),
+            array_map(fn ($x) => TdSchemaRegistry::fromArray($x), $array['thumbnail_outline']),
             $array['is_installed'],
             $array['is_archived'],
             $array['is_official'],
@@ -133,6 +143,7 @@ class StickerSet extends TdObject
             'title'           => $this->title,
             'name'            => $this->name,
             'thumbnail'       => (isset($this->thumbnail) ? $this->thumbnail : null),
+            array_map(fn ($x) => $x->typeSerialize(), $this->thumbnailOutline),
             'is_installed'    => $this->isInstalled,
             'is_archived'     => $this->isArchived,
             'is_official'     => $this->isOfficial,
@@ -162,6 +173,11 @@ class StickerSet extends TdObject
     public function getThumbnail(): ?Thumbnail
     {
         return $this->thumbnail;
+    }
+
+    public function getThumbnailOutline(): array
+    {
+        return $this->thumbnailOutline;
     }
 
     public function getIsInstalled(): bool

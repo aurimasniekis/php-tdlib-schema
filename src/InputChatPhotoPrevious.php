@@ -16,7 +16,7 @@ class InputChatPhotoPrevious extends InputChatPhoto
     public const TYPE_NAME = 'inputChatPhotoPrevious';
 
     /**
-     * Identifier of the profile photo to reuse.
+     * Identifier of the current user's profile photo to reuse.
      */
     protected string $chatPhotoId;
 

@@ -9,14 +9,14 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * The TTL (Time To Live) setting messages in a secret chat has been changed.
+ * The TTL (Time To Live) setting for messages in the chat has been changed.
  */
 class MessageChatSetTtl extends MessageContent
 {
     public const TYPE_NAME = 'messageChatSetTtl';
 
     /**
-     * New TTL.
+     * New message TTL setting.
      */
     protected int $ttl;
 

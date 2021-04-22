@@ -9,7 +9,7 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Removes current user from chat members. Private and secret chats can't be left using this method.
+ * Removes the current user from chat members. Private and secret chats can't be left using this method.
  */
 class LeaveChat extends TdFunction
 {

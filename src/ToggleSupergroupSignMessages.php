@@ -9,7 +9,7 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Toggles sender signatures messages sent in a channel; requires can_change_info rights.
+ * Toggles sender signatures messages sent in a channel; requires can_change_info administrator right.
  */
 class ToggleSupergroupSignMessages extends TdFunction
 {

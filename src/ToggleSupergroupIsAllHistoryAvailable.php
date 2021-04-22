@@ -9,7 +9,7 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Toggles whether the message history of a supergroup is available to new members; requires can_change_info rights.
+ * Toggles whether the message history of a supergroup is available to new members; requires can_change_info administrator right.
  */
 class ToggleSupergroupIsAllHistoryAvailable extends TdFunction
 {
