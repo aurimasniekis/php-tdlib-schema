@@ -9,7 +9,7 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Resets list of installed backgrounds to its default value.
+ * Resets list of installed backgrounds to its default value
  */
 class ResetBackgrounds extends TdFunction
 {

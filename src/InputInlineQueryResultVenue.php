@@ -9,44 +9,58 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Represents information about a venue.
+ * Represents information about a venue
  */
 class InputInlineQueryResultVenue extends InputInlineQueryResult
 {
     public const TYPE_NAME = 'inputInlineQueryResultVenue';
 
     /**
-     * Unique identifier of the query result.
+     * Unique identifier of the query result
+     *
+     * @var string
      */
     protected string $id;
 
     /**
-     * Venue result.
+     * Venue result
+     *
+     * @var Venue
      */
     protected Venue $venue;
 
     /**
-     * URL of the result thumbnail, if it exists.
+     * URL of the result thumbnail, if it exists
+     *
+     * @var string
      */
     protected string $thumbnailUrl;
 
     /**
-     * Thumbnail width, if known.
+     * Thumbnail width, if known
+     *
+     * @var int
      */
     protected int $thumbnailWidth;
 
     /**
-     * Thumbnail height, if known.
+     * Thumbnail height, if known
+     *
+     * @var int
      */
     protected int $thumbnailHeight;
 
     /**
-     * The message reply markup. Must be of type replyMarkupInlineKeyboard or null.
+     * The message reply markup; pass null if none. Must be of type replyMarkupInlineKeyboard or null
+     *
+     * @var ReplyMarkup
      */
     protected ReplyMarkup $replyMarkup;
 
     /**
-     * The content of the message to be sent. Must be one of the following types: InputMessageText, InputMessageLocation, InputMessageVenue or InputMessageContact.
+     * The content of the message to be sent. Must be one of the following types: inputMessageText, inputMessageInvoice, inputMessageLocation, inputMessageVenue or inputMessageContact
+     *
+     * @var InputMessageContent
      */
     protected InputMessageContent $inputMessageContent;
 
@@ -61,12 +75,12 @@ class InputInlineQueryResultVenue extends InputInlineQueryResult
     ) {
         parent::__construct();
 
-        $this->id                  = $id;
-        $this->venue               = $venue;
-        $this->thumbnailUrl        = $thumbnailUrl;
-        $this->thumbnailWidth      = $thumbnailWidth;
-        $this->thumbnailHeight     = $thumbnailHeight;
-        $this->replyMarkup         = $replyMarkup;
+        $this->id = $id;
+        $this->venue = $venue;
+        $this->thumbnailUrl = $thumbnailUrl;
+        $this->thumbnailWidth = $thumbnailWidth;
+        $this->thumbnailHeight = $thumbnailHeight;
+        $this->replyMarkup = $replyMarkup;
         $this->inputMessageContent = $inputMessageContent;
     }
 
@@ -86,13 +100,13 @@ class InputInlineQueryResultVenue extends InputInlineQueryResult
     public function typeSerialize(): array
     {
         return [
-            '@type'                 => static::TYPE_NAME,
-            'id'                    => $this->id,
-            'venue'                 => $this->venue->typeSerialize(),
-            'thumbnail_url'         => $this->thumbnailUrl,
-            'thumbnail_width'       => $this->thumbnailWidth,
-            'thumbnail_height'      => $this->thumbnailHeight,
-            'reply_markup'          => $this->replyMarkup->typeSerialize(),
+            '@type' => static::TYPE_NAME,
+            'id' => $this->id,
+            'venue' => $this->venue->typeSerialize(),
+            'thumbnail_url' => $this->thumbnailUrl,
+            'thumbnail_width' => $this->thumbnailWidth,
+            'thumbnail_height' => $this->thumbnailHeight,
+            'reply_markup' => $this->replyMarkup->typeSerialize(),
             'input_message_content' => $this->inputMessageContent->typeSerialize(),
         ];
     }

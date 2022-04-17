@@ -9,14 +9,16 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Returns a 2-step verification recovery email address that was previously set up. This method can be used to verify a password provided by the user.
+ * Returns a 2-step verification recovery email address that was previously set up. This method can be used to verify a password provided by the user
  */
 class GetRecoveryEmailAddress extends TdFunction
 {
     public const TYPE_NAME = 'getRecoveryEmailAddress';
 
     /**
-     * The password for the current user.
+     * The password for the current user
+     *
+     * @var string
      */
     protected string $password;
 
@@ -35,7 +37,7 @@ class GetRecoveryEmailAddress extends TdFunction
     public function typeSerialize(): array
     {
         return [
-            '@type'    => static::TYPE_NAME,
+            '@type' => static::TYPE_NAME,
             'password' => $this->password,
         ];
     }

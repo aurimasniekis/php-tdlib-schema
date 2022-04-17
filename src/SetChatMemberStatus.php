@@ -9,31 +9,37 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Changes the status of a chat member, needs appropriate privileges. This function is currently not suitable for adding new members to the chat and transferring chat ownership; instead, use addChatMember or transferChatOwnership.
+ * Changes the status of a chat member, needs appropriate privileges. This function is currently not suitable for transferring chat ownership; use transferChatOwnership instead. Use addChatMember or banChatMember if some additional parameters needs to be passed
  */
 class SetChatMemberStatus extends TdFunction
 {
     public const TYPE_NAME = 'setChatMemberStatus';
 
     /**
-     * Chat identifier.
+     * Chat identifier
+     *
+     * @var int
      */
     protected int $chatId;
 
     /**
-     * User identifier.
+     * Member identifier. Chats can be only banned and unbanned in supergroups and channels
+     *
+     * @var MessageSender
      */
-    protected int $userId;
+    protected MessageSender $memberId;
 
     /**
-     * The new status of the member in the chat.
+     * The new status of the member in the chat
+     *
+     * @var ChatMemberStatus
      */
     protected ChatMemberStatus $status;
 
-    public function __construct(int $chatId, int $userId, ChatMemberStatus $status)
+    public function __construct(int $chatId, MessageSender $memberId, ChatMemberStatus $status)
     {
         $this->chatId = $chatId;
-        $this->userId = $userId;
+        $this->memberId = $memberId;
         $this->status = $status;
     }
 
@@ -41,7 +47,7 @@ class SetChatMemberStatus extends TdFunction
     {
         return new static(
             $array['chat_id'],
-            $array['user_id'],
+            TdSchemaRegistry::fromArray($array['member_id']),
             TdSchemaRegistry::fromArray($array['status']),
         );
     }
@@ -49,10 +55,10 @@ class SetChatMemberStatus extends TdFunction
     public function typeSerialize(): array
     {
         return [
-            '@type'   => static::TYPE_NAME,
+            '@type' => static::TYPE_NAME,
             'chat_id' => $this->chatId,
-            'user_id' => $this->userId,
-            'status'  => $this->status->typeSerialize(),
+            'member_id' => $this->memberId->typeSerialize(),
+            'status' => $this->status->typeSerialize(),
         ];
     }
 
@@ -61,9 +67,9 @@ class SetChatMemberStatus extends TdFunction
         return $this->chatId;
     }
 
-    public function getUserId(): int
+    public function getMemberId(): MessageSender
     {
-        return $this->userId;
+        return $this->memberId;
     }
 
     public function getStatus(): ChatMemberStatus

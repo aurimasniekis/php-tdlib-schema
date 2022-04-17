@@ -9,19 +9,23 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * The message was originally sent by an anonymous chat administrator on behalf of the chat.
+ * The message was originally sent on behalf of a chat
  */
 class MessageForwardOriginChat extends MessageForwardOrigin
 {
     public const TYPE_NAME = 'messageForwardOriginChat';
 
     /**
-     * Identifier of the chat that originally sent the message.
+     * Identifier of the chat that originally sent the message
+     *
+     * @var int
      */
     protected int $senderChatId;
 
     /**
-     * Original message author signature.
+     * For messages originally sent by an anonymous chat administrator, original message author signature
+     *
+     * @var string
      */
     protected string $authorSignature;
 
@@ -29,7 +33,7 @@ class MessageForwardOriginChat extends MessageForwardOrigin
     {
         parent::__construct();
 
-        $this->senderChatId    = $senderChatId;
+        $this->senderChatId = $senderChatId;
         $this->authorSignature = $authorSignature;
     }
 
@@ -44,8 +48,8 @@ class MessageForwardOriginChat extends MessageForwardOrigin
     public function typeSerialize(): array
     {
         return [
-            '@type'            => static::TYPE_NAME,
-            'sender_chat_id'   => $this->senderChatId,
+            '@type' => static::TYPE_NAME,
+            'sender_chat_id' => $this->senderChatId,
             'author_signature' => $this->authorSignature,
         ];
     }

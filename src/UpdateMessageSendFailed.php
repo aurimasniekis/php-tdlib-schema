@@ -9,29 +9,37 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * A message failed to send. Be aware that some messages being sent can be irrecoverably deleted, in which case updateDeleteMessages will be received instead of this update.
+ * A message failed to send. Be aware that some messages being sent can be irrecoverably deleted, in which case updateDeleteMessages will be received instead of this update
  */
 class UpdateMessageSendFailed extends Update
 {
     public const TYPE_NAME = 'updateMessageSendFailed';
 
     /**
-     * Contains information about the message which failed to send.
+     * The failed to send message
+     *
+     * @var Message
      */
     protected Message $message;
 
     /**
-     * The previous temporary message identifier.
+     * The previous temporary message identifier
+     *
+     * @var int
      */
     protected int $oldMessageId;
 
     /**
-     * An error code.
+     * An error code
+     *
+     * @var int
      */
     protected int $errorCode;
 
     /**
-     * Error message.
+     * Error message
+     *
+     * @var string
      */
     protected string $errorMessage;
 
@@ -39,9 +47,9 @@ class UpdateMessageSendFailed extends Update
     {
         parent::__construct();
 
-        $this->message      = $message;
+        $this->message = $message;
         $this->oldMessageId = $oldMessageId;
-        $this->errorCode    = $errorCode;
+        $this->errorCode = $errorCode;
         $this->errorMessage = $errorMessage;
     }
 
@@ -58,11 +66,11 @@ class UpdateMessageSendFailed extends Update
     public function typeSerialize(): array
     {
         return [
-            '@type'          => static::TYPE_NAME,
-            'message'        => $this->message->typeSerialize(),
+            '@type' => static::TYPE_NAME,
+            'message' => $this->message->typeSerialize(),
             'old_message_id' => $this->oldMessageId,
-            'error_code'     => $this->errorCode,
-            'error_message'  => $this->errorMessage,
+            'error_code' => $this->errorCode,
+            'error_message' => $this->errorMessage,
         ];
     }
 

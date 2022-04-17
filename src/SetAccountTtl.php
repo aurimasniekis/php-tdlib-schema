@@ -9,14 +9,16 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Changes the period of inactivity after which the account of the current user will automatically be deleted.
+ * Changes the period of inactivity after which the account of the current user will automatically be deleted
  */
 class SetAccountTtl extends TdFunction
 {
     public const TYPE_NAME = 'setAccountTtl';
 
     /**
-     * New account TTL.
+     * New account TTL
+     *
+     * @var AccountTtl
      */
     protected AccountTtl $ttl;
 
@@ -36,7 +38,7 @@ class SetAccountTtl extends TdFunction
     {
         return [
             '@type' => static::TYPE_NAME,
-            'ttl'   => $this->ttl->typeSerialize(),
+            'ttl' => $this->ttl->typeSerialize(),
         ];
     }
 

@@ -9,14 +9,16 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Changes the location of the current user. Needs to be called if GetOption("is_location_visible") is true and location changes for more than 1 kilometer.
+ * Changes the location of the current user. Needs to be called if GetOption("is_location_visible") is true and location changes for more than 1 kilometer
  */
 class SetLocation extends TdFunction
 {
     public const TYPE_NAME = 'setLocation';
 
     /**
-     * The new location of the user.
+     * The new location of the user
+     *
+     * @var Location
      */
     protected Location $location;
 
@@ -35,7 +37,7 @@ class SetLocation extends TdFunction
     public function typeSerialize(): array
     {
         return [
-            '@type'    => static::TYPE_NAME,
+            '@type' => static::TYPE_NAME,
             'location' => $this->location->typeSerialize(),
         ];
     }

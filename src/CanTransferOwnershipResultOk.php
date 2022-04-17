@@ -9,7 +9,7 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * The session can be used.
+ * The session can be used
  */
 class CanTransferOwnershipResultOk extends CanTransferOwnershipResult
 {

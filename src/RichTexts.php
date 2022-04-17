@@ -9,14 +9,14 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * A concatenation of rich texts.
+ * A concatenation of rich texts
  */
 class RichTexts extends RichText
 {
     public const TYPE_NAME = 'richTexts';
 
     /**
-     * Texts.
+     * Texts
      *
      * @var RichText[]
      */
@@ -32,15 +32,15 @@ class RichTexts extends RichText
     public static function fromArray(array $array): RichTexts
     {
         return new static(
-            array_map(fn ($x) => TdSchemaRegistry::fromArray($x), $array['texts']),
+            array_map(fn($x) => TdSchemaRegistry::fromArray($x), $array['texts']),
         );
     }
 
     public function typeSerialize(): array
     {
         return [
-            '@type'           => static::TYPE_NAME,
-            array_map(fn ($x) => $x->typeSerialize(), $this->texts),
+            '@type' => static::TYPE_NAME,
+            array_map(fn($x) => $x->typeSerialize(), $this->texts),
         ];
     }
 

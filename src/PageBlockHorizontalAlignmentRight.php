@@ -9,7 +9,7 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * The content should be right-aligned.
+ * The content must be right-aligned
  */
 class PageBlockHorizontalAlignmentRight extends PageBlockHorizontalAlignment
 {

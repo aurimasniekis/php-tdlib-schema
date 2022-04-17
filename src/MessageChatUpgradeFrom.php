@@ -9,19 +9,23 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * A supergroup has been created from a basic group.
+ * A supergroup has been created from a basic group
  */
 class MessageChatUpgradeFrom extends MessageContent
 {
     public const TYPE_NAME = 'messageChatUpgradeFrom';
 
     /**
-     * Title of the newly created supergroup.
+     * Title of the newly created supergroup
+     *
+     * @var string
      */
     protected string $title;
 
     /**
-     * The identifier of the original basic group.
+     * The identifier of the original basic group
+     *
+     * @var int
      */
     protected int $basicGroupId;
 
@@ -29,7 +33,7 @@ class MessageChatUpgradeFrom extends MessageContent
     {
         parent::__construct();
 
-        $this->title        = $title;
+        $this->title = $title;
         $this->basicGroupId = $basicGroupId;
     }
 
@@ -44,8 +48,8 @@ class MessageChatUpgradeFrom extends MessageContent
     public function typeSerialize(): array
     {
         return [
-            '@type'          => static::TYPE_NAME,
-            'title'          => $this->title,
+            '@type' => static::TYPE_NAME,
+            'title' => $this->title,
             'basic_group_id' => $this->basicGroupId,
         ];
     }

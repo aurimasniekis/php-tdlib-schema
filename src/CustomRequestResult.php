@@ -9,14 +9,16 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Contains the result of a custom request.
+ * Contains the result of a custom request
  */
 class CustomRequestResult extends TdObject
 {
     public const TYPE_NAME = 'customRequestResult';
 
     /**
-     * A JSON-serialized result.
+     * A JSON-serialized result
+     *
+     * @var string
      */
     protected string $result;
 
@@ -35,7 +37,7 @@ class CustomRequestResult extends TdObject
     public function typeSerialize(): array
     {
         return [
-            '@type'  => static::TYPE_NAME,
+            '@type' => static::TYPE_NAME,
             'result' => $this->result,
         ];
     }

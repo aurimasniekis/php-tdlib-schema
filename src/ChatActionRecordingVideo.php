@@ -9,7 +9,7 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * The user is recording a video.
+ * The user is recording a video
  */
 class ChatActionRecordingVideo extends ChatAction
 {

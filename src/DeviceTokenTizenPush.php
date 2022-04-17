@@ -9,14 +9,16 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * A token for Tizen Push Service.
+ * A token for Tizen Push Service
  */
 class DeviceTokenTizenPush extends DeviceToken
 {
     public const TYPE_NAME = 'deviceTokenTizenPush';
 
     /**
-     * Push service registration identifier; may be empty to de-register a device.
+     * Push service registration identifier; may be empty to deregister a device
+     *
+     * @var string
      */
     protected string $regId;
 
@@ -37,7 +39,7 @@ class DeviceTokenTizenPush extends DeviceToken
     public function typeSerialize(): array
     {
         return [
-            '@type'  => static::TYPE_NAME,
+            '@type' => static::TYPE_NAME,
             'reg_id' => $this->regId,
         ];
     }

@@ -9,14 +9,16 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Returns a globally unique push notification subscription identifier for identification of an account, which has received a push notification. Can be called synchronously.
+ * Returns a globally unique push notification subscription identifier for identification of an account, which has received a push notification. Can be called synchronously
  */
 class GetPushReceiverId extends TdFunction
 {
     public const TYPE_NAME = 'getPushReceiverId';
 
     /**
-     * JSON-encoded push notification payload.
+     * JSON-encoded push notification payload
+     *
+     * @var string
      */
     protected string $payload;
 
@@ -35,7 +37,7 @@ class GetPushReceiverId extends TdFunction
     public function typeSerialize(): array
     {
         return [
-            '@type'   => static::TYPE_NAME,
+            '@type' => static::TYPE_NAME,
             'payload' => $this->payload,
         ];
     }

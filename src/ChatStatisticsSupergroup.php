@@ -9,93 +9,119 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * A detailed statistics about a supergroup chat.
+ * A detailed statistics about a supergroup chat
  */
 class ChatStatisticsSupergroup extends ChatStatistics
 {
     public const TYPE_NAME = 'chatStatisticsSupergroup';
 
     /**
-     * A period to which the statistics applies.
+     * A period to which the statistics applies
+     *
+     * @var DateRange
      */
     protected DateRange $period;
 
     /**
-     * Number of members in the chat.
+     * Number of members in the chat
+     *
+     * @var StatisticalValue
      */
     protected StatisticalValue $memberCount;
 
     /**
-     * Number of messages sent to the chat.
+     * Number of messages sent to the chat
+     *
+     * @var StatisticalValue
      */
     protected StatisticalValue $messageCount;
 
     /**
-     * Number of users who viewed messages in the chat.
+     * Number of users who viewed messages in the chat
+     *
+     * @var StatisticalValue
      */
     protected StatisticalValue $viewerCount;
 
     /**
-     * Number of users who sent messages to the chat.
+     * Number of users who sent messages to the chat
+     *
+     * @var StatisticalValue
      */
     protected StatisticalValue $senderCount;
 
     /**
-     * A graph containing number of members in the chat.
+     * A graph containing number of members in the chat
+     *
+     * @var StatisticalGraph
      */
     protected StatisticalGraph $memberCountGraph;
 
     /**
-     * A graph containing number of members joined and left the chat.
+     * A graph containing number of members joined and left the chat
+     *
+     * @var StatisticalGraph
      */
     protected StatisticalGraph $joinGraph;
 
     /**
-     * A graph containing number of new member joins per source.
+     * A graph containing number of new member joins per source
+     *
+     * @var StatisticalGraph
      */
     protected StatisticalGraph $joinBySourceGraph;
 
     /**
-     * A graph containing distribution of active users per language.
+     * A graph containing distribution of active users per language
+     *
+     * @var StatisticalGraph
      */
     protected StatisticalGraph $languageGraph;
 
     /**
-     * A graph containing distribution of sent messages by content type.
+     * A graph containing distribution of sent messages by content type
+     *
+     * @var StatisticalGraph
      */
     protected StatisticalGraph $messageContentGraph;
 
     /**
-     * A graph containing number of different actions in the chat.
+     * A graph containing number of different actions in the chat
+     *
+     * @var StatisticalGraph
      */
     protected StatisticalGraph $actionGraph;
 
     /**
-     * A graph containing distribution of message views per hour.
+     * A graph containing distribution of message views per hour
+     *
+     * @var StatisticalGraph
      */
     protected StatisticalGraph $dayGraph;
 
     /**
-     * A graph containing distribution of message views per day of week.
+     * A graph containing distribution of message views per day of week
+     *
+     * @var StatisticalGraph
      */
     protected StatisticalGraph $weekGraph;
 
     /**
-     * List of users sent most messages in the last week.
+     * List of users sent most messages in the last week
      *
      * @var ChatStatisticsMessageSenderInfo[]
      */
     protected array $topSenders;
 
     /**
-     * List of most active administrators in the last week.
+     * List of most active administrators in the last week
      *
      * @var ChatStatisticsAdministratorActionsInfo[]
      */
     protected array $topAdministrators;
 
     /**
-     * List of most active inviters of new members in the last week.
+     * List of most active inviters of new members in the last week
      *
      * @var ChatStatisticsInviterInfo[]
      */
@@ -121,22 +147,22 @@ class ChatStatisticsSupergroup extends ChatStatistics
     ) {
         parent::__construct();
 
-        $this->period              = $period;
-        $this->memberCount         = $memberCount;
-        $this->messageCount        = $messageCount;
-        $this->viewerCount         = $viewerCount;
-        $this->senderCount         = $senderCount;
-        $this->memberCountGraph    = $memberCountGraph;
-        $this->joinGraph           = $joinGraph;
-        $this->joinBySourceGraph   = $joinBySourceGraph;
-        $this->languageGraph       = $languageGraph;
+        $this->period = $period;
+        $this->memberCount = $memberCount;
+        $this->messageCount = $messageCount;
+        $this->viewerCount = $viewerCount;
+        $this->senderCount = $senderCount;
+        $this->memberCountGraph = $memberCountGraph;
+        $this->joinGraph = $joinGraph;
+        $this->joinBySourceGraph = $joinBySourceGraph;
+        $this->languageGraph = $languageGraph;
         $this->messageContentGraph = $messageContentGraph;
-        $this->actionGraph         = $actionGraph;
-        $this->dayGraph            = $dayGraph;
-        $this->weekGraph           = $weekGraph;
-        $this->topSenders          = $topSenders;
-        $this->topAdministrators   = $topAdministrators;
-        $this->topInviters         = $topInviters;
+        $this->actionGraph = $actionGraph;
+        $this->dayGraph = $dayGraph;
+        $this->weekGraph = $weekGraph;
+        $this->topSenders = $topSenders;
+        $this->topAdministrators = $topAdministrators;
+        $this->topInviters = $topInviters;
     }
 
     public static function fromArray(array $array): ChatStatisticsSupergroup
@@ -155,32 +181,32 @@ class ChatStatisticsSupergroup extends ChatStatistics
             TdSchemaRegistry::fromArray($array['action_graph']),
             TdSchemaRegistry::fromArray($array['day_graph']),
             TdSchemaRegistry::fromArray($array['week_graph']),
-            array_map(fn ($x) => TdSchemaRegistry::fromArray($x), $array['top_senders']),
-            array_map(fn ($x) => TdSchemaRegistry::fromArray($x), $array['top_administrators']),
-            array_map(fn ($x) => TdSchemaRegistry::fromArray($x), $array['top_inviters']),
+            array_map(fn($x) => TdSchemaRegistry::fromArray($x), $array['top_senders']),
+            array_map(fn($x) => TdSchemaRegistry::fromArray($x), $array['top_administrators']),
+            array_map(fn($x) => TdSchemaRegistry::fromArray($x), $array['top_inviters']),
         );
     }
 
     public function typeSerialize(): array
     {
         return [
-            '@type'                 => static::TYPE_NAME,
-            'period'                => $this->period->typeSerialize(),
-            'member_count'          => $this->memberCount->typeSerialize(),
-            'message_count'         => $this->messageCount->typeSerialize(),
-            'viewer_count'          => $this->viewerCount->typeSerialize(),
-            'sender_count'          => $this->senderCount->typeSerialize(),
-            'member_count_graph'    => $this->memberCountGraph->typeSerialize(),
-            'join_graph'            => $this->joinGraph->typeSerialize(),
-            'join_by_source_graph'  => $this->joinBySourceGraph->typeSerialize(),
-            'language_graph'        => $this->languageGraph->typeSerialize(),
+            '@type' => static::TYPE_NAME,
+            'period' => $this->period->typeSerialize(),
+            'member_count' => $this->memberCount->typeSerialize(),
+            'message_count' => $this->messageCount->typeSerialize(),
+            'viewer_count' => $this->viewerCount->typeSerialize(),
+            'sender_count' => $this->senderCount->typeSerialize(),
+            'member_count_graph' => $this->memberCountGraph->typeSerialize(),
+            'join_graph' => $this->joinGraph->typeSerialize(),
+            'join_by_source_graph' => $this->joinBySourceGraph->typeSerialize(),
+            'language_graph' => $this->languageGraph->typeSerialize(),
             'message_content_graph' => $this->messageContentGraph->typeSerialize(),
-            'action_graph'          => $this->actionGraph->typeSerialize(),
-            'day_graph'             => $this->dayGraph->typeSerialize(),
-            'week_graph'            => $this->weekGraph->typeSerialize(),
-            array_map(fn ($x)       => $x->typeSerialize(), $this->topSenders),
-            array_map(fn ($x)       => $x->typeSerialize(), $this->topAdministrators),
-            array_map(fn ($x)       => $x->typeSerialize(), $this->topInviters),
+            'action_graph' => $this->actionGraph->typeSerialize(),
+            'day_graph' => $this->dayGraph->typeSerialize(),
+            'week_graph' => $this->weekGraph->typeSerialize(),
+            array_map(fn($x) => $x->typeSerialize(), $this->topSenders),
+            array_map(fn($x) => $x->typeSerialize(), $this->topAdministrators),
+            array_map(fn($x) => $x->typeSerialize(), $this->topInviters),
         ];
     }
 

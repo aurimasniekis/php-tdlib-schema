@@ -9,32 +9,38 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Searches for call messages. Returns the results in reverse chronological order (i. e., in order of decreasing message_id). For optimal performance the number of returned messages is chosen by the library.
+ * Searches for call messages. Returns the results in reverse chronological order (i. e., in order of decreasing message_id). For optimal performance, the number of returned messages is chosen by TDLib
  */
 class SearchCallMessages extends TdFunction
 {
     public const TYPE_NAME = 'searchCallMessages';
 
     /**
-     * Identifier of the message from which to search; use 0 to get results from the last message.
+     * Identifier of the message from which to search; use 0 to get results from the last message
+     *
+     * @var int
      */
     protected int $fromMessageId;
 
     /**
-     * The maximum number of messages to be returned; up to 100. Fewer messages may be returned than specified by the limit, even if the end of the message history has not been reached.
+     * The maximum number of messages to be returned; up to 100. For optimal performance, the number of returned messages is chosen by TDLib and can be smaller than the specified limit
+     *
+     * @var int
      */
     protected int $limit;
 
     /**
-     * If true, returns only messages with missed calls.
+     * If true, returns only messages with missed/declined calls
+     *
+     * @var bool
      */
     protected bool $onlyMissed;
 
     public function __construct(int $fromMessageId, int $limit, bool $onlyMissed)
     {
         $this->fromMessageId = $fromMessageId;
-        $this->limit         = $limit;
-        $this->onlyMissed    = $onlyMissed;
+        $this->limit = $limit;
+        $this->onlyMissed = $onlyMissed;
     }
 
     public static function fromArray(array $array): SearchCallMessages
@@ -49,10 +55,10 @@ class SearchCallMessages extends TdFunction
     public function typeSerialize(): array
     {
         return [
-            '@type'           => static::TYPE_NAME,
+            '@type' => static::TYPE_NAME,
             'from_message_id' => $this->fromMessageId,
-            'limit'           => $this->limit,
-            'only_missed'     => $this->onlyMissed,
+            'limit' => $this->limit,
+            'only_missed' => $this->onlyMissed,
         ];
     }
 

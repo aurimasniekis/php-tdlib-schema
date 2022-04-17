@@ -9,7 +9,7 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * The video was distorted.
+ * The video was distorted
  */
 class CallProblemDistortedVideo extends CallProblem
 {

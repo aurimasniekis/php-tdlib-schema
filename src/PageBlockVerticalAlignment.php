@@ -9,7 +9,7 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Describes a Vertical alignment of a table cell content.
+ * Describes a Vertical alignment of a table cell content
  */
 class PageBlockVerticalAlignment extends TdObject
 {

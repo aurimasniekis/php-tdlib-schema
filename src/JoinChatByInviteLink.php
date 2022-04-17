@@ -9,14 +9,16 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Uses an invite link to add the current user to the chat if possible.
+ * Uses an invite link to add the current user to the chat if possible
  */
 class JoinChatByInviteLink extends TdFunction
 {
     public const TYPE_NAME = 'joinChatByInviteLink';
 
     /**
-     * Invite link to import; must have URL "t.me", "telegram.me", or "telegram.dog" and query beginning with "/joinchat/" or "/+".
+     * Invite link to use
+     *
+     * @var string
      */
     protected string $inviteLink;
 
@@ -35,7 +37,7 @@ class JoinChatByInviteLink extends TdFunction
     public function typeSerialize(): array
     {
         return [
-            '@type'       => static::TYPE_NAME,
+            '@type' => static::TYPE_NAME,
             'invite_link' => $this->inviteLink,
         ];
     }

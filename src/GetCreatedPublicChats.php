@@ -9,14 +9,16 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Returns a list of public chats of the specified type, owned by the user.
+ * Returns a list of public chats of the specified type, owned by the user
  */
 class GetCreatedPublicChats extends TdFunction
 {
     public const TYPE_NAME = 'getCreatedPublicChats';
 
     /**
-     * Type of the public chats to return.
+     * Type of the public chats to return
+     *
+     * @var PublicChatType
      */
     protected PublicChatType $type;
 
@@ -36,7 +38,7 @@ class GetCreatedPublicChats extends TdFunction
     {
         return [
             '@type' => static::TYPE_NAME,
-            'type'  => $this->type->typeSerialize(),
+            'type' => $this->type->typeSerialize(),
         ];
     }
 

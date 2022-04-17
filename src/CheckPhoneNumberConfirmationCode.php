@@ -9,14 +9,16 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Checks phone number confirmation code.
+ * Checks phone number confirmation code
  */
 class CheckPhoneNumberConfirmationCode extends TdFunction
 {
     public const TYPE_NAME = 'checkPhoneNumberConfirmationCode';
 
     /**
-     * The phone number confirmation code.
+     * Confirmation code to check
+     *
+     * @var string
      */
     protected string $code;
 
@@ -36,7 +38,7 @@ class CheckPhoneNumberConfirmationCode extends TdFunction
     {
         return [
             '@type' => static::TYPE_NAME,
-            'code'  => $this->code,
+            'code' => $this->code,
         ];
     }
 

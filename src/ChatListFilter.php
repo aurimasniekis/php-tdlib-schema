@@ -9,14 +9,16 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * A list of chats belonging to a chat filter.
+ * A list of chats belonging to a chat filter
  */
 class ChatListFilter extends ChatList
 {
     public const TYPE_NAME = 'chatListFilter';
 
     /**
-     * Chat filter identifier.
+     * Chat filter identifier
+     *
+     * @var int
      */
     protected int $chatFilterId;
 
@@ -37,7 +39,7 @@ class ChatListFilter extends ChatList
     public function typeSerialize(): array
     {
         return [
-            '@type'          => static::TYPE_NAME,
+            '@type' => static::TYPE_NAME,
             'chat_filter_id' => $this->chatFilterId,
         ];
     }

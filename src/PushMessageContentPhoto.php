@@ -9,29 +9,37 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * A photo message.
+ * A photo message
  */
 class PushMessageContentPhoto extends PushMessageContent
 {
     public const TYPE_NAME = 'pushMessageContentPhoto';
 
     /**
-     * Message content; may be null.
+     * Message content; may be null
+     *
+     * @var Photo|null
      */
     protected ?Photo $photo;
 
     /**
-     * Photo caption.
+     * Photo caption
+     *
+     * @var string
      */
     protected string $caption;
 
     /**
-     * True, if the photo is secret.
+     * True, if the photo is secret
+     *
+     * @var bool
      */
     protected bool $isSecret;
 
     /**
-     * True, if the message is a pinned message with the specified content.
+     * True, if the message is a pinned message with the specified content
+     *
+     * @var bool
      */
     protected bool $isPinned;
 
@@ -39,8 +47,8 @@ class PushMessageContentPhoto extends PushMessageContent
     {
         parent::__construct();
 
-        $this->photo    = $photo;
-        $this->caption  = $caption;
+        $this->photo = $photo;
+        $this->caption = $caption;
         $this->isSecret = $isSecret;
         $this->isPinned = $isPinned;
     }
@@ -58,9 +66,9 @@ class PushMessageContentPhoto extends PushMessageContent
     public function typeSerialize(): array
     {
         return [
-            '@type'     => static::TYPE_NAME,
-            'photo'     => (isset($this->photo) ? $this->photo : null),
-            'caption'   => $this->caption,
+            '@type' => static::TYPE_NAME,
+            'photo' => (isset($this->photo) ? $this->photo : null),
+            'caption' => $this->caption,
             'is_secret' => $this->isSecret,
             'is_pinned' => $this->isPinned,
         ];

@@ -9,7 +9,7 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * The content should be middle-aligned.
+ * The content must be middle-aligned
  */
 class PageBlockVerticalAlignmentMiddle extends PageBlockVerticalAlignment
 {

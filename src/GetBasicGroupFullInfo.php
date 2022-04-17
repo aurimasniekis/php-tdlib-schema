@@ -9,14 +9,16 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Returns full information about a basic group by its identifier.
+ * Returns full information about a basic group by its identifier
  */
 class GetBasicGroupFullInfo extends TdFunction
 {
     public const TYPE_NAME = 'getBasicGroupFullInfo';
 
     /**
-     * Basic group identifier.
+     * Basic group identifier
+     *
+     * @var int
      */
     protected int $basicGroupId;
 
@@ -35,7 +37,7 @@ class GetBasicGroupFullInfo extends TdFunction
     public function typeSerialize(): array
     {
         return [
-            '@type'          => static::TYPE_NAME,
+            '@type' => static::TYPE_NAME,
             'basic_group_id' => $this->basicGroupId,
         ];
     }

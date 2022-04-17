@@ -9,7 +9,7 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * A category containing frequently used channels.
+ * A category containing frequently used channels
  */
 class TopChatCategoryChannels extends TopChatCategory
 {

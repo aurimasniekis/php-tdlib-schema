@@ -9,19 +9,23 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * The selected background has changed.
+ * The selected background has changed
  */
 class UpdateSelectedBackground extends Update
 {
     public const TYPE_NAME = 'updateSelectedBackground';
 
     /**
-     * True, if background for dark theme has changed.
+     * True, if background for dark theme has changed
+     *
+     * @var bool
      */
     protected bool $forDarkTheme;
 
     /**
-     * The new selected background; may be null.
+     * The new selected background; may be null
+     *
+     * @var Background|null
      */
     protected ?Background $background;
 
@@ -30,7 +34,7 @@ class UpdateSelectedBackground extends Update
         parent::__construct();
 
         $this->forDarkTheme = $forDarkTheme;
-        $this->background   = $background;
+        $this->background = $background;
     }
 
     public static function fromArray(array $array): UpdateSelectedBackground
@@ -44,9 +48,9 @@ class UpdateSelectedBackground extends Update
     public function typeSerialize(): array
     {
         return [
-            '@type'          => static::TYPE_NAME,
+            '@type' => static::TYPE_NAME,
             'for_dark_theme' => $this->forDarkTheme,
-            'background'     => (isset($this->background) ? $this->background : null),
+            'background' => (isset($this->background) ? $this->background : null),
         ];
     }
 

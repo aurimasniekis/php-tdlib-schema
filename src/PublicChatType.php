@@ -9,7 +9,7 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Describes a type of public chats.
+ * Describes a type of public chats
  */
 class PublicChatType extends TdObject
 {

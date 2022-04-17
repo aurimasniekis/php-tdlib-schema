@@ -9,14 +9,16 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Represents a string JSON value.
+ * Represents a string JSON value
  */
 class JsonValueString extends JsonValue
 {
     public const TYPE_NAME = 'jsonValueString';
 
     /**
-     * The value.
+     * The value
+     *
+     * @var string
      */
     protected string $value;
 

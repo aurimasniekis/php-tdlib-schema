@@ -9,14 +9,16 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Contains a part of a file.
+ * Contains a part of a file
  */
 class FilePart extends TdObject
 {
     public const TYPE_NAME = 'filePart';
 
     /**
-     * File bytes.
+     * File bytes
+     *
+     * @var string
      */
     protected string $data;
 
@@ -36,7 +38,7 @@ class FilePart extends TdObject
     {
         return [
             '@type' => static::TYPE_NAME,
-            'data'  => $this->data,
+            'data' => $this->data,
         ];
     }
 

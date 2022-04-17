@@ -9,14 +9,16 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Disconnects website from the current user's Telegram account.
+ * Disconnects website from the current user's Telegram account
  */
 class DisconnectWebsite extends TdFunction
 {
     public const TYPE_NAME = 'disconnectWebsite';
 
     /**
-     * Website identifier.
+     * Website identifier
+     *
+     * @var string
      */
     protected string $websiteId;
 
@@ -35,7 +37,7 @@ class DisconnectWebsite extends TdFunction
     public function typeSerialize(): array
     {
         return [
-            '@type'      => static::TYPE_NAME,
+            '@type' => static::TYPE_NAME,
             'website_id' => $this->websiteId,
         ];
     }

@@ -9,7 +9,7 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Describes format of the thumbnail.
+ * Describes format of the thumbnail
  */
 class ThumbnailFormat extends TdObject
 {

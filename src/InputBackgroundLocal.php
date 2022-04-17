@@ -9,14 +9,16 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * A background from a local file.
+ * A background from a local file
  */
 class InputBackgroundLocal extends InputBackground
 {
     public const TYPE_NAME = 'inputBackgroundLocal';
 
     /**
-     * Background file to use. Only inputFileLocal and inputFileGenerated are supported. The file must be in JPEG format for wallpapers and in PNG format for patterns.
+     * Background file to use. Only inputFileLocal and inputFileGenerated are supported. The file must be in JPEG format for wallpapers and in PNG format for patterns
+     *
+     * @var InputFile
      */
     protected InputFile $background;
 
@@ -37,7 +39,7 @@ class InputBackgroundLocal extends InputBackground
     public function typeSerialize(): array
     {
         return [
-            '@type'      => static::TYPE_NAME,
+            '@type' => static::TYPE_NAME,
             'background' => $this->background->typeSerialize(),
         ];
     }

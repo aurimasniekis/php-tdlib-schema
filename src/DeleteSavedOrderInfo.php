@@ -9,7 +9,7 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Deletes saved order info.
+ * Deletes saved order info
  */
 class DeleteSavedOrderInfo extends TdFunction
 {

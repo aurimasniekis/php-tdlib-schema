@@ -9,39 +9,51 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Describes a venue.
+ * Describes a venue
  */
 class Venue extends TdObject
 {
     public const TYPE_NAME = 'venue';
 
     /**
-     * Venue location; as defined by the sender.
+     * Venue location; as defined by the sender
+     *
+     * @var Location
      */
     protected Location $location;
 
     /**
-     * Venue name; as defined by the sender.
+     * Venue name; as defined by the sender
+     *
+     * @var string
      */
     protected string $title;
 
     /**
-     * Venue address; as defined by the sender.
+     * Venue address; as defined by the sender
+     *
+     * @var string
      */
     protected string $address;
 
     /**
-     * Provider of the venue database; as defined by the sender. Currently only "foursquare" and "gplaces" (Google Places) need to be supported.
+     * Provider of the venue database; as defined by the sender. Currently, only "foursquare" and "gplaces" (Google Places) need to be supported
+     *
+     * @var string
      */
     protected string $provider;
 
     /**
-     * Identifier of the venue in the provider database; as defined by the sender.
+     * Identifier of the venue in the provider database; as defined by the sender
+     *
+     * @var string
      */
     protected string $id;
 
     /**
-     * Type of the venue in the provider database; as defined by the sender.
+     * Type of the venue in the provider database; as defined by the sender
+     *
+     * @var string
      */
     protected string $type;
 
@@ -54,11 +66,11 @@ class Venue extends TdObject
         string $type
     ) {
         $this->location = $location;
-        $this->title    = $title;
-        $this->address  = $address;
+        $this->title = $title;
+        $this->address = $address;
         $this->provider = $provider;
-        $this->id       = $id;
-        $this->type     = $type;
+        $this->id = $id;
+        $this->type = $type;
     }
 
     public static function fromArray(array $array): Venue
@@ -76,13 +88,13 @@ class Venue extends TdObject
     public function typeSerialize(): array
     {
         return [
-            '@type'    => static::TYPE_NAME,
+            '@type' => static::TYPE_NAME,
             'location' => $this->location->typeSerialize(),
-            'title'    => $this->title,
-            'address'  => $this->address,
+            'title' => $this->title,
+            'address' => $this->address,
             'provider' => $this->provider,
-            'id'       => $this->id,
-            'type'     => $this->type,
+            'id' => $this->id,
+            'type' => $this->type,
         ];
     }
 

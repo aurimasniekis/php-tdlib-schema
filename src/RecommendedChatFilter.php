@@ -9,25 +9,29 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Describes a recommended chat filter.
+ * Describes a recommended chat filter
  */
 class RecommendedChatFilter extends TdObject
 {
     public const TYPE_NAME = 'recommendedChatFilter';
 
     /**
-     * The chat filter.
+     * The chat filter
+     *
+     * @var ChatFilter
      */
     protected ChatFilter $filter;
 
     /**
-     * Chat filter description.
+     * Chat filter description
+     *
+     * @var string
      */
     protected string $description;
 
     public function __construct(ChatFilter $filter, string $description)
     {
-        $this->filter      = $filter;
+        $this->filter = $filter;
         $this->description = $description;
     }
 
@@ -42,8 +46,8 @@ class RecommendedChatFilter extends TdObject
     public function typeSerialize(): array
     {
         return [
-            '@type'       => static::TYPE_NAME,
-            'filter'      => $this->filter->typeSerialize(),
+            '@type' => static::TYPE_NAME,
+            'filter' => $this->filter->typeSerialize(),
             'description' => $this->description,
         ];
     }

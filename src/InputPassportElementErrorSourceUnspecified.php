@@ -9,14 +9,16 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * The element contains an error in an unspecified place. The error will be considered resolved when new data is added.
+ * The element contains an error in an unspecified place. The error will be considered resolved when new data is added
  */
 class InputPassportElementErrorSourceUnspecified extends InputPassportElementErrorSource
 {
     public const TYPE_NAME = 'inputPassportElementErrorSourceUnspecified';
 
     /**
-     * Current hash of the entire element.
+     * Current hash of the entire element
+     *
+     * @var string
      */
     protected string $elementHash;
 
@@ -37,7 +39,7 @@ class InputPassportElementErrorSourceUnspecified extends InputPassportElementErr
     public function typeSerialize(): array
     {
         return [
-            '@type'        => static::TYPE_NAME,
+            '@type' => static::TYPE_NAME,
             'element_hash' => $this->elementHash,
         ];
     }

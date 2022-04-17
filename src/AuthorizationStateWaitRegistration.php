@@ -9,14 +9,16 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * The user is unregistered and need to accept terms of service and enter their first name and last name to finish registration.
+ * The user is unregistered and need to accept terms of service and enter their first name and last name to finish registration
  */
 class AuthorizationStateWaitRegistration extends AuthorizationState
 {
     public const TYPE_NAME = 'authorizationStateWaitRegistration';
 
     /**
-     * Telegram terms of service.
+     * Telegram terms of service
+     *
+     * @var TermsOfService
      */
     protected TermsOfService $termsOfService;
 
@@ -37,7 +39,7 @@ class AuthorizationStateWaitRegistration extends AuthorizationState
     public function typeSerialize(): array
     {
         return [
-            '@type'            => static::TYPE_NAME,
+            '@type' => static::TYPE_NAME,
             'terms_of_service' => $this->termsOfService->typeSerialize(),
         ];
     }

@@ -9,14 +9,16 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Contains a counter.
+ * Contains a counter
  */
 class Count extends TdObject
 {
     public const TYPE_NAME = 'count';
 
     /**
-     * Count.
+     * Count
+     *
+     * @var int
      */
     protected int $count;
 

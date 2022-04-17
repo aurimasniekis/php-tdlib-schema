@@ -9,14 +9,16 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * An updated chat photo.
+ * An updated chat photo
  */
 class MessageChatChangePhoto extends MessageContent
 {
     public const TYPE_NAME = 'messageChatChangePhoto';
 
     /**
-     * New chat photo.
+     * New chat photo
+     *
+     * @var ChatPhoto
      */
     protected ChatPhoto $photo;
 

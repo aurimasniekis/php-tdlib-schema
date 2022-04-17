@@ -9,25 +9,29 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Changes the notification settings of a chat. Notification settings of a chat with the current user (Saved Messages) can't be changed.
+ * Changes the notification settings of a chat. Notification settings of a chat with the current user (Saved Messages) can't be changed
  */
 class SetChatNotificationSettings extends TdFunction
 {
     public const TYPE_NAME = 'setChatNotificationSettings';
 
     /**
-     * Chat identifier.
+     * Chat identifier
+     *
+     * @var int
      */
     protected int $chatId;
 
     /**
-     * New notification settings for the chat. If the chat is muted for more than 1 week, it is considered to be muted forever.
+     * New notification settings for the chat. If the chat is muted for more than 1 week, it is considered to be muted forever
+     *
+     * @var ChatNotificationSettings
      */
     protected ChatNotificationSettings $notificationSettings;
 
     public function __construct(int $chatId, ChatNotificationSettings $notificationSettings)
     {
-        $this->chatId               = $chatId;
+        $this->chatId = $chatId;
         $this->notificationSettings = $notificationSettings;
     }
 
@@ -42,8 +46,8 @@ class SetChatNotificationSettings extends TdFunction
     public function typeSerialize(): array
     {
         return [
-            '@type'                 => static::TYPE_NAME,
-            'chat_id'               => $this->chatId,
+            '@type' => static::TYPE_NAME,
+            'chat_id' => $this->chatId,
             'notification_settings' => $this->notificationSettings->typeSerialize(),
         ];
     }

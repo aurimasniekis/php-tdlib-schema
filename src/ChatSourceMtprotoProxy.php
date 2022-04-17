@@ -9,7 +9,7 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * The chat is sponsored by the user's MTProxy server.
+ * The chat is sponsored by the user's MTProxy server
  */
 class ChatSourceMtprotoProxy extends ChatSource
 {

@@ -9,29 +9,37 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Contains information about the total amount of data that was used for calls.
+ * Contains information about the total amount of data that was used for calls
  */
 class NetworkStatisticsEntryCall extends NetworkStatisticsEntry
 {
     public const TYPE_NAME = 'networkStatisticsEntryCall';
 
     /**
-     * Type of the network the data was sent through. Call setNetworkType to maintain the actual network type.
+     * Type of the network the data was sent through. Call setNetworkType to maintain the actual network type
+     *
+     * @var NetworkType
      */
     protected NetworkType $networkType;
 
     /**
-     * Total number of bytes sent.
+     * Total number of bytes sent
+     *
+     * @var int
      */
     protected int $sentBytes;
 
     /**
-     * Total number of bytes received.
+     * Total number of bytes received
+     *
+     * @var int
      */
     protected int $receivedBytes;
 
     /**
-     * Total call duration, in seconds.
+     * Total call duration, in seconds
+     *
+     * @var float
      */
     protected float $duration;
 
@@ -39,10 +47,10 @@ class NetworkStatisticsEntryCall extends NetworkStatisticsEntry
     {
         parent::__construct();
 
-        $this->networkType   = $networkType;
-        $this->sentBytes     = $sentBytes;
+        $this->networkType = $networkType;
+        $this->sentBytes = $sentBytes;
         $this->receivedBytes = $receivedBytes;
-        $this->duration      = $duration;
+        $this->duration = $duration;
     }
 
     public static function fromArray(array $array): NetworkStatisticsEntryCall
@@ -58,11 +66,11 @@ class NetworkStatisticsEntryCall extends NetworkStatisticsEntry
     public function typeSerialize(): array
     {
         return [
-            '@type'          => static::TYPE_NAME,
-            'network_type'   => $this->networkType->typeSerialize(),
-            'sent_bytes'     => $this->sentBytes,
+            '@type' => static::TYPE_NAME,
+            'network_type' => $this->networkType->typeSerialize(),
+            'sent_bytes' => $this->sentBytes,
             'received_bytes' => $this->receivedBytes,
-            'duration'       => $this->duration,
+            'duration' => $this->duration,
         ];
     }
 

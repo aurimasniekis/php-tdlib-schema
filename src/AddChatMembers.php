@@ -9,19 +9,21 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Adds multiple new members to a chat. Currently this method is only available for supergroups and channels. This method can't be used to join a chat. Members can't be added to a channel if it has more than 200 members.
+ * Adds multiple new members to a chat. Currently, this method is only available for supergroups and channels. This method can't be used to join a chat. Members can't be added to a channel if it has more than 200 members
  */
 class AddChatMembers extends TdFunction
 {
     public const TYPE_NAME = 'addChatMembers';
 
     /**
-     * Chat identifier.
+     * Chat identifier
+     *
+     * @var int
      */
     protected int $chatId;
 
     /**
-     * Identifiers of the users to be added to the chat. The maximum number of added users is 20 for supergroups and 100 for channels.
+     * Identifiers of the users to be added to the chat. The maximum number of added users is 20 for supergroups and 100 for channels
      *
      * @var int[]
      */
@@ -29,7 +31,7 @@ class AddChatMembers extends TdFunction
 
     public function __construct(int $chatId, array $userIds)
     {
-        $this->chatId  = $chatId;
+        $this->chatId = $chatId;
         $this->userIds = $userIds;
     }
 
@@ -44,8 +46,8 @@ class AddChatMembers extends TdFunction
     public function typeSerialize(): array
     {
         return [
-            '@type'    => static::TYPE_NAME,
-            'chat_id'  => $this->chatId,
+            '@type' => static::TYPE_NAME,
+            'chat_id' => $this->chatId,
             'user_ids' => $this->userIds,
         ];
     }

@@ -9,14 +9,16 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * The TTL (Time To Live) setting for messages in the chat has been changed.
+ * The TTL (Time To Live) setting for messages in the chat has been changed
  */
 class MessageChatSetTtl extends MessageContent
 {
     public const TYPE_NAME = 'messageChatSetTtl';
 
     /**
-     * New message TTL setting.
+     * New message TTL
+     *
+     * @var int
      */
     protected int $ttl;
 
@@ -38,7 +40,7 @@ class MessageChatSetTtl extends MessageContent
     {
         return [
             '@type' => static::TYPE_NAME,
-            'ttl'   => $this->ttl,
+            'ttl' => $this->ttl,
         ];
     }
 

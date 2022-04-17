@@ -9,14 +9,16 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * An authentication code is delivered via a private Telegram message, which can be viewed from another active session.
+ * An authentication code is delivered via a private Telegram message, which can be viewed from another active session
  */
 class AuthenticationCodeTypeTelegramMessage extends AuthenticationCodeType
 {
     public const TYPE_NAME = 'authenticationCodeTypeTelegramMessage';
 
     /**
-     * Length of the code.
+     * Length of the code
+     *
+     * @var int
      */
     protected int $length;
 
@@ -37,7 +39,7 @@ class AuthenticationCodeTypeTelegramMessage extends AuthenticationCodeType
     public function typeSerialize(): array
     {
         return [
-            '@type'  => static::TYPE_NAME,
+            '@type' => static::TYPE_NAME,
             'length' => $this->length,
         ];
     }

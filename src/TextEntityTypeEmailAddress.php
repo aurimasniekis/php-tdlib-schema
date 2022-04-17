@@ -9,7 +9,7 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * An email address.
+ * An email address
  */
 class TextEntityTypeEmailAddress extends TextEntityType
 {

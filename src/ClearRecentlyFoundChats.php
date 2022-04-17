@@ -9,7 +9,7 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Clears the list of recently found chats.
+ * Clears the list of recently found chats
  */
 class ClearRecentlyFoundChats extends TdFunction
 {

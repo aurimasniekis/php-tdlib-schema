@@ -9,19 +9,23 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Returns stickers from the installed sticker sets that correspond to a given emoji. If the emoji is not empty, favorite and recently used stickers may also be returned.
+ * Returns stickers from the installed sticker sets that correspond to a given emoji. If the emoji is non-empty, favorite and recently used stickers may also be returned
  */
 class GetStickers extends TdFunction
 {
     public const TYPE_NAME = 'getStickers';
 
     /**
-     * String representation of emoji. If empty, returns all known installed stickers.
+     * String representation of emoji. If empty, returns all known installed stickers
+     *
+     * @var string
      */
     protected string $emoji;
 
     /**
-     * The maximum number of stickers to be returned.
+     * The maximum number of stickers to be returned
+     *
+     * @var int
      */
     protected int $limit;
 

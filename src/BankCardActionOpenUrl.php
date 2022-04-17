@@ -9,26 +9,30 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Describes an action associated with a bank card number.
+ * Describes an action associated with a bank card number
  */
 class BankCardActionOpenUrl extends TdObject
 {
     public const TYPE_NAME = 'bankCardActionOpenUrl';
 
     /**
-     * Action text.
+     * Action text
+     *
+     * @var string
      */
     protected string $text;
 
     /**
-     * The URL to be opened.
+     * The URL to be opened
+     *
+     * @var string
      */
     protected string $url;
 
     public function __construct(string $text, string $url)
     {
         $this->text = $text;
-        $this->url  = $url;
+        $this->url = $url;
     }
 
     public static function fromArray(array $array): BankCardActionOpenUrl
@@ -43,8 +47,8 @@ class BankCardActionOpenUrl extends TdObject
     {
         return [
             '@type' => static::TYPE_NAME,
-            'text'  => $this->text,
-            'url'   => $this->url,
+            'text' => $this->text,
+            'url' => $this->url,
         ];
     }
 

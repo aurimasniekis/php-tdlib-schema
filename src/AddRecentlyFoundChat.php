@@ -9,14 +9,16 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Adds a chat to the list of recently found chats. The chat is added to the beginning of the list. If the chat is already in the list, it will be removed from the list first.
+ * Adds a chat to the list of recently found chats. The chat is added to the beginning of the list. If the chat is already in the list, it will be removed from the list first
  */
 class AddRecentlyFoundChat extends TdFunction
 {
     public const TYPE_NAME = 'addRecentlyFoundChat';
 
     /**
-     * Identifier of the chat to add.
+     * Identifier of the chat to add
+     *
+     * @var int
      */
     protected int $chatId;
 
@@ -35,7 +37,7 @@ class AddRecentlyFoundChat extends TdFunction
     public function typeSerialize(): array
     {
         return [
-            '@type'   => static::TYPE_NAME,
+            '@type' => static::TYPE_NAME,
             'chat_id' => $this->chatId,
         ];
     }

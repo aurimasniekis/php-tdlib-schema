@@ -9,24 +9,30 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * A text message.
+ * A text message
  */
 class InputMessageText extends InputMessageContent
 {
     public const TYPE_NAME = 'inputMessageText';
 
     /**
-     * Formatted text to be sent; 1-GetOption("message_text_length_max") characters. Only Bold, Italic, Underline, Strikethrough, Code, Pre, PreCode, TextUrl and MentionName entities are allowed to be specified manually.
+     * Formatted text to be sent; 1-GetOption("message_text_length_max") characters. Only Bold, Italic, Underline, Strikethrough, Code, Pre, PreCode, TextUrl and MentionName entities are allowed to be specified manually
+     *
+     * @var FormattedText
      */
     protected FormattedText $text;
 
     /**
-     * True, if rich web page previews for URLs in the message text should be disabled.
+     * True, if rich web page previews for URLs in the message text must be disabled
+     *
+     * @var bool
      */
     protected bool $disableWebPagePreview;
 
     /**
-     * True, if a chat message draft should be deleted.
+     * True, if a chat message draft must be deleted
+     *
+     * @var bool
      */
     protected bool $clearDraft;
 
@@ -34,9 +40,9 @@ class InputMessageText extends InputMessageContent
     {
         parent::__construct();
 
-        $this->text                  = $text;
+        $this->text = $text;
         $this->disableWebPagePreview = $disableWebPagePreview;
-        $this->clearDraft            = $clearDraft;
+        $this->clearDraft = $clearDraft;
     }
 
     public static function fromArray(array $array): InputMessageText
@@ -51,10 +57,10 @@ class InputMessageText extends InputMessageContent
     public function typeSerialize(): array
     {
         return [
-            '@type'                    => static::TYPE_NAME,
-            'text'                     => $this->text->typeSerialize(),
+            '@type' => static::TYPE_NAME,
+            'text' => $this->text->typeSerialize(),
             'disable_web_page_preview' => $this->disableWebPagePreview,
-            'clear_draft'              => $this->clearDraft,
+            'clear_draft' => $this->clearDraft,
         ];
     }
 

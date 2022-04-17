@@ -9,19 +9,23 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * A voice note message.
+ * A voice note message
  */
 class PushMessageContentVoiceNote extends PushMessageContent
 {
     public const TYPE_NAME = 'pushMessageContentVoiceNote';
 
     /**
-     * Message content; may be null.
+     * Message content; may be null
+     *
+     * @var VoiceNote|null
      */
     protected ?VoiceNote $voiceNote;
 
     /**
-     * True, if the message is a pinned message with the specified content.
+     * True, if the message is a pinned message with the specified content
+     *
+     * @var bool
      */
     protected bool $isPinned;
 
@@ -30,7 +34,7 @@ class PushMessageContentVoiceNote extends PushMessageContent
         parent::__construct();
 
         $this->voiceNote = $voiceNote;
-        $this->isPinned  = $isPinned;
+        $this->isPinned = $isPinned;
     }
 
     public static function fromArray(array $array): PushMessageContentVoiceNote
@@ -44,9 +48,9 @@ class PushMessageContentVoiceNote extends PushMessageContent
     public function typeSerialize(): array
     {
         return [
-            '@type'      => static::TYPE_NAME,
+            '@type' => static::TYPE_NAME,
             'voice_note' => (isset($this->voiceNote) ? $this->voiceNote : null),
-            'is_pinned'  => $this->isPinned,
+            'is_pinned' => $this->isPinned,
         ];
     }
 

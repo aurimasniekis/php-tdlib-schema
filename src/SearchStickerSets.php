@@ -9,14 +9,16 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Searches for ordinary sticker sets by looking for specified query in their title and name. Excludes installed sticker sets from the results.
+ * Searches for ordinary sticker sets by looking for specified query in their title and name. Excludes installed sticker sets from the results
  */
 class SearchStickerSets extends TdFunction
 {
     public const TYPE_NAME = 'searchStickerSets';
 
     /**
-     * Query to search for.
+     * Query to search for
+     *
+     * @var string
      */
     protected string $query;
 

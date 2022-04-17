@@ -9,19 +9,23 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * A dice message.
+ * A dice message
  */
 class InputMessageDice extends InputMessageContent
 {
     public const TYPE_NAME = 'inputMessageDice';
 
     /**
-     * Emoji on which the dice throw animation is based.
+     * Emoji on which the dice throw animation is based
+     *
+     * @var string
      */
     protected string $emoji;
 
     /**
-     * True, if a chat message draft should be deleted.
+     * True, if the chat message draft must be deleted
+     *
+     * @var bool
      */
     protected bool $clearDraft;
 
@@ -29,7 +33,7 @@ class InputMessageDice extends InputMessageContent
     {
         parent::__construct();
 
-        $this->emoji      = $emoji;
+        $this->emoji = $emoji;
         $this->clearDraft = $clearDraft;
     }
 
@@ -44,8 +48,8 @@ class InputMessageDice extends InputMessageContent
     public function typeSerialize(): array
     {
         return [
-            '@type'       => static::TYPE_NAME,
-            'emoji'       => $this->emoji,
+            '@type' => static::TYPE_NAME,
+            'emoji' => $this->emoji,
             'clear_draft' => $this->clearDraft,
         ];
     }

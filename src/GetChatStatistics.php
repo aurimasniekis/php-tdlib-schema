@@ -9,19 +9,23 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Returns detailed statistics about a chat. Currently this method can be used only for supergroups and channels. Can be used only if SupergroupFullInfo.can_get_statistics == true.
+ * Returns detailed statistics about a chat. Currently, this method can be used only for supergroups and channels. Can be used only if supergroupFullInfo.can_get_statistics == true
  */
 class GetChatStatistics extends TdFunction
 {
     public const TYPE_NAME = 'getChatStatistics';
 
     /**
-     * Chat identifier.
+     * Chat identifier
+     *
+     * @var int
      */
     protected int $chatId;
 
     /**
-     * Pass true if a dark theme is used by the application.
+     * Pass true if a dark theme is used by the application
+     *
+     * @var bool
      */
     protected bool $isDark;
 
@@ -42,7 +46,7 @@ class GetChatStatistics extends TdFunction
     public function typeSerialize(): array
     {
         return [
-            '@type'   => static::TYPE_NAME,
+            '@type' => static::TYPE_NAME,
             'chat_id' => $this->chatId,
             'is_dark' => $this->isDark,
         ];

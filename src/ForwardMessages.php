@@ -9,43 +9,60 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Forwards previously sent messages. Returns the forwarded messages in the same order as the message identifiers passed in message_ids. If a message can't be forwarded, null will be returned instead of the message.
+ * Forwards previously sent messages. Returns the forwarded messages in the same order as the message identifiers passed in message_ids. If a message can't be forwarded, null will be returned instead of the message
  */
 class ForwardMessages extends TdFunction
 {
     public const TYPE_NAME = 'forwardMessages';
 
     /**
-     * Identifier of the chat to which to forward messages.
+     * Identifier of the chat to which to forward messages
+     *
+     * @var int
      */
     protected int $chatId;
 
     /**
-     * Identifier of the chat from which to forward messages.
+     * Identifier of the chat from which to forward messages
+     *
+     * @var int
      */
     protected int $fromChatId;
 
     /**
-     * Identifiers of the messages to forward. Message identifiers must be in a strictly increasing order. At most 100 messages can be forwarded simultaneously.
+     * Identifiers of the messages to forward. Message identifiers must be in a strictly increasing order. At most 100 messages can be forwarded simultaneously
      *
      * @var int[]
      */
     protected array $messageIds;
 
     /**
-     * Options to be used to send the messages.
+     * Options to be used to send the messages; pass null to use default options
+     *
+     * @var MessageSendOptions
      */
     protected MessageSendOptions $options;
 
     /**
-     * True, if content of the messages needs to be copied without links to the original messages. Always true if the messages are forwarded to a secret chat.
+     * If true, content of the messages will be copied without reference to the original sender. Always true if the messages are forwarded to a secret chat or are local
+     *
+     * @var bool
      */
     protected bool $sendCopy;
 
     /**
-     * True, if media caption of message copies needs to be removed. Ignored if send_copy is false.
+     * If true, media caption of message copies will be removed. Ignored if send_copy is false
+     *
+     * @var bool
      */
     protected bool $removeCaption;
+
+    /**
+     * If true, messages will not be forwarded and instead fake messages will be returned
+     *
+     * @var bool
+     */
+    protected bool $onlyPreview;
 
     public function __construct(
         int $chatId,
@@ -53,14 +70,16 @@ class ForwardMessages extends TdFunction
         array $messageIds,
         MessageSendOptions $options,
         bool $sendCopy,
-        bool $removeCaption
+        bool $removeCaption,
+        bool $onlyPreview
     ) {
-        $this->chatId        = $chatId;
-        $this->fromChatId    = $fromChatId;
-        $this->messageIds    = $messageIds;
-        $this->options       = $options;
-        $this->sendCopy      = $sendCopy;
+        $this->chatId = $chatId;
+        $this->fromChatId = $fromChatId;
+        $this->messageIds = $messageIds;
+        $this->options = $options;
+        $this->sendCopy = $sendCopy;
         $this->removeCaption = $removeCaption;
+        $this->onlyPreview = $onlyPreview;
     }
 
     public static function fromArray(array $array): ForwardMessages
@@ -72,19 +91,21 @@ class ForwardMessages extends TdFunction
             TdSchemaRegistry::fromArray($array['options']),
             $array['send_copy'],
             $array['remove_caption'],
+            $array['only_preview'],
         );
     }
 
     public function typeSerialize(): array
     {
         return [
-            '@type'          => static::TYPE_NAME,
-            'chat_id'        => $this->chatId,
-            'from_chat_id'   => $this->fromChatId,
-            'message_ids'    => $this->messageIds,
-            'options'        => $this->options->typeSerialize(),
-            'send_copy'      => $this->sendCopy,
+            '@type' => static::TYPE_NAME,
+            'chat_id' => $this->chatId,
+            'from_chat_id' => $this->fromChatId,
+            'message_ids' => $this->messageIds,
+            'options' => $this->options->typeSerialize(),
+            'send_copy' => $this->sendCopy,
             'remove_caption' => $this->removeCaption,
+            'only_preview' => $this->onlyPreview,
         ];
     }
 
@@ -116,5 +137,10 @@ class ForwardMessages extends TdFunction
     public function getRemoveCaption(): bool
     {
         return $this->removeCaption;
+    }
+
+    public function getOnlyPreview(): bool
+    {
+        return $this->onlyPreview;
     }
 }

@@ -9,14 +9,16 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * A token for Ubuntu Push Client service.
+ * A token for Ubuntu Push Client service
  */
 class DeviceTokenUbuntuPush extends DeviceToken
 {
     public const TYPE_NAME = 'deviceTokenUbuntuPush';
 
     /**
-     * Token; may be empty to de-register a device.
+     * Token; may be empty to deregister a device
+     *
+     * @var string
      */
     protected string $token;
 

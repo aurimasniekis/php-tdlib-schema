@@ -9,7 +9,7 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Returns all user contacts.
+ * Returns all user contacts
  */
 class GetContacts extends TdFunction
 {

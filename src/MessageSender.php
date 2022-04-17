@@ -9,7 +9,7 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Contains information about the sender of a message.
+ * Contains information about the sender of a message
  */
 class MessageSender extends TdObject
 {

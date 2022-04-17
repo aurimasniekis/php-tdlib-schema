@@ -9,38 +9,46 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Position on a photo where a mask should be placed.
+ * Position on a photo where a mask is placed
  */
 class MaskPosition extends TdObject
 {
     public const TYPE_NAME = 'maskPosition';
 
     /**
-     * Part of the face, relative to which the mask should be placed.
+     * Part of the face, relative to which the mask is placed
+     *
+     * @var MaskPoint
      */
     protected MaskPoint $point;
 
     /**
-     * Shift by X-axis measured in widths of the mask scaled to the face size, from left to right. (For example, -1.0 will place the mask just to the left of the default mask position).
+     * Shift by X-axis measured in widths of the mask scaled to the face size, from left to right. (For example, -1.0 will place the mask just to the left of the default mask position)
+     *
+     * @var float
      */
     protected float $xShift;
 
     /**
-     * Shift by Y-axis measured in heights of the mask scaled to the face size, from top to bottom. (For example, 1.0 will place the mask just below the default mask position).
+     * Shift by Y-axis measured in heights of the mask scaled to the face size, from top to bottom. (For example, 1.0 will place the mask just below the default mask position)
+     *
+     * @var float
      */
     protected float $yShift;
 
     /**
-     * Mask scaling coefficient. (For example, 2.0 means a doubled size).
+     * Mask scaling coefficient. (For example, 2.0 means a doubled size)
+     *
+     * @var float
      */
     protected float $scale;
 
     public function __construct(MaskPoint $point, float $xShift, float $yShift, float $scale)
     {
-        $this->point  = $point;
+        $this->point = $point;
         $this->xShift = $xShift;
         $this->yShift = $yShift;
-        $this->scale  = $scale;
+        $this->scale = $scale;
     }
 
     public static function fromArray(array $array): MaskPosition
@@ -56,11 +64,11 @@ class MaskPosition extends TdObject
     public function typeSerialize(): array
     {
         return [
-            '@type'   => static::TYPE_NAME,
-            'point'   => $this->point->typeSerialize(),
+            '@type' => static::TYPE_NAME,
+            'point' => $this->point->typeSerialize(),
             'x_shift' => $this->xShift,
             'y_shift' => $this->yShift,
-            'scale'   => $this->scale,
+            'scale' => $this->scale,
         ];
     }
 

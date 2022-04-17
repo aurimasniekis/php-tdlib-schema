@@ -9,14 +9,16 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * A sticker message.
+ * A sticker message
  */
 class MessageSticker extends MessageContent
 {
     public const TYPE_NAME = 'messageSticker';
 
     /**
-     * The sticker description.
+     * The sticker description
+     *
+     * @var Sticker
      */
     protected Sticker $sticker;
 
@@ -37,7 +39,7 @@ class MessageSticker extends MessageContent
     public function typeSerialize(): array
     {
         return [
-            '@type'   => static::TYPE_NAME,
+            '@type' => static::TYPE_NAME,
             'sticker' => $this->sticker->typeSerialize(),
         ];
     }

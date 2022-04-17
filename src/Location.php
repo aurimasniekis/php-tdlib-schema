@@ -9,31 +9,37 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Describes a location on planet Earth.
+ * Describes a location on planet Earth
  */
 class Location extends TdObject
 {
     public const TYPE_NAME = 'location';
 
     /**
-     * Latitude of the location in degrees; as defined by the sender.
+     * Latitude of the location in degrees; as defined by the sender
+     *
+     * @var float
      */
     protected float $latitude;
 
     /**
-     * Longitude of the location, in degrees; as defined by the sender.
+     * Longitude of the location, in degrees; as defined by the sender
+     *
+     * @var float
      */
     protected float $longitude;
 
     /**
-     * The estimated horizontal accuracy of the location, in meters; as defined by the sender. 0 if unknown.
+     * The estimated horizontal accuracy of the location, in meters; as defined by the sender. 0 if unknown
+     *
+     * @var float
      */
     protected float $horizontalAccuracy;
 
     public function __construct(float $latitude, float $longitude, float $horizontalAccuracy)
     {
-        $this->latitude           = $latitude;
-        $this->longitude          = $longitude;
+        $this->latitude = $latitude;
+        $this->longitude = $longitude;
         $this->horizontalAccuracy = $horizontalAccuracy;
     }
 
@@ -49,9 +55,9 @@ class Location extends TdObject
     public function typeSerialize(): array
     {
         return [
-            '@type'               => static::TYPE_NAME,
-            'latitude'            => $this->latitude,
-            'longitude'           => $this->longitude,
+            '@type' => static::TYPE_NAME,
+            'latitude' => $this->latitude,
+            'longitude' => $this->longitude,
             'horizontal_accuracy' => $this->horizontalAccuracy,
         ];
     }

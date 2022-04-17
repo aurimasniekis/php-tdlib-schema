@@ -9,14 +9,16 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * An error message to be shown to the user instead of the graph.
+ * An error message to be shown to the user instead of the graph
  */
 class StatisticalGraphError extends StatisticalGraph
 {
     public const TYPE_NAME = 'statisticalGraphError';
 
     /**
-     * The error message.
+     * The error message
+     *
+     * @var string
      */
     protected string $errorMessage;
 
@@ -37,7 +39,7 @@ class StatisticalGraphError extends StatisticalGraph
     public function typeSerialize(): array
     {
         return [
-            '@type'         => static::TYPE_NAME,
+            '@type' => static::TYPE_NAME,
             'error_message' => $this->errorMessage,
         ];
     }

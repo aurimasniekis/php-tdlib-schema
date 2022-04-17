@@ -9,24 +9,28 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * The last message of a chat was changed. If last_message is null, then the last message in the chat became unknown. Some new unknown messages might be added to the chat in this case.
+ * The last message of a chat was changed. If last_message is null, then the last message in the chat became unknown. Some new unknown messages might be added to the chat in this case
  */
 class UpdateChatLastMessage extends Update
 {
     public const TYPE_NAME = 'updateChatLastMessage';
 
     /**
-     * Chat identifier.
+     * Chat identifier
+     *
+     * @var int
      */
     protected int $chatId;
 
     /**
-     * The new last message in the chat; may be null.
+     * The new last message in the chat; may be null
+     *
+     * @var Message|null
      */
     protected ?Message $lastMessage;
 
     /**
-     * The new chat positions in the chat lists.
+     * The new chat positions in the chat lists
      *
      * @var ChatPosition[]
      */
@@ -36,9 +40,9 @@ class UpdateChatLastMessage extends Update
     {
         parent::__construct();
 
-        $this->chatId      = $chatId;
+        $this->chatId = $chatId;
         $this->lastMessage = $lastMessage;
-        $this->positions   = $positions;
+        $this->positions = $positions;
     }
 
     public static function fromArray(array $array): UpdateChatLastMessage
@@ -46,17 +50,17 @@ class UpdateChatLastMessage extends Update
         return new static(
             $array['chat_id'],
             (isset($array['last_message']) ? TdSchemaRegistry::fromArray($array['last_message']) : null),
-            array_map(fn ($x) => TdSchemaRegistry::fromArray($x), $array['positions']),
+            array_map(fn($x) => TdSchemaRegistry::fromArray($x), $array['positions']),
         );
     }
 
     public function typeSerialize(): array
     {
         return [
-            '@type'           => static::TYPE_NAME,
-            'chat_id'         => $this->chatId,
-            'last_message'    => (isset($this->lastMessage) ? $this->lastMessage : null),
-            array_map(fn ($x) => $x->typeSerialize(), $this->positions),
+            '@type' => static::TYPE_NAME,
+            'chat_id' => $this->chatId,
+            'last_message' => (isset($this->lastMessage) ? $this->lastMessage : null),
+            array_map(fn($x) => $x->typeSerialize(), $this->positions),
         ];
     }
 

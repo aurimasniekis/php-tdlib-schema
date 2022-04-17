@@ -9,26 +9,30 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Information about the email address authentication code that was sent.
+ * Information about the email address authentication code that was sent
  */
 class EmailAddressAuthenticationCodeInfo extends TdObject
 {
     public const TYPE_NAME = 'emailAddressAuthenticationCodeInfo';
 
     /**
-     * Pattern of the email address to which an authentication code was sent.
+     * Pattern of the email address to which an authentication code was sent
+     *
+     * @var string
      */
     protected string $emailAddressPattern;
 
     /**
-     * Length of the code; 0 if unknown.
+     * Length of the code; 0 if unknown
+     *
+     * @var int
      */
     protected int $length;
 
     public function __construct(string $emailAddressPattern, int $length)
     {
         $this->emailAddressPattern = $emailAddressPattern;
-        $this->length              = $length;
+        $this->length = $length;
     }
 
     public static function fromArray(array $array): EmailAddressAuthenticationCodeInfo
@@ -42,9 +46,9 @@ class EmailAddressAuthenticationCodeInfo extends TdObject
     public function typeSerialize(): array
     {
         return [
-            '@type'                 => static::TYPE_NAME,
+            '@type' => static::TYPE_NAME,
             'email_address_pattern' => $this->emailAddressPattern,
-            'length'                => $this->length,
+            'length' => $this->length,
         ];
     }
 

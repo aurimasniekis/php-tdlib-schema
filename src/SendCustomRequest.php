@@ -9,25 +9,29 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Sends a custom request; for bots only.
+ * Sends a custom request; for bots only
  */
 class SendCustomRequest extends TdFunction
 {
     public const TYPE_NAME = 'sendCustomRequest';
 
     /**
-     * The method name.
+     * The method name
+     *
+     * @var string
      */
     protected string $method;
 
     /**
-     * JSON-serialized method parameters.
+     * JSON-serialized method parameters
+     *
+     * @var string
      */
     protected string $parameters;
 
     public function __construct(string $method, string $parameters)
     {
-        $this->method     = $method;
+        $this->method = $method;
         $this->parameters = $parameters;
     }
 
@@ -42,8 +46,8 @@ class SendCustomRequest extends TdFunction
     public function typeSerialize(): array
     {
         return [
-            '@type'      => static::TYPE_NAME,
-            'method'     => $this->method,
+            '@type' => static::TYPE_NAME,
+            'method' => $this->method,
             'parameters' => $this->parameters,
         ];
     }

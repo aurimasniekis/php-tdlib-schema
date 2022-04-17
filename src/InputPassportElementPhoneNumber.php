@@ -9,14 +9,16 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * A Telegram Passport element to be saved containing the user's phone number.
+ * A Telegram Passport element to be saved containing the user's phone number
  */
 class InputPassportElementPhoneNumber extends InputPassportElement
 {
     public const TYPE_NAME = 'inputPassportElementPhoneNumber';
 
     /**
-     * The phone number to be saved.
+     * The phone number to be saved
+     *
+     * @var string
      */
     protected string $phoneNumber;
 
@@ -37,7 +39,7 @@ class InputPassportElementPhoneNumber extends InputPassportElement
     public function typeSerialize(): array
     {
         return [
-            '@type'        => static::TYPE_NAME,
+            '@type' => static::TYPE_NAME,
             'phone_number' => $this->phoneNumber,
         ];
     }

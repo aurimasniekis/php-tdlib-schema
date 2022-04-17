@@ -9,14 +9,16 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Contains database statistics.
+ * Contains database statistics
  */
 class DatabaseStatistics extends TdObject
 {
     public const TYPE_NAME = 'databaseStatistics';
 
     /**
-     * Database statistics in an unspecified human-readable format.
+     * Database statistics in an unspecified human-readable format
+     *
+     * @var string
      */
     protected string $statistics;
 
@@ -35,7 +37,7 @@ class DatabaseStatistics extends TdObject
     public function typeSerialize(): array
     {
         return [
-            '@type'      => static::TYPE_NAME,
+            '@type' => static::TYPE_NAME,
             'statistics' => $this->statistics,
         ];
     }

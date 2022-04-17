@@ -9,24 +9,30 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * A message with information about an ended call.
+ * A message with information about an ended call
  */
 class MessageCall extends MessageContent
 {
     public const TYPE_NAME = 'messageCall';
 
     /**
-     * True, if the call was a video call.
+     * True, if the call was a video call
+     *
+     * @var bool
      */
     protected bool $isVideo;
 
     /**
-     * Reason why the call was discarded.
+     * Reason why the call was discarded
+     *
+     * @var CallDiscardReason
      */
     protected CallDiscardReason $discardReason;
 
     /**
-     * Call duration, in seconds.
+     * Call duration, in seconds
+     *
+     * @var int
      */
     protected int $duration;
 
@@ -34,9 +40,9 @@ class MessageCall extends MessageContent
     {
         parent::__construct();
 
-        $this->isVideo       = $isVideo;
+        $this->isVideo = $isVideo;
         $this->discardReason = $discardReason;
-        $this->duration      = $duration;
+        $this->duration = $duration;
     }
 
     public static function fromArray(array $array): MessageCall
@@ -51,10 +57,10 @@ class MessageCall extends MessageContent
     public function typeSerialize(): array
     {
         return [
-            '@type'          => static::TYPE_NAME,
-            'is_video'       => $this->isVideo,
+            '@type' => static::TYPE_NAME,
+            'is_video' => $this->isVideo,
             'discard_reason' => $this->discardReason->typeSerialize(),
-            'duration'       => $this->duration,
+            'duration' => $this->duration,
         ];
     }
 

@@ -9,7 +9,7 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * The call ended unexpectedly.
+ * The call ended unexpectedly
  */
 class CallProblemDropped extends CallProblem
 {

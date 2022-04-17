@@ -9,24 +9,30 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Represents a game.
+ * Represents a game
  */
 class InputInlineQueryResultGame extends InputInlineQueryResult
 {
     public const TYPE_NAME = 'inputInlineQueryResultGame';
 
     /**
-     * Unique identifier of the query result.
+     * Unique identifier of the query result
+     *
+     * @var string
      */
     protected string $id;
 
     /**
-     * Short name of the game.
+     * Short name of the game
+     *
+     * @var string
      */
     protected string $gameShortName;
 
     /**
-     * Message reply markup. Must be of type replyMarkupInlineKeyboard or null.
+     * The message reply markup; pass null if none. Must be of type replyMarkupInlineKeyboard or null
+     *
+     * @var ReplyMarkup
      */
     protected ReplyMarkup $replyMarkup;
 
@@ -34,9 +40,9 @@ class InputInlineQueryResultGame extends InputInlineQueryResult
     {
         parent::__construct();
 
-        $this->id            = $id;
+        $this->id = $id;
         $this->gameShortName = $gameShortName;
-        $this->replyMarkup   = $replyMarkup;
+        $this->replyMarkup = $replyMarkup;
     }
 
     public static function fromArray(array $array): InputInlineQueryResultGame
@@ -51,10 +57,10 @@ class InputInlineQueryResultGame extends InputInlineQueryResult
     public function typeSerialize(): array
     {
         return [
-            '@type'           => static::TYPE_NAME,
-            'id'              => $this->id,
+            '@type' => static::TYPE_NAME,
+            'id' => $this->id,
             'game_short_name' => $this->gameShortName,
-            'reply_markup'    => $this->replyMarkup->typeSerialize(),
+            'reply_markup' => $this->replyMarkup->typeSerialize(),
         ];
     }
 

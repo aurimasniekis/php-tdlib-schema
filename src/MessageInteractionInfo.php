@@ -9,32 +9,38 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Contains information about interactions with a message.
+ * Contains information about interactions with a message
  */
 class MessageInteractionInfo extends TdObject
 {
     public const TYPE_NAME = 'messageInteractionInfo';
 
     /**
-     * Number of times the message was viewed.
+     * Number of times the message was viewed
+     *
+     * @var int
      */
     protected int $viewCount;
 
     /**
-     * Number of times the message was forwarded.
+     * Number of times the message was forwarded
+     *
+     * @var int
      */
     protected int $forwardCount;
 
     /**
-     * Contains information about direct or indirect replies to the message; may be null. Currently, available only in channels with a discussion supergroup and discussion supergroups for messages, which are not replies itself.
+     * Information about direct or indirect replies to the message; may be null. Currently, available only in channels with a discussion supergroup and discussion supergroups for messages, which are not replies itself
+     *
+     * @var MessageReplyInfo|null
      */
     protected ?MessageReplyInfo $replyInfo;
 
     public function __construct(int $viewCount, int $forwardCount, ?MessageReplyInfo $replyInfo)
     {
-        $this->viewCount    = $viewCount;
+        $this->viewCount = $viewCount;
         $this->forwardCount = $forwardCount;
-        $this->replyInfo    = $replyInfo;
+        $this->replyInfo = $replyInfo;
     }
 
     public static function fromArray(array $array): MessageInteractionInfo
@@ -49,10 +55,10 @@ class MessageInteractionInfo extends TdObject
     public function typeSerialize(): array
     {
         return [
-            '@type'         => static::TYPE_NAME,
-            'view_count'    => $this->viewCount,
+            '@type' => static::TYPE_NAME,
+            'view_count' => $this->viewCount,
             'forward_count' => $this->forwardCount,
-            'reply_info'    => (isset($this->replyInfo) ? $this->replyInfo : null),
+            'reply_info' => (isset($this->replyInfo) ? $this->replyInfo : null),
         ];
     }
 

@@ -9,7 +9,7 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Returns only audio messages.
+ * Returns only audio messages
  */
 class SearchMessagesFilterAudio extends SearchMessagesFilter
 {

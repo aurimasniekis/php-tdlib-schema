@@ -9,7 +9,7 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Describes a statistical graph.
+ * Describes a statistical graph
  */
 class StatisticalGraph extends TdObject
 {

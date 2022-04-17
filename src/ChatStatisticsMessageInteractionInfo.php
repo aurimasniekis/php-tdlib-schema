@@ -9,31 +9,37 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Contains statistics about interactions with a message.
+ * Contains statistics about interactions with a message
  */
 class ChatStatisticsMessageInteractionInfo extends TdObject
 {
     public const TYPE_NAME = 'chatStatisticsMessageInteractionInfo';
 
     /**
-     * Message identifier.
+     * Message identifier
+     *
+     * @var int
      */
     protected int $messageId;
 
     /**
-     * Number of times the message was viewed.
+     * Number of times the message was viewed
+     *
+     * @var int
      */
     protected int $viewCount;
 
     /**
-     * Number of times the message was forwarded.
+     * Number of times the message was forwarded
+     *
+     * @var int
      */
     protected int $forwardCount;
 
     public function __construct(int $messageId, int $viewCount, int $forwardCount)
     {
-        $this->messageId    = $messageId;
-        $this->viewCount    = $viewCount;
+        $this->messageId = $messageId;
+        $this->viewCount = $viewCount;
         $this->forwardCount = $forwardCount;
     }
 
@@ -49,9 +55,9 @@ class ChatStatisticsMessageInteractionInfo extends TdObject
     public function typeSerialize(): array
     {
         return [
-            '@type'         => static::TYPE_NAME,
-            'message_id'    => $this->messageId,
-            'view_count'    => $this->viewCount,
+            '@type' => static::TYPE_NAME,
+            'message_id' => $this->messageId,
+            'view_count' => $this->viewCount,
             'forward_count' => $this->forwardCount,
         ];
     }

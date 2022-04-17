@@ -9,14 +9,16 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Returns a list of installed sticker sets.
+ * Returns a list of installed sticker sets
  */
 class GetInstalledStickerSets extends TdFunction
 {
     public const TYPE_NAME = 'getInstalledStickerSets';
 
     /**
-     * Pass true to return mask sticker sets; pass false to return ordinary sticker sets.
+     * Pass true to return mask sticker sets; pass false to return ordinary sticker sets
+     *
+     * @var bool
      */
     protected bool $isMasks;
 
@@ -35,7 +37,7 @@ class GetInstalledStickerSets extends TdFunction
     public function typeSerialize(): array
     {
         return [
-            '@type'    => static::TYPE_NAME,
+            '@type' => static::TYPE_NAME,
             'is_masks' => $this->isMasks,
         ];
     }

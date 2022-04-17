@@ -9,7 +9,7 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Describes the current secret chat state.
+ * Describes the current secret chat state
  */
 class SecretChatState extends TdObject
 {

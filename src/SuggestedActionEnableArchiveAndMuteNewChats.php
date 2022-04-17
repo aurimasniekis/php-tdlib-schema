@@ -9,7 +9,7 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Suggests the user to enable "archive_and_mute_new_chats_from_unknown_users" option.
+ * Suggests the user to enable "archive_and_mute_new_chats_from_unknown_users" option
  */
 class SuggestedActionEnableArchiveAndMuteNewChats extends SuggestedAction
 {

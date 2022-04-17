@@ -9,7 +9,7 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * The file is a voice note.
+ * The file is a voice note
  */
 class FileTypeVoiceNote extends FileType
 {

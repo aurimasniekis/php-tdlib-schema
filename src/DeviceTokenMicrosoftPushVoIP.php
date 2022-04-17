@@ -9,14 +9,16 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * A token for Microsoft Push Notification Service VoIP channel.
+ * A token for Microsoft Push Notification Service VoIP channel
  */
 class DeviceTokenMicrosoftPushVoIP extends DeviceToken
 {
     public const TYPE_NAME = 'deviceTokenMicrosoftPushVoIP';
 
     /**
-     * Push notification channel URI; may be empty to de-register a device.
+     * Push notification channel URI; may be empty to deregister a device
+     *
+     * @var string
      */
     protected string $channelUri;
 
@@ -37,7 +39,7 @@ class DeviceTokenMicrosoftPushVoIP extends DeviceToken
     public function typeSerialize(): array
     {
         return [
-            '@type'       => static::TYPE_NAME,
+            '@type' => static::TYPE_NAME,
             'channel_uri' => $this->channelUri,
         ];
     }

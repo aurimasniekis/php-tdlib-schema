@@ -9,41 +9,47 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * A user in the chat came within proximity alert range.
+ * A user in the chat came within proximity alert range
  */
 class MessageProximityAlertTriggered extends MessageContent
 {
     public const TYPE_NAME = 'messageProximityAlertTriggered';
 
     /**
-     * The user or chat, which triggered the proximity alert.
+     * The identifier of a user or chat that triggered the proximity alert
+     *
+     * @var MessageSender
      */
-    protected MessageSender $traveler;
+    protected MessageSender $travelerId;
 
     /**
-     * The user or chat, which subscribed for the proximity alert.
+     * The identifier of a user or chat that subscribed for the proximity alert
+     *
+     * @var MessageSender
      */
-    protected MessageSender $watcher;
+    protected MessageSender $watcherId;
 
     /**
-     * The distance between the users.
+     * The distance between the users
+     *
+     * @var int
      */
     protected int $distance;
 
-    public function __construct(MessageSender $traveler, MessageSender $watcher, int $distance)
+    public function __construct(MessageSender $travelerId, MessageSender $watcherId, int $distance)
     {
         parent::__construct();
 
-        $this->traveler = $traveler;
-        $this->watcher  = $watcher;
+        $this->travelerId = $travelerId;
+        $this->watcherId = $watcherId;
         $this->distance = $distance;
     }
 
     public static function fromArray(array $array): MessageProximityAlertTriggered
     {
         return new static(
-            TdSchemaRegistry::fromArray($array['traveler']),
-            TdSchemaRegistry::fromArray($array['watcher']),
+            TdSchemaRegistry::fromArray($array['traveler_id']),
+            TdSchemaRegistry::fromArray($array['watcher_id']),
             $array['distance'],
         );
     }
@@ -51,21 +57,21 @@ class MessageProximityAlertTriggered extends MessageContent
     public function typeSerialize(): array
     {
         return [
-            '@type'    => static::TYPE_NAME,
-            'traveler' => $this->traveler->typeSerialize(),
-            'watcher'  => $this->watcher->typeSerialize(),
+            '@type' => static::TYPE_NAME,
+            'traveler_id' => $this->travelerId->typeSerialize(),
+            'watcher_id' => $this->watcherId->typeSerialize(),
             'distance' => $this->distance,
         ];
     }
 
-    public function getTraveler(): MessageSender
+    public function getTravelerId(): MessageSender
     {
-        return $this->traveler;
+        return $this->travelerId;
     }
 
-    public function getWatcher(): MessageSender
+    public function getWatcherId(): MessageSender
     {
-        return $this->watcher;
+        return $this->watcherId;
     }
 
     public function getDistance(): int

@@ -9,7 +9,7 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * A bold text.
+ * A bold text
  */
 class TextEntityTypeBold extends TextEntityType
 {

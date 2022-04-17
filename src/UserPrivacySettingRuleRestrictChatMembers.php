@@ -9,14 +9,14 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * A rule to restrict all members of specified basic groups and supergroups from doing something.
+ * A rule to restrict all members of specified basic groups and supergroups from doing something
  */
 class UserPrivacySettingRuleRestrictChatMembers extends UserPrivacySettingRule
 {
     public const TYPE_NAME = 'userPrivacySettingRuleRestrictChatMembers';
 
     /**
-     * The chat identifiers, total number of chats in all rules must not exceed 20.
+     * The chat identifiers, total number of chats in all rules must not exceed 20
      *
      * @var int[]
      */
@@ -39,7 +39,7 @@ class UserPrivacySettingRuleRestrictChatMembers extends UserPrivacySettingRule
     public function typeSerialize(): array
     {
         return [
-            '@type'    => static::TYPE_NAME,
+            '@type' => static::TYPE_NAME,
             'chat_ids' => $this->chatIds,
         ];
     }

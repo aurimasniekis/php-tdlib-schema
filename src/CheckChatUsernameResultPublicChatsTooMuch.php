@@ -9,7 +9,7 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * The user has too much chats with username, one of them should be made private first.
+ * The user has too much chats with username, one of them must be made private first
  */
 class CheckChatUsernameResultPublicChatsTooMuch extends CheckChatUsernameResult
 {

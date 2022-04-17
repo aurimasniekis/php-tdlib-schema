@@ -9,25 +9,29 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Sets the value of an option. (Check the list of available options on https://core.telegram.org/tdlib/options.) Only writable options can be set. Can be called before authorization.
+ * Sets the value of an option. (Check the list of available options on https://core.telegram.org/tdlib/options.) Only writable options can be set. Can be called before authorization
  */
 class SetOption extends TdFunction
 {
     public const TYPE_NAME = 'setOption';
 
     /**
-     * The name of the option.
+     * The name of the option
+     *
+     * @var string
      */
     protected string $name;
 
     /**
-     * The new value of the option.
+     * The new value of the option; pass null to reset option value to a default value
+     *
+     * @var OptionValue
      */
     protected OptionValue $value;
 
     public function __construct(string $name, OptionValue $value)
     {
-        $this->name  = $name;
+        $this->name = $name;
         $this->value = $value;
     }
 
@@ -43,7 +47,7 @@ class SetOption extends TdFunction
     {
         return [
             '@type' => static::TYPE_NAME,
-            'name'  => $this->name,
+            'name' => $this->name,
             'value' => $this->value->typeSerialize(),
         ];
     }

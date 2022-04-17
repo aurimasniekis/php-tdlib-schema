@@ -9,32 +9,38 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Sends a notification about user activity in a chat.
+ * Sends a notification about user activity in a chat
  */
 class SendChatAction extends TdFunction
 {
     public const TYPE_NAME = 'sendChatAction';
 
     /**
-     * Chat identifier.
+     * Chat identifier
+     *
+     * @var int
      */
     protected int $chatId;
 
     /**
-     * If not 0, a message thread identifier in which the action was performed.
+     * If not 0, a message thread identifier in which the action was performed
+     *
+     * @var int
      */
     protected int $messageThreadId;
 
     /**
-     * The action description.
+     * The action description; pass null to cancel the currently active action
+     *
+     * @var ChatAction
      */
     protected ChatAction $action;
 
     public function __construct(int $chatId, int $messageThreadId, ChatAction $action)
     {
-        $this->chatId          = $chatId;
+        $this->chatId = $chatId;
         $this->messageThreadId = $messageThreadId;
-        $this->action          = $action;
+        $this->action = $action;
     }
 
     public static function fromArray(array $array): SendChatAction
@@ -49,10 +55,10 @@ class SendChatAction extends TdFunction
     public function typeSerialize(): array
     {
         return [
-            '@type'             => static::TYPE_NAME,
-            'chat_id'           => $this->chatId,
+            '@type' => static::TYPE_NAME,
+            'chat_id' => $this->chatId,
             'message_thread_id' => $this->messageThreadId,
-            'action'            => $this->action->typeSerialize(),
+            'action' => $this->action->typeSerialize(),
         ];
     }
 

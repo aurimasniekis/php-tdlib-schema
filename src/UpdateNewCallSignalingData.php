@@ -9,19 +9,23 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * New call signaling data arrived.
+ * New call signaling data arrived
  */
 class UpdateNewCallSignalingData extends Update
 {
     public const TYPE_NAME = 'updateNewCallSignalingData';
 
     /**
-     * The call identifier.
+     * The call identifier
+     *
+     * @var int
      */
     protected int $callId;
 
     /**
-     * The data.
+     * The data
+     *
+     * @var string
      */
     protected string $data;
 
@@ -30,7 +34,7 @@ class UpdateNewCallSignalingData extends Update
         parent::__construct();
 
         $this->callId = $callId;
-        $this->data   = $data;
+        $this->data = $data;
     }
 
     public static function fromArray(array $array): UpdateNewCallSignalingData
@@ -44,9 +48,9 @@ class UpdateNewCallSignalingData extends Update
     public function typeSerialize(): array
     {
         return [
-            '@type'   => static::TYPE_NAME,
+            '@type' => static::TYPE_NAME,
             'call_id' => $this->callId,
-            'data'    => $this->data,
+            'data' => $this->data,
         ];
     }
 

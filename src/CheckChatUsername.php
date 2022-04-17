@@ -9,25 +9,29 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Checks whether a username can be set for a chat.
+ * Checks whether a username can be set for a chat
  */
 class CheckChatUsername extends TdFunction
 {
     public const TYPE_NAME = 'checkChatUsername';
 
     /**
-     * Chat identifier; should be identifier of a supergroup chat, or a channel chat, or a private chat with self, or zero if chat is being created.
+     * Chat identifier; must be identifier of a supergroup chat, or a channel chat, or a private chat with self, or zero if the chat is being created
+     *
+     * @var int
      */
     protected int $chatId;
 
     /**
-     * Username to be checked.
+     * Username to be checked
+     *
+     * @var string
      */
     protected string $username;
 
     public function __construct(int $chatId, string $username)
     {
-        $this->chatId   = $chatId;
+        $this->chatId = $chatId;
         $this->username = $username;
     }
 
@@ -42,8 +46,8 @@ class CheckChatUsername extends TdFunction
     public function typeSerialize(): array
     {
         return [
-            '@type'    => static::TYPE_NAME,
-            'chat_id'  => $this->chatId,
+            '@type' => static::TYPE_NAME,
+            'chat_id' => $this->chatId,
             'username' => $this->username,
         ];
     }

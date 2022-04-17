@@ -9,40 +9,46 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Reports a chat to the Telegram moderators. A chat can be reported only from the chat action bar, or if this is a private chat with a bot, a private chat with a user sharing their location, a supergroup, or a channel, since other chats can't be checked by moderators.
+ * Reports a chat to the Telegram moderators. A chat can be reported only from the chat action bar, or if chat.can_be_reported
  */
 class ReportChat extends TdFunction
 {
     public const TYPE_NAME = 'reportChat';
 
     /**
-     * Chat identifier.
+     * Chat identifier
+     *
+     * @var int
      */
     protected int $chatId;
 
     /**
-     * Identifiers of reported messages, if any.
+     * Identifiers of reported messages, if any
      *
      * @var int[]
      */
     protected array $messageIds;
 
     /**
-     * The reason for reporting the chat.
+     * The reason for reporting the chat
+     *
+     * @var ChatReportReason
      */
     protected ChatReportReason $reason;
 
     /**
-     * Additional report details; 0-1024 characters.
+     * Additional report details; 0-1024 characters
+     *
+     * @var string
      */
     protected string $text;
 
     public function __construct(int $chatId, array $messageIds, ChatReportReason $reason, string $text)
     {
-        $this->chatId     = $chatId;
+        $this->chatId = $chatId;
         $this->messageIds = $messageIds;
-        $this->reason     = $reason;
-        $this->text       = $text;
+        $this->reason = $reason;
+        $this->text = $text;
     }
 
     public static function fromArray(array $array): ReportChat
@@ -58,11 +64,11 @@ class ReportChat extends TdFunction
     public function typeSerialize(): array
     {
         return [
-            '@type'       => static::TYPE_NAME,
-            'chat_id'     => $this->chatId,
+            '@type' => static::TYPE_NAME,
+            'chat_id' => $this->chatId,
             'message_ids' => $this->messageIds,
-            'reason'      => $this->reason->typeSerialize(),
-            'text'        => $this->text,
+            'reason' => $this->reason->typeSerialize(),
+            'text' => $this->text,
         ];
     }
 

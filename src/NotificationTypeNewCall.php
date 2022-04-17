@@ -9,14 +9,16 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * New call was received.
+ * New call was received
  */
 class NotificationTypeNewCall extends NotificationType
 {
     public const TYPE_NAME = 'notificationTypeNewCall';
 
     /**
-     * Call identifier.
+     * Call identifier
+     *
+     * @var int
      */
     protected int $callId;
 
@@ -37,7 +39,7 @@ class NotificationTypeNewCall extends NotificationType
     public function typeSerialize(): array
     {
         return [
-            '@type'   => static::TYPE_NAME,
+            '@type' => static::TYPE_NAME,
             'call_id' => $this->callId,
         ];
     }

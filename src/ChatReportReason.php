@@ -9,7 +9,7 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Describes the reason why a chat is reported.
+ * Describes the reason why a chat is reported
  */
 class ChatReportReason extends TdObject
 {

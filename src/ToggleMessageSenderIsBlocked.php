@@ -9,32 +9,36 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Changes the block state of a message sender. Currently, only users and supergroup chats can be blocked.
+ * Changes the block state of a message sender. Currently, only users and supergroup chats can be blocked
  */
 class ToggleMessageSenderIsBlocked extends TdFunction
 {
     public const TYPE_NAME = 'toggleMessageSenderIsBlocked';
 
     /**
-     * Message Sender.
+     * Identifier of a message sender to block/unblock
+     *
+     * @var MessageSender
      */
-    protected MessageSender $sender;
+    protected MessageSender $senderId;
 
     /**
-     * New value of is_blocked.
+     * New value of is_blocked
+     *
+     * @var bool
      */
     protected bool $isBlocked;
 
-    public function __construct(MessageSender $sender, bool $isBlocked)
+    public function __construct(MessageSender $senderId, bool $isBlocked)
     {
-        $this->sender    = $sender;
+        $this->senderId = $senderId;
         $this->isBlocked = $isBlocked;
     }
 
     public static function fromArray(array $array): ToggleMessageSenderIsBlocked
     {
         return new static(
-            TdSchemaRegistry::fromArray($array['sender']),
+            TdSchemaRegistry::fromArray($array['sender_id']),
             $array['is_blocked'],
         );
     }
@@ -42,15 +46,15 @@ class ToggleMessageSenderIsBlocked extends TdFunction
     public function typeSerialize(): array
     {
         return [
-            '@type'      => static::TYPE_NAME,
-            'sender'     => $this->sender->typeSerialize(),
+            '@type' => static::TYPE_NAME,
+            'sender_id' => $this->senderId->typeSerialize(),
             'is_blocked' => $this->isBlocked,
         ];
     }
 
-    public function getSender(): MessageSender
+    public function getSenderId(): MessageSender
     {
-        return $this->sender;
+        return $this->senderId;
     }
 
     public function getIsBlocked(): bool

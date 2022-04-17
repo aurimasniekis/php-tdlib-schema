@@ -9,14 +9,14 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Contains a list of recommended chat filters.
+ * Contains a list of recommended chat filters
  */
 class RecommendedChatFilters extends TdObject
 {
     public const TYPE_NAME = 'recommendedChatFilters';
 
     /**
-     * List of recommended chat filters.
+     * List of recommended chat filters
      *
      * @var RecommendedChatFilter[]
      */
@@ -30,15 +30,15 @@ class RecommendedChatFilters extends TdObject
     public static function fromArray(array $array): RecommendedChatFilters
     {
         return new static(
-            array_map(fn ($x) => TdSchemaRegistry::fromArray($x), $array['chat_filters']),
+            array_map(fn($x) => TdSchemaRegistry::fromArray($x), $array['chat_filters']),
         );
     }
 
     public function typeSerialize(): array
     {
         return [
-            '@type'           => static::TYPE_NAME,
-            array_map(fn ($x) => $x->typeSerialize(), $this->chatFilters),
+            '@type' => static::TYPE_NAME,
+            array_map(fn($x) => $x->typeSerialize(), $this->chatFilters),
         ];
     }
 

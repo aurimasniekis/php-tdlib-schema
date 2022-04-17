@@ -9,14 +9,16 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Removes a hashtag from the list of recently used hashtags.
+ * Removes a hashtag from the list of recently used hashtags
  */
 class RemoveRecentHashtag extends TdFunction
 {
     public const TYPE_NAME = 'removeRecentHashtag';
 
     /**
-     * Hashtag to delete.
+     * Hashtag to delete
+     *
+     * @var string
      */
     protected string $hashtag;
 
@@ -35,7 +37,7 @@ class RemoveRecentHashtag extends TdFunction
     public function typeSerialize(): array
     {
         return [
-            '@type'   => static::TYPE_NAME,
+            '@type' => static::TYPE_NAME,
             'hashtag' => $this->hashtag,
         ];
     }

@@ -9,7 +9,7 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * A phone number.
+ * A phone number
  */
 class TextEntityTypePhoneNumber extends TextEntityType
 {

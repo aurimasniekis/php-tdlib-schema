@@ -9,44 +9,54 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Sends an inline query to a bot and returns its results. Returns an error with code 502 if the bot fails to answer the query before the query timeout expires.
+ * Sends an inline query to a bot and returns its results. Returns an error with code 502 if the bot fails to answer the query before the query timeout expires
  */
 class GetInlineQueryResults extends TdFunction
 {
     public const TYPE_NAME = 'getInlineQueryResults';
 
     /**
-     * The identifier of the target bot.
+     * The identifier of the target bot
+     *
+     * @var int
      */
     protected int $botUserId;
 
     /**
-     * Identifier of the chat where the query was sent.
+     * Identifier of the chat where the query was sent
+     *
+     * @var int
      */
     protected int $chatId;
 
     /**
-     * Location of the user, only if needed.
+     * Location of the user; pass null if unknown or the bot doesn't need user's location
+     *
+     * @var Location
      */
     protected Location $userLocation;
 
     /**
-     * Text of the query.
+     * Text of the query
+     *
+     * @var string
      */
     protected string $query;
 
     /**
-     * Offset of the first entry to return.
+     * Offset of the first entry to return
+     *
+     * @var string
      */
     protected string $offset;
 
     public function __construct(int $botUserId, int $chatId, Location $userLocation, string $query, string $offset)
     {
-        $this->botUserId    = $botUserId;
-        $this->chatId       = $chatId;
+        $this->botUserId = $botUserId;
+        $this->chatId = $chatId;
         $this->userLocation = $userLocation;
-        $this->query        = $query;
-        $this->offset       = $offset;
+        $this->query = $query;
+        $this->offset = $offset;
     }
 
     public static function fromArray(array $array): GetInlineQueryResults
@@ -63,12 +73,12 @@ class GetInlineQueryResults extends TdFunction
     public function typeSerialize(): array
     {
         return [
-            '@type'         => static::TYPE_NAME,
-            'bot_user_id'   => $this->botUserId,
-            'chat_id'       => $this->chatId,
+            '@type' => static::TYPE_NAME,
+            'bot_user_id' => $this->botUserId,
+            'chat_id' => $this->chatId,
             'user_location' => $this->userLocation->typeSerialize(),
-            'query'         => $this->query,
-            'offset'        => $this->offset,
+            'query' => $this->query,
+            'offset' => $this->offset,
         ];
     }
 

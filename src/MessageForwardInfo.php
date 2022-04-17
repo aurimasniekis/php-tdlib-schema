@@ -9,34 +9,44 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Contains information about a forwarded message.
+ * Contains information about a forwarded message
  */
 class MessageForwardInfo extends TdObject
 {
     public const TYPE_NAME = 'messageForwardInfo';
 
     /**
-     * Origin of a forwarded message.
+     * Origin of a forwarded message
+     *
+     * @var MessageForwardOrigin
      */
     protected MessageForwardOrigin $origin;
 
     /**
-     * Point in time (Unix timestamp) when the message was originally sent.
+     * Point in time (Unix timestamp) when the message was originally sent
+     *
+     * @var int
      */
     protected int $date;
 
     /**
-     * The type of a public service announcement for the forwarded message.
+     * The type of a public service announcement for the forwarded message
+     *
+     * @var string
      */
     protected string $publicServiceAnnouncementType;
 
     /**
-     * For messages forwarded to the chat with the current user (Saved Messages), to the Replies bot chat, or to the channel's discussion group, the identifier of the chat from which the message was forwarded last time; 0 if unknown.
+     * For messages forwarded to the chat with the current user (Saved Messages), to the Replies bot chat, or to the channel's discussion group, the identifier of the chat from which the message was forwarded last time; 0 if unknown
+     *
+     * @var int
      */
     protected int $fromChatId;
 
     /**
-     * For messages forwarded to the chat with the current user (Saved Messages), to the Replies bot chat, or to the channel's discussion group, the identifier of the original message from which the new message was forwarded last time; 0 if unknown.
+     * For messages forwarded to the chat with the current user (Saved Messages), to the Replies bot chat, or to the channel's discussion group, the identifier of the original message from which the new message was forwarded last time; 0 if unknown
+     *
+     * @var int
      */
     protected int $fromMessageId;
 
@@ -47,11 +57,11 @@ class MessageForwardInfo extends TdObject
         int $fromChatId,
         int $fromMessageId
     ) {
-        $this->origin                        = $origin;
-        $this->date                          = $date;
+        $this->origin = $origin;
+        $this->date = $date;
         $this->publicServiceAnnouncementType = $publicServiceAnnouncementType;
-        $this->fromChatId                    = $fromChatId;
-        $this->fromMessageId                 = $fromMessageId;
+        $this->fromChatId = $fromChatId;
+        $this->fromMessageId = $fromMessageId;
     }
 
     public static function fromArray(array $array): MessageForwardInfo
@@ -68,12 +78,12 @@ class MessageForwardInfo extends TdObject
     public function typeSerialize(): array
     {
         return [
-            '@type'                            => static::TYPE_NAME,
-            'origin'                           => $this->origin->typeSerialize(),
-            'date'                             => $this->date,
+            '@type' => static::TYPE_NAME,
+            'origin' => $this->origin->typeSerialize(),
+            'date' => $this->date,
             'public_service_announcement_type' => $this->publicServiceAnnouncementType,
-            'from_chat_id'                     => $this->fromChatId,
-            'from_message_id'                  => $this->fromMessageId,
+            'from_chat_id' => $this->fromChatId,
+            'from_message_id' => $this->fromMessageId,
         ];
     }
 

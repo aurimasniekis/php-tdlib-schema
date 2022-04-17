@@ -9,24 +9,30 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * A token for web Push API.
+ * A token for web Push API
  */
 class DeviceTokenWebPush extends DeviceToken
 {
     public const TYPE_NAME = 'deviceTokenWebPush';
 
     /**
-     * Absolute URL exposed by the push service where the application server can send push messages; may be empty to de-register a device.
+     * Absolute URL exposed by the push service where the application server can send push messages; may be empty to deregister a device
+     *
+     * @var string
      */
     protected string $endpoint;
 
     /**
-     * Base64url-encoded P-256 elliptic curve Diffie-Hellman public key.
+     * Base64url-encoded P-256 elliptic curve Diffie-Hellman public key
+     *
+     * @var string
      */
     protected string $p256dhBase64url;
 
     /**
-     * Base64url-encoded authentication secret.
+     * Base64url-encoded authentication secret
+     *
+     * @var string
      */
     protected string $authBase64url;
 
@@ -34,9 +40,9 @@ class DeviceTokenWebPush extends DeviceToken
     {
         parent::__construct();
 
-        $this->endpoint        = $endpoint;
+        $this->endpoint = $endpoint;
         $this->p256dhBase64url = $p256dhBase64url;
-        $this->authBase64url   = $authBase64url;
+        $this->authBase64url = $authBase64url;
     }
 
     public static function fromArray(array $array): DeviceTokenWebPush
@@ -51,10 +57,10 @@ class DeviceTokenWebPush extends DeviceToken
     public function typeSerialize(): array
     {
         return [
-            '@type'            => static::TYPE_NAME,
-            'endpoint'         => $this->endpoint,
+            '@type' => static::TYPE_NAME,
+            'endpoint' => $this->endpoint,
             'p256dh_base64url' => $this->p256dhBase64url,
-            'auth_base64url'   => $this->authBase64url,
+            'auth_base64url' => $this->authBase64url,
         ];
     }
 

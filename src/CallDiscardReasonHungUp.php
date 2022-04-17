@@ -9,7 +9,7 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * The call was ended because one of the parties hung up.
+ * The call was ended because one of the parties hung up
  */
 class CallDiscardReasonHungUp extends CallDiscardReason
 {

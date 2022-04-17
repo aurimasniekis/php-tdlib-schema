@@ -9,7 +9,7 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * The file is an animation.
+ * The file is an animation
  */
 class FileTypeAnimation extends FileType
 {

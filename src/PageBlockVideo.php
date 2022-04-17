@@ -9,29 +9,37 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * A video.
+ * A video
  */
 class PageBlockVideo extends PageBlock
 {
     public const TYPE_NAME = 'pageBlockVideo';
 
     /**
-     * Video file; may be null.
+     * Video file; may be null
+     *
+     * @var Video|null
      */
     protected ?Video $video;
 
     /**
-     * Video caption.
+     * Video caption
+     *
+     * @var PageBlockCaption
      */
     protected PageBlockCaption $caption;
 
     /**
-     * True, if the video should be played automatically.
+     * True, if the video must be played automatically
+     *
+     * @var bool
      */
     protected bool $needAutoplay;
 
     /**
-     * True, if the video should be looped.
+     * True, if the video must be looped
+     *
+     * @var bool
      */
     protected bool $isLooped;
 
@@ -39,10 +47,10 @@ class PageBlockVideo extends PageBlock
     {
         parent::__construct();
 
-        $this->video        = $video;
-        $this->caption      = $caption;
+        $this->video = $video;
+        $this->caption = $caption;
         $this->needAutoplay = $needAutoplay;
-        $this->isLooped     = $isLooped;
+        $this->isLooped = $isLooped;
     }
 
     public static function fromArray(array $array): PageBlockVideo
@@ -58,11 +66,11 @@ class PageBlockVideo extends PageBlock
     public function typeSerialize(): array
     {
         return [
-            '@type'         => static::TYPE_NAME,
-            'video'         => (isset($this->video) ? $this->video : null),
-            'caption'       => $this->caption->typeSerialize(),
+            '@type' => static::TYPE_NAME,
+            'video' => (isset($this->video) ? $this->video : null),
+            'caption' => $this->caption->typeSerialize(),
             'need_autoplay' => $this->needAutoplay,
-            'is_looped'     => $this->isLooped,
+            'is_looped' => $this->isLooped,
         ];
     }
 

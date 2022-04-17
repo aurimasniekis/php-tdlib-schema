@@ -9,7 +9,7 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Returns only video note messages.
+ * Returns only video note messages
  */
 class SearchMessagesFilterVideoNote extends SearchMessagesFilter
 {

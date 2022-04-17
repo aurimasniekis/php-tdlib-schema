@@ -9,7 +9,7 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * A mobile network.
+ * A mobile network
  */
 class NetworkTypeMobile extends NetworkType
 {

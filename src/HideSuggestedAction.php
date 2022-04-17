@@ -9,14 +9,16 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Hides a suggested action.
+ * Hides a suggested action
  */
 class HideSuggestedAction extends TdFunction
 {
     public const TYPE_NAME = 'hideSuggestedAction';
 
     /**
-     * Suggested action to hide.
+     * Suggested action to hide
+     *
+     * @var SuggestedAction
      */
     protected SuggestedAction $action;
 
@@ -35,7 +37,7 @@ class HideSuggestedAction extends TdFunction
     public function typeSerialize(): array
     {
         return [
-            '@type'  => static::TYPE_NAME,
+            '@type' => static::TYPE_NAME,
             'action' => $this->action->typeSerialize(),
         ];
     }

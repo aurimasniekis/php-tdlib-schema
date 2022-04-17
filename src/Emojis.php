@@ -9,14 +9,14 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Represents a list of emoji.
+ * Represents a list of emoji
  */
 class Emojis extends TdObject
 {
     public const TYPE_NAME = 'emojis';
 
     /**
-     * List of emojis.
+     * List of emojis
      *
      * @var string[]
      */
@@ -37,7 +37,7 @@ class Emojis extends TdObject
     public function typeSerialize(): array
     {
         return [
-            '@type'  => static::TYPE_NAME,
+            '@type' => static::TYPE_NAME,
             'emojis' => $this->emojis,
         ];
     }

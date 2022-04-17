@@ -9,7 +9,7 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * The file was sent to a secret chat (the file type is not known to the server).
+ * The file was sent to a secret chat (the file type is not known to the server)
  */
 class FileTypeSecret extends FileType
 {

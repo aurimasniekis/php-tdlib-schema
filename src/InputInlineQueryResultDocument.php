@@ -9,59 +9,79 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Represents a link to a file.
+ * Represents a link to a file
  */
 class InputInlineQueryResultDocument extends InputInlineQueryResult
 {
     public const TYPE_NAME = 'inputInlineQueryResultDocument';
 
     /**
-     * Unique identifier of the query result.
+     * Unique identifier of the query result
+     *
+     * @var string
      */
     protected string $id;
 
     /**
-     * Title of the resulting file.
+     * Title of the resulting file
+     *
+     * @var string
      */
     protected string $title;
 
     /**
-     * Short description of the result, if known.
+     * Short description of the result, if known
+     *
+     * @var string
      */
     protected string $description;
 
     /**
-     * URL of the file.
+     * URL of the file
+     *
+     * @var string
      */
     protected string $documentUrl;
 
     /**
-     * MIME type of the file content; only "application/pdf" and "application/zip" are currently allowed.
+     * MIME type of the file content; only "application/pdf" and "application/zip" are currently allowed
+     *
+     * @var string
      */
     protected string $mimeType;
 
     /**
-     * The URL of the file thumbnail, if it exists.
+     * The URL of the file thumbnail, if it exists
+     *
+     * @var string
      */
     protected string $thumbnailUrl;
 
     /**
-     * Width of the thumbnail.
+     * Width of the thumbnail
+     *
+     * @var int
      */
     protected int $thumbnailWidth;
 
     /**
-     * Height of the thumbnail.
+     * Height of the thumbnail
+     *
+     * @var int
      */
     protected int $thumbnailHeight;
 
     /**
-     * The message reply markup. Must be of type replyMarkupInlineKeyboard or null.
+     * The message reply markup; pass null if none. Must be of type replyMarkupInlineKeyboard or null
+     *
+     * @var ReplyMarkup
      */
     protected ReplyMarkup $replyMarkup;
 
     /**
-     * The content of the message to be sent. Must be one of the following types: InputMessageText, InputMessageDocument, InputMessageLocation, InputMessageVenue or InputMessageContact.
+     * The content of the message to be sent. Must be one of the following types: inputMessageText, inputMessageDocument, inputMessageInvoice, inputMessageLocation, inputMessageVenue or inputMessageContact
+     *
+     * @var InputMessageContent
      */
     protected InputMessageContent $inputMessageContent;
 
@@ -79,15 +99,15 @@ class InputInlineQueryResultDocument extends InputInlineQueryResult
     ) {
         parent::__construct();
 
-        $this->id                  = $id;
-        $this->title               = $title;
-        $this->description         = $description;
-        $this->documentUrl         = $documentUrl;
-        $this->mimeType            = $mimeType;
-        $this->thumbnailUrl        = $thumbnailUrl;
-        $this->thumbnailWidth      = $thumbnailWidth;
-        $this->thumbnailHeight     = $thumbnailHeight;
-        $this->replyMarkup         = $replyMarkup;
+        $this->id = $id;
+        $this->title = $title;
+        $this->description = $description;
+        $this->documentUrl = $documentUrl;
+        $this->mimeType = $mimeType;
+        $this->thumbnailUrl = $thumbnailUrl;
+        $this->thumbnailWidth = $thumbnailWidth;
+        $this->thumbnailHeight = $thumbnailHeight;
+        $this->replyMarkup = $replyMarkup;
         $this->inputMessageContent = $inputMessageContent;
     }
 
@@ -110,16 +130,16 @@ class InputInlineQueryResultDocument extends InputInlineQueryResult
     public function typeSerialize(): array
     {
         return [
-            '@type'                 => static::TYPE_NAME,
-            'id'                    => $this->id,
-            'title'                 => $this->title,
-            'description'           => $this->description,
-            'document_url'          => $this->documentUrl,
-            'mime_type'             => $this->mimeType,
-            'thumbnail_url'         => $this->thumbnailUrl,
-            'thumbnail_width'       => $this->thumbnailWidth,
-            'thumbnail_height'      => $this->thumbnailHeight,
-            'reply_markup'          => $this->replyMarkup->typeSerialize(),
+            '@type' => static::TYPE_NAME,
+            'id' => $this->id,
+            'title' => $this->title,
+            'description' => $this->description,
+            'document_url' => $this->documentUrl,
+            'mime_type' => $this->mimeType,
+            'thumbnail_url' => $this->thumbnailUrl,
+            'thumbnail_width' => $this->thumbnailWidth,
+            'thumbnail_height' => $this->thumbnailHeight,
+            'reply_markup' => $this->replyMarkup->typeSerialize(),
             'input_message_content' => $this->inputMessageContent->typeSerialize(),
         ];
     }

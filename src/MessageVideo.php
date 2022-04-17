@@ -9,24 +9,30 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * A video message.
+ * A video message
  */
 class MessageVideo extends MessageContent
 {
     public const TYPE_NAME = 'messageVideo';
 
     /**
-     * The video description.
+     * The video description
+     *
+     * @var Video
      */
     protected Video $video;
 
     /**
-     * Video caption.
+     * Video caption
+     *
+     * @var FormattedText
      */
     protected FormattedText $caption;
 
     /**
-     * True, if the video thumbnail must be blurred and the video must be shown only while tapped.
+     * True, if the video thumbnail must be blurred and the video must be shown only while tapped
+     *
+     * @var bool
      */
     protected bool $isSecret;
 
@@ -34,8 +40,8 @@ class MessageVideo extends MessageContent
     {
         parent::__construct();
 
-        $this->video    = $video;
-        $this->caption  = $caption;
+        $this->video = $video;
+        $this->caption = $caption;
         $this->isSecret = $isSecret;
     }
 
@@ -51,9 +57,9 @@ class MessageVideo extends MessageContent
     public function typeSerialize(): array
     {
         return [
-            '@type'     => static::TYPE_NAME,
-            'video'     => $this->video->typeSerialize(),
-            'caption'   => $this->caption->typeSerialize(),
+            '@type' => static::TYPE_NAME,
+            'video' => $this->video->typeSerialize(),
+            'caption' => $this->caption->typeSerialize(),
             'is_secret' => $this->isSecret,
         ];
     }

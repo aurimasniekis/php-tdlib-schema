@@ -9,34 +9,44 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Contains approximate storage usage statistics, excluding files of unknown file type.
+ * Contains approximate storage usage statistics, excluding files of unknown file type
  */
 class StorageStatisticsFast extends TdObject
 {
     public const TYPE_NAME = 'storageStatisticsFast';
 
     /**
-     * Approximate total size of files.
+     * Approximate total size of files, in bytes
+     *
+     * @var int
      */
     protected int $filesSize;
 
     /**
-     * Approximate number of files.
+     * Approximate number of files
+     *
+     * @var int
      */
     protected int $fileCount;
 
     /**
-     * Size of the database.
+     * Size of the database
+     *
+     * @var int
      */
     protected int $databaseSize;
 
     /**
-     * Size of the language pack database.
+     * Size of the language pack database
+     *
+     * @var int
      */
     protected int $languagePackDatabaseSize;
 
     /**
-     * Size of the TDLib internal log.
+     * Size of the TDLib internal log
+     *
+     * @var int
      */
     protected int $logSize;
 
@@ -47,11 +57,11 @@ class StorageStatisticsFast extends TdObject
         int $languagePackDatabaseSize,
         int $logSize
     ) {
-        $this->filesSize                = $filesSize;
-        $this->fileCount                = $fileCount;
-        $this->databaseSize             = $databaseSize;
+        $this->filesSize = $filesSize;
+        $this->fileCount = $fileCount;
+        $this->databaseSize = $databaseSize;
         $this->languagePackDatabaseSize = $languagePackDatabaseSize;
-        $this->logSize                  = $logSize;
+        $this->logSize = $logSize;
     }
 
     public static function fromArray(array $array): StorageStatisticsFast
@@ -68,12 +78,12 @@ class StorageStatisticsFast extends TdObject
     public function typeSerialize(): array
     {
         return [
-            '@type'                       => static::TYPE_NAME,
-            'files_size'                  => $this->filesSize,
-            'file_count'                  => $this->fileCount,
-            'database_size'               => $this->databaseSize,
+            '@type' => static::TYPE_NAME,
+            'files_size' => $this->filesSize,
+            'file_count' => $this->fileCount,
+            'database_size' => $this->databaseSize,
             'language_pack_database_size' => $this->languagePackDatabaseSize,
-            'log_size'                    => $this->logSize,
+            'log_size' => $this->logSize,
         ];
     }
 

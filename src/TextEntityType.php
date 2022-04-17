@@ -9,7 +9,7 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Represents a part of the text which must be formatted differently.
+ * Represents a part of the text which must be formatted differently
  */
 class TextEntityType extends TdObject
 {

@@ -9,31 +9,37 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Informs TDLib on a file generation progress.
+ * Informs TDLib on a file generation progress
  */
 class SetFileGenerationProgress extends TdFunction
 {
     public const TYPE_NAME = 'setFileGenerationProgress';
 
     /**
-     * The identifier of the generation process.
+     * The identifier of the generation process
+     *
+     * @var string
      */
     protected string $generationId;
 
     /**
-     * Expected size of the generated file, in bytes; 0 if unknown.
+     * Expected size of the generated file, in bytes; 0 if unknown
+     *
+     * @var int
      */
     protected int $expectedSize;
 
     /**
-     * The number of bytes already generated.
+     * The number of bytes already generated
+     *
+     * @var int
      */
     protected int $localPrefixSize;
 
     public function __construct(string $generationId, int $expectedSize, int $localPrefixSize)
     {
-        $this->generationId    = $generationId;
-        $this->expectedSize    = $expectedSize;
+        $this->generationId = $generationId;
+        $this->expectedSize = $expectedSize;
         $this->localPrefixSize = $localPrefixSize;
     }
 
@@ -49,9 +55,9 @@ class SetFileGenerationProgress extends TdFunction
     public function typeSerialize(): array
     {
         return [
-            '@type'             => static::TYPE_NAME,
-            'generation_id'     => $this->generationId,
-            'expected_size'     => $this->expectedSize,
+            '@type' => static::TYPE_NAME,
+            'generation_id' => $this->generationId,
+            'expected_size' => $this->expectedSize,
             'local_prefix_size' => $this->localPrefixSize,
         ];
     }

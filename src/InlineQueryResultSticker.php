@@ -9,19 +9,23 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Represents a sticker.
+ * Represents a sticker
  */
 class InlineQueryResultSticker extends InlineQueryResult
 {
     public const TYPE_NAME = 'inlineQueryResultSticker';
 
     /**
-     * Unique identifier of the query result.
+     * Unique identifier of the query result
+     *
+     * @var string
      */
     protected string $id;
 
     /**
-     * Sticker.
+     * Sticker
+     *
+     * @var Sticker
      */
     protected Sticker $sticker;
 
@@ -29,7 +33,7 @@ class InlineQueryResultSticker extends InlineQueryResult
     {
         parent::__construct();
 
-        $this->id      = $id;
+        $this->id = $id;
         $this->sticker = $sticker;
     }
 
@@ -44,8 +48,8 @@ class InlineQueryResultSticker extends InlineQueryResult
     public function typeSerialize(): array
     {
         return [
-            '@type'   => static::TYPE_NAME,
-            'id'      => $this->id,
+            '@type' => static::TYPE_NAME,
+            'id' => $this->id,
             'sticker' => $this->sticker->typeSerialize(),
         ];
     }

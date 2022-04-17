@@ -9,7 +9,7 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * A custom reason provided by the user.
+ * A custom reason provided by the user
  */
 class ChatReportReasonCustom extends ChatReportReason
 {

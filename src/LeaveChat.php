@@ -9,14 +9,16 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Removes the current user from chat members. Private and secret chats can't be left using this method.
+ * Removes the current user from chat members. Private and secret chats can't be left using this method
  */
 class LeaveChat extends TdFunction
 {
     public const TYPE_NAME = 'leaveChat';
 
     /**
-     * Chat identifier.
+     * Chat identifier
+     *
+     * @var int
      */
     protected int $chatId;
 
@@ -35,7 +37,7 @@ class LeaveChat extends TdFunction
     public function typeSerialize(): array
     {
         return [
-            '@type'   => static::TYPE_NAME,
+            '@type' => static::TYPE_NAME,
             'chat_id' => $this->chatId,
         ];
     }

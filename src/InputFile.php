@@ -9,7 +9,7 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Points to a file.
+ * Points to a file
  */
 class InputFile extends TdObject
 {

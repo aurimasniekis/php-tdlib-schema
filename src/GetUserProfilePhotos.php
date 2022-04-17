@@ -9,24 +9,30 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Returns the profile photos of a user. The result of this query may be outdated: some photos might have been deleted already.
+ * Returns the profile photos of a user. The result of this query may be outdated: some photos might have been deleted already
  */
 class GetUserProfilePhotos extends TdFunction
 {
     public const TYPE_NAME = 'getUserProfilePhotos';
 
     /**
-     * User identifier.
+     * User identifier
+     *
+     * @var int
      */
     protected int $userId;
 
     /**
-     * The number of photos to skip; must be non-negative.
+     * The number of photos to skip; must be non-negative
+     *
+     * @var int
      */
     protected int $offset;
 
     /**
-     * The maximum number of photos to be returned; up to 100.
+     * The maximum number of photos to be returned; up to 100
+     *
+     * @var int
      */
     protected int $limit;
 
@@ -34,7 +40,7 @@ class GetUserProfilePhotos extends TdFunction
     {
         $this->userId = $userId;
         $this->offset = $offset;
-        $this->limit  = $limit;
+        $this->limit = $limit;
     }
 
     public static function fromArray(array $array): GetUserProfilePhotos
@@ -49,10 +55,10 @@ class GetUserProfilePhotos extends TdFunction
     public function typeSerialize(): array
     {
         return [
-            '@type'   => static::TYPE_NAME,
+            '@type' => static::TYPE_NAME,
             'user_id' => $this->userId,
-            'offset'  => $this->offset,
-            'limit'   => $this->limit,
+            'offset' => $this->offset,
+            'limit' => $this->limit,
         ];
     }
 

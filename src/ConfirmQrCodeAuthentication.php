@@ -9,14 +9,16 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Confirms QR code authentication on another device. Returns created session on success.
+ * Confirms QR code authentication on another device. Returns created session on success
  */
 class ConfirmQrCodeAuthentication extends TdFunction
 {
     public const TYPE_NAME = 'confirmQrCodeAuthentication';
 
     /**
-     * A link from a QR code. The link must be scanned by the in-app camera.
+     * A link from a QR code. The link must be scanned by the in-app camera
+     *
+     * @var string
      */
     protected string $link;
 
@@ -36,7 +38,7 @@ class ConfirmQrCodeAuthentication extends TdFunction
     {
         return [
             '@type' => static::TYPE_NAME,
-            'link'  => $this->link,
+            'link' => $this->link,
         ];
     }
 

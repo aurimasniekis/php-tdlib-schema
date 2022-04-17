@@ -9,7 +9,7 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Represents an unknown option or an option which has a default value.
+ * Represents an unknown option or an option which has a default value
  */
 class OptionValueEmpty extends OptionValue
 {

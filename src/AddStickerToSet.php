@@ -9,31 +9,37 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Adds a new sticker to a set; for bots only. Returns the sticker set.
+ * Adds a new sticker to a set; for bots only. Returns the sticker set
  */
 class AddStickerToSet extends TdFunction
 {
     public const TYPE_NAME = 'addStickerToSet';
 
     /**
-     * Sticker set owner.
+     * Sticker set owner
+     *
+     * @var int
      */
     protected int $userId;
 
     /**
-     * Sticker set name.
+     * Sticker set name
+     *
+     * @var string
      */
     protected string $name;
 
     /**
-     * Sticker to add to the set.
+     * Sticker to add to the set
+     *
+     * @var InputSticker
      */
     protected InputSticker $sticker;
 
     public function __construct(int $userId, string $name, InputSticker $sticker)
     {
-        $this->userId  = $userId;
-        $this->name    = $name;
+        $this->userId = $userId;
+        $this->name = $name;
         $this->sticker = $sticker;
     }
 
@@ -49,9 +55,9 @@ class AddStickerToSet extends TdFunction
     public function typeSerialize(): array
     {
         return [
-            '@type'   => static::TYPE_NAME,
+            '@type' => static::TYPE_NAME,
             'user_id' => $this->userId,
-            'name'    => $this->name,
+            'name' => $this->name,
             'sticker' => $this->sticker->typeSerialize(),
         ];
     }

@@ -9,14 +9,14 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Telegram Passport data has been sent.
+ * Telegram Passport data has been sent
  */
 class MessagePassportDataSent extends MessageContent
 {
     public const TYPE_NAME = 'messagePassportDataSent';
 
     /**
-     * List of Telegram Passport element types sent.
+     * List of Telegram Passport element types sent
      *
      * @var PassportElementType[]
      */
@@ -32,15 +32,15 @@ class MessagePassportDataSent extends MessageContent
     public static function fromArray(array $array): MessagePassportDataSent
     {
         return new static(
-            array_map(fn ($x) => TdSchemaRegistry::fromArray($x), $array['types']),
+            array_map(fn($x) => TdSchemaRegistry::fromArray($x), $array['types']),
         );
     }
 
     public function typeSerialize(): array
     {
         return [
-            '@type'           => static::TYPE_NAME,
-            array_map(fn ($x) => $x->typeSerialize(), $this->types),
+            '@type' => static::TYPE_NAME,
+            array_map(fn($x) => $x->typeSerialize(), $this->types),
         ];
     }
 

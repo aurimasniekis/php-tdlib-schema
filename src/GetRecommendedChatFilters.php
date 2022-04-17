@@ -9,7 +9,7 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Returns recommended chat filters for the current user.
+ * Returns recommended chat filters for the current user
  */
 class GetRecommendedChatFilters extends TdFunction
 {

@@ -9,29 +9,37 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * A video message.
+ * A video message
  */
 class PushMessageContentVideo extends PushMessageContent
 {
     public const TYPE_NAME = 'pushMessageContentVideo';
 
     /**
-     * Message content; may be null.
+     * Message content; may be null
+     *
+     * @var Video|null
      */
     protected ?Video $video;
 
     /**
-     * Video caption.
+     * Video caption
+     *
+     * @var string
      */
     protected string $caption;
 
     /**
-     * True, if the video is secret.
+     * True, if the video is secret
+     *
+     * @var bool
      */
     protected bool $isSecret;
 
     /**
-     * True, if the message is a pinned message with the specified content.
+     * True, if the message is a pinned message with the specified content
+     *
+     * @var bool
      */
     protected bool $isPinned;
 
@@ -39,8 +47,8 @@ class PushMessageContentVideo extends PushMessageContent
     {
         parent::__construct();
 
-        $this->video    = $video;
-        $this->caption  = $caption;
+        $this->video = $video;
+        $this->caption = $caption;
         $this->isSecret = $isSecret;
         $this->isPinned = $isPinned;
     }
@@ -58,9 +66,9 @@ class PushMessageContentVideo extends PushMessageContent
     public function typeSerialize(): array
     {
         return [
-            '@type'     => static::TYPE_NAME,
-            'video'     => (isset($this->video) ? $this->video : null),
-            'caption'   => $this->caption,
+            '@type' => static::TYPE_NAME,
+            'video' => (isset($this->video) ? $this->video : null),
+            'caption' => $this->caption,
             'is_secret' => $this->isSecret,
             'is_pinned' => $this->isPinned,
         ];

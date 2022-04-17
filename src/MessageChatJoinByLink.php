@@ -9,7 +9,7 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * A new member joined the chat by invite link.
+ * A new member joined the chat via an invite link
  */
 class MessageChatJoinByLink extends MessageContent
 {

@@ -9,19 +9,23 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * A message with a user contact.
+ * A message with a user contact
  */
 class PushMessageContentContact extends PushMessageContent
 {
     public const TYPE_NAME = 'pushMessageContentContact';
 
     /**
-     * Contact's name.
+     * Contact's name
+     *
+     * @var string
      */
     protected string $name;
 
     /**
-     * True, if the message is a pinned message with the specified content.
+     * True, if the message is a pinned message with the specified content
+     *
+     * @var bool
      */
     protected bool $isPinned;
 
@@ -29,7 +33,7 @@ class PushMessageContentContact extends PushMessageContent
     {
         parent::__construct();
 
-        $this->name     = $name;
+        $this->name = $name;
         $this->isPinned = $isPinned;
     }
 
@@ -44,8 +48,8 @@ class PushMessageContentContact extends PushMessageContent
     public function typeSerialize(): array
     {
         return [
-            '@type'     => static::TYPE_NAME,
-            'name'      => $this->name,
+            '@type' => static::TYPE_NAME,
+            'name' => $this->name,
             'is_pinned' => $this->isPinned,
         ];
     }

@@ -9,19 +9,23 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Returns file downloaded prefix size from a given offset.
+ * Returns file downloaded prefix size from a given offset, in bytes
  */
 class GetFileDownloadedPrefixSize extends TdFunction
 {
     public const TYPE_NAME = 'getFileDownloadedPrefixSize';
 
     /**
-     * Identifier of the file.
+     * Identifier of the file
+     *
+     * @var int
      */
     protected int $fileId;
 
     /**
-     * Offset from which downloaded prefix size should be calculated.
+     * Offset from which downloaded prefix size needs to be calculated
+     *
+     * @var int
      */
     protected int $offset;
 
@@ -42,9 +46,9 @@ class GetFileDownloadedPrefixSize extends TdFunction
     public function typeSerialize(): array
     {
         return [
-            '@type'   => static::TYPE_NAME,
+            '@type' => static::TYPE_NAME,
             'file_id' => $this->fileId,
-            'offset'  => $this->offset,
+            'offset' => $this->offset,
         ];
     }
 

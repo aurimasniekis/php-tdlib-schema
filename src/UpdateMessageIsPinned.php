@@ -9,24 +9,30 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * The message pinned state was changed.
+ * The message pinned state was changed
  */
 class UpdateMessageIsPinned extends Update
 {
     public const TYPE_NAME = 'updateMessageIsPinned';
 
     /**
-     * Chat identifier.
+     * Chat identifier
+     *
+     * @var int
      */
     protected int $chatId;
 
     /**
-     * The message identifier.
+     * The message identifier
+     *
+     * @var int
      */
     protected int $messageId;
 
     /**
-     * True, if the message is pinned.
+     * True, if the message is pinned
+     *
+     * @var bool
      */
     protected bool $isPinned;
 
@@ -34,9 +40,9 @@ class UpdateMessageIsPinned extends Update
     {
         parent::__construct();
 
-        $this->chatId    = $chatId;
+        $this->chatId = $chatId;
         $this->messageId = $messageId;
-        $this->isPinned  = $isPinned;
+        $this->isPinned = $isPinned;
     }
 
     public static function fromArray(array $array): UpdateMessageIsPinned
@@ -51,10 +57,10 @@ class UpdateMessageIsPinned extends Update
     public function typeSerialize(): array
     {
         return [
-            '@type'      => static::TYPE_NAME,
-            'chat_id'    => $this->chatId,
+            '@type' => static::TYPE_NAME,
+            'chat_id' => $this->chatId,
             'message_id' => $this->messageId,
-            'is_pinned'  => $this->isPinned,
+            'is_pinned' => $this->isPinned,
         ];
     }
 

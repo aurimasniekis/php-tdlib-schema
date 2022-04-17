@@ -9,7 +9,7 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * The chat has child abuse related content.
+ * The chat has child abuse related content
  */
 class ChatReportReasonChildAbuse extends ChatReportReason
 {

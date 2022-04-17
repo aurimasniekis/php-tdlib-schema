@@ -9,7 +9,7 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * A Wi-Fi network.
+ * A Wi-Fi network
  */
 class NetworkTypeWiFi extends NetworkType
 {

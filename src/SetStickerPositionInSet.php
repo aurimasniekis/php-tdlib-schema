@@ -9,25 +9,29 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Changes the position of a sticker in the set to which it belongs; for bots only. The sticker set must have been created by the bot.
+ * Changes the position of a sticker in the set to which it belongs; for bots only. The sticker set must have been created by the bot
  */
 class SetStickerPositionInSet extends TdFunction
 {
     public const TYPE_NAME = 'setStickerPositionInSet';
 
     /**
-     * Sticker.
+     * Sticker
+     *
+     * @var InputFile
      */
     protected InputFile $sticker;
 
     /**
-     * New position of the sticker in the set, zero-based.
+     * New position of the sticker in the set, zero-based
+     *
+     * @var int
      */
     protected int $position;
 
     public function __construct(InputFile $sticker, int $position)
     {
-        $this->sticker  = $sticker;
+        $this->sticker = $sticker;
         $this->position = $position;
     }
 
@@ -42,8 +46,8 @@ class SetStickerPositionInSet extends TdFunction
     public function typeSerialize(): array
     {
         return [
-            '@type'    => static::TYPE_NAME,
-            'sticker'  => $this->sticker->typeSerialize(),
+            '@type' => static::TYPE_NAME,
+            'sticker' => $this->sticker->typeSerialize(),
             'position' => $this->position,
         ];
     }

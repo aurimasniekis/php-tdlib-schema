@@ -9,24 +9,30 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * The information about interactions with a message has changed.
+ * The information about interactions with a message has changed
  */
 class UpdateMessageInteractionInfo extends Update
 {
     public const TYPE_NAME = 'updateMessageInteractionInfo';
 
     /**
-     * Chat identifier.
+     * Chat identifier
+     *
+     * @var int
      */
     protected int $chatId;
 
     /**
-     * Message identifier.
+     * Message identifier
+     *
+     * @var int
      */
     protected int $messageId;
 
     /**
-     * New information about interactions with the message; may be null.
+     * New information about interactions with the message; may be null
+     *
+     * @var MessageInteractionInfo|null
      */
     protected ?MessageInteractionInfo $interactionInfo;
 
@@ -34,8 +40,8 @@ class UpdateMessageInteractionInfo extends Update
     {
         parent::__construct();
 
-        $this->chatId          = $chatId;
-        $this->messageId       = $messageId;
+        $this->chatId = $chatId;
+        $this->messageId = $messageId;
         $this->interactionInfo = $interactionInfo;
     }
 
@@ -51,9 +57,9 @@ class UpdateMessageInteractionInfo extends Update
     public function typeSerialize(): array
     {
         return [
-            '@type'            => static::TYPE_NAME,
-            'chat_id'          => $this->chatId,
-            'message_id'       => $this->messageId,
+            '@type' => static::TYPE_NAME,
+            'chat_id' => $this->chatId,
+            'message_id' => $this->messageId,
             'interaction_info' => (isset($this->interactionInfo) ? $this->interactionInfo : null),
         ];
     }

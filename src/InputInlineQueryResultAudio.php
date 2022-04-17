@@ -9,44 +9,58 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Represents a link to an MP3 audio file.
+ * Represents a link to an MP3 audio file
  */
 class InputInlineQueryResultAudio extends InputInlineQueryResult
 {
     public const TYPE_NAME = 'inputInlineQueryResultAudio';
 
     /**
-     * Unique identifier of the query result.
+     * Unique identifier of the query result
+     *
+     * @var string
      */
     protected string $id;
 
     /**
-     * Title of the audio file.
+     * Title of the audio file
+     *
+     * @var string
      */
     protected string $title;
 
     /**
-     * Performer of the audio file.
+     * Performer of the audio file
+     *
+     * @var string
      */
     protected string $performer;
 
     /**
-     * The URL of the audio file.
+     * The URL of the audio file
+     *
+     * @var string
      */
     protected string $audioUrl;
 
     /**
-     * Audio file duration, in seconds.
+     * Audio file duration, in seconds
+     *
+     * @var int
      */
     protected int $audioDuration;
 
     /**
-     * The message reply markup. Must be of type replyMarkupInlineKeyboard or null.
+     * The message reply markup; pass null if none. Must be of type replyMarkupInlineKeyboard or null
+     *
+     * @var ReplyMarkup
      */
     protected ReplyMarkup $replyMarkup;
 
     /**
-     * The content of the message to be sent. Must be one of the following types: InputMessageText, InputMessageAudio, InputMessageLocation, InputMessageVenue or InputMessageContact.
+     * The content of the message to be sent. Must be one of the following types: inputMessageText, inputMessageAudio, inputMessageInvoice, inputMessageLocation, inputMessageVenue or inputMessageContact
+     *
+     * @var InputMessageContent
      */
     protected InputMessageContent $inputMessageContent;
 
@@ -61,12 +75,12 @@ class InputInlineQueryResultAudio extends InputInlineQueryResult
     ) {
         parent::__construct();
 
-        $this->id                  = $id;
-        $this->title               = $title;
-        $this->performer           = $performer;
-        $this->audioUrl            = $audioUrl;
-        $this->audioDuration       = $audioDuration;
-        $this->replyMarkup         = $replyMarkup;
+        $this->id = $id;
+        $this->title = $title;
+        $this->performer = $performer;
+        $this->audioUrl = $audioUrl;
+        $this->audioDuration = $audioDuration;
+        $this->replyMarkup = $replyMarkup;
         $this->inputMessageContent = $inputMessageContent;
     }
 
@@ -86,13 +100,13 @@ class InputInlineQueryResultAudio extends InputInlineQueryResult
     public function typeSerialize(): array
     {
         return [
-            '@type'                 => static::TYPE_NAME,
-            'id'                    => $this->id,
-            'title'                 => $this->title,
-            'performer'             => $this->performer,
-            'audio_url'             => $this->audioUrl,
-            'audio_duration'        => $this->audioDuration,
-            'reply_markup'          => $this->replyMarkup->typeSerialize(),
+            '@type' => static::TYPE_NAME,
+            'id' => $this->id,
+            'title' => $this->title,
+            'performer' => $this->performer,
+            'audio_url' => $this->audioUrl,
+            'audio_duration' => $this->audioDuration,
+            'reply_markup' => $this->replyMarkup->typeSerialize(),
             'input_message_content' => $this->inputMessageContent->typeSerialize(),
         ];
     }

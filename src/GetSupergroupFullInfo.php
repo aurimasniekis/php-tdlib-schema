@@ -9,14 +9,16 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Returns full information about a supergroup or a channel by its identifier, cached for up to 1 minute.
+ * Returns full information about a supergroup or a channel by its identifier, cached for up to 1 minute
  */
 class GetSupergroupFullInfo extends TdFunction
 {
     public const TYPE_NAME = 'getSupergroupFullInfo';
 
     /**
-     * Supergroup or channel identifier.
+     * Supergroup or channel identifier
+     *
+     * @var int
      */
     protected int $supergroupId;
 
@@ -35,7 +37,7 @@ class GetSupergroupFullInfo extends TdFunction
     public function typeSerialize(): array
     {
         return [
-            '@type'         => static::TYPE_NAME,
+            '@type' => static::TYPE_NAME,
             'supergroup_id' => $this->supergroupId,
         ];
     }

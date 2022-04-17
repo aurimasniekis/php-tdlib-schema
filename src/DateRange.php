@@ -9,26 +9,30 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Represents a date range.
+ * Represents a date range
  */
 class DateRange extends TdObject
 {
     public const TYPE_NAME = 'dateRange';
 
     /**
-     * Point in time (Unix timestamp) at which the date range begins.
+     * Point in time (Unix timestamp) at which the date range begins
+     *
+     * @var int
      */
     protected int $startDate;
 
     /**
-     * Point in time (Unix timestamp) at which the date range ends.
+     * Point in time (Unix timestamp) at which the date range ends
+     *
+     * @var int
      */
     protected int $endDate;
 
     public function __construct(int $startDate, int $endDate)
     {
         $this->startDate = $startDate;
-        $this->endDate   = $endDate;
+        $this->endDate = $endDate;
     }
 
     public static function fromArray(array $array): DateRange
@@ -42,9 +46,9 @@ class DateRange extends TdObject
     public function typeSerialize(): array
     {
         return [
-            '@type'      => static::TYPE_NAME,
+            '@type' => static::TYPE_NAME,
             'start_date' => $this->startDate,
-            'end_date'   => $this->endDate,
+            'end_date' => $this->endDate,
         ];
     }
 
