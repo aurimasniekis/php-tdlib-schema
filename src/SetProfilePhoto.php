@@ -9,20 +9,20 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Uploads a new profile photo for the current user. If something changes, updateUser will be sent.
+ * Changes a profile photo for the current user
  */
 class SetProfilePhoto extends TdFunction
 {
     public const TYPE_NAME = 'setProfilePhoto';
 
     /**
-     * Profile photo to set. inputFileId and inputFileRemote may still be unsupported.
+     * Profile photo to set
      *
-     * @var InputFile
+     * @var InputChatPhoto
      */
-    protected InputFile $photo;
+    protected InputChatPhoto $photo;
 
-    public function __construct(InputFile $photo)
+    public function __construct(InputChatPhoto $photo)
     {
         $this->photo = $photo;
     }
@@ -42,7 +42,7 @@ class SetProfilePhoto extends TdFunction
         ];
     }
 
-    public function getPhoto(): InputFile
+    public function getPhoto(): InputChatPhoto
     {
         return $this->photo;
     }

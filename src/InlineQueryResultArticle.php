@@ -9,64 +9,70 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Represents a link to an article or web page.
+ * Represents a link to an article or web page
  */
 class InlineQueryResultArticle extends InlineQueryResult
 {
     public const TYPE_NAME = 'inlineQueryResultArticle';
 
     /**
-     * Unique identifier of the query result.
+     * Unique identifier of the query result
      *
      * @var string
      */
     protected string $id;
 
     /**
-     * URL of the result, if it exists.
+     * URL of the result, if it exists
      *
      * @var string
      */
     protected string $url;
 
     /**
-     * True, if the URL must be not shown.
+     * True, if the URL must be not shown
      *
      * @var bool
      */
     protected bool $hideUrl;
 
     /**
-     * Title of the result.
+     * Title of the result
      *
      * @var string
      */
     protected string $title;
 
     /**
-     * A short description of the result.
+     * A short description of the result
      *
      * @var string
      */
     protected string $description;
 
     /**
-     * Result thumbnail; may be null.
+     * Result thumbnail in JPEG format; may be null
      *
-     * @var PhotoSize|null
+     * @var Thumbnail|null
      */
-    protected ?PhotoSize $thumbnail;
+    protected ?Thumbnail $thumbnail;
 
-    public function __construct(string $id, string $url, bool $hideUrl, string $title, string $description, ?PhotoSize $thumbnail)
-    {
+    public function __construct(
+        string $id,
+        string $url,
+        bool $hideUrl,
+        string $title,
+        string $description,
+        ?Thumbnail $thumbnail
+    ) {
         parent::__construct();
 
-        $this->id          = $id;
-        $this->url         = $url;
-        $this->hideUrl     = $hideUrl;
-        $this->title       = $title;
+        $this->id = $id;
+        $this->url = $url;
+        $this->hideUrl = $hideUrl;
+        $this->title = $title;
         $this->description = $description;
-        $this->thumbnail   = $thumbnail;
+        $this->thumbnail = $thumbnail;
     }
 
     public static function fromArray(array $array): InlineQueryResultArticle
@@ -84,13 +90,13 @@ class InlineQueryResultArticle extends InlineQueryResult
     public function typeSerialize(): array
     {
         return [
-            '@type'       => static::TYPE_NAME,
-            'id'          => $this->id,
-            'url'         => $this->url,
-            'hide_url'    => $this->hideUrl,
-            'title'       => $this->title,
+            '@type' => static::TYPE_NAME,
+            'id' => $this->id,
+            'url' => $this->url,
+            'hide_url' => $this->hideUrl,
+            'title' => $this->title,
             'description' => $this->description,
-            'thumbnail'   => (isset($this->thumbnail) ? $this->thumbnail : null),
+            'thumbnail' => (isset($this->thumbnail) ? $this->thumbnail : null),
         ];
     }
 
@@ -119,7 +125,7 @@ class InlineQueryResultArticle extends InlineQueryResult
         return $this->description;
     }
 
-    public function getThumbnail(): ?PhotoSize
+    public function getThumbnail(): ?Thumbnail
     {
         return $this->thumbnail;
     }

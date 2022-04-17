@@ -9,14 +9,14 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * A Telegram Passport element to be saved containing the user's bank statement.
+ * A Telegram Passport element to be saved containing the user's bank statement
  */
 class InputPassportElementBankStatement extends InputPassportElement
 {
     public const TYPE_NAME = 'inputPassportElementBankStatement';
 
     /**
-     * The bank statement to be saved.
+     * The bank statement to be saved
      *
      * @var InputPersonalDocument
      */
@@ -39,7 +39,7 @@ class InputPassportElementBankStatement extends InputPassportElement
     public function typeSerialize(): array
     {
         return [
-            '@type'          => static::TYPE_NAME,
+            '@type' => static::TYPE_NAME,
             'bank_statement' => $this->bankStatement->typeSerialize(),
         ];
     }

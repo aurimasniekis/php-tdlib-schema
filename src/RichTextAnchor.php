@@ -9,14 +9,14 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * An anchor.
+ * An anchor
  */
 class RichTextAnchor extends RichText
 {
     public const TYPE_NAME = 'richTextAnchor';
 
     /**
-     * Anchor name.
+     * Anchor name
      *
      * @var string
      */
@@ -40,7 +40,7 @@ class RichTextAnchor extends RichText
     {
         return [
             '@type' => static::TYPE_NAME,
-            'name'  => $this->name,
+            'name' => $this->name,
         ];
     }
 

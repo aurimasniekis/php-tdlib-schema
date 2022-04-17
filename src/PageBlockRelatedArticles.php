@@ -9,21 +9,21 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Related articles.
+ * Related articles
  */
 class PageBlockRelatedArticles extends PageBlock
 {
     public const TYPE_NAME = 'pageBlockRelatedArticles';
 
     /**
-     * Block header.
+     * Block header
      *
      * @var RichText
      */
     protected RichText $header;
 
     /**
-     * List of related articles.
+     * List of related articles
      *
      * @var PageBlockRelatedArticle[]
      */
@@ -33,7 +33,7 @@ class PageBlockRelatedArticles extends PageBlock
     {
         parent::__construct();
 
-        $this->header   = $header;
+        $this->header = $header;
         $this->articles = $articles;
     }
 
@@ -41,16 +41,16 @@ class PageBlockRelatedArticles extends PageBlock
     {
         return new static(
             TdSchemaRegistry::fromArray($array['header']),
-            array_map(fn ($x) => TdSchemaRegistry::fromArray($x), $array['articles']),
+            array_map(fn($x) => TdSchemaRegistry::fromArray($x), $array['articles']),
         );
     }
 
     public function typeSerialize(): array
     {
         return [
-            '@type'           => static::TYPE_NAME,
-            'header'          => $this->header->typeSerialize(),
-            array_map(fn ($x) => $x->typeSerialize(), $this->articles),
+            '@type' => static::TYPE_NAME,
+            'header' => $this->header->typeSerialize(),
+            array_map(fn($x) => $x->typeSerialize(), $this->articles),
         ];
     }
 

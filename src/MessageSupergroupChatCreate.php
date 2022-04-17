@@ -9,14 +9,14 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * A newly created supergroup or channel.
+ * A newly created supergroup or channel
  */
 class MessageSupergroupChatCreate extends MessageContent
 {
     public const TYPE_NAME = 'messageSupergroupChatCreate';
 
     /**
-     * Title of the supergroup or channel.
+     * Title of the supergroup or channel
      *
      * @var string
      */

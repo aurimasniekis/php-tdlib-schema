@@ -9,40 +9,52 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * A document message (general file).
+ * A document message (general file)
  */
 class InputMessageDocument extends InputMessageContent
 {
     public const TYPE_NAME = 'inputMessageDocument';
 
     /**
-     * Document to be sent.
+     * Document to be sent
      *
      * @var InputFile
      */
     protected InputFile $document;
 
     /**
-     * Document thumbnail, if available.
+     * Document thumbnail; pass null to skip thumbnail uploading
      *
      * @var InputThumbnail
      */
     protected InputThumbnail $thumbnail;
 
     /**
-     * Document caption; 0-GetOption("message_caption_length_max") characters.
+     * If true, automatic file type detection will be disabled and the document will be always sent as file. Always true for files sent to secret chats
+     *
+     * @var bool
+     */
+    protected bool $disableContentTypeDetection;
+
+    /**
+     * Document caption; pass null to use an empty caption; 0-GetOption("message_caption_length_max") characters
      *
      * @var FormattedText
      */
     protected FormattedText $caption;
 
-    public function __construct(InputFile $document, InputThumbnail $thumbnail, FormattedText $caption)
-    {
+    public function __construct(
+        InputFile $document,
+        InputThumbnail $thumbnail,
+        bool $disableContentTypeDetection,
+        FormattedText $caption
+    ) {
         parent::__construct();
 
-        $this->document  = $document;
+        $this->document = $document;
         $this->thumbnail = $thumbnail;
-        $this->caption   = $caption;
+        $this->disableContentTypeDetection = $disableContentTypeDetection;
+        $this->caption = $caption;
     }
 
     public static function fromArray(array $array): InputMessageDocument
@@ -50,6 +62,7 @@ class InputMessageDocument extends InputMessageContent
         return new static(
             TdSchemaRegistry::fromArray($array['document']),
             TdSchemaRegistry::fromArray($array['thumbnail']),
+            $array['disable_content_type_detection'],
             TdSchemaRegistry::fromArray($array['caption']),
         );
     }
@@ -57,10 +70,11 @@ class InputMessageDocument extends InputMessageContent
     public function typeSerialize(): array
     {
         return [
-            '@type'     => static::TYPE_NAME,
-            'document'  => $this->document->typeSerialize(),
+            '@type' => static::TYPE_NAME,
+            'document' => $this->document->typeSerialize(),
             'thumbnail' => $this->thumbnail->typeSerialize(),
-            'caption'   => $this->caption->typeSerialize(),
+            'disable_content_type_detection' => $this->disableContentTypeDetection,
+            'caption' => $this->caption->typeSerialize(),
         ];
     }
 
@@ -72,6 +86,11 @@ class InputMessageDocument extends InputMessageContent
     public function getThumbnail(): InputThumbnail
     {
         return $this->thumbnail;
+    }
+
+    public function getDisableContentTypeDetection(): bool
+    {
+        return $this->disableContentTypeDetection;
     }
 
     public function getCaption(): FormattedText

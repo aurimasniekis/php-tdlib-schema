@@ -9,14 +9,14 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Returns information about a supergroup or a channel by its identifier. This is an offline request if the current user is not a bot.
+ * Returns information about a supergroup or a channel by its identifier. This is an offline request if the current user is not a bot
  */
 class GetSupergroup extends TdFunction
 {
     public const TYPE_NAME = 'getSupergroup';
 
     /**
-     * Supergroup or channel identifier.
+     * Supergroup or channel identifier
      *
      * @var int
      */
@@ -37,7 +37,7 @@ class GetSupergroup extends TdFunction
     public function typeSerialize(): array
     {
         return [
-            '@type'         => static::TYPE_NAME,
+            '@type' => static::TYPE_NAME,
             'supergroup_id' => $this->supergroupId,
         ];
     }

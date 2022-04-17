@@ -9,35 +9,35 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Represents a document.
+ * Represents a document
  */
 class InlineQueryResultDocument extends InlineQueryResult
 {
     public const TYPE_NAME = 'inlineQueryResultDocument';
 
     /**
-     * Unique identifier of the query result.
+     * Unique identifier of the query result
      *
      * @var string
      */
     protected string $id;
 
     /**
-     * Document.
+     * Document
      *
      * @var Document
      */
     protected Document $document;
 
     /**
-     * Document title.
+     * Document title
      *
      * @var string
      */
     protected string $title;
 
     /**
-     * Document description.
+     * Document description
      *
      * @var string
      */
@@ -47,9 +47,9 @@ class InlineQueryResultDocument extends InlineQueryResult
     {
         parent::__construct();
 
-        $this->id          = $id;
-        $this->document    = $document;
-        $this->title       = $title;
+        $this->id = $id;
+        $this->document = $document;
+        $this->title = $title;
         $this->description = $description;
     }
 
@@ -66,10 +66,10 @@ class InlineQueryResultDocument extends InlineQueryResult
     public function typeSerialize(): array
     {
         return [
-            '@type'       => static::TYPE_NAME,
-            'id'          => $this->id,
-            'document'    => $this->document->typeSerialize(),
-            'title'       => $this->title,
+            '@type' => static::TYPE_NAME,
+            'id' => $this->id,
+            'document' => $this->document->typeSerialize(),
+            'title' => $this->title,
             'description' => $this->description,
         ];
     }

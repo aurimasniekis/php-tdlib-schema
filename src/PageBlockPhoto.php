@@ -9,28 +9,28 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * A photo.
+ * A photo
  */
 class PageBlockPhoto extends PageBlock
 {
     public const TYPE_NAME = 'pageBlockPhoto';
 
     /**
-     * Photo file; may be null.
+     * Photo file; may be null
      *
      * @var Photo|null
      */
     protected ?Photo $photo;
 
     /**
-     * Photo caption.
+     * Photo caption
      *
      * @var PageBlockCaption
      */
     protected PageBlockCaption $caption;
 
     /**
-     * URL that needs to be opened when the photo is clicked.
+     * URL that needs to be opened when the photo is clicked
      *
      * @var string
      */
@@ -40,9 +40,9 @@ class PageBlockPhoto extends PageBlock
     {
         parent::__construct();
 
-        $this->photo   = $photo;
+        $this->photo = $photo;
         $this->caption = $caption;
-        $this->url     = $url;
+        $this->url = $url;
     }
 
     public static function fromArray(array $array): PageBlockPhoto
@@ -57,10 +57,10 @@ class PageBlockPhoto extends PageBlock
     public function typeSerialize(): array
     {
         return [
-            '@type'   => static::TYPE_NAME,
-            'photo'   => (isset($this->photo) ? $this->photo : null),
+            '@type' => static::TYPE_NAME,
+            'photo' => (isset($this->photo) ? $this->photo : null),
             'caption' => $this->caption->typeSerialize(),
-            'url'     => $this->url,
+            'url' => $this->url,
         ];
     }
 

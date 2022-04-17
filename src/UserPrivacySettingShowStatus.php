@@ -9,7 +9,7 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * A privacy setting for managing whether the user's online status is visible.
+ * A privacy setting for managing whether the user's online status is visible
  */
 class UserPrivacySettingShowStatus extends UserPrivacySetting
 {

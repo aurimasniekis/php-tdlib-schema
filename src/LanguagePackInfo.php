@@ -9,98 +9,98 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Contains information about a language pack.
+ * Contains information about a language pack
  */
 class LanguagePackInfo extends TdObject
 {
     public const TYPE_NAME = 'languagePackInfo';
 
     /**
-     * Unique language pack identifier.
+     * Unique language pack identifier
      *
      * @var string
      */
     protected string $id;
 
     /**
-     * Identifier of a base language pack; may be empty. If a string is missed in the language pack, then it should be fetched from base language pack. Unsupported in custom language packs.
+     * Identifier of a base language pack; may be empty. If a string is missed in the language pack, then it must be fetched from base language pack. Unsupported in custom language packs
      *
      * @var string
      */
     protected string $baseLanguagePackId;
 
     /**
-     * Language name.
+     * Language name
      *
      * @var string
      */
     protected string $name;
 
     /**
-     * Name of the language in that language.
+     * Name of the language in that language
      *
      * @var string
      */
     protected string $nativeName;
 
     /**
-     * A language code to be used to apply plural forms. See https://www.unicode.org/cldr/charts/latest/supplemental/language_plural_rules.html for more info.
+     * A language code to be used to apply plural forms. See https://www.unicode.org/cldr/charts/latest/supplemental/language_plural_rules.html for more info
      *
      * @var string
      */
     protected string $pluralCode;
 
     /**
-     * True, if the language pack is official.
+     * True, if the language pack is official
      *
      * @var bool
      */
     protected bool $isOfficial;
 
     /**
-     * True, if the language pack strings are RTL.
+     * True, if the language pack strings are RTL
      *
      * @var bool
      */
     protected bool $isRtl;
 
     /**
-     * True, if the language pack is a beta language pack.
+     * True, if the language pack is a beta language pack
      *
      * @var bool
      */
     protected bool $isBeta;
 
     /**
-     * True, if the language pack is installed by the current user.
+     * True, if the language pack is installed by the current user
      *
      * @var bool
      */
     protected bool $isInstalled;
 
     /**
-     * Total number of non-deleted strings from the language pack.
+     * Total number of non-deleted strings from the language pack
      *
      * @var int
      */
     protected int $totalStringCount;
 
     /**
-     * Total number of translated strings from the language pack.
+     * Total number of translated strings from the language pack
      *
      * @var int
      */
     protected int $translatedStringCount;
 
     /**
-     * Total number of non-deleted strings from the language pack available locally.
+     * Total number of non-deleted strings from the language pack available locally
      *
      * @var int
      */
     protected int $localStringCount;
 
     /**
-     * Link to language translation interface; empty for custom local language packs.
+     * Link to language translation interface; empty for custom local language packs
      *
      * @var string
      */
@@ -121,19 +121,19 @@ class LanguagePackInfo extends TdObject
         int $localStringCount,
         string $translationUrl
     ) {
-        $this->id                    = $id;
-        $this->baseLanguagePackId    = $baseLanguagePackId;
-        $this->name                  = $name;
-        $this->nativeName            = $nativeName;
-        $this->pluralCode            = $pluralCode;
-        $this->isOfficial            = $isOfficial;
-        $this->isRtl                 = $isRtl;
-        $this->isBeta                = $isBeta;
-        $this->isInstalled           = $isInstalled;
-        $this->totalStringCount      = $totalStringCount;
+        $this->id = $id;
+        $this->baseLanguagePackId = $baseLanguagePackId;
+        $this->name = $name;
+        $this->nativeName = $nativeName;
+        $this->pluralCode = $pluralCode;
+        $this->isOfficial = $isOfficial;
+        $this->isRtl = $isRtl;
+        $this->isBeta = $isBeta;
+        $this->isInstalled = $isInstalled;
+        $this->totalStringCount = $totalStringCount;
         $this->translatedStringCount = $translatedStringCount;
-        $this->localStringCount      = $localStringCount;
-        $this->translationUrl        = $translationUrl;
+        $this->localStringCount = $localStringCount;
+        $this->translationUrl = $translationUrl;
     }
 
     public static function fromArray(array $array): LanguagePackInfo
@@ -158,20 +158,20 @@ class LanguagePackInfo extends TdObject
     public function typeSerialize(): array
     {
         return [
-            '@type'                   => static::TYPE_NAME,
-            'id'                      => $this->id,
-            'base_language_pack_id'   => $this->baseLanguagePackId,
-            'name'                    => $this->name,
-            'native_name'             => $this->nativeName,
-            'plural_code'             => $this->pluralCode,
-            'is_official'             => $this->isOfficial,
-            'is_rtl'                  => $this->isRtl,
-            'is_beta'                 => $this->isBeta,
-            'is_installed'            => $this->isInstalled,
-            'total_string_count'      => $this->totalStringCount,
+            '@type' => static::TYPE_NAME,
+            'id' => $this->id,
+            'base_language_pack_id' => $this->baseLanguagePackId,
+            'name' => $this->name,
+            'native_name' => $this->nativeName,
+            'plural_code' => $this->pluralCode,
+            'is_official' => $this->isOfficial,
+            'is_rtl' => $this->isRtl,
+            'is_beta' => $this->isBeta,
+            'is_installed' => $this->isInstalled,
+            'total_string_count' => $this->totalStringCount,
             'translated_string_count' => $this->translatedStringCount,
-            'local_string_count'      => $this->localStringCount,
-            'translation_url'         => $this->translationUrl,
+            'local_string_count' => $this->localStringCount,
+            'translation_url' => $this->translationUrl,
         ];
     }
 

@@ -9,14 +9,14 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Returns information about a public or private message link.
+ * Returns information about a public or private message link. Can be called for any internal link of the type internalLinkTypeMessage
  */
 class GetMessageLinkInfo extends TdFunction
 {
     public const TYPE_NAME = 'getMessageLinkInfo';
 
     /**
-     * The message link in the format "https://t.me/c/...", or "tg://privatepost?...", or "https://t.me/username/...", or "tg://resolve?...".
+     * The message link
      *
      * @var string
      */
@@ -38,7 +38,7 @@ class GetMessageLinkInfo extends TdFunction
     {
         return [
             '@type' => static::TYPE_NAME,
-            'url'   => $this->url,
+            'url' => $this->url,
         ];
     }
 

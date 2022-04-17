@@ -9,63 +9,68 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * New message was received through a push notification.
+ * New message was received through a push notification
  */
 class NotificationTypeNewPushMessage extends NotificationType
 {
     public const TYPE_NAME = 'notificationTypeNewPushMessage';
 
     /**
-     * The message identifier. The message will not be available in the chat history, but the ID can be used in viewMessages and as reply_to_message_id.
+     * The message identifier. The message will not be available in the chat history, but the ID can be used in viewMessages, or as reply_to_message_id
      *
      * @var int
      */
     protected int $messageId;
 
     /**
-     * Sender of the message; 0 if unknown. Corresponding user may be inaccessible.
+     * Identifier of the sender of the message. Corresponding user or chat may be inaccessible
      *
-     * @var int
+     * @var MessageSender
      */
-    protected int $senderUserId;
+    protected MessageSender $senderId;
 
     /**
-     * Name of the sender; can be different from the name of the sender user.
+     * Name of the sender
      *
      * @var string
      */
     protected string $senderName;
 
     /**
-     * True, if the message is outgoing.
+     * True, if the message is outgoing
      *
      * @var bool
      */
     protected bool $isOutgoing;
 
     /**
-     * Push message content.
+     * Push message content
      *
      * @var PushMessageContent
      */
     protected PushMessageContent $content;
 
-    public function __construct(int $messageId, int $senderUserId, string $senderName, bool $isOutgoing, PushMessageContent $content)
-    {
+    public function __construct(
+        int $messageId,
+        MessageSender $senderId,
+        string $senderName,
+        bool $isOutgoing,
+        PushMessageContent $content
+    ) {
         parent::__construct();
 
-        $this->messageId    = $messageId;
-        $this->senderUserId = $senderUserId;
-        $this->senderName   = $senderName;
-        $this->isOutgoing   = $isOutgoing;
-        $this->content      = $content;
+        $this->messageId = $messageId;
+        $this->senderId = $senderId;
+        $this->senderName = $senderName;
+        $this->isOutgoing = $isOutgoing;
+        $this->content = $content;
     }
 
     public static function fromArray(array $array): NotificationTypeNewPushMessage
     {
         return new static(
             $array['message_id'],
-            $array['sender_user_id'],
+            TdSchemaRegistry::fromArray($array['sender_id']),
             $array['sender_name'],
             $array['is_outgoing'],
             TdSchemaRegistry::fromArray($array['content']),
@@ -75,12 +80,12 @@ class NotificationTypeNewPushMessage extends NotificationType
     public function typeSerialize(): array
     {
         return [
-            '@type'          => static::TYPE_NAME,
-            'message_id'     => $this->messageId,
-            'sender_user_id' => $this->senderUserId,
-            'sender_name'    => $this->senderName,
-            'is_outgoing'    => $this->isOutgoing,
-            'content'        => $this->content->typeSerialize(),
+            '@type' => static::TYPE_NAME,
+            'message_id' => $this->messageId,
+            'sender_id' => $this->senderId->typeSerialize(),
+            'sender_name' => $this->senderName,
+            'is_outgoing' => $this->isOutgoing,
+            'content' => $this->content->typeSerialize(),
         ];
     }
 
@@ -89,9 +94,9 @@ class NotificationTypeNewPushMessage extends NotificationType
         return $this->messageId;
     }
 
-    public function getSenderUserId(): int
+    public function getSenderId(): MessageSender
     {
-        return $this->senderUserId;
+        return $this->senderId;
     }
 
     public function getSenderName(): string

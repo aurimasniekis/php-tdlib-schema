@@ -9,7 +9,7 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * An expired video message (self-destructed after TTL has elapsed).
+ * An expired video message (self-destructed after TTL has elapsed)
  */
 class MessageExpiredVideo extends MessageContent
 {

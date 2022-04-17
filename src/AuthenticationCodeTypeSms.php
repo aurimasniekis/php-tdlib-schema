@@ -9,14 +9,14 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * An authentication code is delivered via an SMS message to the specified phone number.
+ * An authentication code is delivered via an SMS message to the specified phone number
  */
 class AuthenticationCodeTypeSms extends AuthenticationCodeType
 {
     public const TYPE_NAME = 'authenticationCodeTypeSms';
 
     /**
-     * Length of the code.
+     * Length of the code
      *
      * @var int
      */
@@ -39,7 +39,7 @@ class AuthenticationCodeTypeSms extends AuthenticationCodeType
     public function typeSerialize(): array
     {
         return [
-            '@type'  => static::TYPE_NAME,
+            '@type' => static::TYPE_NAME,
             'length' => $this->length,
         ];
     }

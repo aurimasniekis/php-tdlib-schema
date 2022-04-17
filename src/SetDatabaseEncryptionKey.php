@@ -9,14 +9,14 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Changes the database encryption key. Usually the encryption key is never changed and is stored in some OS keychain.
+ * Changes the database encryption key. Usually the encryption key is never changed and is stored in some OS keychain
  */
 class SetDatabaseEncryptionKey extends TdFunction
 {
     public const TYPE_NAME = 'setDatabaseEncryptionKey';
 
     /**
-     * New encryption key.
+     * New encryption key
      *
      * @var string
      */
@@ -37,7 +37,7 @@ class SetDatabaseEncryptionKey extends TdFunction
     public function typeSerialize(): array
     {
         return [
-            '@type'              => static::TYPE_NAME,
+            '@type' => static::TYPE_NAME,
             'new_encryption_key' => $this->newEncryptionKey,
         ];
     }

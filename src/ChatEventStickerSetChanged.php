@@ -9,21 +9,21 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * The supergroup sticker set was changed.
+ * The supergroup sticker set was changed
  */
 class ChatEventStickerSetChanged extends ChatEventAction
 {
     public const TYPE_NAME = 'chatEventStickerSetChanged';
 
     /**
-     * Previous identifier of the chat sticker set; 0 if none.
+     * Previous identifier of the chat sticker set; 0 if none
      *
      * @var string
      */
     protected string $oldStickerSetId;
 
     /**
-     * New identifier of the chat sticker set; 0 if none.
+     * New identifier of the chat sticker set; 0 if none
      *
      * @var string
      */
@@ -48,7 +48,7 @@ class ChatEventStickerSetChanged extends ChatEventAction
     public function typeSerialize(): array
     {
         return [
-            '@type'              => static::TYPE_NAME,
+            '@type' => static::TYPE_NAME,
             'old_sticker_set_id' => $this->oldStickerSetId,
             'new_sticker_set_id' => $this->newStickerSetId,
         ];

@@ -9,61 +9,67 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Contains information about a related article.
+ * Contains information about a related article
  */
 class PageBlockRelatedArticle extends TdObject
 {
     public const TYPE_NAME = 'pageBlockRelatedArticle';
 
     /**
-     * Related article URL.
+     * Related article URL
      *
      * @var string
      */
     protected string $url;
 
     /**
-     * Article title; may be empty.
+     * Article title; may be empty
      *
      * @var string
      */
     protected string $title;
 
     /**
-     * Article description; may be empty.
+     * Article description; may be empty
      *
      * @var string
      */
     protected string $description;
 
     /**
-     * Article photo; may be null.
+     * Article photo; may be null
      *
      * @var Photo|null
      */
     protected ?Photo $photo;
 
     /**
-     * Article author; may be empty.
+     * Article author; may be empty
      *
      * @var string
      */
     protected string $author;
 
     /**
-     * Point in time (Unix timestamp) when the article was published; 0 if unknown.
+     * Point in time (Unix timestamp) when the article was published; 0 if unknown
      *
      * @var int
      */
     protected int $publishDate;
 
-    public function __construct(string $url, string $title, string $description, ?Photo $photo, string $author, int $publishDate)
-    {
-        $this->url         = $url;
-        $this->title       = $title;
+    public function __construct(
+        string $url,
+        string $title,
+        string $description,
+        ?Photo $photo,
+        string $author,
+        int $publishDate
+    ) {
+        $this->url = $url;
+        $this->title = $title;
         $this->description = $description;
-        $this->photo       = $photo;
-        $this->author      = $author;
+        $this->photo = $photo;
+        $this->author = $author;
         $this->publishDate = $publishDate;
     }
 
@@ -82,12 +88,12 @@ class PageBlockRelatedArticle extends TdObject
     public function typeSerialize(): array
     {
         return [
-            '@type'        => static::TYPE_NAME,
-            'url'          => $this->url,
-            'title'        => $this->title,
-            'description'  => $this->description,
-            'photo'        => (isset($this->photo) ? $this->photo : null),
-            'author'       => $this->author,
+            '@type' => static::TYPE_NAME,
+            'url' => $this->url,
+            'title' => $this->title,
+            'description' => $this->description,
+            'photo' => (isset($this->photo) ? $this->photo : null),
+            'author' => $this->author,
             'publish_date' => $this->publishDate,
         ];
     }

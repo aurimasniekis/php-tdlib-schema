@@ -9,7 +9,7 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * The call is hanging up after discardCall has been called.
+ * The call is hanging up after discardCall has been called
  */
 class CallStateHangingUp extends CallState
 {

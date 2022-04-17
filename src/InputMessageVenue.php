@@ -9,14 +9,14 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * A message with information about a venue.
+ * A message with information about a venue
  */
 class InputMessageVenue extends InputMessageContent
 {
     public const TYPE_NAME = 'inputMessageVenue';
 
     /**
-     * Venue to send.
+     * Venue to send
      *
      * @var Venue
      */

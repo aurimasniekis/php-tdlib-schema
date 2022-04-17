@@ -9,14 +9,14 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * The list of trending sticker sets was updated or some of them were viewed.
+ * The list of trending sticker sets was updated or some of them were viewed
  */
 class UpdateTrendingStickerSets extends Update
 {
     public const TYPE_NAME = 'updateTrendingStickerSets';
 
     /**
-     * The new list of trending sticker sets.
+     * The prefix of the list of trending sticker sets with the newest trending sticker sets
      *
      * @var StickerSets
      */
@@ -39,7 +39,7 @@ class UpdateTrendingStickerSets extends Update
     public function typeSerialize(): array
     {
         return [
-            '@type'        => static::TYPE_NAME,
+            '@type' => static::TYPE_NAME,
             'sticker_sets' => $this->stickerSets->typeSerialize(),
         ];
     }

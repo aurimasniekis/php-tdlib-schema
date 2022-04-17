@@ -9,14 +9,14 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Computes time needed to receive a response from a Telegram server through a proxy. Can be called before authorization.
+ * Computes time needed to receive a response from a Telegram server through a proxy. Can be called before authorization
  */
 class PingProxy extends TdFunction
 {
     public const TYPE_NAME = 'pingProxy';
 
     /**
-     * Proxy identifier. Use 0 to ping a Telegram server without a proxy.
+     * Proxy identifier. Use 0 to ping a Telegram server without a proxy
      *
      * @var int
      */
@@ -37,7 +37,7 @@ class PingProxy extends TdFunction
     public function typeSerialize(): array
     {
         return [
-            '@type'    => static::TYPE_NAME,
+            '@type' => static::TYPE_NAME,
             'proxy_id' => $this->proxyId,
         ];
     }

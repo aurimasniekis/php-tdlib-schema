@@ -9,14 +9,14 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Returns an IETF language tag of the language preferred in the country, which should be used to fill native fields in Telegram Passport personal details. Returns a 404 error if unknown.
+ * Returns an IETF language tag of the language preferred in the country, which must be used to fill native fields in Telegram Passport personal details. Returns a 404 error if unknown
  */
 class GetPreferredCountryLanguage extends TdFunction
 {
     public const TYPE_NAME = 'getPreferredCountryLanguage';
 
     /**
-     * A two-letter ISO 3166-1 alpha-2 country code.
+     * A two-letter ISO 3166-1 alpha-2 country code
      *
      * @var string
      */
@@ -37,7 +37,7 @@ class GetPreferredCountryLanguage extends TdFunction
     public function typeSerialize(): array
     {
         return [
-            '@type'        => static::TYPE_NAME,
+            '@type' => static::TYPE_NAME,
             'country_code' => $this->countryCode,
         ];
     }

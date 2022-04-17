@@ -9,28 +9,28 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * A photo message.
+ * A photo message
  */
 class MessagePhoto extends MessageContent
 {
     public const TYPE_NAME = 'messagePhoto';
 
     /**
-     * The photo description.
+     * The photo description
      *
      * @var Photo
      */
     protected Photo $photo;
 
     /**
-     * Photo caption.
+     * Photo caption
      *
      * @var FormattedText
      */
     protected FormattedText $caption;
 
     /**
-     * True, if the photo must be blurred and must be shown only while tapped.
+     * True, if the photo must be blurred and must be shown only while tapped
      *
      * @var bool
      */
@@ -40,8 +40,8 @@ class MessagePhoto extends MessageContent
     {
         parent::__construct();
 
-        $this->photo    = $photo;
-        $this->caption  = $caption;
+        $this->photo = $photo;
+        $this->caption = $caption;
         $this->isSecret = $isSecret;
     }
 
@@ -57,9 +57,9 @@ class MessagePhoto extends MessageContent
     public function typeSerialize(): array
     {
         return [
-            '@type'     => static::TYPE_NAME,
-            'photo'     => $this->photo->typeSerialize(),
-            'caption'   => $this->caption->typeSerialize(),
+            '@type' => static::TYPE_NAME,
+            'photo' => $this->photo->typeSerialize(),
+            'caption' => $this->caption->typeSerialize(),
             'is_secret' => $this->isSecret,
         ];
     }

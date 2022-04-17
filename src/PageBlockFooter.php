@@ -9,14 +9,14 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * The footer of a page.
+ * The footer of a page
  */
 class PageBlockFooter extends PageBlock
 {
     public const TYPE_NAME = 'pageBlockFooter';
 
     /**
-     * Footer.
+     * Footer
      *
      * @var RichText
      */
@@ -39,7 +39,7 @@ class PageBlockFooter extends PageBlock
     public function typeSerialize(): array
     {
         return [
-            '@type'  => static::TYPE_NAME,
+            '@type' => static::TYPE_NAME,
             'footer' => $this->footer->typeSerialize(),
         ];
     }

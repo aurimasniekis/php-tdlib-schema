@@ -9,7 +9,7 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * The chat is public, because it is a location-based supergroup.
+ * The chat is public, because it is a location-based supergroup
  */
 class PublicChatTypeIsLocationBased extends PublicChatType
 {

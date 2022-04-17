@@ -9,14 +9,14 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Removes an animation from the list of saved animations.
+ * Removes an animation from the list of saved animations
  */
 class RemoveSavedAnimation extends TdFunction
 {
     public const TYPE_NAME = 'removeSavedAnimation';
 
     /**
-     * Animation file to be removed.
+     * Animation file to be removed
      *
      * @var InputFile
      */
@@ -37,7 +37,7 @@ class RemoveSavedAnimation extends TdFunction
     public function typeSerialize(): array
     {
         return [
-            '@type'     => static::TYPE_NAME,
+            '@type' => static::TYPE_NAME,
             'animation' => $this->animation->typeSerialize(),
         ];
     }

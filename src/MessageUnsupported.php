@@ -9,7 +9,7 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Message content that is not supported by the client.
+ * Message content that is not supported in the current TDLib version
  */
 class MessageUnsupported extends MessageContent
 {

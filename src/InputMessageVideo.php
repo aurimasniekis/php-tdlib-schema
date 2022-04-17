@@ -9,70 +9,70 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * A video message.
+ * A video message
  */
 class InputMessageVideo extends InputMessageContent
 {
     public const TYPE_NAME = 'inputMessageVideo';
 
     /**
-     * Video to be sent.
+     * Video to be sent
      *
      * @var InputFile
      */
     protected InputFile $video;
 
     /**
-     * Video thumbnail, if available.
+     * Video thumbnail; pass null to skip thumbnail uploading
      *
      * @var InputThumbnail
      */
     protected InputThumbnail $thumbnail;
 
     /**
-     * File identifiers of the stickers added to the video, if applicable.
+     * File identifiers of the stickers added to the video, if applicable
      *
      * @var int[]
      */
     protected array $addedStickerFileIds;
 
     /**
-     * Duration of the video, in seconds.
+     * Duration of the video, in seconds
      *
      * @var int
      */
     protected int $duration;
 
     /**
-     * Video width.
+     * Video width
      *
      * @var int
      */
     protected int $width;
 
     /**
-     * Video height.
+     * Video height
      *
      * @var int
      */
     protected int $height;
 
     /**
-     * True, if the video should be tried to be streamed.
+     * True, if the video is supposed to be streamed
      *
      * @var bool
      */
     protected bool $supportsStreaming;
 
     /**
-     * Video caption; 0-GetOption("message_caption_length_max") characters.
+     * Video caption; pass null to use an empty caption; 0-GetOption("message_caption_length_max") characters
      *
      * @var FormattedText
      */
     protected FormattedText $caption;
 
     /**
-     * Video TTL (Time To Live), in seconds (0-60). A non-zero TTL can be specified only in private chats.
+     * Video TTL (Time To Live), in seconds (0-60). A non-zero TTL can be specified only in private chats
      *
      * @var int
      */
@@ -91,15 +91,15 @@ class InputMessageVideo extends InputMessageContent
     ) {
         parent::__construct();
 
-        $this->video               = $video;
-        $this->thumbnail           = $thumbnail;
+        $this->video = $video;
+        $this->thumbnail = $thumbnail;
         $this->addedStickerFileIds = $addedStickerFileIds;
-        $this->duration            = $duration;
-        $this->width               = $width;
-        $this->height              = $height;
-        $this->supportsStreaming   = $supportsStreaming;
-        $this->caption             = $caption;
-        $this->ttl                 = $ttl;
+        $this->duration = $duration;
+        $this->width = $width;
+        $this->height = $height;
+        $this->supportsStreaming = $supportsStreaming;
+        $this->caption = $caption;
+        $this->ttl = $ttl;
     }
 
     public static function fromArray(array $array): InputMessageVideo
@@ -120,16 +120,16 @@ class InputMessageVideo extends InputMessageContent
     public function typeSerialize(): array
     {
         return [
-            '@type'                  => static::TYPE_NAME,
-            'video'                  => $this->video->typeSerialize(),
-            'thumbnail'              => $this->thumbnail->typeSerialize(),
+            '@type' => static::TYPE_NAME,
+            'video' => $this->video->typeSerialize(),
+            'thumbnail' => $this->thumbnail->typeSerialize(),
             'added_sticker_file_ids' => $this->addedStickerFileIds,
-            'duration'               => $this->duration,
-            'width'                  => $this->width,
-            'height'                 => $this->height,
-            'supports_streaming'     => $this->supportsStreaming,
-            'caption'                => $this->caption->typeSerialize(),
-            'ttl'                    => $this->ttl,
+            'duration' => $this->duration,
+            'width' => $this->width,
+            'height' => $this->height,
+            'supports_streaming' => $this->supportsStreaming,
+            'caption' => $this->caption->typeSerialize(),
+            'ttl' => $this->ttl,
         ];
     }
 

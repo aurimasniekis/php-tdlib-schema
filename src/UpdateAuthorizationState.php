@@ -9,14 +9,14 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * The user authorization state has changed.
+ * The user authorization state has changed
  */
 class UpdateAuthorizationState extends Update
 {
     public const TYPE_NAME = 'updateAuthorizationState';
 
     /**
-     * New authorization state.
+     * New authorization state
      *
      * @var AuthorizationState
      */
@@ -39,7 +39,7 @@ class UpdateAuthorizationState extends Update
     public function typeSerialize(): array
     {
         return [
-            '@type'               => static::TYPE_NAME,
+            '@type' => static::TYPE_NAME,
             'authorization_state' => $this->authorizationState->typeSerialize(),
         ];
     }

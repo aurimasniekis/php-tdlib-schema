@@ -9,28 +9,28 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * A message with a poll.
+ * A message with a poll
  */
 class PushMessageContentPoll extends PushMessageContent
 {
     public const TYPE_NAME = 'pushMessageContentPoll';
 
     /**
-     * Poll question.
+     * Poll question
      *
      * @var string
      */
     protected string $question;
 
     /**
-     * True, if the poll is regular and not in quiz mode.
+     * True, if the poll is regular and not in quiz mode
      *
      * @var bool
      */
     protected bool $isRegular;
 
     /**
-     * True, if the message is a pinned message with the specified content.
+     * True, if the message is a pinned message with the specified content
      *
      * @var bool
      */
@@ -40,9 +40,9 @@ class PushMessageContentPoll extends PushMessageContent
     {
         parent::__construct();
 
-        $this->question  = $question;
+        $this->question = $question;
         $this->isRegular = $isRegular;
-        $this->isPinned  = $isPinned;
+        $this->isPinned = $isPinned;
     }
 
     public static function fromArray(array $array): PushMessageContentPoll
@@ -57,10 +57,10 @@ class PushMessageContentPoll extends PushMessageContent
     public function typeSerialize(): array
     {
         return [
-            '@type'      => static::TYPE_NAME,
-            'question'   => $this->question,
+            '@type' => static::TYPE_NAME,
+            'question' => $this->question,
             'is_regular' => $this->isRegular,
-            'is_pinned'  => $this->isPinned,
+            'is_pinned' => $this->isPinned,
         ];
     }
 

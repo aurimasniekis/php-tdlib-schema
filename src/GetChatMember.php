@@ -9,46 +9,46 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Returns information about a single member of a chat.
+ * Returns information about a single member of a chat
  */
 class GetChatMember extends TdFunction
 {
     public const TYPE_NAME = 'getChatMember';
 
     /**
-     * Chat identifier.
+     * Chat identifier
      *
      * @var int
      */
     protected int $chatId;
 
     /**
-     * User identifier.
+     * Member identifier
      *
-     * @var int
+     * @var MessageSender
      */
-    protected int $userId;
+    protected MessageSender $memberId;
 
-    public function __construct(int $chatId, int $userId)
+    public function __construct(int $chatId, MessageSender $memberId)
     {
         $this->chatId = $chatId;
-        $this->userId = $userId;
+        $this->memberId = $memberId;
     }
 
     public static function fromArray(array $array): GetChatMember
     {
         return new static(
             $array['chat_id'],
-            $array['user_id'],
+            TdSchemaRegistry::fromArray($array['member_id']),
         );
     }
 
     public function typeSerialize(): array
     {
         return [
-            '@type'   => static::TYPE_NAME,
+            '@type' => static::TYPE_NAME,
             'chat_id' => $this->chatId,
-            'user_id' => $this->userId,
+            'member_id' => $this->memberId->typeSerialize(),
         ];
     }
 
@@ -57,8 +57,8 @@ class GetChatMember extends TdFunction
         return $this->chatId;
     }
 
-    public function getUserId(): int
+    public function getMemberId(): MessageSender
     {
-        return $this->userId;
+        return $this->memberId;
     }
 }

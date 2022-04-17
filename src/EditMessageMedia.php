@@ -9,45 +9,49 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Edits the content of a message with an animation, an audio, a document, a photo or a video. The media in the message can't be replaced if the message was set to self-destruct. Media can't be replaced by self-destructing media. Media in an album can be edited only to contain a photo or a video. Returns the edited message after the edit is completed on the server side.
+ * Edits the content of a message with an animation, an audio, a document, a photo or a video, including message caption. If only the caption needs to be edited, use editMessageCaption instead. The media can't be edited if the message was set to self-destruct or to a self-destructing media. The type of message content in an album can't be changed with exception of replacing a photo with a video or vice versa. Returns the edited message after the edit is completed on the server side
  */
 class EditMessageMedia extends TdFunction
 {
     public const TYPE_NAME = 'editMessageMedia';
 
     /**
-     * The chat the message belongs to.
+     * The chat the message belongs to
      *
      * @var int
      */
     protected int $chatId;
 
     /**
-     * Identifier of the message.
+     * Identifier of the message
      *
      * @var int
      */
     protected int $messageId;
 
     /**
-     * The new message reply markup; for bots only.
+     * The new message reply markup; pass null if none; for bots only
      *
      * @var ReplyMarkup
      */
     protected ReplyMarkup $replyMarkup;
 
     /**
-     * New content of the message. Must be one of the following types: InputMessageAnimation, InputMessageAudio, InputMessageDocument, InputMessagePhoto or InputMessageVideo.
+     * New content of the message. Must be one of the following types: inputMessageAnimation, inputMessageAudio, inputMessageDocument, inputMessagePhoto or inputMessageVideo
      *
      * @var InputMessageContent
      */
     protected InputMessageContent $inputMessageContent;
 
-    public function __construct(int $chatId, int $messageId, ReplyMarkup $replyMarkup, InputMessageContent $inputMessageContent)
-    {
-        $this->chatId              = $chatId;
-        $this->messageId           = $messageId;
-        $this->replyMarkup         = $replyMarkup;
+    public function __construct(
+        int $chatId,
+        int $messageId,
+        ReplyMarkup $replyMarkup,
+        InputMessageContent $inputMessageContent
+    ) {
+        $this->chatId = $chatId;
+        $this->messageId = $messageId;
+        $this->replyMarkup = $replyMarkup;
         $this->inputMessageContent = $inputMessageContent;
     }
 
@@ -64,10 +68,10 @@ class EditMessageMedia extends TdFunction
     public function typeSerialize(): array
     {
         return [
-            '@type'                 => static::TYPE_NAME,
-            'chat_id'               => $this->chatId,
-            'message_id'            => $this->messageId,
-            'reply_markup'          => $this->replyMarkup->typeSerialize(),
+            '@type' => static::TYPE_NAME,
+            'chat_id' => $this->chatId,
+            'message_id' => $this->messageId,
+            'reply_markup' => $this->replyMarkup->typeSerialize(),
             'input_message_content' => $this->inputMessageContent->typeSerialize(),
         ];
     }

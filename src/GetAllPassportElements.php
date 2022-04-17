@@ -9,14 +9,14 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Returns all available Telegram Passport elements.
+ * Returns all available Telegram Passport elements
  */
 class GetAllPassportElements extends TdFunction
 {
     public const TYPE_NAME = 'getAllPassportElements';
 
     /**
-     * Password of the current user.
+     * Password of the current user
      *
      * @var string
      */
@@ -37,7 +37,7 @@ class GetAllPassportElements extends TdFunction
     public function typeSerialize(): array
     {
         return [
-            '@type'    => static::TYPE_NAME,
+            '@type' => static::TYPE_NAME,
             'password' => $this->password,
         ];
     }

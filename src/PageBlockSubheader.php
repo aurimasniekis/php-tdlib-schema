@@ -9,14 +9,14 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * A subheader.
+ * A subheader
  */
 class PageBlockSubheader extends PageBlock
 {
     public const TYPE_NAME = 'pageBlockSubheader';
 
     /**
-     * Subheader.
+     * Subheader
      *
      * @var RichText
      */
@@ -39,7 +39,7 @@ class PageBlockSubheader extends PageBlock
     public function typeSerialize(): array
     {
         return [
-            '@type'     => static::TYPE_NAME,
+            '@type' => static::TYPE_NAME,
             'subheader' => $this->subheader->typeSerialize(),
         ];
     }

@@ -9,21 +9,21 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * A SOCKS5 proxy server.
+ * A SOCKS5 proxy server
  */
 class ProxyTypeSocks5 extends ProxyType
 {
     public const TYPE_NAME = 'proxyTypeSocks5';
 
     /**
-     * Username for logging in; may be empty.
+     * Username for logging in; may be empty
      *
      * @var string
      */
     protected string $username;
 
     /**
-     * Password for logging in; may be empty.
+     * Password for logging in; may be empty
      *
      * @var string
      */
@@ -48,7 +48,7 @@ class ProxyTypeSocks5 extends ProxyType
     public function typeSerialize(): array
     {
         return [
-            '@type'    => static::TYPE_NAME,
+            '@type' => static::TYPE_NAME,
             'username' => $this->username,
             'password' => $this->password,
         ];

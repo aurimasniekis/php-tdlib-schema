@@ -9,14 +9,14 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * File generation is no longer needed.
+ * File generation is no longer needed
  */
 class UpdateFileGenerationStop extends Update
 {
     public const TYPE_NAME = 'updateFileGenerationStop';
 
     /**
-     * Unique identifier for the generation process.
+     * Unique identifier for the generation process
      *
      * @var string
      */
@@ -39,7 +39,7 @@ class UpdateFileGenerationStop extends Update
     public function typeSerialize(): array
     {
         return [
-            '@type'         => static::TYPE_NAME,
+            '@type' => static::TYPE_NAME,
             'generation_id' => $this->generationId,
         ];
     }

@@ -9,14 +9,14 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * An authentication code is delivered by an immediately cancelled call to the specified phone number. The number from which the call was made is the code.
+ * An authentication code is delivered by an immediately canceled call to the specified phone number. The phone number that calls is the code that must be entered automatically
  */
 class AuthenticationCodeTypeFlashCall extends AuthenticationCodeType
 {
     public const TYPE_NAME = 'authenticationCodeTypeFlashCall';
 
     /**
-     * Pattern of the phone number from which the call will be made.
+     * Pattern of the phone number from which the call will be made
      *
      * @var string
      */
@@ -39,7 +39,7 @@ class AuthenticationCodeTypeFlashCall extends AuthenticationCodeType
     public function typeSerialize(): array
     {
         return [
-            '@type'   => static::TYPE_NAME,
+            '@type' => static::TYPE_NAME,
             'pattern' => $this->pattern,
         ];
     }

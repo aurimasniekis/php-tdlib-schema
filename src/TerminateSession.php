@@ -9,14 +9,14 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Terminates a session of the current user.
+ * Terminates a session of the current user
  */
 class TerminateSession extends TdFunction
 {
     public const TYPE_NAME = 'terminateSession';
 
     /**
-     * Session identifier.
+     * Session identifier
      *
      * @var string
      */
@@ -37,7 +37,7 @@ class TerminateSession extends TdFunction
     public function typeSerialize(): array
     {
         return [
-            '@type'      => static::TYPE_NAME,
+            '@type' => static::TYPE_NAME,
             'session_id' => $this->sessionId,
         ];
     }

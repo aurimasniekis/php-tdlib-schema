@@ -9,7 +9,7 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Returns saved animations.
+ * Returns saved animations
  */
 class GetSavedAnimations extends TdFunction
 {

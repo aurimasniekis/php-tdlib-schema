@@ -9,7 +9,7 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Contains content of a push message notification.
+ * Contains content of a push message notification
  */
 class PushMessageContent extends TdObject
 {

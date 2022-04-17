@@ -9,28 +9,28 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * One shipping option.
+ * One shipping option
  */
 class ShippingOption extends TdObject
 {
     public const TYPE_NAME = 'shippingOption';
 
     /**
-     * Shipping option identifier.
+     * Shipping option identifier
      *
      * @var string
      */
     protected string $id;
 
     /**
-     * Option title.
+     * Option title
      *
      * @var string
      */
     protected string $title;
 
     /**
-     * A list of objects used to calculate the total shipping costs.
+     * A list of objects used to calculate the total shipping costs
      *
      * @var LabeledPricePart[]
      */
@@ -38,8 +38,8 @@ class ShippingOption extends TdObject
 
     public function __construct(string $id, string $title, array $priceParts)
     {
-        $this->id         = $id;
-        $this->title      = $title;
+        $this->id = $id;
+        $this->title = $title;
         $this->priceParts = $priceParts;
     }
 
@@ -48,17 +48,17 @@ class ShippingOption extends TdObject
         return new static(
             $array['id'],
             $array['title'],
-            array_map(fn ($x) => TdSchemaRegistry::fromArray($x), $array['priceParts']),
+            array_map(fn($x) => TdSchemaRegistry::fromArray($x), $array['price_parts']),
         );
     }
 
     public function typeSerialize(): array
     {
         return [
-            '@type'           => static::TYPE_NAME,
-            'id'              => $this->id,
-            'title'           => $this->title,
-            array_map(fn ($x) => $x->typeSerialize(), $this->priceParts),
+            '@type' => static::TYPE_NAME,
+            'id' => $this->id,
+            'title' => $this->title,
+            array_map(fn($x) => $x->typeSerialize(), $this->priceParts),
         ];
     }
 

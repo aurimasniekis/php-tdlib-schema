@@ -9,35 +9,35 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Represents a video.
+ * Represents a video
  */
 class InlineQueryResultVideo extends InlineQueryResult
 {
     public const TYPE_NAME = 'inlineQueryResultVideo';
 
     /**
-     * Unique identifier of the query result.
+     * Unique identifier of the query result
      *
      * @var string
      */
     protected string $id;
 
     /**
-     * Video.
+     * Video
      *
      * @var Video
      */
     protected Video $video;
 
     /**
-     * Title of the video.
+     * Title of the video
      *
      * @var string
      */
     protected string $title;
 
     /**
-     * Description of the video.
+     * Description of the video
      *
      * @var string
      */
@@ -47,9 +47,9 @@ class InlineQueryResultVideo extends InlineQueryResult
     {
         parent::__construct();
 
-        $this->id          = $id;
-        $this->video       = $video;
-        $this->title       = $title;
+        $this->id = $id;
+        $this->video = $video;
+        $this->title = $title;
         $this->description = $description;
     }
 
@@ -66,10 +66,10 @@ class InlineQueryResultVideo extends InlineQueryResult
     public function typeSerialize(): array
     {
         return [
-            '@type'       => static::TYPE_NAME,
-            'id'          => $this->id,
-            'video'       => $this->video->typeSerialize(),
-            'title'       => $this->title,
+            '@type' => static::TYPE_NAME,
+            'id' => $this->id,
+            'video' => $this->video->typeSerialize(),
+            'title' => $this->title,
             'description' => $this->description,
         ];
     }

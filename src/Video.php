@@ -9,77 +9,77 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Describes a video file.
+ * Describes a video file
  */
 class Video extends TdObject
 {
     public const TYPE_NAME = 'video';
 
     /**
-     * Duration of the video, in seconds; as defined by the sender.
+     * Duration of the video, in seconds; as defined by the sender
      *
      * @var int
      */
     protected int $duration;
 
     /**
-     * Video width; as defined by the sender.
+     * Video width; as defined by the sender
      *
      * @var int
      */
     protected int $width;
 
     /**
-     * Video height; as defined by the sender.
+     * Video height; as defined by the sender
      *
      * @var int
      */
     protected int $height;
 
     /**
-     * Original name of the file; as defined by the sender.
+     * Original name of the file; as defined by the sender
      *
      * @var string
      */
     protected string $fileName;
 
     /**
-     * MIME type of the file; as defined by the sender.
+     * MIME type of the file; as defined by the sender
      *
      * @var string
      */
     protected string $mimeType;
 
     /**
-     * True, if stickers were added to the video.
+     * True, if stickers were added to the video. The list of corresponding sticker sets can be received using getAttachedStickerSets
      *
      * @var bool
      */
     protected bool $hasStickers;
 
     /**
-     * True, if the video should be tried to be streamed.
+     * True, if the video is supposed to be streamed
      *
      * @var bool
      */
     protected bool $supportsStreaming;
 
     /**
-     * Video minithumbnail; may be null.
+     * Video minithumbnail; may be null
      *
      * @var Minithumbnail|null
      */
     protected ?Minithumbnail $minithumbnail;
 
     /**
-     * Video thumbnail; as defined by the sender; may be null.
+     * Video thumbnail in JPEG or MPEG4 format; as defined by the sender; may be null
      *
-     * @var PhotoSize|null
+     * @var Thumbnail|null
      */
-    protected ?PhotoSize $thumbnail;
+    protected ?Thumbnail $thumbnail;
 
     /**
-     * File containing the video.
+     * File containing the video
      *
      * @var File
      */
@@ -94,19 +94,19 @@ class Video extends TdObject
         bool $hasStickers,
         bool $supportsStreaming,
         ?Minithumbnail $minithumbnail,
-        ?PhotoSize $thumbnail,
+        ?Thumbnail $thumbnail,
         File $video
     ) {
-        $this->duration          = $duration;
-        $this->width             = $width;
-        $this->height            = $height;
-        $this->fileName          = $fileName;
-        $this->mimeType          = $mimeType;
-        $this->hasStickers       = $hasStickers;
+        $this->duration = $duration;
+        $this->width = $width;
+        $this->height = $height;
+        $this->fileName = $fileName;
+        $this->mimeType = $mimeType;
+        $this->hasStickers = $hasStickers;
         $this->supportsStreaming = $supportsStreaming;
-        $this->minithumbnail     = $minithumbnail;
-        $this->thumbnail         = $thumbnail;
-        $this->video             = $video;
+        $this->minithumbnail = $minithumbnail;
+        $this->thumbnail = $thumbnail;
+        $this->video = $video;
     }
 
     public static function fromArray(array $array): Video
@@ -128,17 +128,17 @@ class Video extends TdObject
     public function typeSerialize(): array
     {
         return [
-            '@type'              => static::TYPE_NAME,
-            'duration'           => $this->duration,
-            'width'              => $this->width,
-            'height'             => $this->height,
-            'file_name'          => $this->fileName,
-            'mime_type'          => $this->mimeType,
-            'has_stickers'       => $this->hasStickers,
+            '@type' => static::TYPE_NAME,
+            'duration' => $this->duration,
+            'width' => $this->width,
+            'height' => $this->height,
+            'file_name' => $this->fileName,
+            'mime_type' => $this->mimeType,
+            'has_stickers' => $this->hasStickers,
             'supports_streaming' => $this->supportsStreaming,
-            'minithumbnail'      => (isset($this->minithumbnail) ? $this->minithumbnail : null),
-            'thumbnail'          => (isset($this->thumbnail) ? $this->thumbnail : null),
-            'video'              => $this->video->typeSerialize(),
+            'minithumbnail' => (isset($this->minithumbnail) ? $this->minithumbnail : null),
+            'thumbnail' => (isset($this->thumbnail) ? $this->thumbnail : null),
+            'video' => $this->video->typeSerialize(),
         ];
     }
 
@@ -182,7 +182,7 @@ class Video extends TdObject
         return $this->minithumbnail;
     }
 
-    public function getThumbnail(): ?PhotoSize
+    public function getThumbnail(): ?Thumbnail
     {
         return $this->thumbnail;
     }

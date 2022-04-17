@@ -9,7 +9,7 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Downloading data received while the client was offline.
+ * Downloading data received while the application was offline
  */
 class ConnectionStateUpdating extends ConnectionState
 {

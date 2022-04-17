@@ -9,14 +9,14 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Changes the username of the current user. If something changes, updateUser will be sent.
+ * Changes the username of the current user
  */
 class SetUsername extends TdFunction
 {
     public const TYPE_NAME = 'setUsername';
 
     /**
-     * The new value of the username. Use an empty string to remove the username.
+     * The new value of the username. Use an empty string to remove the username
      *
      * @var string
      */
@@ -37,7 +37,7 @@ class SetUsername extends TdFunction
     public function typeSerialize(): array
     {
         return [
-            '@type'    => static::TYPE_NAME,
+            '@type' => static::TYPE_NAME,
             'username' => $this->username,
         ];
     }

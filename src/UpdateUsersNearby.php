@@ -9,14 +9,14 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * List of users nearby has changed. The update is sent only 60 seconds after a successful searchChatsNearby request.
+ * The list of users nearby has changed. The update is guaranteed to be sent only 60 seconds after a successful searchChatsNearby request
  */
 class UpdateUsersNearby extends Update
 {
     public const TYPE_NAME = 'updateUsersNearby';
 
     /**
-     * The new list of users nearby.
+     * The new list of users nearby
      *
      * @var ChatNearby[]
      */
@@ -32,15 +32,15 @@ class UpdateUsersNearby extends Update
     public static function fromArray(array $array): UpdateUsersNearby
     {
         return new static(
-            array_map(fn ($x) => TdSchemaRegistry::fromArray($x), $array['usersNearby']),
+            array_map(fn($x) => TdSchemaRegistry::fromArray($x), $array['users_nearby']),
         );
     }
 
     public function typeSerialize(): array
     {
         return [
-            '@type'           => static::TYPE_NAME,
-            array_map(fn ($x) => $x->typeSerialize(), $this->usersNearby),
+            '@type' => static::TYPE_NAME,
+            array_map(fn($x) => $x->typeSerialize(), $this->usersNearby),
         ];
     }
 

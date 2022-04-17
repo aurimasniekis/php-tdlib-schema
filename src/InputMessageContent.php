@@ -9,7 +9,7 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * The content of a message to send.
+ * The content of a message to send
  */
 class InputMessageContent extends TdObject
 {

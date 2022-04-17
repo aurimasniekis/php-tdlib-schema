@@ -9,14 +9,14 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * New call was created or information about a call was updated.
+ * New call was created or information about a call was updated
  */
 class UpdateCall extends Update
 {
     public const TYPE_NAME = 'updateCall';
 
     /**
-     * New data about a call.
+     * New data about a call
      *
      * @var Call
      */
@@ -40,7 +40,7 @@ class UpdateCall extends Update
     {
         return [
             '@type' => static::TYPE_NAME,
-            'call'  => $this->call->typeSerialize(),
+            'call' => $this->call->typeSerialize(),
         ];
     }
 

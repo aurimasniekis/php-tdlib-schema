@@ -9,14 +9,14 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Contains a value representing a number of seconds.
+ * Contains a value representing a number of seconds
  */
 class Seconds extends TdObject
 {
     public const TYPE_NAME = 'seconds';
 
     /**
-     * Number of seconds.
+     * Number of seconds
      *
      * @var float
      */
@@ -37,7 +37,7 @@ class Seconds extends TdObject
     public function typeSerialize(): array
     {
         return [
-            '@type'   => static::TYPE_NAME,
+            '@type' => static::TYPE_NAME,
             'seconds' => $this->seconds,
         ];
     }

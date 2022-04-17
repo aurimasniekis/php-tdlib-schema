@@ -9,14 +9,14 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Returns information about a file; this is an offline request.
+ * Returns information about a file; this is an offline request
  */
 class GetFile extends TdFunction
 {
     public const TYPE_NAME = 'getFile';
 
     /**
-     * Identifier of the file to get.
+     * Identifier of the file to get
      *
      * @var int
      */
@@ -37,7 +37,7 @@ class GetFile extends TdFunction
     public function typeSerialize(): array
     {
         return [
-            '@type'   => static::TYPE_NAME,
+            '@type' => static::TYPE_NAME,
             'file_id' => $this->fileId,
         ];
     }

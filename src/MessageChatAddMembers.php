@@ -9,14 +9,14 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * New chat members were added.
+ * New chat members were added
  */
 class MessageChatAddMembers extends MessageContent
 {
     public const TYPE_NAME = 'messageChatAddMembers';
 
     /**
-     * User identifiers of the new members.
+     * User identifiers of the new members
      *
      * @var int[]
      */
@@ -39,7 +39,7 @@ class MessageChatAddMembers extends MessageContent
     public function typeSerialize(): array
     {
         return [
-            '@type'           => static::TYPE_NAME,
+            '@type' => static::TYPE_NAME,
             'member_user_ids' => $this->memberUserIds,
         ];
     }

@@ -9,7 +9,7 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * TDLib needs TdlibParameters for initialization.
+ * TDLib needs TdlibParameters for initialization
  */
 class AuthorizationStateWaitTdlibParameters extends AuthorizationState
 {

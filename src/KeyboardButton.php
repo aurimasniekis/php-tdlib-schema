@@ -9,21 +9,21 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Represents a single button in a bot keyboard.
+ * Represents a single button in a bot keyboard
  */
 class KeyboardButton extends TdObject
 {
     public const TYPE_NAME = 'keyboardButton';
 
     /**
-     * Text of the button.
+     * Text of the button
      *
      * @var string
      */
     protected string $text;
 
     /**
-     * Type of the button.
+     * Type of the button
      *
      * @var KeyboardButtonType
      */
@@ -47,8 +47,8 @@ class KeyboardButton extends TdObject
     {
         return [
             '@type' => static::TYPE_NAME,
-            'text'  => $this->text,
-            'type'  => $this->type->typeSerialize(),
+            'text' => $this->text,
+            'type' => $this->type->typeSerialize(),
         ];
     }
 

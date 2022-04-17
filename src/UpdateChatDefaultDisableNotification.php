@@ -9,21 +9,21 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * The value of the default disable_notification parameter, used when a message is sent to the chat, was changed.
+ * The value of the default disable_notification parameter, used when a message is sent to the chat, was changed
  */
 class UpdateChatDefaultDisableNotification extends Update
 {
     public const TYPE_NAME = 'updateChatDefaultDisableNotification';
 
     /**
-     * Chat identifier.
+     * Chat identifier
      *
      * @var int
      */
     protected int $chatId;
 
     /**
-     * The new default_disable_notification value.
+     * The new default_disable_notification value
      *
      * @var bool
      */
@@ -33,7 +33,7 @@ class UpdateChatDefaultDisableNotification extends Update
     {
         parent::__construct();
 
-        $this->chatId                     = $chatId;
+        $this->chatId = $chatId;
         $this->defaultDisableNotification = $defaultDisableNotification;
     }
 
@@ -48,8 +48,8 @@ class UpdateChatDefaultDisableNotification extends Update
     public function typeSerialize(): array
     {
         return [
-            '@type'                        => static::TYPE_NAME,
-            'chat_id'                      => $this->chatId,
+            '@type' => static::TYPE_NAME,
+            'chat_id' => $this->chatId,
             'default_disable_notification' => $this->defaultDisableNotification,
         ];
     }

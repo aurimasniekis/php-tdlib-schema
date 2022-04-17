@@ -9,14 +9,14 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Returns backgrounds installed by the user.
+ * Returns backgrounds installed by the user
  */
 class GetBackgrounds extends TdFunction
 {
     public const TYPE_NAME = 'getBackgrounds';
 
     /**
-     * True, if the backgrounds needs to be ordered for dark theme.
+     * True, if the backgrounds must be ordered for dark theme
      *
      * @var bool
      */
@@ -37,7 +37,7 @@ class GetBackgrounds extends TdFunction
     public function typeSerialize(): array
     {
         return [
-            '@type'          => static::TYPE_NAME,
+            '@type' => static::TYPE_NAME,
             'for_dark_theme' => $this->forDarkTheme,
         ];
     }

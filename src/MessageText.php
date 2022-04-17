@@ -9,21 +9,21 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * A text message.
+ * A text message
  */
 class MessageText extends MessageContent
 {
     public const TYPE_NAME = 'messageText';
 
     /**
-     * Text of the message.
+     * Text of the message
      *
      * @var FormattedText
      */
     protected FormattedText $text;
 
     /**
-     * A preview of the web page that's mentioned in the text; may be null.
+     * A preview of the web page that's mentioned in the text; may be null
      *
      * @var WebPage|null
      */
@@ -33,7 +33,7 @@ class MessageText extends MessageContent
     {
         parent::__construct();
 
-        $this->text    = $text;
+        $this->text = $text;
         $this->webPage = $webPage;
     }
 
@@ -48,8 +48,8 @@ class MessageText extends MessageContent
     public function typeSerialize(): array
     {
         return [
-            '@type'    => static::TYPE_NAME,
-            'text'     => $this->text->typeSerialize(),
+            '@type' => static::TYPE_NAME,
+            'text' => $this->text->typeSerialize(),
             'web_page' => (isset($this->webPage) ? $this->webPage : null),
         ];
     }

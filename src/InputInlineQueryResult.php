@@ -9,7 +9,7 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Represents a single result of an inline query; for bots only.
+ * Represents a single result of an inline query; for bots only
  */
 class InputInlineQueryResult extends TdObject
 {

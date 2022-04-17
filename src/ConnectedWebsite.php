@@ -9,70 +9,70 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Contains information about one website the current user is logged in with Telegram.
+ * Contains information about one website the current user is logged in with Telegram
  */
 class ConnectedWebsite extends TdObject
 {
     public const TYPE_NAME = 'connectedWebsite';
 
     /**
-     * Website identifier.
+     * Website identifier
      *
      * @var string
      */
     protected string $id;
 
     /**
-     * The domain name of the website.
+     * The domain name of the website
      *
      * @var string
      */
     protected string $domainName;
 
     /**
-     * User identifier of a bot linked with the website.
+     * User identifier of a bot linked with the website
      *
      * @var int
      */
     protected int $botUserId;
 
     /**
-     * The version of a browser used to log in.
+     * The version of a browser used to log in
      *
      * @var string
      */
     protected string $browser;
 
     /**
-     * Operating system the browser is running on.
+     * Operating system the browser is running on
      *
      * @var string
      */
     protected string $platform;
 
     /**
-     * Point in time (Unix timestamp) when the user was logged in.
+     * Point in time (Unix timestamp) when the user was logged in
      *
      * @var int
      */
     protected int $logInDate;
 
     /**
-     * Point in time (Unix timestamp) when obtained authorization was last used.
+     * Point in time (Unix timestamp) when obtained authorization was last used
      *
      * @var int
      */
     protected int $lastActiveDate;
 
     /**
-     * IP address from which the user was logged in, in human-readable format.
+     * IP address from which the user was logged in, in human-readable format
      *
      * @var string
      */
     protected string $ip;
 
     /**
-     * Human-readable description of a country and a region, from which the user was logged in, based on the IP address.
+     * Human-readable description of a country and a region, from which the user was logged in, based on the IP address
      *
      * @var string
      */
@@ -89,15 +89,15 @@ class ConnectedWebsite extends TdObject
         string $ip,
         string $location
     ) {
-        $this->id             = $id;
-        $this->domainName     = $domainName;
-        $this->botUserId      = $botUserId;
-        $this->browser        = $browser;
-        $this->platform       = $platform;
-        $this->logInDate      = $logInDate;
+        $this->id = $id;
+        $this->domainName = $domainName;
+        $this->botUserId = $botUserId;
+        $this->browser = $browser;
+        $this->platform = $platform;
+        $this->logInDate = $logInDate;
         $this->lastActiveDate = $lastActiveDate;
-        $this->ip             = $ip;
-        $this->location       = $location;
+        $this->ip = $ip;
+        $this->location = $location;
     }
 
     public static function fromArray(array $array): ConnectedWebsite
@@ -118,16 +118,16 @@ class ConnectedWebsite extends TdObject
     public function typeSerialize(): array
     {
         return [
-            '@type'            => static::TYPE_NAME,
-            'id'               => $this->id,
-            'domain_name'      => $this->domainName,
-            'bot_user_id'      => $this->botUserId,
-            'browser'          => $this->browser,
-            'platform'         => $this->platform,
-            'log_in_date'      => $this->logInDate,
+            '@type' => static::TYPE_NAME,
+            'id' => $this->id,
+            'domain_name' => $this->domainName,
+            'bot_user_id' => $this->botUserId,
+            'browser' => $this->browser,
+            'platform' => $this->platform,
+            'log_in_date' => $this->logInDate,
             'last_active_date' => $this->lastActiveDate,
-            'ip'               => $this->ip,
-            'location'         => $this->location,
+            'ip' => $this->ip,
+            'location' => $this->location,
         ];
     }
 

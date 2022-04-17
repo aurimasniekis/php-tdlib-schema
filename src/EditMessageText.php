@@ -9,45 +9,49 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Edits the text of a message (or a text of a game message). Returns the edited message after the edit is completed on the server side.
+ * Edits the text of a message (or a text of a game message). Returns the edited message after the edit is completed on the server side
  */
 class EditMessageText extends TdFunction
 {
     public const TYPE_NAME = 'editMessageText';
 
     /**
-     * The chat the message belongs to.
+     * The chat the message belongs to
      *
      * @var int
      */
     protected int $chatId;
 
     /**
-     * Identifier of the message.
+     * Identifier of the message
      *
      * @var int
      */
     protected int $messageId;
 
     /**
-     * The new message reply markup; for bots only.
+     * The new message reply markup; pass null if none; for bots only
      *
      * @var ReplyMarkup
      */
     protected ReplyMarkup $replyMarkup;
 
     /**
-     * New text content of the message. Should be of type InputMessageText.
+     * New text content of the message. Must be of type inputMessageText
      *
      * @var InputMessageContent
      */
     protected InputMessageContent $inputMessageContent;
 
-    public function __construct(int $chatId, int $messageId, ReplyMarkup $replyMarkup, InputMessageContent $inputMessageContent)
-    {
-        $this->chatId              = $chatId;
-        $this->messageId           = $messageId;
-        $this->replyMarkup         = $replyMarkup;
+    public function __construct(
+        int $chatId,
+        int $messageId,
+        ReplyMarkup $replyMarkup,
+        InputMessageContent $inputMessageContent
+    ) {
+        $this->chatId = $chatId;
+        $this->messageId = $messageId;
+        $this->replyMarkup = $replyMarkup;
         $this->inputMessageContent = $inputMessageContent;
     }
 
@@ -64,10 +68,10 @@ class EditMessageText extends TdFunction
     public function typeSerialize(): array
     {
         return [
-            '@type'                 => static::TYPE_NAME,
-            'chat_id'               => $this->chatId,
-            'message_id'            => $this->messageId,
-            'reply_markup'          => $this->replyMarkup->typeSerialize(),
+            '@type' => static::TYPE_NAME,
+            'chat_id' => $this->chatId,
+            'message_id' => $this->messageId,
+            'reply_markup' => $this->replyMarkup->typeSerialize(),
             'input_message_content' => $this->inputMessageContent->typeSerialize(),
         ];
     }

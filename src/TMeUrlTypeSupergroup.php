@@ -9,14 +9,14 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * A URL linking to a public supergroup or channel.
+ * A URL linking to a public supergroup or channel
  */
 class TMeUrlTypeSupergroup extends TMeUrlType
 {
     public const TYPE_NAME = 'tMeUrlTypeSupergroup';
 
     /**
-     * Identifier of the supergroup or channel.
+     * Identifier of the supergroup or channel
      *
      * @var int
      */
@@ -39,7 +39,7 @@ class TMeUrlTypeSupergroup extends TMeUrlType
     public function typeSerialize(): array
     {
         return [
-            '@type'         => static::TYPE_NAME,
+            '@type' => static::TYPE_NAME,
             'supergroup_id' => $this->supergroupId,
         ];
     }

@@ -9,21 +9,21 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Chat permissions was changed.
+ * Chat permissions was changed
  */
 class UpdateChatPermissions extends Update
 {
     public const TYPE_NAME = 'updateChatPermissions';
 
     /**
-     * Chat identifier.
+     * Chat identifier
      *
      * @var int
      */
     protected int $chatId;
 
     /**
-     * The new chat permissions.
+     * The new chat permissions
      *
      * @var ChatPermissions
      */
@@ -33,7 +33,7 @@ class UpdateChatPermissions extends Update
     {
         parent::__construct();
 
-        $this->chatId      = $chatId;
+        $this->chatId = $chatId;
         $this->permissions = $permissions;
     }
 
@@ -48,8 +48,8 @@ class UpdateChatPermissions extends Update
     public function typeSerialize(): array
     {
         return [
-            '@type'       => static::TYPE_NAME,
-            'chat_id'     => $this->chatId,
+            '@type' => static::TYPE_NAME,
+            'chat_id' => $this->chatId,
             'permissions' => $this->permissions->typeSerialize(),
         ];
     }

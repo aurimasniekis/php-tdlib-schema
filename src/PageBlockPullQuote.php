@@ -9,21 +9,21 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * A pull quote.
+ * A pull quote
  */
 class PageBlockPullQuote extends PageBlock
 {
     public const TYPE_NAME = 'pageBlockPullQuote';
 
     /**
-     * Quote text.
+     * Quote text
      *
      * @var RichText
      */
     protected RichText $text;
 
     /**
-     * Quote credit.
+     * Quote credit
      *
      * @var RichText
      */
@@ -33,7 +33,7 @@ class PageBlockPullQuote extends PageBlock
     {
         parent::__construct();
 
-        $this->text   = $text;
+        $this->text = $text;
         $this->credit = $credit;
     }
 
@@ -48,8 +48,8 @@ class PageBlockPullQuote extends PageBlock
     public function typeSerialize(): array
     {
         return [
-            '@type'  => static::TYPE_NAME,
-            'text'   => $this->text->typeSerialize(),
+            '@type' => static::TYPE_NAME,
+            'text' => $this->text->typeSerialize(),
             'credit' => $this->credit->typeSerialize(),
         ];
     }

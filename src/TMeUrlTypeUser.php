@@ -9,14 +9,14 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * A URL linking to a user.
+ * A URL linking to a user
  */
 class TMeUrlTypeUser extends TMeUrlType
 {
     public const TYPE_NAME = 'tMeUrlTypeUser';
 
     /**
-     * Identifier of the user.
+     * Identifier of the user
      *
      * @var int
      */
@@ -39,7 +39,7 @@ class TMeUrlTypeUser extends TMeUrlType
     public function typeSerialize(): array
     {
         return [
-            '@type'   => static::TYPE_NAME,
+            '@type' => static::TYPE_NAME,
             'user_id' => $this->userId,
         ];
     }

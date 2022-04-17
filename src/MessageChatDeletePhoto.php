@@ -9,7 +9,7 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * A deleted chat photo.
+ * A deleted chat photo
  */
 class MessageChatDeletePhoto extends MessageContent
 {

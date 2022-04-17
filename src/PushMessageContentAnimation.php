@@ -16,21 +16,21 @@ class PushMessageContentAnimation extends PushMessageContent
     public const TYPE_NAME = 'pushMessageContentAnimation';
 
     /**
-     * Message content; may be null.
+     * Message content; may be null
      *
      * @var Animation|null
      */
     protected ?Animation $animation;
 
     /**
-     * Animation caption.
+     * Animation caption
      *
      * @var string
      */
     protected string $caption;
 
     /**
-     * True, if the message is a pinned message with the specified content.
+     * True, if the message is a pinned message with the specified content
      *
      * @var bool
      */
@@ -41,8 +41,8 @@ class PushMessageContentAnimation extends PushMessageContent
         parent::__construct();
 
         $this->animation = $animation;
-        $this->caption   = $caption;
-        $this->isPinned  = $isPinned;
+        $this->caption = $caption;
+        $this->isPinned = $isPinned;
     }
 
     public static function fromArray(array $array): PushMessageContentAnimation
@@ -57,9 +57,9 @@ class PushMessageContentAnimation extends PushMessageContent
     public function typeSerialize(): array
     {
         return [
-            '@type'     => static::TYPE_NAME,
+            '@type' => static::TYPE_NAME,
             'animation' => (isset($this->animation) ? $this->animation : null),
-            'caption'   => $this->caption,
+            'caption' => $this->caption,
             'is_pinned' => $this->isPinned,
         ];
     }

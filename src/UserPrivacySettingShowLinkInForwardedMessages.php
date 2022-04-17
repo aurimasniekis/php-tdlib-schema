@@ -9,7 +9,7 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * A privacy setting for managing whether a link to the user's account is included in forwarded messages.
+ * A privacy setting for managing whether a link to the user's account is included in forwarded messages
  */
 class UserPrivacySettingShowLinkInForwardedMessages extends UserPrivacySetting
 {

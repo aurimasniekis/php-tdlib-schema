@@ -9,7 +9,7 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Part of the face, relative to which a mask should be placed.
+ * Part of the face, relative to which a mask is placed
  */
 class MaskPoint extends TdObject
 {

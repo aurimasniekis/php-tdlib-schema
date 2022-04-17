@@ -9,14 +9,14 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Creates a new secret chat. Returns the newly created chat.
+ * Creates a new secret chat. Returns the newly created chat
  */
 class CreateNewSecretChat extends TdFunction
 {
     public const TYPE_NAME = 'createNewSecretChat';
 
     /**
-     * Identifier of the target user.
+     * Identifier of the target user
      *
      * @var int
      */
@@ -37,7 +37,7 @@ class CreateNewSecretChat extends TdFunction
     public function typeSerialize(): array
     {
         return [
-            '@type'   => static::TYPE_NAME,
+            '@type' => static::TYPE_NAME,
             'user_id' => $this->userId,
         ];
     }

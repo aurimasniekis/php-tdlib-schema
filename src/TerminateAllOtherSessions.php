@@ -9,7 +9,7 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Terminates all other sessions of the current user.
+ * Terminates all other sessions of the current user
  */
 class TerminateAllOtherSessions extends TdFunction
 {

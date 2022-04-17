@@ -9,14 +9,14 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Succeeds after a specified amount of time has passed. Can be called before authorization. Can be called before initialization.
+ * Succeeds after a specified amount of time has passed. Can be called before initialization
  */
 class SetAlarm extends TdFunction
 {
     public const TYPE_NAME = 'setAlarm';
 
     /**
-     * Number of seconds before the function returns.
+     * Number of seconds before the function returns
      *
      * @var float
      */
@@ -37,7 +37,7 @@ class SetAlarm extends TdFunction
     public function typeSerialize(): array
     {
         return [
-            '@type'   => static::TYPE_NAME,
+            '@type' => static::TYPE_NAME,
             'seconds' => $this->seconds,
         ];
     }

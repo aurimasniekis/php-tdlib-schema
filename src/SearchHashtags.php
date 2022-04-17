@@ -9,21 +9,21 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Searches for recently used hashtags by their prefix.
+ * Searches for recently used hashtags by their prefix
  */
 class SearchHashtags extends TdFunction
 {
     public const TYPE_NAME = 'searchHashtags';
 
     /**
-     * Hashtag prefix to search for.
+     * Hashtag prefix to search for
      *
      * @var string
      */
     protected string $prefix;
 
     /**
-     * The maximum number of hashtags to be returned.
+     * The maximum number of hashtags to be returned
      *
      * @var int
      */
@@ -32,7 +32,7 @@ class SearchHashtags extends TdFunction
     public function __construct(string $prefix, int $limit)
     {
         $this->prefix = $prefix;
-        $this->limit  = $limit;
+        $this->limit = $limit;
     }
 
     public static function fromArray(array $array): SearchHashtags
@@ -46,9 +46,9 @@ class SearchHashtags extends TdFunction
     public function typeSerialize(): array
     {
         return [
-            '@type'  => static::TYPE_NAME,
+            '@type' => static::TYPE_NAME,
             'prefix' => $this->prefix,
-            'limit'  => $this->limit,
+            'limit' => $this->limit,
         ];
     }
 

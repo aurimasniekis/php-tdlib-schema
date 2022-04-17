@@ -9,21 +9,21 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * A message with a live location was viewed. When the update is received, the client is supposed to update the live location.
+ * A message with a live location was viewed. When the update is received, the application is supposed to update the live location
  */
 class UpdateMessageLiveLocationViewed extends Update
 {
     public const TYPE_NAME = 'updateMessageLiveLocationViewed';
 
     /**
-     * Identifier of the chat with the live location message.
+     * Identifier of the chat with the live location message
      *
      * @var int
      */
     protected int $chatId;
 
     /**
-     * Identifier of the message with live location.
+     * Identifier of the message with live location
      *
      * @var int
      */
@@ -33,7 +33,7 @@ class UpdateMessageLiveLocationViewed extends Update
     {
         parent::__construct();
 
-        $this->chatId    = $chatId;
+        $this->chatId = $chatId;
         $this->messageId = $messageId;
     }
 
@@ -48,8 +48,8 @@ class UpdateMessageLiveLocationViewed extends Update
     public function typeSerialize(): array
     {
         return [
-            '@type'      => static::TYPE_NAME,
-            'chat_id'    => $this->chatId,
+            '@type' => static::TYPE_NAME,
+            'chat_id' => $this->chatId,
             'message_id' => $this->messageId,
         ];
     }

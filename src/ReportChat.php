@@ -9,56 +9,66 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Reports a chat to the Telegram moderators. A chat can be reported only from the chat action bar, or if this is a private chats with a bot, a private chat with a user sharing their location, a supergroup, or a channel, since other chats can't be checked by moderators.
+ * Reports a chat to the Telegram moderators. A chat can be reported only from the chat action bar, or if chat.can_be_reported
  */
 class ReportChat extends TdFunction
 {
     public const TYPE_NAME = 'reportChat';
 
     /**
-     * Chat identifier.
+     * Chat identifier
      *
      * @var int
      */
     protected int $chatId;
 
     /**
-     * The reason for reporting the chat.
+     * Identifiers of reported messages, if any
+     *
+     * @var int[]
+     */
+    protected array $messageIds;
+
+    /**
+     * The reason for reporting the chat
      *
      * @var ChatReportReason
      */
     protected ChatReportReason $reason;
 
     /**
-     * Identifiers of reported messages, if any.
+     * Additional report details; 0-1024 characters
      *
-     * @var int[]
+     * @var string
      */
-    protected array $messageIds;
+    protected string $text;
 
-    public function __construct(int $chatId, ChatReportReason $reason, array $messageIds)
+    public function __construct(int $chatId, array $messageIds, ChatReportReason $reason, string $text)
     {
-        $this->chatId     = $chatId;
-        $this->reason     = $reason;
+        $this->chatId = $chatId;
         $this->messageIds = $messageIds;
+        $this->reason = $reason;
+        $this->text = $text;
     }
 
     public static function fromArray(array $array): ReportChat
     {
         return new static(
             $array['chat_id'],
-            TdSchemaRegistry::fromArray($array['reason']),
             $array['message_ids'],
+            TdSchemaRegistry::fromArray($array['reason']),
+            $array['text'],
         );
     }
 
     public function typeSerialize(): array
     {
         return [
-            '@type'       => static::TYPE_NAME,
-            'chat_id'     => $this->chatId,
-            'reason'      => $this->reason->typeSerialize(),
+            '@type' => static::TYPE_NAME,
+            'chat_id' => $this->chatId,
             'message_ids' => $this->messageIds,
+            'reason' => $this->reason->typeSerialize(),
+            'text' => $this->text,
         ];
     }
 
@@ -67,13 +77,18 @@ class ReportChat extends TdFunction
         return $this->chatId;
     }
 
+    public function getMessageIds(): array
+    {
+        return $this->messageIds;
+    }
+
     public function getReason(): ChatReportReason
     {
         return $this->reason;
     }
 
-    public function getMessageIds(): array
+    public function getText(): string
     {
-        return $this->messageIds;
+        return $this->text;
     }
 }

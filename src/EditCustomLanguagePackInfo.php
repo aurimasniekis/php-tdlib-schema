@@ -9,14 +9,14 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Edits information about a custom local language pack in the current localization target. Can be called before authorization.
+ * Edits information about a custom local language pack in the current localization target. Can be called before authorization
  */
 class EditCustomLanguagePackInfo extends TdFunction
 {
     public const TYPE_NAME = 'editCustomLanguagePackInfo';
 
     /**
-     * New information about the custom local language pack.
+     * New information about the custom local language pack
      *
      * @var LanguagePackInfo
      */
@@ -38,7 +38,7 @@ class EditCustomLanguagePackInfo extends TdFunction
     {
         return [
             '@type' => static::TYPE_NAME,
-            'info'  => $this->info->typeSerialize(),
+            'info' => $this->info->typeSerialize(),
         ];
     }
 

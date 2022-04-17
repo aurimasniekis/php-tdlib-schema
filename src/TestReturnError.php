@@ -9,14 +9,14 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Returns the specified error and ensures that the Error object is used; for testing only. This is an offline method. Can be called before authorization. Can be called synchronously.
+ * Returns the specified error and ensures that the Error object is used; for testing only. Can be called synchronously
  */
 class TestReturnError extends TdFunction
 {
     public const TYPE_NAME = 'testReturnError';
 
     /**
-     * The error to be returned.
+     * The error to be returned
      *
      * @var Error
      */

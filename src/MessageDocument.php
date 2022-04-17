@@ -9,21 +9,21 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * A document message (general file).
+ * A document message (general file)
  */
 class MessageDocument extends MessageContent
 {
     public const TYPE_NAME = 'messageDocument';
 
     /**
-     * The document description.
+     * The document description
      *
      * @var Document
      */
     protected Document $document;
 
     /**
-     * Document caption.
+     * Document caption
      *
      * @var FormattedText
      */
@@ -34,7 +34,7 @@ class MessageDocument extends MessageContent
         parent::__construct();
 
         $this->document = $document;
-        $this->caption  = $caption;
+        $this->caption = $caption;
     }
 
     public static function fromArray(array $array): MessageDocument
@@ -48,9 +48,9 @@ class MessageDocument extends MessageContent
     public function typeSerialize(): array
     {
         return [
-            '@type'    => static::TYPE_NAME,
+            '@type' => static::TYPE_NAME,
             'document' => $this->document->typeSerialize(),
-            'caption'  => $this->caption->typeSerialize(),
+            'caption' => $this->caption->typeSerialize(),
         ];
     }
 

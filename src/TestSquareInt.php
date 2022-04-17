@@ -9,14 +9,14 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Returns the squared received number; for testing only. This is an offline method. Can be called before authorization.
+ * Returns the squared received number; for testing only. This is an offline method. Can be called before authorization
  */
 class TestSquareInt extends TdFunction
 {
     public const TYPE_NAME = 'testSquareInt';
 
     /**
-     * Number to square.
+     * Number to square
      *
      * @var int
      */
@@ -38,7 +38,7 @@ class TestSquareInt extends TdFunction
     {
         return [
             '@type' => static::TYPE_NAME,
-            'x'     => $this->x,
+            'x' => $this->x,
         ];
     }
 

@@ -9,14 +9,14 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * A bold rich text.
+ * A bold rich text
  */
 class RichTextBold extends RichText
 {
     public const TYPE_NAME = 'richTextBold';
 
     /**
-     * Text.
+     * Text
      *
      * @var RichText
      */
@@ -40,7 +40,7 @@ class RichTextBold extends RichText
     {
         return [
             '@type' => static::TYPE_NAME,
-            'text'  => $this->text->typeSerialize(),
+            'text' => $this->text->typeSerialize(),
         ];
     }
 

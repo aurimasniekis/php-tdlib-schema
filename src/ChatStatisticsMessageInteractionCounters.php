@@ -17,22 +17,16 @@ class ChatStatisticsMessageInteractionCounters extends TdObject
 
     /**
      * Message identifier.
-     *
-     * @var int
      */
     protected int $messageId;
 
     /**
      * Number of times the message was viewed.
-     *
-     * @var int
      */
     protected int $viewCount;
 
     /**
      * Number of times the message was forwarded.
-     *
-     * @var int
      */
     protected int $forwardCount;
 

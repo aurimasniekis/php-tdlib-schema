@@ -9,14 +9,14 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Returns information about a bank card.
+ * Returns information about a bank card
  */
 class GetBankCardInfo extends TdFunction
 {
     public const TYPE_NAME = 'getBankCardInfo';
 
     /**
-     * The bank card number.
+     * The bank card number
      *
      * @var string
      */
@@ -37,7 +37,7 @@ class GetBankCardInfo extends TdFunction
     public function typeSerialize(): array
     {
         return [
-            '@type'            => static::TYPE_NAME,
+            '@type' => static::TYPE_NAME,
             'bank_card_number' => $this->bankCardNumber,
         ];
     }

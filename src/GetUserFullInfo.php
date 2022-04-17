@@ -9,14 +9,14 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Returns full information about a user by their identifier.
+ * Returns full information about a user by their identifier
  */
 class GetUserFullInfo extends TdFunction
 {
     public const TYPE_NAME = 'getUserFullInfo';
 
     /**
-     * User identifier.
+     * User identifier
      *
      * @var int
      */
@@ -37,7 +37,7 @@ class GetUserFullInfo extends TdFunction
     public function typeSerialize(): array
     {
         return [
-            '@type'   => static::TYPE_NAME,
+            '@type' => static::TYPE_NAME,
             'user_id' => $this->userId,
         ];
     }

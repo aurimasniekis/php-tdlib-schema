@@ -9,14 +9,14 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * A message has been pinned.
+ * A message has been pinned
  */
 class MessagePinMessage extends MessageContent
 {
     public const TYPE_NAME = 'messagePinMessage';
 
     /**
-     * Identifier of the pinned message, can be an identifier of a deleted message or 0.
+     * Identifier of the pinned message, can be an identifier of a deleted message or 0
      *
      * @var int
      */
@@ -39,7 +39,7 @@ class MessagePinMessage extends MessageContent
     public function typeSerialize(): array
     {
         return [
-            '@type'      => static::TYPE_NAME,
+            '@type' => static::TYPE_NAME,
             'message_id' => $this->messageId,
         ];
     }

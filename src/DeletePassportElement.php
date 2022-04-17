@@ -9,14 +9,14 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Deletes a Telegram Passport element.
+ * Deletes a Telegram Passport element
  */
 class DeletePassportElement extends TdFunction
 {
     public const TYPE_NAME = 'deletePassportElement';
 
     /**
-     * Element type.
+     * Element type
      *
      * @var PassportElementType
      */
@@ -38,7 +38,7 @@ class DeletePassportElement extends TdFunction
     {
         return [
             '@type' => static::TYPE_NAME,
-            'type'  => $this->type->typeSerialize(),
+            'type' => $this->type->typeSerialize(),
         ];
     }
 

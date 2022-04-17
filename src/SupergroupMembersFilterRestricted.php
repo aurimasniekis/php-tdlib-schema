@@ -9,14 +9,14 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Returns restricted supergroup members; can be used only by administrators.
+ * Returns restricted supergroup members; can be used only by administrators
  */
 class SupergroupMembersFilterRestricted extends SupergroupMembersFilter
 {
     public const TYPE_NAME = 'supergroupMembersFilterRestricted';
 
     /**
-     * Query to search for.
+     * Query to search for
      *
      * @var string
      */

@@ -9,21 +9,21 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * A data field contains an error. The error is considered resolved when the field's value changes.
+ * A data field contains an error. The error is considered resolved when the field's value changes
  */
 class InputPassportElementErrorSourceDataField extends InputPassportElementErrorSource
 {
     public const TYPE_NAME = 'inputPassportElementErrorSourceDataField';
 
     /**
-     * Field name.
+     * Field name
      *
      * @var string
      */
     protected string $fieldName;
 
     /**
-     * Current data hash.
+     * Current data hash
      *
      * @var string
      */
@@ -34,7 +34,7 @@ class InputPassportElementErrorSourceDataField extends InputPassportElementError
         parent::__construct();
 
         $this->fieldName = $fieldName;
-        $this->dataHash  = $dataHash;
+        $this->dataHash = $dataHash;
     }
 
     public static function fromArray(array $array): InputPassportElementErrorSourceDataField
@@ -48,9 +48,9 @@ class InputPassportElementErrorSourceDataField extends InputPassportElementError
     public function typeSerialize(): array
     {
         return [
-            '@type'      => static::TYPE_NAME,
+            '@type' => static::TYPE_NAME,
             'field_name' => $this->fieldName,
-            'data_hash'  => $this->dataHash,
+            'data_hash' => $this->dataHash,
         ];
     }
 

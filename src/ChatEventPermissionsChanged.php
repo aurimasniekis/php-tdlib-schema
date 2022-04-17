@@ -9,21 +9,21 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * The chat permissions was changed.
+ * The chat permissions was changed
  */
 class ChatEventPermissionsChanged extends ChatEventAction
 {
     public const TYPE_NAME = 'chatEventPermissionsChanged';
 
     /**
-     * Previous chat permissions.
+     * Previous chat permissions
      *
      * @var ChatPermissions
      */
     protected ChatPermissions $oldPermissions;
 
     /**
-     * New chat permissions.
+     * New chat permissions
      *
      * @var ChatPermissions
      */
@@ -48,7 +48,7 @@ class ChatEventPermissionsChanged extends ChatEventAction
     public function typeSerialize(): array
     {
         return [
-            '@type'           => static::TYPE_NAME,
+            '@type' => static::TYPE_NAME,
             'old_permissions' => $this->oldPermissions->typeSerialize(),
             'new_permissions' => $this->newPermissions->typeSerialize(),
         ];

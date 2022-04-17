@@ -9,28 +9,28 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * A collapsible block.
+ * A collapsible block
  */
 class PageBlockDetails extends PageBlock
 {
     public const TYPE_NAME = 'pageBlockDetails';
 
     /**
-     * Always visible heading for the block.
+     * Always visible heading for the block
      *
      * @var RichText
      */
     protected RichText $header;
 
     /**
-     * Block contents.
+     * Block contents
      *
      * @var PageBlock[]
      */
     protected array $pageBlocks;
 
     /**
-     * True, if the block is open by default.
+     * True, if the block is open by default
      *
      * @var bool
      */
@@ -40,16 +40,16 @@ class PageBlockDetails extends PageBlock
     {
         parent::__construct();
 
-        $this->header     = $header;
+        $this->header = $header;
         $this->pageBlocks = $pageBlocks;
-        $this->isOpen     = $isOpen;
+        $this->isOpen = $isOpen;
     }
 
     public static function fromArray(array $array): PageBlockDetails
     {
         return new static(
             TdSchemaRegistry::fromArray($array['header']),
-            array_map(fn ($x) => TdSchemaRegistry::fromArray($x), $array['pageBlocks']),
+            array_map(fn($x) => TdSchemaRegistry::fromArray($x), $array['page_blocks']),
             $array['is_open'],
         );
     }
@@ -57,10 +57,10 @@ class PageBlockDetails extends PageBlock
     public function typeSerialize(): array
     {
         return [
-            '@type'           => static::TYPE_NAME,
-            'header'          => $this->header->typeSerialize(),
-            array_map(fn ($x) => $x->typeSerialize(), $this->pageBlocks),
-            'is_open'         => $this->isOpen,
+            '@type' => static::TYPE_NAME,
+            'header' => $this->header->typeSerialize(),
+            array_map(fn($x) => $x->typeSerialize(), $this->pageBlocks),
+            'is_open' => $this->isOpen,
         ];
     }
 

@@ -9,7 +9,7 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Contains a description of a custom keyboard and actions that can be done with it to quickly reply to bots.
+ * Contains a description of a custom keyboard and actions that can be done with it to quickly reply to bots
  */
 class ReplyMarkup extends TdObject
 {

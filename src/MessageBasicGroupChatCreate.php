@@ -9,21 +9,21 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * A newly created basic group.
+ * A newly created basic group
  */
 class MessageBasicGroupChatCreate extends MessageContent
 {
     public const TYPE_NAME = 'messageBasicGroupChatCreate';
 
     /**
-     * Title of the basic group.
+     * Title of the basic group
      *
      * @var string
      */
     protected string $title;
 
     /**
-     * User identifiers of members in the basic group.
+     * User identifiers of members in the basic group
      *
      * @var int[]
      */
@@ -33,7 +33,7 @@ class MessageBasicGroupChatCreate extends MessageContent
     {
         parent::__construct();
 
-        $this->title         = $title;
+        $this->title = $title;
         $this->memberUserIds = $memberUserIds;
     }
 
@@ -48,8 +48,8 @@ class MessageBasicGroupChatCreate extends MessageContent
     public function typeSerialize(): array
     {
         return [
-            '@type'           => static::TYPE_NAME,
-            'title'           => $this->title,
+            '@type' => static::TYPE_NAME,
+            'title' => $this->title,
             'member_user_ids' => $this->memberUserIds,
         ];
     }

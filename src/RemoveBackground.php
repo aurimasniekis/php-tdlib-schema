@@ -9,14 +9,14 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Removes background from the list of installed backgrounds.
+ * Removes background from the list of installed backgrounds
  */
 class RemoveBackground extends TdFunction
 {
     public const TYPE_NAME = 'removeBackground';
 
     /**
-     * The background identifier.
+     * The background identifier
      *
      * @var string
      */
@@ -37,7 +37,7 @@ class RemoveBackground extends TdFunction
     public function typeSerialize(): array
     {
         return [
-            '@type'         => static::TYPE_NAME,
+            '@type' => static::TYPE_NAME,
             'background_id' => $this->backgroundId,
         ];
     }

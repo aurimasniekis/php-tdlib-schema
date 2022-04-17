@@ -9,14 +9,14 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Represents a boolean JSON value.
+ * Represents a boolean JSON value
  */
 class JsonValueBoolean extends JsonValue
 {
     public const TYPE_NAME = 'jsonValueBoolean';
 
     /**
-     * The value.
+     * The value
      *
      * @var bool
      */

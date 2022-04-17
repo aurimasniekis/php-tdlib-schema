@@ -9,14 +9,14 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Removes a chat from the list of recently found chats.
+ * Removes a chat from the list of recently found chats
  */
 class RemoveRecentlyFoundChat extends TdFunction
 {
     public const TYPE_NAME = 'removeRecentlyFoundChat';
 
     /**
-     * Identifier of the chat to be removed.
+     * Identifier of the chat to be removed
      *
      * @var int
      */
@@ -37,7 +37,7 @@ class RemoveRecentlyFoundChat extends TdFunction
     public function typeSerialize(): array
     {
         return [
-            '@type'   => static::TYPE_NAME,
+            '@type' => static::TYPE_NAME,
             'chat_id' => $this->chatId,
         ];
     }

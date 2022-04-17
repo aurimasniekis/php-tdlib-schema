@@ -17,22 +17,16 @@ class GetChatStatisticsGraph extends TdFunction
 
     /**
      * Chat identifer.
-     *
-     * @var int
      */
     protected int $chatId;
 
     /**
      * The token for graph loading.
-     *
-     * @var string
      */
     protected string $token;
 
     /**
      * X-value for zoomed in graph or 0 otherwise.
-     *
-     * @var int
      */
     protected int $x;
 

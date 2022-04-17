@@ -9,77 +9,77 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Contains the user's personal details.
+ * Contains the user's personal details
  */
 class PersonalDetails extends TdObject
 {
     public const TYPE_NAME = 'personalDetails';
 
     /**
-     * First name of the user written in English; 1-255 characters.
+     * First name of the user written in English; 1-255 characters
      *
      * @var string
      */
     protected string $firstName;
 
     /**
-     * Middle name of the user written in English; 0-255 characters.
+     * Middle name of the user written in English; 0-255 characters
      *
      * @var string
      */
     protected string $middleName;
 
     /**
-     * Last name of the user written in English; 1-255 characters.
+     * Last name of the user written in English; 1-255 characters
      *
      * @var string
      */
     protected string $lastName;
 
     /**
-     * Native first name of the user; 1-255 characters.
+     * Native first name of the user; 1-255 characters
      *
      * @var string
      */
     protected string $nativeFirstName;
 
     /**
-     * Native middle name of the user; 0-255 characters.
+     * Native middle name of the user; 0-255 characters
      *
      * @var string
      */
     protected string $nativeMiddleName;
 
     /**
-     * Native last name of the user; 1-255 characters.
+     * Native last name of the user; 1-255 characters
      *
      * @var string
      */
     protected string $nativeLastName;
 
     /**
-     * Birthdate of the user.
+     * Birthdate of the user
      *
      * @var Date
      */
     protected Date $birthdate;
 
     /**
-     * Gender of the user, "male" or "female".
+     * Gender of the user, "male" or "female"
      *
      * @var string
      */
     protected string $gender;
 
     /**
-     * A two-letter ISO 3166-1 alpha-2 country code of the user's country.
+     * A two-letter ISO 3166-1 alpha-2 country code of the user's country
      *
      * @var string
      */
     protected string $countryCode;
 
     /**
-     * A two-letter ISO 3166-1 alpha-2 country code of the user's residence country.
+     * A two-letter ISO 3166-1 alpha-2 country code of the user's residence country
      *
      * @var string
      */
@@ -97,15 +97,15 @@ class PersonalDetails extends TdObject
         string $countryCode,
         string $residenceCountryCode
     ) {
-        $this->firstName            = $firstName;
-        $this->middleName           = $middleName;
-        $this->lastName             = $lastName;
-        $this->nativeFirstName      = $nativeFirstName;
-        $this->nativeMiddleName     = $nativeMiddleName;
-        $this->nativeLastName       = $nativeLastName;
-        $this->birthdate            = $birthdate;
-        $this->gender               = $gender;
-        $this->countryCode          = $countryCode;
+        $this->firstName = $firstName;
+        $this->middleName = $middleName;
+        $this->lastName = $lastName;
+        $this->nativeFirstName = $nativeFirstName;
+        $this->nativeMiddleName = $nativeMiddleName;
+        $this->nativeLastName = $nativeLastName;
+        $this->birthdate = $birthdate;
+        $this->gender = $gender;
+        $this->countryCode = $countryCode;
         $this->residenceCountryCode = $residenceCountryCode;
     }
 
@@ -128,16 +128,16 @@ class PersonalDetails extends TdObject
     public function typeSerialize(): array
     {
         return [
-            '@type'                  => static::TYPE_NAME,
-            'first_name'             => $this->firstName,
-            'middle_name'            => $this->middleName,
-            'last_name'              => $this->lastName,
-            'native_first_name'      => $this->nativeFirstName,
-            'native_middle_name'     => $this->nativeMiddleName,
-            'native_last_name'       => $this->nativeLastName,
-            'birthdate'              => $this->birthdate->typeSerialize(),
-            'gender'                 => $this->gender,
-            'country_code'           => $this->countryCode,
+            '@type' => static::TYPE_NAME,
+            'first_name' => $this->firstName,
+            'middle_name' => $this->middleName,
+            'last_name' => $this->lastName,
+            'native_first_name' => $this->nativeFirstName,
+            'native_middle_name' => $this->nativeMiddleName,
+            'native_last_name' => $this->nativeLastName,
+            'birthdate' => $this->birthdate->typeSerialize(),
+            'gender' => $this->gender,
+            'country_code' => $this->countryCode,
             'residence_country_code' => $this->residenceCountryCode,
         ];
     }

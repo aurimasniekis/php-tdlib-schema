@@ -9,49 +9,49 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Represents a cell of a table.
+ * Represents a cell of a table
  */
 class PageBlockTableCell extends TdObject
 {
     public const TYPE_NAME = 'pageBlockTableCell';
 
     /**
-     * Cell text; may be null. If the text is null, then the cell should be invisible.
+     * Cell text; may be null. If the text is null, then the cell must be invisible
      *
      * @var RichText|null
      */
     protected ?RichText $text;
 
     /**
-     * True, if it is a header cell.
+     * True, if it is a header cell
      *
      * @var bool
      */
     protected bool $isHeader;
 
     /**
-     * The number of columns the cell should span.
+     * The number of columns the cell spans
      *
      * @var int
      */
     protected int $colspan;
 
     /**
-     * The number of rows the cell should span.
+     * The number of rows the cell spans
      *
      * @var int
      */
     protected int $rowspan;
 
     /**
-     * Horizontal cell content alignment.
+     * Horizontal cell content alignment
      *
      * @var PageBlockHorizontalAlignment
      */
     protected PageBlockHorizontalAlignment $align;
 
     /**
-     * Vertical cell content alignment.
+     * Vertical cell content alignment
      *
      * @var PageBlockVerticalAlignment
      */
@@ -65,12 +65,12 @@ class PageBlockTableCell extends TdObject
         PageBlockHorizontalAlignment $align,
         PageBlockVerticalAlignment $valign
     ) {
-        $this->text     = $text;
+        $this->text = $text;
         $this->isHeader = $isHeader;
-        $this->colspan  = $colspan;
-        $this->rowspan  = $rowspan;
-        $this->align    = $align;
-        $this->valign   = $valign;
+        $this->colspan = $colspan;
+        $this->rowspan = $rowspan;
+        $this->align = $align;
+        $this->valign = $valign;
     }
 
     public static function fromArray(array $array): PageBlockTableCell
@@ -88,13 +88,13 @@ class PageBlockTableCell extends TdObject
     public function typeSerialize(): array
     {
         return [
-            '@type'     => static::TYPE_NAME,
-            'text'      => (isset($this->text) ? $this->text : null),
+            '@type' => static::TYPE_NAME,
+            'text' => (isset($this->text) ? $this->text : null),
             'is_header' => $this->isHeader,
-            'colspan'   => $this->colspan,
-            'rowspan'   => $this->rowspan,
-            'align'     => $this->align->typeSerialize(),
-            'valign'    => $this->valign->typeSerialize(),
+            'colspan' => $this->colspan,
+            'rowspan' => $this->rowspan,
+            'align' => $this->align->typeSerialize(),
+            'valign' => $this->valign->typeSerialize(),
         ];
     }
 

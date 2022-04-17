@@ -9,42 +9,42 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Represents a file.
+ * Represents a file
  */
 class File extends TdObject
 {
     public const TYPE_NAME = 'file';
 
     /**
-     * Unique file identifier.
+     * Unique file identifier
      *
      * @var int
      */
     protected int $id;
 
     /**
-     * File size; 0 if unknown.
+     * File size, in bytes; 0 if unknown
      *
      * @var int
      */
     protected int $size;
 
     /**
-     * Expected file size in case the exact file size is unknown, but an approximate size is known. Can be used to show download/upload progress.
+     * Approximate file size in bytes in case the exact file size is unknown. Can be used to show download/upload progress
      *
      * @var int
      */
     protected int $expectedSize;
 
     /**
-     * Information about the local copy of the file.
+     * Information about the local copy of the file
      *
      * @var LocalFile
      */
     protected LocalFile $local;
 
     /**
-     * Information about the remote copy of the file.
+     * Information about the remote copy of the file
      *
      * @var RemoteFile
      */
@@ -52,11 +52,11 @@ class File extends TdObject
 
     public function __construct(int $id, int $size, int $expectedSize, LocalFile $local, RemoteFile $remote)
     {
-        $this->id           = $id;
-        $this->size         = $size;
+        $this->id = $id;
+        $this->size = $size;
         $this->expectedSize = $expectedSize;
-        $this->local        = $local;
-        $this->remote       = $remote;
+        $this->local = $local;
+        $this->remote = $remote;
     }
 
     public static function fromArray(array $array): File
@@ -73,12 +73,12 @@ class File extends TdObject
     public function typeSerialize(): array
     {
         return [
-            '@type'         => static::TYPE_NAME,
-            'id'            => $this->id,
-            'size'          => $this->size,
+            '@type' => static::TYPE_NAME,
+            'id' => $this->id,
+            'size' => $this->size,
             'expected_size' => $this->expectedSize,
-            'local'         => $this->local->typeSerialize(),
-            'remote'        => $this->remote->typeSerialize(),
+            'local' => $this->local->typeSerialize(),
+            'remote' => $this->remote->typeSerialize(),
         ];
     }
 

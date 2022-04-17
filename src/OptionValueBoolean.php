@@ -9,14 +9,14 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Represents a boolean option.
+ * Represents a boolean option
  */
 class OptionValueBoolean extends OptionValue
 {
     public const TYPE_NAME = 'optionValueBoolean';
 
     /**
-     * The value of the option.
+     * The value of the option
      *
      * @var bool
      */

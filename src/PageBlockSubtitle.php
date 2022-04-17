@@ -9,14 +9,14 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * The subtitle of a page.
+ * The subtitle of a page
  */
 class PageBlockSubtitle extends PageBlock
 {
     public const TYPE_NAME = 'pageBlockSubtitle';
 
     /**
-     * Subtitle.
+     * Subtitle
      *
      * @var RichText
      */
@@ -39,7 +39,7 @@ class PageBlockSubtitle extends PageBlock
     public function typeSerialize(): array
     {
         return [
-            '@type'    => static::TYPE_NAME,
+            '@type' => static::TYPE_NAME,
             'subtitle' => $this->subtitle->typeSerialize(),
         ];
     }

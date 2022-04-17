@@ -9,14 +9,14 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Fetches the latest versions of all strings from a language pack in the current localization target from the server. This method doesn't need to be called explicitly for the current used/base language packs. Can be called before authorization.
+ * Fetches the latest versions of all strings from a language pack in the current localization target from the server. This method doesn't need to be called explicitly for the current used/base language packs. Can be called before authorization
  */
 class SynchronizeLanguagePack extends TdFunction
 {
     public const TYPE_NAME = 'synchronizeLanguagePack';
 
     /**
-     * Language pack identifier.
+     * Language pack identifier
      *
      * @var string
      */
@@ -37,7 +37,7 @@ class SynchronizeLanguagePack extends TdFunction
     public function typeSerialize(): array
     {
         return [
-            '@type'            => static::TYPE_NAME,
+            '@type' => static::TYPE_NAME,
             'language_pack_id' => $this->languagePackId,
         ];
     }

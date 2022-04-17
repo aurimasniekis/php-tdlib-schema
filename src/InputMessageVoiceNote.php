@@ -9,35 +9,35 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * A voice note message.
+ * A voice note message
  */
 class InputMessageVoiceNote extends InputMessageContent
 {
     public const TYPE_NAME = 'inputMessageVoiceNote';
 
     /**
-     * Voice note to be sent.
+     * Voice note to be sent
      *
      * @var InputFile
      */
     protected InputFile $voiceNote;
 
     /**
-     * Duration of the voice note, in seconds.
+     * Duration of the voice note, in seconds
      *
      * @var int
      */
     protected int $duration;
 
     /**
-     * Waveform representation of the voice note, in 5-bit format.
+     * Waveform representation of the voice note, in 5-bit format
      *
      * @var string
      */
     protected string $waveform;
 
     /**
-     * Voice note caption; 0-GetOption("message_caption_length_max") characters.
+     * Voice note caption; pass null to use an empty caption; 0-GetOption("message_caption_length_max") characters
      *
      * @var FormattedText
      */
@@ -48,9 +48,9 @@ class InputMessageVoiceNote extends InputMessageContent
         parent::__construct();
 
         $this->voiceNote = $voiceNote;
-        $this->duration  = $duration;
-        $this->waveform  = $waveform;
-        $this->caption   = $caption;
+        $this->duration = $duration;
+        $this->waveform = $waveform;
+        $this->caption = $caption;
     }
 
     public static function fromArray(array $array): InputMessageVoiceNote
@@ -66,11 +66,11 @@ class InputMessageVoiceNote extends InputMessageContent
     public function typeSerialize(): array
     {
         return [
-            '@type'      => static::TYPE_NAME,
+            '@type' => static::TYPE_NAME,
             'voice_note' => $this->voiceNote->typeSerialize(),
-            'duration'   => $this->duration,
-            'waveform'   => $this->waveform,
-            'caption'    => $this->caption->typeSerialize(),
+            'duration' => $this->duration,
+            'waveform' => $this->waveform,
+            'caption' => $this->caption->typeSerialize(),
         ];
     }
 

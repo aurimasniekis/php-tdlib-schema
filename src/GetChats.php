@@ -9,54 +9,36 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Returns an ordered list of chats in a chat list. Chats are sorted by the pair (order, chat_id) in decreasing order. (For example, to get a list of chats from the beginning, the offset_order should be equal to a biggest signed 64-bit number 9223372036854775807 == 2^63 - 1). For optimal performance the number of returned chats is chosen by the library.
+ * Returns an ordered list of chats from the beginning of a chat list. For informational purposes only. Use loadChats and updates processing instead to maintain chat lists in a consistent state
  */
 class GetChats extends TdFunction
 {
     public const TYPE_NAME = 'getChats';
 
     /**
-     * The chat list in which to return chats.
+     * The chat list in which to return chats; pass null to get chats from the main chat list
      *
      * @var ChatList
      */
     protected ChatList $chatList;
 
     /**
-     * Chat order to return chats from.
-     *
-     * @var string
-     */
-    protected string $offsetOrder;
-
-    /**
-     * Chat identifier to return chats from.
-     *
-     * @var int
-     */
-    protected int $offsetChatId;
-
-    /**
-     * The maximum number of chats to be returned. It is possible that fewer chats than the limit are returned even if the end of the list is not reached.
+     * The maximum number of chats to be returned
      *
      * @var int
      */
     protected int $limit;
 
-    public function __construct(ChatList $chatList, string $offsetOrder, int $offsetChatId, int $limit)
+    public function __construct(ChatList $chatList, int $limit)
     {
-        $this->chatList     = $chatList;
-        $this->offsetOrder  = $offsetOrder;
-        $this->offsetChatId = $offsetChatId;
-        $this->limit        = $limit;
+        $this->chatList = $chatList;
+        $this->limit = $limit;
     }
 
     public static function fromArray(array $array): GetChats
     {
         return new static(
             TdSchemaRegistry::fromArray($array['chat_list']),
-            $array['offset_order'],
-            $array['offset_chat_id'],
             $array['limit'],
         );
     }
@@ -64,27 +46,15 @@ class GetChats extends TdFunction
     public function typeSerialize(): array
     {
         return [
-            '@type'          => static::TYPE_NAME,
-            'chat_list'      => $this->chatList->typeSerialize(),
-            'offset_order'   => $this->offsetOrder,
-            'offset_chat_id' => $this->offsetChatId,
-            'limit'          => $this->limit,
+            '@type' => static::TYPE_NAME,
+            'chat_list' => $this->chatList->typeSerialize(),
+            'limit' => $this->limit,
         ];
     }
 
     public function getChatList(): ChatList
     {
         return $this->chatList;
-    }
-
-    public function getOffsetOrder(): string
-    {
-        return $this->offsetOrder;
-    }
-
-    public function getOffsetChatId(): int
-    {
-        return $this->offsetChatId;
     }
 
     public function getLimit(): int

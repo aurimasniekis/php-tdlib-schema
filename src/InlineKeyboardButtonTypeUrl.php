@@ -9,14 +9,14 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * A button that opens a specified URL.
+ * A button that opens a specified URL
  */
 class InlineKeyboardButtonTypeUrl extends InlineKeyboardButtonType
 {
     public const TYPE_NAME = 'inlineKeyboardButtonTypeUrl';
 
     /**
-     * HTTP or tg:// URL to open.
+     * HTTP or tg:// URL to open
      *
      * @var string
      */
@@ -40,7 +40,7 @@ class InlineKeyboardButtonTypeUrl extends InlineKeyboardButtonType
     {
         return [
             '@type' => static::TYPE_NAME,
-            'url'   => $this->url,
+            'url' => $this->url,
         ];
     }
 

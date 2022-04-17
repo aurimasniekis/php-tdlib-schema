@@ -9,14 +9,14 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * A marked rich text.
+ * A marked rich text
  */
 class RichTextMarked extends RichText
 {
     public const TYPE_NAME = 'richTextMarked';
 
     /**
-     * Text.
+     * Text
      *
      * @var RichText
      */
@@ -40,7 +40,7 @@ class RichTextMarked extends RichText
     {
         return [
             '@type' => static::TYPE_NAME,
-            'text'  => $this->text->typeSerialize(),
+            'text' => $this->text->typeSerialize(),
         ];
     }
 

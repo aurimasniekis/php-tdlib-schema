@@ -9,7 +9,7 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Describes the type of a background.
+ * Describes the type of a background
  */
 class BackgroundType extends TdObject
 {

@@ -9,7 +9,7 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Provides information about the status of a member in a chat.
+ * Provides information about the status of a member in a chat
  */
 class ChatMemberStatus extends TdObject
 {

@@ -9,14 +9,14 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * The user is online.
+ * The user is online
  */
 class UserStatusOnline extends UserStatus
 {
     public const TYPE_NAME = 'userStatusOnline';
 
     /**
-     * Point in time (Unix timestamp) when the user's online status will expire.
+     * Point in time (Unix timestamp) when the user's online status will expire
      *
      * @var int
      */
@@ -39,7 +39,7 @@ class UserStatusOnline extends UserStatus
     public function typeSerialize(): array
     {
         return [
-            '@type'   => static::TYPE_NAME,
+            '@type' => static::TYPE_NAME,
             'expires' => $this->expires,
         ];
     }

@@ -9,28 +9,28 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Number of unread messages in a chat list has changed. This update is sent only if the message database is used.
+ * Number of unread messages in a chat list has changed. This update is sent only if the message database is used
  */
 class UpdateUnreadMessageCount extends Update
 {
     public const TYPE_NAME = 'updateUnreadMessageCount';
 
     /**
-     * The chat list with changed number of unread messages.
+     * The chat list with changed number of unread messages
      *
      * @var ChatList
      */
     protected ChatList $chatList;
 
     /**
-     * Total number of unread messages.
+     * Total number of unread messages
      *
      * @var int
      */
     protected int $unreadCount;
 
     /**
-     * Total number of unread messages in unmuted chats.
+     * Total number of unread messages in unmuted chats
      *
      * @var int
      */
@@ -40,8 +40,8 @@ class UpdateUnreadMessageCount extends Update
     {
         parent::__construct();
 
-        $this->chatList           = $chatList;
-        $this->unreadCount        = $unreadCount;
+        $this->chatList = $chatList;
+        $this->unreadCount = $unreadCount;
         $this->unreadUnmutedCount = $unreadUnmutedCount;
     }
 
@@ -57,9 +57,9 @@ class UpdateUnreadMessageCount extends Update
     public function typeSerialize(): array
     {
         return [
-            '@type'                => static::TYPE_NAME,
-            'chat_list'            => $this->chatList->typeSerialize(),
-            'unread_count'         => $this->unreadCount,
+            '@type' => static::TYPE_NAME,
+            'chat_list' => $this->chatList->typeSerialize(),
+            'unread_count' => $this->unreadCount,
             'unread_unmuted_count' => $this->unreadUnmutedCount,
         ];
     }

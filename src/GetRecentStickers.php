@@ -9,14 +9,14 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Returns a list of recently used stickers.
+ * Returns a list of recently used stickers
  */
 class GetRecentStickers extends TdFunction
 {
     public const TYPE_NAME = 'getRecentStickers';
 
     /**
-     * Pass true to return stickers and masks that were recently attached to photos or video files; pass false to return recently sent stickers.
+     * Pass true to return stickers and masks that were recently attached to photos or video files; pass false to return recently sent stickers
      *
      * @var bool
      */
@@ -37,7 +37,7 @@ class GetRecentStickers extends TdFunction
     public function typeSerialize(): array
     {
         return [
-            '@type'       => static::TYPE_NAME,
+            '@type' => static::TYPE_NAME,
             'is_attached' => $this->isAttached,
         ];
     }

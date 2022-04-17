@@ -9,14 +9,14 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Returns information about the current localization target. This is an offline request if only_local is true. Can be called before authorization.
+ * Returns information about the current localization target. This is an offline request if only_local is true. Can be called before authorization
  */
 class GetLocalizationTargetInfo extends TdFunction
 {
     public const TYPE_NAME = 'getLocalizationTargetInfo';
 
     /**
-     * If true, returns only locally available information without sending network requests.
+     * If true, returns only locally available information without sending network requests
      *
      * @var bool
      */
@@ -37,7 +37,7 @@ class GetLocalizationTargetInfo extends TdFunction
     public function typeSerialize(): array
     {
         return [
-            '@type'      => static::TYPE_NAME,
+            '@type' => static::TYPE_NAME,
             'only_local' => $this->onlyLocal,
         ];
     }

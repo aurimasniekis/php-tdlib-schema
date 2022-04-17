@@ -9,7 +9,7 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Represents a filter for message search results.
+ * Represents a filter for message search results
  */
 class SearchMessagesFilter extends TdObject
 {

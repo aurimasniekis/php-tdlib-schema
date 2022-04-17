@@ -9,14 +9,14 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Accepts Telegram terms of services.
+ * Accepts Telegram terms of services
  */
 class AcceptTermsOfService extends TdFunction
 {
     public const TYPE_NAME = 'acceptTermsOfService';
 
     /**
-     * Terms of service identifier.
+     * Terms of service identifier
      *
      * @var string
      */
@@ -37,7 +37,7 @@ class AcceptTermsOfService extends TdFunction
     public function typeSerialize(): array
     {
         return [
-            '@type'               => static::TYPE_NAME,
+            '@type' => static::TYPE_NAME,
             'terms_of_service_id' => $this->termsOfServiceId,
         ];
     }

@@ -9,14 +9,14 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Marks all mentions in a chat as read.
+ * Marks all mentions in a chat as read
  */
 class ReadAllChatMentions extends TdFunction
 {
     public const TYPE_NAME = 'readAllChatMentions';
 
     /**
-     * Chat identifier.
+     * Chat identifier
      *
      * @var int
      */
@@ -37,7 +37,7 @@ class ReadAllChatMentions extends TdFunction
     public function typeSerialize(): array
     {
         return [
-            '@type'   => static::TYPE_NAME,
+            '@type' => static::TYPE_NAME,
             'chat_id' => $this->chatId,
         ];
     }

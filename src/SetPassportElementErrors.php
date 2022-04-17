@@ -9,21 +9,21 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Informs the user that some of the elements in their Telegram Passport contain errors; for bots only. The user will not be able to resend the elements, until the errors are fixed.
+ * Informs the user that some of the elements in their Telegram Passport contain errors; for bots only. The user will not be able to resend the elements, until the errors are fixed
  */
 class SetPassportElementErrors extends TdFunction
 {
     public const TYPE_NAME = 'setPassportElementErrors';
 
     /**
-     * User identifier.
+     * User identifier
      *
      * @var int
      */
     protected int $userId;
 
     /**
-     * The errors.
+     * The errors
      *
      * @var InputPassportElementError[]
      */
@@ -39,16 +39,16 @@ class SetPassportElementErrors extends TdFunction
     {
         return new static(
             $array['user_id'],
-            array_map(fn ($x) => TdSchemaRegistry::fromArray($x), $array['errors']),
+            array_map(fn($x) => TdSchemaRegistry::fromArray($x), $array['errors']),
         );
     }
 
     public function typeSerialize(): array
     {
         return [
-            '@type'           => static::TYPE_NAME,
-            'user_id'         => $this->userId,
-            array_map(fn ($x) => $x->typeSerialize(), $this->errors),
+            '@type' => static::TYPE_NAME,
+            'user_id' => $this->userId,
+            array_map(fn($x) => $x->typeSerialize(), $this->errors),
         ];
     }
 

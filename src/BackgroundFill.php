@@ -9,7 +9,7 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Describes a fill of a background.
+ * Describes a fill of a background
  */
 class BackgroundFill extends TdObject
 {

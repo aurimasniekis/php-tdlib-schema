@@ -9,14 +9,14 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * One of files with the translation of the document contains an error. The error will be considered resolved when the file changes.
+ * One of files with the translation of the document contains an error. The error will be considered resolved when the file changes
  */
 class PassportElementErrorSourceTranslationFile extends PassportElementErrorSource
 {
     public const TYPE_NAME = 'passportElementErrorSourceTranslationFile';
 
     /**
-     * Index of a file with the error.
+     * Index of a file with the error
      *
      * @var int
      */
@@ -39,7 +39,7 @@ class PassportElementErrorSourceTranslationFile extends PassportElementErrorSour
     public function typeSerialize(): array
     {
         return [
-            '@type'      => static::TYPE_NAME,
+            '@type' => static::TYPE_NAME,
             'file_index' => $this->fileIndex,
         ];
     }

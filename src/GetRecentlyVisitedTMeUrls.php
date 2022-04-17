@@ -9,14 +9,14 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Returns t.me URLs recently visited by a newly registered user.
+ * Returns t.me URLs recently visited by a newly registered user
  */
 class GetRecentlyVisitedTMeUrls extends TdFunction
 {
     public const TYPE_NAME = 'getRecentlyVisitedTMeUrls';
 
     /**
-     * Google Play referrer to identify the user.
+     * Google Play referrer to identify the user
      *
      * @var string
      */
@@ -37,7 +37,7 @@ class GetRecentlyVisitedTMeUrls extends TdFunction
     public function typeSerialize(): array
     {
         return [
-            '@type'    => static::TYPE_NAME,
+            '@type' => static::TYPE_NAME,
             'referrer' => $this->referrer,
         ];
     }

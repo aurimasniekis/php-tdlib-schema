@@ -9,14 +9,14 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Sets new log stream for internal logging of TDLib. This is an offline method. Can be called before authorization. Can be called synchronously.
+ * Sets new log stream for internal logging of TDLib. Can be called synchronously
  */
 class SetLogStream extends TdFunction
 {
     public const TYPE_NAME = 'setLogStream';
 
     /**
-     * New log stream.
+     * New log stream
      *
      * @var LogStream
      */
@@ -37,7 +37,7 @@ class SetLogStream extends TdFunction
     public function typeSerialize(): array
     {
         return [
-            '@type'      => static::TYPE_NAME,
+            '@type' => static::TYPE_NAME,
             'log_stream' => $this->logStream->typeSerialize(),
         ];
     }

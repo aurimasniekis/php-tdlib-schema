@@ -9,40 +9,40 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * The last message of a chat was changed. If last_message is null, then the last message in the chat became unknown. Some new unknown messages might be added to the chat in this case.
+ * The last message of a chat was changed. If last_message is null, then the last message in the chat became unknown. Some new unknown messages might be added to the chat in this case
  */
 class UpdateChatLastMessage extends Update
 {
     public const TYPE_NAME = 'updateChatLastMessage';
 
     /**
-     * Chat identifier.
+     * Chat identifier
      *
      * @var int
      */
     protected int $chatId;
 
     /**
-     * The new last message in the chat; may be null.
+     * The new last message in the chat; may be null
      *
      * @var Message|null
      */
     protected ?Message $lastMessage;
 
     /**
-     * New value of the chat order.
+     * The new chat positions in the chat lists
      *
-     * @var string
+     * @var ChatPosition[]
      */
-    protected string $order;
+    protected array $positions;
 
-    public function __construct(int $chatId, ?Message $lastMessage, string $order)
+    public function __construct(int $chatId, ?Message $lastMessage, array $positions)
     {
         parent::__construct();
 
-        $this->chatId      = $chatId;
+        $this->chatId = $chatId;
         $this->lastMessage = $lastMessage;
-        $this->order       = $order;
+        $this->positions = $positions;
     }
 
     public static function fromArray(array $array): UpdateChatLastMessage
@@ -50,17 +50,17 @@ class UpdateChatLastMessage extends Update
         return new static(
             $array['chat_id'],
             (isset($array['last_message']) ? TdSchemaRegistry::fromArray($array['last_message']) : null),
-            $array['order'],
+            array_map(fn($x) => TdSchemaRegistry::fromArray($x), $array['positions']),
         );
     }
 
     public function typeSerialize(): array
     {
         return [
-            '@type'        => static::TYPE_NAME,
-            'chat_id'      => $this->chatId,
+            '@type' => static::TYPE_NAME,
+            'chat_id' => $this->chatId,
             'last_message' => (isset($this->lastMessage) ? $this->lastMessage : null),
-            'order'        => $this->order,
+            array_map(fn($x) => $x->typeSerialize(), $this->positions),
         ];
     }
 
@@ -74,8 +74,8 @@ class UpdateChatLastMessage extends Update
         return $this->lastMessage;
     }
 
-    public function getOrder(): string
+    public function getPositions(): array
     {
-        return $this->order;
+        return $this->positions;
     }
 }

@@ -9,14 +9,14 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * A message with a game.
+ * A message with a game
  */
 class MessageGame extends MessageContent
 {
     public const TYPE_NAME = 'messageGame';
 
     /**
-     * The game description.
+     * The game description
      *
      * @var Game
      */
@@ -40,7 +40,7 @@ class MessageGame extends MessageContent
     {
         return [
             '@type' => static::TYPE_NAME,
-            'game'  => $this->game->typeSerialize(),
+            'game' => $this->game->typeSerialize(),
         ];
     }
 

@@ -9,42 +9,42 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Contains information about notification settings for several chats.
+ * Contains information about notification settings for several chats
  */
 class ScopeNotificationSettings extends TdObject
 {
     public const TYPE_NAME = 'scopeNotificationSettings';
 
     /**
-     * Time left before notifications will be unmuted, in seconds.
+     * Time left before notifications will be unmuted, in seconds
      *
      * @var int
      */
     protected int $muteFor;
 
     /**
-     * The name of an audio file to be used for notification sounds; only applies to iOS applications.
+     * The name of an audio file to be used for notification sounds; only applies to iOS applications
      *
      * @var string
      */
     protected string $sound;
 
     /**
-     * True, if message content should be displayed in notifications.
+     * True, if message content must be displayed in notifications
      *
      * @var bool
      */
     protected bool $showPreview;
 
     /**
-     * True, if notifications for incoming pinned messages will be created as for an ordinary unread message.
+     * True, if notifications for incoming pinned messages will be created as for an ordinary unread message
      *
      * @var bool
      */
     protected bool $disablePinnedMessageNotifications;
 
     /**
-     * True, if notifications for messages with mentions will be created as for an ordinary unread message.
+     * True, if notifications for messages with mentions will be created as for an ordinary unread message
      *
      * @var bool
      */
@@ -57,11 +57,11 @@ class ScopeNotificationSettings extends TdObject
         bool $disablePinnedMessageNotifications,
         bool $disableMentionNotifications
     ) {
-        $this->muteFor                           = $muteFor;
-        $this->sound                             = $sound;
-        $this->showPreview                       = $showPreview;
+        $this->muteFor = $muteFor;
+        $this->sound = $sound;
+        $this->showPreview = $showPreview;
         $this->disablePinnedMessageNotifications = $disablePinnedMessageNotifications;
-        $this->disableMentionNotifications       = $disableMentionNotifications;
+        $this->disableMentionNotifications = $disableMentionNotifications;
     }
 
     public static function fromArray(array $array): ScopeNotificationSettings
@@ -78,12 +78,12 @@ class ScopeNotificationSettings extends TdObject
     public function typeSerialize(): array
     {
         return [
-            '@type'                                => static::TYPE_NAME,
-            'mute_for'                             => $this->muteFor,
-            'sound'                                => $this->sound,
-            'show_preview'                         => $this->showPreview,
+            '@type' => static::TYPE_NAME,
+            'mute_for' => $this->muteFor,
+            'sound' => $this->sound,
+            'show_preview' => $this->showPreview,
             'disable_pinned_message_notifications' => $this->disablePinnedMessageNotifications,
-            'disable_mention_notifications'        => $this->disableMentionNotifications,
+            'disable_mention_notifications' => $this->disableMentionNotifications,
         ];
     }
 

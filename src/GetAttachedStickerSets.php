@@ -9,14 +9,14 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Returns a list of sticker sets attached to a file. Currently only photos and videos can have attached sticker sets.
+ * Returns a list of sticker sets attached to a file. Currently, only photos and videos can have attached sticker sets
  */
 class GetAttachedStickerSets extends TdFunction
 {
     public const TYPE_NAME = 'getAttachedStickerSets';
 
     /**
-     * File identifier.
+     * File identifier
      *
      * @var int
      */
@@ -37,7 +37,7 @@ class GetAttachedStickerSets extends TdFunction
     public function typeSerialize(): array
     {
         return [
-            '@type'   => static::TYPE_NAME,
+            '@type' => static::TYPE_NAME,
             'file_id' => $this->fileId,
         ];
     }

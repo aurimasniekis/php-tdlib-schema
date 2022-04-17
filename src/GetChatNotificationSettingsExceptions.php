@@ -9,21 +9,21 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Returns list of chats with non-default notification settings.
+ * Returns list of chats with non-default notification settings
  */
 class GetChatNotificationSettingsExceptions extends TdFunction
 {
     public const TYPE_NAME = 'getChatNotificationSettingsExceptions';
 
     /**
-     * If specified, only chats from the specified scope will be returned.
+     * If specified, only chats from the scope will be returned; pass null to return chats from all scopes
      *
      * @var NotificationSettingsScope
      */
     protected NotificationSettingsScope $scope;
 
     /**
-     * If true, also chats with non-default sound will be returned.
+     * If true, also chats with non-default sound will be returned
      *
      * @var bool
      */
@@ -31,7 +31,7 @@ class GetChatNotificationSettingsExceptions extends TdFunction
 
     public function __construct(NotificationSettingsScope $scope, bool $compareSound)
     {
-        $this->scope        = $scope;
+        $this->scope = $scope;
         $this->compareSound = $compareSound;
     }
 
@@ -46,8 +46,8 @@ class GetChatNotificationSettingsExceptions extends TdFunction
     public function typeSerialize(): array
     {
         return [
-            '@type'         => static::TYPE_NAME,
-            'scope'         => $this->scope->typeSerialize(),
+            '@type' => static::TYPE_NAME,
+            'scope' => $this->scope->typeSerialize(),
             'compare_sound' => $this->compareSound,
         ];
     }

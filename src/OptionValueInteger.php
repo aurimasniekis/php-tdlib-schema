@@ -9,20 +9,20 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Represents an integer option.
+ * Represents an integer option
  */
 class OptionValueInteger extends OptionValue
 {
     public const TYPE_NAME = 'optionValueInteger';
 
     /**
-     * The value of the option.
+     * The value of the option
      *
-     * @var int
+     * @var string
      */
-    protected int $value;
+    protected string $value;
 
-    public function __construct(int $value)
+    public function __construct(string $value)
     {
         parent::__construct();
 
@@ -44,7 +44,7 @@ class OptionValueInteger extends OptionValue
         ];
     }
 
-    public function getValue(): int
+    public function getValue(): string
     {
         return $this->value;
     }

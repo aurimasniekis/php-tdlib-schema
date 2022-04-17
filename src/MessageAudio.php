@@ -9,21 +9,21 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * An audio message.
+ * An audio message
  */
 class MessageAudio extends MessageContent
 {
     public const TYPE_NAME = 'messageAudio';
 
     /**
-     * The audio description.
+     * The audio description
      *
      * @var Audio
      */
     protected Audio $audio;
 
     /**
-     * Audio caption.
+     * Audio caption
      *
      * @var FormattedText
      */
@@ -33,7 +33,7 @@ class MessageAudio extends MessageContent
     {
         parent::__construct();
 
-        $this->audio   = $audio;
+        $this->audio = $audio;
         $this->caption = $caption;
     }
 
@@ -48,8 +48,8 @@ class MessageAudio extends MessageContent
     public function typeSerialize(): array
     {
         return [
-            '@type'   => static::TYPE_NAME,
-            'audio'   => $this->audio->typeSerialize(),
+            '@type' => static::TYPE_NAME,
+            'audio' => $this->audio->typeSerialize(),
             'caption' => $this->caption->typeSerialize(),
         ];
     }

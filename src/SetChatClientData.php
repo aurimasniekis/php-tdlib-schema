@@ -9,21 +9,21 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Changes client data associated with a chat.
+ * Changes application-specific data associated with a chat
  */
 class SetChatClientData extends TdFunction
 {
     public const TYPE_NAME = 'setChatClientData';
 
     /**
-     * Chat identifier.
+     * Chat identifier
      *
      * @var int
      */
     protected int $chatId;
 
     /**
-     * New value of client_data.
+     * New value of client_data
      *
      * @var string
      */
@@ -31,7 +31,7 @@ class SetChatClientData extends TdFunction
 
     public function __construct(int $chatId, string $clientData)
     {
-        $this->chatId     = $chatId;
+        $this->chatId = $chatId;
         $this->clientData = $clientData;
     }
 
@@ -46,8 +46,8 @@ class SetChatClientData extends TdFunction
     public function typeSerialize(): array
     {
         return [
-            '@type'       => static::TYPE_NAME,
-            'chat_id'     => $this->chatId,
+            '@type' => static::TYPE_NAME,
+            'chat_id' => $this->chatId,
             'client_data' => $this->clientData,
         ];
     }

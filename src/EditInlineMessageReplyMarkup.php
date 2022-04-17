@@ -9,21 +9,21 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Edits the reply markup of an inline message sent via a bot; for bots only.
+ * Edits the reply markup of an inline message sent via a bot; for bots only
  */
 class EditInlineMessageReplyMarkup extends TdFunction
 {
     public const TYPE_NAME = 'editInlineMessageReplyMarkup';
 
     /**
-     * Inline message identifier.
+     * Inline message identifier
      *
      * @var string
      */
     protected string $inlineMessageId;
 
     /**
-     * The new message reply markup.
+     * The new message reply markup; pass null if none
      *
      * @var ReplyMarkup
      */
@@ -32,7 +32,7 @@ class EditInlineMessageReplyMarkup extends TdFunction
     public function __construct(string $inlineMessageId, ReplyMarkup $replyMarkup)
     {
         $this->inlineMessageId = $inlineMessageId;
-        $this->replyMarkup     = $replyMarkup;
+        $this->replyMarkup = $replyMarkup;
     }
 
     public static function fromArray(array $array): EditInlineMessageReplyMarkup
@@ -46,9 +46,9 @@ class EditInlineMessageReplyMarkup extends TdFunction
     public function typeSerialize(): array
     {
         return [
-            '@type'             => static::TYPE_NAME,
+            '@type' => static::TYPE_NAME,
             'inline_message_id' => $this->inlineMessageId,
-            'reply_markup'      => $this->replyMarkup->typeSerialize(),
+            'reply_markup' => $this->replyMarkup->typeSerialize(),
         ];
     }
 

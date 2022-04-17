@@ -9,35 +9,35 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Represents a photo.
+ * Represents a photo
  */
 class InlineQueryResultPhoto extends InlineQueryResult
 {
     public const TYPE_NAME = 'inlineQueryResultPhoto';
 
     /**
-     * Unique identifier of the query result.
+     * Unique identifier of the query result
      *
      * @var string
      */
     protected string $id;
 
     /**
-     * Photo.
+     * Photo
      *
      * @var Photo
      */
     protected Photo $photo;
 
     /**
-     * Title of the result, if known.
+     * Title of the result, if known
      *
      * @var string
      */
     protected string $title;
 
     /**
-     * A short description of the result, if known.
+     * A short description of the result, if known
      *
      * @var string
      */
@@ -47,9 +47,9 @@ class InlineQueryResultPhoto extends InlineQueryResult
     {
         parent::__construct();
 
-        $this->id          = $id;
-        $this->photo       = $photo;
-        $this->title       = $title;
+        $this->id = $id;
+        $this->photo = $photo;
+        $this->title = $title;
         $this->description = $description;
     }
 
@@ -66,10 +66,10 @@ class InlineQueryResultPhoto extends InlineQueryResult
     public function typeSerialize(): array
     {
         return [
-            '@type'       => static::TYPE_NAME,
-            'id'          => $this->id,
-            'photo'       => $this->photo->typeSerialize(),
-            'title'       => $this->title,
+            '@type' => static::TYPE_NAME,
+            'id' => $this->id,
+            'photo' => $this->photo->typeSerialize(),
+            'title' => $this->title,
             'description' => $this->description,
         ];
     }

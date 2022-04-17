@@ -9,21 +9,21 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * A message with an invoice from a bot.
+ * A message with an invoice from a bot
  */
 class PushMessageContentInvoice extends PushMessageContent
 {
     public const TYPE_NAME = 'pushMessageContentInvoice';
 
     /**
-     * Product price.
+     * Product price
      *
      * @var string
      */
     protected string $price;
 
     /**
-     * True, if the message is a pinned message with the specified content.
+     * True, if the message is a pinned message with the specified content
      *
      * @var bool
      */
@@ -33,7 +33,7 @@ class PushMessageContentInvoice extends PushMessageContent
     {
         parent::__construct();
 
-        $this->price    = $price;
+        $this->price = $price;
         $this->isPinned = $isPinned;
     }
 
@@ -48,8 +48,8 @@ class PushMessageContentInvoice extends PushMessageContent
     public function typeSerialize(): array
     {
         return [
-            '@type'     => static::TYPE_NAME,
-            'price'     => $this->price,
+            '@type' => static::TYPE_NAME,
+            'price' => $this->price,
             'is_pinned' => $this->isPinned,
         ];
     }

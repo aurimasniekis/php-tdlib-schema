@@ -17,15 +17,11 @@ class GetBlockedUsers extends TdFunction
 
     /**
      * Number of users to skip in the result; must be non-negative.
-     *
-     * @var int
      */
     protected int $offset;
 
     /**
      * The maximum number of users to return; up to 100.
-     *
-     * @var int
      */
     protected int $limit;
 

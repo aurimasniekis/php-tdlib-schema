@@ -9,7 +9,7 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * The call was ended before the conversation started. It was cancelled by the caller or missed by the other party.
+ * The call was ended before the conversation started. It was canceled by the caller or missed by the other party
  */
 class CallDiscardReasonMissed extends CallDiscardReason
 {

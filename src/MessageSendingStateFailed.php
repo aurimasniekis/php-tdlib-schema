@@ -9,48 +9,61 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * The message failed to be sent.
+ * The message failed to be sent
  */
 class MessageSendingStateFailed extends MessageSendingState
 {
     public const TYPE_NAME = 'messageSendingStateFailed';
 
     /**
-     * An error code; 0 if unknown.
+     * An error code; 0 if unknown
      *
      * @var int
      */
     protected int $errorCode;
 
     /**
-     * Error message.
+     * Error message
      *
      * @var string
      */
     protected string $errorMessage;
 
     /**
-     * True, if the message can be re-sent.
+     * True, if the message can be re-sent
      *
      * @var bool
      */
     protected bool $canRetry;
 
     /**
-     * Time left before the message can be re-sent, in seconds. No update is sent when this field changes.
+     * True, if the message can be re-sent only on behalf of a different sender
+     *
+     * @var bool
+     */
+    protected bool $needAnotherSender;
+
+    /**
+     * Time left before the message can be re-sent, in seconds. No update is sent when this field changes
      *
      * @var float
      */
     protected float $retryAfter;
 
-    public function __construct(int $errorCode, string $errorMessage, bool $canRetry, float $retryAfter)
-    {
+    public function __construct(
+        int $errorCode,
+        string $errorMessage,
+        bool $canRetry,
+        bool $needAnotherSender,
+        float $retryAfter
+    ) {
         parent::__construct();
 
-        $this->errorCode    = $errorCode;
+        $this->errorCode = $errorCode;
         $this->errorMessage = $errorMessage;
-        $this->canRetry     = $canRetry;
-        $this->retryAfter   = $retryAfter;
+        $this->canRetry = $canRetry;
+        $this->needAnotherSender = $needAnotherSender;
+        $this->retryAfter = $retryAfter;
     }
 
     public static function fromArray(array $array): MessageSendingStateFailed
@@ -59,6 +72,7 @@ class MessageSendingStateFailed extends MessageSendingState
             $array['error_code'],
             $array['error_message'],
             $array['can_retry'],
+            $array['need_another_sender'],
             $array['retry_after'],
         );
     }
@@ -66,11 +80,12 @@ class MessageSendingStateFailed extends MessageSendingState
     public function typeSerialize(): array
     {
         return [
-            '@type'         => static::TYPE_NAME,
-            'error_code'    => $this->errorCode,
+            '@type' => static::TYPE_NAME,
+            'error_code' => $this->errorCode,
             'error_message' => $this->errorMessage,
-            'can_retry'     => $this->canRetry,
-            'retry_after'   => $this->retryAfter,
+            'can_retry' => $this->canRetry,
+            'need_another_sender' => $this->needAnotherSender,
+            'retry_after' => $this->retryAfter,
         ];
     }
 
@@ -87,6 +102,11 @@ class MessageSendingStateFailed extends MessageSendingState
     public function getCanRetry(): bool
     {
         return $this->canRetry;
+    }
+
+    public function getNeedAnotherSender(): bool
+    {
+        return $this->needAnotherSender;
     }
 
     public function getRetryAfter(): float

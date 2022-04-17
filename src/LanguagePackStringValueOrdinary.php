@@ -9,14 +9,14 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * An ordinary language pack string.
+ * An ordinary language pack string
  */
 class LanguagePackStringValueOrdinary extends LanguagePackStringValue
 {
     public const TYPE_NAME = 'languagePackStringValueOrdinary';
 
     /**
-     * String value.
+     * String value
      *
      * @var string
      */

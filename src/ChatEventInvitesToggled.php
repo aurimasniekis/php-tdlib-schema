@@ -9,14 +9,14 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * The can_invite_users permission of a supergroup chat was toggled.
+ * The can_invite_users permission of a supergroup chat was toggled
  */
 class ChatEventInvitesToggled extends ChatEventAction
 {
     public const TYPE_NAME = 'chatEventInvitesToggled';
 
     /**
-     * New value of can_invite_users permission.
+     * New value of can_invite_users permission
      *
      * @var bool
      */
@@ -39,7 +39,7 @@ class ChatEventInvitesToggled extends ChatEventAction
     public function typeSerialize(): array
     {
         return [
-            '@type'            => static::TYPE_NAME,
+            '@type' => static::TYPE_NAME,
             'can_invite_users' => $this->canInviteUsers,
         ];
     }

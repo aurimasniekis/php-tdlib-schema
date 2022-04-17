@@ -9,28 +9,28 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Thumbnail image of a very poor quality and low resolution.
+ * Thumbnail image of a very poor quality and low resolution
  */
 class Minithumbnail extends TdObject
 {
     public const TYPE_NAME = 'minithumbnail';
 
     /**
-     * Thumbnail width, usually doesn't exceed 40.
+     * Thumbnail width, usually doesn't exceed 40
      *
      * @var int
      */
     protected int $width;
 
     /**
-     * Thumbnail height, usually doesn't exceed 40.
+     * Thumbnail height, usually doesn't exceed 40
      *
      * @var int
      */
     protected int $height;
 
     /**
-     * The thumbnail in JPEG format.
+     * The thumbnail in JPEG format
      *
      * @var string
      */
@@ -38,9 +38,9 @@ class Minithumbnail extends TdObject
 
     public function __construct(int $width, int $height, string $data)
     {
-        $this->width  = $width;
+        $this->width = $width;
         $this->height = $height;
-        $this->data   = $data;
+        $this->data = $data;
     }
 
     public static function fromArray(array $array): Minithumbnail
@@ -55,10 +55,10 @@ class Minithumbnail extends TdObject
     public function typeSerialize(): array
     {
         return [
-            '@type'  => static::TYPE_NAME,
-            'width'  => $this->width,
+            '@type' => static::TYPE_NAME,
+            'width' => $this->width,
             'height' => $this->height,
-            'data'   => $this->data,
+            'data' => $this->data,
         ];
     }
 

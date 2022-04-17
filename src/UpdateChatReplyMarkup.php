@@ -9,21 +9,21 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * The default chat reply markup was changed. Can occur because new messages with reply markup were received or because an old reply markup was hidden by the user.
+ * The default chat reply markup was changed. Can occur because new messages with reply markup were received or because an old reply markup was hidden by the user
  */
 class UpdateChatReplyMarkup extends Update
 {
     public const TYPE_NAME = 'updateChatReplyMarkup';
 
     /**
-     * Chat identifier.
+     * Chat identifier
      *
      * @var int
      */
     protected int $chatId;
 
     /**
-     * Identifier of the message from which reply markup needs to be used; 0 if there is no default custom reply markup in the chat.
+     * Identifier of the message from which reply markup needs to be used; 0 if there is no default custom reply markup in the chat
      *
      * @var int
      */
@@ -33,7 +33,7 @@ class UpdateChatReplyMarkup extends Update
     {
         parent::__construct();
 
-        $this->chatId               = $chatId;
+        $this->chatId = $chatId;
         $this->replyMarkupMessageId = $replyMarkupMessageId;
     }
 
@@ -48,8 +48,8 @@ class UpdateChatReplyMarkup extends Update
     public function typeSerialize(): array
     {
         return [
-            '@type'                   => static::TYPE_NAME,
-            'chat_id'                 => $this->chatId,
+            '@type' => static::TYPE_NAME,
+            'chat_id' => $this->chatId,
             'reply_markup_message_id' => $this->replyMarkupMessageId,
         ];
     }

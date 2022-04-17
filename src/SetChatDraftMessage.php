@@ -9,29 +9,37 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Changes the draft message in a chat.
+ * Changes the draft message in a chat
  */
 class SetChatDraftMessage extends TdFunction
 {
     public const TYPE_NAME = 'setChatDraftMessage';
 
     /**
-     * Chat identifier.
+     * Chat identifier
      *
      * @var int
      */
     protected int $chatId;
 
     /**
-     * New draft message; may be null.
+     * If not 0, a message thread identifier in which the draft was changed
      *
-     * @var DraftMessage|null
+     * @var int
      */
-    protected ?DraftMessage $draftMessage;
+    protected int $messageThreadId;
 
-    public function __construct(int $chatId, ?DraftMessage $draftMessage)
+    /**
+     * New draft message; pass null to remove the draft
+     *
+     * @var DraftMessage
+     */
+    protected DraftMessage $draftMessage;
+
+    public function __construct(int $chatId, int $messageThreadId, DraftMessage $draftMessage)
     {
-        $this->chatId       = $chatId;
+        $this->chatId = $chatId;
+        $this->messageThreadId = $messageThreadId;
         $this->draftMessage = $draftMessage;
     }
 
@@ -39,16 +47,18 @@ class SetChatDraftMessage extends TdFunction
     {
         return new static(
             $array['chat_id'],
-            (isset($array['draft_message']) ? TdSchemaRegistry::fromArray($array['draft_message']) : null),
+            $array['message_thread_id'],
+            TdSchemaRegistry::fromArray($array['draft_message']),
         );
     }
 
     public function typeSerialize(): array
     {
         return [
-            '@type'         => static::TYPE_NAME,
-            'chat_id'       => $this->chatId,
-            'draft_message' => (isset($this->draftMessage) ? $this->draftMessage : null),
+            '@type' => static::TYPE_NAME,
+            'chat_id' => $this->chatId,
+            'message_thread_id' => $this->messageThreadId,
+            'draft_message' => $this->draftMessage->typeSerialize(),
         ];
     }
 
@@ -57,7 +67,12 @@ class SetChatDraftMessage extends TdFunction
         return $this->chatId;
     }
 
-    public function getDraftMessage(): ?DraftMessage
+    public function getMessageThreadId(): int
+    {
+        return $this->messageThreadId;
+    }
+
+    public function getDraftMessage(): DraftMessage
     {
         return $this->draftMessage;
     }

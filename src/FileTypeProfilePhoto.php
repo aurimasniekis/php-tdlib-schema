@@ -9,7 +9,7 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * The file is a profile photo.
+ * The file is a profile photo
  */
 class FileTypeProfilePhoto extends FileType
 {

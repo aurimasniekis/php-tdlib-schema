@@ -9,14 +9,14 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Returns a web page preview by the text of the message. Do not call this function too often. Returns a 404 error if the web page has no preview.
+ * Returns a web page preview by the text of the message. Do not call this function too often. Returns a 404 error if the web page has no preview
  */
 class GetWebPagePreview extends TdFunction
 {
     public const TYPE_NAME = 'getWebPagePreview';
 
     /**
-     * Message text with formatting.
+     * Message text with formatting
      *
      * @var FormattedText
      */
@@ -38,7 +38,7 @@ class GetWebPagePreview extends TdFunction
     {
         return [
             '@type' => static::TYPE_NAME,
-            'text'  => $this->text->typeSerialize(),
+            'text' => $this->text->typeSerialize(),
         ];
     }
 

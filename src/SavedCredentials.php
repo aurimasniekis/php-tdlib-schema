@@ -9,21 +9,21 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Contains information about saved card credentials.
+ * Contains information about saved card credentials
  */
 class SavedCredentials extends TdObject
 {
     public const TYPE_NAME = 'savedCredentials';
 
     /**
-     * Unique identifier of the saved credentials.
+     * Unique identifier of the saved credentials
      *
      * @var string
      */
     protected string $id;
 
     /**
-     * Title of the saved credentials.
+     * Title of the saved credentials
      *
      * @var string
      */
@@ -31,7 +31,7 @@ class SavedCredentials extends TdObject
 
     public function __construct(string $id, string $title)
     {
-        $this->id    = $id;
+        $this->id = $id;
         $this->title = $title;
     }
 
@@ -47,7 +47,7 @@ class SavedCredentials extends TdObject
     {
         return [
             '@type' => static::TYPE_NAME,
-            'id'    => $this->id,
+            'id' => $this->id,
             'title' => $this->title,
         ];
     }

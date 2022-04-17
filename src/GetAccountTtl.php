@@ -9,7 +9,7 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Returns the period of inactivity after which the account of the current user will automatically be deleted.
+ * Returns the period of inactivity after which the account of the current user will automatically be deleted
  */
 class GetAccountTtl extends TdFunction
 {

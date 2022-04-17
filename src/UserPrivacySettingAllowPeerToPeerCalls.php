@@ -9,7 +9,7 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * A privacy setting for managing whether peer-to-peer connections can be used for calls.
+ * A privacy setting for managing whether peer-to-peer connections can be used for calls
  */
 class UserPrivacySettingAllowPeerToPeerCalls extends UserPrivacySetting
 {

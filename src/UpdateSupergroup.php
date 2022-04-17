@@ -9,14 +9,14 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Some data of a supergroup or a channel has changed. This update is guaranteed to come before the supergroup identifier is returned to the client.
+ * Some data of a supergroup or a channel has changed. This update is guaranteed to come before the supergroup identifier is returned to the application
  */
 class UpdateSupergroup extends Update
 {
     public const TYPE_NAME = 'updateSupergroup';
 
     /**
-     * New data about the supergroup.
+     * New data about the supergroup
      *
      * @var Supergroup
      */
@@ -39,7 +39,7 @@ class UpdateSupergroup extends Update
     public function typeSerialize(): array
     {
         return [
-            '@type'      => static::TYPE_NAME,
+            '@type' => static::TYPE_NAME,
             'supergroup' => $this->supergroup->typeSerialize(),
         ];
     }

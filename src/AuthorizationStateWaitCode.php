@@ -9,14 +9,14 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * TDLib needs the user's authentication code to authorize.
+ * TDLib needs the user's authentication code to authorize
  */
 class AuthorizationStateWaitCode extends AuthorizationState
 {
     public const TYPE_NAME = 'authorizationStateWaitCode';
 
     /**
-     * Information about the authorization code that was sent.
+     * Information about the authorization code that was sent
      *
      * @var AuthenticationCodeInfo
      */
@@ -39,7 +39,7 @@ class AuthorizationStateWaitCode extends AuthorizationState
     public function typeSerialize(): array
     {
         return [
-            '@type'     => static::TYPE_NAME,
+            '@type' => static::TYPE_NAME,
             'code_info' => $this->codeInfo->typeSerialize(),
         ];
     }

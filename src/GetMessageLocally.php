@@ -9,21 +9,21 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Returns information about a message, if it is available locally without sending network request. This is an offline request.
+ * Returns information about a message, if it is available locally without sending network request. This is an offline request
  */
 class GetMessageLocally extends TdFunction
 {
     public const TYPE_NAME = 'getMessageLocally';
 
     /**
-     * Identifier of the chat the message belongs to.
+     * Identifier of the chat the message belongs to
      *
      * @var int
      */
     protected int $chatId;
 
     /**
-     * Identifier of the message to get.
+     * Identifier of the message to get
      *
      * @var int
      */
@@ -31,7 +31,7 @@ class GetMessageLocally extends TdFunction
 
     public function __construct(int $chatId, int $messageId)
     {
-        $this->chatId    = $chatId;
+        $this->chatId = $chatId;
         $this->messageId = $messageId;
     }
 
@@ -46,8 +46,8 @@ class GetMessageLocally extends TdFunction
     public function typeSerialize(): array
     {
         return [
-            '@type'      => static::TYPE_NAME,
-            'chat_id'    => $this->chatId,
+            '@type' => static::TYPE_NAME,
+            'chat_id' => $this->chatId,
             'message_id' => $this->messageId,
         ];
     }

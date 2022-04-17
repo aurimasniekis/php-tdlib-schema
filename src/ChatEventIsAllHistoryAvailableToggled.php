@@ -9,14 +9,14 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * The is_all_history_available setting of a supergroup was toggled.
+ * The is_all_history_available setting of a supergroup was toggled
  */
 class ChatEventIsAllHistoryAvailableToggled extends ChatEventAction
 {
     public const TYPE_NAME = 'chatEventIsAllHistoryAvailableToggled';
 
     /**
-     * New value of is_all_history_available.
+     * New value of is_all_history_available
      *
      * @var bool
      */
@@ -39,7 +39,7 @@ class ChatEventIsAllHistoryAvailableToggled extends ChatEventAction
     public function typeSerialize(): array
     {
         return [
-            '@type'                    => static::TYPE_NAME,
+            '@type' => static::TYPE_NAME,
             'is_all_history_available' => $this->isAllHistoryAvailable,
         ];
     }

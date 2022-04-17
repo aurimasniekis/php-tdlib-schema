@@ -9,56 +9,48 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * A forwarded message.
+ * A forwarded message
  */
 class InputMessageForwarded extends InputMessageContent
 {
     public const TYPE_NAME = 'inputMessageForwarded';
 
     /**
-     * Identifier for the chat this forwarded message came from.
+     * Identifier for the chat this forwarded message came from
      *
      * @var int
      */
     protected int $fromChatId;
 
     /**
-     * Identifier of the message to forward.
+     * Identifier of the message to forward
      *
      * @var int
      */
     protected int $messageId;
 
     /**
-     * True, if a game message should be shared within a launched game; applies only to game messages.
+     * True, if a game message is being shared from a launched game; applies only to game messages
      *
      * @var bool
      */
     protected bool $inGameShare;
 
     /**
-     * True, if content of the message needs to be copied without a link to the original message. Always true if the message is forwarded to a secret chat.
+     * Options to be used to copy content of the message without reference to the original sender; pass null to forward the message as usual
      *
-     * @var bool
+     * @var MessageCopyOptions
      */
-    protected bool $sendCopy;
+    protected MessageCopyOptions $copyOptions;
 
-    /**
-     * True, if media caption of the message copy needs to be removed. Ignored if send_copy is false.
-     *
-     * @var bool
-     */
-    protected bool $removeCaption;
-
-    public function __construct(int $fromChatId, int $messageId, bool $inGameShare, bool $sendCopy, bool $removeCaption)
+    public function __construct(int $fromChatId, int $messageId, bool $inGameShare, MessageCopyOptions $copyOptions)
     {
         parent::__construct();
 
-        $this->fromChatId    = $fromChatId;
-        $this->messageId     = $messageId;
-        $this->inGameShare   = $inGameShare;
-        $this->sendCopy      = $sendCopy;
-        $this->removeCaption = $removeCaption;
+        $this->fromChatId = $fromChatId;
+        $this->messageId = $messageId;
+        $this->inGameShare = $inGameShare;
+        $this->copyOptions = $copyOptions;
     }
 
     public static function fromArray(array $array): InputMessageForwarded
@@ -67,20 +59,18 @@ class InputMessageForwarded extends InputMessageContent
             $array['from_chat_id'],
             $array['message_id'],
             $array['in_game_share'],
-            $array['send_copy'],
-            $array['remove_caption'],
+            TdSchemaRegistry::fromArray($array['copy_options']),
         );
     }
 
     public function typeSerialize(): array
     {
         return [
-            '@type'          => static::TYPE_NAME,
-            'from_chat_id'   => $this->fromChatId,
-            'message_id'     => $this->messageId,
-            'in_game_share'  => $this->inGameShare,
-            'send_copy'      => $this->sendCopy,
-            'remove_caption' => $this->removeCaption,
+            '@type' => static::TYPE_NAME,
+            'from_chat_id' => $this->fromChatId,
+            'message_id' => $this->messageId,
+            'in_game_share' => $this->inGameShare,
+            'copy_options' => $this->copyOptions->typeSerialize(),
         ];
     }
 
@@ -99,13 +89,8 @@ class InputMessageForwarded extends InputMessageContent
         return $this->inGameShare;
     }
 
-    public function getSendCopy(): bool
+    public function getCopyOptions(): MessageCopyOptions
     {
-        return $this->sendCopy;
-    }
-
-    public function getRemoveCaption(): bool
-    {
-        return $this->removeCaption;
+        return $this->copyOptions;
     }
 }

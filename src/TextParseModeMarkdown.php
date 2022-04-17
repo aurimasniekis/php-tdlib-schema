@@ -9,14 +9,14 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * The text uses Markdown-style formatting.
+ * The text uses Markdown-style formatting
  */
 class TextParseModeMarkdown extends TextParseMode
 {
     public const TYPE_NAME = 'textParseModeMarkdown';
 
     /**
-     * Version of the parser: 0 or 1 - Telegram Bot API "Markdown" parse mode, 2 - Telegram Bot API "MarkdownV2" parse mode.
+     * Version of the parser: 0 or 1 - Telegram Bot API "Markdown" parse mode, 2 - Telegram Bot API "MarkdownV2" parse mode
      *
      * @var int
      */
@@ -39,7 +39,7 @@ class TextParseModeMarkdown extends TextParseMode
     public function typeSerialize(): array
     {
         return [
-            '@type'   => static::TYPE_NAME,
+            '@type' => static::TYPE_NAME,
             'version' => $this->version,
         ];
     }

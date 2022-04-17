@@ -9,14 +9,14 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Deletes the account of the current user, deleting all information associated with the user from the server. The phone number of the account can be used to create a new account. Can be called before authorization when the current authorization state is authorizationStateWaitPassword.
+ * Deletes the account of the current user, deleting all information associated with the user from the server. The phone number of the account can be used to create a new account. Can be called before authorization when the current authorization state is authorizationStateWaitPassword
  */
 class DeleteAccount extends TdFunction
 {
     public const TYPE_NAME = 'deleteAccount';
 
     /**
-     * The reason why the account was deleted; optional.
+     * The reason why the account was deleted; optional
      *
      * @var string
      */
@@ -37,7 +37,7 @@ class DeleteAccount extends TdFunction
     public function typeSerialize(): array
     {
         return [
-            '@type'  => static::TYPE_NAME,
+            '@type' => static::TYPE_NAME,
             'reason' => $this->reason,
         ];
     }

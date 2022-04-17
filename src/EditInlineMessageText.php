@@ -9,37 +9,40 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Edits the text of an inline text or game message sent via a bot; for bots only.
+ * Edits the text of an inline text or game message sent via a bot; for bots only
  */
 class EditInlineMessageText extends TdFunction
 {
     public const TYPE_NAME = 'editInlineMessageText';
 
     /**
-     * Inline message identifier.
+     * Inline message identifier
      *
      * @var string
      */
     protected string $inlineMessageId;
 
     /**
-     * The new message reply markup.
+     * The new message reply markup; pass null if none
      *
      * @var ReplyMarkup
      */
     protected ReplyMarkup $replyMarkup;
 
     /**
-     * New text content of the message. Should be of type InputMessageText.
+     * New text content of the message. Must be of type inputMessageText
      *
      * @var InputMessageContent
      */
     protected InputMessageContent $inputMessageContent;
 
-    public function __construct(string $inlineMessageId, ReplyMarkup $replyMarkup, InputMessageContent $inputMessageContent)
-    {
-        $this->inlineMessageId     = $inlineMessageId;
-        $this->replyMarkup         = $replyMarkup;
+    public function __construct(
+        string $inlineMessageId,
+        ReplyMarkup $replyMarkup,
+        InputMessageContent $inputMessageContent
+    ) {
+        $this->inlineMessageId = $inlineMessageId;
+        $this->replyMarkup = $replyMarkup;
         $this->inputMessageContent = $inputMessageContent;
     }
 
@@ -55,9 +58,9 @@ class EditInlineMessageText extends TdFunction
     public function typeSerialize(): array
     {
         return [
-            '@type'                 => static::TYPE_NAME,
-            'inline_message_id'     => $this->inlineMessageId,
-            'reply_markup'          => $this->replyMarkup->typeSerialize(),
+            '@type' => static::TYPE_NAME,
+            'inline_message_id' => $this->inlineMessageId,
+            'reply_markup' => $this->replyMarkup->typeSerialize(),
             'input_message_content' => $this->inputMessageContent->typeSerialize(),
         ];
     }

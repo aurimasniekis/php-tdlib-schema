@@ -9,42 +9,49 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Sends a message. Returns the sent message.
+ * Sends a message. Returns the sent message
  */
 class SendMessage extends TdFunction
 {
     public const TYPE_NAME = 'sendMessage';
 
     /**
-     * Target chat.
+     * Target chat
      *
      * @var int
      */
     protected int $chatId;
 
     /**
-     * Identifier of the message to reply to or 0.
+     * If not 0, a message thread identifier in which the message will be sent
+     *
+     * @var int
+     */
+    protected int $messageThreadId;
+
+    /**
+     * Identifier of the message to reply to or 0
      *
      * @var int
      */
     protected int $replyToMessageId;
 
     /**
-     * Options to be used to send the message.
+     * Options to be used to send the message; pass null to use default options
      *
-     * @var SendMessageOptions
+     * @var MessageSendOptions
      */
-    protected SendMessageOptions $options;
+    protected MessageSendOptions $options;
 
     /**
-     * Markup for replying to the message; for bots only.
+     * Markup for replying to the message; pass null if none; for bots only
      *
      * @var ReplyMarkup
      */
     protected ReplyMarkup $replyMarkup;
 
     /**
-     * The content of the message to be sent.
+     * The content of the message to be sent
      *
      * @var InputMessageContent
      */
@@ -52,15 +59,17 @@ class SendMessage extends TdFunction
 
     public function __construct(
         int $chatId,
+        int $messageThreadId,
         int $replyToMessageId,
-        SendMessageOptions $options,
+        MessageSendOptions $options,
         ReplyMarkup $replyMarkup,
         InputMessageContent $inputMessageContent
     ) {
-        $this->chatId              = $chatId;
-        $this->replyToMessageId    = $replyToMessageId;
-        $this->options             = $options;
-        $this->replyMarkup         = $replyMarkup;
+        $this->chatId = $chatId;
+        $this->messageThreadId = $messageThreadId;
+        $this->replyToMessageId = $replyToMessageId;
+        $this->options = $options;
+        $this->replyMarkup = $replyMarkup;
         $this->inputMessageContent = $inputMessageContent;
     }
 
@@ -68,6 +77,7 @@ class SendMessage extends TdFunction
     {
         return new static(
             $array['chat_id'],
+            $array['message_thread_id'],
             $array['reply_to_message_id'],
             TdSchemaRegistry::fromArray($array['options']),
             TdSchemaRegistry::fromArray($array['reply_markup']),
@@ -78,11 +88,12 @@ class SendMessage extends TdFunction
     public function typeSerialize(): array
     {
         return [
-            '@type'                 => static::TYPE_NAME,
-            'chat_id'               => $this->chatId,
-            'reply_to_message_id'   => $this->replyToMessageId,
-            'options'               => $this->options->typeSerialize(),
-            'reply_markup'          => $this->replyMarkup->typeSerialize(),
+            '@type' => static::TYPE_NAME,
+            'chat_id' => $this->chatId,
+            'message_thread_id' => $this->messageThreadId,
+            'reply_to_message_id' => $this->replyToMessageId,
+            'options' => $this->options->typeSerialize(),
+            'reply_markup' => $this->replyMarkup->typeSerialize(),
             'input_message_content' => $this->inputMessageContent->typeSerialize(),
         ];
     }
@@ -92,12 +103,17 @@ class SendMessage extends TdFunction
         return $this->chatId;
     }
 
+    public function getMessageThreadId(): int
+    {
+        return $this->messageThreadId;
+    }
+
     public function getReplyToMessageId(): int
     {
         return $this->replyToMessageId;
     }
 
-    public function getOptions(): SendMessageOptions
+    public function getOptions(): MessageSendOptions
     {
         return $this->options;
     }

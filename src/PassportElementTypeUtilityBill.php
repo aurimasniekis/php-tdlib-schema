@@ -9,7 +9,7 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * A Telegram Passport element containing the user's utility bill.
+ * A Telegram Passport element containing the user's utility bill
  */
 class PassportElementTypeUtilityBill extends PassportElementType
 {

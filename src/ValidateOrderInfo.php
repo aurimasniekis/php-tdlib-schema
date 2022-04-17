@@ -9,35 +9,35 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Validates the order information provided by a user and returns the available shipping options for a flexible invoice.
+ * Validates the order information provided by a user and returns the available shipping options for a flexible invoice
  */
 class ValidateOrderInfo extends TdFunction
 {
     public const TYPE_NAME = 'validateOrderInfo';
 
     /**
-     * Chat identifier of the Invoice message.
+     * Chat identifier of the Invoice message
      *
      * @var int
      */
     protected int $chatId;
 
     /**
-     * Message identifier.
+     * Message identifier
      *
      * @var int
      */
     protected int $messageId;
 
     /**
-     * The order information, provided by the user.
+     * The order information, provided by the user; pass null if empty
      *
      * @var OrderInfo
      */
     protected OrderInfo $orderInfo;
 
     /**
-     * True, if the order information can be saved.
+     * True, if the order information can be saved
      *
      * @var bool
      */
@@ -45,7 +45,7 @@ class ValidateOrderInfo extends TdFunction
 
     public function __construct(int $chatId, int $messageId, OrderInfo $orderInfo, bool $allowSave)
     {
-        $this->chatId    = $chatId;
+        $this->chatId = $chatId;
         $this->messageId = $messageId;
         $this->orderInfo = $orderInfo;
         $this->allowSave = $allowSave;
@@ -64,8 +64,8 @@ class ValidateOrderInfo extends TdFunction
     public function typeSerialize(): array
     {
         return [
-            '@type'      => static::TYPE_NAME,
-            'chat_id'    => $this->chatId,
+            '@type' => static::TYPE_NAME,
+            'chat_id' => $this->chatId,
             'message_id' => $this->messageId,
             'order_info' => $this->orderInfo->typeSerialize(),
             'allow_save' => $this->allowSave,

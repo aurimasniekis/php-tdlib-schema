@@ -9,21 +9,21 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Adds or changes a custom local language pack to the current localization target.
+ * Adds or changes a custom local language pack to the current localization target
  */
 class SetCustomLanguagePack extends TdFunction
 {
     public const TYPE_NAME = 'setCustomLanguagePack';
 
     /**
-     * Information about the language pack. Language pack ID must start with 'X', consist only of English letters, digits and hyphens, and must not exceed 64 characters. Can be called before authorization.
+     * Information about the language pack. Language pack ID must start with 'X', consist only of English letters, digits and hyphens, and must not exceed 64 characters. Can be called before authorization
      *
      * @var LanguagePackInfo
      */
     protected LanguagePackInfo $info;
 
     /**
-     * Strings of the new language pack.
+     * Strings of the new language pack
      *
      * @var LanguagePackString[]
      */
@@ -31,7 +31,7 @@ class SetCustomLanguagePack extends TdFunction
 
     public function __construct(LanguagePackInfo $info, array $strings)
     {
-        $this->info    = $info;
+        $this->info = $info;
         $this->strings = $strings;
     }
 
@@ -39,16 +39,16 @@ class SetCustomLanguagePack extends TdFunction
     {
         return new static(
             TdSchemaRegistry::fromArray($array['info']),
-            array_map(fn ($x) => TdSchemaRegistry::fromArray($x), $array['strings']),
+            array_map(fn($x) => TdSchemaRegistry::fromArray($x), $array['strings']),
         );
     }
 
     public function typeSerialize(): array
     {
         return [
-            '@type'           => static::TYPE_NAME,
-            'info'            => $this->info->typeSerialize(),
-            array_map(fn ($x) => $x->typeSerialize(), $this->strings),
+            '@type' => static::TYPE_NAME,
+            'info' => $this->info->typeSerialize(),
+            array_map(fn($x) => $x->typeSerialize(), $this->strings),
         ];
     }
 

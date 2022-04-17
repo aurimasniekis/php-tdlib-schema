@@ -9,21 +9,21 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * A message was edited.
+ * A message was edited
  */
 class ChatEventMessageEdited extends ChatEventAction
 {
     public const TYPE_NAME = 'chatEventMessageEdited';
 
     /**
-     * The original message before the edit.
+     * The original message before the edit
      *
      * @var Message
      */
     protected Message $oldMessage;
 
     /**
-     * The message after it was edited.
+     * The message after it was edited
      *
      * @var Message
      */
@@ -48,7 +48,7 @@ class ChatEventMessageEdited extends ChatEventAction
     public function typeSerialize(): array
     {
         return [
-            '@type'       => static::TYPE_NAME,
+            '@type' => static::TYPE_NAME,
             'old_message' => $this->oldMessage->typeSerialize(),
             'new_message' => $this->newMessage->typeSerialize(),
         ];

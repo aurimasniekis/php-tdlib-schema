@@ -9,7 +9,7 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * A mask should be placed relatively to the chin.
+ * The mask is placed relatively to the chin
  */
 class MaskPointChin extends MaskPoint
 {

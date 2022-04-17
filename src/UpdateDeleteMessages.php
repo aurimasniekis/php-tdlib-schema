@@ -9,35 +9,35 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Some messages were deleted.
+ * Some messages were deleted
  */
 class UpdateDeleteMessages extends Update
 {
     public const TYPE_NAME = 'updateDeleteMessages';
 
     /**
-     * Chat identifier.
+     * Chat identifier
      *
      * @var int
      */
     protected int $chatId;
 
     /**
-     * Identifiers of the deleted messages.
+     * Identifiers of the deleted messages
      *
      * @var int[]
      */
     protected array $messageIds;
 
     /**
-     * True, if the messages are permanently deleted by a user (as opposed to just becoming inaccessible).
+     * True, if the messages are permanently deleted by a user (as opposed to just becoming inaccessible)
      *
      * @var bool
      */
     protected bool $isPermanent;
 
     /**
-     * True, if the messages are deleted only from the cache and can possibly be retrieved again in the future.
+     * True, if the messages are deleted only from the cache and can possibly be retrieved again in the future
      *
      * @var bool
      */
@@ -47,10 +47,10 @@ class UpdateDeleteMessages extends Update
     {
         parent::__construct();
 
-        $this->chatId      = $chatId;
-        $this->messageIds  = $messageIds;
+        $this->chatId = $chatId;
+        $this->messageIds = $messageIds;
         $this->isPermanent = $isPermanent;
-        $this->fromCache   = $fromCache;
+        $this->fromCache = $fromCache;
     }
 
     public static function fromArray(array $array): UpdateDeleteMessages
@@ -66,11 +66,11 @@ class UpdateDeleteMessages extends Update
     public function typeSerialize(): array
     {
         return [
-            '@type'        => static::TYPE_NAME,
-            'chat_id'      => $this->chatId,
-            'message_ids'  => $this->messageIds,
+            '@type' => static::TYPE_NAME,
+            'chat_id' => $this->chatId,
+            'message_ids' => $this->messageIds,
             'is_permanent' => $this->isPermanent,
-            'from_cache'   => $this->fromCache,
+            'from_cache' => $this->fromCache,
         ];
     }
 

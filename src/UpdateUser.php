@@ -9,14 +9,14 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Some data of a user has changed. This update is guaranteed to come before the user identifier is returned to the client.
+ * Some data of a user has changed. This update is guaranteed to come before the user identifier is returned to the application
  */
 class UpdateUser extends Update
 {
     public const TYPE_NAME = 'updateUser';
 
     /**
-     * New data about the user.
+     * New data about the user
      *
      * @var User
      */
@@ -40,7 +40,7 @@ class UpdateUser extends Update
     {
         return [
             '@type' => static::TYPE_NAME,
-            'user'  => $this->user->typeSerialize(),
+            'user' => $this->user->typeSerialize(),
         ];
     }
 

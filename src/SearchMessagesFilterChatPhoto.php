@@ -9,7 +9,7 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Returns only messages containing chat photos.
+ * Returns only messages containing chat photos
  */
 class SearchMessagesFilterChatPhoto extends SearchMessagesFilter
 {

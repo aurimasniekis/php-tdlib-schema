@@ -9,21 +9,21 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * A message with a game.
+ * A message with a game
  */
 class PushMessageContentGame extends PushMessageContent
 {
     public const TYPE_NAME = 'pushMessageContentGame';
 
     /**
-     * Game title, empty for pinned game message.
+     * Game title, empty for pinned game message
      *
      * @var string
      */
     protected string $title;
 
     /**
-     * True, if the message is a pinned message with the specified content.
+     * True, if the message is a pinned message with the specified content
      *
      * @var bool
      */
@@ -33,7 +33,7 @@ class PushMessageContentGame extends PushMessageContent
     {
         parent::__construct();
 
-        $this->title    = $title;
+        $this->title = $title;
         $this->isPinned = $isPinned;
     }
 
@@ -48,8 +48,8 @@ class PushMessageContentGame extends PushMessageContent
     public function typeSerialize(): array
     {
         return [
-            '@type'     => static::TYPE_NAME,
-            'title'     => $this->title,
+            '@type' => static::TYPE_NAME,
+            'title' => $this->title,
             'is_pinned' => $this->isPinned,
         ];
     }

@@ -9,29 +9,37 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Contains information about a message draft.
+ * Contains information about a message draft
  */
 class DraftMessage extends TdObject
 {
     public const TYPE_NAME = 'draftMessage';
 
     /**
-     * Identifier of the message to reply to; 0 if none.
+     * Identifier of the message to reply to; 0 if none
      *
      * @var int
      */
     protected int $replyToMessageId;
 
     /**
-     * Content of the message draft; this should always be of type inputMessageText.
+     * Point in time (Unix timestamp) when the draft was created
+     *
+     * @var int
+     */
+    protected int $date;
+
+    /**
+     * Content of the message draft; must be of the type inputMessageText
      *
      * @var InputMessageContent
      */
     protected InputMessageContent $inputMessageText;
 
-    public function __construct(int $replyToMessageId, InputMessageContent $inputMessageText)
+    public function __construct(int $replyToMessageId, int $date, InputMessageContent $inputMessageText)
     {
         $this->replyToMessageId = $replyToMessageId;
+        $this->date = $date;
         $this->inputMessageText = $inputMessageText;
     }
 
@@ -39,6 +47,7 @@ class DraftMessage extends TdObject
     {
         return new static(
             $array['reply_to_message_id'],
+            $array['date'],
             TdSchemaRegistry::fromArray($array['input_message_text']),
         );
     }
@@ -46,15 +55,21 @@ class DraftMessage extends TdObject
     public function typeSerialize(): array
     {
         return [
-            '@type'               => static::TYPE_NAME,
+            '@type' => static::TYPE_NAME,
             'reply_to_message_id' => $this->replyToMessageId,
-            'input_message_text'  => $this->inputMessageText->typeSerialize(),
+            'date' => $this->date,
+            'input_message_text' => $this->inputMessageText->typeSerialize(),
         ];
     }
 
     public function getReplyToMessageId(): int
     {
         return $this->replyToMessageId;
+    }
+
+    public function getDate(): int
+    {
+        return $this->date;
     }
 
     public function getInputMessageText(): InputMessageContent

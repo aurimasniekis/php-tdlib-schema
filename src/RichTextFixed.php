@@ -9,14 +9,14 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * A fixed-width rich text.
+ * A fixed-width rich text
  */
 class RichTextFixed extends RichText
 {
     public const TYPE_NAME = 'richTextFixed';
 
     /**
-     * Text.
+     * Text
      *
      * @var RichText
      */
@@ -40,7 +40,7 @@ class RichTextFixed extends RichText
     {
         return [
             '@type' => static::TYPE_NAME,
-            'text'  => $this->text->typeSerialize(),
+            'text' => $this->text->typeSerialize(),
         ];
     }
 

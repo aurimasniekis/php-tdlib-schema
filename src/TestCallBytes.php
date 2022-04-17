@@ -9,14 +9,14 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Returns the received bytes; for testing only. This is an offline method. Can be called before authorization.
+ * Returns the received bytes; for testing only. This is an offline method. Can be called before authorization
  */
 class TestCallBytes extends TdFunction
 {
     public const TYPE_NAME = 'testCallBytes';
 
     /**
-     * Bytes to return.
+     * Bytes to return
      *
      * @var string
      */
@@ -38,7 +38,7 @@ class TestCallBytes extends TdFunction
     {
         return [
             '@type' => static::TYPE_NAME,
-            'x'     => $this->x,
+            'x' => $this->x,
         ];
     }
 

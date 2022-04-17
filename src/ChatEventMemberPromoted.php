@@ -9,28 +9,28 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * A chat member has gained/lost administrator status, or the list of their administrator privileges has changed.
+ * A chat member has gained/lost administrator status, or the list of their administrator privileges has changed
  */
 class ChatEventMemberPromoted extends ChatEventAction
 {
     public const TYPE_NAME = 'chatEventMemberPromoted';
 
     /**
-     * Chat member user identifier.
+     * Affected chat member user identifier
      *
      * @var int
      */
     protected int $userId;
 
     /**
-     * Previous status of the chat member.
+     * Previous status of the chat member
      *
      * @var ChatMemberStatus
      */
     protected ChatMemberStatus $oldStatus;
 
     /**
-     * New status of the chat member.
+     * New status of the chat member
      *
      * @var ChatMemberStatus
      */
@@ -40,7 +40,7 @@ class ChatEventMemberPromoted extends ChatEventAction
     {
         parent::__construct();
 
-        $this->userId    = $userId;
+        $this->userId = $userId;
         $this->oldStatus = $oldStatus;
         $this->newStatus = $newStatus;
     }
@@ -57,8 +57,8 @@ class ChatEventMemberPromoted extends ChatEventAction
     public function typeSerialize(): array
     {
         return [
-            '@type'      => static::TYPE_NAME,
-            'user_id'    => $this->userId,
+            '@type' => static::TYPE_NAME,
+            'user_id' => $this->userId,
             'old_status' => $this->oldStatus->typeSerialize(),
             'new_status' => $this->newStatus->typeSerialize(),
         ];

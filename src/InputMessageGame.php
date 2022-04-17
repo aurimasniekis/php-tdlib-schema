@@ -9,21 +9,21 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * A message with a game; not supported for channels or secret chats.
+ * A message with a game; not supported for channels or secret chats
  */
 class InputMessageGame extends InputMessageContent
 {
     public const TYPE_NAME = 'inputMessageGame';
 
     /**
-     * User identifier of the bot that owns the game.
+     * User identifier of the bot that owns the game
      *
      * @var int
      */
     protected int $botUserId;
 
     /**
-     * Short name of the game.
+     * Short name of the game
      *
      * @var string
      */
@@ -33,7 +33,7 @@ class InputMessageGame extends InputMessageContent
     {
         parent::__construct();
 
-        $this->botUserId     = $botUserId;
+        $this->botUserId = $botUserId;
         $this->gameShortName = $gameShortName;
     }
 
@@ -48,8 +48,8 @@ class InputMessageGame extends InputMessageContent
     public function typeSerialize(): array
     {
         return [
-            '@type'           => static::TYPE_NAME,
-            'bot_user_id'     => $this->botUserId,
+            '@type' => static::TYPE_NAME,
+            'bot_user_id' => $this->botUserId,
             'game_short_name' => $this->gameShortName,
         ];
     }

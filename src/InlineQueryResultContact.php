@@ -9,39 +9,39 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Represents a user contact.
+ * Represents a user contact
  */
 class InlineQueryResultContact extends InlineQueryResult
 {
     public const TYPE_NAME = 'inlineQueryResultContact';
 
     /**
-     * Unique identifier of the query result.
+     * Unique identifier of the query result
      *
      * @var string
      */
     protected string $id;
 
     /**
-     * A user contact.
+     * A user contact
      *
      * @var Contact
      */
     protected Contact $contact;
 
     /**
-     * Result thumbnail; may be null.
+     * Result thumbnail in JPEG format; may be null
      *
-     * @var PhotoSize|null
+     * @var Thumbnail|null
      */
-    protected ?PhotoSize $thumbnail;
+    protected ?Thumbnail $thumbnail;
 
-    public function __construct(string $id, Contact $contact, ?PhotoSize $thumbnail)
+    public function __construct(string $id, Contact $contact, ?Thumbnail $thumbnail)
     {
         parent::__construct();
 
-        $this->id        = $id;
-        $this->contact   = $contact;
+        $this->id = $id;
+        $this->contact = $contact;
         $this->thumbnail = $thumbnail;
     }
 
@@ -57,9 +57,9 @@ class InlineQueryResultContact extends InlineQueryResult
     public function typeSerialize(): array
     {
         return [
-            '@type'     => static::TYPE_NAME,
-            'id'        => $this->id,
-            'contact'   => $this->contact->typeSerialize(),
+            '@type' => static::TYPE_NAME,
+            'id' => $this->id,
+            'contact' => $this->contact->typeSerialize(),
             'thumbnail' => (isset($this->thumbnail) ? $this->thumbnail : null),
         ];
     }
@@ -74,7 +74,7 @@ class InlineQueryResultContact extends InlineQueryResult
         return $this->contact;
     }
 
-    public function getThumbnail(): ?PhotoSize
+    public function getThumbnail(): ?Thumbnail
     {
         return $this->thumbnail;
     }

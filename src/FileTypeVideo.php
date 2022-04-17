@@ -9,7 +9,7 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * The file is a video.
+ * The file is a video
  */
 class FileTypeVideo extends FileType
 {

@@ -9,21 +9,21 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * The call is pending, waiting to be accepted by a user.
+ * The call is pending, waiting to be accepted by a user
  */
 class CallStatePending extends CallState
 {
     public const TYPE_NAME = 'callStatePending';
 
     /**
-     * True, if the call has already been created by the server.
+     * True, if the call has already been created by the server
      *
      * @var bool
      */
     protected bool $isCreated;
 
     /**
-     * True, if the call has already been received by the other party.
+     * True, if the call has already been received by the other party
      *
      * @var bool
      */
@@ -33,7 +33,7 @@ class CallStatePending extends CallState
     {
         parent::__construct();
 
-        $this->isCreated  = $isCreated;
+        $this->isCreated = $isCreated;
         $this->isReceived = $isReceived;
     }
 
@@ -48,8 +48,8 @@ class CallStatePending extends CallState
     public function typeSerialize(): array
     {
         return [
-            '@type'       => static::TYPE_NAME,
-            'is_created'  => $this->isCreated,
+            '@type' => static::TYPE_NAME,
+            'is_created' => $this->isCreated,
             'is_received' => $this->isReceived,
         ];
     }

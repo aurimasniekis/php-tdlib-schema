@@ -9,28 +9,28 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Sets a sticker set thumbnail; for bots only. Returns the sticker set.
+ * Sets a sticker set thumbnail; for bots only. Returns the sticker set
  */
 class SetStickerSetThumbnail extends TdFunction
 {
     public const TYPE_NAME = 'setStickerSetThumbnail';
 
     /**
-     * Sticker set owner.
+     * Sticker set owner
      *
      * @var int
      */
     protected int $userId;
 
     /**
-     * Sticker set name.
+     * Sticker set name
      *
      * @var string
      */
     protected string $name;
 
     /**
-     * Thumbnail to set in PNG or TGS format. Animated thumbnail must be set for animated sticker sets and only for them. You can use a zero InputFileId to delete the thumbnail.
+     * Thumbnail to set in PNG or TGS format; pass null to remove the sticker set thumbnail. Animated thumbnail must be set for animated sticker sets and only for them
      *
      * @var InputFile
      */
@@ -38,8 +38,8 @@ class SetStickerSetThumbnail extends TdFunction
 
     public function __construct(int $userId, string $name, InputFile $thumbnail)
     {
-        $this->userId    = $userId;
-        $this->name      = $name;
+        $this->userId = $userId;
+        $this->name = $name;
         $this->thumbnail = $thumbnail;
     }
 
@@ -55,9 +55,9 @@ class SetStickerSetThumbnail extends TdFunction
     public function typeSerialize(): array
     {
         return [
-            '@type'     => static::TYPE_NAME,
-            'user_id'   => $this->userId,
-            'name'      => $this->name,
+            '@type' => static::TYPE_NAME,
+            'user_id' => $this->userId,
+            'name' => $this->name,
             'thumbnail' => $this->thumbnail->typeSerialize(),
         ];
     }

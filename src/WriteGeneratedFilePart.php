@@ -9,28 +9,28 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Writes a part of a generated file. This method is intended to be used only if the client has no direct access to TDLib's file system, because it is usually slower than a direct write to the destination file.
+ * Writes a part of a generated file. This method is intended to be used only if the application has no direct access to TDLib's file system, because it is usually slower than a direct write to the destination file
  */
 class WriteGeneratedFilePart extends TdFunction
 {
     public const TYPE_NAME = 'writeGeneratedFilePart';
 
     /**
-     * The identifier of the generation process.
+     * The identifier of the generation process
      *
      * @var string
      */
     protected string $generationId;
 
     /**
-     * The offset from which to write the data to the file.
+     * The offset from which to write the data to the file
      *
      * @var int
      */
     protected int $offset;
 
     /**
-     * The data to write.
+     * The data to write
      *
      * @var string
      */
@@ -39,8 +39,8 @@ class WriteGeneratedFilePart extends TdFunction
     public function __construct(string $generationId, int $offset, string $data)
     {
         $this->generationId = $generationId;
-        $this->offset       = $offset;
-        $this->data         = $data;
+        $this->offset = $offset;
+        $this->data = $data;
     }
 
     public static function fromArray(array $array): WriteGeneratedFilePart
@@ -55,10 +55,10 @@ class WriteGeneratedFilePart extends TdFunction
     public function typeSerialize(): array
     {
         return [
-            '@type'         => static::TYPE_NAME,
+            '@type' => static::TYPE_NAME,
             'generation_id' => $this->generationId,
-            'offset'        => $this->offset,
-            'data'          => $this->data,
+            'offset' => $this->offset,
+            'data' => $this->data,
         ];
     }
 

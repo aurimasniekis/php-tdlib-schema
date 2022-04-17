@@ -9,14 +9,14 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * Returns the extension of a file, guessed by its MIME type. Returns an empty string on failure. This is an offline method. Can be called before authorization. Can be called synchronously.
+ * Returns the extension of a file, guessed by its MIME type. Returns an empty string on failure. Can be called synchronously
  */
 class GetFileExtension extends TdFunction
 {
     public const TYPE_NAME = 'getFileExtension';
 
     /**
-     * The MIME type of the file.
+     * The MIME type of the file
      *
      * @var string
      */
@@ -37,7 +37,7 @@ class GetFileExtension extends TdFunction
     public function typeSerialize(): array
     {
         return [
-            '@type'     => static::TYPE_NAME,
+            '@type' => static::TYPE_NAME,
             'mime_type' => $this->mimeType,
         ];
     }

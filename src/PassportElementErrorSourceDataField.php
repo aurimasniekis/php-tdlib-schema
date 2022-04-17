@@ -9,14 +9,14 @@ declare(strict_types=1);
 namespace AurimasNiekis\TdLibSchema;
 
 /**
- * One of the data fields contains an error. The error will be considered resolved when the value of the field changes.
+ * One of the data fields contains an error. The error will be considered resolved when the value of the field changes
  */
 class PassportElementErrorSourceDataField extends PassportElementErrorSource
 {
     public const TYPE_NAME = 'passportElementErrorSourceDataField';
 
     /**
-     * Field name.
+     * Field name
      *
      * @var string
      */
@@ -39,7 +39,7 @@ class PassportElementErrorSourceDataField extends PassportElementErrorSource
     public function typeSerialize(): array
     {
         return [
-            '@type'      => static::TYPE_NAME,
+            '@type' => static::TYPE_NAME,
             'field_name' => $this->fieldName,
         ];
     }
